@@ -1,6 +1,5 @@
 #!/bin/bash
 # Set hubzone-webmap defaults here.  These tasks will be run every time the container starts
-RAILS_ENV=production
 RAKE_ASSETS_PRECOMPILE=${RAKE_ASSETS_PRECOMPILE:-true}
 RAKE_DB_CREATE=${RAKE_DB_CREATE:-true}
 RAKE_DB_MIGRATE=${RAKE_DB_MIGRATE:-true}
@@ -33,6 +32,9 @@ function bundle-exec-rake {
     echo "Done ${1}"
   fi
 }
+
+# echo "IF YOU CAN SEE THIS MIEK IS AN IDIOT"
+# sleep 99999999
 
 [ "$RAKE_ASSETS_PRECOMPILE" == "true" ] && bundle-exec-rake assets:precompile
 [ "$RAKE_DB_CREATE" == "true" ]         && bundle-exec-rake db:create
