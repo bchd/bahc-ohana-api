@@ -1,4 +1,4 @@
-class CreatePrograms < ActiveRecord::Migration
+class CreatePrograms < ActiveRecord::Migration[5.1]
   def change
     create_table :programs do |t|
       t.belongs_to :organization
@@ -7,6 +7,6 @@ class CreatePrograms < ActiveRecord::Migration
 
       t.timestamps
     end
-    add_index :programs, :organization_id
+    # add_index :programs, :organization_id
   end
 end

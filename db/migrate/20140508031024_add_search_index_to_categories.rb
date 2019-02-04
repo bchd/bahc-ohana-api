@@ -1,4 +1,4 @@
-class AddSearchIndexToCategories < ActiveRecord::Migration
+class AddSearchIndexToCategories < ActiveRecord::Migration[5.1]
   def up
     execute "create index categories_name on categories using gin(to_tsvector('english', name))"
   end

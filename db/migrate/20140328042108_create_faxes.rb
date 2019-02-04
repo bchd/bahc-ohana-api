@@ -1,4 +1,4 @@
-class CreateFaxes < ActiveRecord::Migration
+class CreateFaxes < ActiveRecord::Migration[5.1]
   def change
     create_table :faxes do |t|
       t.belongs_to :location
@@ -7,6 +7,6 @@ class CreateFaxes < ActiveRecord::Migration
 
       t.timestamps
     end
-    add_index :faxes, :location_id
+    # add_index :faxes, :location_id
   end
 end
