@@ -1,15 +1,15 @@
 version: '2'
 services:
-  web:
-    build: 
-      context: ../bahc-ohana-ui
-    volumes:
-      - ../bahc-ohana-ui:/ohana-web-search
-      - /ohana-web-search/tmp
-    ports:
-      - "3000:3000"
-    links:
-      - "web-api"
+  # web:
+  #   build: 
+  #     context: ../bahc-ohana-ui
+  #   volumes:
+  #     - ../bahc-ohana-ui:/ohana-web-search
+  #     - /ohana-web-search/tmp
+  #   ports:
+  #     - "3000:3000"
+  #   links:
+  #     - "web-api"
   web-api:
     build: 
       context: .
