@@ -1,15 +1,42 @@
 version: '2'
 services:
   web:
-    build: .
+    build: 
+      context: ../bahc-ohana-ui
     volumes:
-      - .:/ohana-api
+      - ../bahc-ohana-ui:/ohana-web-search
+      - /ohana-web-search/tmp
+    ports:
+      - "3000:3000"
+    links:
+      - "web-api"
+  web-api:
+    build: 
+      context: ../bahc-ohana-api
+    volumes:
+      - ../bahc-ohana-api:/ohana-api
       - /ohana-api/tmp/
+      - /ohana-api/public/assets
+      
     ports:
       - "8080:8080"
     environment:
       DATABASE_URL: "postgres://postgres@db"
+      RAILS_ENV: "production"
+      API_PATH: ohana/api
+      ADMIN_PATH: "ohana/admin"
+      DEFAULT_PER_PAGE: 30
+      MAX_PER_PAGE: 50
+      ASSET_HOST: localhost
+      DOMAIN_NAME: localhost
+      EXPIRES_IN: 0
+      TLD_LENGTH: 0
+      ENABLE_HTTPS: "no"
+      SECRET_TOKEN: CLOSERBYCHAINSMOKERSBUTEVERYLYRICISREPLACEDBYALLSTARBYSMASHMOUTH
+      #SECRET_TOKEN is used for JWT session type stuff. Will need to be a parameter store
     depends_on:
       - db
   db:
     image: postgres
+    ports:
+      - "5432:5432"
