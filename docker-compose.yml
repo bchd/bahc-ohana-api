@@ -12,12 +12,11 @@ services:
       - "web-api"
   web-api:
     build: 
-      context: ../bahc-ohana-api
+      context: .
     volumes:
-      - ../bahc-ohana-api:/ohana-api
+      - .:/ohana-api
       - /ohana-api/tmp/
       - /ohana-api/public/assets
-      
     ports:
       - "8080:8080"
     environment:
