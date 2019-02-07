@@ -1,4 +1,4 @@
-class CreateRegularSchedules < ActiveRecord::Migration
+class CreateRegularSchedules < ActiveRecord::Migration[5.1]
   def change
     create_table :regular_schedules do |t|
       t.integer :weekday

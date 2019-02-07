@@ -1,4 +1,4 @@
-class AddFieldsToServices < ActiveRecord::Migration
+class AddFieldsToServices < ActiveRecord::Migration[5.1]
   def change
     add_column :services, :accepted_payments, :string, array: true, default: []
     add_column :services, :alternate_name, :string

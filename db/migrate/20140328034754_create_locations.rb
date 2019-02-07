@@ -1,4 +1,4 @@
-class CreateLocations < ActiveRecord::Migration
+class CreateLocations < ActiveRecord::Migration[5.1]
   def change
     create_table :locations do |t|
       t.belongs_to :organization
@@ -20,7 +20,7 @@ class CreateLocations < ActiveRecord::Migration
       t.timestamps
     end
     add_index :locations, :slug, unique: true
-    add_index :locations, :organization_id
+    # add_index :locations, :organization_id
     add_index :locations, [:latitude, :longitude]
   end
 end

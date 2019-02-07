@@ -1,4 +1,4 @@
-class UpdateContactFields < ActiveRecord::Migration
+class UpdateContactFields < ActiveRecord::Migration[5.1]
   def change
     add_column :contacts, :department, :string
     remove_column :contacts, :fax, :string

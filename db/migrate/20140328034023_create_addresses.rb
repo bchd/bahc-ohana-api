@@ -1,4 +1,4 @@
-class CreateAddresses < ActiveRecord::Migration
+class CreateAddresses < ActiveRecord::Migration[5.1]
   def change
     create_table :addresses do |t|
       t.belongs_to :location
@@ -9,6 +9,6 @@ class CreateAddresses < ActiveRecord::Migration
 
       t.timestamps
     end
-    add_index :addresses, :location_id
+    # add_index :addresses, :location_id
   end
 end

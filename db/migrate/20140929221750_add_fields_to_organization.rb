@@ -1,4 +1,4 @@
-class AddFieldsToOrganization < ActiveRecord::Migration
+class AddFieldsToOrganization < ActiveRecord::Migration[5.1]
   def change
     add_column :organizations, :alternate_name, :string
     add_column :organizations, :date_incorporated, :date
