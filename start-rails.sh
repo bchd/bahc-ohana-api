@@ -39,7 +39,7 @@ function bundle-exec-rake {
 [ "$RAKE_ASSETS_PRECOMPILE" == "true" ] && bundle-exec-rake assets:precompile
 [ "$RAKE_DB_CREATE" == "true" ]         && bundle-exec-rake db:create
 [ "$RAKE_DB_MIGRATE" == "true" ]        && bundle-exec-rake db:migrate
-# [ "$RAKE_DB_SEED" == "true" ]           && bundle-exec-rake db:seed
+[ "$RAKE_DB_SEED" == "true" ]           && bundle-exec-rake db:seed
 echo "Starting rails server..."
 rails server -b 0.0.0.0 -p 8080
 # bundle exec rails server
