@@ -1,4 +1,4 @@
-class AddSearchIndexesToServices < ActiveRecord::Migration
+class AddSearchIndexesToServices < ActiveRecord::Migration[5.1]
   def up
     execute "create index services_service_areas on services using gin(to_tsvector('english', service_areas))"
   end

@@ -1,4 +1,4 @@
-class CreateServices < ActiveRecord::Migration
+class CreateServices < ActiveRecord::Migration[5.1]
   def change
     create_table :services do |t|
       t.belongs_to :location
@@ -17,6 +17,6 @@ class CreateServices < ActiveRecord::Migration
 
       t.timestamps
     end
-    add_index :services, :location_id
+    # add_index :services, :location_id
   end
 end

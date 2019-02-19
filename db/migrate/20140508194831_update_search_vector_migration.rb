@@ -1,6 +1,6 @@
 require_relative '20140505011725_add_search_vector_to_locations'
 
-class UpdateSearchVectorMigration < ActiveRecord::Migration
+class UpdateSearchVectorMigration < ActiveRecord::Migration[5.1]
   def change
     revert AddSearchVectorToLocations
 

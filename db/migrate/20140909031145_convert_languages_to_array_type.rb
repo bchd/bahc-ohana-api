@@ -1,4 +1,4 @@
-class ConvertLanguagesToArrayType < ActiveRecord::Migration
+class ConvertLanguagesToArrayType < ActiveRecord::Migration[5.1]
   def up
     execute "drop index locations_languages"
     change_column :locations, :languages, "text[] USING (string_to_array(languages, '\n- '))", default: []

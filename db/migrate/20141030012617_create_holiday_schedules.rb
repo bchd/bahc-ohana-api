@@ -1,4 +1,4 @@
-class CreateHolidaySchedules < ActiveRecord::Migration
+class CreateHolidaySchedules < ActiveRecord::Migration[5.1]
   def change
     create_table :holiday_schedules do |t|
       t.references :location, index: true

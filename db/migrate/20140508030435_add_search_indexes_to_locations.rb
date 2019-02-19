@@ -1,4 +1,4 @@
-class AddSearchIndexesToLocations < ActiveRecord::Migration
+class AddSearchIndexesToLocations < ActiveRecord::Migration[5.1]
   def up
     execute "create index locations_name on locations using gin(to_tsvector('english', name))"
     execute "create index locations_description on locations using gin(to_tsvector('english', description))"

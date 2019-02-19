@@ -1,4 +1,4 @@
-class RenameFields < ActiveRecord::Migration
+class RenameFields < ActiveRecord::Migration[5.1]
   def change
     rename_column :services, :how_to_apply, :application_process
     rename_column :addresses, :street_1, :address_1

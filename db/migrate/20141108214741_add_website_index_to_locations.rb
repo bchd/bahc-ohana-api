@@ -1,4 +1,4 @@
-class AddWebsiteIndexToLocations < ActiveRecord::Migration
+class AddWebsiteIndexToLocations < ActiveRecord::Migration[5.1]
   def up
     execute "CREATE INDEX locations_website_with_varchar_pattern_ops ON locations (website varchar_pattern_ops);"
   end

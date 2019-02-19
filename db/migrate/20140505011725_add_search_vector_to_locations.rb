@@ -1,4 +1,4 @@
-class AddSearchVectorToLocations < ActiveRecord::Migration
+class AddSearchVectorToLocations < ActiveRecord::Migration[5.1]
   def up
     add_column :locations, :tsv_body, :tsvector
     add_index  :locations, :tsv_body, using: 'gin'

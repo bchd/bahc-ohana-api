@@ -31,4 +31,6 @@ RUN bundle install --jobs 20 --retry 5 --without production
 COPY . /ohana-api
 
 EXPOSE 8080
-CMD ["rails", "server", "-b", "0.0.0.0", "-p", "8080"]
+
+CMD ["./start-rails.sh"]
+# CMD ["rails", "server", "-b", "0.0.0.0", "-p", "8080"]

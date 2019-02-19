@@ -1,4 +1,4 @@
-class AddFieldsToAddress < ActiveRecord::Migration
+class AddFieldsToAddress < ActiveRecord::Migration[5.1]
   def change
     add_column :addresses, :country_code, :string, null: false
     add_column :addresses, :street_2, :string

@@ -1,4 +1,4 @@
-class CreateApiApplications < ActiveRecord::Migration
+class CreateApiApplications < ActiveRecord::Migration[5.1]
   def change
     create_table :api_applications do |t|
       t.belongs_to :user
@@ -9,7 +9,7 @@ class CreateApiApplications < ActiveRecord::Migration
 
       t.timestamps
     end
-    add_index :api_applications, :user_id
+    # add_index :api_applications, :user_id
     add_index :api_applications, :api_token, unique: true
   end
 end

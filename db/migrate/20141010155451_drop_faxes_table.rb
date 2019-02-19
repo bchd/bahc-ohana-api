@@ -1,4 +1,4 @@
-class DropFaxesTable < ActiveRecord::Migration
+class DropFaxesTable < ActiveRecord::Migration[5.1]
   def up
     drop_table :faxes
   end
@@ -11,6 +11,6 @@ class DropFaxesTable < ActiveRecord::Migration
 
       t.timestamps
     end
-    add_index :faxes, :location_id
+    # add_index :faxes, :location_id
   end
 end
