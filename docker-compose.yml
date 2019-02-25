@@ -8,8 +8,17 @@ services:
       - /ohana-web-search/tmp
     ports:
       - "3000:3000"
+    environment:
+      RAILS_ENV: "docker-local"
+      # CANNONICAL_URL: localhost
+      # DOMAIN_NAME: localhost
+      GOOGLE_MAPS_API_KEY: blahblah
+      # GOOGLE_TRANSLATE_API_KEY: Your_API_Key
+      OHANA_API_ENDPOINT: "web-api.com/api"
+      # OHANA_API_TOKEN: changeme
+      RAILS_LOG_TO_STDOUT: "true"
     links:
-      - "web-api"
+      - "web-api:web-api.com"
   web-api:
     build: 
       context: .
@@ -19,6 +28,8 @@ services:
       - /ohana-api/public/assets
     ports:
       - "8080:8080"
+      - "80:8080"
+      - "443:8080"
     environment:
       DATABASE_URL: "postgres://postgres@db"
       RAILS_ENV: "docker-local"
