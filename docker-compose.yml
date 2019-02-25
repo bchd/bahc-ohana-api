@@ -14,7 +14,7 @@ services:
       # DOMAIN_NAME: localhost
       GOOGLE_MAPS_API_KEY: blahblah
       # GOOGLE_TRANSLATE_API_KEY: Your_API_Key
-      OHANA_API_ENDPOINT: "web-api.com/api"
+      OHANA_API_ENDPOINT: "http://web-api.com:8080/api"
       # OHANA_API_TOKEN: changeme
       RAILS_LOG_TO_STDOUT: "true"
     links:
@@ -34,8 +34,8 @@ services:
       DATABASE_URL: "postgres://postgres@db"
       RAILS_ENV: "docker-local"
       # RAILS_ENV: production
-      API_PATH: ohana/api
-      ADMIN_PATH: "ohana/admin"
+      API_PATH: "api"
+      ADMIN_PATH: "admin"
       DEFAULT_PER_PAGE: 30
       MAX_PER_PAGE: 50
       ASSET_HOST: localhost
