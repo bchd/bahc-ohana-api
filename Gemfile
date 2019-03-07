@@ -30,6 +30,7 @@ gem 'uglifier', '>= 1.3.0'
 
 group :test, :development do
   gem 'bullet'
+  gem 'byebug'
   gem 'factory_bot_rails'
   gem 'rspec-its'
   gem 'rspec-rails', '~> 3.1'
