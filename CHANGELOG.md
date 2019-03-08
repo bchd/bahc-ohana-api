@@ -3,9 +3,11 @@
 ## [1.3.0] - 2019-03-08
 ### ahc-sprint-19
 ### Changed
+  - Modifications in the API to get the UI tests (which hit the API) to pass
+  - Downgraded rubocop to 0.52.1 to avoid dependency on native jaro-winkler
   - AHC-1064
     - Added type column to Categories table
-    
+
 ---
 
 ## Original Ohana Change Log ##
