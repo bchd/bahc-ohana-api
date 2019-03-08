@@ -51,3 +51,4 @@ script/backup_mongo
 script/import_to_staging
 
 .foreman
+.byebug_history

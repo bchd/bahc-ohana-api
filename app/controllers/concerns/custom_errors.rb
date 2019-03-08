@@ -6,13 +6,13 @@ module CustomErrors
   included do
     include ActiveSupport::Rescuable
 
-    unless Rails.application.config.consider_all_requests_local
+    # unless Rails.application.config.consider_all_requests_local
       rescue_from ActiveRecord::RecordNotFound, with: :render_not_found
       rescue_from ActiveRecord::RecordInvalid, with: :render_invalid_record
       rescue_from ActiveRecord::SerializationTypeMismatch, with: :render_invalid_type
       rescue_from Exceptions::InvalidRadius, with: :render_invalid_radius
       rescue_from Exceptions::InvalidLatLon, with: :render_invalid_lat_lon
-    end
+    # end
   end
 
   private
