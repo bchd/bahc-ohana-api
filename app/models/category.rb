@@ -1,4 +1,5 @@
 class Category < ApplicationRecord
+  self.inheritance_column = nil
   has_and_belongs_to_many :services
 
   validates :name, :taxonomy_id,
