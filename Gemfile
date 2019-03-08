@@ -30,6 +30,7 @@ gem 'uglifier', '>= 1.3.0'
 
 group :test, :development do
   gem 'bullet'
+  gem 'byebug'
   gem 'factory_bot_rails'
   gem 'rspec-its'
   gem 'rspec-rails', '~> 3.1'
@@ -42,7 +43,7 @@ group :test do
   gem 'haml_lint'
   gem 'poltergeist'
   gem 'rails-controller-testing'
-  gem 'rubocop'
+  gem 'rubocop', '~> 0.52.1'
   gem 'shoulda-matchers', git: 'https://github.com/thoughtbot/shoulda-matchers.git'
   gem 'simplecov', require: false
   gem 'webmock'

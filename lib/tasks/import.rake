@@ -67,11 +67,9 @@ namespace :import do
     HolidayScheduleImporter.check_and_import_file(args[:path])
   end
 
-  # rubocop:disable Rails/SkipsModelValidations
   desc 'Touch locations'
   task :touch_locations, [:path] => :environment do
     Kernel.puts "\n===> Updating the full-text search index"
     Location.update_all(updated_at: Time.zone.now)
   end
-  # rubocop:enable Rails/SkipsModelValidations
 end
