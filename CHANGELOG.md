@@ -1,5 +1,15 @@
 # Change Log
 
+## [1.3.0] - 2019-03-08
+### ahc-sprint-19
+### Changed
+  - AHC-1064
+    - Added type column to Categories table
+    
+---
+
+## Original Ohana Change Log ##
+
 ## [v1.2.0](https://github.com/codeforamerica/ohana-api/tree/v1.2.0) (2016-01-26)
 [Full Changelog](https://github.com/codeforamerica/ohana-api/compare/v1.1.0...v1.2.0)
 
