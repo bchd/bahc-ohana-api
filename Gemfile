@@ -43,7 +43,7 @@ group :test do
   gem 'haml_lint'
   gem 'poltergeist'
   gem 'rails-controller-testing'
-  gem 'rubocop'
+  gem 'rubocop', '~> 0.52.1'
   gem 'shoulda-matchers', git: 'https://github.com/thoughtbot/shoulda-matchers.git'
   gem 'simplecov', require: false
   gem 'webmock'
