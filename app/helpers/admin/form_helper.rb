@@ -50,12 +50,21 @@ class Admin
     end
 
     def checkbox_tag_for(category)
-      check_box_tag(
-        'service[category_ids][]',
-        category.id,
-        @taxonomy_ids.include?(category.taxonomy_id),
-        id: "category_#{category.taxonomy_id}"
-      )
+      if category.type == 'service'
+        check_box_tag(
+          'service[category_ids][]',
+          category.id,
+          @taxonomy_ids.include?(category.taxonomy_id),
+          id: "category_#{category.taxonomy_id}"
+        )
+      else
+        check_box_tag(
+            'situation[category_ids][]',
+            category.id,
+            @taxonomy_ids.include?(category.taxonomy_id),
+            id: "category_#{category.taxonomy_id}"
+        )
+      end
     end
 
     def label_tag_for(category)

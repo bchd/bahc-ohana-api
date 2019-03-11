@@ -15,12 +15,10 @@ var main = (function () {
       _checkState('depth',0,currentCheckbox);
     }
 
-    var lnks = $('#categories input');
-
     var curr;
-    for (var l=0; l < lnks.length; l++)
+    for (var l=0; l < checkboxes.length; l++)
     {
-      curr = lnks[l];
+      curr = checkboxes[l];
       $(curr).click(_linkClickedHandler)
     }
   }
