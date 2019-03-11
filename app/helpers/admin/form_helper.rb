@@ -49,6 +49,7 @@ class Admin
       "hide depth#{category.depth} checkbox"
     end
 
+    # rubocop:disable Metrics/MethodLength
     def checkbox_tag_for(category)
       if category.type == 'service'
         check_box_tag(
@@ -59,13 +60,14 @@ class Admin
         )
       else
         check_box_tag(
-            'situation[category_ids][]',
-            category.id,
-            @taxonomy_ids.include?(category.taxonomy_id),
-            id: "category_#{category.taxonomy_id}"
+          'situation[category_ids][]',
+          category.id,
+          @taxonomy_ids.include?(category.taxonomy_id),
+          id: "category_#{category.taxonomy_id}"
         )
       end
     end
+    # rubocop:enable Metrics/MethodLength
 
     def label_tag_for(category)
       label_tag "category_#{category.taxonomy_id}", category.name
