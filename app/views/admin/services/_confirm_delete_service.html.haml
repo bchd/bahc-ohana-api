@@ -15,4 +15,6 @@
           #{service_name || service_id}.
     .modal-footer
       %button.btn.btn-default{ 'data-dismiss' => 'modal' }  Close
-      = link_to t('admin.buttons.confirm_delete_service'), { action: :destroy, id: service_id, name: service_name }, method: :delete, class: 'btn btn-danger'
+      -#= link_to t('admin.buttons.confirm_delete_service'), { action: :destroy, id: service_id, name: service_name }, method: :delete, class: 'btn btn-danger'
+      - byebug
+      = link_to t('admin.buttons.confirm_delete_service'), admin_location_service_path(location_id: @location.id, id: service_id, name: service_name), method: :delete, class: 'btn btn-danger'

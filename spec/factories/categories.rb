@@ -5,6 +5,9 @@ FactoryBot.define do
     name { 'Food' }
     taxonomy_id { '101' }
     type { 'service' }
+    trait :situation do
+      type { 'situation' }
+    end
   end
 
   factory :health, class: Category do

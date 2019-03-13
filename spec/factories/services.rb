@@ -6,6 +6,7 @@ FactoryBot.define do
     keywords { ['library', 'food pantries', 'stood famps', 'emergency'] }
     status { 'active' }
     location
+    # id { SecureRandom.random_number(10) }
   end
 
   factory :service_with_extra_whitespace, class: Service do
