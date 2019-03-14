@@ -9,7 +9,6 @@ RSpec.describe 'admin/services/forms/_categories', type: :view do
     create_service
     @taxonomy_ids = ['101']
     category
-    allow(Rails.application).to receive_message_chain(:routes, :link_helpers).and_return("this path isn't important")
     render template: 'admin/services/edit'
   end
 
@@ -24,5 +23,4 @@ RSpec.describe 'admin/services/forms/_categories', type: :view do
   it 'will show the categories' do
     expect(rendered).to have_content(category.name)
   end
-
 end
