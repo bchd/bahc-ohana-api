@@ -7,6 +7,8 @@
   - Downgraded rubocop to 0.52.1 to avoid dependency on native jaro-winkler
   - AHC-1064
     - Added type column to Categories table
+  - AHC-1066
+    - Added situation type categories to checkbox list in admin ui
 
 ---
 

@@ -208,7 +208,7 @@ CREATE TABLE public.categories (
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
     ancestry character varying(255),
-    type character varying NOT NULL
+    type character varying
 );
 
 

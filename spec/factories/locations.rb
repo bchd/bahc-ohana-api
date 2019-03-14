@@ -10,6 +10,7 @@ FactoryBot.define do
     longitude { -122.3715745 }
     organization
     address
+    # id {  SecureRandom.random_number(10) }
 
     factory :location_with_admin do
       admin_emails { ['moncef@smcgov.org'] }
