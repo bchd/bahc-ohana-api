@@ -24,7 +24,7 @@
   %p
     = link_to t('admin.buttons.delete_service'), edit_admin_location_service_path(location, service), href: '', data: { toggle: 'modal', target: '#modal-window' }, class: 'boxed-action'
 .modal.fade#modal-window{ 'aria-hidden' => 'true', 'aria-labelledby' => 'my-modal-label', 'role' => 'dialog', 'tabindex' => '-1' }
-  = render 'admin/services/confirm_delete_service', service_id: service.id, service_name: service.name
+  = render 'admin/services/confirm_delete_service', service_id: service.id, service_name: service.name, location_id: service.location_id
 
 .save-box.navbar-default
   %p
