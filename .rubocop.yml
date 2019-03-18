@@ -10,6 +10,10 @@ AllCops:
     - 'bin/**/*'
     - 'config/initializers/devise.rb'
     - 'db/migrate/*'
+    - 'vendor/**/*'
+    - 'config/routes.rb'
+    - 'bin/*'
+
   TargetRailsVersion: 5.1
   TargetRubyVersion: 2.5
   UseCache: true
