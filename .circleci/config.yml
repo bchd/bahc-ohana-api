@@ -8,14 +8,14 @@ workflows:
           filters:
             branches:
               only:
-                - /^feature\/
-                - /^bugfix\/
+              - /^feature
+              - /^bugfix
       - rspec: 
           filters:
             branches:
               only:
-                - /^feature\/
-                - /^bugfix\/
+              - /^feature
+              - /^bugfix
 
 jobs:
   rubocop:
@@ -83,7 +83,7 @@ jobs:
                               spec
 
       # Collect Reports
-     - store_test_results:
+      - store_test_results:
           path: /tmp/test-results
       - store_artifacts:
           path: /tmp/test-results
