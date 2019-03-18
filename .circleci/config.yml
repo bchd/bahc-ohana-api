@@ -16,7 +16,6 @@ workflows:
               only:
               - /^feature
               - /^bugfix
-
 jobs:
   rubocop:
     docker:
