@@ -8,14 +8,14 @@ workflows:
           filters:
             branches:
               only:
-              - /^feature
-              - /^bugfix
+              - ^feature
+              - ^bugfix
       - rspec: 
           filters:
             branches:
               only:
-              - /^feature
-              - /^bugfix
+              - ^feature
+              - ^bugfix
 jobs:
   rubocop:
     docker:
