@@ -50,8 +50,8 @@ jobs:
         #   HUBZONE_API_DB_PASSWORD: postgres
           DATABASE_USER: root
           DATABASE_PASSWORD: postgres
-          API_PATH: ohana/api
-          ADMIN_PATH: ohana/admin
+          API_PATH: api
+          ADMIN_PATH: admin
           DEFAULT_PER_PAGE: 30
           MAX_PER_PAGE: 50
           ASSET_HOST: localhost
