@@ -50,6 +50,16 @@ jobs:
         #   HUBZONE_API_DB_PASSWORD: postgres
           DATABASE_USER: root
           DATABASE_PASSWORD: postgres
+          API_PATH: ohana/api
+          ADMIN_PATH: ohana/admin
+          DEFAULT_PER_PAGE: 30
+          MAX_PER_PAGE: 50
+          ASSET_HOST: localhost
+          DOMAIN_NAME: localhost
+          EXPIRES_IN: 0
+          TLD_LENGTH: 0
+          ENABLE_HTTPS: "no"
+          SECRET_TOKEN: CLOSERBYCHAINSMOKERSBUTEVERYLYRICISREPLACEDBYALLSTARBYSMASHMOUTH
           RAILS_ENV: test
       # Also need postgress to test stuff
       - image: circleci/postgres:9.6-alpine-postgis
