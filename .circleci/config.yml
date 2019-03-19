@@ -88,8 +88,8 @@ jobs:
           command: |
             mkdir /tmp/test-results
             #TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)"
-            pg_restore --no-owner --host localhost -d ohana_api_test data/ohana_api_development.dump
             bundle exec rake db:create db:migrate db:seed
+            pg_restore --no-owner --host localhost -d ohana_api_test data/ohana_api_development.dump
             bundle exec rspec --format progress \
                               --out /tmp/test-results/rspec.xml \
                               --format progress \
