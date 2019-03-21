@@ -45,11 +45,9 @@ jobs:
     docker:
       - image: ussba/cc-ruby:2.5.3
         environment:
-        #   DATABASE_URL:
+          DATABASE_URL: postgres://root:postgres@localhost/ohana_api_test
         #   HUBZONE_API_DB_USER: postgres
         #   HUBZONE_API_DB_PASSWORD: postgres
-          DATABASE_USER: root
-          DATABASE_PASSWORD: postgres
           API_PATH: api
           ADMIN_PATH: admin
           DEFAULT_PER_PAGE: 30
