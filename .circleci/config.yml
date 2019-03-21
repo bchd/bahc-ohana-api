@@ -59,6 +59,7 @@ jobs:
           ENABLE_HTTPS: "no"
           SECRET_TOKEN: CLOSERBYCHAINSMOKERSBUTEVERYLYRICISREPLACEDBYALLSTARBYSMASHMOUTH
           RAILS_ENV: test
+          DATABASE_CLEANER_ALLOW_REMOTE_DATABASE_URL: true
       # Also need postgress to test stuff
       - image: circleci/postgres:9.6-alpine-postgis
         environment:
