@@ -22,7 +22,7 @@ Apps built on top of Ohana API include a [web-based search interface](https://gi
 
 Follow the instructions in [INSTALL.md][install] to get the app up and running, and to learn how to import your data.
 
-[install]: https://github.com/codeforamerica/ohana-api/blob/master/INSTALL.md
+[install]: https://github.com/FearlessSolutions/bahc-ohana-api/blob/master/INSTALL.md
 
 ## Demo
 You can see a running version of the different parts of the application here:
