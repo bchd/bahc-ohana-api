@@ -27,7 +27,8 @@ class Service < ApplicationRecord
   validates :name, :description, :status,
             presence: { message: I18n.t('errors.messages.blank_for_service') }
 
-  validates :service_areas, array: { service_area: true }
+  # Commenting out to allow for very dirty data to be imported.
+  # validate :service_areas, :service_area_match # array: { service_area: true }
 
   validates :website, url: true, allow_blank: true
 
@@ -65,5 +66,9 @@ class Service < ApplicationRecord
 
   def touch_location(_category)
     location.update_column(:updated_at, Time.zone.now) if persisted?
+  end
+
+  def service_area_match
+    errors.add(:service_area, "[#{service_areas.join("|")}] aren't in B'more!") unless /Baltimore/.match?(service_areas.join(" "))
   end
 end
