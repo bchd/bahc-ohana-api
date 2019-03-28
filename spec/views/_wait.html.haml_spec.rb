@@ -1,14 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe 'admin/services/forms/_wait', type: :view do
-  let(:category) { create(:category) }
-  let(:service) { create(:service) }
-  let(:location) { create(:location) }
 
   before do
     create_service
-    @taxonomy_ids = ['101']
-    category
     render template: 'admin/services/edit'
   end
 
