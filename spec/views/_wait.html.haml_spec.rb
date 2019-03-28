@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe 'admin/services/forms/_wait', type: :view do
-
   before do
     create_service
     render template: 'admin/services/edit'

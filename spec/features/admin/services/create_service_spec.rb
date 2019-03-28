@@ -168,7 +168,7 @@ feature 'Create a new service' do
 
   scenario 'with wait_time' do
     fill_in_required_service_fields
-    select "Available Today", from: "service_wait_time"
+    select 'Available Today', from: 'service_wait_time'
     click_button I18n.t('admin.buttons.create_service')
     click_link 'New VRS Services service'
 

@@ -9,7 +9,7 @@ feature 'Update wait_time' do
 
   scenario 'with valid wait_time' do
     click_link 'Literacy Program'
-    select "Available Today", from: "service_wait_time"
+    select 'Available Today', from: 'service_wait_time'
     click_button I18n.t('admin.buttons.save_changes')
     expect(page).to have_content 'Service was successfully updated.'
     expect(find_field('service_wait_time').value).to eq 'Available Today'
