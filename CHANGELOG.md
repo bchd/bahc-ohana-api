@@ -5,8 +5,9 @@
 ### Changed
   - AHC-1221
     - Added a field to capture when the wait time is updated
+  - AHC-1150
+    - Changed wait time element on service edit page to be a dropdown with set options
 
-## [1.3.0] - 2019-03-08
 ### ahc-sprint-19
 ### Changed
   - Modifications in the API to get the UI tests (which hit the API) to pass

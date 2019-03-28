@@ -254,6 +254,20 @@ confirmation_email: ohanapi@codeforamerica.org
 # This setting is used in 'app/models/concerns/search.rb'.
 bounds: [[25.7084, -124.085], [48.9084, -67.085]]
 
+###############################
+#
+# WAIT TIMES SETTINGS
+#
+###############################
+#
+# These will be the values that admin interface users will choose from when
+# updating a Service's wait time.
+#
+# This setting is used in '/app/views/admin/services/forms/_wait.html.haml'.
+wait_times:
+  - 'Available Today'
+  - '2-3 Day Wait'
+  - '1 Week Wait'
 ###########################################
 #
 # SETTINGS FOR TESTS. PLEASE DO NOT MODIFY.
