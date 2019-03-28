@@ -615,7 +615,8 @@ CREATE TABLE public.services (
     status character varying(255) DEFAULT 'active'::character varying NOT NULL,
     website character varying(255),
     program_id integer,
-    interpretation_services text
+    interpretation_services text,
+    wait_time_updated_at timestamp without time zone
 );
 
 
@@ -1343,6 +1344,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20150314204202'),
 ('20150315202808'),
 ('20180212023953'),
-('20190304172224');
+('20190304172224'),
+('20190315143955');
 
 
