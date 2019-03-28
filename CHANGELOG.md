@@ -1,5 +1,11 @@
 # Change Log
 
+## [1.4.0] - 2019-03-29
+### ahc-sprint-20
+### Changed
+  - AHC-1221
+    - Added a field to capture when the wait time is updated
+
 ## [1.3.0] - 2019-03-08
 ### ahc-sprint-19
 ### Changed
