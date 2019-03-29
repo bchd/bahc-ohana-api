@@ -18,6 +18,10 @@ RSpec.describe 'admin/services/forms/_wait', type: :view do
     expect(rendered).to have_content('Available Today')
   end
 
+  it 'will show the Next Day Service wait time option' do
+    expect(rendered).to have_content('Next Day Service')
+  end
+
   it 'will show the 2-3 Day Wait wait time option' do
     expect(rendered).to have_content('2-3 Day Wait')
   end
