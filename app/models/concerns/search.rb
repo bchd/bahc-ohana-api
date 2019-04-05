@@ -21,6 +21,8 @@ module Search
     end)
 
     scope :with_email, EmailFilter
+
+    scope :filter_by_services, ServicesFilter
   end
 
   module ClassMethods
@@ -58,7 +60,8 @@ module Search
     def search(params = {})
       res = text_search(params).
             with_email(params[:email]).
-            is_near(params[:location], params[:lat_lng], params[:radius])
+            is_near(params[:location], params[:lat_lng], params[:radius]).
+            filter_by_services(allowed_services_params(params))
 
       return res unless params[:keyword] && params[:service_area]
 
@@ -68,6 +71,12 @@ module Search
     def allowed_params(params)
       params.permit(
         { category: [] }, :category, :keyword, :language, :org_name, :service_area, :status
+      )
+    end
+
+    def allowed_services_params(params)
+      params.permit(
+          :categories, :wait_time, :filters
       )
     end
   end
