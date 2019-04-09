@@ -12,7 +12,6 @@ class ServicesFilter
   def call(services_params)
     return @model_class.all if services_params.blank? || services_params[:categories].blank?
 
-    # filter_by_categories(services_params).any? ? @model_class.where(id: filter_by_categories(services_params)) : @model_class.none
     @model_class.where(id: filter_by_categories(services_params))
   end
 
@@ -24,7 +23,7 @@ class ServicesFilter
         services_with_categories(service, services_params[:categories]).any?
       end.any?
     end
-    locations.map {|l| l.id }
+    locations.map(&:id)
   end
 
   def services_with_categories(service, category_ids)
