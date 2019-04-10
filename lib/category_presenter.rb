@@ -19,6 +19,6 @@ CategoryPresenter = Struct.new(:row) do
 
   def category_params
     raw_params = ActionController::Parameters.new(row)
-    raw_params.permit(:taxonomy_id, :name)
+    raw_params.permit(:taxonomy_id, :name, :type, :filter)
   end
 end

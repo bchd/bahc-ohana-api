@@ -194,7 +194,8 @@ CREATE TABLE public.categories (
     created_at timestamp without time zone,
     updated_at timestamp without time zone,
     ancestry character varying(255),
-    type character varying
+    type character varying,
+    filter boolean DEFAULT false
 );
 
 
@@ -1331,6 +1332,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20150315202808'),
 ('20180212023953'),
 ('20190304172224'),
-('20190315143955');
+('20190315143955'),
+('20190409213357');
 
 

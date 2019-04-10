@@ -51,9 +51,10 @@ If you've built one, let us know and we'll add it here.
 [ohanakapa]: https://github.com/codeforamerica/ohanakapa
 
 ## Taxonomy
-Out of the box, this project supports the [Open Eligibility](http://openeligibility.org)
-taxonomy. If you would like to use your own taxonomy, or add more categories to
-the Open Eligibility taxonomy, read our Wiki article on [taxonomy basics](https://github.com/codeforamerica/ohana-api/wiki/Taxonomy-basics).
+Code For America's Ohana API project supports the [Open Eligibility](http://openeligibility.org)
+taxonomy. We used their Wiki article on [taxonomy basics](https://github.com/codeforamerica/ohana-api/wiki/Taxonomy-basics) to add and extend on categories by importing our own taxonomy.
+
+Our taxonomy lives at `/data/taxonomy.csv`.
 
 ## Deploying to Heroku
 See the [Wiki](https://github.com/codeforamerica/ohana-api/wiki/How-to-deploy-the-Ohana-API-to-your-Heroku-account).

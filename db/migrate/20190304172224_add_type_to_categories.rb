@@ -1,9 +1,5 @@
 class AddTypeToCategories < ActiveRecord::Migration[5.1]
-  def up
+  def change
     add_column :categories, :type, :string
-    Category.update_all( {type: 'service'} )
-  end
-  def down
-    remove_column :categories, :type, :string
   end
 end

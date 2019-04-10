@@ -1,5 +1,12 @@
 # Change Log
 
+## [1.5.0] - 2019-04-12
+### ahc-sprint-21
+### Added
+  - AHC-1220
+    - Imported our taxonomy data
+    - Added info to README about our custom taxonomy.
+    
 ## [1.4.0] - 2019-03-29
 ### ahc-sprint-20
 ### Changed
