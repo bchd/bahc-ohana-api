@@ -26,7 +26,26 @@ module Api
         generate_pagination_headers(locations_near(location))
       end
 
+      # rubocop:disable Style/ConditionalAssignment
+      def lookahead
+        if lookahead_params[:name].length > 2
+          @organizations = Organization.where(
+            'LOWER(name) LIKE ?',
+            "%#{lookahead_params[:name].downcase}%"
+          )
+        else
+          @organizations = Organization.none
+        end
+
+        render json: @organizations.map(&:name)
+      end
+      # rubocop:enable Style/ConditionalAssignment
+
       private
+
+      def lookahead_params
+        params.permit(:name)
+      end
 
       def tables
         %i[organization address phones]

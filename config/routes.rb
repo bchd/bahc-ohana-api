@@ -67,6 +67,8 @@ Rails.application.routes.draw do
         get 'organizations/:organization_id/locations',
             to: 'organizations#locations', as: :org_locations
 
+        get 'lookahead', to: 'search#lookahead', as: :lookahead
+        
         resources :locations do
           resources :address, except: %i[index show]
           resources :mail_address, except: %i[index show]
