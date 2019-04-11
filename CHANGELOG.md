@@ -6,7 +6,10 @@
   - AHC-1220
     - Imported our taxonomy data
     - Added info to README about our custom taxonomy.
-    
+ ### Changed
+   - AHC-1280
+     - Added `Next Day Service` wait time option
+        
 ## [1.4.0] - 2019-03-29
 ### ahc-sprint-20
 ### Changed
