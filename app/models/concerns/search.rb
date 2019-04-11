@@ -1,5 +1,6 @@
 require 'email_filter'
 require 'location_filter'
+require 'services_filter'
 
 module Search
   extend ActiveSupport::Concern
@@ -61,7 +62,7 @@ module Search
       res = text_search(params).
             with_email(params[:email]).
             is_near(params[:location], params[:lat_lng], params[:radius]).
-            filter_by_services(allowed_services_params(params))
+            filter_by_services(params[:categories])
 
       return res unless params[:keyword] && params[:service_area]
 
@@ -70,13 +71,13 @@ module Search
 
     def allowed_params(params)
       params.permit(
-        { category: [] }, :category, :keyword, :language, :org_name, :service_area, :status
+        :keyword, :language, :org_name, :service_area, :status
       )
     end
 
     def allowed_services_params(params)
       params.permit(
-        :categories, :wait_time, :filters
+       { categories: [] }, :wait_time, :filters
       )
     end
   end

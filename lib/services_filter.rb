@@ -10,9 +10,12 @@ class ServicesFilter
   end
 
   def call(services_params)
-    return @model_class.all if services_params.blank? || services_params[:categories].blank?
-
-    @model_class.where(id: filter_by_categories(services_params))
+    byebug
+    if services_params.blank? || services_params.empty?
+      @model_class.all
+    else
+      @model_class.where(id: filter_by_categories(services_params))
+    end
   end
 
   private
@@ -20,14 +23,17 @@ class ServicesFilter
   def filter_by_categories(services_params)
     locations = @model_class.select do |location|
       location.services.select do |service|
-        services_with_categories(service, services_params[:categories]).any?
+        services_with_categories(service, services_params).any?
       end.any?
     end
     locations.map(&:id)
   end
 
   def services_with_categories(service, category_ids)
-    cat_ids = [].push(category_ids.to_i)
+    cat_ids = []
+    category_ids.each do |id|
+      cat_ids.push(id.to_i)
+    end
     service.categories.select { |category| cat_ids.include?(category.id) }
   end
 end
