@@ -68,7 +68,9 @@ class Service < ApplicationRecord
     location.update_column(:updated_at, Time.zone.now) if persisted?
   end
 
+  # rubocop:disable Metrics/LineLength
   def service_area_match
-    errors.add(:service_area, "[#{service_areas.join("|")}] aren't in B'more!") unless /Baltimore/.match?(service_areas.join(" "))
+    errors.add(:service_area, "[#{service_areas.join('|')}] aren't in B'more!") unless /Baltimore/.match?(service_areas.join(' '))
   end
+  # rubocop:enable Metrics/LineLength
 end
