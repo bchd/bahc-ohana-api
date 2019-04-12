@@ -5,6 +5,8 @@
 ### Added
   - AHC-1183
     - Example lookahead endpoint
+  - AHC-1182
+    - latest iCarol data
   - AHC-1220
     - Imported our taxonomy data
     - Added info to README about our custom taxonomy.
