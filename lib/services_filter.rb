@@ -9,31 +9,27 @@ class ServicesFilter
     @model_class = model_class
   end
 
-  def call(services_params)
-    byebug
-    if services_params.blank? || services_params.empty?
+  def call(category_ids)
+    if category_ids.blank? || category_ids.empty?
       @model_class.all
     else
-      @model_class.where(id: filter_by_categories(services_params))
+      @model_class.where(id: filter_by_categories(category_ids))
     end
   end
 
   private
 
-  def filter_by_categories(services_params)
+  def filter_by_categories(category_ids)
     locations = @model_class.select do |location|
       location.services.select do |service|
-        services_with_categories(service, services_params).any?
+        service_has_categories(service, category_ids)
       end.any?
     end
     locations.map(&:id)
   end
 
-  def services_with_categories(service, category_ids)
-    cat_ids = []
-    category_ids.each do |id|
-      cat_ids.push(id.to_i)
-    end
-    service.categories.select { |category| cat_ids.include?(category.id) }
+  def service_has_categories(service, category_ids)
+    results_cats = service.categories.map{ |c| c.id.to_s }
+    (category_ids - results_cats).empty?
   end
 end
