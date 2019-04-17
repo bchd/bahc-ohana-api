@@ -26,6 +26,7 @@ gem 'rails', '~> 5.1.7'
 gem 'sass-rails', '~> 5.0'
 gem 'select2-rails', '~> 3.5'
 gem 'uglifier', '>= 1.3.0'
+gem 'smarter_csv'
 
 group :test, :development do
   gem 'bullet'
@@ -33,7 +34,6 @@ group :test, :development do
   gem 'factory_bot_rails'
   gem 'rspec-its'
   gem 'rspec-rails', '~> 3.1'
-  gem 'smarter_csv'
 end
 
 group :test do
