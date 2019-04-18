@@ -1,7 +1,7 @@
 namespace :import do
   task all: %i[organizations programs locations taxonomy services
                mail_addresses contacts phones regular_schedules
-               holiday_schedules touch_locations]
+               holiday_schedules touch_locations assign_categories]
 
   desc 'Imports organizations'
   task :organizations, [:path] => :environment do |_, args|
@@ -72,4 +72,26 @@ namespace :import do
     Kernel.puts "\n===> Updating the full-text search index"
     Location.update_all(updated_at: Time.zone.now)
   end
+
+  # rubocop:disable Lint/HandleExceptions
+  desc 'Assign categories to services'
+  task :assign_categories, [:path] => :environment do |_, args|
+    args.with_defaults(path: Rails.root.join('data', 'service_categories.json'))
+    text = File.read(args[:path], encoding: 'UTF-8')
+    data = JSON.parse text
+    data.each_key do |service_id|
+      service = Service.where(id: service_id)[0]
+      next unless service
+
+      data[service_id].each do |cat_id|
+        category = Category.where(id: cat_id).first
+        begin
+          service.categories << category if category
+        rescue ActiveRecord::RecordNotUnique
+          # puts "skipping duplicate row: #{row.inspect}"
+        end
+      end
+    end
+  end
+  # rubocop:enable Lint/HandleExceptions
 end

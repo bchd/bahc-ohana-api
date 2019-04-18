@@ -1,0 +1,7 @@
+csv.headers :id, :name, :taxonomy_id, :slug, :ancestry, :type,
+            :filter
+
+csv.rows Category.find_each do |csv, contact|
+  csv.cells :id, :name, :taxonomy_id, :slug, :ancestry, :type,
+            :filter
+end

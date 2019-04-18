@@ -6,6 +6,8 @@ class Admin
 
     def addresses; end
 
+    def categories; end
+
     def contacts; end
 
     def holiday_schedules; end

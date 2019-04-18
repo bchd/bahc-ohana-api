@@ -1,879 +1,518 @@
-id,name,description
-11496,"Abusive, Neglectful Families","Families in which one or more persons have experienced a continued pattern of physical, sexual or emotional abuse, including extreme neglect of an individual's needs."
-11497,Sexually Assaulted Adults,Persons 18 or older who have been raped or otherwise sexually assaulted.
-11498,Adult Sexual Assault Survivors,"Adults who, as a child, survived an actual or attempted act of rape, forced oral copulation, sodomy or other sexual assault or abuse which was perpetrated by a parent, extended family member or other individual whom the child trusted."
-11499,African-Americans,Americans of African descent who share a common cultural heritage.
-11500,AIDS,"AIDS (symptomatic HIV infections) is a disease that impairs the functioning of one's immune system, leaving affected individuals vulnerable to illnesses that would not occur otherwise."
-11501,Asthma,A condition of the bronchial system that causes labored breathing and wheezing due to the spasm of the bronchial tubes or the mucous membranes.
-11502,Battered Men,"Adult men who have been subject to repeated physical, verbal, or sexual abuse at the hands of their partners."
-11503,Batterers,Individuals who repeatedly physically or sexually abuse adult members of their family or other persons living in their home.
-11504,Children,Persons ages 4-12.
-11505,Children of Subs. Abuse Parent,Children or adolescents affected by one or both parents abusing drugs.
-11506,Developmental Delay,"When an infant or child shows evidence of being behind in the development of a physical, mental or emotional milestone than what is considered normal."
-11507,Developmental Disability,"Neurological impairments, including mental retardation, cerebral palsy, epilepsy, and autism, which appear before the age of 18 and are expected to continue throughout an individual's lifetime."
-11508,Physical Disability,"Any condition which impairs an individual's ability to walk, sit, stand or use their hands."
-11509,"Gay, Lesbian, Bisexual, Transgend","Programs that provide specialized services to Gays, Lesbians, bisexuals and or/transgendered individuals."
-11510,Hearing Impairments,A defect in part of the ear that keeps a person from hearing adequately.
-11511,Homeless,Programs that provide services to persons without a permanent residence or place to stay.
-11512,Jewish Community,Programs that provide special services to persons of the Jewish faith.
-11513,Men,"Individuals who have needs and interests in common as a result of similar experiences, concerns or expectations as males."
-11514,"Men, Young African-American",Young men of African descent whose cultural heritage derives from their common experience in the Americas.
-11515,"Mental Illness, Emot. Disturb","Behavior or patterns of behavior which impair an individual's ability to function on a personal, social and/or occupational level."
-11516,Parents of Children 4-12 Years,Family units that consist of parents and one or more offspring from ages four through twelve.
-11517,Parents of Adolescents,Family units that consist of parents and one or more offspring age thirteen through seventeen.
-11518,Pregnant Women,"Women, over the age of 18, who are awaiting the birth of a child."
-11519,Dual Diagnosis,A person who is diagnosed with having a mental illness as well as having some kind of chemical dependency.
-11520,Renters,Programs serving persons who pay a monthly payment to a landlord for housing.
-11521,Runaways,Children or adolescents who have been abandoned by the adults responsible for their care or who have left  their homes without notice or parental consent and who have no fixed place of residence.
-11522,"Hispanic, Latino Community",Programs that provide services to Americans of Spanish or Latin American decent.
-11523,Adolescents,Youth ages 13-17.
-11524,Terminal Illness,"An illness which, because of its nature, can be expected to cause the individual to die."
-11525,Low Income,Programs that provide services to persons whose income is one hundred and fifty or two hundred percent of poverty level for their family size.
-11526,Visual Impairment,Eye or optic nerve malfunctions which prevent affected individuals from seeing normally.
-11527,Women,"Individuals who have needs and interests in common as a result of similar experiences, concerns or expectations as females."
-11528,Asians,People whose ethnic background is that of one of the people of the Asian continent or the islands of the Pacific Ocean.
-11529,Native Americans,"Individuals whose ethnic background and ancestry are that of the tribal, aboriginal peoples who originated in the western hemisphere."
-11530,Abused Adults,"Individuals aged 18 and older who have been subjected to a persistent pattern of physical, sexual or emotional maltreatment by their caretakers, spouses, partners or other family members."
-11531,Juvenile Delinquents,"Individuals under the age of 18 who have violated a county, city or state law; have run away from home or are beyond the control of a parent or guardian."
-11532,Day Care Providers,"Programs that establish and enforce health, safety and quality of care standards for foster homes and programs that offer day care for dependents."
-11533,Immigrants,Persons from other countries who wish to enter the United States or obtain United States citizenship.
-11534,Refugees,Individuals who have left their native county and been given permission by the government to reside in the United States or Canada.
-11535,Military Personnel & Family,"Individuals and their families who are affiliated with one of the branches of the armed forces as active duty enlisted men or officers, retired career military or veterans."
-11536,Veterans & Family,Individuals or family members of individuals who are former members of one of the branches of the armed forces and who have received an honorable discharge or the like and now receive benefits and privileges.
-11537,Speech Impairment,Any number of conditions that interfere with the ability to make the audible sounds needed to communicate effectively.
-11538,"Travelers, Transients",People whose permanent places of residence are elsewhere and who are visiting a particular community or traveling through the community.
-11539,Migrants & Family,"People who move from one temporary residence to another, usually in search or temporary or seasonal employment."
-11540,"Victims, Witnesses","Individuals who have suffered physical injury, emotional distress and/or loss of property as the result of an actual or attempted crime by another person or by a destructive act of nature."
-11541,Parents-Single,Family units which consist of either a father or a mother and one or more children.
-11542,Parents-Step,The mother or father of a child born during a previous marriage of the other parent.
-11543,"Parents-Separated, Divorced","Families whose members are unable to live together due to the illness, imprisonment, military or job assignment or political detention abroad of one or more of their members or due to divorce."
-11544,"Offenders, Ex-offenders",Individuals who have committed or are at risk of committing acts that have been defined as felonies or misdemeanors by federal or state laws or municipal or local ordinances.
-11545,Learning Disability,"A disorder where one or more of the processes needed to understand or use written or spoken language are impaired.  The disorder may manifest itself in an impaired ability to listen, think, read, write, spell or perform mathematical calculations."
-11546,"Infants, Toddlers",Individuals from birth to age three.
-11547,"Parent Aide, Mentoring","Programs that provide companionship, guidance and/or role models for at-risk parents."
-11548,Senior Citizens,"Individuals who are age fifty, fifty-five, sixty-two or sixty-five or older depending on the minimum age for qualifying as senior citizens which varies by program."
-11549,Eating Disorders,"Conditions which cause a person to become obsessed with eating and their weight.  The individual may compulsively overeat, engage in eating binges which may or may not be followed by purging, refuse to eat or otherwise use food in a self-destructive manner."
-11550,"Organizations, Services for","Programs that strengthen, support and enhance the capability of human service organizations, small businesses, and other groups  to deliver products and services."
-11551,Scoliosis,A condition where an individual has abnormal curvature of the spine.
-11552,Survivors,"Individuals who have suffered physical injury, emotional distress and/or loss of property as the result of an actual or attempted criminal offense by another person or through a destructive act of nature."
-11553,"Alzheimers, Dementia","A form of presenile dementia that usually occurs in people between the ages of forty and sixty.  Causes progressive and irreversible loss of memory, disorientation and deterioration of intellectual functions, accompanied by behavioral disturbances."
-11554,Sleep Disorders,"A number of conditions that affect a person's ability to sleep, stay asleep or some cases the ability to stay awake during the day."
-11555,"Teen Fathers and, or Mothers",Adolescents who are mothers or fathers.
-11556,Head Trauma,"Programs serving persons who have sustained head injuries, resulting in destruction of brain tissue and loss of brain function."
-11557,Cancer,Any group of malignant cells that adversely affects an individual's health and well being.
-11558,Schools,"Programs that provide a formal education for children, adolescents and adults through a graded system of instruction that focuses initially on basic skills such as reading, writing and mathematics and later on a broader curriculum."
-11559,Caregivers,"Persons who care for individuals, on a regular, on-going basis, who are unable to care for themselves due to some medical or emotional reason."
-11560,Union Members,Individuals who have a membership in a union.
-11561,"Parents of Infants, Toddlers",Family units that consist of parents and one or more offspring from birth through age three.
-11562,Kidney Disease,Any number of diseases involving the kidneys and how they function.
-11563,Diabetes,A disorder in which the pancreas produces too little insulin so that the body is unable to adequately metabolize sugar.
-11564,Muscular Dystrophy,A disease characterized by progressive atrophy and wasting of the muscles.
-11565,Multiple Sclerosis,"A chronic, slowly progressive disease causing difficulties with muscle control, involuntary movements of the eyes, speech problems and tremors."
-11566,Dwarfism,The condition of being abnormally small in stature.
-11567,Parkinsons Disease,"A chronic nervous condition which causes slow spreading tremors, muscular weakness and a peculiar gait."
-11568,Emergency Shelter-Battered Wom,"Programs that provide temporary emergency shelter to women who have experienced ongoing physical, verbal, or sexual abuse at the hands of their partners."
-11569,Lupus Erythematosus,"Condition which causes lesions on the face, neck and upper extremities and can cause inflammation of the joints, kidneys, nervous system and mucous membranes."
-11570,Sickle Cell Anemia,A hereditary chronic form of anemia in which abnormal sickle or crescent-shaped red blood cells are present causing an abnormal type of hemoglobin.
-11571,Sudden Infant Death Syndrome,The unexpected and unexplainable death of an otherwise healthy infant.
-11572,AIDS Control,"Programs that attempt to control the number of cases of AIDS through research, so the medical community can better understand the disease and eventually limit the number of new cases."
-11573,AIDS Screening,Programs that offer HIV tests to determine whether a person has the HIV virus in their blood stream.
-11574,AIDS Treatment,Programs that offer inpatient and outpatient treatments aimed at helping those individuals with the HIV virus or AIDS live longer and fuller lives.
-11575,"Adoption, Adoptee Services","Programs that participate in the process of finding permanent homes and parents for children whose natural parents must, for some reason, find alternative living arrangements for them, OR services that provide ongoing support to adoptees."
-11576,Adult Basic Education,"Programs that teach adults fundamental learning skills they were never taught due to interrupted schooling. Emphasis is placed on basic reading, language and mathematics."
-11577,Adult Day Care,"Programs that provide supervised care for dependent adults during some part of the day. Services may include social and recreational activities, independent skills training, and meals, as appropriate."
-11578,Advocacy,"Programs that work for legislative solutions to problems,  or which intercede on behalf of others to ensure that their rights are upheld or that they receive benefits which are due them."
-11579,Bathing Facilities,"Programs that offer showers, baths and other facilities to those who do not have access to these type of facilities privately."
-11580,Battered Women,"Adult women who have been subject to repeated physical, verbal, or sexual abuse at the hands of their partners."
-11581,Hotlines-Battered Adults,Programs that provide telephone crisis intervention to persons being battered and will help find them programs that will aid them in getting out of that situation.
-11582,Burial Expense Assistance,Programs that provide or pay for burial services to those individuals whose income is insuffient to cover the cost of burial.
-11583,Camps,"Programs that develop, maintain and make available to the community facilities for cooperative group living experiences in the out-of-doors; and which offer a wide range of activities under the supervision of trained leadership for children, youth, adults and special groups of all ages."
-11584,Career Counseling,Programs that provide career advice and guidance and evaluate an individual's abilities and interests in order to help them choose a vocation.
-11585,Case Management,"Programs that develop plans for the evaluation, treatment, and/or care of individuals who cannot, for some reason, arrange for these services themselves."
-11586,Substance Abuse-Assessment,"Programs that evaluate individuals who are in need of substance abuse services and refer them to the inpatient, outpatient or residential treatment services they require."
-11587,"Charities, Foundations, Funding","Programs that solicit contributions, endowments or funds from private or public sources to either directly support human services provided by the organization or to provide financial support for other human service programs in the community."
-11588,Hotlines-Child Abuse,Programs that provide telephone crisis intervention for parents that have abused or are afraid they might abuse their children. Also may help children being abused by adults.
-11589,Child Safety Seats,"Programs that provide, loan or pay for child safety seats used to restrain infants and children while seated in cars."
-11590,Child Support Assistance,"Programs that assist individuals in obtaining, filing for or enforcing child support payments from a non-custodial parent."
-11591,Clothing-Clothing Banks,Programs that pay for or provide new or secondhand clothing for individuals that cannot afford to purchase clothing at retail prices.
-11592,"Congregate Meals, Food Programs",Programs that provide hot meals on a regular basis to persons who may be in danger of nutritional deficits or who could profit from socializing with others.
-11593,Consumer Services,Programs that educate and/or protect individuals purchasing goods or services on their rights and how to exercise them.
-11594,Continuing Education,Programs that offer non-credit courses to adults looking to forward their education in some specific area.
-11595,Courts,"Judicial bodies that exist to examine, interpret and apply the laws of the specific county, state, or country that the court system serves."
-11596,Crime Prevention,Programs that help individuals and groups of persons to prevent crime in their lives and neighborhoods.
-11597,Crime Victim Support,Programs that provide a variety of support services to persons who have been a victim of a crime.
-11598,Dental Care,Programs that specialize in the care of teeth and gums.
-11599,Diapers,Programs that pay for or provide either cloth or disposable diapers for those parents unable to afford them on their own.
-11600,Disaster Relief,"Programs that offer short term assistance to individuals who have lived through a natural disaster and need medical attention, financial assistance or other support services."
-11601,Juvenile Diversion Programs,"Programs that provide comprehensive social services to adolescents who have been convicted or are in danger of being convicted of a minor crime and are directed to participate in a diversion program as an alternative to arrest, prosecution or sentencing."
-11602,Donor Services,Programs that accept donations of goods and services and distribute them to individuals in need.
-11603,Early Childhood Education,"Programs that provide recreational and educational activities to children aged birth to five years intended to foster social, emotional and mental growth."
-11604,Education,Programs that provide opportunities for individuals to acquire knowledge and skills that will help them later in life.
-11605,Educational Testing,"Programs that use various tools to assess an individuals abilities, skills, knowledge, achievement or educational difficulties for the purpose of screening and individualized instruction or treatment."
-11606,Emergency Shelter,"Programs that provide a temporary place to stay for newcomers, travelers, people who are in crisis, or homeless individuals in the community."
-11607,English as a Second Language,"Programs that offer classes to teach non-English speaking persons to speak, read and write English more fluently."
-11608,Eye Care,Programs concerned with maintaining or improving the health of the eye.
-11609,"Family Planning, Birth Control","Programs that provide assistance to persons or families who wish to control the size of their families, through birth control education and supplies."
-11610,Food Banks,"Nonprofit organizations that collect, store and distribute food items to participating charitable agencies that use the food to serve the public."
-11611,Food Co-Ops,Programs in which the consumers and the agency share the cost of purchased food items that are then distributed to the consumers on a regular basis.
-11612,Food Pantries,Programs that collect donated food items and distribute them to individuals in emergency situations at no cost. May also provide vouchers to be used at a store to purchase needed food items.
-11613,"Formula, Baby Food",Programs that provide infant formula and/or baby food.
-11614,Foster Care,Programs that provide alternative family living arrangements in agency-supervised private homes or facilities for a temporary period of time to those children who are physically or emotionally at-risk in their current living arrangements.
-11615,Furniture,"Programs that donate or sell low-cost furniture items, including beds, to persons who are unable to purchase these items or pay regular store prices."
-11616,GED Instruction,Programs that provide the necessary educational instruction to help adults and/or eligible minors take a series of tests in order to obtain a high school equivalency certificate.
-11617,Government Surplus Food Sites,"Established food distribution programs that periodically distribute surplus food items, collected by the government, to income eligible persons."
-11618,Health Care,Programs that provide primary medical treatment and prevention services to the public.
-11619,Health Care-Referrals,Programs that link persons seeking medical care to agencies or professionals providing qualified care in the desired specialization.
-11620,Health Education,"Programs that provide the public with information and education on the prevention, early detection and treatment of potential health risks or illnesses."
-11621,Health Insurance,Programs that cover or reimburse persons for all or a portion of their medical expenses.
-11622,"Health Screening, Diagnos Srvc.",Programs that utilize diagnostic tools and tests for the purpose of early detection of diseases or potential health risks.
-11623,Holiday Assistance,Programs that donate food or toys to needy persons or families during the holidays.
-11624,Home Delivered Meals,Programs that prepare and deliver regular meals to persons who are homebound and are unable to shop for groceries and cook for themselves.
-11625,"Home Rehab, Repair Service",Programs that provide assistance in the form of labor or supplies to persons needing to make essential repairs to their homes to improve safety or liveability.
-11626,Hospice Care,"Programs that provide services to the terminally ill and their families, usually including medical care, pain management, case management and counseling."
-11627,Hospitals,Medical institutions that provide a number of skilled medical services to persons with a wide variety of physical and mental conditions. Usually has facilities for persons who need to stay overnight.
-11628,Hostels,"Dormitory-style accomidations for travelers, available at a low cost. Usually provides shower and kitchen facilities as well."
-11629,Household Goods,Programs that supply furnishings for the home.
-11630,Independent Living Skills Inst,"Programs that assist people who have disabilities to learn the basic skills of daily living through counseling, instruction and practical experience."
-11631,"Information, Referral",Programs which maintain information about human services in the community and link people who need assistance with appropriate service providers.
-11632,"Interpretation, Translation","Programs that offer interpretation or translation services for non-English speaking persons, or persons with visual or hearing impairments."
-11633,Job Readiness,Programs that provide individual or group training for people who want to learn the behaviors and techniques that are required for acquiring and retaining a job.
-11634,"Job Search, Placement",Programs that maintain listings of available employment opportunities and place people in appropriate job positions.
-11635,Job Training,Programs that prepare people for specific employment opportunities by providing instruction or experience in utilizing the skills required for specific job-related tasks.
-11636,Law Enforcement Agencies,"Local, county, state and federal agencies that attempt to prevent crime and enforce the laws in that jurisdiction."
-11637,Lead Poisoning Screening,Programs that screen children for over exposure to elements containing lead.
-11638,Legal Services,Programs that provide legal guidance and/or representation.
-11639,Library Services,"Libraries and other programs that provide information and reference services in the form of books, pamphlets, journals, audio and video tapes."
-11640,"Licensing, Certification, Accred",Programs that authorize the practice of a profession or the operation of a business or community facility after determining that established standards have been met.
-11641,Medical Bill Assistance,Programs that may pay part of or all of medical bills that individuals have and cannot pay for themselves.
-11642,"Medical Equipment, Supplies",Programs that either provide or pay for the purchase of certain medical equipment or supplies to individuals that are in need and could not purchase the equipment any other way.
-11643,Medication Information,"Programs that offer information and answer questions on prescription, over the counter, or street drugs."
-11644,Mentoring Programs,"Programs that provide companionship, guidance and/or role models for individuals who are disadvantaged because of age, income, physical or developmental disability or family environment."
-11645,Money Management Counseling,"Programs that provide direct advice and guidance for people who need assistance in obtaining credit, obtaining or correcting information in their credit records or managing their financial resources."
-11646,Mortgage Assistance,Programs that make mortgage payments for people who cannot afford to make the payments themselves and who are at risk of losing their homes without assistance.
-11647,Nursing Facilities,Inpatient health care facilities that provide nursing and personal care over an extended period of time (usually more than thirty days) for people who require convalescent care.
-11648,Outreach Programs,Programs that increase the use of community resources by targeting certain segments of the population and making resources more available to them.
-11649,"Parent, Child Activity Groups",Programs that provide regularly scheduled opportunities for parents to participate in a wide variety of recreational activities with their youngsters as a means of developing close family relationships.
-11650,Parenting Skills Development,Programs that teach skills that enable parents to deal constructively and consistently with a broad spectrum of child rearing problems.
-11651,"Housing, Patient, Family",Programs that provide temporary housing for people who are ill or their family members while the ill persons receives medical care.
-11652,Physical Fitness,"Programs that provide activities for people who want to improve their strength, flexibility, endurance, muscle tone, reflexes, cardiovascular health and/or other aspects of physical functioning."
-11653,Pregnancy Counseling,"Programs that assist pregnant individuals to resolve any social or personal problems that have arisen from being pregnant or the prospect of parenthood, and help them to make appropriate decisions."
-11654,Prescription Expense Assistanc,"Programs that purchase or contribute to the purchase of necessary prescription drugs for people who cannot afford to pay for the drugs themselves, who would be in an emergency situation without assistance and who qualify for this service on the basis of income or need."
-11655,Psychiatric Inpatient Tx,"Programs offered in special units of general acute care hospitals that provide diagnostic and treatment services for children, adolescents and/or adults who have acute or chronic emotional disturbances."
-11656,Rat Control,"Programs that investigate complaints from the public regarding rat infestations, inspect affected property and structures to determine the extent of the problem and provide eradication services or advice and necessary poisons for eradication."
-11657,"Records, Licenses, Permits",Programs that issue written personal permits to engage in activities that are regulated by government authority.
-11658,Recreation,Programs that provide the opportunity for individuals to participate in some kind of recreational activity.
-11659,Rehabilitation,Programs that provide a combination of treatment and education services which are designed to restore maximum functioning and a satisfying level of independence for individuals with temporary or permanent disabilities.
-11660,Respite Care,"Programs that offer temporary,  substitute living arrangements for dependent adults and children in order to provide a brief period of relief or rest (usually more than twenty-four hours) for the family members, guardians or other people who are their regular caretakers."
-11661,"Retirement Homes, Communities","Residential facilities, apartments and/or planned communities exclusively for older adults that are designed to enable retired individuals or couples and other elderly people to have a form of independent living."
-11662,Roommate Matching Assistance,Programs that assist people who need a shared housing arrangement to identify others with whom they can share.
-11663,Scholarships,Programs that provide or assist students to apply for awards which usually involve money and/or reduced tuition.
-11664,Counseling-Sexual Assault,"Programs that provide treatment services which may include emotional support, problem-solving assistance, information and guidance through a variety of counseling modalities for individuals who are coping with an emotional trauma as a result of sexual assault."
-11665,Small Business Development,"Programs that provide technical assistance, venture capital, loans, loan guarantees or other forms of support for individuals or groups who want to establish or expand the operation of a small business enterprise or venture."
-11666,Soup Kitchens,"Programs offered by churches, restaurants and other organizations that provide meals in a central location for indigent people who are hungry."
-11667,Education-Special,"Programs that provide educational services including special placement and individualized programming, instruction and support services for exceptional children, youth and/or adults."
-11668,"Housing, Subsidized Rental",Programs that make rental housing more readily available to low-income persons through federal and local housing programs.
-11669,Summer School Programs,Programs of instruction offered by learning institutions during the summer months.
-11670,"Housing, Supervised Living","Programs that offer staff supervised housing in a group setting for disabled persons, seniors or other populations."
-11671,Telephone Reassurance,"Programs that contact frail elderly individuals or people who have disabilities by telephone on a regular basis to ensure their good health and safety, and to reassure them that help is available if and when they need it."
-11672,Telephone Relay Services,"Programs that link hearing impaired individuals with hearing individuals through the use of a TTY machine, a Teletype-writer, or teleprinter that transmits and receives printed messages in coded electronic signals."
-11673,"Tenant, Landlord Assistance","Programs that provide assistance, information and support for tenants and/or landlords who are involved in rental housing disputes."
-11674,Training,"Programs that offer training materials, packages or programs that are designed to increase the knowledge or skills of users or participants regarding particular a particular topic."
-11675,Transitional Housing,Programs that provide extended shelter (longer than 2 weeks) for homeless people who are willing to participate in developing a plan towards independent living.
-11676,Transportation,Programs that provide for the basic transport needs of the community including the local and long-distance conveyances.
-11677,Tutorial Services,Programs that provide individual or small group instruction for people who need assistance in learning the components of a prescribed curriculum.
-11678,Utility Assistance,Programs that provide financial assistance for people who are unable to pay their utility bills.
-11679,Volunteer Opportunities,Community agencies that have positions within their organizations for people who are willing to offer their services and work for free on a full or part-time basis.
-11680,Youth Development,"Programs that provide a wide range of opportunities for recreational, cultural, civic and social activities that help youngsters develop their potential and grow into healthy, educated, responsible and productive adults."
-11681,Financial Assistance,Programs that provide on-going or limited monetary funds to individuals who lack the financial resources necessary to meet certain basic needs.
-11682,Fuel Assistance,Programs that assist persons with the cost of heating fuel bills or heating fuels.
-11683,Tax Credits,Programs that provide monetary tax refunds or tax credits to income eligible or otherwise qualified persons.
-11684,Health Care-Free or Low-Cost,Programs that provide free or low-cost primary medical treatment and prevention services to the public.
-11685,"Voter Services, Elections","Programs that provide information regarding all aspects of the election process: filing for candidacy, registering to vote, ballot issues and voting records of rival candidates."
-11686,Vital Records,Programs that issue birth and death certificates.
-11687,"Baby Supplies, Furniture","Programs that either pay for or provide secondhand baby furniture such as cribs, strollers, and bassinets to persons who are unable to obtain these items any other way."
-11688,Child Abuse,"Using physical, sexual or emotional force on a regular basis against an individual under 18 years of age, creating a harmful environment for that individual."
-11689,Detox,Programs that help support individuals who are physically dependent on a substance during a period of time when they initially go without that substance.
-11690,Substance Abuse-Outpatient Tx,Community and hospital based programs that provide a variety of counseling and supportive services for individuals who have problems related to substance abuse who do not require 24-hour care.
-11691,Substance Abuse-Inpatient Tx,Health care facilities that provide long or short-term structured treatment programs and support services in the context of a 24-hour supervised environment for individuals who have substance abuse problems.
-11692,Methadone Treatment,"Programs that utilize controlled dosages of methadone, an addictive synthetic opiate which prevents the symptoms associated with heroin withdrawal, in order to support the efforts of abusers to abstain from the use of heroin."
-11693,"Substance Abuse-Education, Prev","Programs that provide a variety of services including individual, group and/or family counseling; knowledge and skill-enhancing activities; and structured groups which focus on family dynamics, problem-solving, self-esteem and other similar issues."
-11694,Substance Abuse-Halfway House,"Programs that provide alcohol and other drug-free congregate living arrangements, relapse prevention programs and other services which facilitate the return to the community."
-11695,Substance Abuse,"Programs that provide preventive diagnostic an inpatient, out-patient and residential treatment services as well as transitional support for people who have a physical and/or psychological dependency on a combination of addictive substances."
-11696,"Substance Abuse-Friends, Family","Programs that serve the parents, children, spouses, partners or other relatives or significant others of people who abuse drugs whose own patterns of personal, social and familial coping have been significantly affected by ongoing interaction with and concern about the disabled individual."
-11697,Hotlines,Programs that receive telephone calls from persons in mental or physical crisis and work toward resolving the caller's problem and reduce or eliminate the caller's distress.
-11698,"Housing, AIDS","Shelter, group homes or rental apartments specifically designated for people who have AIDS."
-11699,Heart Disease,Any number of pathological conditions of the heart.
-11700,AIDS Hotlines,Programs that offer a telephone service that enables people who are in trouble to talk confidentially about their personal problems with an empathetic lister.
-11701,Consumer Complaints,"Programs that accept oral or written grievances from individuals regarding the actions of another person, professional or organization. May also help individuals to prepare a written statement accusing other persons or organizations of an offense or wrong-doing."
-11702,Counseling,"Programs that provide prevention, diagnosis and treatment of mental health problems or help persons maintain a healthy mental attitude and cope with daily living. Services may be provided in a variety of settings."
-11703,MEAP Offices,"Offices which accept applications for the Maryland Energy Assistance Program, which provides assistance towards the cost of winter heating bills for low-income persons in Maryland."
-11704,Physician Referral Services,Programs that link people who are in need of primary medical care with private medical practitioners who are qualified in the desired area of specialization.
-11705,Rental Allowance Programs,Programs that provide a rental allowance for qualified people who cannot afford to make the payments themselves.
-11706,Home Care- Medical,"Programs that make necessary medical and personal care available to elderly, disabled, ill or convalescing individuals in their own homes."
-11707,Lifeline Systems,Programs that provide electronic equipment which links elderly or disabled persons to emergency  and/or medical assistance in times of crisis.
-11708,Head Start,"Federally funded child development programs that provide educational, health and nutritional opportunities for low-income or at-risk children ages three to five and their parents."
-11709,Animal Services,Programs that work to promote the humane care of domestic and wild animals and to protect animals in their natural environments.
-11710,Domestic Violence Resources,"Programs that provide support, counseling or guidance to individuals who are in or have been in an abusive relationship."
-11711,Suicide,"Programs that offer services for suicidal persons or persons affected by suicide including information and referral, crisis intervention, hotlines and bereavement support groups."
-11712,Rent Assistance,"Programs that make rental payments for people who cannot afford to make the payments themselves, who are at risk of eviction without assistance and who qualify for this service on the basis of income or need."
-11713,Inspections,Programs that investigate various facilities in order to ensure standards and quality.
-11714,Autism,"A severe, lifelong developmental disability characterized by lack of meaningful speech, anti-social and/or affectionless behavior, fascination with objects, prolonged odd body movements, hypersensitivity and compulsive behavior."
-11715,Retinitis Pigmentosa,"A chronic condition which starts in early childhood where certain optic features degenerate, eventually causing blindness."
-11716,Immunizations,Inoculations that prevent susceptible individuals from contracting specific diseases.
-11717,Attention Disorders,"A condition of children and adolescents that causes inattention, hyperactivity and impulsivity.  Especially affects a persons ability to concentrate in educational settings."
-11718,Groceries-Delivered,Food distribution programs that will voluntarily deliver emergency groceries to homebound individuals in an emergency.
-11719,Food Stamps,"A federally funded program administered through local DSS offices, which provides low-income or indigent households with food coupons which can be used to purchase food in nearly all grocery stores."
-11720,At Risk Families,"Families that are more likely to follow a destructive pattern of behavior due to some environmental situation, health problem or other difficulty."
-11721,Family Support Centers,Programs that provide social services that are designed to support the healthy development of families.
-11722,Discrimination Assistance,"Programs investigating and representing persons who feel they have been treated unfairly due to race, gender, age, religion, sexual orientation disability, marital status, ethnic origin or nationality."
-11723,Government Information Lines,Programs that provide telephone information about government offices and services to callers.
-11724,Prince Georges County Resourc,Programs serving persons living or working in Prince George's County.
-11725,Downs Syndrome,"A variety of congenital mental retardation that is marked by a sloping forehead, presence of epicanthal folds gray or very light yellow spots in the eyes, short broad hands, a flat nose or absent bridge, low-set ears and generally dwarfed physique."
-11726,Drop-in Centers,"Organizations that provide an alternative, nonresidential environment for persons who are homeless, have a mental illness or are young and need a safe place to visit."
-11727,Support Groups,Groups of individuals who meet together to discuss and share a mutual problem or concern and to support one another in coping.
-11728,WIC,"Federally-funded program that provides nutrition education and food vouchers for pregnant women, new mothers and children under age 5 who cannot otherwise afford an adequate diet."
-11729,Myasthenia Gravis,A disease characterized by great muscular weakness due to an inability to transmit nerve impulses to the muscles effectively.
-11730,Carroll County Resources,Programs serving persons living or working in Carroll County.
-11731,Anne Arundel County Resources,Programs serving persons living or working in Anne Arundel County.
-11732,Howard County Resources,Programs serving persons living or working in Howard County.
-11733,Harford County Resources,Programs serving persons living or working in Harford County.
-11734,Talbot County Resources,Programs serving persons who live or work in Talbot County.
-11735,Wicomico County Resources,Programs that serve persons who live or work in Wicomico County.
-11736,Worcester County Resources,Programs that serve persons who live or work in Worcester County.
-11737,Allegany County Resources,Programs serving persons living or working in Allegany County.
-11738,Cecil County Resources,Programs serving persons living or working in Cecil County.
-11739,Charles County Resources,Programs serving persons living or working in Charles County.
-11740,Caroline County Resources,Programs serivng persons living or working in Caroline County.
-11741,Dorchester County Resources,Programs serving persons living or working in Dorchester County.
-11742,Frederick County Resources,Programs serving persons living or working in Frederick County.
-11743,Garrett County Resources,Programs serving persons living or working in Garrett County.
-11744,Kent County Resources,Programs serving persons living or working in Kent County.
-11745,Montgomery County Resources,Programs serving persons living or working in Montgomery County.
-11746,Somerset County Resources,Programs serving persons who reside in or work in Somerset County.
-11747,St. Marys County Resources,Programs serving persons who live or work in St. Mary's County.
-11748,Washington County Resources,Programs that serve persons who live or work in Washington County.
-11749,Baltimore County Resources,Programs serving persons living or working in Baltimore County.
-11750,Arthritis,An inflammatory condition of the joints usually causing pain and stiffness of the affected joints.
-11751,Burns,"Programs that provide services to individuals who suffer from tissue injuries that are the result of excessive exposure to thermal, chemical, electrical or radioactive agents."
-11752,Stroke,"Sudden loss of consciousness followed by paralysis caused by a hemorrhage in the brain, blood clot in an artery or rupture of an artery outside the brain causing hemorrhaging of the membranes around the brain and spinal cord."
-11753,"Amputations, Amputees",A condition in which a person loses one or more limbs through surgery.
-11754,Calvert County Resources,Programs serving persons living or working in Calvert County.
-11755,Queen Annes County Resources,Programs serving persons living or working in Queen Anne's County.
-11756,Food Supplements,A very high calorie liquid dietary supplement that is used by persons with a variety of different health conditions
-11757,"Cleft Lip, Cleft Palate",A congenital condition where a fissure is present in the upper lip and/or roof of the mouth which can interfere with an individual's speech or breathing abilities.
-11758,Crohns & Colitis,A regional inflammation of the ilium or the intestines.
-11759,Literacy Programs,Programs that provide educational instruction designed to increase participating adults' basic reading abilities to a functional level.
-11760,Neurofibromatosis,A condition where there is one or more tumors on the peripheral nerves.
-11761,"Anorexia, Bulimia","Conditions which cause a person to become obsessed with eating and their weight.  The individual may compulsively overeat, engage in eating binges which may or may not be followed by purging, refuse to eat or otherwise use food in a self-destructive manner."
-11762,Epilepsy,A condition of recurrent seizures due to disruptions in the electrical and chemical activity of the brain.
-11763,Hemophilia,A hereditary blood disease characterized by blood that fails to clot and abnormal bleeding.
-11764,Job Readiness-Devp. Disabled,Programs that provide individual or group training for developmentally disabled people who want to learn the behaviors and techniques that are required for acquiring and retaining a job.
-11765,Job Readiness-Low Income,Programs that provide individual or group training for low-income people who want to learn the behaviors and techniques that are required for acquiring and retaining a job.
-11766,Job Readiness-Mentally Ill,Programs that provide individual or group training for mentally ill people who want to learn the behaviors and techniques that are required for acquiring and retaining a job.
-11767,"Job Readiness-Military, Veteran",Programs that provide individual or group training for military personnel or veterans who want to learn the behaviors and techniques that are required for acquiring and retaining a job outside of the military.
-11768,Job Readiness-Youth,Programs that provide individual or group training for young people who want to learn the behaviors and techniques that are required for acquiring and retaining a job.
-11769,Job Readiness-Visually Impair.,Programs that provide individual or group training for visually impaired people who want to learn the behaviors and techniques that are required for acquiring and retaining a job.
-11770,Job Readiness-Women,Programs that provide individual or group training for women who want to learn the behaviors and techniques that are required for acquiring and retaining a job.
-11771,Crisis Intervention,Programs that offer immediate assistance to those persons in acute emotional distress or a life-threatening situation.
-11772,Job Readiness-Physically Dis.,Programs that provide individual or group training for physically disabled people who want to learn the behaviors and techniques that are required for acquiring and retaining a job.
-11773,Appliances,"Programs that pay for or provide items such as refrigerators, freezers, stoves, irons and other important goods that a person may otherwise be unable to get."
-11774,Job Readiness-Senior Citizens,Programs that provide individual or group training for senior citizens who want to learn the behaviors and techniques that are required for acquiring and retaining a job.
-11775,Job Readiness-Ex-Offenders,Programs that provide individual or group training for ex-offenders who want to learn the behaviors and techniques that are required for acquiring and retaining a job.
-11776,Job Readiness-Homeless,Programs that provide individual or group training for homeless people who want to learn the behaviors and techniques that are required for acquiring and retaining a job.
-11777,Job Readiness-Hearing Impaired,Programs that provide individual or group training for hearing impaired people who want to learn the behaviors and techniques that are required for acquiring and retaining a job.
-11778,Job Readiness-Immigrants,Programs that provide individual or group training for immigrants who want to learn the behaviors and techniques that are required for acquiring and retaining a job.
-11779,Support Groups-Addictions,"Self-help groups, usually 12-Step programs, that provide emotional support and guidance for persons with any kind of addiction problem."
-11780,Support Groups-Substance Abuse,"Self-help groups, usually 12-Step programs, that provide emotional support and guidance for persons with a substance abuse problem."
-11781,Support Groups-Bereavement,Self-help groups that provide emotional support and guidance for people who have lost a loved one.
-11782,Support Groups-Caregivers,"Self-help groups that provide emotional support and guidance to persons who assume responsibility for attending to the daily needs of individuals with temporary or permanent conditions, such as Alzheimer's and mental illness."
-11783,"Support Groups-Gay, Lesbian","Self-help groups that provide emotional support and guidance to gays, lesbians and/or their families and friends."
-11784,Support Groups-Mental Illness,Self-help groups that provide emotional support and guidance for persons who have a mental illness and/or their families and friends.
-11785,Support Groups-Adolescents,Groups of teenagers who meet on a regular basis to discuss common issues and provide emotional to one another.
-11786,Support Groups-Women,Self-help groups that provide emotional support and guidance to women.
-11787,Support Groups-Senior Citizens,Self-help groups that provide emotional support and guidance to senior citizens. May also offer social and educational information.
-11788,Support Groups-Parents,Self-help groups that provide emotional support and guidance to parents and allow them to speak freely about their children and/or their children's problems or health conditions.
-11789,Adult Protective Services,"Programs that provide assistance to adults who are unable to act for themselves and who are in a dangerous or harmful environment due to physical or emotional abuse, unsafe living conditions, exploitation, neglect or abandonment."
-11790,"Abused, Neglected Children","Individuals aged 17 and younger who have been subjected to a persistent pattern of violence and/or neglect which may include emotional, physical abuse or corporal punishment that results in a traumatic condition, physical neglect and/or inadequate supervision and/or sexual exploitation or abuse which is perpetrated by the adults responsible for their care, siblings or other family members."
-11791,Support Groups-Sexual Assault,Self-help groups that provide emotional support and guidance for persons who have been sexually assaulted or raped.
-11792,Support Groups-Domestic Violen,Self-help groups that provide emotional support and guidance to persons who are the victims of domestic violence.
-11793,Child Protective Services,"Programs that investigate reports of physical, emotional or sexual abuse and, if warranted, arrange for alternative living arrangements for individuals under the age of 18."
-11794,Case Management-Abused Adults,"Programs that develop plans for the evaluation, treatment and/or care of abused adults who cannot arrange these services for themselves."
-11795,Case Management-Homeless,"Programs that develop plans for the evaluation, treatment and/or care of homeless persons who cannot arrange for these services themselves."
-11796,"Case Management-AIDS, HIV","Programs that develop plans for the evaluation, treatment and/or care of persons with AIDS/HIV who cannot arrange these services for themselves."
-11797,Case Management-Dvp. Disabled,"Programs that develop plans for the evaluation, treatment and/or care of developmentally disabled persons who cannot arrange for these services themselves."
-11798,Case Management-Youth,"Programs that develop plans for the evaluation, treatment and/or care for youth who cannot arrange these services for themselves."
-11799,Case Management-Senior Citizen,"Programs that develop plans for the evaluation, treatment and care of senior citizens who cannot arrange for these services themselves."
-11800,Case Management-Mentally Ill,"Programs that develop plans for the evaluation, treatment and/or care of mentally ill persons who cannot arrange for services themselves."
-11801,Case Management-At Risk Family,"Programs that develop plans for the evaluation, treatment, and/or care of at-risk families who cannot, for some reason, arrange for these services themselves."
-11802,Case Management-Pregnant Women,Programs that arrange for support services for pregnant women who cannot arrange for these services themselves.
-11803,Tutorial Services-Youth,"Programs that provide instruction to youth, individually or in small groups, who need assistance in learning one or more components of a prescribed curriculum."
-11804,Tutorial Services-Adults,Programs that provide instruction to adults or small groups of adults who need assistance in learning one or more components of a prescribed curriculum.
-11805,Tutorial Svcs-Lrng.Disab.Adult,Programs that provide instruction to adults or small groups of adults who have learning difficulties and need assistance in learning one or more components of a prescribed curriculum.
-11806,Tutorial Svcs-Lrng.Disab.Child,Programs that provide instructional assistance to children or small groups of children who have learning difficulties need assistance in learning one or more components of a prescribed curriculum.
-11807,"Housing, Supervised-Seniors",Programs that offer staff supervised housing in a group setting for senior citizens.
-11808,"Housing, Supervised-Mental Ill",Programs that offer staff supervised housing in a group setting for persons with mental illness.
-11809,"Housing, Supervised-Dvp.Disabl",Programs that offer staff supervised housing in a group setting for developmentally disabled persons.
-11810,"Housing, Supervised-Phys.Disab",Programs that offer staff supervised housing in a group setting for physically disabled persons.
-11811,"Housing, Supervised-Veterans","Residential care for veterans who can perform basic activities of daily living, such as bathing, but require help with instrumental activities, such as medication management."
-11812,"Housing, Supervised-ExOffender",Programs that offer housing in a group setting for ex-offenders.
-11813,"Housing, Supervised-Preg.Women",Programs that offer housing in a group setting for pregnant women.
-11814,"Housing, Supervised-Youth",Programs that offer staff supervised housing in a group setting for children or adolescents.
-11815,"Housing, Supervised-Subs.Ab.Hx",Programs that offer housing in a group setting for substance abusers.
-11816,Camps-Day,Programs that provide recreational activities for groups in an outdoor setting during the day. Usually for adolescents or children.
-11817,Camps-Overnight,Programs that allow for the experience of living out of doors and have participants of the program live on the site of the program for a short amount of time with the rest of the group.
-11818,Camps-Special Needs,"Programs that provide a cooperative living experience outdoors and have facilities and staff to meet the special needs of campers who have developmental disabilities, medical conditions, mental illness or any other problem that requires special attention."
-11819,Support Groups-Health Conditio,Self-help groups that provide emotional support and guidance for individuals who have a health problem and/or their families and friends.
-11820,Support Groups-Incest,"Self-help groups that provide emotional support and guidance for persons who had been subjected to sexual abuse by a parent, a guardian or other family member."
-11821,Support Groups-Crime Victims,Self-help groups that provide emotional support and guidance to individuals and families who are dealing with their feelings of being victims of crime.
-11822,Case Management-Medical Soc Wk,Programs that arrange support services for patients in the hospital or hospice or who have recently left the hospital and their families or persons whose medical condition prevents them from arranging these services for themselves.
-11823,Financial Assistance-DevpDisab,Programs that provide on-going or limited monetary funds to developmentally disabled persons who lack the financial resources necessary to meet certain needs.
-11824,Financial Assistance-Health Co,Programs that provide on-going or limited monetary funds to medically ill persons who lack the financial resources necessary to meet certain needs.
-11825,Tourist Information,"Tourist bureaus, information centers and other community organizations that make available information about local points of interest,  cultural events, recreational activities, hotels, restaurants, medical and dental services and other community resources."
-11826,"Legal Services-AIDS, HIV",Programs that provide AIDS or HIV infected persons with legal guidance and/or representation.
-11827,Legal Services-Benefits,"Programs that provide legal guidance and/or representation in the areas of public benefits, such as SSI or welfare."
-11828,Legal Services-Child Support,Programs that provide legal guidance and/or representation in the area of child support payment request and enforcement.
-11829,Legal Services-Civil Rights,Programs that provide legal guidance and/or representation in the area of civil rights.
-11830,Legal Services-Consumer,Programs that provide legal guidance and/or representation in the area of consumer rights.
-11831,Legal Services-Criminal,Programs that provide legal guidance and/or representation to persons who have been charged with an offense.
-11832,Legal Services-Disabled,Programs that provide disabled persons with legal guidance and/or representation in areas of law relating to their disability.
-11833,Legal Services-Discrimination,Programs that provide legal guidance and/or representation in the area of discrimination.
-11834,Legal Services-Domestic Viol.,Programs that provide legal guidance and/or representation to persons who have been victims of domestic violence.
-11835,Legal Services-Family Law,Programs that provide legal guidance and/or representation in the area of family law.
-11836,Legal Services-Homeless,Programs that provide legal guidance and/or representation to homeless persons or in the area of homelessness.
-11837,Legal Services-Immigrants,Programs that provide legal guidance and/or representation to immigrants or in the area of immigration.
-11838,Legal Services-Juveniles,Programs that provide legal guidance and/or representation to juveniles.
-11839,"Legal Services-Landlord, Tenant",Programs that provide legal guidance and/or representation in the area of landlord/tenant disputes.
-11840,Legal Services-Lawyer Referral,Programs that refer individuals to local attorneys that specialize in the desired area of law.
-11841,Legal Services-Low Income,Programs that provide legal guidance and/or representation to low-income persons.
-11842,"Legal Services-Offenders, Ex",Programs that provide legal guidance and/or representation to offenders and ex-offenders.
-11843,Legal Services-Senior Citizens,Programs that provide legal guidance and/or representation to senior citizens.
-11844,Legal Services-Victims,Programs that provide legal guidance and/or representation to victims of crime or abuse.
-11845,Legal Services-Wage Disputes,Programs that provide legal guidance and/or representation in the area of wage dispute.
-11846,Legal Services-Women,Programs that provide legal guidance and/or representation to women or in the area of women's issues.
-11847,Legal Services-Organizations,Programs that provide legal guidance and/or representation to organizations or in the area of organizational law.
-11848,Alcohol Abusers,"Disease characterized by excessive, compulsive use of alcoholic drinks."
-11849,Support Groups-Devp.DisablFam.,Self-help groups that provide emotional support and guidance for families of persons who have a developmental disability.
-11850,Case Management-Delinqt. Youth,"Programs that develop plans for the evaluation, treatment and/or care of delinquent youth who cannot arrange services for themselves."
-11851,Cerebral Palsy,"A nonprogressive paralysis that is caused by developmental defects in the brain or trauma at birth that results in loss of muscular control, spasms, weakness and speech problems."
-11852,Counseling-Youth,"Programs that specialize in the treatment of adolescents, ages 12-17, who have adjustment, behavior or emotional problems."
-11853,Advocacy-Mentally Ill,Programs which intercede on behalf of persons with a mental illness to ensure that their rights are upheld or that they receive benefits which are due them.
-11854,Case Management-Phys. Disabled,"Programs that develop plans for the evaluation, treatment and/or care of physically disabled persons who cannot arrange for these services themselves."
-11855,Case Management-Infants,"Programs that develop plans for the evaluation, treatment and/or care for infants whose families cannot arrange for these services themselves."
-11856,Telephone Reassurance-Seniors,Programs that keep in contact on a regular basis with elderly or disabled persons to make sure they are in good health and are safe.
-11857,Telephone Reassurance-Ment.Ill,Programs that establish immediate telephone communication between people who are emotionally distressed and individuals who have been trained to provide telephone assistance with the objective of diffusing the immediate crisis.
-11858,Telephone Reassurance-Phys.Dis,"Programs that provide electric equipment which connects frail elderly individuals or people who have disabilities with participating hospitals, paramedics or other sources of emergency assistance."
-11859,Telephone Reassurance-Youth,Programs that provide a hotline or warmline that youngsters who are unsupervised in the home can call if they have questions or concerns about their current situation.
-11860,Emergency Shelter-Men,Programs that provide a temporary place for homeless men to reside while they look for more permanent housing.
-11861,Speakers Bureau,Programs that maintain lists of or provide individuals who are willing to make speeches and presentations on a given topic to groups of people.
-11862,Ostomy,An artificially made opening used as an exit from the bowel or intestines to the outside of the body.
-11863,Transitional Housing-Men,Programs that provide extended shelter (longer than 2 weeks) for single homeless men who are willing to participate in developing a plan towards independent living.
-11864,"Information, Referral-Dom.Viole",Programs which maintain information about domestic violence resources in the community and link people who need assistance with appropriate service providers.
-11865,"Information, Referral-Parents",Programs which maintain information about human services in the community and link parents who need assistance with appropriate service providers.
-11866,"Information, Referral-Veterans",Programs which maintain information about human services in the community and link veterans who need assistance with appropriate service providers.
-11867,"Information, Referral-Health Co",Programs which maintain information about health services in the community and link people who need assistance with appropriate service providers.
-11868,"Information, Referral-Military",Programs which maintain information about human services in the community and military personnel who need assistance with appropriate service providers.
-11869,"Information, Referral-Senior Ci",Programs which maintain information about human services in the community and link senior citizens who need assistance with appropriate service providers.
-11870,"Information, Referral-Dev.Disab",Programs which maintain information about human services in the community and link developmentally disabled people who need assistance with appropriate service providers.
-11871,"Information, Referral-Phys.Disa",Programs which maintain information about human services in the community and link physically disabled people who need assistance with appropriate service providers.
-11872,"Information, Referral-Sex.Assau",Programs which maintain information about human services in the community and link sexual assault victims who need assistance with appropriate service providers.
-11873,Grandparents,Programs that provide special services and/or support for grandparents.
-11874,"Information, Referral-Subs.Abus",Programs which maintain information about human services in the community and link substance abusers who need assistance with appropriate service providers.
-11875,"Information, Referral-Youth",Programs which maintain information about human services in the community and young people who need assistance with appropriate service providers.
-11876,"Information, Referral-Ment.Illn",Programs which maintain information about human services in the community and link mentally ill people who need assistance with appropriate service providers.
-11877,"Information, Referral-Gay, Lesbi",Programs which maintain information about human services in the community and link gays and lesbians who need assistance with appropriate service providers.
-11878,"Information, Referral-Homeless",Programs which maintain information about human services in the community and link homeless people who need assistance with appropriate service providers.
-11879,"Information, Referral-Consumers",Programs which maintain information about consumer services in the community and link people who need assistance with appropriate service providers.
-11880,"Information, Referral-Victims",Programs which maintain information about human services in the community and link victims who need assistance with appropriate service providers.
-11881,"Information, Referral-Survivors",Programs which maintain information about human services in the community and link survivors who need assistance with appropriate service providers.
-11882,"Information, Referral-Afr.Ameri",Programs which maintain information about human services in the community and link Afrincan Americans who need assistance with appropriate service providers.
-11883,"Information, Referral-Vis.Impai",Programs which maintain information about human services in the community and link visually impaired people who need assistance with appropriate service providers.
-11884,"Information, Referral-Comm., Soc",Programs which maintain information about human services in the community and link people who need assistance with appropriate service providers.
-11885,"Information, Referral-Homeowner",Programs which maintain information about human services in the community and link homeowners who need assistance with appropriate service providers.
-11886,"Information, Referral-Volunteer",Programs which maintain information about human services in the community and link volunteers to volunteer opportunities..
-11887,"Information, Referral-Women",Programs which maintain information about human services in the community and link women who need assistance with appropriate service providers.
-11888,"Information, Referral-Children",Programs which maintain information about children's services in the community and link people who need assistance with appropriate service providers.
-11889,"Information, Referral-Nurs.Home",Programs which maintain information about nursing home services in the community and link people who need assistance with appropriate service providers.
-11890,"Information, Referral-Jewish",Programs which maintain information about human services in the community and link Jewish people who need assistance with appropriate service providers.
-11891,Recreation-Senior Citizens,"Programs that provide activities, sports or games for older adults."
-11892,Recreation-Adult,"Programs that provide activities, sports or games for persons aged 18 and older."
-11893,Recreation-Youth,"Programs that provide activities, games or sports for children or adolescents."
-11894,Recreation-Developmentally Dis,"Programs that provide activities, sports or games for persons with neurological impairments."
-11895,Recreation-Jewish Community,"Programs that provide activities, sports or games for persons who practice Judaism."
-11896,Recreation-Visually Impaired,"Programs that provide activities, sports or games for persons with a visual impairment."
-11897,Recreation-Veterans,"Programs that provide activities, sports or games for persons who were formerly in any branch of the military."
-11898,Recreation-Native Americans,"Programs that provide activities, games or sports for Native Americans."
-11899,"Recreation-Gay, Lesbian","Programs that provide activities, sports or games for gays and/or lesbians."
-11900,Recreation-Mentally Ill,"Programs that provide activities, sports or games for persons with significant emotional or behavioral problems."
-11901,"Recreation-Parent, Child","Programs that provide activities, games or sports for parents and their children together."
-11902,Recreation-Physically Disabled,"Programs that provide activities, sports or games for persons with physical limitations."
-11903,"Information, Referral-Jobs",Programs which maintain information about vocational services in the community and link people who need assistance with appropriate service providers.
-11904,"Information, Referral-Renters",Programs which maintain information about human services in the community and link renters who need assistance with appropriate service providers.
-11905,"Information, Referral-Dev.Delay",Programs which maintain information about human services in the community and link developmentally delayed people who need assistance with appropriate service providers.
-11906,"Information, Referral-Caregiver",Programs which maintain information about human services in the community and link caregivers who need assistance with appropriate service providers.
-11907,"Advocacy-Gay, Lesbian",Programs whose members work to pass and enforce legislation that protects and promotes the rights and interests of individuals who are gay or lesbian.
-11908,Outreach Programs-Mentally Ill,Programs that increase the availability and utilization of community services geared toward persons with behavioral or emotional disorders.
-11909,Outreach Programs-Homeless,Programs that increase the availability and utilization of community services geared toward persons who are homeless.
-11910,Outreach Programs-Health Condi,Programs that increase the availability and utilization of community services geared toward persons with acute or chronic illnesses.
-11911,"Outreach Programs-Delinq., CINS",Programs that increase the availability and utilization of community services geared toward persons under aged 19 who have violated laws or whose conduct is indecent or inappropriate.
-11912,Outreach Programs-Low Income,Programs that increase the availability and utilization of community services for persons whose annual income is near or below the poverty level.
-11913,Outreach Programs-Pregnant Wom,Programs that increase the availability and utilization of community services geared toward pregnant women.
-11914,Outreach Programs-Youth,Programs that increase the availability and utilization of community services that are geared toward children and teens.
-11915,Outreach Programs-Veterans,Programs that increase the availability and utilization of community services that assist persons who have served in the military.
-11916,"Outreach Programs-Infants, Todd",Programs that increase the availability and utilization of community services geared toward children from birth to age three.
-11917,Outreach Programs-At-Risk Fami,Programs that increase the availability and utilization of in-home and community services geared towards at-risk families.
-11918,Case Management-Immigrants,Programs that arrange support services for immigrants who cannot arrange for these services themselves.
-11919,Counseling-Family,Therapeutic programs that focus on relationships and communication within the familial structure.
-11920,"Counseling-Couples, Marital",Programs that offer therapeutic sessions to help two individuals who are having problems with their interpersonal relationship.
-11921,Counseling-Domestic Violence,"Programs that provide individual, conjoint, family or group treatment for persons who are being physically, sexually or emotionally abused by their mate."
-11922,Counseling-Homeless,Programs that provide emotional support and guidance for persons who have no housing.
-11923,Counseling-Developmen.Disabled,"Programs that provide emotional support, advice and guidance for persons with mental retardation, cerebral palsy, epilepsy, autism or other neurological disorders."
-11924,Counseling-Mentally Ill,Programs that specialize in the treatment of individuals who have identified mental or emotional disorders.
-11925,Counseling-Health Conditions,"Programs that provide emotional support and information and guidance to persons who are suffering from an illness, including illnesses that may be terminal."
-11926,"Counseling-Delinquent, CINS","Programs that provide individual, family and group counseling for children and teens who are at risk for or have committed delinquent acts. May be court ordered."
-11927,Counseling-Military,"Programs that provide guidance and information on military life, services and outplacement assistance."
-11928,Counseling-Substance Abuse,"Programs that provide individual, group or family therapy for individuals who abuse substances of any kind."
-11929,Counseling-Hispanic,Programs that provide emotional support and guidance for individuals of Spanish or Latin American descent.
-11930,Counseling-Visually Impaired,Programs that provide emotional support and guidance for persons with eye or optic verve impairments.
-11931,Counseling-Veterans,Programs that provide emotional support and guidance for veterans who have emotional problems relating to experiences they had while in service.
-11932,Counseling-Senior Citizens,"Programs that provide emotional support and guidance for older adults who are having emotional, mental or social adjustment problems."
-11933,"Information, Referral-Union Mem",Programs which maintain information about human services in the community and link union members who need assistance with appropriate service providers.
-11934,"Information, Referral-Hear.Impa",Programs which maintain information about human services in the community and link hearing impaired people who need assistance with appropriate service providers.
-11935,"Information, Referral-Preg.Wome",Programs which maintain information about human services in the community and link pregnant women who need assistance with appropriate service providers.
-11936,"Information, Referral-Education",Programs which maintain information about educational services in the community and link people who need assistance with appropriate service providers.
-11937,"Information, Referral-AtRiskFam",Programs which maintain information about human services in the community and link at-risk families who need assistance with appropriate service providers.
-11938,"Information, Referral-Immigrant",Programs which maintain information about human services in the community and link immigrants who need assistance with appropriate service providers.
-11939,"Information, Referral-Hispanic",Programs which maintain information about human services in the community and link Hispanic people who need assistance with appropriate service providers.
-11940,"Information, Referral-Learn.Dis",Programs which maintain information about human services in the community and link learning disabled people who need assistance with appropriate service providers.
-11941,"Information, Referral-Offenders",Programs which maintain information about human services in the community and link offenders who need assistance with appropriate service providers.
-11942,"Emergency Shelter-Offenders, Ex",Programs that provide a temporary place for offenders or ex-offenders to reside while they look for more permanent housing.
-11943,Emergency Shelter-Women,Programs that provide a temporary place for homeless women to reside while they look for more permanent housing
-11944,Emergency Shelter-2 Parent Fam,Programs that provide a temporary place for homeless two parent families to reside while they look for more permanent housing.
-11945,"Emergency Shelter-Child, Youth",Programs that provide a temporary place for children to reside until more suitable housing accommodations can be made.
-11946,"Emergency Shelter-WomenW, Child",Programs that provide a temporary place for homeless women and their children to reside while they look for more permanent housing.
-11947,"Emergency Shelter-Men W, Child",Programs that provide a temporary place for homeless men and their children to reside while they look for more permanent housing.
-11948,Transportation-Senior Citizens,"Programs that provide door-to-door transportation for the purposes of shopping, appointments, and social events for senior citizens who need special accommodations."
-11949,"Transportation-AIDS, HIV",Programs that provide nonemergency transportation for persons with AIDS or who are  HIV+.
-11950,Transportation-Cancer Patients,Programs that provide nonemergency transportation for individuals with cancer.
-11951,Transportation-Phys. Disabled,"Programs that provide door-to-door transportation for the purposes of shopping, appointments, and social events for physically disabled people who need special accommodations."
-11952,Transportation-Mentally Ill,"Programs that provide door-to-door transportation for the purposes of shopping, appointments, and social events for mentally ill people who need special accommodations."
-11953,Transportation-Low Income,"Programs that provide door-to-door transportation for purposes of shopping, medical and welfare appointments for very low-income persons who otherwise would have no means of transportation."
-11954,Transportation-Veterans,Programs that provide transportation to veterans to and from medical appointments.
-11955,Health Care-Women,Programs that provide comprehensive diagnostic and treatment services which focus on conditions that are typically seen in women.
-11956,Substance Abuse-Women,Programs that cater to women with substance abuse problems.
-11957,Recreation-Patient,"Programs that provide activities, sports or games for persons who are receiving medical care."
-11958,Transitional Housing-Women,Programs that provide extended shelter (longer than 2 weeks) for single homeless women who are willing to participate in developing a plan towards independent living.
-11959,"Transitional Housing-WomenW, Ch",Programs that provide extended shelter (longer than 2 weeks) for homeless women with children who are willing to participate in developing a plan towards independent living.
-11960,Transitional Housing-2-Par.Fam,"Programs that provide extended shelter (longer than 2 weeks) for homeless mothers, fathers and their children who are willing to participate in developing a plan towards independent living."
-11961,"Transitional Housing-Men w, Chd",Programs that provide extended shelter (longer than 2 weeks) for homeless men with children who are willing to participate in developing a plan towards independent living.
-11962,Transitional Housing-Youth,Programs that provide extended shelter (longer than 2 weeks) for youth who are unable to live in their own homes and have no other housing arrangements.
-11963,Transitional Housing-Dom.Viole,Programs that provide extended shelter (longer than 2 weeks) for persons who have been victims of domestic violence.
-11964,Transitional Housing-Ex-Offend,Programs that provide extended shelter (longer than 2 weeks) for persons who have recently been released from an incarceration and who are willing to participate in developing a plan towards independent living.
-11965,Transitional Housing-Preg.Wome,Programs that provide extended shelter (longer than 2 weeks) for pregnant women who are willing to participate in developing a plan towards independent living.
-11966,Transitional Housing-Veterans,Programs that provide extended shelter (longer than 2 weeks) for veterans who are willing to participate in developing a plan towards independent living.
-11967,Transitional Housing-Mental Il,Programs that provide extended shelter (longer than 2 weeks) for homeless mentally ill persons who are willing to participate in developing a plan towards independent living.
-11968,"Washington, D.C. Resources","Programs that serve persons who live or work in Washington, D.C."
-11969,Crisis Intervention-Mental Ill,Programs that offer immediate assistance to mentally ill persons in acute emotional distress or a life threatening situation.
-11970,Crisis Intervention-Youth,Programs that offer immediate assistance to children or adolescents in acute emotional distress or a life-threatening situation.
-11971,Crisis Intervention-At RiskFam,Programs that offer immediate assistance to at-risk families in acute distress or crisis.
-11972,Crisis Intervention-Subs.Abuse,Programs that offer immediate assistance to substance abusers who are in acute distress or a life threatening situation.
-11973,"Crisis Intervention-Rape, SexAs",Programs that offer immediate assistance to persons who have been raped or sexually assaulted and are in acute emotional or medical distress.
-11974,Municipal Services,"Programs that are responsible for the development and upkeep of the urban environment, such as highway and street maintenance, waste management and other public works."
-11975,"Education-Elementary, Secondary",Programs that provide a graded system of learning in a formal school setting for children ages 5-18.
-11976,"Education-Adults, Post High Sch",Programs that provide opportunites for adults who are beyond school age.
-11977,Driver Education,Programs that provide instruction for individuals who want to learn to drive a motor vehicle.
-11978,Education-African Americans,Schools or classes outside the regular school system that teach African-Americans about their cultural heritage.
-11979,Education-Native Americans,Schools or classes outside of the traditional education environment that teach Native Americans about their cultural heritage.
-11980,Education-Pregnant Teens,Programs that use a high school curriculum and that provide opportunities for pregnant teens and teen parents to complete their high school education.
-11981,Education-At Risk Youth,Programs that provide a school setting for children who are at risk due to economic or environmental conditions.
-11982,Job Readiness-Displaced Worker,Programs that provide individual or group training for displace workers who want to learn the behaviors and techniques that are required for acquiring and retaining a job.
-11983,"Information, Referral-Low Incom",Programs which maintain information about human services in the community and link low-income people who need assistance with appropriate service providers.
-11984,Advocacy-Senior Citizens,Programs whose members work to pass and enforce laws and other social measures that protect and promote the rights and interests of older adults.
-11985,Advocacy-Health Conditions,Programs that work for legislative solutions to problems or which intercede on behalf of patients to ensure that their rights are upheld or that they receive benefits which are due them.
-11986,Advocacy-Workers,Programs which intercede on behalf of workers to ensure that their rights are upheld or that they receive benefits which are due them.
-11987,Advocacy-Homeless,Programs that work for legislative solutions to problems or which intercede on behalf of homeless persons to ensure that their rights are upheld or that they receive benefits which are due them.
-11988,Advocacy-Low Income,Programs that work for legislative solutions to problems or which intercede on behalf of low-income persons to ensure that their rights are upheld or that they receive benefits which are due them.
-11989,Advocacy-Developmentally Disab,Programs which intercede on behalf of persons with developmental disabilities to ensure that their rights are upheld or that they receive benefits which are due them.
-11990,Advocacy-Hearing Impaired,Programs which intercede on behalf of hearing impaired persons to ensure that their rights are upheld or that they receive benefits which are due them.
-11991,Advocacy-African Americans,Programs whose members work together to pass and enforce laws and other social measures that protect the rights and interests of African-Americans.
-11992,"Advocacy-Hispanic, Latino",Programs whose members work together to pass and enforce laws and other social measures that protect the rights and interests of Spanish or Latin Americans.
-11993,Advocacy-Veterans,Programs which intercede on behalf of veterans to ensure that their rights are upheld or that they receive benefits which are due them.
-11994,Advocacy-Visually Impaired,Programs which intercede on behalf of visually impaired persons to ensure that their rights are upheld or that they receive benefits which are due them.
-11995,Advocacy-Immigrants,Organizations whose members have joined together to support the passage and enforcement of laws and other social measures which protect the rights of Immigrants.
-11996,Advocacy-Jewish Community,Organizations whose members have joined together to support the passage of laws and other social measures that protect and promote people who practice Judaism.
-11997,Advocacy-Learning Disabled,Programs which intercede on behalf of learning disabled persons to ensure that their rights are upheld or that they receive benefits which are due them.
-11998,Advocacy-Consumers,Programs whose members work to promote legislation that will provide more effective protection for consumers and encourage the investigation of specific cases in which consumer rights seem to be violated.
-11999,Advocacy-Women,Programs whose members work to pass and enforce laws and other social measures that protect and promote the rights and interests of women.
-12000,Advocacy-Youth,Organizations whose members work to pass and enforce laws that protect children and adolescents from all forms of mistreatment and who promote institutions that strengthen the well being of minors.
-12001,Advocacy-Crime Victims,Programs which intercede on behalf of crime victims to ensure that their rights are upheld or that they receive benefits which are due them.
-12002,Cult Victim Support,"Programs that provide support and guidance to those persons and/or their families, who have joined a cult and need assistance to leave."
-12003,Advocacy-Minorities,Programs whose members work together to pass and enforce laws and other social measures that protect the rights and interests of minorities.
-12004,Advocacy-Physically Disabled,Programs which intercede on behalf of persons with a physical disability to ensure that their rights are upheld or that they receive benefits which are due them.
-12005,Advocacy-Asians,Programs whose members work together to pass and enforce laws and other social measures that protect the rights and interests of Asian Americans.
-12006,Fuel Fund,A special program that assists income eligible persons with a portion of the cost of heating bills or heating fuel.
-12007,Counseling-Bereavement,"Programs that provide emotional support, problem-solving assistance, information and guidance for persons who have recently lost a loved one."
-12008,Spina Bifida,A congenital defect in the walls of the spinal canal. The membranes of the spinal cord are pushed between the vertebrae forming a spina bifida tumor.
-12009,Transportation-Homeless,"Programs that provide nonemergency transportation to homeless persons for shelters or job interviews, etc."
-12010,Transportation-Open To Public,"General transportation, including public transportation, available to anyone."
-12011,GED Test Sites,Programs that administer a series of tests necessary for adults and/or eligible minors to obtain a high school equivalency certificate.
-12012,"Psych, Psycho. Eval-Youth",Programs that utilize a variety of means to evaluate the mental or emotional status or functioning of children or adolescents who may be experiencing acute or chronic disturbances.
-12013,"Psych, Psycho. Eval-Geriatric",Programs that utilize a variety of means to evaluate the mental or emotional status or functioning of senior citizens who may be experiencing acute or chronic disturbances.
-12014,"Psych, Psycho. Eval-Adult",Programs that utilize a variety of means to evaluate the mental or emotional status or function of adults who may be experiencing acute or chronic disturbances.
-12015,"Psych, Psycho.  Eval-Homeless",Programs that utilize a variety of means to evaluate the mental or emotional status or functioning of homeless people who may be experiencing acute or chronic disturbances.
-12016,"Psych, Psycho. Eval-Veterans",Programs that utilize a variety of means to evaluate the mental or emotional status or functioning of veterans who may be experiencing acute or chronic disturbances.
-12017,"Psych, Psycho. Eval-HIV, AIDS",Programs that utilize a variety of means to evaluate the mental or emotional status or functioning of people with AIDS or HIV who may be experiencing acute or chronic disturbances.
-12018,Developmental Evaluations,"Programs that screen infants, children and occasionally adults to determine if they are developing physically, emotionally, or mentally at what is considered a normal rate."
-12019,Huntingtons Disease,An inherited disease of the central nervous system characterized by progressive dementia with involuntary muscular twitching of the limbs or facial muscles. Onset is usually age thirty to fifty.
-12020,Job Training-Devp. Disabled,Programs that prepare developmentally disabled people for specific employment opportunities by providing instruction or experience in utilizing the skills required for specific job-related tasks.
-12021,Job Training-Hearing Impaired,Programs that prepare hearing impaired people for specific employment opportunities by providing instruction or experience in utilizing the skills required for specific job-related tasks.
-12022,Job Training-Homeless,Programs that prepare homeless people for specific employment opportunities by providing instruction or experience in utilizing the skills required for specific job-related tasks.
-12023,Job Training-Immigrants,Programs that prepare immigrants for specific employment opportunities by providing instruction or experience in utilizing the skills required for specific job-related tasks.
-12024,Job Training-Low Income,Programs that prepare low-income people for specific employment opportunities by providing instruction or experience in utilizing the skills required for specific job-related tasks.
-12025,Job Training-Ex-Offenders,Programs that prepare ex-offenders for specific employment opportunities by providing instruction or experience in utilizing the skills required for specific job-related tasks.
-12026,Job Training-Phys. Disabled,Programs that prepare physically disabled people for specific employment opportunities by providing instruction or experience in utilizing the skills required for specific job-related tasks.
-12027,Job Training-Mentally Ill,Programs that prepare menatlly ill people for specific employment opportunities by providing instruction or experience in utilizing the skills required for specific job-related tasks.
-12028,Job Training-Senior Citizens,Programs that prepare senior citizens for specific employment opportunities by providing instruction or experience in utilizing the skills required for specific job-related tasks.
-12029,"Job Training-Military, Veterans",Programs that prepare military personnel and veterans for specific employment opportunities by providing instruction or experience in utilizing the skills required for specific job-related tasks.
-12030,Job Training-Visually Impaired,Programs that prepare visually impaired people for specific employment opportunities by providing instruction or experience in utilizing the skills required for specific job-related tasks.
-12031,Job Training-Women,Programs that prepare women for specific employment opportunities by providing instruction or experience in utilizing the skills required for specific job-related tasks.
-12032,Job Training-Youth,Programs that prepare young people for specific employment opportunities by providing instruction or experience in utilizing the skills required for specific job-related tasks.
-12033,"Job Search, Placement-Dev. Disa",Programs that maintain listings of available employment opportunities and place developmentally disabled people in appropriate job positions.
-12034,"Job Search, Placement-Hear. Imp",Programs that maintain listings of available employment opportunities and place hearing impaired people in appropriate job positions.
-12035,"Job Search, Placement-Homeless",Programs that maintain listings of available employment opportunities and place homeless people in appropriate job positions.
-12036,"Job Search, Placement-Immigrant",Programs that maintain listings of available employment opportunities and place immigrants in appropriate job positions.
-12037,"Job Search, Placement-Low Incom",Programs that maintain listings of available employment opportunities and place low-income people in appropriate job positions.
-12038,"Job Search, Placement-Ex-Offend",Programs that maintain listings of available employment opportunities and places ex-offenders in appropriate job positions.
-12039,"Job Search, Placement-Phys.Disa",Programs that maintain listings of available employment opportunities and place physically disabled people in appropriate job positions.
-12040,"Job Search, Placement-Ment.Ill.",Programs that maintain listings of available employment opportunities and place mentally ill people in appropriate job positions.
-12041,"Job Search, Placement-Senior Ci",Programs that maintain listings of available employment opportunities and place senior citizens in appropriate job positions.
-12042,"Job Search, Placement-Milt, Vet",Programs that maintain listings of available employment opportunities and place military personnel or veterans in appropriate job positions.
-12043,"Job Search, Placement-VisualImp",Programs that maintain listings of available employment opportunities and place visually impaired people in appropriate job positions.
-12044,"Job Search, Placement-Women",Programs that maintain listings of available employment opportunities and place women in appropriate job positions.
-12045,"Job Search, Placement-Youth",Programs that maintain listings of available employment opportunities and place young people in appropriate job positions.
-12046,Family Reunification,Programs that work with families who have an open child abuse case or families identified as being at risk for child abuse or neglect. The objective is to have the child remain in the home or to return home.
-12047,"Job Search, Placement-Gen.Publi",Programs that maintain listings of available employment opportunities and place people in appropriate job positions.
-12048,"Counseling-Pastoral, Spiritual","Programs that provide support and guidance, and assist persons in resolving their problems in the context of their religious beliefs."
-12049,Counseling-Women,Programs that provide emotional support and guidance for women and women's issues.
-12050,Training-Professionals,"Programs that offer training materials, packages or programs that are designed to increase the knowledge or skills of professionals who need training in delivery of human services or the operation of small businesses."
-12051,Training-General Public,Programs that offer programs designed to increase the knowledge or skills of the user.
-12052,Training-Volunteers,Programs that prepare persons who have chosen to work without pay on a certain task to do that task effectively.
-12053,Unemployment Insurance,Programs that provide partial income replacement for a limited period of time for eligible individuals who become unemployed.
-12054,Training-Caregivers,"Programs that provide training to care providers that focuses on such activities as medication management, personal care and making a safe home environment."
-12055,Training-Teens,"Any kind of program that provides educational, vocational or safety assistance geared toward adolescents."
-12056,Child Care,Programs that provide some kind of substitute parental care for children during some part of the day or night.
-12057,Headaches,The experience of pain in some region of the head.
-12058,Spinal Cord Injury,Trauma or damage to the spinal cord.
-12059,Gambling,"Programs that provide counseling, guidance and/or support to persons who have trouble controlling their compulsion to gamble."
-12060,Debt Management,"Programs that offer advice, guidance or legal assistance for people who are having difficulty meeting their financial obligations and, as a result, are faced with bankruptcy or loss of their homes or property."
-12061,Ileostomy,A surgical procedure done to permit the drainage of fecal material through the abdominal wall into a bag worn outside the abdomen.
-12062,Job Training-Displaced Workers,Programs that prepare displaced workers for specific employment opportunities by providing instruction or experience in utilizing the skills required for specific job-related tasks.
-12063,"Job Search, Placement-Displaced",Programs that maintain listings of available employment opportunities and place displaced workers in appropriate job positions.
-12064,Job Readiness-General Public,Programs that provide individual or group training for people who want to learn the behaviors and techniques that are required for acquiring and retaining a job.
-12065,Job Training-General Public,Programs that prepare people for specific employment opportunities by providing instruction or experience in utilizing the skills required for specific job-related tasks.
-12066,Income Maintenance Programs,Programs that provide financial assistance in the form of cash grants or purchase of services for eligible low-income and indigent individuals and families.
-12067,Mental Retardation,A condition in which a person demonstrates significantly lower than average intelligence concurrently with adaptive behavior deficits which are manifested during the developmental period.
-12068,Eye Banks,Programs that collect and store eye tissue for use in transplant operations.
-12069,"Facial Disorders, Disfigurement",Any condition or disease that affects the facial structure and features.
-12070,Immunological Disorders,Diseases and conditions that arise as a result of malfunctioning immune systems.
-12071,Gun Control,Programs that establish and enforce laws which control the sale and/or use of hand guns or other dangerous firearms.
-12072,Medicaid,"A federally funded program administered by local DSS offices, which provides medical coverage for persons who have no other health insurance and who meet specific income and situational requirements."
-12073,"Mediation, Conflict Management","Programs that provide a neutral third person to listen to disputes, facilitate discussion and help the two parties come to their own settlement."
-12074,Leukemia,A disease where the Leukocytes (white blood cells) in the blood grow out of control.
-12075,Breast Cancer,"A condition where a malignancy is present in the breast tissue, usually as a lump or thickness."
-12076,Cervical Cancer,A condition where there is a malignancy of the tissue in the neck of the uterus.
-12077,Welfare Fraud Reporting,"Programs that provide hotlines which the public can use to anonymously report suspected cases of fraud involving TCA, MA, Food Stamps, SSI or other programs."
-12078,Obsessive-Compulsive Disorders,"Disorders characterized by recurrent, persistent thoughts and/or impulses which affect a person's behavior and often interfere with their ability to function in society."
-12079,Legislative Reference Services,Programs that provide background and research materials that are relevant to public policy issues for government agencies.
-12080,Poliomyelitis,An inflammation of the spinal cord which causes paralysis of the muscles connected to that area of the spinal cord.
-12081,Charcot-Marie Tooth Disease,A form of progressive neural muscular atrophy characterized by progressive weakness of the muscles of the arms and feet.
-12082,Lou Gehrigs Disease,"Amyotropic Lateral Sclerosis, characterized by muscular weakness and atrophy with increased action of the reflexes."
-12083,Amyotropic Lateral Sclerosis,"A syndrome known as Lou Gehrig's Disease that causes muscular weakness and atrophy and increased action of the reflexes due to degeneration of the motor neurons of the spinal cord, medulla and cortex."
-12084,Fibromyalgia,"An illness found more commonly in women than in men, which is characterized by common tender points, chronic pain and stiffness in the joints and surrounding muscles, and chronic fatigue."
-12085,Co-Dependents,Individuals whose  self-concepts and present relationships are affected by previous relationships with persons who engaged in some kind of addictive or dysfunctional behavior.
-12086,Infertility Services,Programs for persons whose condition is characterized by the inability or the diminished ability to produce offspring.
-12087,Tourette Syndrome,"A neurological movement disorder which begins when the individual is age two to sixteen and is characterized by rapidly repetitive muscular movements called ""tics""."
-12088,Missing Children,Programs that handle reports of children who have disappeared and/or which assist people who need to locate a child who has been reported as missing or with whom contact has been lost.
-12089,Depression,"Characterized by loss of interest or pleasure in usual activities, change in eating habits, change in sleep patterns, decreased energy, feelings of guilt or worthlessness, difficulty concentrating, and/or suicidal thoughts."
-12090,Tay-Sachs Disease,"An inherited disease characterized by mental and physical retardation, blindness, spasticity, convulsions, and enlargement of the head. High rate of occurrence among the Jewish community."
-12091,Dyslexia,A learning disability characterized by difficulty with written symbols.
-12092,"Drinking, Drug-Impaired Drivers",Programs that offer education and treatment to persons who have been found driving while under the influence of alcohol or drugs.
-12093,Allergies,Condition in which affected individuals have exaggerated or pathological reactions to substances that do not cause reactions in average individuals.
-12094,Osteoporosis,A condition where the bones become increasingly more fragile and brittle.
-12095,Work Permits,Programs that issue or assist individuals to obtain documentation that gives them official permission to work when they would not otherwise be authorized to do so.
-12096,Bipolar Disorder,A disorder that is marked by periods of severe or psychotic depression or excessive well-being alternating with periods of relative normalcy.
-12097,Alopecia,"A condition which causes hair loss, especially on the head, in defined patches."
-12098,Government Complaints,"Programs that assist persons wishing to register a complaint against the employees or practices of any local, county, state or federal government office."
-12099,Viatical Settlements,Compensation for people who are suffering a life threatening illness and who cash in their life insurance to pay for medical bills.
-12100,Narcolepsy,A condition causing recurring attacks of drowsiness or sleep over which the person has no control.
-12101,Sleep Apnea,A condition in which sleepers periodically stop breathing during sleep. The condition may be characterized by loud snoring punctuated by long pauses in breathing.
-12102,Workers Compensation,Provides compensation to covered employees for loss of their earnings due to accidental injury or occupational disease sustained during employment.
-12103,Asbestos Exposure,"Can cause Asbestosis, a condition characterized by inflammation or hardening of the lungs due to the inhalation of the asbestos particles."
-12104,Social Security Disability,"A federal program administered by the Social Security Administration that provides monthly cash benefits for disabled workers who are fully insured under the program, who are not capable of substantial gainful work and who have completed a five month waiting period."
-12105,Social Security Retirement,A program administered by the Social Security Administration that provides monthly cash payments (sometimes called old-age insurance benefits) for people age sixty-two and older who are fully insured.
-12106,Social Security Survivors,A program administered by the Social Security Administration that provides monthly cash benefits for the eligible survivors of workers covered under Social Security who have died.
-12107,Home Improvement Materials,Programs that donate and/or pay for home rehabilitation supplies.
-12108,Cystic Fibrosis,"An inherited disease that affects the pancreas, respiratory system and the sweat glands. Usually begins in infancy and is characterized by chronic respiratory infection, pancreatic insufficiency and heat intolerance."
-12109,Donor Services-Pick Up,"Organizations that will pick up furniture, household goods or clothing from persons who wish to donate their belongings."
-12110,Postabortion Counseling,Programs that provide support and guidance to women and their partners following the termination of a pregnancy.
-12111,Weatherization,"Programs that provide assistance to low-income persons in the form of labor and supplies for weather stripping, insulation, storm windows and other approved materials."
-12112,Senior Assisted Living Facil.,"Programs that provide housing in a group setting for seniors who need some assistance with mobility, medications and daily living tasks."
-12113,Kinship Care,Programs that place at-risk children in the homes of relatives when it is determined that they can no longer remain in their own homes.
-12114,Adult Foster Care,"Programs that provide alternative living arrangements for adults who cannot, for some reason, continue living in their existing conditions."
-12115,Baltimore City Resources,Programs serving persons living or working in Baltimore City.
-12116,Abortion Rights Groups,Groups dedicated to supporting legislation which upholds women's rights to pregnancy termination.
-12117,Telephone Bill Assistance,Programs that pay all or a portion of the telephone bills for people who cannot afford to make the payments.
-12118,Telephone Facilities,Programs that provide access to a telephone for homeless people or others who cannot afford to pay for the call.
-12119,"Telephone Connection, Repair","Companies that provide phone services and the installation, maintenance and repair of phone equipment."
-12120,Substance Abuse-Adolescents,Programs serving adolescents who have an alcohol or drug dependency or abuse problem.
-12121,Homeownership Counseling,"Programs that guide people through the home buying process by assisting with locating homes, improving credit and obtaining loans."
-12122,Hearing Screening,Programs that screen for hearing impairments.
-12123,ADA,Programs that offer information or technical assistance on the Americans with Disabilities Act.
-12124,Smoking Cessation,Programs that use a variety of techniques to assist persons in quitting smoking.
-12125,Apprenticeships,Programs in which an individual works with a skilled worker for a specified period of time to learn a craft or a trade.
-12126,Stress Management,Programs that help participants learn about the harmful effects of stress on the body and effective coping skills to reduce stress.
-12127,Counseling-Divorce,"Programs that provide emotional support and education to individuals or families experiencing a divorce, including support groups, counseling or educational classes."
-12128,HIV,"Persons who have tested positive for HIV antibodies, but who have not yet developed the symptoms associated with AIDS."
-12129,Breastfeeding,Programs that provide information and instruction on nursing infants.
-12130,Personal Care,"Programs that offer assistance with bathing, dressing, grooming, ambulation, feeding and toileting, housekeeping, and environmental support in the client's own home."
-12131,Home Modifications,Programs that assist persons with disabilities modify their homes to make them accessible.
-12132,Insulin,Programs that supply or pay toward the cost of insulin and/or syringes.
-12133,Dialysis,Programs that provide equipment to clean the blood of kidney patients.
-12134,Tuberculosis,"An infectious disease that attacks the respiratory system and is characterized by inflammatory infiltrations, formation of lesions, necrosis, abscesses, formation of scar tissue and calcification."
-12135,STDs,Any of a variety of diseases acquired as a result of sexual intercourse with an individual who is infected.
-12136,Pregnancy Testing,Programs that utilize laboratory procedures to determine whether an individual is pregnant.
-12137,Eyeglasses,Programs that supply corrective lenses for people who have defective but correctable vision.
-12138,Eviction Prevention,Programs that provide financial assistance to people who are at risk of being evicted. These programs usually contribute only a portion of the rent due.
-12139,Hearing Aids,"Programs that provide proper amplification equipment for individuals with impaired, but correctable hearing."
-12140,"Anxiety, Panic Disorders",Disorders that are marked by either recurrent anxiety attacks which involve the sudden onset of apprehension and fear and consequently feelings of doom or a persistent generalized feeling of anxiety.
-12141,Transportation-Medical,Programs that provide nonemergency transportation to persons in need of a way to get to a doctor's appointment or other medical function.
-12142,Multiple Birth Children,Persons who share their birth with one or more brothers or sisters.
-12143,Multiple Birth Parents,"Parents of twins, triplets, quadruplets or other multiple children born at the same time."
-12144,Lamaze Classes,Classes which prepare prospective mothers and their partners for childbirth without the use of medication by instructing them in the Lamaze breathing techniques and exercises.
-12145,"Bedding, Linens","Programs that provide sheets, blankets, pillow cases, bedspreads, towels and similar household items to persons who could not otherwise afford to purchase these items."
-12146,Domiciliary Care,"Residential care for persons who can perform basic activities of daily living, such as bathing, but require help with instrumental activities, such as managing medications."
-12147,Domiciliary Care-Veterans,"Residential care for veterans who can perform basic activities of daily living, such as bathing, but require help with instrumental activities, such as medication management."
-12148,Security Deposits,"Provides cash loans or grants to people who can handle their monthly rental payments, but do not have the assets for the first and last month's rent or security deposits necessary to move in."
-12149,Physical Therapy,Programs that use therapeutic methods to restore mobility to people who have been disabled by debilitating conditions.
-12150,Occupational Therapy,"Programs that devise treatment plans for physically or mentally disabled persons to develop their basic motor skills needed for self-care, work or leisure."
-12151,Speech Therapy,"Programs that offer group or individual therapy which focuses on articulation, pitch, stuttering or loudness of voice."
-12152,Urinalysis,"Programs that take urine specimens and analyze them to detect abnormalities, such as disease or drugs."
-12153,Sheltered Workshops,Programs that provide a controlled and protected working environment with employment activities and individualized goals for persons with disabilities so that they might eventually acquire long-term employment.
-12154,Displaced Homemakers,Women or men who are suddenly in the position of having to support themselves due to divorce or the death of a spouse.
-12155,Attendant Care,Programs that offer individuals who have been trained to provide assistance for people with disabilities who need help with day to day living in or outside their home.
-12156,Reader Services,Programs that provide reading services to persons with a visual impairment.
-12157,"Colleges, Universities","Postsecondary educational institutions, both public and private."
-12158,Loan Closet,"Programs that loan medical equipment/supplies, such as wheelchairs, walkers, canes, and shower stools to individuals who cannot afford to purchase these supplies."
-12159,Assistive Technology Equipment,"Programs that provide equipment, supplies and assistive aids that enable persons with disabilities to be more mobile and/or communicate and live more comfortably."
-12160,Job Coach,"A coach who works side-by-side a person with developmental disabilities and gives them support, advocacy with the employer, training and behavior skills."
-12161,Vocational Assessment,"Programs that administer tests which measure a person's skills, abilities or interests for success in the job market."
-12162,Training-Learning Disabled,Programs that offer services that can increase the knowledge of persons with a learning disability.
-12163,Parents of Disabled Children,"Family units that consist of parents of children with physical, mental, developmental or emotional impairments."
-12164,Optometry,Programs that provide medical eye examinations and possibly recommend prescription glasses or contacts.
-12165,Prosthetic Devices,Programs that provide and train recipients in the use of artificial limbs.
-12166,"Bus Fare, Gas Money","Programs that provide either money or  bus tokens to persons who need to use public transportation or their own automobiles, but are unable to afford it."
-12167,"Housing, Non-Subsidized Rental",Programs that provide low cost housing for persons with a low to moderate income.
-12168,Dropout Prevention,Programs that develop strategies to encourage children and adolescents to remain in school and complete their education.
-12169,Donor Services-Vehicles,Programs that accept donations of motor vehicles to either be used by an agency or individual in need or sold to gain financial resources.
-12170,Drug Abusers,"Persons who have a physical or psychological dependence on a variety of substances that are used to alter the user's mood or perceptions, alleviate pain, relieve tension, etc."
-12171,Advocacy-Animal Rights,Programs that support the passage and enforcement of laws and other social measures that protect domestic and wild animals from cruelty or neglect or from the use of experimental purposes.
-12172,Representative Payee,Programs that manage the finances of individuals who are unable to do so for themselves.
-12173,Public Health,"Programs that protect and improve the health of the community through comprehensive efforts to prevent, control and eradicate communicable diseases; eliminate environmental health hazards and control occupational health hazards."
-12174,Tax Assistance,"Programs that provide advice and guidance to people who need tax information, tax forms, or require assistance in preparing and filling tax returns."
-12175,Pediatrics,"Programs staffed by medical specialists who provide services for the physical health of infants, children and adolescents."
-12176,Nutrition Education,"Programs that provide information about the basic principles of a healthy diet, diets for specific health conditions, food handling, food preparation and shopping skills."
-12177,Childbirth Classes,Programs that provide educational and medical information to pregnant women and their partners in order to prepare them for the birthing process.
-12178,"Safety Awareness, Education","Programs that increase the public's awareness of the measures people can take to reduce the risks of injuries or accidents at home, work, school or while driving.  May also include education on how to avoid being a victim of crime."
-12179,"Donor Services-Organ, Tissue","Programs that accept donated hearts, kidneys, livers, skin and other organs for use in transplant operations."
-12180,CPR Instruction,Programs that provide instruction in the appropriate techniques of artificial circulation and artificial respiration to prolong life in a medical emergency.
-12181,First Aid Instruction,Programs that provide basic lifesaving techniques to be administered to individuals who have been injured.
-12182,After School Programs,Programs that provide supervised care as well as recreational and educational programs for school aged children following the end of the school day.
-12183,Violence Prevention,"Programs that conduct either educational campaigns, provide diversion activities or provide counseling with the objective of persuading individuals to avoid violent behaviors."
-12184,"Financial Assistance-AIDS, HIV",Programs that provide on-going or limited monetary funds to persons with AIDS or HIV who lack the financial resources necessary to meet certain needs.
-12185,Volunteer Opportunities-Youth,"Programs that seek to locate, encourage and use young volunteers to help in community based projects."
-12186,Teen Pregnancy Prevention,"Programs providing educational/supportive services which promote healthy attitudes and behaviors among teens regarding sexuality, heighten awareness of the consequences of sexual activity and help teens avoid unwanted pregnancies."
-12187,Pet Visitation,"Programs that help emotionally disturbed, isolated, elderly, ailing, or disabled people to improve their personal and social functioning by giving them an opportunity to interact and relate to a domestic animal that is kept as a pet."
-12188,Aplastic Anemia,"A severe anemia due to the destruction or depressed function of the bone marrow, with no regenerative hyperplasia."
-12189,Mortgage Foreclosure Couns.,Programs that provide direct advice and guidance and/or legal representation for people who are unable to make their mortgage payments and who are at risk of losing their homes through foreclosure.
-12190,Seasonal Shelter,Programs that provide a temporary place to stay for homeless people who have no other housing resources during the winter.
-12191,TDAP,"Temporay Disability Assistance Program (formerly TEMHA) is a program for single, disabled adults that provides limited cash grants and may offer limited flex funds for housing, utilities, security deposits, pharmaceutical/medical supplies (for those not on PCMI), medical transportation and Tel-Life phone services."
-12192,Medication Monitoring,"Programs for elderly, ailing or mentally ill people to evaluate the need for medication, to prescribe an appropriate drug, and to offer periodic follow-up to monitor the effectiveness of the medication."
-12193,Computer Training,Programs that provide instruction for individuals who want to learn or perfect their skills in operating computers and computer programs.
-12194,Pharmacy Services,"Organizations that are involved in storing, preparing, and dispensing drugs in accordance with prescriptions prepared by licensed physicians."
-12195,"Home Rehab, Repair Loans",Programs that provide loans for income-eligible people who want to arrange for repairs or modifications in their homes to improve safety or liveability. Also included are programs that assist in the acquisition of home improvement loans.
-12196,Home Purchase Loan-Low Income,Programs that provide direct or guaranteed housing loans for low-income families who do not have sufficient resources to purchase a home for themselves and could not otherwise secure credit for this purpose. Also included are programs that provide loans to be used towards the down payment on a home or closing costs.
-12197,Sex Offenders,"Programs that help individuals who have committed rape or other sexual assault, nonfamilial child sexual abuse, indecent exposure, voyeurism or other sexual offenses."
-12198,Right to Life Counseling,Programs that encourage pregnant women whose plans for their pregnancies are uncertain to consider alternatives to abortion including adoption or single parenthood.
-12199,Psychiatric Outpatient Tx,"Programs that provide a therapeutic environment for individuals who have acute or chronic mental or emotional disturbances, who do not require full-time hospital care, but who can benefit from a structured environment for some portion of the day or week. Services may include individual, group and/ or family therapy; social and recreational activities; and a range of adjunctive therapies."
-12200,Child Care Resource & Referral,Programs that maintain lists of child care resources and link families who are in need of child care services with appropriate providers.
-12201,Child Care Subsidies,"Programs that either provide vouchers for or underwrite a portion of the cost of child care in public or private child care facilities for low-income families where the parents are working, in school, or in a training program."
-12202,"Sen.Asst.Liv.Fac.-Low, Mod Inco","Programs that provide housing in a group setting for low to moderate income seniors who need some assistance with mobility, medications and daily living tasks."
-12203,Home Rental Listings-Low Cost,Programs that maintain lists of available low-cost apartments and houses for lease or rent that low-income people in search of housing can review.
-12204,Sexually Abused Children,"Individuals younger than 18 who have been sexually assaulted by a family member, acquaintance, or stranger or who have been subjected to sexual exploitation in the form of child prostitution or child pornography."
-12205,Counseling-Child Sex. Assault,"Programs that provide crisis, short-term and/or on-going in-person counseling for children who are coping with the emotional trauma that is the result of sexual assault."
-12206,Neighborhood Revitalization,"Programs that advocate or provide for the renewal, rehabilitation, or clean-up of homes, streets, sidewalks, and incidental recreational areas in residential communities that are blighted or depressed."
-12207,"Police, Community Relations Grp",Organization whose members have joined together on a voluntary basis to work for increased understanding between the community and law enforcement agencies.
-12208,Pregnant Teens,Adolescents ages 13-17 who are expecting a child.
-12209,Career Counseling-Women,"Programs for women that provide career advice and guidance, and evaluate an individual's abilities and interests in order to help them choose a vocation."
-12210,Hotlines-Youth,Programs that receive telephone calls from children or adolescents in mental or physical crisis and work toward resolving the caller's problem and reduce or eliminate the caller's distress.
-12211,Homeless-Children,Programs that provide services to children or adolescents without a permanent residence or place to stay.
-12212,Volunteer Opportunity-Holiday,Community agencies that have positions within their organizations during the holiday season for people who are willing to offer their services and work for free on a full or part-time basis.
-12213,Life Skills,"Programs that offer training that focuses on the knowledge and skills an individual may need to make a successful transition to independent living. Participants may include teens living on their own, new widows, battered women, displaced homemakers and others who have lived in an environment in which decision making and responsibilities of daily living have been handled by another."
-12214,"Information, Referral-Out of St",Programs outside of Maryland that maintain information about human services in the community and link people who need assistance with appropriate service providers.
-12215,Medicare,A federally funded program administered by the Social Security Administration that provides hospital and medical insurance for people age 65 and older; for disabled individuals younger than 65  years; and insured workers and their dependents who need dialysis or a kidney transplant.
-12216,Food Vouchers,Programs that provide persons in emergency situations with food coupons which can be exchanged for food products that have been determined nutritious.
-12217,Out-of-State Resources,"Resources that are not physically located within Maryland or Washington, D.C."
-12218,Animal Cruelty,"Programs that investigate reports of cruelty to animals, intervene in the situation and, when warrented, remove pets who have been abused or neglected and initiate legal proceedings against abusive owners."
-12219,"Spay, Neuter Programs",Programs that surgically alter animals to prevent them from reproducing.
-12220,Animal Adoption,"Programs that place stray and homeless animals with people willing to provide care for domestic pets such as dogs and cats, etc."
-12221,Rabies Vaccination,"Programs that surgically inoculate animals to prevent them from contracting rabies, an acute viral disease that attacks the nervous system of animals and can be fatal if untreated."
-12222,Americorps,"Programs linked to local or national Americorps programs that provide educational benefits, health insurance and a stipend in exchange for community service hours in the areas of education, public safety, human welfare and the environment."
-12223,Lung Disease,"Any disease that affects the normal function of the lungs such as, but not limited to, asthma, emphysema, sarcoidosis, etc."
-12224,Holiday Assistance-Thanksgivin,Programs that provide assistance for low-income and indigent community residents to facilitate their ability to celebrate and enjoy Thanksgiving.
-12225,Holiday Assistance-Christmas,Programs that sponsor seasonal activities and/or provide special assistance for low-income and indigent community residents to facilitate their ability to celebrate and enjoy Christmas/Chanuka/Kwanzaa.
-12226,Clothing-Work,Programs that pay for or provide new or secondhand uniforms or other working clothes for individuals who cannot afford to purchase clothing at retail prices.
-12227,Therapeutic Recreation,"Programs that use expressive, recreational or other specialized interventions as auxiliary forms of treatment to improve the adjustment of individuals who have emotional, developmental, social or physical problems."
-12228,Chore Services,"Programs that go into households whose routines have been disrupted by illness, disability or other problems and resume household activities including meal preparation, child care, shopping, budgeting and light housekeeping."
-12229,Home Care- Family Services,"In-home programs for that are designed to foster healthy family development by providing services including home management instruction, parenting skills development, case management services, stress management, pregnancy education and AIDS awareness."
-12230,Home Care- Mental Health,"Programs that offer in-home intervention, treatment, case management, medication monitoring and other services for persons suffering from emotional or mental illness."
-12231,Agricultural Assistance,"Programs that provide information and technical assistance or support regarding planting, nuturing, protection and utilization of agricultural products, including cultivation of gardens and household plants."
-12232,Anger Management,"Programs that provide education or counseling for people who need to learn to deal with their anger in a positive, functional way."
-12233,Cooling Centers,Programs that offer sites for seniors or other fragile persons seeking temporary relief from the heat during the summer months.  These programs may also offer activities or meals as well.
-12234,Acupuncture,Programs that eliminate/reduce pain or treat other health problems by passing long needles through the skin to specifc points in the body.
-12235,Sex Education,"Programs that provide information and instruction concerning the physiological and emotional aspects of human sexuality, including anatomy, reproduction, birth control, etc."
-12236,"Companions, Friendly Visitors","Programs that provide shared, in-home, activities and/or role models for individuals seeking social stimulation or who lack companionship and guidance. This may also include some animal services."
-12237,Peace Corps,A federal volunteer program that provides opportunities for people to volunteer their time and work for low wages in order to help developing countries make improvements in areas of agricultural and rual development.
-12238,Smoke Detectors,"Programs that pay for or supply smoke detection devices that can be installed in homes, apartments or commercial buildings."
-12239,Personal Items,"Programs that pay for, provide  or accept donations of new or second-hand personal necessities, such as shampoo, toothpaste, combs, etc. to distribute to  those individuals who cannot afford these items at regular retail costs."
-12240,Child Find Programs,Programs that develop and implement plans for locating and identifying children who have targeted disabling conditions and therefore qualify for various types of assistance.
-12241,UWCM Funded Agencies,Programs that receive funding from the United Way of Central Maryland.  (See also United Way Services Directory & Contributor's Guide)
-12242,Programs of UWCM Agencies,"Programs operated by Affiliated Agencies of the United Way of Central Maryland.  (See keyword ""Affiliated Agencies"" and also the United Way of Central Maryland's Agency Services Directory and Contributor's Guide.)"
-12243,Donor Services-Holiday,"Programs that seek donations of items particular to the holidays (Thanksgiving, Hanukkah, Christmas, etc.)."
-12244,Prostate Cancer,A condition in which there are malignant tumors in the prostate gland.
-12245,AIDS-Pediatric,Programs that provide health services for infants or children who have contracted AIDS/HIV.
-12246,"Podiatry, Foot Care",Programs that provide comprehensive services for individuals who have diseases or injuries to the feet.
-12247,"Dermatology, Skin Care",Programs that provide diagnostic and/or treatment services for disorders of the skin and/or offer advice regarding the care of normal skin.
-12248,High Blood Pressure,"A condition in which the patient has a higher blood pressure than normal.  In general, if on several separate occasions the systolic pressure is above 140 or the diastolic is above 90, the person is considered to have elevated blood pressure."
-12249,"Psych, Psychological Eval",Programs that evaluate the mental or emotional status or functioning of people who may be experiencing acute or chronic disturbances.
-12250,Postpartum Care,Programs that provide follow-up medical care for women during the first six weeks following delivery to ensure that they are recovering normally from childbirth.
-12251,"Mammograms, Breast Exams",Programs that offer screening procedures for early detection of breast cancer.
-12252,OHEP Programs,"Office of Home Energy Programs.  Offices that provide one or more type of energy assistance (MEAP grants, fuel assistance, etc.).  Formerly known as the Maryland Energy Assistance Program."
-12253,Family Based Services,Programs that provide a variety of social services designed to support healthy family development and prevent unnecessary placement of children into foster care.
-12254,Homeowner Services,"Programs that provide support services (counseling, home modification/repair, financial  assistance, tax credits, etc.) for homeowners."
-12255,Counseling-Individual,"Programs that offer therapeutic sessions in which the therapist works on a one-to-one basis with clients to resolve mental, emotional or social problems."
-12256,School Supplies,"Programs that offer free or low-cost school supplies such as pencils/pens, notebooks, etc. (This may also include school uniforms.)"
-12257,"Widows, Widowers Services","Programs that provide services (counseling , support groups, I & R, etc.) for men and women who have lost partners due to death."
-12258,Counseling-Group,"Programs that offer therapist-facilitated treatment sessions in which groups of individuals, couples or families discuss their attitudes, feelings and problems and, with input from other group members, attempt to achieve greater self and interpersonal understanding and adjustment and explore solutions to their problems."
-12259,Homeless Families,"Families who may be living on the streets, in cars or in other make-shift arrangements."
-12260,Harvest of Plenty (HOP),A specially funded holiday food distribution program that provides food and/or food vouchers to low-income families in Baltimore City for the Thanksgiving holiday.
-12261,Holiday Assistance-Easter,Programs that offer special assistance or services to make the Easter season more enjoyable.
-12262,Recreation-Asians,Programs that provide social and recreational activities for the Asian community.
-12263,Eviction-Emergency Storage,Programs that provide temporary storage of household items after an eviction has occurred.
-12264,I & R Providers,Programs whose main purpose is to maintain information about health and human service resources in the community and to link people in need with appropriate community resources.
-12265,Schizophrenia,"A mental disorder characterized by separation between thought and emotion, delusions and bizarre behavior, etc. Onset is typically before age 45."
-12266,Trigeminal Neuralgia (TN),A condition caused by pressure on the trigeminal nerve that sends severe pain to the forehead and jaw.
-12267,Prostitutes,Men and women who perform sexual acts for money or its equivalent.
-12268,Home Schooling,A formal program of primary and secondary education provided by parents who are licensed to teach their children in the home.
-12269,Health Care-Mobile,"Programs that go out into the community to provide free or low-cost basic health services, including mental health, which operate via a mobile health station such as a van, bus, etc."
-12270,Genetic Diseases,Any of a number of illnesses or conditions that are hereditary or transmitted from parent to offspring.
-12271,"Gay, Lesbian Parents, Families",Family units that consist of one or more members (parent or child) who identifies as gay/lesbian.
-12272,Lead Removal,"The service where lead is removed from homes, institutions or public buildings in order to comply with health code standards."
-12273,Menopause,"That period which marks the permanent cessation of menstrual activity which usually occurs in women age thirty-five to fifty-eight.  Its onset may be accompanied by hot and cold flashes, feelings of weakness and in some case, mental depression."
-12274,Homeless-Veterans,Programs that provide services to veterans without a permanent residence or place to stay.
-12275,Foster Grandparent Programs,"Programs that provide volunteer opportunities for people, ages 60 and older, to render support services for children with special needs."
-12276,School System Advocacy,"Programs that assist families in their interactions with the school system which may include help with school registration, enrollment of children in special programs, intervention on behalf of students facing disciplinary action or expulsion and other activities which facilitate communication between families and school staff."
-12277,Hepatitis,An inflammation of the liver of viral or toxic origin.
-12278,Colon Cancer,A condition where there is a malignancy in the tissue of the larger intestines that begins with the cecum and continues to the anus.
-12279,Rectal Cancer,A condition in which there is a malignancy in the lower part of the large intestine between the sigmoid flecture and the anal canal.
-12280,Environmental Improvement,"Programs responsible for the conservation of endangered land, water, energy and wildlife resources and for the protection, beautification and improved accessibility of the urban environment."
-12281,Urology,The management of benign and malignant medical and surgical disorders of the adrenal gland and genitourinary system.
-12282,Clothing-School Uniforms,"Programs that provide school uniforms free, low cost or provide vouchers for children whose parents cannot afford to purchase these items at retail prices."
-12283,Baby Sitter Instruction,Programs that offer training that is designed to increase the knowledge and skills of persons who are interested in the care of children.
-12284,Aspergers Syndrome,"Also known as Asperger's Disorder or Autistic Psychopathy. A Pervasive Developmental Disorder (PDD) characterized by severe and sustained impairment in social interaction, restricted and repetitive patterns of behavior, interests and activities and is often more common in males."
-12285,Disaster Relief-International,"Organizations that provide assistance to people overseas and in the United States who suffer from hunger, poverty and disease or from the ravages of war, oppression and natural disasters."
-12286,Post-Traumatic Stress Disorder,"A disorder to which individuals who have experienced a psychologically traumatizing event experience such symptoms as, but not limited to: reexperiencing the event through intrusive recollections or dreams; survivor's guilt; avoidance of memories that recall the trauma, sleep disturbance, etc."
-12287,Disaster Preparedness,"Programs that increase public awareness of measures people can take before, during, and after a major disaster to reduce the loss of life and property & improve chances for survival."
-12288,"Poison Information, Control",Programs that provide emergency information for medical personnel or others who may need to take immediate correctve action to treat an individual who has been poisoned or to prevent such an occurence.
-12289,Rumor Control,Organizations or offices that are responsible for intercepting rumors and officially confirming their truth or falsity.
-12290,"Public Awareness, Education","Programs that provide information and/or a variety of materials to make the public aware of human service needs of the community, resources available to meet those needs and issues relevant to specific social problems."
-12291,Latchkey Kids,Youth who have to stay unsupervised in their homes after school or throughout the day because their parent(s) work and childcare is unavailable.
-12292,"Donor Services-Land, Property","Programs that accept donations of personal residences, vacation homes, commercial buildings, vacant lots or other pieces of real estate and sell the property to raise money for charitable purposes."
-12293,Donor Services-Blood,"Programs that acquire, process and store whole blood and blood products including red blood cells, white blood cells, platelets and plasma for use by people who need transfustions."
-12294,Donor Services-Clothing,"Programs that accept new or secondhand clothing from individuals and organizations, refurbish them if necessary, and  keep them for use in their own program or donate them to other organizations for distribution to the people they serve."
-12295,Donor Services-Household Goods,"Programs that accept new or secondhand  furniture, appliances, kitchenware, linens, cleaning supplies and other consumer products from individuals or organizations and keep them for use in their own programs or donate them to other organizations for distribution for the people they serve."
-12296,Water Bill Assistance,"Programs that pay all or a portion of the water bills of people who cannot afford to make the payments themselves, whose water has been or as at risk of being shut off and who qualify on the basis of income/need."
-12297,Geriatric Assessment,Programs that evaluate the physical condition and psychological functioning of elderly persons to isolate causes of problems and to identify possible solutions.
-12298,Donor Services-Cell phones,"Programs that accept donations of new or used cellular phones to then distribute the phones to persons in need (low-income, seniors, etc.) for special services."
-12299,"Donor Services-Computer, Office","Programs that accept new/used office supplies (furniture, desks, computers, etc.) and in turn supply them to agencies or individuals in need for free or for a low fee."
-12300,Firearm Safety,"Programs designed to increase techniques for safely handling, storing, cleaning, etc. rifles, shot guns, pistols and other firearms."
-12301,"Case Management-Offenders, Ex-O",Programs that provide the coordination of social services to prisoners/offenders or ex-offenders
-12302,"Outreach Programs-Offenders, Ex",Programs that increase use of community resources by targeting offenders/ex-offenders and making these resources more available to them.
-12303,Outreach Programs-Immigrants,Programs that increase the use of community resources by targeting immigrants and/or refugees and making these resources more available to them.
-12304,"Education-Gifted, Talented","Programs for children and youth who are gifted and talented (e.g. endowed with a high degree of mental ability or demonstrate unusual physical coordination, creativity or talent) usually in regular school setting."
-12305,TMJ (TemporomandibularJoint..),"Severe aching pain affecting the head, jaw and face that is believed to result when the temporomandibular joints, the muscles and ligaments that control them do not work together correctly."
-12306,Public Safety,"Ensures the safety of the community by sponsoring activities which make the public aware of measures they can take to eliminate safety hazards, prevent accidents and be prepared for survival in case of a major disaster."
-12307,Lyme Disease,"A debilitating disease of the nervous system and joints which sometimes leads to heart problems, meningitis and chronic arthritis.  It is caused by a bacterium transmitted to humans by the bite of a tick."
-12308,"Information, Referral-zipcodes",Programs that provide information on mailing zipcodes.
-12309,Donor Services-Books,"Programs that accept new or used books, magazines and other reading materials from individuals and organizations and keep them for use in their own program or donate them to libraries, schools and other community agencies."
-12310,"Information, Referral-AIDS, HIV",Programs which maintain information about services in the community and link persons who may be affected by HIV/AIDS with appropriate service providers.
-12311,VO: Mentoring,""
-12312,VO: Computer Data Entry,""
-12313,VO: CPR Training,""
-12314,VO: Tutoring,""
-12315,VO: Clerical Duties,""
-12316,VO: Painting,""
-12317,VO: Landscaping,""
-12318,"VO: Board, Committee",""
-12319,VO: Reading,""
-12320,VO: Serving Meals,""
-12321,VO: Fundraising Events,""
-12322,"VO: Friendly Visitor, Companion",""
-12323,VO: Transportation,""
-12324,VO: Clothing Drives,""
-12325,VO: Car Washing,""
-12326,"VO: Recreation, Outdoors",""
-12327,VO: Community Outreach,""
-12328,VO: Computer Literacy,""
-12329,VO: Arts & Crafts,""
-12330,"VO: Escort, chaperone",""
-12331,VO: Classroom Assistant,""
-12332,VO: Child Care,""
-12333,VO: Meal Preparation,""
-12334,"VO: Custodial, Janitorial",""
-12335,VO: Holiday,""
-12336,VO: Information & Referral,""
-12337,VO: Receptionist,""
-12338,VO: Crisis Intervention,""
-12339,VO: Job Coach,""
-12340,VO: Animal Services,""
-12341,VO: Special Events Support,""
-12342,VO: Health Care Opportunities,""
-12343,VO: Legal Services,""
-12344,VO: Home Care,""
-12345,VO: Camp Counselors,""
-12346,VO: Family Services,""
-12347,VO: Construction,""
-12348,"VO: Food sorting, packing",""
-12349,VO: Clothes Sorting,""
-12350,VO: Environmental,""
-12351,VO: Psychiatric Services,""
-12352,VO: Fitness Programs,""
-12353,Dance Therapy,"Programs that enable individuals who have mental, emotional or social problems to achieve self-expression and emotional release through folk dancing, ballroom dancing, exercising to music and other rhythmic motor activities."
-12354,"Wish Granting, Foundations","Programs that provide support for adults or children who are terminally ill by granting one wish (eg: a trip to Disneyland, a family reunion, etc.)."
-12355,Donor Services-Medical,"Programs that accept medical equipment, supplies or medicines and distribute them for free or low-cost or via medical loan closets."
-12356,Automobiles,"Programs that provide new and/or second-hand automobiles to individuals who qualify on the basis of income, age or disability."
-12357,Donor Services-Food,"Programs that accept food and other food sources from individuals or organizations and keep the food for use in their own program or doante it to food banks, pantries, meal programs, etc."
-12358,Sexual Addiction,Behavior that is characterized by a compulsive need to engage in a repetitive series of sexual encounters which interfere with the person's ability to develop positive intimate relationships and to learn to cope with life stresses in a healthy manner.
-12359,"Applications, Forms","Programs that help people obtain, complete, and/or file official forms, certificates, documents, applications, or other legal paperwork."
-12360,Youth Agricultural Programs,"Voluntary, informal education programs that emphasize the total development of young people who are members through work on the animal, engineering, family/consumer, health, resource, plant or social science project of their choice in consultation with their parents and supervising adult volunteers. Members also participate in camping activities, leadership conferences, awards programs and community service activities."
-12361,At Risk Youth,"Youth who, because of their economic, environmental or family situation, a health problem or disability or past behavior, are considered more likely than others to be affected by or become involved in child abuse or neglect, substance abuse, juvenile delinquency, gang behavior, adolescent pregnancy, truancy, unemployment and other problems which threaten their health, safety and/or personal development."
-12362,Job Corps,"A nationwide, government-subsidized youth training program that provides remedial education, vocational training and useful work experience including on-the-job training for low and moderate-income, disadvantaged youth who have poor job skills."
-12363,Computers,"Programs that provide access to personal computers, computer software and necessary peripherals."
-12364,"York County, PA Resources","Programs that serve persons who live or work in York County, PA"
-12365,Buprenorphine treatment,"Drug therapy intended to ease withdrawal sysmptoms in people addicted to opiates such as heroin, oxycodone, methadone, hydrocodone, morphine, and opium.  Medication is either administered at a clinic or at home via prescription.  Buprenorphine goes by the brand names Subutex® and Suboxone®."
-12366,"Medicare Information, Counselin","Programs that offer information and guidance for older adults and people with disabilities regarding their health insurance options with the objective of empowering them to make informed choices. These programs also provide counseling and assistance about the subsidies that are available to low income beneficiaries enrolled in the Part D Prescription Drug Benefit; and may also provide information about Medicaid and the linkages between the two programs, referrals to appropriate state and local agencies involved in the Medicaid program, information about other Medicare-related entities (such as peer review organizations, Medicare-approved prescription drug plans, fiscal intermediaries and carriers), and assistance in completing Medicare insurance forms."
-12367,SAIL,""
-12368,Benefits Screening,"Programs that provide benefits screening services which help individuals determine whether they are eligible for benefits through any of a wide variety of public and private federal, state and local programs. In addition to identifying the programs that a person may be eligible to receive, the service generally also provides a detailed description of the programs, local contacts for additional information (typically the addresses and phone numbers of where to apply for the programs), and materials to help successfully apply for each program. Included are programs that provide this service online and those that do benefits screening via the telephone or in-person. Some benefits screening programs may focus on specific populations such as older adults and people with disabilities; or specific aspects of benefits eligibility such as the impact that working will have on their benefits as an aid to helping people make informed decisions regarding whether to work. Also included are programs that help people complete the benefits screening form."
-12369,HOPE Housing Counselors,Home Owners Preserving Equity (HOPE) is a foreclosure prevention and financial assistance program of the MD Department of Housing & Community Development in partnership with local government and community-based nonprofit organizations.
-12370,Lifeline Refinance Mortgage,"Provides a refinancing option to those who may be facing difficulties after financing their homes with adjustable rate or other unfavorable mortgages, or with mortgages that no longer fit their financial situation."
-12371,Bridge to Hope Loan,"Provides homeowners with short-term relief to maintain homeownership by preventing residential mortgage foreclosures resulting from borrowers experiencing financial difficulty caused by either a sub-prime or exotic mortgage, such as a negative amortization loan or an adjustable rate mortgage (ARM) loan that has, or is preparing to, reset."
-12372,Homesaver Refinance Mortgage,"Provides a refinancing option to those with sub-prime or exotic mortgages and are experiencing difficulties as a result of mortgage default, low credit scores and/or a mortgage greater than the current value of their home."
-12373,Abortion Services,Programs that provide access to pregnancy termination services for individuals who want to avoid an unplanned or unwanted birth.
+bom,id,name,taxonomy_id,parent_id,parent_name,type,filter,filter_parent,filter_priority
+,1,Emergency,101,,,service,FALSE,FALSE,
+,2,Disaster Response,101-01,101,Emergency,service,FALSE,FALSE,
+,3,Emergency Cash,101-02,101,Emergency,service,FALSE,FALSE,
+,4,Help Pay for Food,101-02-01,101-02,Emergency Cash,service,FALSE,FALSE,
+,5,Help Pay for Healthcare,101-02-02,101-02,Emergency Cash,service,FALSE,FALSE,
+,6,Help Pay for Housing,101-02-03,101-02,Emergency Cash,service,FALSE,FALSE,
+,7,Help Pay for Gas,101-02-04,101-02,Emergency Cash,service,FALSE,FALSE,
+,8,Help Pay for School,101-02-05,101-02,Emergency Cash,service,FALSE,FALSE,
+,9,Help Pay for Utilities,101-02-06,101-02,Emergency Cash,service,FALSE,FALSE,
+,10,Emergency Food,101-03,101,Emergency,service,FALSE,FALSE,
+,11,Emergency Shelter,101-04,101,Emergency,service,FALSE,FALSE,
+,12,Help Find Missing Persons,101-05,101,Emergency,service,FALSE,FALSE,
+,13,Immediate Safety,101-06,101,Emergency,service,FALSE,FALSE,
+,14,Help Escape Violence,101-06-01,101-06,Immediate Safety,service,FALSE,FALSE,
+,15,Safe Housing,101-06-02,101-06,Immediate Safety,service,FALSE,FALSE,
+,16,Psychiatric Emergency Services,101-07,101,Emergency,service,FALSE,FALSE,
+,17,Food,102,,,service,FALSE,FALSE,
+,18,Community Gardens,102-01,102,Food,service,FALSE,FALSE,
+,19,Emergency Food,102-02,102,Food,service,FALSE,FALSE,
+,20,Food Delivery,102-03,102,Food,service,FALSE,FALSE,
+,21,Food Pantry,102-04,102,Food,service,FALSE,FALSE,
+,22,Free Meals,102-05,102,Food,service,FALSE,FALSE,
+,23,Help Pay for Food,102-06,102,Food,service,FALSE,FALSE,
+,24,Food Benefits,102-06-01,102-06,Help Pay for Food,service,FALSE,FALSE,
+,25,Nutrition,102-07,102,Food,service,FALSE,FALSE,
+,26,Housing,103,,,service,FALSE,FALSE,
+,27,Emergency Shelter,103-01,103,Housing,service,FALSE,FALSE,
+,28,Help Find Housing,103-02,103,Housing,service,FALSE,FALSE,
+,29,Help Pay for Housing,103-03,103,Housing,service,FALSE,FALSE,
+,30,Help Pay for Utilities,103-03-01,103-03,Help Pay for Housing,service,FALSE,FALSE,
+,31,Help Pay for Internet or Phone,103-03-02,103-03,Help Pay for Housing,service,FALSE,FALSE,
+,32,Home & Renters Insurance,103-03-03,103-03,Help Pay for Housing,service,FALSE,FALSE,
+,33,Housing Vouchers,103-03-04,103-03,Help Pay for Housing,service,FALSE,FALSE,
+,34,Maintenance & Repairs,103-04,103,Housing,service,FALSE,FALSE,
+,35,Housing Advice,103-05,103,Housing,service,FALSE,FALSE,
+,36,Foreclosure Counseling,103-05-01,103-05,Housing Advice,service,FALSE,FALSE,
+,37,Homebuyer Education,103-05-02,103-05,Housing Advice,service,FALSE,FALSE,
+,38,Residential Housing,103-06,103,Housing,service,FALSE,FALSE,
+,39,Long-Term Housing,103-06-01,103-06,Residential Housing,service,FALSE,FALSE,
+,40,Assisted Living,103-06-01-01,103-06-01,Long-Term Housing,service,FALSE,FALSE,
+,41,Independent Living,103-06-01-02,103-06-01,Long-Term Housing,service,FALSE,FALSE,
+,42,Nursing Home,103-06-01-03,103-06-01,Long-Term Housing,service,FALSE,FALSE,
+,43,Public Housing,103-06-01-04,103-06-01,Long-Term Housing,service,FALSE,FALSE,
+,44,Safe Housing,103-07,103,Housing,service,FALSE,FALSE,
+,45,Housing Legal Services,103-08,103,Housing,service,FALSE,FALSE,
+,46,Short-Term Housing,103-09,103,Housing,service,FALSE,FALSE,
+,47,Nursing Home,103-09-01,103-09,Short-Term Housing,service,FALSE,FALSE,
+,48,Sober Living,103-09-02,103-09,Short-Term Housing,service,FALSE,FALSE,
+,49,Goods,104,,,service,FALSE,FALSE,
+,50,Baby Supplies,104-01,104,Goods,service,FALSE,FALSE,
+,51,Baby Clothes,104-01-01,104-01,Baby Supplies,service,FALSE,FALSE,
+,52,Diapers & Formula,104-01-02,104-01,Baby Supplies,service,FALSE,FALSE,
+,53,Pumping Equipment,104-01-03,104-01,Baby Supplies,service,FALSE,FALSE,
+,54,Clothing,104-02,104,Goods,service,FALSE,FALSE,
+,55,Baby Clothes,104-02-01,104-02,Clothing,service,FALSE,FALSE,
+,56,Clothes for School,104-02-02,104-02,Clothing,service,FALSE,FALSE,
+,57,Clothes for Work,104-02-03,104-02,Clothing,service,FALSE,FALSE,
+,58,Clothing Vouchers,104-02-04,104-02,Clothing,service,FALSE,FALSE,
+,59,Home Goods,104-03,104,Goods,service,FALSE,FALSE,
+,60,Blankets & Fans,104-03-01,104-03,Home Goods,service,FALSE,FALSE,
+,61,Books,104-03-02,104-03,Home Goods,service,FALSE,FALSE,
+,62,Furniture,104-03-03,104-03,Home Goods,service,FALSE,FALSE,
+,63,Home Fuels,104-03-04,104-03,Home Goods,service,FALSE,FALSE,
+,64,Efficient Appliances,104-03-05,104-03,Home Goods,service,FALSE,FALSE,
+,65,Personal Care Items,104-03-06,104-03,Home Goods,service,FALSE,FALSE,
+,66,Supplies for Work,104-03-07,104-03,Home Goods,service,FALSE,FALSE,
+,67,Medical Supplies,104-04,104,Goods,service,FALSE,FALSE,
+,68,Assistive Technology,104-04-01,104-04,Medical Supplies,service,FALSE,FALSE,
+,69,Toys & Gifts,104-05,104,Goods,service,FALSE,FALSE,
+,70,Transit,105,,,service,FALSE,FALSE,
+,71,Help Pay for Transit,105-01,105,Transit,service,FALSE,FALSE,
+,72,Bus Passes,105-01-01,105-01,Help Pay for Transit,service,FALSE,FALSE,
+,73,Help Pay for Gas,105-01-02,105-01,Help Pay for Transit,service,FALSE,FALSE,
+,74,Transportation,105-02,105,Transit,service,FALSE,FALSE,
+,75,Transportation for Healthcare,105-02-01,105-02,Transportation,service,FALSE,FALSE,
+,76,Transportation for School,105-02-02,105-02,Transportation,service,FALSE,FALSE,
+,77,Health,106,,,service,FALSE,FALSE,
+,78,Substance Use Disorder,106-01,106,Health,service,TRUE,TRUE,900
+,79,Treatment Setting,106-01-01,106-01,Substance Use Disorder,service,TRUE,FALSE,
+,80,Outpatient Treatment,106-01-01-01,106-01-01,Treatment Setting,service,TRUE,FALSE,
+,81,(Level 1) Regular Outpatient Treatment,106-01-01-01-01,106-01-01-01,Outpatient Treatment,service,TRUE,FALSE,
+,82,(Level 2.1) Intensive Outpatient Treatment,106-01-01-01-02,106-01-01-01,Outpatient Treatment,service,TRUE,FALSE,
+,83,(Level 2.5) Outpatient Day Treatment or partial hospitalization,106-01-01-01-03,106-01-01-01,Outpatient Treatment,service,TRUE,FALSE,
+,84,Residential Treatment,106-01-01-02,106-01-01,Treatment Setting,service,TRUE,FALSE,
+,85,Recovery Housing,106-01-01-02-01,106-01-01-02,Residential Treatment,service,TRUE,FALSE,
+,86,(Level 3.1) Transitional housing or Halfway House,106-01-01-02-02,106-01-01-02,Residential Treatment,service,TRUE,FALSE,
+,87,(Level 3.3) Residential Treatment,106-01-01-02-03,106-01-01-02,Residential Treatment,service,TRUE,FALSE,
+,88,(Level 3.5) Residential Treatment,106-01-01-02-04,106-01-01-02,Residential Treatment,service,TRUE,FALSE,
+,89,(Level 3.7) Residential Treatment,106-01-01-02-05,106-01-01-02,Residential Treatment,service,TRUE,FALSE,
+,90,Hospital Inpatient Treatment,106-01-01-03,106-01-01,Treatment Setting,service,TRUE,FALSE,
+,91,(Level 4) Hospital Inpatient,106-01-01-03-01,106-01-01-03,Hospital Inpatient Treatment,service,TRUE,FALSE,
+,92,Type of Care,106-01-02,106-01,Substance Use Disorder,service,TRUE,FALSE,
+,93,Medication-Assisted Treatment (MAT) Provided,106-01-02-01,106-01-02,Type of Care,service,TRUE,FALSE,
+,94,Opioid Use Disorders,106-01-02-01-01,106-01-02-01,Medication-Assisted Treatment (MAT) Provided,service,TRUE,FALSE,
+,95,Methadone,106-01-02-01-01-01,106-01-02-01-01,Opioid Use Disorders,service,TRUE,FALSE,
+,96,Buprenorphine,106-01-02-01-01-02,106-01-02-01-01,Opioid Use Disorders,service,TRUE,FALSE,
+,97,Naltrexone,106-01-02-01-01-03,106-01-02-01-01,Opioid Use Disorders,service,TRUE,FALSE,
+,98,Alcohol Use Disorders,106-01-02-01-02,106-01-02-01,Medication-Assisted Treatment (MAT) Provided,service,TRUE,FALSE,
+,99,Acamprosate,106-01-02-01-02-01,106-01-02-01-02,Alcohol Use Disorders,service,TRUE,FALSE,
+,100,Disulfiram,106-01-02-01-02-02,106-01-02-01-02,Alcohol Use Disorders,service,TRUE,FALSE,
+,101,Naltrexone,106-01-02-01-02-03,106-01-02-01-02,Alcohol Use Disorders,service,TRUE,FALSE,
+,102,Nicotine Use Disorders,106-01-02-01-03,106-01-02-01,Medication-Assisted Treatment (MAT) Provided,service,TRUE,FALSE,
+,103,Bupropion,106-01-02-01-03-01,106-01-02-01-03,Nicotine Use Disorders,service,TRUE,FALSE,
+,104,(NRTs) Nicotine Replacement Therapies,106-01-02-01-03-02,106-01-02-01-03,Nicotine Use Disorders,service,FALSE,FALSE,
+,105,Varenicline,106-01-02-01-03-03,106-01-02-01-03,Nicotine Use Disorders,service,TRUE,FALSE,
+,106,Withdrawal Management,106-01-02-02,106-01-02,Type of Care,service,TRUE,FALSE,
+,107,Behavioral Therapy,106-01-02-03,106-01-02,Type of Care,service,TRUE,FALSE,
+,108,(ACT) Acceptance and Commitment Therapy,106-01-02-03-01,106-01-02-03,Behavioral Therapy,service,TRUE,FALSE,
+,109,(CBT) Cognitive Behavioral Therapy,106-01-02-03-02,106-01-02-03,Behavioral Therapy,service,FALSE,FALSE,
+,110,(MAT) Medicaiton Assisted Treatment,106-01-02-03-03,106-01-02-03,Behavioral Therapy,service,FALSE,FALSE,
+,111,(MET) Motivational Enhancement Therapy,106-01-02-03-04,106-01-02-03,Behavioral Therapy,service,TRUE,FALSE,
+,112,(MI) Motivational Interviewing,106-01-02-03-05,106-01-02-03,Behavioral Therapy,service,TRUE,FALSE,
+,113,Psychoeducation,106-01-02-03-06,106-01-02-03,Behavioral Therapy,service,TRUE,FALSE,
+,114,Psychotherapy,106-01-02-03-07,106-01-02-03,Behavioral Therapy,service,TRUE,FALSE,
+,115,(RP) Relapse Prevention,106-01-02-03-08,106-01-02-03,Behavioral Therapy,service,TRUE,FALSE,
+,116,(SFGT) Solution-Focused Group Therapy,106-01-02-03-09,106-01-02-03,Behavioral Therapy,service,FALSE,FALSE,
+,117,(SE) Supportive Expressive Psychotherapy,106-01-02-03-10,106-01-02-03,Behavioral Therapy,service,TRUE,FALSE,
+,118,Trauma Informed Treatment,106-01-02-03-11,106-01-02-03,Behavioral Therapy,service,TRUE,FALSE,
+,119,Dental Care,106-02,106,Health,service,FALSE,FALSE,
+,120,End-of-Life Care,106-03,106,Health,service,FALSE,FALSE,
+,121,Bereavement,106-03-01,106-03,End-of-Life Care,service,FALSE,FALSE,
+,122,Burial & Funeral Help,106-03-02,106-03,End-of-Life Care,service,FALSE,FALSE,
+,123,Hospice,106-03-03,106-03,End-of-Life Care,service,FALSE,FALSE,
+,124,Pain Management,106-03-04,106-03,End-of-Life Care,service,FALSE,FALSE,
+,125,Health Education,106-04,106,Health,service,FALSE,FALSE,
+,126,Daily Life Skills,106-04-01,106-04,Health Education,service,FALSE,FALSE,
+,127,Disease Management,106-04-02,106-04,Health Education,service,FALSE,FALSE,
+,128,Family Planning,106-04-03,106-04,Health Education,service,FALSE,FALSE,
+,129,Nutrition,106-04-04,106-04,Health Education,service,FALSE,FALSE,
+,130,Parenting Education,106-04-05,106-04,Health Education,service,FALSE,FALSE,
+,131,Sex Education,106-04-06,106-04,Health Education,service,FALSE,FALSE,
+,132,Understand Disability,106-04-07,106-04,Health Education,service,FALSE,FALSE,
+,133,Understand Mental Health,106-04-08,106-04,Health Education,service,FALSE,FALSE,
+,134,Help Pay for Healthcare,106-05,106,Health,service,FALSE,FALSE,
+,135,Disability Benefits,106-05-01,106-05,Help Pay for Healthcare,service,FALSE,FALSE,
+,136,Discounted Healthcare,106-05-02,106-05,Help Pay for Healthcare,service,FALSE,FALSE,
+,137,Health Insurance,106-05-03,106-05,Help Pay for Healthcare,service,FALSE,FALSE,
+,138,Medical Supplies,106-05-04,106-05,Help Pay for Healthcare,service,FALSE,FALSE,
+,139,Prosthesis,106-05-04-01,106-05-04,Medical Supplies,service,FALSE,FALSE,
+,140,Durable Medical Equipment,106-05-04-02,106-05-04,Medical Supplies,service,FALSE,FALSE,
+,141,Prescription Assistance,106-05-05,106-05,Help Pay for Healthcare,service,FALSE,FALSE,
+,142,Transportation for Healthcare,106-05-06,106-05,Help Pay for Healthcare,service,FALSE,FALSE,
+,143,Medical Care,106-06,106,Health,service,FALSE,FALSE,
+,144,Alternative Medicine,106-06-01,106-06,Medical Care,service,FALSE,FALSE,
+,145,Assistive Technology,106-06-02,106-06,Medical Care,service,FALSE,FALSE,
+,146,Birth Control,106-06-03,106-06,Medical Care,service,FALSE,FALSE,
+,147,Checkup & Test,106-06-04,106-06,Medical Care,service,FALSE,FALSE,
+,148,Disability Screening,106-06-04-01,106-06-04,Checkup & Test,service,FALSE,FALSE,
+,149,Disease Screening,106-06-04-02,106-06-04,Checkup & Test,service,FALSE,FALSE,
+,150,Hearing Tests,106-06-04-03,106-06-04,Checkup & Test,service,FALSE,FALSE,
+,151,Mental Health Evaluation,106-06-04-04,106-06-04,Checkup & Test,service,FALSE,FALSE,
+,152,Pregnancy Tests,106-06-04-05,106-06-04,Checkup & Test,service,FALSE,FALSE,
+,153,Vision Tests,106-06-04-06,106-06-04,Checkup & Test,service,FALSE,FALSE,
+,154,Exercise & Fitness,106-06-05,106-06,Medical Care,service,FALSE,FALSE,
+,155,Fertility,106-06-06,106-06,Medical Care,service,FALSE,FALSE,
+,156,Maternity Care,106-06-07,106-06,Medical Care,service,FALSE,FALSE,
+,157,Skilled Nursing,106-06-08,106-06,Medical Care,service,FALSE,FALSE,
+,158,Mental Health,106-07,106,Health,service,TRUE,TRUE,1100
+,159,Treatment Setting,106-07-01,106-07,Mental Health,service,TRUE,FALSE,
+,160,Outpatient Treatment,106-07-01-01,106-07-01,Treatment Setting,service,TRUE,FALSE,
+,161,Integrated behavioral health programs,106-07-01-01-01,106-07-01-01,Outpatient Treatment,service,TRUE,FALSE,
+,162,Mobile treatment services,106-07-01-01-02,106-07-01-01,Outpatient Treatment,service,TRUE,FALSE,
+,163,Outpatient mental health centers,106-07-01-01-03,106-07-01-01,Outpatient Treatment,service,TRUE,FALSE,
+,164,Psychiatric day treatment programs,106-07-01-01-04,106-07-01-01,Outpatient Treatment,service,TRUE,FALSE,
+,165,Psychiatric rehabilitation program for adults,106-07-01-01-05,106-07-01-01,Outpatient Treatment,service,TRUE,FALSE,
+,166,Intensive Outpatient Treatment,106-07-01-02,106-07-01,Treatment Setting,service,TRUE,FALSE,
+,167,Intensive outpatient programs,106-07-01-02-01,106-07-01-02,Intensive Outpatient Treatment,service,TRUE,FALSE,
+,168,Partial hospital programs,106-07-01-02-02,106-07-01-02,Intensive Outpatient Treatment,service,TRUE,FALSE,
+,169,Hospital Treatment,106-07-01-03,106-07-01,Treatment Setting,service,TRUE,FALSE,
+,170,Observation service,106-07-01-03-01,106-07-01-03,Hospital Treatment,service,TRUE,FALSE,
+,171,Acute inpatient psychiatric hospitalization,106-07-01-03-02,106-07-01-03,Hospital Treatment,service,TRUE,FALSE,
+,172,Residential Treatment,106-07-01-04,106-07-01,Treatment Setting,service,TRUE,FALSE,
+,173,Group homes for adults with mental illness,106-07-01-04-01,106-07-01-04,Residential Treatment,service,TRUE,FALSE,
+,174,Residential crisis services,106-07-01-04-02,106-07-01-04,Residential Treatment,service,TRUE,FALSE,
+,175,Respite care services,106-07-01-04-03,106-07-01-04,Residential Treatment,service,TRUE,FALSE,
+,176,Pharmacotherapies Available,106-07-02,106-07,Mental Health,service,FALSE,FALSE,
+,177,Postnatal Care,106-08,106,Health,service,FALSE,FALSE,
+,178,Prevent & Treat,106-09,106,Health,service,FALSE,FALSE,
+,179,Counseling,106-09-01,106-09,Prevent & Treat,service,FALSE,FALSE,
+,180,HIV Treatment,106-09-02,106-09,Prevent & Treat,service,FALSE,FALSE,
+,181,Pain Management,106-09-03,106-09,Prevent & Treat,service,FALSE,FALSE,
+,182,Disease Management,106-09-04,106-09,Prevent & Treat,service,FALSE,FALSE,
+,183,Nursing Home,106-09-05,106-09,Prevent & Treat,service,FALSE,FALSE,
+,184,Physical Therapy,106-09-06,106-09,Prevent & Treat,service,FALSE,FALSE,
+,185,Specialized Therapy,106-09-07,106-09,Prevent & Treat,service,FALSE,FALSE,
+,186,Vaccinations,106-09-08,106-09,Prevent & Treat,service,FALSE,FALSE,
+,187,In-Home Support,106-09-09,106-09,Prevent & Treat,service,FALSE,FALSE,
+,188,Residential Treatment,106-09-10,106-09,Prevent & Treat,service,TRUE,FALSE,
+,189,Outpatient Treatment,106-09-11,106-09,Prevent & Treat,service,TRUE,FALSE,
+,190,Hospital Treatment,106-09-12,106-09,Prevent & Treat,service,TRUE,FALSE,
+,191,Primary Care,106-10,106,Health,service,FALSE,FALSE,
+,192,Drug Testing,106-11,106,Health,service,FALSE,FALSE,
+,193,Drug Testing-First Test,106-11-01,106-11,Drug Testing,service,FALSE,FALSE,
+,194,Drug Testing-Confirmatory Test,106-11-02,106-11,Drug Testing,service,FALSE,FALSE,
+,195,Drug Testing-Mobile Unit,106-11-03,106-11,Drug Testing,service,FALSE,FALSE,
+,196,Drug Testing-Failed Attempt,106-11-04,106-11,Drug Testing,service,FALSE,FALSE,
+,197,Drug Testing-Interpreter Services,106-11-05,106-11,Drug Testing,service,FALSE,FALSE,
+,198,Vision Care,106-12,106,Health,service,FALSE,FALSE,
+,199,Psychiatric Emergency Services,106-13,106,Health,service,FALSE,FALSE,
+,200,Money,107,,,service,FALSE,FALSE,
+,201,Financial Assistance,107-01,107,Money,service,FALSE,FALSE,
+,202,Help Pay for Childcare,107-01-01,107-01,Financial Assistance,service,FALSE,FALSE,
+,203,Help Pay for Food,107-01-02,107-01,Financial Assistance,service,FALSE,FALSE,
+,204,Food Benefits,107-01-02-01,107-01-02,Help Pay for Food,service,FALSE,FALSE,
+,205,Help Pay for Healthcare,107-01-03,107-01,Financial Assistance,service,FALSE,FALSE,
+,206,Disability Benefits,107-01-03-01,107-01-03,Help Pay for Healthcare,service,FALSE,FALSE,
+,207,Discounted Healthcare,107-01-03-02,107-01-03,Help Pay for Healthcare,service,FALSE,FALSE,
+,208,Health Insurance,107-01-03-03,107-01-03,Help Pay for Healthcare,service,FALSE,FALSE,
+,209,Medical Supplies,107-01-03-04,107-01-03,Help Pay for Healthcare,service,FALSE,FALSE,
+,210,Prosthesis,107-01-03-04-01,107-01-03-04,Medical Supplies,service,FALSE,FALSE,
+,211,Durable Medical Equipment,107-01-03-04-02,107-01-03-04,Medical Supplies,service,FALSE,FALSE,
+,212,Prescription Assistance,107-01-03-05,107-01-03,Help Pay for Healthcare,service,FALSE,FALSE,
+,213,Transportation for Healthcare,107-01-03-06,107-01-03,Help Pay for Healthcare,service,FALSE,FALSE,
+,214,Help Pay for Housing,107-01-04,107-01,Financial Assistance,service,FALSE,FALSE,
+,215,Help Pay for Utilities,107-01-04-01,107-01-04,Help Pay for Housing,service,FALSE,FALSE,
+,216,Home & Renters Insurance,107-01-04-02,107-01-04,Help Pay for Housing,service,FALSE,FALSE,
+,217,Maintenance & Repairs,107-01-04-03,107-01-04,Help Pay for Housing,service,FALSE,FALSE,
+,218,Help Pay for School,107-01-05,107-01,Financial Assistance,service,FALSE,FALSE,
+,219,Books,107-01-05-01,107-01-05,Help Pay for School,service,FALSE,FALSE,
+,220,Clothes for School,107-01-05-02,107-01-05,Help Pay for School,service,FALSE,FALSE,
+,221,Laundry for Students,107-01-05-03,107-01-05,Help Pay for School,service,FALSE,FALSE,
+,222,Financial Aid & Loans,107-01-05-04,107-01-05,Help Pay for School,service,FALSE,FALSE,
+,223,Transportation for School,107-01-05-05,107-01-05,Help Pay for School,service,FALSE,FALSE,
+,224,Supplies for School,107-01-05-06,107-01-05,Help Pay for School,service,FALSE,FALSE,
+,225,Help Pay for Transit,107-01-06,107-01,Financial Assistance,service,FALSE,FALSE,
+,226,Help Pay for Gas,107-01-06-01,107-01-06,Help Pay for Transit,service,FALSE,FALSE,
+,227,Bus Passes,107-01-06-02,107-01-06,Help Pay for Transit,service,FALSE,FALSE,
+,228,Help Pay for Car,107-01-06-03,107-01-06,Help Pay for Transit,service,FALSE,FALSE,
+,229,Help Pay for Work Expenses,107-01-07,107-01,Financial Assistance,service,FALSE,FALSE,
+,230,Government Benefits,107-02,107,Money,service,FALSE,FALSE,
+,231,Disability Benefits,107-02-01,107-02,Government Benefits,service,FALSE,FALSE,
+,232,Food Benefits,107-02-02,107-02,Government Benefits,service,FALSE,FALSE,
+,233,Retirement Benefits,107-02-03,107-02,Government Benefits,service,FALSE,FALSE,
+,234,Understand Government Programs,107-02-04,107-02,Government Benefits,service,FALSE,FALSE,
+,235,Unemployment Benefits,107-02-05,107-02,Government Benefits,service,FALSE,FALSE,
+,236,Financial Education,107-03,107,Money,service,FALSE,FALSE,
+,237,Credit Counseling,107-03-01,107-03,Financial Education,service,FALSE,FALSE,
+,238,Foreclosure Counseling,107-03-02,107-03,Financial Education,service,FALSE,FALSE,
+,239,Homebuyer Education,107-03-03,107-03,Financial Education,service,FALSE,FALSE,
+,240,Savings Program,107-03-04,107-03,Financial Education,service,FALSE,FALSE,
+,241,Insurance,107-04,107,Money,service,FALSE,FALSE,
+,242,Health Insurance,107-04-01,107-04,Insurance,service,FALSE,FALSE,
+,243,Home & Renters Insurance,107-04-02,107-04,Insurance,service,FALSE,FALSE,
+,244,Tax Preparation,107-05,107,Money,service,FALSE,FALSE,
+,245,Care,108,,,service,FALSE,FALSE,
+,246,Adoption & Foster Care,108-01,108,Care,service,FALSE,FALSE,
+,247,Adoption & Foster Placement,108-01-01,108-01,Adoption & Foster Care,service,FALSE,FALSE,
+,248,Adoption & Foster Parenting,108-01-02,108-01,Adoption & Foster Care,service,FALSE,FALSE,
+,249,Adoption Planning,108-01-03,108-01,Adoption & Foster Care,service,FALSE,FALSE,
+,250,Post-Adoption Support,108-01-04,108-01,Adoption & Foster Care,service,FALSE,FALSE,
+,251,Animal Welfare,108-02,108,Care,service,FALSE,FALSE,
+,252,Community Support Services,108-03,108,Care,service,FALSE,FALSE,
+,253,Computer or Internet Access,108-03-01,108-03,Community Support Services,service,FALSE,FALSE,
+,254,Daytime Care,108-04,108,Care,service,FALSE,FALSE,
+,255,Adult Daycare,108-04-01,108-04,Daytime Care,service,FALSE,FALSE,
+,256,Afterschool Care,108-04-02,108-04,Daytime Care,service,FALSE,FALSE,
+,257,Before School Care,108-04-03,108-04,Daytime Care,service,FALSE,FALSE,
+,258,Childcare,108-04-04,108-04,Daytime Care,service,FALSE,FALSE,
+,259,Help Find Childcare,108-04-04-01,108-04-04,Childcare,service,FALSE,FALSE,
+,260,Help Pay for Childcare,108-04-04-02,108-04-04,Childcare,service,FALSE,FALSE,
+,261,Day Camp,108-04-05,108-04,Daytime Care,service,FALSE,FALSE,
+,262,Preschool,108-04-06,108-04,Daytime Care,service,FALSE,FALSE,
+,263,Recreation,108-04-07,108-04,Daytime Care,service,FALSE,FALSE,
+,264,Relief for Caregivers,108-04-08,108-04,Daytime Care,service,FALSE,FALSE,
+,265,Childcare,108-05,108,Care,service,FALSE,FALSE,
+,266,Bereavement,108-05-01,108-05,Childcare,service,FALSE,FALSE,
+,267,Burial & Funeral Help,108-05-02,108-05,Childcare,service,FALSE,FALSE,
+,268,Hospice,108-05-03,108-05,Childcare,service,FALSE,FALSE,
+,269,Pain Management,108-05-04,108-05,Childcare,service,FALSE,FALSE,
+,270,Navigating the System,108-06,108,Care,service,FALSE,FALSE,
+,271,Help Fill out Forms,108-06-01,108-06,Navigating the System,service,FALSE,FALSE,
+,272,Help Find Childcare,108-06-02,108-06,Navigating the System,service,FALSE,FALSE,
+,273,Help Find Housing,108-06-03,108-06,Navigating the System,service,FALSE,FALSE,
+,274,Help Find School,108-06-04,108-06,Navigating the System,service,FALSE,FALSE,
+,275,Help Find Work,108-06-05,108-06,Navigating the System,service,FALSE,FALSE,
+,276,Physical Safety,108-07,108,Care,service,FALSE,FALSE,
+,277,Disaster Response,108-07-01,108-07,Physical Safety,service,FALSE,FALSE,
+,278,Emergency Food,108-07-02,108-07,Physical Safety,service,FALSE,FALSE,
+,279,Temporary Shelter,108-07-03,108-07,Physical Safety,service,FALSE,FALSE,
+,280,Weather Relief,108-07-03-01,108-07-03,Temporary Shelter,service,FALSE,FALSE,
+,281,Help Find Missing Persons,108-07-04,108-07,Physical Safety,service,FALSE,FALSE,
+,282,Immediate Safety,108-07-05,108-07,Physical Safety,service,FALSE,FALSE,
+,283,Help Escape Violence,108-07-05-01,108-07-05,Immediate Safety,service,FALSE,FALSE,
+,284,Safe Housing,108-07-05-02,108-07-05,Immediate Safety,service,FALSE,FALSE,
+,285,Residential Care,108-08,108,Care,service,FALSE,FALSE,
+,286,Assisted Living,108-08-01,108-08,Residential Care,service,FALSE,FALSE,
+,287,Residential Treatment,108-08-02,108-08,Residential Care,service,TRUE,FALSE,
+,288,Nursing Home,108-08-03,108-08,Residential Care,service,FALSE,FALSE,
+,289,Overnight Camp,108-08-04,108-08,Residential Care,service,FALSE,FALSE,
+,290,Support Network,108-09,108,Care,service,FALSE,FALSE,
+,291,Counseling,108-09-01,108-09,Support Network,service,FALSE,FALSE,
+,292,Help Hotlines,108-09-02,108-09,Support Network,service,FALSE,FALSE,
+,293,Home Visiting,108-09-03,108-09,Support Network,service,FALSE,FALSE,
+,294,In-Home Support,108-09-04,108-09,Support Network,service,FALSE,FALSE,
+,295,Mentoring,108-09-05,108-09,Support Network,service,FALSE,FALSE,
+,296,One-on-One Support,108-09-06,108-09,Support Network,service,FALSE,FALSE,
+,297,Peer Support,108-09-07,108-09,Support Network,service,FALSE,FALSE,
+,298,Spiritual Support,108-09-08,108-09,Support Network,service,FALSE,FALSE,
+,299,Support Groups,108-09-09,108-09,Support Network,service,FALSE,FALSE,
+,300,12-Step,108-09-09-01,108-09-09,Support Groups,service,FALSE,FALSE,
+,301,Bereavement,108-09-09-02,108-09-09,Support Groups,service,FALSE,FALSE,
+,302,Parenting Education,108-09-09-03,108-09-09,Support Groups,service,FALSE,FALSE,
+,303,Virtual Support,108-09-10,108-09,Support Network,service,FALSE,FALSE,
+,304,Education,109,,,service,FALSE,FALSE,
+,305,Help Find School,109-01,109,Education,service,FALSE,FALSE,
+,306,Help Pay for School,109-02,109,Education,service,FALSE,FALSE,
+,307,Books,109-02-01,109-02,Help Pay for School,service,FALSE,FALSE,
+,308,Clothes for School,109-02-03,109-02,Help Pay for School,service,FALSE,FALSE,
+,309,Financial Aid & Loans,109-02-04,109-02,Help Pay for School,service,FALSE,FALSE,
+,310,Transportation for School,109-02-05,109-02,Help Pay for School,service,FALSE,FALSE,
+,311,Supplies for School,109-02-06,109-02,Help Pay for School,service,FALSE,FALSE,
+,312,More Education,109-03,109,Education,service,FALSE,FALSE,
+,313,Alternative Education,109-03-01,109-03,More Education,service,FALSE,FALSE,
+,314,Disaster Preparedness & Response,109-03-02,109-03,More Education,service,FALSE,FALSE,
+,315,English as a Second Language (ESL),109-03-03,109-03,More Education,service,FALSE,FALSE,
+,316,Financial Education,109-03-04,109-03,More Education,service,FALSE,FALSE,
+,317,Credit Counseling,109-03-04-01,109-03-04,Financial Education,service,FALSE,FALSE,
+,318,Foreclosure Counseling,109-03-04-02,109-03-04,Financial Education,service,FALSE,FALSE,
+,319,Homebuyer Education,109-03-04-03,109-03-04,Financial Education,service,FALSE,FALSE,
+,320,Foreign Languages,109-03-05,109-03,More Education,service,FALSE,FALSE,
+,321,GED/High-School Equivalency,109-03-06,109-03,More Education,service,FALSE,FALSE,
+,322,Health Education,109-03-07,109-03,More Education,service,FALSE,FALSE,
+,323,Disease Management,109-03-07-01,109-03-07,Health Education,service,FALSE,FALSE,
+,324,Family Planning,109-03-07-02,109-03-07,Health Education,service,FALSE,FALSE,
+,325,Nutrition Education,109-03-07-03,109-03-07,Health Education,service,FALSE,FALSE,
+,326,Parenting Education,109-03-07-04,109-03-07,Health Education,service,FALSE,FALSE,
+,327,Sex Education,109-03-07-05,109-03-07,Health Education,service,FALSE,FALSE,
+,328,Understand Disability,109-03-07-06,109-03-07,Health Education,service,FALSE,FALSE,
+,329,Understand Mental Health,109-03-07-07,109-03-07,Health Education,service,FALSE,FALSE,
+,330,Supported Employment,109-03-08,109-03,More Education,service,FALSE,FALSE,
+,331,Special Education,109-03-09,109-03,More Education,service,FALSE,FALSE,
+,332,Tutoring,109-03-10,109-03,More Education,service,FALSE,FALSE,
+,333,Preschool,109-04,109,Education,service,FALSE,FALSE,
+,334,Screening & Exams,109-05,109,Education,service,FALSE,FALSE,
+,335,Citizenship & Immigration,109-05-01,109-05,Screening & Exams,service,FALSE,FALSE,
+,336,GED/High-School Equivalency,109-05-02,109-05,Screening & Exams,service,FALSE,FALSE,
+,337,English as a Second Language (ESL),109-05-03,109-05,Screening & Exams,service,FALSE,FALSE,
+,338,Skills & Training,109-06,109,Education,service,FALSE,FALSE,
+,339,Basic Literacy,109-06-01,109-06,Skills & Training,service,FALSE,FALSE,
+,340,Computer Class,109-06-02,109-06,Skills & Training,service,FALSE,FALSE,
+,341,Daily Life Skills,109-06-03,109-06,Skills & Training,service,FALSE,FALSE,
+,342,Interview Training,109-06-04,109-06,Skills & Training,service,FALSE,FALSE,
+,343,Resume Development,109-06-05,109-06,Skills & Training,service,FALSE,FALSE,
+,344,Skills Assessment,109-06-06,109-06,Skills & Training,service,FALSE,FALSE,
+,345,Specialized Training,109-06-07,109-06,Skills & Training,service,FALSE,FALSE,
+,346,Work,110,,,service,FALSE,FALSE,
+,347,Help Find Work,110-01,110,Work,service,FALSE,FALSE,
+,348,Job Placement,110-01-01,110-01,Help Find Work,service,FALSE,FALSE,
+,349,Supported Employment,110-01-02,110-01,Help Find Work,service,FALSE,FALSE,
+,350,Help Pay for Work Expenses,110-02,110,Work,service,FALSE,FALSE,
+,351,Clothes for Work,110-02-01,110-02,Help Pay for Work Expenses,service,FALSE,FALSE,
+,352,Retirement Benefits,110-02-02,110-02,Help Pay for Work Expenses,service,FALSE,FALSE,
+,353,Supplies for Work,110-02-03,110-02,Help Pay for Work Expenses,service,FALSE,FALSE,
+,354,Unemployment Benefits,110-02-04,110-02,Help Pay for Work Expenses,service,FALSE,FALSE,
+,355,Skills & Training,110-03,110,Work,service,FALSE,FALSE,
+,356,Basic Literacy,110-03-01,110-03,Skills & Training,service,FALSE,FALSE,
+,357,Computer Class,110-03-02,110-03,Skills & Training,service,FALSE,FALSE,
+,358,GED/High-School Equivalency,110-03-03,110-03,Skills & Training,service,FALSE,FALSE,
+,359,Interview Training,110-03-04,110-03,Skills & Training,service,FALSE,FALSE,
+,360,Resume Development,110-03-05,110-03,Skills & Training,service,FALSE,FALSE,
+,361,Skills Assessment,110-03-06,110-03,Skills & Training,service,FALSE,FALSE,
+,362,Specialized Training,110-03-07,110-03,Skills & Training,service,FALSE,FALSE,
+,363,Supported Employment,110-04,110,Work,service,FALSE,FALSE,
+,364,Workplace Rights,110-05,110,Work,service,FALSE,FALSE,
+,365,Legal,111,,,service,FALSE,FALSE,
+,366,Advocacy & Legal Aid,111-01,111,Legal,service,FALSE,FALSE,
+,367,Adoption & Foster Care,111-01-01,111-01,Advocacy & Legal Aid,service,FALSE,FALSE,
+,368,Adoption & Foster Placement,111-01-01-01,111-01-01,Adoption & Foster Care,service,FALSE,FALSE,
+,369,Adoption & Foster Parenting,111-01-01-02,111-01-01,Adoption & Foster Care,service,FALSE,FALSE,
+,370,Adoption Planning,111-01-01-03,111-01-01,Adoption & Foster Care,service,FALSE,FALSE,
+,371,Adoption Counseling,111-01-01-04,111-01-01,Adoption & Foster Care,service,FALSE,FALSE,
+,372,Post-Adoption Support,111-01-01-05,111-01-01,Adoption & Foster Care,service,FALSE,FALSE,
+,373,Citizenship & Immigration,111-01-02,111-01,Advocacy & Legal Aid,service,FALSE,FALSE,
+,374,Discrimination & Civil Rights,111-01-03,111-01,Advocacy & Legal Aid,service,FALSE,FALSE,
+,375,Guardianship,111-01-04,111-01,Advocacy & Legal Aid,service,FALSE,FALSE,
+,376,Identification Recovery,111-01-05,111-01,Advocacy & Legal Aid,service,FALSE,FALSE,
+,377,Understand Government Programs,111-01-06,111-01,Advocacy & Legal Aid,service,FALSE,FALSE,
+,378,Workplace Rights,111-01-07,111-01,Advocacy & Legal Aid,service,FALSE,FALSE,
+,379,Medical Legal,111-01-08,111-01,Advocacy & Legal Aid,service,FALSE,FALSE,
+,380,Housing Legal,111-01-09,111-01,Advocacy & Legal Aid,service,FALSE,FALSE,
+,381,Mediation,111-02,111,Legal,service,FALSE,FALSE,
+,382,Notary,111-03,111,Legal,service,FALSE,FALSE,
+,383,Representation,111-04,111,Legal,service,FALSE,FALSE,
+,384,Translation & Interpretation,111-05,111,Legal,service,FALSE,FALSE,
+,385,Age Group,112,,,situation,TRUE,TRUE,100
+,386,All Ages,112-01,112,Age Group,situation,TRUE,FALSE,
+,387,Adults (31-54 years old),112-02,112,Age Group,situation,TRUE,FALSE,
+,388,Young Adults (20-30 years old),112-03,112,Age Group,situation,TRUE,FALSE,
+,389,Teens (13-19 years old),112-04,112,Age Group,situation,TRUE,FALSE,
+,390,Infants (0-1 years old),112-05,112,Age Group,situation,TRUE,FALSE,
+,391,Children (2-12 years old),112-06,112,Age Group,situation,TRUE,FALSE,
+,392,Seniors (55+ years old),112-07,112,Age Group,situation,TRUE,FALSE,
+,393,Armed Forces,113,,,situation,FALSE,FALSE,
+,394,Active Duty,113-01,113,Armed Forces,situation,FALSE,FALSE,
+,395,National Guard,113-02,113,Armed Forces,situation,FALSE,FALSE,
+,396,Veterans,113-03,113,Armed Forces,situation,FALSE,FALSE,
+,397,Citizenship,114,,,situation,FALSE,FALSE,
+,398,Immigrants,114-01,114,Citizenship,situation,FALSE,FALSE,
+,399,Refugees,114-02,114,Citizenship,situation,FALSE,FALSE,
+,400,Undocumented,114-03,114,Citizenship,situation,FALSE,FALSE,
+,401,Criminal History,115,,,situation,FALSE,FALSE,
+,402,Ex-Offenders,115-01,115,Criminal History,situation,FALSE,FALSE,
+,403,In Jail,115-02,115,Criminal History,situation,FALSE,FALSE,
+,404,Disability,116,,,situation,FALSE,FALSE,
+,405,All Disabilities,116-01,116,Disability,situation,FALSE,FALSE,
+,406,Learning Disability,116-02,116,Disability,situation,FALSE,FALSE,
+,407,Developmental Disability,116-03,116,Disability,situation,FALSE,FALSE,
+,408,Physical Disability,116-04,116,Disability,situation,FALSE,FALSE,
+,409,Intellectual Disability,116-05,116,Disability,situation,FALSE,FALSE,
+,410,Mentally Incapacitated,116-06,116,Disability,situation,FALSE,FALSE,
+,411,Limited Mobility,116-07,116,Disability,situation,FALSE,FALSE,
+,412,Hearing Impairment,116-08,116,Disability,situation,FALSE,FALSE,
+,413,Visual Impairment,116-09,116,Disability,situation,FALSE,FALSE,
+,414,Mental Illness,116-10,116,Disability,situation,TRUE,FALSE,
+,415,Education,117,,,situation,FALSE,FALSE,
+,416,Dropouts,117-01,117,Education,situation,FALSE,FALSE,
+,417,Students,117-02,117,Education,situation,FALSE,FALSE,
+,418,Employment,118,,,situation,FALSE,FALSE,
+,419,Employed,118-01,118,Employment,situation,FALSE,FALSE,
+,420,Retired,118-02,118,Employment,situation,FALSE,FALSE,
+,421,Unemployed,118-03,118,Employment,situation,FALSE,FALSE,
+,422,Gender & Sexuality,119,,,situation,TRUE,TRUE,200
+,423,Women,119-01,119,Gender & Sexuality,situation,TRUE,FALSE,
+,424,Men,119-02,119,Gender & Sexuality,situation,TRUE,FALSE,
+,425,Transgender Woman,119-03,119,Gender & Sexuality,situation,TRUE,FALSE,
+,426,Transgender Man,119-04,119,Gender & Sexuality,situation,TRUE,FALSE,
+,427,Non-binary,119-05,119,Gender & Sexuality,situation,TRUE,FALSE,
+,428,LGBTQ,119-06,119,Gender & Sexuality,situation,TRUE,FALSE,
+,429,Guardianship,120,,,situation,FALSE,FALSE,
+,430,Foster Youth,120-01,120,Guardianship,situation,FALSE,FALSE,
+,431,Health Specialties,121,,,situation,FALSE,TRUE,300
+,432,Pregnant,121-01,121,Health Specialties,situation,TRUE,FALSE,
+,433,Cancer,121-02,121,Health Specialties,situation,FALSE,FALSE,
+,434,Alzheimers,121-03,121,Health Specialties,situation,FALSE,FALSE,
+,435,Seizure Disorder,121-04,121,Health Specialties,situation,FALSE,FALSE,
+,436,PTSD,121-05,121,Health Specialties,situation,FALSE,FALSE,
+,437,Terminal Illness,121-06,121,Health Specialties,situation,TRUE,FALSE,
+,438,HIV/AIDS,121-07,121,Health Specialties,situation,TRUE,FALSE,
+,439,Neuromuscular Disease,121-08,121,Health Specialties,situation,FALSE,FALSE,
+,440,Tobacco/Nicotine/Smoking,121-09,121,Health Specialties,situation,TRUE,FALSE,
+,441,Opioid Use Disorder,121-10,121,Health Specialties,situation,TRUE,FALSE,
+,442,Alcohol Use Disorder,121-11,121,Health Specialties,situation,TRUE,FALSE,
+,443,Mental Illness,121-12,121,Health Specialties,situation,TRUE,FALSE,
+,444,Chronic Illness,121-13,121,Health Specialties,situation,FALSE,FALSE,
+,445,Genetic Disorder,121-14,121,Health Specialties,situation,FALSE,FALSE,
+,446,Diabetes,121-15,121,Health Specialties,situation,FALSE,FALSE,
+,447,Autism,121-16,121,Health Specialties,situation,FALSE,FALSE,
+,448,Family Friendly,122,,,situation,TRUE,TRUE,400
+,449,Families with Children,122-01,122,Family Friendly,situation,TRUE,FALSE,
+,450,Single Mom,122-02,122,Family Friendly,situation,TRUE,FALSE,
+,451,Single Dad,122-03,122,Family Friendly,situation,TRUE,FALSE,
+,452,Housing,123,,,situation,FALSE,FALSE,
+,453,Home Renters,123-01,123,Housing,situation,FALSE,FALSE,
+,454,Homeless,123-02,123,Housing,situation,FALSE,FALSE,
+,455,Near Homeless,123-03,123,Housing,situation,FALSE,FALSE,
+,456,Runaways,123-04,123,Housing,situation,FALSE,FALSE,
+,457,Income,124,,,situation,FALSE,FALSE,
+,458,Benefit Recipients,124-01,124,Income,situation,FALSE,FALSE,
+,459,Low-Income,124-02,124,Income,situation,FALSE,FALSE,
+,460,Insurance Accepted,125,,,situation,TRUE,TRUE,500
+,461,Uninsured (pay out of pocket),125-01,125,Insurance Accepted,situation,TRUE,FALSE,
+,462,Medicaid,125-02,125,Insurance Accepted,situation,TRUE,FALSE,
+,463,Medicare,125-03,125,Insurance Accepted,situation,TRUE,FALSE,
+,464,Tricare,125-04,125,Insurance Accepted,situation,TRUE,FALSE,
+,465,Private,125-05,125,Insurance Accepted,situation,TRUE,FALSE,
+,466,Languages,126,,,situation,TRUE,TRUE,600
+,467,Spanish-Fluent Provider,126-01,126,Languages,situation,TRUE,FALSE,
+,468,ASL-Fluent Provider,126-02,126,Languages,situation,TRUE,FALSE,
+,469,Web-based Translation,126-03,126,Languages,situation,TRUE,FALSE,
+,470,Race/Ethnicity,127,,,situation,FALSE,FALSE,
+,471,African American,127-01,127,Race/Ethnicity,situation,FALSE,FALSE,
+,472,Asian,127-02,127,Race/Ethnicity,situation,FALSE,FALSE,
+,473,Latinx,127-03,127,Race/Ethnicity,situation,FALSE,FALSE,
+,474,Native American,127-04,127,Race/Ethnicity,situation,FALSE,FALSE,
+,475,Role,128,,,situation,FALSE,FALSE,
+,476,Caregivers,128-01,128,Role,situation,FALSE,FALSE,
+,477,Spouses,128-02,128,Role,situation,FALSE,FALSE,
+,478,Dependents,128-03,128,Role,situation,FALSE,FALSE,
+,479,Fathers,128-04,128,Role,situation,FALSE,FALSE,
+,480,Mothers,128-05,128,Role,situation,FALSE,FALSE,
+,481,Parents,128-06,128,Role,situation,FALSE,FALSE,
+,482,Survivors,129,,,situation,FALSE,FALSE,
+,483,All Survivors,129-01,129,Survivors,situation,FALSE,FALSE,
+,484,Trauma Survivors,129-02,129,Survivors,situation,FALSE,FALSE,
+,485,Abuse or Neglect Survivors,129-03,129,Survivors,situation,FALSE,FALSE,
+,486,Burn Survivors,129-04,129,Survivors,situation,FALSE,FALSE,
+,487,Cancer Survivors,129-05,129,Survivors,situation,FALSE,FALSE,
+,488,Childhood Cancer Survivors,129-06,129,Survivors,situation,FALSE,FALSE,
+,489,Young Adult Cancer Survivors,129-07,129,Survivors,situation,FALSE,FALSE,
+,490,Adult Cancer Survivors,129-08,129,Survivors,situation,FALSE,FALSE,
+,491,Domestic Violence Survivors,129-09,129,Survivors,situation,FALSE,FALSE,
+,492,Human Trafficking Survivors,129-10,129,Survivors,situation,FALSE,FALSE,
+,493,Natural Disaster Survivors,129-11,129,Survivors,situation,FALSE,FALSE,
+,494,Sexual Assault Survivors,129-12,129,Survivors,situation,FALSE,FALSE,
+,495,Documents Needed,130,,,situation,TRUE,TRUE,700
+,496,No ID Required,130-01,130,Documents Needed,situation,TRUE,FALSE,
+,497,No Referral Required,130-02,130,Documents Needed,situation,FALSE,FALSE,
+,498,State ID Required,130-03,130,Documents Needed,situation,FALSE,FALSE,
+,499,Social Security Required,130-04,130,Documents Needed,situation,FALSE,FALSE,
+,500,Pay Stub Required,130-05,130,Documents Needed,situation,FALSE,FALSE,
+,501,Proof of Residence Required,130-06,130,Documents Needed,situation,FALSE,FALSE,
+,502,Insurance Card Required,130-07,130,Documents Needed,situation,FALSE,FALSE,
+,503,Special Hours,131,,,situation,TRUE,TRUE,800
+,504,Walk-In Hours Provided,131-01,131,Special Hours,situation,TRUE,FALSE,
+,505,Evening Hours Provided,131-02,131,Special Hours,situation,TRUE,FALSE,
+,506,Weekend Hours Provided,131-03,131,Special Hours,situation,TRUE,FALSE,
+,507,Substance Use Treatment Preferences,132,,,situation,TRUE,TRUE,1000
+,508,Prayer Not Required,132-01,132,Substance Use Treatment Preferences,situation,TRUE,FALSE,
+,509,Smoking Allowed,132-02,132,Substance Use Treatment Preferences,situation,TRUE,FALSE,
+,510,Children Allowed,132-03,132,Substance Use Treatment Preferences,situation,TRUE,FALSE,
+,511,Pregnant Women Specialized Care,132-04,132,Substance Use Treatment Preferences,situation,TRUE,FALSE,
+,512,Forensic (Court Ordered) Clients Served,132-05,132,Substance Use Treatment Preferences,situation,TRUE,FALSE,
+,513,Co-occurring Mental Health Treatment Provided,132-06,132,Substance Use Treatment Preferences,situation,TRUE,FALSE,
+,514,Blackout Period Required,132-07,132,Substance Use Treatment Preferences,situation,TRUE,FALSE,
+,515,Cell-Phone Allowed,132-08,132,Substance Use Treatment Preferences,situation,TRUE,FALSE,
+,516,Case Management Services Provided,132-09,132,Substance Use Treatment Preferences,situation,TRUE,FALSE,
+,517,Support Groups Services Provided,132-10,132,Substance Use Treatment Preferences,situation,TRUE,FALSE,
