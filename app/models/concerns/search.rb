@@ -77,7 +77,7 @@ module Search
 
     def allowed_services_params(params)
       params.permit(
-       { categories: [] }, :wait_time, :filters
+        { categories: [] }, :wait_time, :filters
       )
     end
   end

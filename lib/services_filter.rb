@@ -29,7 +29,7 @@ class ServicesFilter
   end
 
   def service_has_categories(service, category_ids)
-    results_cats = service.categories.map{ |c| c.id.to_s }
+    results_cats = service.categories.map { |c| c.id.to_s }
     (category_ids - results_cats).empty?
   end
 end
