@@ -5,4 +5,4 @@
       = t('.description')
 
   %p
-    = f.select :wait_time, options_for_select(SETTINGS[:wait_times], service.wait_time), {include_blank: 'Unknown'}, {:class => "form-control"}
+    = f.select :wait_time, options_for_select(wait_time_select_options, service.wait_time), {include_blank: 'Unknown'}, {:class => "form-control"}
