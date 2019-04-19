@@ -45,7 +45,8 @@ describe Service do
       with_message('http:// is not a valid URL')
   end
 
-  it do
+  # BAHC relaxed the validation on service areas to allow import of iCarol data
+  xit do
     is_expected.not_to allow_value(%w[belmont]).
       for(:service_areas).
       with_message('belmont is not a valid service area')

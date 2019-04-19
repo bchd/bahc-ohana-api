@@ -172,7 +172,7 @@ feature 'Create a new service' do
     click_button I18n.t('admin.buttons.create_service')
     click_link 'New VRS Services service'
 
-    expect(find_field('service_wait_time').value).to eq 'Available Today'
+    expect(find_field('service_wait_time').value).to eq 'available_today'
   end
 
   scenario 'when adding categories', :js do
