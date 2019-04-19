@@ -293,6 +293,7 @@ describe 'GET /locations/:id' do
       categories = [
         {
           'id' => @food.id,
+          'filter' => false,
           'depth' => 0,
           'taxonomy_id' => '101',
           'name' => 'Food',
@@ -300,6 +301,7 @@ describe 'GET /locations/:id' do
         },
         {
           'id' => @food_child.id,
+          'filter' => false,
           'depth' => 1,
           'taxonomy_id' => '101-01',
           'name' => 'Community Gardens',
@@ -307,6 +309,7 @@ describe 'GET /locations/:id' do
         },
         {
           'id' => @health.id,
+          'filter' => false,
           'depth' => 0,
           'taxonomy_id' => '102',
           'name' => 'Health',
@@ -314,6 +317,7 @@ describe 'GET /locations/:id' do
         },
         {
           'id' => @health_child.id,
+          'filter' => false,
           'depth' => 1,
           'taxonomy_id' => '102-01',
           'name' => 'Orthodontics',
