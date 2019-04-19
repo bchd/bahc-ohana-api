@@ -1,5 +1,11 @@
 # Change Log
 
+## [1.6.0] - 2019-04-26
+### ahc-sprint-22
+### Added
+  - AHC-1075
+    - Add location filtering by services with certain categories
+    
 ## [1.5.0] - 2019-04-12
 ### ahc-sprint-21
 ### Added
