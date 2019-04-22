@@ -20,6 +20,14 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  service:
+    wait_time:
+      call_for_availability: 'Call for availability'
+      available_today: 'Available Today'
+      next_day_service: 'Next Day Service'
+      two_three_day_wait: '2-3 Day Wait'
+      one_week_wait: '1 Week Wait'
+
   activerecord:
     attributes:
       address: &address_attributes
@@ -157,6 +165,7 @@ en:
       save_changes: 'Save changes & apply edits to database'
       delete_symbol: 'x'
       download_addresses: 'Download Addresses'
+      download_categories: 'Download Categories'
       download_contacts: 'Download Contacts'
       download_holiday_schedules: 'Download Holiday Schedules'
       download_locations: 'Download Locations'

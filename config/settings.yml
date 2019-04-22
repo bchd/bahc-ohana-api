@@ -265,10 +265,10 @@ bounds: [[25.7084, -124.085], [48.9084, -67.085]]
 #
 # This setting is used in '/app/views/admin/services/forms/_wait.html.haml'.
 wait_times:
-  - 'Available Today'
-  - 'Next Day Service'
-  - '2-3 Day Wait'
-  - '1 Week Wait'
+  - 'available_today'
+  - 'next_day_service'
+  - 'two_three_day_wait'
+  - 'one_week_wait'
 ###########################################
 #
 # SETTINGS FOR TESTS. PLEASE DO NOT MODIFY.

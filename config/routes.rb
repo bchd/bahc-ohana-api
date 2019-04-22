@@ -31,6 +31,7 @@ Rails.application.routes.draw do
 
       namespace :csv, defaults: { format: 'csv' } do
         get 'addresses'
+        get 'categories'
         get 'contacts'
         get 'holiday_schedules'
         get 'locations'
@@ -68,7 +69,7 @@ Rails.application.routes.draw do
             to: 'organizations#locations', as: :org_locations
 
         get 'lookahead', to: 'search#lookahead', as: :lookahead
-        
+
         resources :locations do
           resources :address, except: %i[index show]
           resources :mail_address, except: %i[index show]

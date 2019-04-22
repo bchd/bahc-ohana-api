@@ -78,7 +78,8 @@ describe 'PATCH /locations/:location_id/services/:id' do
       to eq('The requested resource could not be found.')
   end
 
-  it 'returns 422 when attribute is invalid' do
+  # BAHC relaxed the validation on service areas to allow import of iCarol data
+  xit 'returns 422 when attribute is invalid' do
     patch(
       api_location_service_url(@location, @service, subdomain: ENV['API_SUBDOMAIN']),
       @attrs.merge!(service_areas: ['Belmont, CA'])

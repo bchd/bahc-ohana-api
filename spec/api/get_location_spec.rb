@@ -277,10 +277,10 @@ describe 'GET /locations/:id' do
     before :each do
       @food = create(:category)
       @food_child = @food.children.
-                    create!(name: 'Community Gardens', taxonomy_id: '101-01')
+                    create!(name: 'Community Gardens', taxonomy_id: '101-01', type: 'service')
       @health = create(:health)
       @health_child = @health.children.
-                      create!(name: 'Orthodontics', taxonomy_id: '102-01')
+                      create!(name: 'Orthodontics', taxonomy_id: '102-01', type: 'service')
       create_service
       @service.category_ids = [
         @food.id, @food_child.id, @health.id, @health_child.id
@@ -297,7 +297,8 @@ describe 'GET /locations/:id' do
           'depth' => 0,
           'taxonomy_id' => '101',
           'name' => 'Food',
-          'parent_id' => nil
+          'parent_id' => nil,
+          'type' => 'service'
         },
         {
           'id' => @food_child.id,
@@ -305,7 +306,8 @@ describe 'GET /locations/:id' do
           'depth' => 1,
           'taxonomy_id' => '101-01',
           'name' => 'Community Gardens',
-          'parent_id' => @food.id
+          'parent_id' => @food.id,
+          'type' => 'service'
         },
         {
           'id' => @health.id,
@@ -313,7 +315,8 @@ describe 'GET /locations/:id' do
           'depth' => 0,
           'taxonomy_id' => '102',
           'name' => 'Health',
-          'parent_id' => nil
+          'parent_id' => nil,
+          'type' => 'service'
         },
         {
           'id' => @health_child.id,
@@ -321,7 +324,8 @@ describe 'GET /locations/:id' do
           'depth' => 1,
           'taxonomy_id' => '102-01',
           'name' => 'Orthodontics',
-          'parent_id' => @health.id
+          'parent_id' => @health.id,
+          'type' => 'service'
         }
       ]
 
