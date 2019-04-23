@@ -430,7 +430,7 @@ bom,id,name,taxonomy_id,parent_id,parent_name,type,filter,filter_parent,filter_p
 ,429,Guardianship,120,,,situation,FALSE,FALSE,
 ,430,Foster Youth,120-01,120,Guardianship,situation,FALSE,FALSE,
 ,431,Health Specialties,121,,,situation,FALSE,TRUE,300
-,432,Pregnant,121-01,121,Health Specialties,situation,TRUE,FALSE,
+,432,Pregnancy,121-01,121,Health Specialties,situation,TRUE,FALSE,
 ,433,Cancer,121-02,121,Health Specialties,situation,FALSE,FALSE,
 ,434,Alzheimers,121-03,121,Health Specialties,situation,FALSE,FALSE,
 ,435,Seizure Disorder,121-04,121,Health Specialties,situation,FALSE,FALSE,
