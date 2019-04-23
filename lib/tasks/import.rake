@@ -1,7 +1,7 @@
 namespace :import do
   task all: %i[organizations programs locations taxonomy services
                mail_addresses contacts phones regular_schedules
-               holiday_schedules touch_locations assign_categories]
+               holiday_schedules assign_categories touch_locations]
 
   desc 'Imports organizations'
   task :organizations, [:path] => :environment do |_, args|
