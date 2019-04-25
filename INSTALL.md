@@ -123,12 +123,6 @@ into a new locale for your language. Find out how in the
 
 - Run `script/import` to import your CSV files, but first read the notes below.
 
-If your data doesn't already include a taxonomy, and if you want to use the Open
-Eligibility taxonomy, you can create the categories with this command:
-```
-bin/rake create_categories
-```
-
 If your Location entries don't already include a latitude and longitude, the
 script will geocode them for you, but this can cause the script to fail with
 `Geocoder::OverQueryLimitError`. If you get that error, set a sleep time to
