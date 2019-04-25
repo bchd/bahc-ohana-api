@@ -402,7 +402,7 @@ en:
         password_confirmation: 'Confirm password'
 
   titles:
-    brand: "Ohana API"
+    brand: "CHARMcare Data"
     admin: "%{brand} Admin"
     developer: "%{brand} Developers"
 

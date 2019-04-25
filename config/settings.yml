@@ -26,7 +26,7 @@ accepted_payments:
 # app/views/admin/organizations/index.html.haml.
 #
 # Please make sure to change this to your own email address.
-admin_support_email: ohanapi@codeforamerica.org
+admin_support_email: Support.charmcare@baltimorecity.gov
 
 # These will be the values that admin interface users will choose from when
 # updating an Organization's or Service's funding sources. Make sure to update
@@ -226,7 +226,7 @@ date_format: '%m/%d/'
 # The email address that confirmation emails are sent from after user signup,
 # for the Developer and Admin portals.
 # Please make sure to change this to your own email address.
-confirmation_email: ohanapi@codeforamerica.org
+confirmation_email: Support.charmcare@baltimorecity.gov
 
 ###############################
 #
@@ -281,7 +281,7 @@ test:
 
   bounds: [[37.1074, -122.521], [37.7084, -122.085]]
 
-  confirmation_email: registration@ohanapi.org
+  confirmation_email: Noreply.charmcare@baltimorecity.gov
 
   funding_sources:
   - 'State'
