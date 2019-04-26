@@ -3,6 +3,11 @@
 ## [1.6.0] - 2019-04-26
 ### ahc-sprint-22
 ### Added
+  - AHC-1411
+    - Changed the title to "CHARMcare Data"
+  - AHC-1410
+    - Commit BHCD and CHARMcare logos and icons to assets
+    - Set favicon in UI
   - AHC-1311
     - added rake task to assign categories to services
   - AHC-1295
