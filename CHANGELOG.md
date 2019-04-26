@@ -5,6 +5,8 @@
 ### Added
   - AHC-1311
     - added rake task to assign categories to services
+  - AHC-1295
+    - Lookahead search on any class with a name attribute
   - AHC-1075
     - Add location filtering by services with certain categories
 

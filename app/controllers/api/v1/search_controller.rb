@@ -26,25 +26,56 @@ module Api
         generate_pagination_headers(locations_near(location))
       end
 
-      # rubocop:disable Style/ConditionalAssignment
+      # Allows lookahead search on the name of various objects in the database.
+      #
+      #   GET /api/lookahead?name=center&klass=organization
+      #
+      # This will search for Organizations with 'center' somewhere in their name.
+      #
+      # +klass+ can be the name of any object that has name as an attribute, e.g.,
+      #
+      #   * organization
+      #   * location
+      #   * service
+      #   * program (unused)
+      #   * category
+      #
+      # If not given, klass is assumed to be 'Location'
+      #
+      # Return is a JSON array of arrays, with +[name, id]+ for each matching object.
+      #
+      # rubocop:disable Style/ConditionalAssignment, Style/RescueStandardError
       def lookahead
+        klass = lookahead_klass
         if lookahead_params[:name].length > 2
-          @organizations = Organization.where(
-            'LOWER(name) LIKE ?',
-            "%#{lookahead_params[:name].downcase}%"
-          )
+          matches = lookahead_search klass, lookahead_params[:name]
         else
-          @organizations = Organization.none
+          matches = klass.none
         end
 
-        render json: @organizations.map(&:name)
+        render json: matches.map { |loc| [loc.name, loc.id] }
+      rescue
+        render json: []
       end
-      # rubocop:enable Style/ConditionalAssignment
+      # rubocop:enable Style/ConditionalAssignment, Style/RescueStandardError
 
       private
 
       def lookahead_params
         params.permit(:name)
+      end
+
+      def lookahead_search(klass, name)
+        klass.where(
+          'LOWER(name) LIKE ?',
+          "%#{name.downcase}%"
+        )
+      end
+
+      def lookahead_klass
+        return nil if params[:klass]&.downcase == 'user'
+        klass = params[:klass]&.camelize&.constantize
+        klass || Location
       end
 
       def tables
