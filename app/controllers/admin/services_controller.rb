@@ -30,6 +30,15 @@ class Admin
       end
     end
 
+    def update_capacity
+      if @service.update(service_params.except(:locations))
+        redirect_to [:admin, @location, @service],
+                    notice: 'Service was successfully updated.'
+      else
+        render :edit
+      end
+    end
+
     def new
       @location = Location.find(params[:location_id])
       @taxonomy_ids = []

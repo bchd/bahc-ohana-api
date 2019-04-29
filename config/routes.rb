@@ -43,6 +43,8 @@ Rails.application.routes.draw do
         get 'services'
       end
 
+      get 'locations/capacity', to: 'locations#capacity'
+
       get 'locations/:location_id/services/:id', to: 'services#edit'
       get 'locations/:location_id/services/:service_id/contacts/:id', to: 'service_contacts#edit'
       get 'locations/:location_id/contacts/:id', to: 'contacts#edit'

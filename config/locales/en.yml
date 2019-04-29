@@ -302,6 +302,9 @@ en:
         wait:
           description: 'How long on average does a client need to wait to receive services?'
 
+      capacity:
+        update_status: "Update Status"
+
     shared:
       forms:
         alternate_name:
