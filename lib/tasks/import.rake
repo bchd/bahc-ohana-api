@@ -74,7 +74,7 @@ namespace :import do
   end
 
   # rubocop:disable Lint/HandleExceptions
-  desc 'Assign categories to services'
+  desc 'Assign OE categories to services'
   task :assign_categories, [:path] => :environment do |_, args|
     args.with_defaults(path: Rails.root.join('data', 'service_categories.json'))
     text = File.read(args[:path], encoding: 'UTF-8')
@@ -91,6 +91,20 @@ namespace :import do
           # puts "skipping duplicate row: #{row.inspect}"
         end
       end
+    end
+  end
+
+  # rubocop:disable Lint/HandleExceptions
+  desc 'Record original icarol categories to services'
+  task :record_icarol_categories, [:path] => :environment do |_, args|
+    args.with_defaults(path: Rails.root.join('data', 'service_icarol_categories.json'))
+    text = File.read(args[:path], encoding: 'UTF-8')
+    data = JSON.parse text
+    data.each_key do |service_id|
+      service = Service.where(id: service_id)[0]
+      next unless service
+
+      service.update icarol_categories: data[service_id].join(', ')
     end
   end
   # rubocop:enable Lint/HandleExceptions
