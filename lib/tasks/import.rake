@@ -94,7 +94,6 @@ namespace :import do
     end
   end
 
-  # rubocop:disable Lint/HandleExceptions
   desc 'Record original icarol categories to services'
   task :record_icarol_categories, [:path] => :environment do |_, args|
     args.with_defaults(path: Rails.root.join('data', 'service_icarol_categories.json'))
