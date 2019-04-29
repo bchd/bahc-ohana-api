@@ -4,7 +4,7 @@
 ### ahc-sprint-23
 ### Added
   - AHC-1413
-    - `rake category_ancestry` will ensure all ancestors of a category on a servcie are also applied to that service
+    - `rake category_ancestry` will ensure all ancestors of a category on a service are also applied to that service
 
 ## [1.6.0] - 2019-04-26
 ### ahc-sprint-22

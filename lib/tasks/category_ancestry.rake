@@ -4,18 +4,14 @@ task category_ancestry: :environment do
     puts "updating ancestry for service(#{service.id}) #{service.name}"
     service_categories = service.categories
     ancestry = service_categories&.map(&:ancestry)
-    if ancestry.present?
-      ancestor_ids = ancestry.map { |a| a&.split('/')&.map(&:to_i) }&.
-        flatten&.
-        delete_if(&:nil?)&.
-        sort
-      if ancestor_ids
-        missing_ancestor_ids = ancestor_ids - service_categories.map(&:id)
-        missing_ancestors = Category.where(id: missing_ancestor_ids)
-        service.categories << missing_ancestors
-      end
-    end
+    next unless ancestry.present?
+    ancestor_ids = ancestry.map { |a| a&.split('/')&.map(&:to_i) }&.
+      flatten&.
+      delete_if(&:nil?)&.
+      sort
+    next unless ancestor_ids
+    missing_ancestor_ids = ancestor_ids - service_categories.map(&:id)
+    missing_ancestors = Category.where(id: missing_ancestor_ids)
+    service.categories << missing_ancestors
   end
 end
-
-
