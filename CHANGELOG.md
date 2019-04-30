@@ -5,6 +5,8 @@
 ### Added
   - AHC-1413
     - `rake category_ancestry` will ensure all ancestors of a category on a service are also applied to that service
+  - AHC-1278
+    - Added Update Capacity page for all of an admin's locations 
 ### Changed
   - AHC-1422
     - Record the original iCarol category ids on each service

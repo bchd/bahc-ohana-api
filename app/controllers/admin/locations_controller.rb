@@ -58,8 +58,8 @@ class Admin
 
     def capacity
       @locations = Kaminari.paginate_array(policy_scope(Location)).
-          page(params[:page]).per(params[:per_page])
-      @locations.map!{|location| location.append(@location = Location.find(location[0])) }
+                   page(params[:page]).per(params[:per_page])
+      @locations.map! { |location| location.append(@location = Location.find(location[0])) }
     end
 
     private

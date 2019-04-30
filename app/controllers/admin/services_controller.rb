@@ -142,6 +142,7 @@ class Admin
       )
     end
     # rubocop:enable MethodLength
+
     def service_capacity_params
       params.permit(:wait_time, :id)
     end
