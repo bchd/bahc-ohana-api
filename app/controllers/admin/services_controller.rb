@@ -22,7 +22,7 @@ class Admin
       authorize @location
       preprocess_service
 
-      if @service.update(service_params.except(:locations))
+      if @service.update(service_params.except(:locations)) && @service.touch(:updated_at)
         redirect_to [:admin, @location, @service],
                     notice: 'Service was successfully updated.'
       else
@@ -31,12 +31,10 @@ class Admin
     end
 
     def update_capacity
-      if @service.update(service_params.except(:locations))
-        redirect_to [:admin, @location, @service],
-                    notice: 'Service was successfully updated.'
-      else
-        render :edit
-      end
+      @service = Service.find(service_capacity_params[:id])
+      @service.touch(:updated_at)
+      @service.update(service_capacity_params)
+      redirect_back(fallback_location: root_path)
     end
 
     def new
@@ -144,5 +142,8 @@ class Admin
       )
     end
     # rubocop:enable MethodLength
+    def service_capacity_params
+      params.permit(:wait_time, :id)
+    end
   end
 end

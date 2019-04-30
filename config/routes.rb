@@ -43,10 +43,11 @@ Rails.application.routes.draw do
         get 'services'
       end
 
-      get 'locations/capacity', to: 'locations#capacity'
+      get 'capacity', to: 'locations#capacity'
 
       get 'locations/:location_id/services/:id', to: 'services#edit'
       get 'locations/:location_id/services/:service_id/contacts/:id', to: 'service_contacts#edit'
+      patch 'locations/:location_id/services/:id/update_capacity', to: 'services#update_capacity', as: "service_update_capacity"
       get 'locations/:location_id/contacts/:id', to: 'contacts#edit'
       get 'locations/:id', to: 'locations#edit'
       get 'organizations/:id', to: 'organizations#edit'
