@@ -15,6 +15,9 @@
     - Extended the CORS to allow lookahead
   - AHC-1422
     - Record the original iCarol category ids on each service
+### Removed
+  - AHC-1387
+    - Removed the Program button from all admin screens
 
 ## [1.6.0] - 2019-04-26
 ### ahc-sprint-22
