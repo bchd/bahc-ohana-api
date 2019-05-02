@@ -6,6 +6,8 @@
   - AHC-1413
     - `rake category_ancestry` will ensure all ancestors of a category on a service are also applied to that service
 ### Changed
+  - HOTFIX
+    - Extended the CORS to allow lookahead
   - AHC-1422
     - Record the original iCarol category ids on each service
 
