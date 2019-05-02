@@ -22,7 +22,7 @@ describe "GET 'search'" do
     end
 
     it 'finds matching locations when category parameter is present' do
-      get '/api/search?language=Spanish&category=Food'
+      get '/api/search?language=Spanish&category[]=Food'
       expect(json.length).to eq(0)
     end
   end

@@ -294,6 +294,8 @@ describe 'GET /locations/:id' do
         {
           'id' => @food.id,
           'filter' => false,
+          'filter_parent' => false,
+          'filter_priority' => nil,
           'depth' => 0,
           'taxonomy_id' => '101',
           'name' => 'Food',
@@ -303,6 +305,8 @@ describe 'GET /locations/:id' do
         {
           'id' => @food_child.id,
           'filter' => false,
+          'filter_parent' => false,
+          'filter_priority' => nil,
           'depth' => 1,
           'taxonomy_id' => '101-01',
           'name' => 'Community Gardens',
@@ -312,6 +316,8 @@ describe 'GET /locations/:id' do
         {
           'id' => @health.id,
           'filter' => false,
+          'filter_parent' => false,
+          'filter_priority' => nil,
           'depth' => 0,
           'taxonomy_id' => '102',
           'name' => 'Health',
@@ -321,6 +327,8 @@ describe 'GET /locations/:id' do
         {
           'id' => @health_child.id,
           'filter' => false,
+          'filter_parent' => false,
+          'filter_priority' => nil,
           'depth' => 1,
           'taxonomy_id' => '102-01',
           'name' => 'Orthodontics',
