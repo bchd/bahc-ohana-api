@@ -71,7 +71,7 @@ module Search
 
     def allowed_params(params)
       params.permit(
-        :keyword, :language, :org_name, :service_area, :status
+        { category: [] }, :category, :keyword, :language, :org_name, :service_area, :status
       )
     end
 
