@@ -86,6 +86,7 @@ Rails.application.routes.draw do
         end
 
         resources :search, only: :index
+        get 'search_needs', to: 'search#search_needs'
 
         resources :categories, only: :index
 

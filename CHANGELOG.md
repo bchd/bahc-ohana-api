@@ -3,6 +3,9 @@
 ## [1.7.0] - 2019-05-10
 ### ahc-sprint-23
 ### Added
+  - AHC-1335
+    - Adds `/api/search_needs?location=&taxonomy_ids=` to the API
+    - Will search the categories corresponding to the received taxonomy_ids and all descendants
   - AHC-1413
     - `rake category_ancestry` will ensure all ancestors of a category on a service are also applied to that service
   - AHC-1278
