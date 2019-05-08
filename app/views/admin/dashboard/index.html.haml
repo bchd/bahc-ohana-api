@@ -10,6 +10,10 @@
   %p
     = link_to t('admin.buttons.programs'), admin_programs_path, class: 'btn btn-primary'
 
+  - unless current_admin.super_admin?
+    %p
+      = link_to t('admin.buttons.update_capacity'), admin_capacity_path, class: 'btn btn-primary'
+
   - if current_admin.super_admin?
     %p
       = link_to t('admin.buttons.add_organization'), new_admin_organization_path, class: 'btn btn-primary'

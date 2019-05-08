@@ -129,6 +129,7 @@ en:
       organizations: 'Organizations'
       locations: 'Locations'
       services: 'Services'
+      update_capacity: 'Update Capacity'
       programs: 'Programs'
       add_organization: 'Add a new organization'
       create_organization: 'Create organization'
@@ -301,6 +302,11 @@ en:
 
         wait:
           description: 'How long on average does a client need to wait to receive services?'
+
+      capacity:
+        update_status: "Update Status"
+        capacity_status: "Capacity Status"
+        last_updated: "Last updated "
 
     shared:
       forms:
