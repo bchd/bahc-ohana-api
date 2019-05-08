@@ -17,6 +17,16 @@ module Api
         render json: locations.preload(tables), each_serializer: LocationsSerializer, status: :ok
       end
 
+      def search_needs
+        locations = Location.search_needs_location(params).page(params[:page]).
+                    per(params[:per_page])
+
+        return unless stale?(etag: cache_key(locations), public: true)
+
+        generate_pagination_headers(locations)
+        render json: locations.preload(tables), each_serializer: LocationsSerializer, status: :ok
+      end
+
       def nearby
         location = Location.find(params[:location_id])
 
