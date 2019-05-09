@@ -191,18 +191,6 @@ feature 'Create a new service' do
     expect(find('#category_101')).to be_checked
   end
 
-  scenario 'when adding a program', :js do
-    @loc.organization.programs.create!(attributes_for(:program))
-    visit new_admin_location_service_path(@loc)
-    fill_in_required_service_fields
-    select 'Collection of Services', from: 'service_program_id'
-    click_button I18n.t('admin.buttons.create_service')
-    click_link 'New VRS Services service'
-
-    expect(page).
-      to have_select('service_program_id', selected: 'Collection of Services')
-  end
-
   scenario 'when adding hours of operation', :js do
     fill_in_required_service_fields
     add_hour(

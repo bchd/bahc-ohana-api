@@ -68,10 +68,10 @@ feature 'Admin Home page' do
       end
     end
 
-    it 'includes a link to programs in the body' do
+    it 'does not include a link to programs in the body' do
       within '.content' do
         expect(page).
-          to have_link I18n.t('admin.buttons.programs'), href: admin_programs_path
+          not_to have_link I18n.t('admin.buttons.programs'), href: admin_programs_path
       end
     end
 
@@ -184,15 +184,16 @@ feature 'Admin Home page' do
       expect(page).to have_link I18n.t('admin.buttons.add_location'), href: new_admin_location_path
     end
 
-    it 'displays a link to add a new program' do
-      expect(page).to have_link I18n.t('admin.buttons.add_program'), href: new_admin_program_path
+    it 'does not display a link to add a new program' do
+      expect(page).
+        not_to have_link I18n.t('admin.buttons.add_program'), href: new_admin_program_path
     end
 
     it 'displays link to download all tables as CSV files' do
       expect(page).to have_content 'CSV Downloads'
 
       tables = %w[addresses contacts holiday_schedules locations mail_addresses
-                  organizations phones programs regular_schedules services]
+                  organizations phones regular_schedules services]
       tables.each do |table|
         expect(page).
           to have_link t("admin.buttons.download_#{table}"), href: send(:"admin_csv_#{table}_url")

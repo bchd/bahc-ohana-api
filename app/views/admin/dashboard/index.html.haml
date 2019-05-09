@@ -7,8 +7,6 @@
     = link_to t('admin.buttons.locations'), admin_locations_path, class: 'btn btn-primary'
   %p
     = link_to t('admin.buttons.services'), admin_services_path, class: 'btn btn-primary'
-  %p
-    = link_to t('admin.buttons.programs'), admin_programs_path, class: 'btn btn-primary'
 
   - unless current_admin.super_admin?
     %p
@@ -20,8 +18,6 @@
   - if @orgs.present?
     %p
       = link_to t('admin.buttons.add_location'), new_admin_location_path, class: 'btn btn-primary'
-    %p
-      = link_to t('admin.buttons.add_program'), new_admin_program_path, class: 'btn btn-primary'
 
   - if current_admin.super_admin?
     %h2 CSV Downloads
