@@ -82,7 +82,7 @@ class Admin
     end
 
     def preprocess_service
-      add_program_to_service_if_authorized
+      # add_program_to_service_if_authorized
       add_service_to_location_if_authorized
     end
 
