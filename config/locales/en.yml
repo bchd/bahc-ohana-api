@@ -409,8 +409,8 @@ en:
 
   titles:
     brand: "CHARMcare Data"
-    admin: "%{brand} Admin"
-    developer: "%{brand} Developers"
+    admin: "Data Admin"
+    developer: "Data Developers"
 
   navigation:
     edit_account: 'Edit account'
