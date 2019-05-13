@@ -1,6 +1,7 @@
 require 'rails_helper'
 
-feature 'Signing in' do
+# TODO: only utilizing admin logins for now
+xfeature 'Signing in' do
   # The 'sign_in' method is defined in spec/support/features/session_helpers.rb
   context 'with correct credentials' do
     before :each do

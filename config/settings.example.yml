@@ -258,6 +258,22 @@ admin_support_email: Support.charmcare@baltimorecity.gov
 # This setting is used in 'app/models/concerns/search.rb'.
 bounds: [[25.7084, -124.085], [48.9084, -67.085]]
 
+###############################
+#
+# WAIT TIMES SETTINGS
+#
+###############################
+#
+# These will be the values that admin interface users will choose from when
+# updating a Service's wait time.
+#
+# This setting is used in '/app/views/admin/services/forms/_wait.html.haml'.
+wait_times:
+  - 'available_today'
+  - 'next_day_service'
+  - 'two_three_day_wait'
+  - 'one_week_wait'
+
 ###########################################
 #
 # SETTINGS FOR TESTS. PLEASE DO NOT MODIFY.
@@ -270,7 +286,7 @@ test:
 
   bounds: [[37.1074, -122.521], [37.7084, -122.085]]
 
-  confirmation_email: registration@ohanapi.org
+  confirmation_email: Noreply.charmcare@baltimorecity.gov
 
   funding_sources:
   - 'State'
