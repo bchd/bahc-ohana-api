@@ -1,7 +1,7 @@
 namespace :import do
   task all: %i[organizations programs locations taxonomy services
                mail_addresses contacts phones regular_schedules
-               holiday_schedules assign_categories touch_locations]
+               holiday_schedules assign_categories reset_sequences touch_locations]
 
   desc 'Imports organizations'
   task :organizations, [:path] => :environment do |_, args|
@@ -107,4 +107,13 @@ namespace :import do
     end
   end
   # rubocop:enable Lint/HandleExceptions
+end
+
+# rubocop:disable Lint/HandleExceptions
+desc 'Reset database id sequences after imports'
+task :reset_sequences, [:path] => :environment do
+  models = [Address, Admin, Category, Contact, HolidaySchedule, Location, MailAddress, Organization, Phone, Program, RegularSchedule, Service, User]
+  models.each do |klass|
+    klass.connection.reset_pk_sequence! klass.table_name
+  end
 end
