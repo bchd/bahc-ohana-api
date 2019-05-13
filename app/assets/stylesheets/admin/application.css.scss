@@ -24,36 +24,42 @@
   #logo {
     float: left;
     margin-right: 20px;
-
+    padding: .6em;
     img {
-      max-width: 100px;
+      max-width: 90px;
     }
   }
 
   .navbar-brand {
-    font-size: 28px;
-    color: $dark-purple;
+    font-size: 25px;
+    color: $purple;
+    margin-top: .7em;
   }
+  .navbar-brand:hover {
+    color: $purple;
+  }
+
 
   .container {
     width: inherit;
+    background-color: rgba($blue, .05)
   }
 
   a {
     font-family: $font_sans_serif;
-    line-height: 55px;
   }
 
   .navbar-nav {
     float: right;
 
     > li > a {
-      font-size: 18px;
+      font-size: 17px;
+      font-weight: 550;
       line-height: 55px;
-      color: $grey;
+      color: rgba($grey, .6);
 
       .edit-account {
-        font-size: 28px;
+        font-size: 21px;
         color: $white;
         background-image: linear-gradient(to right, $blue, $purple);
         border-radius: 50%;
@@ -61,7 +67,12 @@
         width: 2em;
         text-align: center;
         line-height: 2em;
+        margin-top: .3em;
       }
+    }
+
+    > li > a:hover {
+      color: rgba($grey, .6);
     }
   }
 }
