@@ -13,6 +13,8 @@
 ### Changed
   - HOTFIX
     - Extended the CORS to allow lookahead
+  - AHC-1364
+    - Updated the style of the header
   - AHC-1422
     - Record the original iCarol category ids on each service
   - AHC-1433

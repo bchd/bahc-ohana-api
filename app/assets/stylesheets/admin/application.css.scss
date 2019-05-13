@@ -20,8 +20,65 @@
 @import "components/*";
 
 // creates styles for text in the navbar that is not a link
-.navbar-default .navbar-nav > li > a.logged-in {
-  color: $lighter-red;
+.navbar-default {
+  #logo {
+    float: left;
+    margin-right: 20px;
+    padding: .6em;
+    img {
+      max-width: 90px;
+    }
+  }
+
+  .navbar-brand {
+    font-size: 25px;
+    color: $purple;
+    margin-top: .7em;
+  }
+  .navbar-brand:hover {
+    color: $purple;
+  }
+
+
+  .container {
+    width: inherit;
+    background-color: rgba($blue, .05)
+  }
+
+  a {
+    font-family: $font_sans_serif;
+  }
+
+  .navbar-nav {
+    float: right;
+
+    > li > a {
+      font-size: 17px;
+      font-weight: 550;
+      line-height: 55px;
+      color: rgba($grey, .6);
+
+      .edit-account {
+        font-size: 21px;
+        color: $white;
+        background-image: linear-gradient(to right, $blue, $purple);
+        border-radius: 50%;
+        height: 2em;
+        width: 2em;
+        text-align: center;
+        line-height: 2em;
+        margin-top: .3em;
+      }
+    }
+
+    > li > a:hover {
+      color: rgba($grey, .6);
+    }
+  }
+}
+
+#main .content {
+  padding: 100px 10px 60px;
 }
 
 .content-box {

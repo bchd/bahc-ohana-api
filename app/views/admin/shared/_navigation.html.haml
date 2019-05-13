@@ -1,13 +1,16 @@
 %header.navbar.navbar-default.navbar-fixed-top
   .container
     .navbar-header
+      #logo
+        %a{ href: '/', target: '_self' }
+          %img{ src: asset_path(SETTINGS[:site_logo]), alt: "#{t('titles.brand')} Logo" }
       = button_tag type: 'button', class: 'navbar-toggle', data: { toggle: 'collapse', target: '.navbar-collapse' } do
         %span.sr-only
           Toggle navigation
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
-      = link_to t('titles.admin', brand: t('titles.brand')),
+      = link_to t('titles.admin'),
                 admin_dashboard_url, class: 'navbar-brand'
     %nav.collapse.navbar-collapse
       %ul.nav.navbar-nav

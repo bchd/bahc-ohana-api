@@ -97,13 +97,7 @@ feature 'Admin Home page' do
     it 'includes a link to the Edit Account page in the navigation' do
       within '.navbar' do
         expect(page).
-          to have_link I18n.t('navigation.edit_account'), href: edit_admin_registration_path
-      end
-    end
-
-    it 'displays the name of the logged in admin in the navigation' do
-      within '.navbar' do
-        expect(page).to have_content "Hi, #{@admin.name}"
+          to have_link @admin.name[0].upcase, href: edit_admin_registration_path
       end
     end
 
