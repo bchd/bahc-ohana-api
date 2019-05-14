@@ -197,7 +197,7 @@ feature 'Admin Home page' do
 
   describe 'Ohana API version' do
     let(:version) { File.read('VERSION').chomp }
-    let(:prefix) { 'https://github.com/codeforamerica/ohana-api/blob/master/' }
+    let(:prefix) { 'https://github.com/FearlessSolutions/bahc-ohana-api/blob/develop/' }
 
     context 'super admin' do
       it 'displays Ohana API version number' do
