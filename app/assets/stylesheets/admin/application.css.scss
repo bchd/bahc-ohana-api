@@ -231,3 +231,50 @@ a.boxed-action:active {
     margin-top: 20px;
   }
 }
+
+#dashboard {
+  a {
+    color: $greyscale_midtone;
+    min-width: 200px;
+    margin-right: 20px;
+
+    &.button {
+      color: $white;
+    }
+  }
+
+  .capacity {
+    margin: 30px 0;
+  }
+}
+#cvs-downloads {
+  a {
+    min-width: 250px;
+  }
+}
+
+.welcome {
+  margin-top: 30px;
+}
+.button {
+  background-color: $blue;
+  border: none;
+  border-radius: 4px;
+  color: $white;
+  cursor: pointer;
+  display: inline-block;
+  font-family: $font_sans_serif;
+  min-width: 180px;
+  padding: 10px 20px;
+  text-align: center;
+
+  .button-small:hover {
+    background-image: linear-gradient(to right, tint($blue, 10), tint($purple, 10));
+  }
+}
+
+.button.action {
+  background-color: unset;
+  background-image: $button-small-bg;
+}
+

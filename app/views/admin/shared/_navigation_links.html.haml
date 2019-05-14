@@ -10,6 +10,10 @@
     %li
       = link_to t('admin.buttons.update_capacity'), admin_capacity_path
 
+  - if current_admin.super_admin?
+    %li
+      = link_to t('admin.buttons.cvs_downloads'), admin_cvs_downloads_path
+
   %li
     = link_to t('navigation.sign_out'), destroy_admin_session_path, method: 'delete'
   %li
