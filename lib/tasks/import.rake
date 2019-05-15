@@ -107,14 +107,14 @@ namespace :import do
     end
   end
   # rubocop:enable Lint/HandleExceptions
-end
 
-# rubocop:disable Metrics/LineLength
-desc 'Reset database id sequences after imports'
-task :reset_sequences, [:path] => :environment do
-  models = [Address, Admin, Category, Contact, HolidaySchedule, Location, MailAddress, Organization, Phone, Program, RegularSchedule, Service, User]
-  models.each do |klass|
-    klass.connection.reset_pk_sequence! klass.table_name
+  # rubocop:disable Metrics/LineLength
+  desc 'Reset database id sequences after imports'
+  task :reset_sequences, [:path] => :environment do
+    models = [Address, Admin, Category, Contact, HolidaySchedule, Location, MailAddress, Organization, Phone, Program, RegularSchedule, Service, User]
+    models.each do |klass|
+      klass.connection.reset_pk_sequence! klass.table_name
+    end
   end
+  # rubocop:enable Metrics/LineLength
 end
-# rubocop:enable Metrics/LineLength
