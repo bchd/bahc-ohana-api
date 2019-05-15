@@ -27,8 +27,11 @@ namespace :import do
 
   desc 'Imports taxonomy'
   task :taxonomy, [:path] => :environment do |_, args|
+    Category.destroy_all
+    Category.connection.reset_pk_sequence! Category.table_name
     args.with_defaults(path: Rails.root.join('data', 'taxonomy.csv'))
     CategoryImporter.check_and_import_file(args[:path])
+    Category.connection.reset_pk_sequence! Category.table_name
   end
 
   desc 'Imports services'
