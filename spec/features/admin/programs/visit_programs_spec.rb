@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'Programs page' do
+xfeature 'Programs page' do
   context 'when not signed in' do
     before :each do
       visit '/admin/programs'

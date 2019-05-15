@@ -104,7 +104,7 @@ feature 'Locations page' do
     end
 
     it 'sorts locations alphabetically by name' do
-      expect(page.all('a')[8][:href]).
+      expect(page.all('a')[9][:href]).
         to eq '/admin/locations/samaritan-house/edit'
     end
   end
