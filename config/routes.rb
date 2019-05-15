@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   constraints(SubdomainConstraints.new(subdomain: ENV['ADMIN_SUBDOMAIN'])) do
     namespace :admin, path: ENV['ADMIN_PATH'] do
       root to: 'dashboard#index', as: :dashboard
+      get '/csv_downloads', to: 'dashboard#csv_downloads', as: "csv_downloads"
 
       resources :locations, except: :show do
         resources :services, except: %i[show index] do
@@ -43,8 +44,11 @@ Rails.application.routes.draw do
         get 'services'
       end
 
+      get 'capacity', to: 'locations#capacity'
+
       get 'locations/:location_id/services/:id', to: 'services#edit'
       get 'locations/:location_id/services/:service_id/contacts/:id', to: 'service_contacts#edit'
+      patch 'locations/:location_id/services/:id/update_capacity', to: 'services#update_capacity', as: "service_update_capacity"
       get 'locations/:location_id/contacts/:id', to: 'contacts#edit'
       get 'locations/:id', to: 'locations#edit'
       get 'organizations/:id', to: 'organizations#edit'
@@ -83,6 +87,7 @@ Rails.application.routes.draw do
         end
 
         resources :search, only: :index
+        get 'search_needs', to: 'search#search_needs'
 
         resources :categories, only: :index
 

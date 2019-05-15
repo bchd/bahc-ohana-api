@@ -129,6 +129,8 @@ en:
       organizations: 'Organizations'
       locations: 'Locations'
       services: 'Services'
+      update_capacity: 'Update Capacity'
+      csv_downloads: 'CSV Downloads'
       programs: 'Programs'
       add_organization: 'Add a new organization'
       create_organization: 'Create organization'
@@ -302,6 +304,11 @@ en:
         wait:
           description: 'How long on average does a client need to wait to receive services?'
 
+      capacity:
+        update_status: "Update Status"
+        capacity_status: "Capacity Status"
+        last_updated: "Last updated "
+
     shared:
       forms:
         alternate_name:
@@ -403,8 +410,8 @@ en:
 
   titles:
     brand: "CHARMcare Data"
-    admin: "%{brand} Admin"
-    developer: "%{brand} Developers"
+    admin: "Data Admin"
+    developer: "Data Developers"
 
   navigation:
     edit_account: 'Edit account'

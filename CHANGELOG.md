@@ -3,13 +3,29 @@
 ## [1.7.0] - 2019-05-10
 ### ahc-sprint-23
 ### Added
+  - AHC-1335
+    - Adds `/api/search_needs?location=&taxonomy_ids=` to the API
+    - Will search the categories corresponding to the received taxonomy_ids and all descendants
   - AHC-1413
     - `rake category_ancestry` will ensure all ancestors of a category on a service are also applied to that service
+  - AHC-1278
+    - Added Update Capacity page for all of an admin's locations
 ### Changed
   - HOTFIX
     - Extended the CORS to allow lookahead
+  - AHC-1364
+    - Updated the style of the header
+  - AHC-1365
+    - Updated the style of the footer
+  - AHC-1366
+    - Updated the style of the admin dashboard
   - AHC-1422
     - Record the original iCarol category ids on each service
+  - AHC-1433
+    - Allow admin to change the organization when editing a location
+### Removed
+  - AHC-1387
+    - Removed the Program button from all admin screens
 
 ## [1.6.0] - 2019-04-26
 ### ahc-sprint-22

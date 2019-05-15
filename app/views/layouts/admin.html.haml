@@ -5,6 +5,7 @@
       %title= content_for?(:title) ? yield(:title) : t('titles.admin', brand: t('titles.brand'))
       %meta{ content: content_for?(:description) ? yield(:description) : "Admin Interface for #{t('titles.brand')}", name: 'description' }
         = favicon_link_tag 'CHARMcareCFavicon.png', rel: 'icon', type: 'image/png'
+        = stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Lato:400,700'
         = stylesheet_link_tag 'admin/application', media: 'all'
         = csrf_meta_tags
         = yield(:head)
@@ -17,3 +18,4 @@
             = render 'shared/messages'
             = yield
     = javascript_include_tag 'admin/application'
+    = render 'admin/shared/footer'

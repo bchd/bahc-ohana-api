@@ -1,14 +1,20 @@
 - if admin_signed_in?
   %li
-    = link_to t('navigation.edit_account'), edit_admin_registration_path
-  %li
     = link_to t('admin.buttons.organizations'), admin_organizations_path
   %li
     = link_to t('admin.buttons.locations'), admin_locations_path
   %li
     = link_to t('admin.buttons.services'), admin_services_path
+
+  - unless current_admin.super_admin?
+    %li
+      = link_to t('admin.buttons.update_capacity'), admin_capacity_path
+
+  - if current_admin.super_admin?
+    %li
+      = link_to t('admin.buttons.csv_downloads'), admin_csv_downloads_path
+
   %li
     = link_to t('navigation.sign_out'), destroy_admin_session_path, method: 'delete'
-  %ul.nav.navbar-nav.navbar-right
-    %li
-      = link_to "Hi, #{current_admin.name}", '#', class: 'logged-in'
+  %li
+    = link_to tag.div("#{current_admin.name[0].upcase}", class: 'edit-account'), edit_admin_registration_path

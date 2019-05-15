@@ -11,3 +11,52 @@ $lighter-red: #de9292;
 $gray: #fcfcfc;
 
 $light-green: #c8e8ca;
+
+$purple: rgb(131,94,177); // #835eb1
+$dark-purple: rgb(53,19,97); // #351361
+$orange: rgb(253,165,73); // #fda549
+$blue: rgb(0,127,170); // #007faa
+$grey: rgb(27,27,27); // #1b1b1b
+$grey-t: rgba(27,27,27, .6); // #1b1b1b
+
+// Greyscale.
+$black: rgb(0,0,0);
+
+$greyscale_dark: rgb(87,87,87);
+$greyscale_midtone: rgb(128,128,128);
+$greyscale_light: rgb(171,171,171);
+$greyscale_lightest: rgb(252,252,252);
+
+$white: rgb(255,255,255);
+
+// Primary.
+$primary: rgb(0,127,170);
+$primary-dark: shade($primary, 25);
+$primary-darkest: shade($primary, 50);
+$primary-light: tint($primary, 25);
+$primary-lightest: tint($primary, 50);
+
+// Accents.
+$accentA-base: rgb(209,249,148);
+$accentA-light: tint($accentA-base, 25);
+$accentA-dark: shade($accentA-base, 50);
+$accentB: rgb(255,200,56);
+
+// Complements.
+$complement-base: rgb(58,135,178);
+$complementA: shade($complement-base, 50);
+$complementB: tint($complement-base, 50);
+
+// Notification colors.
+$alert-error-base: rgb(255,10,50);
+
+// Fonts
+$font_serif: 'Libre Baskerville', serif;
+$font_sans_serif: 'Lato', sans-serif;
+
+$button-small-color:         tint($black, 25);
+$button-small-fa-color:      $primary-darkest;
+$button-small-hover-color:   $complementA;
+$button-small-bg:            linear-gradient(to right, $blue, $purple);
+$button-small-bg-hover:      $primary-light;
+

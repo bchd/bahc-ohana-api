@@ -5,8 +5,7 @@
       - location.errors.full_messages.each do |msg|
         %li= msg
 
-- if f.object.new_record?
-  = render 'admin/shared/forms/choose_org', f: f
+= render 'admin/shared/forms/choose_org', f: f
 = render 'admin/shared/forms/name', f: f
 = render 'admin/shared/forms/alternate_name', f: f
 - if f.object.new_record? || policy(location).edit?

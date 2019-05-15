@@ -68,7 +68,7 @@ feature 'Organizations page' do
     end
 
     it 'sorts organizations alphabetically by name' do
-      expect(page.all('a')[8][:href]).
+      expect(page.all('a')[9][:href]).
         to eq '/admin/organizations/far-org/edit'
     end
   end
