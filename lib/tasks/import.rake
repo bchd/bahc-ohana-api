@@ -1,7 +1,8 @@
 namespace :import do
   task all: %i[organizations programs locations taxonomy services
                mail_addresses contacts phones regular_schedules
-               holiday_schedules assign_categories reset_sequences touch_locations]
+               holiday_schedules assign_categories category_ancestry
+               reset_sequences touch_locations]
 
   desc 'Imports organizations'
   task :organizations, [:path] => :environment do |_, args|
@@ -27,7 +28,7 @@ namespace :import do
 
   desc 'Imports taxonomy'
   task :taxonomy, [:path] => :environment do |_, args|
-    print '---> destroying all existing categories'
+    print '===> destroying all existing categories'
     Category.destroy_all
     puts '  done.'
     Category.connection.reset_pk_sequence! Category.table_name
@@ -81,6 +82,7 @@ namespace :import do
   # rubocop:disable Lint/HandleExceptions
   desc 'Assign OE categories to services'
   task :assign_categories, [:path] => :environment do |_, args|
+    puts '===> assign categories to services'
     args.with_defaults(path: Rails.root.join('data', 'service_categories.json'))
     text = File.read(args[:path], encoding: 'UTF-8')
     data = JSON.parse text
@@ -99,8 +101,28 @@ namespace :import do
     end
   end
 
+  desc 'Ensure that ancestors of any category on a service are also categories on that service'
+  task category_ancestry: :environment do
+    puts '===> update category ancestries'
+    Service.all.each do |service|
+      puts "  updating ancestry for service(#{service.id}) #{service.name}"
+      service_categories = service.categories
+      ancestry = service_categories&.map(&:ancestry)
+      next unless ancestry.present?
+      ancestor_ids = ancestry.map { |a| a&.split('/')&.map(&:to_i) }&.
+        flatten&.
+        delete_if(&:nil?)&.
+        sort
+      next unless ancestor_ids
+      missing_ancestor_ids = ancestor_ids - service_categories.map(&:id)
+      missing_ancestors = Category.where(id: missing_ancestor_ids)
+      service.categories << missing_ancestors
+    end
+  end
+
   desc 'Record original icarol categories to services'
   task :record_icarol_categories, [:path] => :environment do |_, args|
+    puts '===> record iCarol categories'
     args.with_defaults(path: Rails.root.join('data', 'service_icarol_categories.json'))
     text = File.read(args[:path], encoding: 'UTF-8')
     data = JSON.parse text
@@ -116,6 +138,7 @@ namespace :import do
   # rubocop:disable Metrics/LineLength
   desc 'Reset database id sequences after imports'
   task :reset_sequences, [:path] => :environment do
+    puts '===> reset database id sequences'
     models = [Address, Admin, Category, Contact, HolidaySchedule, Location, MailAddress, Organization, Phone, Program, RegularSchedule, Service, User]
     models.each do |klass|
       klass.connection.reset_pk_sequence! klass.table_name
