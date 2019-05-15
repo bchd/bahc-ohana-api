@@ -17,6 +17,8 @@
     - Updated the style of the header
   - AHC-1365
     - Updated the style of the footer
+  - AHC-1366
+    - Updated the style of the admin dashboard
   - AHC-1422
     - Record the original iCarol category ids on each service
   - AHC-1433

@@ -130,6 +130,7 @@ en:
       locations: 'Locations'
       services: 'Services'
       update_capacity: 'Update Capacity'
+      csv_downloads: 'CSV Downloads'
       programs: 'Programs'
       add_organization: 'Add a new organization'
       create_organization: 'Create organization'

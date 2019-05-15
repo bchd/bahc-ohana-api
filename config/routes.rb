@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   constraints(SubdomainConstraints.new(subdomain: ENV['ADMIN_SUBDOMAIN'])) do
     namespace :admin, path: ENV['ADMIN_PATH'] do
       root to: 'dashboard#index', as: :dashboard
+      get '/csv_downloads', to: 'dashboard#csv_downloads', as: "csv_downloads"
 
       resources :locations, except: :show do
         resources :services, except: %i[show index] do

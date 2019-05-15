@@ -54,3 +54,9 @@ $alert-error-base: rgb(255,10,50);
 $font_serif: 'Libre Baskerville', serif;
 $font_sans_serif: 'Lato', sans-serif;
 
+$button-small-color:         tint($black, 25);
+$button-small-fa-color:      $primary-darkest;
+$button-small-hover-color:   $complementA;
+$button-small-bg:            linear-gradient(to right, $blue, $purple);
+$button-small-bg-hover:      $primary-light;
+

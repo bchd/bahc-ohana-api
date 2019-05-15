@@ -182,17 +182,6 @@ feature 'Admin Home page' do
       expect(page).
         not_to have_link I18n.t('admin.buttons.add_program'), href: new_admin_program_path
     end
-
-    it 'displays link to download all tables as CSV files' do
-      expect(page).to have_content 'CSV Downloads'
-
-      tables = %w[addresses contacts holiday_schedules locations mail_addresses
-                  organizations phones regular_schedules services]
-      tables.each do |table|
-        expect(page).
-          to have_link t("admin.buttons.download_#{table}"), href: send(:"admin_csv_#{table}_url")
-      end
-    end
   end
 
   describe 'Ohana API version' do
