@@ -9,7 +9,5 @@
   = field_set_tag nil, id: 'categories' do
     = f.label :services
     = nested_categories(Category.services.arrange(order: :taxonomy_id))
-  = hidden_field_tag 'situation[category_ids][]', nil
-  = field_set_tag nil, id: 'categories' do
     = f.label :situations
     = nested_categories(Category.situations.arrange(order: :taxonomy_id))

@@ -1,0 +1,22 @@
+%h2.main-heading Update Real-Time Capacity
+%p
+  Please update your service capacity below at each location. If there is no change to the capacity status, click "update status" to change the "last updated" timestamp to be the most recent time.
+
+%div.locations
+  - @locations.each do |location|
+    %h3.location-name
+      = location.last.name
+    %div
+      - location.last.services.each do |service|
+        %h4.service-name
+          = service.name
+        %p.capacity-label
+          = t('admin.services.capacity.capacity_status')
+        = form_tag(admin_service_update_capacity_path(location.last, service), method: :patch, class: 'edit-entry') do
+          = hidden_field_tag :service_id, service.id
+          = select_tag :wait_time, options_for_select(wait_time_select_options, service.wait_time), include_blank: 'Unknown', class: "form-control wait-time-options"
+          %div.updated
+            = submit_tag t('admin.services.capacity.update_status'), class: 'btn submit-button'
+            .updated-label
+              = t('admin.services.capacity.last_updated')
+              = service.updated_at.strftime("%m/%d/%y at %I:%M%P")

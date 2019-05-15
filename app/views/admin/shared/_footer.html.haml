@@ -1,0 +1,9 @@
+%hr
+.footer
+  .bchd-logo
+    %img{ src: asset_path(SETTINGS[:bchd_logo]), alt: "Baltimore City Health Department logo" }
+  .title
+    = "#{t('titles.brand')} API "
+    - if current_admin&.super_admin?
+      = link_to "v#{version}", 'https://github.com/FearlessSolutions/bahc-ohana-api/blob/develop/CHANGELOG.md'
+

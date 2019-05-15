@@ -24,6 +24,13 @@ module Search
     scope :with_email, EmailFilter
 
     scope :filter_by_services, ServicesFilter
+
+    scope :with_taxonomy, (lambda do |ids|
+      tax_ids = taxonomy_ids(ids)
+      joins(services: :categories).
+        where(categories: { taxonomy_id: tax_ids }).
+        distinct
+    end)
   end
 
   module ClassMethods
@@ -58,6 +65,31 @@ module Search
       end
     end
 
+    def taxonomy_ids(ids, skip_descendants = false)
+      tax_ids = parse_taxonomy_ids ids
+      return tax_ids if skip_descendants
+
+      Category.where(taxonomy_id: tax_ids).map do |cat|
+        [cat.taxonomy_id] << cat.descendants.map(&:taxonomy_id)
+      end.flatten.uniq
+    end
+
+    def parse_taxonomy_ids(ids)
+      case ids
+      when Array
+        ids
+      when String
+        ids.split(',')
+      else
+        []
+      end
+    end
+
+    # def taxonomy_children(taxonomy_id)
+    #   parent = Category.find_by_taxonomy_id(taxonomy_id)
+    #   parent.descendants.map(&:taxonomy_id)
+    # end
+
     def search(params = {})
       res = text_search(params).
             with_email(params[:email]).
@@ -65,8 +97,13 @@ module Search
             filter_by_services(params[:categories])
 
       return res unless params[:keyword] && params[:service_area]
-
       res.select("locations.*, #{rank_for(params[:keyword])}")
+    end
+
+    def search_needs_location(params = {})
+      res = with_taxonomy(params[:taxonomy_ids]).
+            is_near(params[:location], params[:lat_lng], params[:radius])
+      res
     end
 
     def allowed_params(params)

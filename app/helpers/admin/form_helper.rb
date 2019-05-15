@@ -50,9 +50,8 @@ class Admin
     end
 
     def checkbox_tag_for(category)
-      cb_name = category.type == 'service' ? 'service[category_ids][]' : 'situation[category_ids][]'
       check_box_tag(
-        cb_name,
+        'service[category_ids][]',
         category.id,
         @taxonomy_ids.include?(category.taxonomy_id),
         id: "category_#{category.taxonomy_id}"

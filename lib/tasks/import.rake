@@ -1,7 +1,7 @@
 namespace :import do
   task all: %i[organizations programs locations taxonomy services
                mail_addresses contacts phones regular_schedules
-               holiday_schedules assign_categories touch_locations]
+               holiday_schedules assign_categories reset_sequences touch_locations]
 
   desc 'Imports organizations'
   task :organizations, [:path] => :environment do |_, args|
@@ -27,8 +27,13 @@ namespace :import do
 
   desc 'Imports taxonomy'
   task :taxonomy, [:path] => :environment do |_, args|
+    print '---> destroying all existing categories'
+    Category.destroy_all
+    puts '  done.'
+    Category.connection.reset_pk_sequence! Category.table_name
     args.with_defaults(path: Rails.root.join('data', 'taxonomy.csv'))
     CategoryImporter.check_and_import_file(args[:path])
+    Category.connection.reset_pk_sequence! Category.table_name
   end
 
   desc 'Imports services'
@@ -107,4 +112,14 @@ namespace :import do
     end
   end
   # rubocop:enable Lint/HandleExceptions
+
+  # rubocop:disable Metrics/LineLength
+  desc 'Reset database id sequences after imports'
+  task :reset_sequences, [:path] => :environment do
+    models = [Address, Admin, Category, Contact, HolidaySchedule, Location, MailAddress, Organization, Phone, Program, RegularSchedule, Service, User]
+    models.each do |klass|
+      klass.connection.reset_pk_sequence! klass.table_name
+    end
+  end
+  # rubocop:enable Metrics/LineLength
 end

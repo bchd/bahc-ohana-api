@@ -4,7 +4,8 @@
     #{link_to 'three demo emails and passwords', 'https://github.com/codeforamerica/ohana-api/blob/master/db/seeds.rb#L24-43'}.
 
   = form_for(resource, as: resource_name, url: session_path(resource_name), html: { role: 'form' }) do |f|
-    %h3 Sign in
+    %h3
+      = t('navigation.sign_in')
     .form-group
       = f.label :email
       = f.email_field :email, autofocus: true, class: 'form-control'
@@ -12,10 +13,10 @@
       = f.label :password
       = f.password_field :password, autocomplete: 'off', class: 'form-control'
 
-    = f.submit t('navigation.sign_in'), class: 'button right'
-
     .form-group
       = f.check_box :remember_me
       = f.label :remember_me
+
+    = f.submit t('navigation.sign_in'), class: 'button'
 
   = render 'devise/shared/links'

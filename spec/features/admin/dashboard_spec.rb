@@ -68,10 +68,10 @@ feature 'Admin Home page' do
       end
     end
 
-    it 'includes a link to programs in the body' do
+    it 'does not include a link to programs in the body' do
       within '.content' do
         expect(page).
-          to have_link I18n.t('admin.buttons.programs'), href: admin_programs_path
+          not_to have_link I18n.t('admin.buttons.programs'), href: admin_programs_path
       end
     end
 
@@ -97,13 +97,7 @@ feature 'Admin Home page' do
     it 'includes a link to the Edit Account page in the navigation' do
       within '.navbar' do
         expect(page).
-          to have_link I18n.t('navigation.edit_account'), href: edit_admin_registration_path
-      end
-    end
-
-    it 'displays the name of the logged in admin in the navigation' do
-      within '.navbar' do
-        expect(page).to have_content "Hi, #{@admin.name}"
+          to have_link @admin.name[0].upcase, href: edit_admin_registration_path
       end
     end
 
@@ -184,25 +178,15 @@ feature 'Admin Home page' do
       expect(page).to have_link I18n.t('admin.buttons.add_location'), href: new_admin_location_path
     end
 
-    it 'displays a link to add a new program' do
-      expect(page).to have_link I18n.t('admin.buttons.add_program'), href: new_admin_program_path
-    end
-
-    it 'displays link to download all tables as CSV files' do
-      expect(page).to have_content 'CSV Downloads'
-
-      tables = %w[addresses contacts holiday_schedules locations mail_addresses
-                  organizations phones programs regular_schedules services]
-      tables.each do |table|
-        expect(page).
-          to have_link t("admin.buttons.download_#{table}"), href: send(:"admin_csv_#{table}_url")
-      end
+    it 'does not display a link to add a new program' do
+      expect(page).
+        not_to have_link I18n.t('admin.buttons.add_program'), href: new_admin_program_path
     end
   end
 
   describe 'Ohana API version' do
     let(:version) { File.read('VERSION').chomp }
-    let(:prefix) { 'https://github.com/codeforamerica/ohana-api/blob/master/' }
+    let(:prefix) { 'https://github.com/FearlessSolutions/bahc-ohana-api/blob/develop/' }
 
     context 'super admin' do
       it 'displays Ohana API version number' do

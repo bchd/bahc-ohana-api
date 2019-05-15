@@ -1,0 +1,20 @@
+.footer {
+  .bchd-logo {
+    float: left;
+    height: 45px;
+
+    img {
+      max-width: 100px;
+      margin-left: 10px;
+      margin-right: 50px;
+    }
+  }
+
+  .title {
+    float: right;
+    height: 45px;
+    line-height: 45px;
+    margin-left: 10px;
+    margin-right: 50px;
+  }
+}

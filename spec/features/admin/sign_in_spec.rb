@@ -33,8 +33,8 @@ end
 feature 'Signing in' do
   context 'with correct credentials' do
     before :each do
-      valid_admin = create(:admin)
-      sign_in_admin(valid_admin.email, valid_admin.password)
+      @valid_admin = create(:admin)
+      sign_in_admin(@valid_admin.email, @valid_admin.password)
     end
 
     it 'sets the current path to the admin root path' do
@@ -67,7 +67,7 @@ feature 'Signing in' do
     it 'includes a link to the Edit Account page in the navigation' do
       within '.navbar' do
         expect(page).
-          to have_link I18n.t('navigation.edit_account'), href: edit_admin_registration_path
+          to have_link @valid_admin.name[0].upcase, href: edit_admin_registration_path
       end
     end
 
