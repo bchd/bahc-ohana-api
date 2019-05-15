@@ -1,9 +1,9 @@
 require 'rails_helper'
 
-feature 'Admin CVS Downloads page' do
+feature 'Admin CSV Downloads page' do
   context 'when not signed in' do
     before :each do
-      visit '/admin/cvs_downloads'
+      visit '/admin/csv_downloads'
     end
 
     it 'sets the current path to the admin sign in page' do
@@ -14,17 +14,17 @@ feature 'Admin CVS Downloads page' do
   context 'when signed in as admin' do
     before :each do
       login_admin
-      visit '/admin/cvs_downloads'
+      visit '/admin/csv_downloads'
     end
 
     it 'sets the current path to the admin sign in page' do
       expect(current_path).to eq(admin_dashboard_path)
     end
 
-    it 'does not includes a link to cvs downloads in the navigation' do
+    it 'does not includes a link to csv downloads in the navigation' do
       within '.navbar' do
-        expect(page).not_to have_link I18n.t('admin.buttons.cvs_downloads'),
-                                      href: admin_cvs_downloads_path
+        expect(page).not_to have_link I18n.t('admin.buttons.csv_downloads'),
+                                      href: admin_csv_downloads_path
       end
     end
   end
@@ -32,7 +32,7 @@ feature 'Admin CVS Downloads page' do
   context 'when signed in as super admin' do
     before :each do
       login_super_admin
-      visit '/admin/cvs_downloads'
+      visit '/admin/csv_downloads'
     end
 
     it 'displays link to download all tables as CSV files' do

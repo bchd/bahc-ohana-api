@@ -7,7 +7,7 @@ class Admin
       @orgs = policy_scope(Organization) if current_admin
     end
 
-    def cvs_downloads
+    def csv_downloads
       redirect_to admin_dashboard_url unless current_admin&.super_admin?
     end
   end
