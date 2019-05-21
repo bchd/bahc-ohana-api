@@ -1,6 +1,10 @@
+// Override the bootstrap default breakpoint
+$grid-float-breakpoint: 960px;
+
 // import the CSS framework
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
+
 
 .content {
   font-size: 16px;
@@ -48,4 +52,9 @@
   @extend .btn;
   @extend .btn-primary;
   @extend .btn-xs;
+}
+
+.navbar-toggle {
+  margin-right: 25px;
+  margin-top: 25px;
 }
