@@ -7,6 +7,10 @@ class Admin
 
     def index
       @all_orgs = policy_scope(Organization)
+      if params[:search].present?
+        regex = /#{params[:search]}/i
+        @all_orgs.select! { |org| regex.match? org[1] }
+      end
       @orgs = Kaminari.paginate_array(@all_orgs).page(params[:page])
 
       respond_to do |format|

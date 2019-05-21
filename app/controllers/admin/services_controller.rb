@@ -6,7 +6,13 @@ class Admin
     layout 'admin'
 
     def index
-      @services = Kaminari.paginate_array(policy_scope(Service)).
+      all_services = policy_scope(Service)
+      if params[:search].present?
+        regex = /#{params[:search]}/i
+        all_services.select! { |service| regex.match? service[2] }
+      end
+
+      @services = Kaminari.paginate_array(all_services).
                   page(params[:page]).per(params[:per_page])
     end
 

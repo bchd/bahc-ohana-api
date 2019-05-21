@@ -4,7 +4,13 @@ class Admin
     layout 'admin'
 
     def index
-      @locations = Kaminari.paginate_array(policy_scope(Location)).
+      all_locations = policy_scope(Location)
+      if params[:search].present?
+        regex = /#{params[:search]}/i
+        all_locations.select! { |loc| regex.match? loc[1] }
+      end
+
+      @locations = Kaminari.paginate_array(all_locations).
                    page(params[:page]).per(params[:per_page])
     end
 
