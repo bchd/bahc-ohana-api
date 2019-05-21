@@ -8,9 +8,9 @@
 - if current_admin.super_admin?
   %p As a super admin, you have access to all locations in the database. Please make updates responsibly.
 
-%p
+.search-container
   = form_tag(admin_locations_path, method: :get, class: 'search-form') do
-    = text_field_tag :q, @search_term
+    = text_field_tag :q, @search_term, class: 'form-control'
     = submit_tag t('admin.buttons.search'), class: 'btn submit-button'
 
 %p
