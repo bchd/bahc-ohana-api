@@ -9,6 +9,11 @@
   %p As a super admin, you have access to all locations in the database. Please make updates responsibly.
 
 %p
+  = form_tag(admin_locations_path, method: :get, class: 'search-form') do
+    = text_field_tag :q, @search_term
+    = submit_tag t('admin.buttons.search'), class: 'btn submit-button'
+
+%p
   - @locations.each do |location|
     %ul
       = link_to location.second, edit_admin_location_path(location.third)

@@ -7,7 +7,8 @@ class Admin
     include Searchable
 
     def index
-      @all_orgs = search(policy_scope(Organization), params[:q], 1)
+      @search_term = search_params(params)[:q]
+      @all_orgs = search(policy_scope(Organization), @search_term, 1)
       @orgs = Kaminari.paginate_array(@all_orgs).page(params[:page])
 
       respond_to do |format|

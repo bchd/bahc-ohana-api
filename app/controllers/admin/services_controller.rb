@@ -7,7 +7,8 @@ class Admin
     layout 'admin'
 
     def index
-      all_services = search(policy_scope(Service), params[:q], 2)
+      @search_term = search_params(params)[:q]
+      all_services = search(policy_scope(Service), @search_term, 2)
       @services = Kaminari.paginate_array(all_services).
                   page(params[:page]).per(params[:per_page])
     end

@@ -8,4 +8,8 @@ module Searchable
     collection.select! { |item| regex.match? item[field_index] }
     collection
   end
+
+  def search_params(params)
+    params.permit(:q)
+  end
 end

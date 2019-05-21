@@ -11,6 +11,11 @@
     As a super admin, you have access to all services in the database. Please make updates responsibly.
 
 %p
+  = form_tag(admin_services_path, method: :get, class: 'search-form') do
+    = text_field_tag :q, @search_term
+    = submit_tag t('admin.buttons.search'), class: 'btn submit-button'
+
+%p
   - @services.each do |service|
     %ul
       - location_name ||= Location.find(service[0]).name
