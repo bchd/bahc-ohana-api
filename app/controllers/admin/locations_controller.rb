@@ -3,13 +3,10 @@ class Admin
     before_action :authenticate_admin!
     layout 'admin'
 
-    def index
-      all_locations = policy_scope(Location)
-      if params[:search].present?
-        regex = /#{params[:search]}/i
-        all_locations.select! { |loc| regex.match? loc[1] }
-      end
+    include Searchable
 
+    def index
+      all_locations = search(policy_scope(Location), params[:q], 1)
       @locations = Kaminari.paginate_array(all_locations).
                    page(params[:page]).per(params[:per_page])
     end

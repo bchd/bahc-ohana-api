@@ -1,17 +1,13 @@
 class Admin
   class ServicesController < ApplicationController
     include Taggable
+    include Searchable
 
     before_action :authenticate_admin!
     layout 'admin'
 
     def index
-      all_services = policy_scope(Service)
-      if params[:search].present?
-        regex = /#{params[:search]}/i
-        all_services.select! { |service| regex.match? service[2] }
-      end
-
+      all_services = search(policy_scope(Service), params[:q], 2)
       @services = Kaminari.paginate_array(all_services).
                   page(params[:page]).per(params[:per_page])
     end
