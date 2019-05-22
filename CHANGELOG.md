@@ -23,10 +23,14 @@
     - Record the original iCarol category ids on each service
   - AHC-1433
     - Allow admin to change the organization when editing a location
+  - AHC-1466
+    - Change wait time capacity updates service 'wait_time_updated_at' instead of 'updated_at'
 ### Removed
   - AHC-1387
     - Removed the Program button from all admin screens
-
+  - AHC-1466
+    - Removed the wait time capacity field from the service edit and create form
+    
 ## [1.6.0] - 2019-04-26
 ### ahc-sprint-22
 ### Added
