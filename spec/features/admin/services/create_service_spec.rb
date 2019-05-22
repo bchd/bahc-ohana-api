@@ -166,15 +166,6 @@ feature 'Create a new service' do
     expect(find_field('service_website').value).to eq 'http://ruby.com'
   end
 
-  scenario 'with wait_time' do
-    fill_in_required_service_fields
-    select 'Available Today', from: 'service_wait_time'
-    click_button I18n.t('admin.buttons.create_service')
-    click_link 'New VRS Services service'
-
-    expect(find_field('service_wait_time').value).to eq 'available_today'
-  end
-
   scenario 'when adding categories', :js do
     emergency = Category.create!(name: 'Emergency', taxonomy_id: '101', type: 'service')
     emergency.children.create!(name: 'Disaster Response', taxonomy_id: '101-01', type: 'service')
