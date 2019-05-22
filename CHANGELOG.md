@@ -1,6 +1,11 @@
 # Change Log
 
-## [1.7.0] - 2019-05-10
+## [1.8.0] - 2019-05-31
+### Added
+  - AHC-1472
+    - Modified the bootstrap breakpoint at which width the menu collapses
+
+## [1.7.0] - 2019-05-17
 ### ahc-sprint-23
 ### Added
   - AHC-1335
