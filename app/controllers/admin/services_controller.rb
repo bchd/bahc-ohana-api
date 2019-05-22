@@ -32,7 +32,7 @@ class Admin
 
     def update_capacity
       @service = Service.find(service_capacity_params[:id])
-      @service.wait_time_updated_at = Time.current
+      @service.touch :wait_time_updated_at
       @service.update(service_capacity_params)
       redirect_back(fallback_location: root_path)
     end
