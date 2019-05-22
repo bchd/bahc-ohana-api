@@ -17,6 +17,7 @@
           = select_tag :wait_time, options_for_select(wait_time_select_options, service.wait_time), include_blank: 'Unknown', class: "form-control wait-time-options"
           %div.updated
             = submit_tag t('admin.services.capacity.update_status'), class: 'btn submit-button'
-            .updated-label
-              = t('admin.services.capacity.last_updated')
-              = service.updated_at.strftime("%m/%d/%y at %I:%M%P")
+            - if service.wait_time_updated_at
+              .updated-label
+                = t('admin.services.capacity.last_updated')
+                = service.wait_time_updated_at.strftime("%m/%d/%y at %I:%M%P")

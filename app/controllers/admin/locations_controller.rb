@@ -3,8 +3,12 @@ class Admin
     before_action :authenticate_admin!
     layout 'admin'
 
+    include Searchable
+
     def index
-      @locations = Kaminari.paginate_array(policy_scope(Location)).
+      @search_term = search_params(params)[:q]
+      all_locations = search(policy_scope(Location), @search_term, 1)
+      @locations = Kaminari.paginate_array(all_locations).
                    page(params[:page]).per(params[:per_page])
     end
 

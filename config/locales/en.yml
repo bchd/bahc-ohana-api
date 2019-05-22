@@ -177,6 +177,7 @@ en:
       download_programs: 'Download Programs'
       download_regular_schedules: 'Download Regular Schedules'
       download_services: 'Download Services'
+      search: 'Search'
 
     locations:
       forms:
