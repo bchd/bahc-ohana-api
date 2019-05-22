@@ -4,15 +4,17 @@ class Admin
     layout 'admin'
 
     include Taggable
+    include Searchable
 
     def index
-      @all_orgs = policy_scope(Organization)
+      @search_term = search_params(params)[:q]
+      @all_orgs = search(policy_scope(Organization), @search_term, 1)
       @orgs = Kaminari.paginate_array(@all_orgs).page(params[:page])
 
       respond_to do |format|
         format.html
         format.json do
-          render json: @all_orgs.select { |org| org[1] =~ /#{params[:q]}/i }
+          render json: @orgs
         end
       end
     end

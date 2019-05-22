@@ -4,6 +4,8 @@
 ### Added
   - AHC-1472
     - Modified the bootstrap breakpoint at which width the menu collapses
+  - AHC-1386
+    - Adds a search field for organization, location and service listings
 
 ## [1.7.0] - 2019-05-17
 ### ahc-sprint-23
@@ -35,7 +37,7 @@
     - Removed the Program button from all admin screens
   - AHC-1466
     - Removed the wait time capacity field from the service edit and create form
-    
+
 ## [1.6.0] - 2019-04-26
 ### ahc-sprint-22
 ### Added

@@ -278,3 +278,16 @@ a.boxed-action:active {
   background-image: $button-small-bg;
 }
 
+.search-container {
+  height: 60px;
+}
+.search-form {
+  input[type=text] {
+    width: 50%;
+    float: left;
+  }
+  input[type=submit] {
+    float: left;
+    margin: 0 10px;
+  }
+}
