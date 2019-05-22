@@ -1,12 +1,15 @@
 class Admin
   class ServicesController < ApplicationController
     include Taggable
+    include Searchable
 
     before_action :authenticate_admin!
     layout 'admin'
 
     def index
-      @services = Kaminari.paginate_array(policy_scope(Service)).
+      @search_term = search_params(params)[:q]
+      all_services = search(policy_scope(Service), @search_term, 2)
+      @services = Kaminari.paginate_array(all_services).
                   page(params[:page]).per(params[:per_page])
     end
 
@@ -32,7 +35,7 @@ class Admin
 
     def update_capacity
       @service = Service.find(service_capacity_params[:id])
-      @service.touch(:updated_at)
+      @service.touch :wait_time_updated_at
       @service.update(service_capacity_params)
       redirect_back(fallback_location: root_path)
     end

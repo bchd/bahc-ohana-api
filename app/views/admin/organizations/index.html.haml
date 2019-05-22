@@ -10,6 +10,11 @@
   %p
     As a super admin, you have access to all locations in the database. Please make updates responsibly.
 
+.search-container
+  = form_tag(admin_organizations_path, method: :get, class: 'search-form') do
+    = text_field_tag :q, @search_term, class: 'form-control'
+    = submit_tag t('admin.buttons.search'), class: 'btn submit-button'
+
 %p
   - @orgs.each do |org|
     %ul

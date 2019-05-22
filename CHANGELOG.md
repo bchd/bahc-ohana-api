@@ -1,6 +1,13 @@
 # Change Log
 
-## [1.7.0] - 2019-05-10
+## [1.8.0] - 2019-05-31
+### Added
+  - AHC-1472
+    - Modified the bootstrap breakpoint at which width the menu collapses
+  - AHC-1386
+    - Adds a search field for organization, location and service listings
+
+## [1.7.0] - 2019-05-17
 ### ahc-sprint-23
 ### Added
   - AHC-1335
@@ -23,9 +30,13 @@
     - Record the original iCarol category ids on each service
   - AHC-1433
     - Allow admin to change the organization when editing a location
+  - AHC-1466
+    - Change wait time capacity updates service 'wait_time_updated_at' instead of 'updated_at'
 ### Removed
   - AHC-1387
     - Removed the Program button from all admin screens
+  - AHC-1466
+    - Removed the wait time capacity field from the service edit and create form
 
 ## [1.6.0] - 2019-04-26
 ### ahc-sprint-22
