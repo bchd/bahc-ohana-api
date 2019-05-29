@@ -6,14 +6,14 @@ class Admin
 
     def index
       @super_admins = Admin.where(super_admin: true)
-      @admins = Admin.where(super_admin: false).to_a.sort_by(&:domain)
+      @admins = Admin.where(super_admin: false).order(:email).to_a.sort_by(&:domain)
     end
 
     def edit; end
 
     def update
       @admin.update update_admin_params[:admin]
-      render :edit
+      redirect_to admin_management_index_path
     end
 
     # rubocop:disable Metrics/AbcSize

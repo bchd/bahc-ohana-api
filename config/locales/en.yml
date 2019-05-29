@@ -125,19 +125,6 @@ en:
   admin:
     api_location: 'Baltimore City'
 
-    management:
-      cancel: 'Cancel'
-      edit: 'Edit'
-      edit_admin: 'Edit Admin'
-      email: 'Email'
-      locations: 'Locations'
-      manage_admins: 'Admin Users'
-      manage_super_admins: 'Super Admin Users'
-      name: 'Name'
-      no_locations: 'This admin is not affiliated with any locations.'
-      remove: 'Remove'
-      save: 'Save'
-
     buttons:
       organizations: 'Organizations'
       locations: 'Locations'
@@ -231,6 +218,21 @@ en:
 
         virtual:
           description: 'Does this location have a physical address?'
+
+    management:
+      admin_management: 'Admin Management'
+      cancel: 'Cancel'
+      edit: 'Edit'
+      edit_admin: 'Edit Admin'
+      email: 'Email'
+      introduction: 'Click here to manage system admin users.'
+      locations: 'Locations'
+      manage_admins: 'Admin Users'
+      manage_super_admins: 'Super Admin Users'
+      name: 'Name'
+      no_locations: 'This admin is not affiliated with any locations.'
+      remove: 'Remove'
+      save: 'Save'
 
     not_authorized: 'You are not authorized to perform this action.'
 

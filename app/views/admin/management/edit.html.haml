@@ -20,15 +20,15 @@
         = f.text_field :name, autofocus: true, autocomplete: 'name'
 
       .actions
-        = link_to t('admin.management.cancel'), admin_management_path, class: 'button'
+        = link_to t('admin.management.cancel'), admin_management_index_path, class: 'button button-light'
         = f.submit t('admin.management.save'), class: 'button button-small'
 
-  %h2
+  %h3
     = t('admin.management.locations')
 
   - locations = @admin.locations
   - if locations.length > 0
-    %table
+    %table.locations
       %tr.headings
         %th.data.name
           = t('admin.management.name')
