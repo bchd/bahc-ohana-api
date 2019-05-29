@@ -8,7 +8,10 @@
     - Adds a search field for organization, location and service listings
 ### Changed
   - AHC-1469
-    - Re-enabled character limit on the short description for a location
+    - Re-enaohana-api-demo.herokuapp.combled character limit on the short description for a location
+### FIXED
+  - HOTFIX
+    - Extended the CORS to allow search_needs
 
 ## [1.7.0] - 2019-05-17
 ### ahc-sprint-23
