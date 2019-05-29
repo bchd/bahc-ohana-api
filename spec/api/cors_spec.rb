@@ -117,6 +117,20 @@ describe 'CORS Preflight Request via OPTIONS HTTP method' do
       expect(headers['Access-Control-Allow-Origin']).to eq('*')
     end
 
+    it 'allows access to the search_needs endpoint' do
+      process(
+        :options,
+        api_search_needs_url(name: 'Hop', subdomain: ENV['API_SUBDOMAIN']),
+        params: {},
+        headers: {
+          'HTTP_ORIGIN' => 'http://cors.example.com',
+          'HTTP_ACCESS_CONTROL_REQUEST_METHOD' => 'GET'
+        }
+      )
+
+      expect(headers['Access-Control-Allow-Origin']).to eq('*')
+    end
+
     it 'does not allow access to non-whitelisted endpoints' do
       process(
         :options,
