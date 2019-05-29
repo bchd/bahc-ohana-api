@@ -42,7 +42,8 @@ class Location < ApplicationRecord
   ## maximum of 200 characters. This is just a recommendation though.
   ## Feel free to modify the maximum below, and the way the description is
   ## displayed in the ohana-web-search client to suit your needs.
-  # validates :short_desc, length: { maximum: 200 }
+
+  validates :short_desc, length: { maximum: 200 }
 
   validates :website, url: true, allow_blank: true
 

@@ -6,6 +6,9 @@
     - Modified the bootstrap breakpoint at which width the menu collapses
   - AHC-1386
     - Adds a search field for organization, location and service listings
+### Changed
+  - AHC-1469
+    - Re-enabled character limit on the short description for a location
 
 ## [1.7.0] - 2019-05-17
 ### ahc-sprint-23

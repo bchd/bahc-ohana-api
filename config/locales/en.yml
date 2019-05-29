@@ -211,7 +211,7 @@ en:
             include_blank: 'Day'
 
         short_desc:
-          description: 'A short summary of the description of services.'
+          description: 'A short summary of the description of services. Must be no longer than 200 characters.'
 
         transportation:
           description: 'What public transportation options are nearby? (Bus stops, train stations, etc.)'
