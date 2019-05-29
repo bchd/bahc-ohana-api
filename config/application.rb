@@ -46,7 +46,7 @@ module OhanaApi
     config.middleware.use Rack::Cors do
       allow do
         origins '*'
-        resource %r{/locations|organizations|search|lookahead/*},
+        resource %r{/locations|organizations|search|lookahead|search_needs/*},
                  headers: :any,
                  methods: %i[get put patch post delete],
                  expose: ['Etag', 'Last-Modified', 'Link', 'X-Total-Count']
