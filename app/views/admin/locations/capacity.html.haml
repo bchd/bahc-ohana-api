@@ -21,3 +21,4 @@
               .updated-label
                 = t('admin.services.capacity.last_updated')
                 = service.wait_time_updated_at.strftime("%m/%d/%y at %I:%M%P")
+  = paginate @locations
