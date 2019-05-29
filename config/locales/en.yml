@@ -123,7 +123,20 @@ en:
         number_type: :activerecord.attributes.phone.number_type
 
   admin:
-    api_location: 'San Mateo County'
+    api_location: 'Baltimore City'
+
+    management:
+      cancel: 'Cancel'
+      edit: 'Edit'
+      edit_admin: 'Edit Admin'
+      email: 'Email'
+      locations: 'Locations'
+      manage_admins: 'Admin Users'
+      manage_super_admins: 'Super Admin Users'
+      name: 'Name'
+      no_locations: 'This admin is not affiliated with any locations.'
+      remove: 'Remove'
+      save: 'Save'
 
     buttons:
       organizations: 'Organizations'

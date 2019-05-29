@@ -6,4 +6,12 @@ class Admin < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :confirmable
+
+  def locations
+    Location.where("'#{email}' = ANY (admin_emails)")
+  end
+
+  def domain
+    /.*@(.*)/.match(email)[1]
+  end
 end
