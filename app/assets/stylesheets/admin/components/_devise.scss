@@ -1,0 +1,94 @@
+.devise {
+  &.admin-list {
+    .nav-buttons {
+      a.admin-list {
+        color: white;
+        background-color: $blue;
+      }
+    }
+  }
+
+  h2 {
+    padding-top: 30px;
+    padding-bottom: 20px;
+  }
+
+  table {
+    &.locations {
+      min-width: 50%;
+      
+      .table-button {
+        width: 100px;
+      }
+    }
+
+    .actions .button {
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+
+    tr.headings {
+      border-bottom: 2px solid $greyscale_light;
+    }
+    tr.admin-row {
+      border-bottom: 1px solid $greyscale_light;
+    }
+
+    th, td {
+      text-align: left;
+      font-weight: normal;
+      vertical-align: middle;
+      padding-top: 0px;
+    }
+
+    th {
+      color: $grey-t;
+    }
+
+    .data {
+      padding-left: 10px;
+      padding-right: 30px;
+    }
+    td.table-button {
+      input[type=submit] {
+        margin-right: 10px;
+        width: unset;
+      }
+      a {
+        color: white;
+        background-color: blue;
+        line-height: 1.5em;
+      }
+    }
+    td.table-button.edit-admin input {
+      border: none;
+      color: white;
+      background-color: $purple;
+      min-width: 80px;
+    }
+  }
+
+  .field {
+    margin-bottom: 15px;
+
+    input[type='text'], input[type='email'], input[type='password'] {
+      font-size: 1.1em;
+      border-color: $greyscale_light;
+      border-radius: 4px;
+      border-style: solid;
+      border-width: 1px;
+      height: 2em;
+      padding-left: 10px;
+      padding-right: 10px;
+      width: 325px;
+      &:focus {
+        outline: $purple auto 4px;
+      }
+    }
+  }
+
+  .links {
+    margin-top: 20px;
+    line-height: 1.8em;
+  }
+}
