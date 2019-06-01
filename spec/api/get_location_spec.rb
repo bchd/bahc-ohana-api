@@ -111,6 +111,7 @@ describe 'GET /locations/:id' do
           'status' => @location.services.first.status,
           'website' => nil,
           'wait_time' => nil,
+          'wait_time_updated_at' => nil,
           'updated_at' => service_formatted_time,
           'categories' => [],
           'contacts' => [],
