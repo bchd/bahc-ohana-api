@@ -3,7 +3,7 @@ class ServiceSerializer < ActiveModel::Serializer
              :eligibility, :email, :fees, :funding_sources, :application_process,
              :interpretation_services, :keywords, :languages, :name,
              :required_documents, :service_areas, :status, :website,
-             :wait_time, :updated_at
+             :wait_time, :updated_at, :wait_time_updated_at
 
   # embed :ids, include: true
   has_many :categories

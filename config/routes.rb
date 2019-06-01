@@ -54,6 +54,9 @@ Rails.application.routes.draw do
       get 'organizations/:id', to: 'organizations#edit'
       get 'organizations/:organization_id/contacts/:id', to: 'organization_contacts#edit'
       get 'programs/:id', to: 'programs#edit'
+
+      resources :management, only: %i[index edit update]
+      put '/drop_admin', to: 'management#drop_admin', as: 'drop_from_location'
     end
   end
 
