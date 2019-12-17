@@ -100,6 +100,7 @@ languages:
   - 'Czech'
   - 'Danish'
   - 'Dutch'
+  - 'English'
   - 'Fijian'
   - 'Filipino'
   - 'Finnish'
@@ -317,7 +318,8 @@ test:
 
   required_documents:
     - 'Bank Statement'
-    - 'Picture I
+    - 'Picture ID'
+
   valid_service_areas:
     - 'Atherton'
     - 'Belmont'
