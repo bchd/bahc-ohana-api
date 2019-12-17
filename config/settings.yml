@@ -23,6 +23,8 @@ accepted_payments:
   - 'Credit Card'
   - 'EBT Card'
   - 'Medicare'
+  - 'Medicaid'
+  - 'Private Insurance'
 
 # These will be the values that admin interface users will choose from when
 # updating an Organization's or Service's funding sources. Make sure to update
@@ -315,8 +317,7 @@ test:
 
   required_documents:
     - 'Bank Statement'
-    - 'Picture ID'
-
+    - 'Picture I
   valid_service_areas:
     - 'Atherton'
     - 'Belmont'
