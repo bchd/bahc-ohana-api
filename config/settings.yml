@@ -194,14 +194,30 @@ required_documents:
 #
 # The list below should remain in alphabetical order.
 valid_service_areas:
-  - 'Alameda County'
-  - 'Belmont'
-  - 'Burlingame'
-  - 'Colma'
-  - 'Daly City'
-  - 'East Palo Alto'
-  - 'San Mateo County'
-  - 'South San Francisco'
+  - 'Allegany'
+  - 'Anne Arundel'
+  - 'Baltimore'
+  - 'Baltimore City'
+  - 'Calvert'
+  - 'Caroline'
+  - 'Carroll'
+  - 'Cecil'
+  - 'Charles'
+  - 'Dorchester'
+  - 'Frederick'
+  - 'Garrett'
+  - 'Harford'
+  - 'Howard'
+  - 'Kent'
+  - 'Montgomery'
+  - 'Prince Georges'
+  - 'Queen Annes'
+  - 'St. Marys'
+  - 'Somerset'
+  - 'Talbot'
+  - 'Washington'
+  - 'Wicomico'
+  - 'Worcester'
 
 ############################
 #
@@ -301,8 +317,7 @@ test:
 
   required_documents:
     - 'Bank Statement'
-    - 'Picture ID'
-
+    - 'Picture I
   valid_service_areas:
     - 'Atherton'
     - 'Belmont'
