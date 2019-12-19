@@ -30,31 +30,6 @@ feature 'Create a new location' do
     expect(page).to have_content 'Organization must exist'
   end
 
-  scenario 'with valid mailing address', :js do
-    fill_in_all_required_fields
-    click_link I18n.t('admin.buttons.add_mailing_address')
-    update_mailing_address(
-      attention: 'moncef',
-      address_1: '123',
-      city: 'Vienna',
-      state_province: 'VA',
-      postal_code: '12345',
-      country: 'US'
-    )
-    click_button I18n.t('admin.buttons.create_location')
-
-    expect(find_field('location_mail_address_attributes_attention').value).
-      to eq 'moncef'
-    expect(find_field('location_mail_address_attributes_address_1').value).
-      to eq '123'
-    expect(find_field('location_mail_address_attributes_city').value).
-      to eq 'Vienna'
-    expect(find_field('location_mail_address_attributes_state_province').value).
-      to eq 'VA'
-    expect(find_field('location_mail_address_attributes_postal_code').value).
-      to eq '12345'
-  end
-
   scenario 'with valid phone number', :js do
     fill_in_all_required_fields
     add_phone(
