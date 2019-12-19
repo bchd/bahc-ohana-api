@@ -19,6 +19,7 @@ steps:
   - name: tests
     image: ruby:2.5.3
     environment:
+      API_PATH: api
       RAILS_ENV: test
       OHANA_API_ENDPOINT: http://ohana-api-test.herokuapp.com/api
     commands:
