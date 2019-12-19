@@ -20,6 +20,7 @@ steps:
     image: ruby:2.5.3
     environment:
       API_PATH: api
+      ADMIN_PATH: admin
       RAILS_ENV: test
       OHANA_API_ENDPOINT: http://ohana-api-test.herokuapp.com/api
     commands:
