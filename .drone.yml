@@ -1,0 +1,37 @@
+---
+kind: pipeline
+name: bahc_ohana_api
+
+platform:
+  os: linux
+  arch: amd64
+
+services:
+  - name: database
+    image: bradrydzewski/postgres:9.1
+    environment:
+      POSTGRES_DB: ohana_api_test
+      POSTGRES_USER: postgres
+    ports:
+        - 5432
+
+steps:
+  - name: tests
+    image: ruby:2.5.3
+    environment:
+      RAILS_ENV: test
+      OHANA_API_ENDPOINT: http://ohana-api-test.herokuapp.com/api
+    commands:
+      - apt-get update && apt-get install apt-transport-https
+      - curl -sL https://deb.nodesource.com/setup_13.x | bash -
+      - apt-get update && apt-get install -y nodejs
+      - gem install bundler --conservative
+      - bundle check || bundle install --jobs 20 --retry 5
+      - cp config/drone.database.yml config/database.yml
+      - sleep 15
+      - RAILS_ENV=test bundle exec rake db:create db:schema:load
+      - bundle exec rspec spec
+
+trigger:
+  event:
+    - pull_request

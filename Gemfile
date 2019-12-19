@@ -41,6 +41,8 @@ group :test do
   gem 'database_cleaner', '>= 1.0.0.RC1'
   gem 'haml_lint'
   gem 'poltergeist'
+  gem 'selenium-webdriver'
+  gem 'chromedriver-helper'
   gem 'rails-controller-testing'
   gem 'rubocop', '~> 0.52.1'
   gem 'shoulda-matchers', git: 'https://github.com/thoughtbot/shoulda-matchers.git'
