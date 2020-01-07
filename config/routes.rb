@@ -36,7 +36,6 @@ Rails.application.routes.draw do
         get 'contacts'
         get 'holiday_schedules'
         get 'locations'
-        get 'mail_addresses'
         get 'organizations'
         get 'phones'
         get 'programs'
@@ -79,7 +78,6 @@ Rails.application.routes.draw do
 
         resources :locations do
           resources :address, except: %i[index show]
-          resources :mail_address, except: %i[index show]
           resources :contacts, except: [:show] do
             resources :phones,
                       except: %i[show index],

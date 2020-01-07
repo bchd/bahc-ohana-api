@@ -5,13 +5,13 @@ class DestroyOldRecords < ActiveRecord::Migration[5.1]
     end
 
     old_locations.each do |location|
-      location.address.delete
+      location.address.try(:delete)
       location.contacts.destroy_all
       location.phones.destroy_all
       location.services.destroy_all
       location.regular_schedules.destroy_all
       location.holiday_schedules.destroy_all
-      location.delete
+      location.try(:delete)
     end
   end
 end
