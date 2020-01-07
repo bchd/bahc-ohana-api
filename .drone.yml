@@ -8,12 +8,17 @@ platform:
 
 services:
   - name: database
-    image: bradrydzewski/postgres:9.1
+    image: mdillon/postgis:10
     environment:
       POSTGRES_DB: ohana_api_test
       POSTGRES_USER: postgres
     ports:
-        - 5432
+      - 5432
+
+  - name: chrome
+    image: robcherry/docker-chromedriver
+    ports:
+      - 4444
 
 steps:
   - name: tests
@@ -26,18 +31,19 @@ steps:
       DOMAIN_NAME: example.com
       MAX_PER_PAGE: '50'
       RAILS_ENV: test
+      DOCKER_CI: true
       OHANA_API_ENDPOINT: http://ohana-api-test.herokuapp.com/api
     commands:
       - apt-get update && apt-get install apt-transport-https
       - curl -sL https://deb.nodesource.com/setup_13.x | bash -
       - apt-get update && apt-get install -y nodejs
+      - apt-get install -y libnss3
+      - apt install -y postgresql-client
       - gem install bundler --conservative
       - bundle check || bundle install --jobs 20 --retry 5
       - cp config/drone.database.yml config/database.yml
       - sleep 15
-      - RAILS_ENV=test bundle exec rake db:create db:schema:load
-      - RAILS_ENV=test bundle exec rake db:migrate
-      - RAILS_ENV=test bundle exec rspec spec
+      - RAILS_ENV=test bundle exec rake db:create && bundle exec rake db:structure:load
 
 trigger:
   event:
