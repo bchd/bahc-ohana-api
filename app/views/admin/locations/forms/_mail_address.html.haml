@@ -1,8 +1,0 @@
-.inst-box.mail_address
-  %header
-    %strong
-      Mailing Address
-  = f.fields_for :mail_address do |builder|
-    = render 'admin/locations/forms/mail_address_fields', f: builder
-  - unless @location.mail_address.present?
-    = link_to_add_fields t('admin.buttons.add_mailing_address'), f, :mail_address

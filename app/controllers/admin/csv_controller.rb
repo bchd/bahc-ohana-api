@@ -14,8 +14,6 @@ class Admin
 
     def locations; end
 
-    def mail_addresses; end
-
     def organizations; end
 
     def phones; end
