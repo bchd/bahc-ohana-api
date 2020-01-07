@@ -35,6 +35,12 @@ class Admin
       end)
     end
 
+    def categories_expand_button
+      content_tag(:div, id: 'expand-categories-toggle') do
+        'Expand All'
+      end
+    end
+
     def cats_and_subcats(categories)
       cats = []
       categories.each do |array|

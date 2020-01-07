@@ -281,3 +281,14 @@ a.boxed-action:active {
     margin: 0 10px;
   }
 }
+
+#expand-categories-toggle {
+  display: inline;
+  cursor: pointer;
+  text-decoration: underline;
+  color: #337ab7;
+
+  &:hover {
+    color: #2e6da4
+  }
+}
