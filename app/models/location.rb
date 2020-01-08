@@ -1,13 +1,39 @@
 class Location < ApplicationRecord
+
+  def real_updated_at
+    date = updated_at
+
+    if address.present?
+      date = address.updated_at if address.updated_at > date
+    end
+
+    if contacts.any?
+      contacts.each do |contact|
+        date = contact.updated_at if contact.updated_at > date
+      end
+    end
+
+    if phones.any?
+      phones.each do |phone|
+        date = phone.updated_at if phone.updated_at > date
+      end
+    end
+
+    if services.any?
+      services.each do |service|
+        date = service.updated_at if service.updated_at > date
+      end
+    end
+
+    date
+  end
+
   belongs_to :organization, optional: false
 
   has_one :address, dependent: :destroy
   accepts_nested_attributes_for :address, allow_destroy: true
 
   has_many :contacts, dependent: :destroy
-
-  has_one :mail_address, dependent: :destroy, inverse_of: :location
-  accepts_nested_attributes_for :mail_address, allow_destroy: true
 
   has_many :phones, dependent: :destroy, inverse_of: :location
   accepts_nested_attributes_for :phones,
