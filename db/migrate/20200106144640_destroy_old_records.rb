@@ -1,7 +1,7 @@
 class DestroyOldRecords < ActiveRecord::Migration[5.1]
-  def change
+  def up
     old_locations = Location.all.select do |location|
-      location.real_updated_at < Date.parse("2019-05-30")
+      location.real_updated_at < Date.parse("2019-05-31")
     end
 
     old_locations.each do |location|
@@ -13,5 +13,9 @@ class DestroyOldRecords < ActiveRecord::Migration[5.1]
       location.holiday_schedules.try(:destroy_all)
       location.try(:delete)
     end
+  end
+
+  def down
+
   end
 end
