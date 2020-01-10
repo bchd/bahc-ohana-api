@@ -6,7 +6,7 @@ describe Admin::CsvController do
       log_in_as_admin(:admin)
 
       actions = %i[
-        addresses contacts holiday_schedules locations mail_addresses
+        addresses contacts holiday_schedules locations
         organizations phones programs regular_schedules services
       ]
       actions.each do |action|
@@ -19,7 +19,7 @@ describe Admin::CsvController do
 
     it 'denies access if not signed in' do
       actions = %i[
-        addresses contacts holiday_schedules locations mail_addresses
+        addresses contacts holiday_schedules locations
         organizations phones programs regular_schedules services
       ]
       actions.each do |action|
@@ -34,7 +34,7 @@ describe Admin::CsvController do
       log_in_as_admin(:super_admin)
 
       actions = %i[
-        addresses contacts holiday_schedules locations mail_addresses
+        addresses contacts holiday_schedules locations
         organizations phones programs regular_schedules services
       ]
       actions.each do |action|

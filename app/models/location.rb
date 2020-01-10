@@ -106,16 +106,12 @@ class Location < ApplicationRecord
     [
       :name,
       %i[name address_street],
-      %i[name mail_address_city]
+      %i[name]
     ]
   end
 
   def address_street
     address.address_1 if address.present?
-  end
-
-  def mail_address_city
-    mail_address.city if mail_address.present?
   end
 
   def full_physical_address
