@@ -152,23 +152,6 @@ describe 'GET /locations/:id' do
       expect(json['organization']).to eq(serialized_organization)
     end
 
-    it 'includes the serialized mail_address association' do
-      @location.create_mail_address!(attributes_for(:mail_address))
-      get api_location_url(@location, subdomain: ENV['API_SUBDOMAIN'])
-
-      serialized_mail_address =
-        {
-          'id' => @location.mail_address.id,
-          'attention' => @location.mail_address.attention,
-          'address_1' => @location.mail_address.address_1,
-          'address_2' => nil,
-          'city' => @location.mail_address.city,
-          'state_province' => @location.mail_address.state_province,
-          'postal_code' => @location.mail_address.postal_code
-        }
-      expect(json['mail_address']).to eq(serialized_mail_address)
-    end
-
     it 'displays contacts when present' do
       @location.contacts.create!(attributes_for(:contact))
       get api_location_url(@location, subdomain: ENV['API_SUBDOMAIN'])

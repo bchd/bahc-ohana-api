@@ -9,14 +9,12 @@ describe Location do
   it { is_expected.to belong_to(:organization).required }
   it { is_expected.to have_one(:address).dependent(:destroy) }
   it { is_expected.to have_many(:contacts).dependent(:destroy) }
-  it { is_expected.to have_one(:mail_address).dependent(:destroy).inverse_of(:location) }
   it { is_expected.to have_many(:phones).dependent(:destroy).inverse_of(:location) }
   it { is_expected.to have_many(:services).dependent(:destroy) }
   it { is_expected.to have_many(:regular_schedules).dependent(:destroy).inverse_of(:location) }
   it { is_expected.to have_many(:holiday_schedules).dependent(:destroy).inverse_of(:location) }
 
   it { is_expected.to accept_nested_attributes_for(:address).allow_destroy(true) }
-  it { is_expected.to accept_nested_attributes_for(:mail_address).allow_destroy(true) }
   it { is_expected.to accept_nested_attributes_for(:phones).allow_destroy(true) }
   it { is_expected.to accept_nested_attributes_for(:regular_schedules).allow_destroy(true) }
   it { is_expected.to accept_nested_attributes_for(:holiday_schedules).allow_destroy(true) }
@@ -100,14 +98,6 @@ describe Location do
     end
   end
 
-  it { is_expected.to respond_to(:mail_address_city) }
-  describe '#mail_address_city' do
-    it 'returns mail_address.city' do
-      loc = build(:mail_address).location
-      expect(loc.mail_address_city).to eq(loc.mail_address.city)
-    end
-  end
-
   it { is_expected.to respond_to(:full_physical_address) }
   describe '#full_physical_address' do
     it 'joins all address elements into one string' do
@@ -127,14 +117,6 @@ describe Location do
         new_loc = create(:nearby_loc)
         new_loc.update!(name: 'VRS Services')
         expect(new_loc.reload.slug).to eq('vrs-services-250-myrtle-road')
-      end
-    end
-
-    context 'when mail_address is present and name is taken' do
-      it 'creates a new slug based on mail_address city' do
-        new_loc = create(:mail_address).location
-        new_loc.update!(name: 'VRS Services')
-        expect(new_loc.reload.slug).to eq('vrs-services-belmont')
       end
     end
 
