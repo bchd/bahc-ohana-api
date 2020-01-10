@@ -77,9 +77,6 @@ class Admin
         address_attributes: %i[
           address_1 address_2 city state_province postal_code country id _destroy
         ],
-        mail_address_attributes: %i[
-          attention address_1 address_2 city state_province postal_code country id _destroy
-        ],
         phones_attributes: %i[
           country_prefix department extension number number_type vanity_number id _destroy
         ],

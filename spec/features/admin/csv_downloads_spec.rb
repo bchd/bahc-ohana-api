@@ -38,7 +38,7 @@ feature 'Admin CSV Downloads page' do
     it 'displays link to download all tables as CSV files' do
       expect(page).to have_content 'CSV Downloads'
 
-      tables = %w[addresses contacts holiday_schedules locations mail_addresses
+      tables = %w[addresses contacts holiday_schedules locations
                   organizations phones regular_schedules services]
       tables.each do |table|
         expect(page).

@@ -1,6 +1,6 @@
 namespace :import do
   task all: %i[organizations programs locations taxonomy services
-               mail_addresses contacts phones regular_schedules
+               contacts phones regular_schedules
                holiday_schedules assign_categories category_ancestry
                reset_sequences touch_locations]
 
@@ -41,12 +41,6 @@ namespace :import do
   task :services, [:path] => :environment do |_, args|
     args.with_defaults(path: Rails.root.join('data', 'services.csv'))
     ServiceImporter.check_and_import_file(args[:path])
-  end
-
-  desc 'Imports mail addresses'
-  task :mail_addresses, [:path] => :environment do |_, args|
-    args.with_defaults(path: Rails.root.join('data', 'mail_addresses.csv'))
-    MailAddressImporter.check_and_import_file(args[:path])
   end
 
   desc 'Imports contacts'
