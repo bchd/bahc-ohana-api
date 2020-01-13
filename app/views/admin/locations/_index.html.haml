@@ -1,0 +1,9 @@
+.inst-box.locations
+  %header
+    %strong
+      Locations
+    %p.desc
+      = t('.description')
+  %ul
+    - organization.locations.each do |location|
+      %li= link_to location.name, admin_locations_path(location)
