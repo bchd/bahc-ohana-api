@@ -6,4 +6,4 @@
       = t('.description')
   %ul
     - organization.locations.each do |location|
-      %li= link_to location.name, admin_locations_path(location)
+      %li= link_to location.name, edit_admin_location_path(location)
