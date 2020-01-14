@@ -1,5 +1,19 @@
+- organization = @location.organization
 .inst-box
   %header
     = f.label :organization_id
-  %p
+  .org-select
     = org_autocomplete_field_for(f, current_admin)
+    = f.hidden_field(:organization,
+      { org_id: organization.id,
+      name: organization.name })
+
+- if organization.locations.count > 1
+  .inst-box
+    %header Other Locations for #{organization.name}
+    - other_locations = organization.locations.reject{|l| l == @location }
+    %ul
+      - other_locations.each do |location|
+        %li= link_to location.name, edit_admin_location_path(location)
+
+
