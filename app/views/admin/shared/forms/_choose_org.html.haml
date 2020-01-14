@@ -1,5 +1,9 @@
 .inst-box
   %header
     = f.label :organization_id
-  %p
+  %body
     = org_autocomplete_field_for(f, current_admin)
+    = f.hidden_field(:organization,
+      { org_id: @location.organization_id,
+      name: @location.organization.name })
+
