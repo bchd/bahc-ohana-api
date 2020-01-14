@@ -57,6 +57,7 @@ group :development do
   gem 'derailed'
   gem 'flamegraph'
   gem 'letter_opener'
+  gem 'pry-rails'
   gem 'rack-mini-profiler'
   gem 'reek'
   gem 'spring'
