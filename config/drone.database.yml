@@ -1,0 +1,7 @@
+test:
+  adapter: postgresql
+  template: template0
+  host: database
+  database: ohana_api_test
+  username: postgres
+  port: 5432

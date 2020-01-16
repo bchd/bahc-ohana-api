@@ -81,9 +81,6 @@ en:
       location/regular_schedules:
         weekday: 'Weekday'
 
-      mail_address:
-        <<: *address_attributes
-
       organization:
         alternate_name: 'Alternate Name'
         date_incorporated: 'Date of Incorporation'
@@ -171,7 +168,6 @@ en:
       download_contacts: 'Download Contacts'
       download_holiday_schedules: 'Download Holiday Schedules'
       download_locations: 'Download Locations'
-      download_mail_addresses: 'Download Mail Addresses'
       download_organizations: 'Download Organizations'
       download_phones: 'Download Phones'
       download_programs: 'Download Programs'
@@ -180,6 +176,9 @@ en:
       search: 'Search'
 
     locations:
+      index:
+        description: 'See the locations for this organization.'
+
       forms:
         accessibility:
           description: 'Which accessibility amenities are available at this location?'
@@ -370,7 +369,6 @@ en:
       blank_for_hs: "can't be blank for Holiday Schedule"
       blank_for_hs_open: "can't be blank for Holiday Schedule when open on that day"
       blank_for_location: "can't be blank for Location"
-      blank_for_mail_address: "can't be blank for Mail Address"
       blank_for_org: "can't be blank for Organization"
       blank_for_phone: "can't be blank for Phone"
       blank_for_program: "can't be blank for Program"
@@ -401,9 +399,6 @@ en:
       location:
         admin_emails: 'Add an admin to this location'
         name: 'Location Name'
-
-      mail_address:
-        <<: *address_helper_labels
 
       organization:
         name: 'Organization Name'

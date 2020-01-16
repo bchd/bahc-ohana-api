@@ -23,7 +23,6 @@ describe 'GET /organizations/:organization_id/locations' do
       @location.phones.create!(attributes_for(:phone))
       @location.contacts.create!(attributes_for(:contact))
       @location.services.create!(attributes_for(:service))
-      @location.create_mail_address!(attributes_for(:mail_address))
 
       get api_org_locations_url(@org, subdomain: ENV['API_SUBDOMAIN'])
     end
@@ -103,10 +102,6 @@ describe 'GET /organizations/:organization_id/locations' do
 
     it "doesn't include the location languages attribute" do
       expect(json.first.keys).to_not include('languages')
-    end
-
-    it "doesn't include the location mail_address attribute" do
-      expect(json.first.keys).to_not include('mail_address')
     end
 
     it "doesn't include the location transportation attribute" do

@@ -39,22 +39,8 @@ module Features
       click_button I18n.t('admin.buttons.save_changes')
     end
 
-    def update_mailing_address(options = {})
-      fill_in 'location_mail_address_attributes_attention', with: options[:attention]
-      fill_in 'location_mail_address_attributes_address_1', with: options[:address_1]
-      fill_in 'location_mail_address_attributes_city', with: options[:city]
-      fill_in 'location_mail_address_attributes_state_province', with: options[:state_province]
-      fill_in 'location_mail_address_attributes_postal_code', with: options[:postal_code]
-      fill_in 'location_mail_address_attributes_country', with: options[:country]
-    end
-
     def remove_street_address
       click_link I18n.t('admin.buttons.delete_street_address')
-      click_button I18n.t('admin.buttons.save_changes')
-    end
-
-    def remove_mail_address
-      click_link I18n.t('admin.buttons.delete_mailing_address')
       click_button I18n.t('admin.buttons.save_changes')
     end
 

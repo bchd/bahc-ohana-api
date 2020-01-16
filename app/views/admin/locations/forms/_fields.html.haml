@@ -4,8 +4,7 @@
     %ul
       - location.errors.full_messages.each do |msg|
         %li= msg
-
-= render 'admin/shared/forms/choose_org', f: f
+= render 'admin/shared/forms/choose_org', f: f, organization: location.organization
 = render 'admin/shared/forms/name', f: f
 = render 'admin/shared/forms/alternate_name', f: f
 - if f.object.new_record? || policy(location).edit?
@@ -14,7 +13,6 @@
 = render 'admin/locations/forms/short_desc', f: f
 = render 'admin/locations/forms/virtual', f: f
 = render 'admin/locations/forms/address', f: f
-= render 'admin/locations/forms/mail_address', f: f
 = render 'admin/locations/forms/phones', f: f
 = render 'admin/shared/forms/email', f: f
 = render 'admin/locations/forms/languages', f: f
