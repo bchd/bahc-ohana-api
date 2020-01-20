@@ -4,11 +4,12 @@
     = f.label :organization_id
   .org-select
     = org_autocomplete_field_for(f, current_admin)
-    = f.hidden_field(:organization,
-      { org_id: organization.id,
-      name: organization.name })
+    - unless organization.nil?
+      = f.hidden_field(:organization,
+        { org_id: organization.id,
+        name: organization.name })
 
-- if organization.locations.count > 1
+- if organization.try(:locations).present? && organization.locations.count > 1
   .inst-box
     %header Other Locations for #{organization.name}
     - other_locations = organization.locations.reject{|l| l == @location }
