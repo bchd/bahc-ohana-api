@@ -1,5 +1,6 @@
 .content-box
   %h2 #{@service.try(:name)} / #{@location.name}
+  = last_updated_at(@updated)
 = form_for [:admin, @location, @service], html: { class: 'edit-entry' } do |f|
   = render 'admin/services/form', f: f, service: @service, location: @location
 

@@ -15,7 +15,7 @@ class Admin
 
     def edit
       assign_location_service_and_taxonomy_ids
-
+      @updated = @service.updated_at
       authorize @location
     end
 
