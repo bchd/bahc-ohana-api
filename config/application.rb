@@ -6,6 +6,11 @@ require 'action_controller/railtie'
 require 'action_mailer/railtie'
 require 'sprockets/railtie'
 require 'yaml'
+require 'raven'
+
+Raven.configure do |config|
+  config.dsn = ENV['SENTRY_DSN']
+end
 
 SETTINGS = YAML.safe_load(File.read(File.expand_path('settings.yml', __dir__)))
 SETTINGS.merge! SETTINGS.fetch(Rails.env, {})

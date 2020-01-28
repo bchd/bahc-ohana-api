@@ -1,6 +1,7 @@
 require Rails.root.join('lib', 'default_host.rb')
 
 class ApplicationController < ActionController::Base
+  before_action :set_raven_context
   include Pundit
   # Prevent CSRF attacks by raising an exception (with: :exception),
   protect_from_forgery with: :exception
@@ -46,6 +47,11 @@ class ApplicationController < ActionController::Base
   def user_not_authorized
     flash[:error] = I18n.t('admin.not_authorized')
     redirect_to(request.referer || admin_dashboard_url)
+  end
+
+  def set_raven_context
+    Raven.user_context(id: session[:current_user_id]) # or anything else in session
+    Raven.extra_context(params: params.to_unsafe_h, url: request.url)
   end
 
   protected

@@ -1,5 +1,5 @@
 module ApplicationHelper
   def version
-    @version ||= File.read('VERSION').chomp
+    1 / 0
   end
 end
