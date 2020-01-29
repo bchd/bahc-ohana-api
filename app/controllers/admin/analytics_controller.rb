@@ -1,9 +1,16 @@
 class Admin
   class AnalyticsController < ApplicationController
+    include Analytics
+
     before_action :authenticate_admin!
     before_action :set_start_and_end_dates
+
     layout 'admin'
+
     def index
+      @ui_analytics = get_ui_analytics
+      @total_homepage_views = total_homepage_views(@ui_analytics)
+      @new_homepage_views = new_homepage_views(@ui_analytics, @start_date, @end_date)
       @organizations_count = Organization.all.count
       @new_org_count = Organization.where(created_at: @start_date.beginning_of_day..@end_date.end_of_day).count
       @locations_count = Location.all.count
