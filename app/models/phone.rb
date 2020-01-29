@@ -6,7 +6,7 @@ class Phone < ApplicationRecord
   belongs_to :location, touch: true, inverse_of: :phones
   belongs_to :contact, touch: true, inverse_of: :phones
   belongs_to :service, touch: true, inverse_of: :phones
-  belongs_to :organization, inverse_of: :phones
+  belongs_to :organization, touch: true, inverse_of: :phones
 
   validates :number,
             presence: { message: I18n.t('errors.messages.blank_for_phone') },
