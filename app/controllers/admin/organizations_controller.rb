@@ -21,6 +21,7 @@ class Admin
 
     def edit
       @organization = Organization.find(params[:id])
+      @updated = @organization.updated_at
 
       authorize @organization
     end

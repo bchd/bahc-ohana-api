@@ -15,7 +15,7 @@ class Admin
     def edit
       @location = Location.find(params[:id])
       @org = @location.organization
-
+      @updated = @location.updated_at
       authorize @location
     end
 
