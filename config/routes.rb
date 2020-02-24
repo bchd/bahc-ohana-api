@@ -56,6 +56,9 @@ Rails.application.routes.draw do
 
       resources :management, only: %i[index edit update]
       put '/drop_admin', to: 'management#drop_admin', as: 'drop_from_location'
+
+      get 'analytics', to: 'analytics#index'
+      post 'analytics', to: 'analytics#update'
     end
   end
 

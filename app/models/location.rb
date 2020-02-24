@@ -28,7 +28,7 @@ class Location < ApplicationRecord
     date
   end
 
-  belongs_to :organization, optional: false
+  belongs_to :organization, touch: true, optional: false
 
   has_one :address, dependent: :destroy
   accepts_nested_attributes_for :address, allow_destroy: true
