@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe "GET 'search'" do
+describe "GET 'search'", broken: true, loc_index_reset: true do
   context 'with language parameter' do
     before(:each) do
       create(:nearby_loc)

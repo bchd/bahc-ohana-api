@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Pagination Headers' do
+describe 'Pagination Headers', broken: true, loc_index_reset: true do
   before(:each) do
     @prefix = api_search_index_url(subdomain: ENV['API_SUBDOMAIN'])
   end
