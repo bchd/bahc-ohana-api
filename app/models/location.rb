@@ -28,6 +28,8 @@ class Location < ApplicationRecord
     date
   end
 
+  update_index('locations#location') { self }
+
   belongs_to :organization, touch: true, optional: false
 
   has_one :address, dependent: :destroy
