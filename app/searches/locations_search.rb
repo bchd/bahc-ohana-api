@@ -41,6 +41,6 @@ class LocationsSearch
     index.filter(multi_match:{
       query: keywords,
       fields: ['name', 'description', 'keywords']
-    }).load.objects.group_by{|l| l.address.postal_code}
+    }).load.objects.group_by{|l| l.address.try(:postal_code) }
   end
 end
