@@ -13,7 +13,7 @@ module Api
           zipcode: params[:location]
         ).search
 
-        #return unless stale?(etag: cache_key(locations), public: true)
+        # return unless stale?(etag: cache_key(locations), public: true)
 
         render json: locations, each_serializer: LocationsSerializer, status: :ok
       end

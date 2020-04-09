@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class LocationsIndex < Chewy::Index
   define_type Location do
     field :id, type: 'integer'

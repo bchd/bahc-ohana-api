@@ -1,5 +1,4 @@
 class Location < ApplicationRecord
-
   def real_updated_at
     date = updated_at
 
