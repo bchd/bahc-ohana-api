@@ -20,7 +20,7 @@ class Admin
     end
 
     def update
-      redirect_to action: :index, analytics: {start_date: @start_date, end_date: @end_date}
+      redirect_to action: :index, analytics: { start_date: @start_date, end_date: @end_date }
     end
 
     private
