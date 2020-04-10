@@ -4,6 +4,7 @@ class LocationsSearch
   attribute :zipcode, type: String
   attribute :keywords, type: String
   attribute :org_name, type: String
+  attribute :category_ids, type: Array
 
   def index
     LocationsIndex
@@ -20,8 +21,19 @@ class LocationsSearch
     [
       organization_filter,
       keyword_filter,
-      zipcode_filter
+      zipcode_filter,
+      category_filter
     ].compact.reduce(:merge)
+  end
+
+  def category_filter
+    if category_ids?
+      index.filter(
+        terms: {
+          category_ids: category_ids
+        }
+      )
+    end
   end
 
   def zipcode_filter
