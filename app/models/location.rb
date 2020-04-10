@@ -1,5 +1,4 @@
 class Location < ApplicationRecord
-
   def real_updated_at
     date = updated_at
 
@@ -27,6 +26,8 @@ class Location < ApplicationRecord
 
     date
   end
+
+  update_index('locations#location') { self }
 
   belongs_to :organization, touch: true, optional: false
 

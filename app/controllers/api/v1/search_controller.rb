@@ -8,13 +8,13 @@ module Api
       after_action :set_cache_control, only: :index
 
       def index
-        locations = Location.search(params).page(params[:page]).
-                    per(params[:per_page])
+        locations = LocationsSearch.new(
+          org_name: params[:org_name],
+          keywords: params[:keyword],
+          zipcode: params[:location]
+        ).search.load.objects
 
-        return unless stale?(etag: cache_key(locations), public: true)
-
-        generate_pagination_headers(locations)
-        render json: locations.preload(tables), each_serializer: LocationsSerializer, status: :ok
+        render json: locations, each_serializer: LocationsSerializer, status: :ok
       end
 
       def search_needs
