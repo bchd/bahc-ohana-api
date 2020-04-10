@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 Chewy.settings = {
-  host: ENV['SEARCHBOX_URL'] || 'localhost:9200',
-  prefix: "bahc-ohana-api_#{Rails.env}",
+  host: ENV['BONSAI_URL'] || 'localhost:9200',
   request_timeout: 240
 }
