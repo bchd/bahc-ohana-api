@@ -1,10 +1,12 @@
 source 'https://rubygems.org'
 
 ruby '2.5.3'
+gem 'active_data'
 gem 'active_model_serializers', '~> 0.8.0'
 gem 'ancestry'
 gem 'auto_strip_attributes', '~> 2.0'
 gem 'bootstrap-sass', '~> 3.4.1'
+gem 'chewy'
 gem 'coffee-rails', '~> 4.1'
 gem 'csv_shaper'
 gem 'dalli'
@@ -38,13 +40,13 @@ end
 
 group :test do
   gem 'capybara'
+  gem 'chromedriver-helper'
   gem 'database_cleaner', '>= 1.0.0.RC1'
   gem 'haml_lint'
   gem 'poltergeist'
-  gem 'selenium-webdriver'
-  gem 'chromedriver-helper'
   gem 'rails-controller-testing'
   gem 'rubocop', '~> 0.52.1'
+  gem 'selenium-webdriver'
   gem 'shoulda-matchers', git: 'https://github.com/thoughtbot/shoulda-matchers.git'
   gem 'simplecov', require: false
   gem 'webmock'
