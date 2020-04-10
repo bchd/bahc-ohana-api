@@ -11,5 +11,6 @@ class LocationsIndex < Chewy::Index
     field :updated_at, type: 'date'
     field :zipcode, value: -> { address.try(:postal_code) }
     field :keywords, value: -> { services.map(&:keywords).compact.join(', ') }
+    field :category_ids, value: -> { services.map(&:categories).flatten.uniq.map(&:id) }
   end
 end
