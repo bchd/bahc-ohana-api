@@ -30,6 +30,9 @@ Rails.application.routes.draw do
       resources :programs, except: :show
       resources :services, only: :index
 
+      resources :flags
+      resources :flag_categories
+
       namespace :csv, defaults: { format: 'csv' } do
         get 'addresses'
         get 'categories'

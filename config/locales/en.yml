@@ -174,7 +174,7 @@ en:
       download_regular_schedules: 'Download Regular Schedules'
       download_services: 'Download Services'
       search: 'Search'
-
+      flag: 'Flag Resources'
     locations:
       index:
         description: 'See the locations for this organization.'

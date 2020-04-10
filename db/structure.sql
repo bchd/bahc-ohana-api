@@ -23,20 +23,6 @@ COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
 
 
 --
--- Name: pg_stat_statements; Type: EXTENSION; Schema: -; Owner: -
---
-
-CREATE EXTENSION IF NOT EXISTS pg_stat_statements WITH SCHEMA public;
-
-
---
--- Name: EXTENSION pg_stat_statements; Type: COMMENT; Schema: -; Owner: -
---
-
-COMMENT ON EXTENSION pg_stat_statements IS 'track execution statistics of all SQL statements executed';
-
-
---
 -- Name: fill_search_vector_for_location(); Type: FUNCTION; Schema: public; Owner: -
 --
 
@@ -63,13 +49,13 @@ CREATE FUNCTION public.fill_search_vector_for_location() RETURNS trigger
             JOIN categories ON categories.id = categories_services.category_id;
 
             new.tsv_body :=
-              setweight(to_tsvector('pg_catalog.english', coalesce(new.name, '')), 'C')                  ||
-              setweight(to_tsvector('pg_catalog.english', coalesce(new.description, '')), 'B')                ||
-              setweight(to_tsvector('pg_catalog.english', coalesce(location_organization.name, '')), 'A')        ||
-              setweight(to_tsvector('pg_catalog.english', coalesce(location_services_description.description, '')), 'B')  ||
-              setweight(to_tsvector('pg_catalog.english', coalesce(location_services_name.name, '')), 'C')  ||
-              setweight(to_tsvector('pg_catalog.english', coalesce(location_services_keywords.keywords, '')), 'C') ||
-              setweight(to_tsvector('pg_catalog.english', coalesce(service_categories.name, '')), 'B');
+              setweight(to_tsvector('pg_catalog.english', coalesce(new.name, '')), 'B')                  ||
+              setweight(to_tsvector('pg_catalog.english', coalesce(new.description, '')), 'A')                ||
+              setweight(to_tsvector('pg_catalog.english', coalesce(location_organization.name, '')), 'B')        ||
+              setweight(to_tsvector('pg_catalog.english', coalesce(location_services_description.description, '')), 'A')  ||
+              setweight(to_tsvector('pg_catalog.english', coalesce(location_services_name.name, '')), 'B')  ||
+              setweight(to_tsvector('pg_catalog.english', coalesce(location_services_keywords.keywords, '')), 'B') ||
+              setweight(to_tsvector('pg_catalog.english', coalesce(service_categories.name, '')), 'A');
 
             return new;
           end
@@ -363,6 +349,71 @@ ALTER SEQUENCE public.holiday_schedules_id_seq OWNED BY public.holiday_schedules
 
 
 --
+-- Name: inaccurate_resource_categories; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.inaccurate_resource_categories (
+    id bigint NOT NULL,
+    inaccurate_resource_id bigint,
+    category_name text,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: inaccurate_resource_categories_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.inaccurate_resource_categories_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: inaccurate_resource_categories_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.inaccurate_resource_categories_id_seq OWNED BY public.inaccurate_resource_categories.id;
+
+
+--
+-- Name: inaccurate_resources; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.inaccurate_resources (
+    id bigint NOT NULL,
+    reported_by_name text,
+    reported_by_email text NOT NULL,
+    reported_reason text NOT NULL,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: inaccurate_resources_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.inaccurate_resources_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: inaccurate_resources_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.inaccurate_resources_id_seq OWNED BY public.inaccurate_resources.id;
+
+
+--
 -- Name: locations; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -606,6 +657,36 @@ CREATE TABLE public.schema_migrations (
 
 
 --
+-- Name: service_areasas; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.service_areasas (
+    id bigint NOT NULL,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: service_areasas_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.service_areasas_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: service_areasas_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.service_areasas_id_seq OWNED BY public.service_areasas.id;
+
+
+--
 -- Name: services; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -752,6 +833,20 @@ ALTER TABLE ONLY public.holiday_schedules ALTER COLUMN id SET DEFAULT nextval('p
 
 
 --
+-- Name: inaccurate_resource_categories id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.inaccurate_resource_categories ALTER COLUMN id SET DEFAULT nextval('public.inaccurate_resource_categories_id_seq'::regclass);
+
+
+--
+-- Name: inaccurate_resources id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.inaccurate_resources ALTER COLUMN id SET DEFAULT nextval('public.inaccurate_resources_id_seq'::regclass);
+
+
+--
 -- Name: locations id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -791,6 +886,13 @@ ALTER TABLE ONLY public.programs ALTER COLUMN id SET DEFAULT nextval('public.pro
 --
 
 ALTER TABLE ONLY public.regular_schedules ALTER COLUMN id SET DEFAULT nextval('public.regular_schedules_id_seq'::regclass);
+
+
+--
+-- Name: service_areasas id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.service_areasas ALTER COLUMN id SET DEFAULT nextval('public.service_areasas_id_seq'::regclass);
 
 
 --
@@ -872,6 +974,22 @@ ALTER TABLE ONLY public.holiday_schedules
 
 
 --
+-- Name: inaccurate_resource_categories inaccurate_resource_categories_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.inaccurate_resource_categories
+    ADD CONSTRAINT inaccurate_resource_categories_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: inaccurate_resources inaccurate_resources_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.inaccurate_resources
+    ADD CONSTRAINT inaccurate_resources_pkey PRIMARY KEY (id);
+
+
+--
 -- Name: locations locations_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -917,6 +1035,14 @@ ALTER TABLE ONLY public.programs
 
 ALTER TABLE ONLY public.regular_schedules
     ADD CONSTRAINT regular_schedules_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: service_areasas service_areasas_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.service_areasas
+    ADD CONSTRAINT service_areasas_pkey PRIMARY KEY (id);
 
 
 --
@@ -1066,6 +1192,13 @@ CREATE INDEX index_holiday_schedules_on_location_id ON public.holiday_schedules 
 --
 
 CREATE INDEX index_holiday_schedules_on_service_id ON public.holiday_schedules USING btree (service_id);
+
+
+--
+-- Name: index_inaccurate_resource_categories_on_inaccurate_resource_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_inaccurate_resource_categories_on_inaccurate_resource_id ON public.inaccurate_resource_categories USING btree (inaccurate_resource_id);
 
 
 --
@@ -1368,6 +1501,9 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20190411135354'),
 ('20190415152136'),
 ('20190429042119'),
-('20200106144640');
+('20200106144640'),
+('20200114164517'),
+('20200406124721'),
+('20200406133855');
 
 

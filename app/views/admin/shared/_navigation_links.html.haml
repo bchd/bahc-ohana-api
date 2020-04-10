@@ -5,6 +5,8 @@
     = link_to t('admin.buttons.locations'), admin_locations_path
   %li
     = link_to t('admin.buttons.services'), admin_services_path
+  %li
+    = link_to t('admin.buttons.flag'), admin_flags_path
 
   - unless current_admin.super_admin?
     %li

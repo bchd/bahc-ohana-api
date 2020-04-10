@@ -1,0 +1,46 @@
+<h1>Flagged Resources</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <p>
+        Below is a list of all the resources that have been reported inaccurate. You may, as an admin, report an inaccurate resource as well
+        using the form below.
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-8">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Flag as Inaccurate</h3>
+        </div>
+        <div class="panel-body">
+          <%= render partial: 'form', locals: { flag: @flag, orgs: @orgs} %>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Organizations Flagged</h3>
+          </div>
+          <div class="panel-body">
+            <% @flags.each do |flag| %>
+              <ul class="list-group">
+                <li class="list-group-item">
+                  <h3><%= Organization.find(flag.organization_id).name %></h3>
+                  <h5>Reported By</h5>
+                  <p><%= flag.reported_by_email.blank? ? "N/A" : flag.reported_by_email  %></p>
+                  <h5>Category</h5>
+                  <p><%= flag.category.blank? ? "N/A" : flag.category %></p>
+                  <h5>Description</h5>
+                  <p><%= flag.description  %></p>
+                </ul>
+              <% end %>
+            </div>
+            <div class="panel-footer">Total: <%= @flags.count %> </div>
+          </div>
+        </div>
+      </div>
+    </div>
