@@ -9,11 +9,10 @@ module Api
 
       def index
         locations = LocationsSearch.new(
+          org_name: params[:org_name],
           keywords: params[:keyword],
           zipcode: params[:location]
-        ).search
-
-        # return unless stale?(etag: cache_key(locations), public: true)
+        ).search.load.objects
 
         render json: locations, each_serializer: LocationsSerializer, status: :ok
       end

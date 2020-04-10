@@ -4,6 +4,7 @@ class LocationsIndex < Chewy::Index
   define_type Location do
     field :id, type: 'integer'
     field :organization_id, type: 'integer'
+    field :organization_name, value: -> { organization.try(:name) }
     field :name
     field :description
     field :created_at, type: 'date'
