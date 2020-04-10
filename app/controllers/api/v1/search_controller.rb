@@ -11,7 +11,8 @@ module Api
         locations = LocationsSearch.new(
           org_name: params[:org_name],
           keywords: params[:keyword],
-          zipcode: params[:location]
+          zipcode: params[:location],
+          category_ids: params[:categories]
         ).search.load.objects
 
         render json: locations, each_serializer: LocationsSerializer, status: :ok
