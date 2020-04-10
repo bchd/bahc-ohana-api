@@ -3,6 +3,7 @@ class LocationsSearch
 
   attribute :zipcode, type: String
   attribute :keywords, type: String
+  attribute :org_name, type: String
 
   def index
     LocationsIndex
@@ -16,31 +17,35 @@ class LocationsSearch
 
   def search_results
     # Order matters
-    keyword_filter
-    maybe_sort_by_zipcode
+    [
+      organization_filter,
+      keyword_filter,
+      zipcode_filter
+    ].compact.reduce(:merge)
   end
 
-  def maybe_sort_by_zipcode
-    results = keyword_filter
-
-    if zipcode.present?
-      results = []
-      keyword_filter[zipcode].each { |l| results << l } unless keyword_filter[zipcode].blank?
-      hash_without_zipcode = keyword_filter.tap { |h| h.delete(zipcode) }
-      hash_without_zipcode.keys.each do |key|
-        hash_without_zipcode[key].each { |l| results << l }
-      end
-
-      results
-    else
-      results.values.flatten
+  def zipcode_filter
+    if zipcode?
+      index.filter(match: {
+                     zipcode: zipcode
+                   })
     end
   end
 
   def keyword_filter
-    index.filter(multi_match: {
-                   query: keywords,
-                   fields: %w[name description keywords]
-                 }).load.objects.group_by { |l| l.address&.postal_code }
+    if keywords?
+      index.filter(multi_match: {
+                     query: keywords,
+                     fields: %w[name description keywords]
+                   })
+    end
+  end
+
+  def organization_filter
+    if org_name?
+      index.filter(match_phrase: {
+                     organization_name: org_name
+                   })
+    end
   end
 end
