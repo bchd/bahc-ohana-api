@@ -1,5 +1,6 @@
 class Admin
   class LocationsController < ApplicationController
+    include ActionView::Helpers::TextHelper
     before_action :authenticate_admin!
     layout 'admin'
 
@@ -21,6 +22,7 @@ class Admin
 
     def update
       @location = Location.find(params[:id])
+      @location.description = simple_format(@location.description, {}, {})
       @org = @location.organization
 
       authorize @location

@@ -16,7 +16,7 @@
 
 @import 'variables';
 @import "admin/components/*";
-
+@import "simplemde.min";
 // creates styles for text in the navbar that is not a link
 .navbar-default .navbar-nav > li > a.logged-in {
   color: $light-red;
