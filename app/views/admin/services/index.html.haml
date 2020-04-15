@@ -19,5 +19,5 @@
   - @services.each do |service|
     %ul
       - location_name ||= Location.find(service[0]).name
-      = link_to "#{service[2]} / #{location_name}", edit_admin_location_service_path(service[0], service[1])
+      = link_to "#{service[2]} / #{location_name}", edit_admin_location_service_path(service[0], service[1]), class: "link"
   = paginate @services

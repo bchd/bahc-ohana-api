@@ -13,7 +13,7 @@ module Api
           keywords: params[:keyword],
           zipcode: params[:location],
           category_ids: params[:categories]
-        ).search.load.objects
+        ).search&.load&.objects
 
         render json: locations, each_serializer: LocationsSerializer, status: :ok
       end

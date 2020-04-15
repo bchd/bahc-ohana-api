@@ -16,7 +16,7 @@
 %p
   - @locations.each do |location|
     %ul
-      = link_to location.second, edit_admin_location_path(location.third)
+      = link_to location.second, edit_admin_location_path(location.third), class: "location-links"
   = paginate @locations
 
 - if @locations.present?

@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe "GET 'search'" do
-  context 'with status parameter' do
+  context 'with status parameter', broken: true do
     before(:each) do
       create(:nearby_loc)
       @location = create(:location)

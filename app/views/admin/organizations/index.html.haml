@@ -18,5 +18,5 @@
 %p
   - @orgs.each do |org|
     %ul
-      = link_to org.second, edit_admin_organization_path(org.third)
+      = link_to org.second, edit_admin_organization_path(org.third), class: "link"
   = paginate @orgs

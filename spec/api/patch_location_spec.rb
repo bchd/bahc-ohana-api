@@ -102,7 +102,7 @@ describe 'PATCH /locations/:id)' do
     expect(json['message']).to eq('The requested resource could not be found.')
   end
 
-  it 'updates the search index when location changes' do
+  it 'updates the search index when location changes', loc_index_reset: true do
     patch api_location_url(@loc, subdomain: ENV['API_SUBDOMAIN']),
           name: 'changeme'
 
