@@ -20,7 +20,19 @@ services:
     ports:
       - 4444
 
+  - name: elasticsearch
+    image: elasticsearch:5-alpine
+    ports:
+    - 9200
+
 steps:
+  - name: test
+    image: alpine:3.8
+    commands:
+    - apk add curl
+    - sleep 20
+    - curl http://elasticsearch:9200
+
   - name: tests
     image: ruby:2.5.3
     environment:
@@ -33,6 +45,7 @@ steps:
       RAILS_ENV: test
       DOCKER_CI: true
       OHANA_API_ENDPOINT: http://ohana-api-test.herokuapp.com/api
+      ELASTICSEARCH_URL: http://elasticsearch:9200 # This gets set in chewy.rb file.
     commands:
       - apt-get update && apt-get install apt-transport-https
       - curl -sL https://deb.nodesource.com/setup_13.x | bash -
@@ -44,6 +57,7 @@ steps:
       - cp config/drone.database.yml config/database.yml
       - sleep 15
       - RAILS_ENV=test bundle exec rake db:create && bundle exec rake db:structure:load
+      - RAILS_ENV=test bundle exec rspec spec
 
 trigger:
   event:
