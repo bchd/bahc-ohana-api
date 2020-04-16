@@ -7,22 +7,30 @@ require 'shoulda/matchers'
 require 'capybara/poltergeist'
 require 'selenium/webdriver'
 
-Capybara.register_driver :selenium do |app|
-  options = Selenium::WebDriver::Chrome::Options.new(
-    args: %w[headless no-sandbox disable-gpu --window-size=1024,1024]
-  )
+# Capybara.register_driver :selenium do |app|
+#   options = Selenium::WebDriver::Chrome::Options.new(
+#     args: %w[headless no-sandbox disable-gpu --window-size=1024,1024]
+#   )
+#   Capybara::Selenium::Driver.new(app, browser: :chrome, options: options)
+# end
+
+# Capybara.register_driver :headless_chrome do |app|
+#   capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(
+#     chromeOptions: { args: %w[headless disable-gpu] }
+#   )
+
+#   Capybara::Selenium::Driver.new app,
+#                                  browser: :chrome,
+#                                  desired_capabilities: capabilities
+# end
+
+Capybara.register_driver :headless_chrome do |app|
+  options = Selenium::WebDriver::Chrome::Options.new(args: %w[no-sandbox headless disable-gpu])
+
   Capybara::Selenium::Driver.new(app, browser: :chrome, options: options)
 end
 
-Capybara.register_driver :headless_chrome do |app|
-  capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(
-    chromeOptions: { args: %w[headless disable-gpu] }
-  )
-
-  Capybara::Selenium::Driver.new app,
-                                 browser: :chrome,
-                                 desired_capabilities: capabilities
-end
+# Capybara.javascript_driver = :chrome
 
 Capybara.javascript_driver = :headless_chrome
 

@@ -15,23 +15,23 @@ services:
     ports:
       - 5432
 
-  - name: chrome
-    image: robcherry/docker-chromedriver
-    ports:
-      - 4444
+#   - name: chrome
+#     image: robcherry/docker-chromedriver
+#     ports:
+#       - 4444
 
   - name: elasticsearch
     image: elasticsearch:5-alpine
     ports:
-    - 9200
+      - 9200
 
 steps:
   - name: test
     image: alpine:3.8
     commands:
-    - apk add curl
-    - sleep 20
-    - curl http://elasticsearch:9200
+      - apk add curl
+      - sleep 20
+      - curl http://elasticsearch:9200
 
   - name: tests
     image: ruby:2.5.3
@@ -47,7 +47,7 @@ steps:
       OHANA_API_ENDPOINT: http://ohana-api-test.herokuapp.com/api
       ELASTICSEARCH_URL: http://elasticsearch:9200 # This gets set in chewy.rb file.
     commands:
-      - apt-get update && apt-get install apt-transport-https
+      - apt-get update -qy && apt-get install apt-transport-https
       - curl -sL https://deb.nodesource.com/setup_13.x | bash -
       - apt-get update && apt-get install -y nodejs
       - apt-get install -y libnss3
@@ -55,6 +55,13 @@ steps:
       - gem install bundler --conservative
       - bundle check || bundle install --jobs 20 --retry 5
       - cp config/drone.database.yml config/database.yml
+      - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+      - apt-get install -y ./google-chrome-stable_current_amd64.deb
+      - mkdir /chromedriver
+      - wget -q --continue -P /chromedriver "https://chromedriver.storage.googleapis.com/76.0.3809.126/chromedriver_linux64.zip"
+      - unzip /chromedriver/chromedriver* -d /chromedriver
+      - PATH=/chromedriver:$PATH
+      - chromedriver -v
       - sleep 15
       - RAILS_ENV=test bundle exec rake db:create && bundle exec rake db:structure:load
       - RAILS_ENV=test bundle exec rspec spec
