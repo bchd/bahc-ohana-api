@@ -11,7 +11,7 @@ class LocationsSearch
   end
 
   def search
-    search_results
+    search_results.per(30)
   end
 
   private
@@ -37,6 +37,9 @@ class LocationsSearch
   end
 
   def zipcode_filter
+    # NOTE: I think we also need to consider location's coordinates and its radius.
+    # Because some of our specs are using these scenarios too.
+
     if zipcode?
       index.filter(match: {
                      zipcode: zipcode
@@ -48,7 +51,7 @@ class LocationsSearch
     if keywords?
       index.filter(multi_match: {
                      query: keywords,
-                     fields: %w[name description keywords]
+                     fields: %w[name description keywords organization_name]
                    })
     end
   end

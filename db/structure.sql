@@ -5,6 +5,7 @@ SET client_encoding = 'UTF8';
 SET standard_conforming_strings = on;
 SELECT pg_catalog.set_config('search_path', '', false);
 SET check_function_bodies = false;
+SET xmloption = content;
 SET client_min_messages = warning;
 SET row_security = off;
 
@@ -63,13 +64,13 @@ CREATE FUNCTION public.fill_search_vector_for_location() RETURNS trigger
             JOIN categories ON categories.id = categories_services.category_id;
 
             new.tsv_body :=
-              setweight(to_tsvector('pg_catalog.english', coalesce(new.name, '')), 'C')                  ||
-              setweight(to_tsvector('pg_catalog.english', coalesce(new.description, '')), 'B')                ||
-              setweight(to_tsvector('pg_catalog.english', coalesce(location_organization.name, '')), 'A')        ||
-              setweight(to_tsvector('pg_catalog.english', coalesce(location_services_description.description, '')), 'B')  ||
-              setweight(to_tsvector('pg_catalog.english', coalesce(location_services_name.name, '')), 'C')  ||
-              setweight(to_tsvector('pg_catalog.english', coalesce(location_services_keywords.keywords, '')), 'C') ||
-              setweight(to_tsvector('pg_catalog.english', coalesce(service_categories.name, '')), 'B');
+              setweight(to_tsvector('pg_catalog.english', coalesce(new.name, '')), 'B')                  ||
+              setweight(to_tsvector('pg_catalog.english', coalesce(new.description, '')), 'A')                ||
+              setweight(to_tsvector('pg_catalog.english', coalesce(location_organization.name, '')), 'B')        ||
+              setweight(to_tsvector('pg_catalog.english', coalesce(location_services_description.description, '')), 'A')  ||
+              setweight(to_tsvector('pg_catalog.english', coalesce(location_services_name.name, '')), 'B')  ||
+              setweight(to_tsvector('pg_catalog.english', coalesce(location_services_keywords.keywords, '')), 'B') ||
+              setweight(to_tsvector('pg_catalog.english', coalesce(service_categories.name, '')), 'A');
 
             return new;
           end
