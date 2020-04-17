@@ -11,7 +11,7 @@ class LocationsSearch
   end
 
   def search
-    search_results
+    search_results.per(30)
   end
 
   private
