@@ -1,8 +1,10 @@
 require 'rails_helper'
 
-describe 'DELETE /locations/:id', loc_index_reset: true do
+describe 'DELETE /locations/:id' do
   before :all do
     create_service
+
+    LocationsIndex.reset!
   end
 
   before :each do
