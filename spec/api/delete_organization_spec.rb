@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'DELETE /organizations/:id', loc_index_reset: true do
+describe 'DELETE /organizations/:id' do
   before :all do
     create_service
   end
@@ -25,6 +25,7 @@ describe 'DELETE /organizations/:id', loc_index_reset: true do
   end
 
   it 'updates the search index' do
+    LocationsIndex.reset!
     get api_search_index_url(keyword: 'vrs', subdomain: ENV['API_SUBDOMAIN'])
     expect(json.size).to eq(0)
   end
