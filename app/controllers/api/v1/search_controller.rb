@@ -15,8 +15,8 @@ module Api
           category_ids: params[:categories]
         ).search.load&.objects
 
-        if locations.any?{ |l| l.covid19? }
-          locations = locations.sort_by{ |location| location.covid19? ? 0 : 1 }
+        if locations.any?(&:covid19?)
+          locations = locations.sort_by { |location| location.covid19? ? 0 : 1 }
         end
 
         render json: locations, each_serializer: LocationsSerializer, status: :ok
