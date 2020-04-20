@@ -1,12 +1,13 @@
 require 'rails_helper'
 
-describe "GET 'search'", loc_index_reset: true do
+describe "GET 'search'" do
   context 'with valid keyword only' do
     before :all do
       @loc = create(:location)
       @nearby = create(:nearby_loc)
       @loc.update(updated_at: Time.zone.now - 1.day)
       @nearby.update(updated_at: Time.zone.now - 1.hour)
+      LocationsIndex.reset!
     end
 
     before :each do
@@ -53,6 +54,7 @@ describe "GET 'search'", loc_index_reset: true do
 
     before(:all) do
       create(:farmers_market_loc)
+      LocationsIndex.reset!
     end
 
     after(:all) do
@@ -187,6 +189,7 @@ describe "GET 'search'", loc_index_reset: true do
     before(:all) do
       create(:location)
       create(:nearby_loc)
+      LocationsIndex.reset!
     end
 
     after(:all) do
@@ -469,6 +472,7 @@ describe "GET 'search'", loc_index_reset: true do
   context 'when location has missing fields' do
     it 'includes attributes with nil or empty values' do
       create(:loc_with_nil_fields)
+      LocationsIndex.reset!
       get api_search_index_url(keyword: 'belmont', subdomain: ENV['API_SUBDOMAIN'])
       keys = json.first.keys
       %w[phones address].each do |key|

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe "GET 'search'", broken: true, loc_index_reset: true do
+describe "GET 'search'", broken: true do
   context 'with service_area parameter' do
     before(:each) do
       create(:nearby_loc)

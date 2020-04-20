@@ -38,12 +38,9 @@ RSpec.configure do |config|
   config.filter_run_excluding broken: true
 
   config.before(:suite) do
-    Chewy.strategy(:urgent)
+    Chewy.strategy(:bypass)
   end
 
-  config.after(:each, loc_index_reset: true) do
-    LocationsIndex.reset!
-  end
   # allows you to run only the failures from the previous run:
   # rspec --only-failures
   config.example_status_persistence_file_path = './tmp/rspec-examples.txt'
