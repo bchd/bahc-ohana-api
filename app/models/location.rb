@@ -128,6 +128,10 @@ class Location < ApplicationRecord
     address.changed? && !address.new_record?
   end
 
+  def covid19?
+    name.match(/covid/i).present?
+  end
+
   # See app/models/concerns/search.rb
   include Search
 end
