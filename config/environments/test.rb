@@ -54,6 +54,9 @@ Rails.application.configure do
       type: :n_plus_one_query, class_name: 'Location', association: :organization
     )
     Bullet.add_whitelist(
+      type: :n_plus_one_query, class_name: 'Location', association: :phones
+    )
+    Bullet.add_whitelist(
       type: :n_plus_one_query, class_name: 'Phone', association: :contact
     )
     Bullet.add_whitelist(

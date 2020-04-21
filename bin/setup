@@ -40,6 +40,8 @@ Dir.chdir APP_ROOT do
   end
 
   puts '== Restoring the development database =='
+  # In my case I had to change this command like this: 
+  # => 'pg_restore -d ohana_api_development data/ohana_api_development.dump'
   system 'pg_restore -c --no-owner -d ohana_api_development data/ohana_api_development.dump'
 
   puts "\n== Removing old logs and tempfiles =="

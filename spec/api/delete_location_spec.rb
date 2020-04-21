@@ -3,6 +3,8 @@ require 'rails_helper'
 describe 'DELETE /locations/:id' do
   before :all do
     create_service
+
+    LocationsIndex.reset!
   end
 
   before :each do

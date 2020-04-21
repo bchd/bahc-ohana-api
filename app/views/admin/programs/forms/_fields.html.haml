@@ -5,6 +5,6 @@
       - program.errors.full_messages.each do |msg|
         %li= msg
 
-= render 'admin/shared/forms/choose_org', f: f
+= render 'admin/shared/forms/choose_org', f: f, program: program
 = render 'admin/shared/forms/name', f: f
 = render 'admin/shared/forms/alternate_name', f: f

@@ -106,6 +106,7 @@ describe 'PATCH /locations/:id)' do
     patch api_location_url(@loc, subdomain: ENV['API_SUBDOMAIN']),
           name: 'changeme'
 
+    LocationsIndex.reset!
     get api_search_index_url(keyword: 'changeme', subdomain: ENV['API_SUBDOMAIN'])
     expect(json.first['name']).to eq('changeme')
   end
