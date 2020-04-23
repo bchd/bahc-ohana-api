@@ -51,7 +51,8 @@ class LocationsSearch
     if keywords?
       index.filter(multi_match: {
                      query: keywords,
-                     fields: %w[name description keywords organization_name]
+                     fields: %w[name description keywords organization_name],
+                     fuzziness: 'AUTO'
                    })
     end
   end
