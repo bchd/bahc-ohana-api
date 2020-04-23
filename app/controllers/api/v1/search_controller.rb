@@ -15,7 +15,7 @@ module Api
           category_ids: params[:categories]
         ).search.load&.objects
 
-        if locations.compact.any?(&:covid19?)
+        if locations.any?(&:covid19?)
           locations = locations.sort_by { |location| location.covid19? ? 0 : 1 }
         end
 
