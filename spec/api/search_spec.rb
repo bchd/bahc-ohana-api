@@ -481,29 +481,36 @@ describe "GET 'search'" do
     end
   end
 
-  context 'specs with misspelled search' do
+  context 'with misspelled query' do
     before(:all) do
-      @loc1 = create(:location, name: "test")
+      @loc1 = create(:location)
     end
 
-    it "should return correct location if we pass misspelled word 'covis-19'" do
+    after(:all) do
+      Organization.find_each(&:destroy)
+    end
+
+    it "should return correct location if query is 'covis-19'" do
       @loc1.update!(name: "covid-19 word location")
       LocationsIndex.reset!
+
       get api_search_index_url(keyword: 'covis-19')
       expect(json.first['name']).to eq('covid-19 word location')
     end
 
-    it "should return correct location if we pass misspelled word 'acheive'" do
+    it "should return correct location if query is 'acheive'" do
       @loc1.update!(description: "achieve word in description")
       LocationsIndex.reset!
+
       get api_search_index_url(keyword: 'acheive')
       expect(json.first['description']).to eq('achieve word in description')
     end
 
-    it "should return correct location if we pass misspelled word 'seperate'" do
+    it "should return correct location if query is 'seperate'" do
       organization = @loc1.organization
       organization.update!(name: "separate word in organization")
       LocationsIndex.reset!
+
       get api_search_index_url(keyword: 'seperate')
       expect(json.first['organization']['name']).to eq('separate word in organization')
     end
