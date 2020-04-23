@@ -1,4 +1,6 @@
 class Organization < ApplicationRecord
+  update_index('locations#location') { locations }
+
   default_scope { order('id DESC') }
 
   has_many :locations, dependent: :destroy

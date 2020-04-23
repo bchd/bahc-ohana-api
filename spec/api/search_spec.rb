@@ -516,4 +516,26 @@ describe "GET 'search'" do
     end
   end
 
+  context 'with organization name as query' do
+    before(:all) do
+      @loc1 = create(:location)
+      @loc2 = create(:nearby_loc, name: "some parent name")
+      LocationsIndex.reset!
+    end
+
+    after(:all) do
+      Organization.find_each(&:destroy)
+    end
+
+    it "should return organization locations on the top of search" do
+      expect(@loc1.organization.name).to eq("Parent Agency")
+      expect(@loc2.organization.name).to eq("Food Stamps")
+
+      get api_search_index_url(keyword: "parent")
+
+      expect(json[0]["name"]).to eq(@loc1.name)
+      expect(json[1]["name"]).to eq(@loc2.name)
+    end
+  end
+
 end

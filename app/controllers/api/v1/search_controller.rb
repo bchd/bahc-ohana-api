@@ -13,7 +13,7 @@ module Api
           keywords: params[:keyword],
           zipcode: params[:location],
           category_ids: params[:categories]
-        ).search.load&.objects
+        ).search.load&.objects&.compact # 'compact' => Need to know why sometimes elasticsearch returns blank results.
 
         if locations.any?(&:covid19?)
           locations = locations.sort_by { |location| location.covid19? ? 0 : 1 }

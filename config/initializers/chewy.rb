@@ -2,6 +2,8 @@
 
 local_ealasticsearch_url = 'localhost:9200'
 
+# Chewy.logger = Logger.new(STDOUT) # Enable this if we want to debug
+
 Chewy.settings = if Rails.env.test?
                    {
                      host: ENV['ELASTICSEARCH_URL'] || local_ealasticsearch_url,
