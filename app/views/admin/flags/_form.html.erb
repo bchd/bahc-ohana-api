@@ -1,7 +1,5 @@
 <%= form_for [:admin, @flag], url: admin_flags_path, html: { method: :post } do |f| %>
-  <%= f.collection_select(:organization_id, Organization.all,:id, :name) %>
-  <%= f.collection_select(:category, FlagCategory.all,:name, :name) %>
-  <%= f.text_field :reported_by_email, placeholder: "Email", class: "form-control" %>
+  <%= f.text_field :email, placeholder: "Email", class: "form-control" %>
   <%= f.text_area :description, placeholder: "Please describe the issue...", class: "form-control" %>
   <% if flag.errors.any? %>
     <div id="error_explanation">

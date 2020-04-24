@@ -21,9 +21,6 @@ module OhanaApi
 
     # don't generate RSpec tests for views and helpers
     config.generators do |g|
-      g.template_engine :erb
-      g.scaffold_stylesheet false
-      g.stylesheets false
       g.test_framework :rspec, fixture: true
       g.fixture_replacement :factory_girl, dir: 'spec/factories'
 

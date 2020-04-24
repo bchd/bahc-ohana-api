@@ -58,10 +58,8 @@ class Admin
       # Only allow a trusted parameter "white list" through.
       def flag_params
         params.require(:flag).permit(
-          :reported_by_email,
-          :description,
-          :category,
-          :organization_id
+          :email,
+          :description
         )
       end
   end

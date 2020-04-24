@@ -74,6 +74,8 @@ Rails.application.routes.draw do
         get '/' => 'root#index'
         get '.well-known/status' => 'status#check_status'
 
+        post 'flag' => 'flags#create'
+
         resources :organizations do
           resources :locations, only: :create
         end
