@@ -8,17 +8,6 @@
       </p>
     </div>
   </div>
-  <div class="row">
-    <div class="col-md-8">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="panel-title">Flag as Inaccurate</h3>
-        </div>
-        <div class="panel-body">
-          <%= render partial: 'form', locals: { flag: @flag, orgs: @orgs} %>
-        </div>
-      </div>
-    </div>
     <div class="row">
       <div class="col-md-12">
         <div class="panel panel-default">
@@ -29,6 +18,7 @@
             <% @flags.each do |flag| %>
               <ul class="list-group">
                 <li class="list-group-item">
+                  <%= link_to(flag.resource.name, flag.resource_path) %>
                   <h5>Reported By</h5>
                   <p><%= flag.email.blank? ? "N/A" : flag.email  %></p>
                   <h5>Description</h5>

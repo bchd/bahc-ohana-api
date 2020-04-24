@@ -5,7 +5,7 @@ class Admin
 
     # GET /flags
     def index
-      @flags = Flag.all
+      @flags = Flag.all.sort_by(&:updated_at).reverse
       @orgs = Organization.all
       @flag = Flag.new
     end
