@@ -1,4 +1,6 @@
 class Address < ApplicationRecord
+  update_index('locations#location') { location }
+
   belongs_to :location, touch: true
 
   validates :address_1,
