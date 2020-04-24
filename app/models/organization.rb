@@ -1,10 +1,12 @@
 class Organization < ApplicationRecord
+  update_index('locations#location') { locations }
+
   default_scope { order('id DESC') }
 
   has_many :locations, dependent: :destroy
   has_many :programs, dependent: :destroy
   has_many :contacts, dependent: :destroy
-  has_many :flags, dependent: :destroy
+  has_many :flags, dependent: :destroy, as: :resource
 
   has_many :phones, dependent: :destroy, inverse_of: :organization
   accepts_nested_attributes_for :phones,
