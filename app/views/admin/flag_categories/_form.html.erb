@@ -1,0 +1,11 @@
+  <%= f.text_field :name, placeholder: "Category Name", class: "form-control" %>
+<% if flag_category.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(flag_category.errors.count, "error") %> prohibited this flag_category from being saved:</h2>
+    <ul>
+      <% flag_category.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
