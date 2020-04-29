@@ -30,14 +30,14 @@ describe "GET 'search'" do
       expect(json.first.keys).to include('coordinates')
     end
 
-    it 'is a paginated resource', broken: true do
+    it 'is a paginated resource' do
       get api_search_index_url(
         keyword: 'jobs', per_page: 1, page: 2, subdomain: ENV['API_SUBDOMAIN']
       )
       expect(json.length).to eq(1)
     end
 
-    it 'returns an X-Total-Count header', broken: true do
+    it 'returns an X-Total-Count header' do
       expect(response.status).to eq(200)
       expect(json.length).to eq(1)
       expect(headers['X-Total-Count']).to eq '2'
@@ -211,6 +211,8 @@ describe "GET 'search'" do
     end
 
     context 'with keyword and location parameters', broken: true do
+      # TODO: Need to handle location search in new search logic.
+      # Currently we consider postal_code search for location.
       it 'only returns locations matching both parameters' do
         get api_search_index_url(
           keyword: 'books', location: 'Burlingame', subdomain: ENV['API_SUBDOMAIN']
@@ -281,7 +283,7 @@ describe "GET 'search'" do
     end
 
     it 'boosts location whose services category name matches the query', broken: true do
-      # TODO: Need to handle pagination in search logic.
+      # TODO: Need to handle boost for service category name in new search logic
       get api_search_index_url(keyword: 'food', subdomain: ENV['API_SUBDOMAIN'])
       expect(headers['X-Total-Count']).to eq '3'
       expect(json.first['name']).to eq 'VRS Services'
@@ -289,28 +291,32 @@ describe "GET 'search'" do
   end
 
   context 'with org_name parameter' do
-    before(:each) do
+    before(:all) do
       create(:nearby_loc)
       create(:location)
       create(:soup_kitchen)
+      LocationsIndex.reset!
     end
 
-    it 'returns results when org_name only contains one word that matches', broken: true do
-      # TODO: Need to handle pagination in search logic.
+    after(:all) do
+      Organization.find_each(&:destroy)
+    end
+
+    it 'returns results when org_name only contains one word that matches' do
       get api_search_index_url(org_name: 'stamps', subdomain: ENV['API_SUBDOMAIN'])
       expect(headers['X-Total-Count']).to eq '1'
       expect(json.first['name']).to eq('Library')
     end
 
-    it 'only returns locations whose org name matches all terms', broken: true do
-      # TODO: Need to handle pagination in search logic.
+    it 'only returns locations whose org name matches all terms' do
       get api_search_index_url(org_name: 'Food+Pantry', subdomain: ENV['API_SUBDOMAIN'])
       expect(headers['X-Total-Count']).to eq '1'
       expect(json.first['name']).to eq('Soup Kitchen')
     end
 
     it 'allows searching for both org_name and location', broken: true do
-      # TODO: Need to handle pagination in search logic.
+      # TODO: Need to handle location search in new search logic.
+      # Currently we consider postal_code search for location.
       get api_search_index_url(
         org_name: 'stamps',
         location: '1236 Broadway, Burlingame, CA 94010', subdomain: ENV['API_SUBDOMAIN']
@@ -320,7 +326,8 @@ describe "GET 'search'" do
     end
 
     it 'allows searching for blank org_name and location', broken: true do
-      # TODO: Need to handle serach logic for blank org_name and location.
+      # TODO: Need to handle serach logic for empty org_name. Current search logic 
+      # does not support this.
       get api_search_index_url(org_name: '', location: '', subdomain: ENV['API_SUBDOMAIN'])
       expect(response.status).to eq 200
       expect(json.length).to eq(3)

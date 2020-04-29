@@ -12,8 +12,12 @@ module Api
           org_name: params[:org_name],
           keywords: params[:keyword],
           zipcode: params[:location],
-          category_ids: params[:categories]
-        ).search.load&.objects&.compact # 'compact' => Need to know why sometimes elasticsearch returns blank results.
+          category_ids: params[:categories],
+          page: params[:page],
+          per_page: params[:per_page]
+        ).search.load&.objects
+
+        generate_pagination_headers(locations)
 
         # TODO: figure out a better place for this
         if locations.any?(&:covid19?)

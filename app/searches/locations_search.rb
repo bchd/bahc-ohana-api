@@ -1,17 +1,22 @@
 class LocationsSearch
   include ActiveData::Model
 
+  PAGE = 1
+  PER_PAGE = 30
+
   attribute :zipcode, type: String
   attribute :keywords, type: String
   attribute :org_name, type: String
   attribute :category_ids, type: Array
+  attribute :page, type: String
+  attribute :per_page, type: String
 
   def index
     LocationsIndex
   end
 
   def search
-    search_results.per(30)
+    search_results.page(fetch_page).per(fetch_per_page)
   end
 
   private
@@ -64,5 +69,13 @@ class LocationsSearch
                      organization_name: org_name
                    })
     end
+  end
+
+  def fetch_page
+    page.presence || PAGE
+  end
+
+  def fetch_per_page
+    per_page.presence || PER_PAGE
   end
 end
