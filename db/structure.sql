@@ -677,6 +677,39 @@ ALTER SEQUENCE public.services_id_seq OWNED BY public.services.id;
 
 
 --
+-- Name: tag_resources; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.tag_resources (
+    id bigint NOT NULL,
+    tag_id bigint NOT NULL,
+    resource_id bigint NOT NULL,
+    resource_type character varying NOT NULL,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: tag_resources_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.tag_resources_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: tag_resources_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.tag_resources_id_seq OWNED BY public.tag_resources.id;
+
+
+--
 -- Name: tags; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -858,6 +891,13 @@ ALTER TABLE ONLY public.services ALTER COLUMN id SET DEFAULT nextval('public.ser
 
 
 --
+-- Name: tag_resources id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.tag_resources ALTER COLUMN id SET DEFAULT nextval('public.tag_resources_id_seq'::regclass);
+
+
+--
 -- Name: tags id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -997,6 +1037,14 @@ ALTER TABLE ONLY public.regular_schedules
 
 ALTER TABLE ONLY public.services
     ADD CONSTRAINT services_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: tag_resources tag_resources_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.tag_resources
+    ADD CONSTRAINT tag_resources_pkey PRIMARY KEY (id);
 
 
 --
@@ -1303,6 +1351,20 @@ CREATE INDEX index_services_on_program_id ON public.services USING btree (progra
 
 
 --
+-- Name: index_tag_resources_on_resource_id_and_resource_type; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_tag_resources_on_resource_id_and_resource_type ON public.tag_resources USING btree (resource_id, resource_type);
+
+
+--
+-- Name: index_tag_resources_on_tag_id_and_resource_id_and_resource_type; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_tag_resources_on_tag_id_and_resource_id_and_resource_type ON public.tag_resources USING btree (tag_id, resource_id, resource_type);
+
+
+--
 -- Name: index_tags_on_name; Type: INDEX; Schema: public; Owner: -
 --
 
@@ -1457,6 +1519,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20190429042119'),
 ('20200106144640'),
 ('20200410005234'),
-('20200504145258');
+('20200504145258'),
+('20200504145923');
 
 
