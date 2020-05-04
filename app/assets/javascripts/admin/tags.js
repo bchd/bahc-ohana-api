@@ -3,4 +3,9 @@ $(document).ready(function() {
     tags: [''],
     tokenSeparators: [',']
   });
+
+  $("#organization_tags").select2({
+    tags: [''],
+    tokenSeparators: [',']
+  });
 });

@@ -75,7 +75,7 @@ class Admin
       params.require(:organization).permit(
         { accreditations: [] }, :alternate_name, :date_incorporated, :description,
         :email, { funding_sources: [] }, :legal_status, { licenses: [] }, :name,
-        :tax_id, :tax_status, :website,
+        :tax_id, :tax_status, :website, { tag_list: [] },
         phones_attributes: %i[
           country_prefix department extension number number_type vanity_number id _destroy
         ]

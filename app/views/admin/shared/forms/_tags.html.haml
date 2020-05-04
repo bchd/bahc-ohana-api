@@ -1,0 +1,7 @@
+.inst-box.funding_sources
+  %header
+    %strong
+      = f.label :tags
+
+  = field_set_tag do
+    = text_field_tag 'organization[tag_list][]', organization.tags.pluck(:name).join(","), id: 'organization_tags', class: 'form-control'
