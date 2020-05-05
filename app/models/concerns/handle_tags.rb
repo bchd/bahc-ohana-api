@@ -17,12 +17,15 @@ module HandleTags
     before_validation :handle_tags
   end
 
+  def tag_list_to_str
+    tags.pluck(:name).join(",")
+  end
+
+  private
+
   def handle_tags
     self.tag_list = tag_list.first.split(",") if tag_list.is_a? Array
     return if tag_list.blank?
-
-    existing_tag_list = self.tags.pluck(:name)
-    removable_tags = existing_tag_list - tag_list
 
     tag_list.each do |t|
       tag = Tag.find_or_create_by(name: t)
@@ -34,4 +37,12 @@ module HandleTags
       self.tag_resources.where(tag_id: existing_tag.id).delete_all
     end
   end
+
+  def removable_tags
+    return @removable_tags if @removable_tags.present?
+
+    existing_tag_list = self.tags.pluck(:name)
+    @removable_tags = existing_tag_list - tag_list
+  end
+
 end

@@ -4,4 +4,4 @@
       = f.label :tags
 
   = field_set_tag do
-    = text_field_tag "#{f.object.class.name.downcase}[tag_list][]", f.object.tags.pluck(:name).join(","), id: 'select2_tags', class: 'form-control'
+    = text_field_tag "#{f.object.model_name.singular}[tag_list][]", f.object.tag_list_to_str, id: 'select2_tags', class: 'form-control'
