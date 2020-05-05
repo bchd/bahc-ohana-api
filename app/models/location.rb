@@ -132,6 +132,23 @@ class Location < ApplicationRecord
     name.match(/covid/i).present?
   end
 
+  def admin_url
+    host = ENV['DOMAIN_NAME']
+    Rails.application.routes.url_helpers.admin_location_url(self, host: host)
+  end
+
+  def service_names
+    services.map(&:name).join(', ')
+  end
+
+  def phone_numbers
+    phones.map(&:number).join(', ')
+  end
+
+  def street_address
+    address.try(:address_1)
+  end
+
   # See app/models/concerns/search.rb
   include Search
 end
