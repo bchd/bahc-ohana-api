@@ -14,13 +14,6 @@ class Organization < ApplicationRecord
   accepts_nested_attributes_for :phones,
                                 allow_destroy: true, reject_if: :all_blank
 
-  has_many :tag_resources, as: :resource, autosave: true
-  has_many :tags, through: :tag_resources, source: :tag
-  accepts_nested_attributes_for :tag_resources,
-                                allow_destroy: true, reject_if: :all_blank
-  accepts_nested_attributes_for :tags,
-                                allow_destroy: true, reject_if: :all_blank
-
   validates :name,
             presence: { message: I18n.t('errors.messages.blank_for_org') },
             uniqueness: { case_sensitive: false }

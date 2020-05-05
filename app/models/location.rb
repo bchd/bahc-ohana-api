@@ -1,4 +1,6 @@
 class Location < ApplicationRecord
+  include HandleTags
+
   def real_updated_at
     date = updated_at
 
@@ -49,9 +51,6 @@ class Location < ApplicationRecord
   has_many :holiday_schedules, dependent: :destroy, inverse_of: :location
   accepts_nested_attributes_for :holiday_schedules,
                                 allow_destroy: true, reject_if: :all_blank
-
-  has_many :tag_resources, as: :resource
-  has_many :tags, through: :tag_resources, source: :tag
 
   validates :address,
             presence: { message: I18n.t('errors.messages.no_address') },

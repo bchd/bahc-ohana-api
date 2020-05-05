@@ -1,4 +1,6 @@
 class Service < ApplicationRecord
+  include HandleTags
+
   update_index('locations#location') { location }
 
   belongs_to :location, touch: true, optional: false
