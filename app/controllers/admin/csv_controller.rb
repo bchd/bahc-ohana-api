@@ -10,6 +10,8 @@ class Admin
 
     def contacts; end
 
+    def covid_19_locations; end
+
     def holiday_schedules; end
 
     def locations; end

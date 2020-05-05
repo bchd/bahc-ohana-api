@@ -1,0 +1,17 @@
+csv.headers :id, :name, :admin_url, :street_address, :service_names, :phone_numbers
+
+csv.rows Organization.find_by(name: 'COVID-19 Resources').locations do |csv, location|
+  csv.cells :id, :name
+  csv.cell :admin_url
+  if location.address.present?
+    csv.cell :street_address
+  end
+
+  if location.services.any?
+    csv.cell :service_names
+  end
+
+  if location.phones.any?
+    csv.cell :phone_numbers
+  end
+end
