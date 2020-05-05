@@ -5,14 +5,14 @@ module HandleTags
   extend ActiveSupport::Concern
 
   included do
+    attr_accessor :tag_list
+
     has_many :tag_resources, as: :resource, autosave: true
     has_many :tags, through: :tag_resources, source: :tag
     accepts_nested_attributes_for :tag_resources,
                                   allow_destroy: true, reject_if: :all_blank
     accepts_nested_attributes_for :tags,
                                   allow_destroy: true, reject_if: :all_blank
-
-    attr_accessor :tag_list
 
     before_validation :handle_tags
   end
@@ -30,10 +30,8 @@ module HandleTags
     end
 
     removable_tags.each do |removable_tag|
-      existing_tag_object = Tag.find_by(name: removable_tag)
-      # NOTE: Instead of using `delete_all` here, it would be good if we mark these records
-      # as `mark_for_destruction` so Rails will take care of it.
-      self.tag_resources.where(tag_id: existing_tag_object.id).delete_all
+      existing_tag = Tag.find_by(name: removable_tag)
+      self.tag_resources.where(tag_id: existing_tag.id).delete_all
     end
   end
 end

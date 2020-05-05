@@ -24,9 +24,6 @@ class Service < ApplicationRecord
   accepts_nested_attributes_for :phones,
                                 allow_destroy: true, reject_if: :all_blank
 
-  has_many :tag_resources, as: :resource
-  has_many :tags, through: :tag_resources, source: :tag
-
   validates :accepted_payments, :languages, :required_documents, pg_array: true
 
   validates :email, email: true, allow_blank: true
