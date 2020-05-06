@@ -137,6 +137,10 @@ class Location < ApplicationRecord
     Rails.application.routes.url_helpers.admin_location_url(self, host: host)
   end
 
+  def frontend_url
+    ENV['UI_HOMEPAGE_URL'] + 'locations/' + slug
+  end
+
   def service_names
     services.map(&:name).join(', ')
   end
@@ -147,6 +151,10 @@ class Location < ApplicationRecord
 
   def street_address
     address.try(:address_1)
+  end
+
+  def full_address
+    address.try(:full_address)
   end
 
   # See app/models/concerns/search.rb
