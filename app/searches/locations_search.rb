@@ -55,11 +55,11 @@ class LocationsSearch
   def keyword_filter
     if keywords?
       index.query(multi_match: {
-                     query: keywords,
-                     fields: %w[organization_name^3 name^2 description^1 keywords],
-                     analyzer: "standard",
-                     fuzziness: 'AUTO'
-                   })
+                    query: keywords,
+                    fields: %w[organization_name^3 name^2 description^1 keywords],
+                    analyzer: 'standard',
+                    fuzziness: 'AUTO'
+                  })
     end
   end
 

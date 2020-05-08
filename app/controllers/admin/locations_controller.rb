@@ -16,6 +16,7 @@ class Admin
       @location = Location.find(params[:id])
       @org = @location.organization
       @updated = @location.updated_at
+      @tags = Tag.all
       authorize @location
     end
 
@@ -73,7 +74,7 @@ class Admin
       params.require(:location).permit(
         :organization_id, { accessibility: [] }, :active, { admin_emails: [] },
         :alternate_name, :description, :email, { languages: [] }, :latitude,
-        :longitude, :name, :short_desc, :transportation, :website, :virtual,
+        { tag_list: [] }, :longitude, :name, :short_desc, :transportation, :website, :virtual,
         address_attributes: %i[
           address_1 address_2 city state_province postal_code country id _destroy
         ],

@@ -1,6 +1,6 @@
 class Admin
   class FlagsController < ApplicationController
-    before_action :set_flag, only: [:show, :edit, :update, :destroy]
+    before_action :set_flag, only: %i[show edit update destroy]
     layout 'admin'
 
     # GET /flags
@@ -11,8 +11,7 @@ class Admin
     end
 
     # GET /flags/1
-    def show
-    end
+    def show; end
 
     # GET /flags/new
     def new
@@ -20,8 +19,7 @@ class Admin
     end
 
     # GET /flags/1/edit
-    def edit
-    end
+    def edit; end
 
     # POST /flags
     def create
@@ -50,18 +48,18 @@ class Admin
     end
 
     private
-      # Use callbacks to share common setup or constraints between actions.
-      def set_flag
-        @flag = Flag.find(params[:id])
-      end
 
-      # Only allow a trusted parameter "white list" through.
-      def flag_params
-        params.require(:flag).permit(
-          :email,
-          :description
-        )
-      end
+    # Use callbacks to share common setup or constraints between actions.
+    def set_flag
+      @flag = Flag.find(params[:id])
+    end
+
+    # Only allow a trusted parameter "white list" through.
+    def flag_params
+      params.require(:flag).permit(
+        :email,
+        :description
+      )
+    end
   end
 end
-

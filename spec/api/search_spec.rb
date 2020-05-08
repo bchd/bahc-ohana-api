@@ -326,7 +326,7 @@ describe "GET 'search'" do
     end
 
     it 'allows searching for blank org_name and location', broken: true do
-      # TODO: Need to handle serach logic for empty org_name. Current search logic 
+      # TODO: Need to handle serach logic for empty org_name. Current search logic
       # does not support this.
       get api_search_index_url(org_name: '', location: '', subdomain: ENV['API_SUBDOMAIN'])
       expect(response.status).to eq 200
@@ -498,7 +498,7 @@ describe "GET 'search'" do
     end
 
     it "should return correct location if query is 'covis-19'" do
-      @loc1.update!(name: "covid-19 word location")
+      @loc1.update!(name: 'covid-19 word location')
       LocationsIndex.reset!
 
       get api_search_index_url(keyword: 'covis-19')
@@ -506,7 +506,7 @@ describe "GET 'search'" do
     end
 
     it "should return correct location if query is 'acheive'" do
-      @loc1.update!(description: "achieve word in description")
+      @loc1.update!(description: 'achieve word in description')
       LocationsIndex.reset!
 
       get api_search_index_url(keyword: 'acheive')
@@ -515,7 +515,7 @@ describe "GET 'search'" do
 
     it "should return correct location if query is 'seperate'" do
       organization = @loc1.organization
-      organization.update!(name: "separate word in organization")
+      organization.update!(name: 'separate word in organization')
       LocationsIndex.reset!
 
       get api_search_index_url(keyword: 'seperate')
@@ -525,7 +525,7 @@ describe "GET 'search'" do
 
   context 'with organization name as a keyword query' do
     before(:all) do
-      @loc1 = create(:nearby_loc, name: "some parent name")
+      @loc1 = create(:nearby_loc, name: 'some parent name')
       @loc2 = create(:location)
       LocationsIndex.reset!
     end
@@ -534,15 +534,14 @@ describe "GET 'search'" do
       Organization.find_each(&:destroy)
     end
 
-    it "should return organization locations on the top of search" do
-      expect(@loc1.organization.name).to eq("Food Stamps")
-      expect(@loc2.organization.name).to eq("Parent Agency")
+    it 'should return organization locations on the top of search' do
+      expect(@loc1.organization.name).to eq('Food Stamps')
+      expect(@loc2.organization.name).to eq('Parent Agency')
 
-      get api_search_index_url(keyword: "parent")
+      get api_search_index_url(keyword: 'parent')
 
-      expect(json[0]["name"]).to eq(@loc2.name)
-      expect(json[1]["name"]).to eq(@loc1.name)
+      expect(json[0]['name']).to eq(@loc2.name)
+      expect(json[1]['name']).to eq(@loc1.name)
     end
   end
-
 end
