@@ -16,6 +16,7 @@ class Admin
       @location = Location.find(params[:id])
       @org = @location.organization
       @updated = @location.updated_at
+      @tags = Tag.all
       authorize @location
     end
 

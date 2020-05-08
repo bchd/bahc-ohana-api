@@ -4,4 +4,14 @@
       = f.label :tags
 
   = field_set_tag do
-    = text_field_tag "#{f.object.model_name.singular}[tag_list][]", f.object.tag_list_to_str, id: 'select2_tags', class: 'form-control'
+    = text_field_tag "#{f.object.model_name.singular}[tag_list][]", f.object.tag_list_to_str, id: 'taggable', class: 'form-control'
+
+:javascript
+  console.log('here');
+  var tags = #{raw @tags.map{ |t| t.name }.to_json}
+  $(document).ready(function() {
+    $("#taggable").select2({
+      tags: tags,
+      tokenSeparators: [', ']
+    });
+  })
