@@ -9,6 +9,7 @@ module Api
 
       def index
         locations = LocationsSearch.new(
+          tags: params[:tags],
           org_name: params[:org_name],
           keywords: params[:keyword],
           zipcode: params[:location],

@@ -8,6 +8,7 @@ class LocationsSearch
   attribute :keywords, type: String
   attribute :org_name, type: String
   attribute :category_ids, type: Array
+  attribute :tags, type: String
   attribute :page, type: String
   attribute :per_page, type: String
 
@@ -25,10 +26,22 @@ class LocationsSearch
     # Order matters
     [
       organization_filter,
+      tags_query,
       keyword_filter,
       zipcode_filter,
       category_filter
     ].compact.reduce(:merge)
+  end
+
+  def tags_query
+    if tags?
+      index.query(multi_match: {
+                    query: tags,
+                    fields: %w[tags],
+                    analyzer: 'standard',
+                    fuzziness: 'AUTO'
+                  })
+    end
   end
 
   def category_filter
