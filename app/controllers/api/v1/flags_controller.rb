@@ -10,8 +10,6 @@ module Api
         @flag = Flag.create(JSON.parse(params[:flag]))
         render json: @flag if @flag.save
       end
-
-      private
     end
   end
 end
