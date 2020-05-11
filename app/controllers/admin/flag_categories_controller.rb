@@ -1,6 +1,6 @@
 class Admin
   class FlagCategoriesController < ApplicationController
-    before_action :set_flag_category, only: [:show, :edit, :update, :destroy]
+    before_action :set_flag_category, only: %i[show edit update destroy]
     layout 'admin'
 
     # GET /flag_categories
@@ -10,8 +10,7 @@ class Admin
     end
 
     # GET /flag_categories/1
-    def show
-    end
+    def show; end
 
     # GET /flag_categories/new
     def new
@@ -19,8 +18,7 @@ class Admin
     end
 
     # GET /flag_categories/1/edit
-    def edit
-    end
+    def edit; end
 
     # POST /flag_categories
     def create
@@ -49,16 +47,17 @@ class Admin
     end
 
     private
-      # Use callbacks to share common setup or constraints between actions.
-      def set_flag_category
-        @flag_category = FlagCategory.find(params[:id])
-      end
 
-      # Only allow a trusted parameter "white list" through.
-      def flag_category_params
-        params.require(:flag_category).permit(
-          :name
-        )
-      end
+    # Use callbacks to share common setup or constraints between actions.
+    def set_flag_category
+      @flag_category = FlagCategory.find(params[:id])
+    end
+
+    # Only allow a trusted parameter "white list" through.
+    def flag_category_params
+      params.require(:flag_category).permit(
+        :name
+      )
+    end
   end
 end

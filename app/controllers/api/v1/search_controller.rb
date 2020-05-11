@@ -9,6 +9,7 @@ module Api
 
       def index
         locations = LocationsSearch.new(
+          tags: params[:tags],
           org_name: params[:org_name],
           keywords: params[:keyword],
           zipcode: params[:location],
@@ -21,8 +22,8 @@ module Api
 
         # TODO: figure out a better place for this
         if locations.any?(&:covid19?)
-          covid_19_locations = locations.select { |location| location.covid19? }.sort_by(&:updated_at).reverse
-          the_rest = locations.reject { |location| location.covid19? }
+          covid_19_locations = locations.select(&:covid19?).sort_by(&:updated_at).reverse
+          the_rest = locations.reject(&:covid19?)
           the_rest.each { |loc| covid_19_locations << loc }
           locations = covid_19_locations
         end

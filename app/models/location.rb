@@ -1,4 +1,6 @@
 class Location < ApplicationRecord
+  include HandleTags
+
   def real_updated_at
     date = updated_at
 

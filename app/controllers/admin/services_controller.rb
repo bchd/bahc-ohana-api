@@ -132,7 +132,7 @@ class Admin
       params.require(:service).permit(
         { accepted_payments: [] }, :alternate_name, :audience, :description, :eligibility, :email,
         :fees, { funding_sources: [] }, :application_process, :interpretation_services,
-        { keywords: [] }, { languages: [] }, :name, { required_documents: [] },
+        { keywords: [] }, { tag_list: [] }, { languages: [] }, :name, { required_documents: [] },
         { service_areas: [] }, :status, :website, :wait_time, { category_ids: [] },
         :program_id, { locations: [] },
         regular_schedules_attributes: %i[weekday opens_at closes_at id _destroy],
