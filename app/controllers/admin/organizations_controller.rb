@@ -43,6 +43,7 @@ class Admin
 
     def new
       @organization = Organization.new
+      @tags = Tag.all
       authorize @organization
     end
 

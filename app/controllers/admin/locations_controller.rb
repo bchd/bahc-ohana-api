@@ -36,6 +36,7 @@ class Admin
 
     def new
       @location = Location.new
+      @tags = Tag.all
       authorize @location
     end
 

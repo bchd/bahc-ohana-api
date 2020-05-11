@@ -4,4 +4,5 @@ class Tag < ApplicationRecord
   default_scope { order('tags.created_at ASC') }
 
   validates :name, presence: true
+  validates :name, uniqueness: true
 end
