@@ -25,7 +25,7 @@ module HandleTags
   private
 
   def handle_tags
-    self.tag_list = tag_list.first.split(',') if tag_list.is_a? Array
+    self.tag_list = tag_list.first&.split(',') if tag_list.is_a? Array
     return if tag_list.blank?
 
     tag_list.each do |t|
