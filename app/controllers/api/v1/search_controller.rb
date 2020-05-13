@@ -20,6 +20,8 @@ module Api
 
         generate_pagination_headers(locations)
 
+        locations = locations.compact
+
         # TODO: figure out a better place for this
         if locations.any?(&:covid19?)
           covid_19_locations = locations.select(&:covid19?).sort_by(&:updated_at).reverse
