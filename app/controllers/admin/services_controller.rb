@@ -58,6 +58,7 @@ class Admin
         redirect_to admin_location_url(@location),
                     notice: "Service '#{@service.name}' was successfully created."
       else
+        @tags = Tag.all
         render :new
       end
     end

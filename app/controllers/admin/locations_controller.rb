@@ -49,6 +49,7 @@ class Admin
       if @location.save
         redirect_to [:admin, @location], notice: 'Location was successfully created.'
       else
+        @tags = Tag.all
         render :new
       end
     end
