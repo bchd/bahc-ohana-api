@@ -30,6 +30,7 @@ class Admin
         redirect_to [:admin, @location, @service],
                     notice: 'Service was successfully updated.'
       else
+        @tags = Tag.all
         render :edit
       end
     end
