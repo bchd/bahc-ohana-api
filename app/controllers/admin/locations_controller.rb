@@ -16,7 +16,6 @@ class Admin
       @location = Location.find(params[:id])
       @org = @location.organization
       @updated = @location.updated_at
-      @tags = Tag.all
       authorize @location
     end
 
@@ -36,7 +35,6 @@ class Admin
 
     def new
       @location = Location.new
-      @tags = Tag.all
       authorize @location
     end
 
@@ -49,7 +47,6 @@ class Admin
       if @location.save
         redirect_to [:admin, @location], notice: 'Location was successfully created.'
       else
-        @tags = Tag.all
         render :new
       end
     end

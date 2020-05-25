@@ -22,7 +22,6 @@ class Admin
     def edit
       @organization = Organization.find(params[:id])
       @updated = @organization.updated_at
-      @tags = Tag.all
 
       authorize @organization
     end
@@ -43,7 +42,6 @@ class Admin
 
     def new
       @organization = Organization.new
-      @tags = Tag.all
       authorize @organization
     end
 
