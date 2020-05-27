@@ -16,7 +16,6 @@ class Admin
     def edit
       assign_location_service_and_taxonomy_ids
       @updated = @service.updated_at
-      @tags = Tag.all
       authorize @location
     end
 
@@ -30,7 +29,6 @@ class Admin
         redirect_to [:admin, @location, @service],
                     notice: 'Service was successfully updated.'
       else
-        @tags = Tag.all
         render :edit
       end
     end
@@ -45,7 +43,6 @@ class Admin
     def new
       @location = Location.find(params[:location_id])
       @taxonomy_ids = []
-      @tags = Tag.all
 
       authorize @location
 
@@ -59,7 +56,6 @@ class Admin
         redirect_to admin_location_url(@location),
                     notice: "Service '#{@service.name}' was successfully created."
       else
-        @tags = Tag.all
         render :new
       end
     end
