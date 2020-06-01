@@ -30,10 +30,14 @@ Rails.application.routes.draw do
       resources :programs, except: :show
       resources :services, only: :index
 
+      resources :flags
+      resources :flag_categories
+
       namespace :csv, defaults: { format: 'csv' } do
         get 'addresses'
         get 'categories'
         get 'contacts'
+        get 'covid_19_locations'
         get 'holiday_schedules'
         get 'locations'
         get 'organizations'
@@ -70,6 +74,8 @@ Rails.application.routes.draw do
       scope module: :v1, constraints: ApiConstraints.new(version: 1) do
         get '/' => 'root#index'
         get '.well-known/status' => 'status#check_status'
+
+        post 'flag' => 'flags#create'
 
         resources :organizations do
           resources :locations, only: :create

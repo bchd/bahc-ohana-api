@@ -1,4 +1,5 @@
 class Location < ApplicationRecord
+  include HandleTags
 
   def real_updated_at
     date = updated_at
@@ -27,6 +28,8 @@ class Location < ApplicationRecord
 
     date
   end
+
+  update_index('locations#location') { self }
 
   belongs_to :organization, touch: true, optional: false
 
@@ -125,6 +128,35 @@ class Location < ApplicationRecord
     return true if latitude.blank? && longitude.blank?
 
     address.changed? && !address.new_record?
+  end
+
+  def covid19?
+    name.match(/covid/i).present?
+  end
+
+  def admin_url
+    host = ENV['DOMAIN_NAME']
+    Rails.application.routes.url_helpers.admin_location_url(self, host: host)
+  end
+
+  def frontend_url
+    ENV['UI_HOMEPAGE_URL'] + 'locations/' + slug
+  end
+
+  def service_names
+    services.map(&:name).join(', ')
+  end
+
+  def phone_numbers
+    phones.map(&:number).join(', ')
+  end
+
+  def street_address
+    address.try(:address_1)
+  end
+
+  def full_address
+    address.try(:full_address)
   end
 
   # See app/models/concerns/search.rb

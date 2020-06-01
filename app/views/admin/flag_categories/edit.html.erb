@@ -1,0 +1,4 @@
+<h1>Editing Flag Category</h1>
+<%= form_for [:admin, @flag_category], url: admin_flag_categories_path, html: { method: :update } do |f| %>
+  <%= render 'form', f: f, flag_category: @flag_category %>
+<% end %>

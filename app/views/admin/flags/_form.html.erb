@@ -1,0 +1,16 @@
+<%= form_for [:admin, @flag], url: admin_flags_path, html: { method: :post } do |f| %>
+  <%= f.text_field :email, placeholder: "Email", class: "form-control" %>
+  <%= f.text_area :description, placeholder: "Please describe the issue...", class: "form-control" %>
+  <% if flag.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(flag.errors.count, "error") %> prohibited this flag from being saved:</h2>
+      <ul>
+        <% flag.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+</div>
+<div class="panel-footer"><%= f.submit "Report", aria: { label: "Report the organization as inaccurate." } %></div>
+<% end %>

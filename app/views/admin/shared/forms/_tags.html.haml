@@ -1,0 +1,16 @@
+.inst-box.funding_sources
+  %header
+    %strong
+      = f.label :tags
+
+  = field_set_tag do
+    = text_field_tag "#{f.object.model_name.singular}[tag_list][]", f.object.tag_list_to_str, id: 'taggable', class: 'form-control'
+
+:javascript
+  var tags = #{raw (Tag.pluck(:name)).to_json}
+  $(document).ready(function() {
+    $("#taggable").select2({
+      tags: tags,
+      tokenSeparators: [', ']
+    });
+  })

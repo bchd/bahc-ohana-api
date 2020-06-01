@@ -78,7 +78,7 @@ feature 'Services page' do
     end
 
     it 'sorts services alphabetically by name' do
-      expect(page.all('a')[10][:href]).
+      expect(page.all('a.link')[1][:href]).
         to eq "/admin/locations/#{@nearby.id}/services/#{@service.id}/edit"
     end
   end

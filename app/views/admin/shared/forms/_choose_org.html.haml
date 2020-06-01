@@ -1,4 +1,5 @@
-- organization = @location.organization
+- organization = local_assigns[:program].present? ? program.organization : @location.organization
+
 .inst-box
   %header
     = f.label :organization_id

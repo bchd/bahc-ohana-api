@@ -5,36 +5,9 @@ SET client_encoding = 'UTF8';
 SET standard_conforming_strings = on;
 SELECT pg_catalog.set_config('search_path', '', false);
 SET check_function_bodies = false;
+SET xmloption = content;
 SET client_min_messages = warning;
 SET row_security = off;
-
---
--- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: -
---
-
-CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
-
-
---
--- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: -
---
-
-COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
-
-
---
--- Name: pg_stat_statements; Type: EXTENSION; Schema: -; Owner: -
---
-
-CREATE EXTENSION IF NOT EXISTS pg_stat_statements WITH SCHEMA public;
-
-
---
--- Name: EXTENSION pg_stat_statements; Type: COMMENT; Schema: -; Owner: -
---
-
-COMMENT ON EXTENSION pg_stat_statements IS 'track execution statistics of all SQL statements executed';
-
 
 --
 -- Name: fill_search_vector_for_location(); Type: FUNCTION; Schema: public; Owner: -
@@ -63,13 +36,13 @@ CREATE FUNCTION public.fill_search_vector_for_location() RETURNS trigger
             JOIN categories ON categories.id = categories_services.category_id;
 
             new.tsv_body :=
-              setweight(to_tsvector('pg_catalog.english', coalesce(new.name, '')), 'C')                  ||
-              setweight(to_tsvector('pg_catalog.english', coalesce(new.description, '')), 'B')                ||
-              setweight(to_tsvector('pg_catalog.english', coalesce(location_organization.name, '')), 'A')        ||
-              setweight(to_tsvector('pg_catalog.english', coalesce(location_services_description.description, '')), 'B')  ||
-              setweight(to_tsvector('pg_catalog.english', coalesce(location_services_name.name, '')), 'C')  ||
-              setweight(to_tsvector('pg_catalog.english', coalesce(location_services_keywords.keywords, '')), 'C') ||
-              setweight(to_tsvector('pg_catalog.english', coalesce(service_categories.name, '')), 'B');
+              setweight(to_tsvector('pg_catalog.english', coalesce(new.name, '')), 'B')                  ||
+              setweight(to_tsvector('pg_catalog.english', coalesce(new.description, '')), 'A')                ||
+              setweight(to_tsvector('pg_catalog.english', coalesce(location_organization.name, '')), 'B')        ||
+              setweight(to_tsvector('pg_catalog.english', coalesce(location_services_description.description, '')), 'A')  ||
+              setweight(to_tsvector('pg_catalog.english', coalesce(location_services_name.name, '')), 'B')  ||
+              setweight(to_tsvector('pg_catalog.english', coalesce(location_services_keywords.keywords, '')), 'B') ||
+              setweight(to_tsvector('pg_catalog.english', coalesce(service_categories.name, '')), 'A');
 
             return new;
           end
@@ -77,8 +50,6 @@ CREATE FUNCTION public.fill_search_vector_for_location() RETURNS trigger
 
 
 SET default_tablespace = '';
-
-SET default_with_oids = false;
 
 --
 -- Name: addresses; Type: TABLE; Schema: public; Owner: -
@@ -293,6 +264,40 @@ CREATE SEQUENCE public.contacts_id_seq
 --
 
 ALTER SEQUENCE public.contacts_id_seq OWNED BY public.contacts.id;
+
+
+--
+-- Name: flags; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.flags (
+    id bigint NOT NULL,
+    resource_id bigint,
+    resource_type character varying,
+    email character varying,
+    description text,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: flags_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.flags_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: flags_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.flags_id_seq OWNED BY public.flags.id;
 
 
 --
@@ -658,6 +663,70 @@ ALTER SEQUENCE public.services_id_seq OWNED BY public.services.id;
 
 
 --
+-- Name: tag_resources; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.tag_resources (
+    id bigint NOT NULL,
+    tag_id bigint NOT NULL,
+    resource_id bigint NOT NULL,
+    resource_type character varying NOT NULL,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: tag_resources_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.tag_resources_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: tag_resources_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.tag_resources_id_seq OWNED BY public.tag_resources.id;
+
+
+--
+-- Name: tags; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.tags (
+    id bigint NOT NULL,
+    name character varying NOT NULL,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: tags_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.tags_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: tags_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.tags_id_seq OWNED BY public.tags.id;
+
+
+--
 -- Name: users; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -738,6 +807,13 @@ ALTER TABLE ONLY public.contacts ALTER COLUMN id SET DEFAULT nextval('public.con
 
 
 --
+-- Name: flags id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.flags ALTER COLUMN id SET DEFAULT nextval('public.flags_id_seq'::regclass);
+
+
+--
 -- Name: friendly_id_slugs id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -801,6 +877,20 @@ ALTER TABLE ONLY public.services ALTER COLUMN id SET DEFAULT nextval('public.ser
 
 
 --
+-- Name: tag_resources id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.tag_resources ALTER COLUMN id SET DEFAULT nextval('public.tag_resources_id_seq'::regclass);
+
+
+--
+-- Name: tags id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.tags ALTER COLUMN id SET DEFAULT nextval('public.tags_id_seq'::regclass);
+
+
+--
 -- Name: users id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -853,6 +943,14 @@ ALTER TABLE ONLY public.categories
 
 ALTER TABLE ONLY public.contacts
     ADD CONSTRAINT contacts_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: flags flags_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.flags
+    ADD CONSTRAINT flags_pkey PRIMARY KEY (id);
 
 
 --
@@ -925,6 +1023,22 @@ ALTER TABLE ONLY public.regular_schedules
 
 ALTER TABLE ONLY public.services
     ADD CONSTRAINT services_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: tag_resources tag_resources_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.tag_resources
+    ADD CONSTRAINT tag_resources_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: tags tags_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.tags
+    ADD CONSTRAINT tags_pkey PRIMARY KEY (id);
 
 
 --
@@ -1223,6 +1337,27 @@ CREATE INDEX index_services_on_program_id ON public.services USING btree (progra
 
 
 --
+-- Name: index_tag_resources_on_resource_id_and_resource_type; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_tag_resources_on_resource_id_and_resource_type ON public.tag_resources USING btree (resource_id, resource_type);
+
+
+--
+-- Name: index_tag_resources_on_tag_id_and_resource_id_and_resource_type; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_tag_resources_on_tag_id_and_resource_id_and_resource_type ON public.tag_resources USING btree (tag_id, resource_id, resource_type);
+
+
+--
+-- Name: index_tags_on_name; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_tags_on_name ON public.tags USING btree (name);
+
+
+--
 -- Name: index_users_on_confirmation_token; Type: INDEX; Schema: public; Owner: -
 --
 
@@ -1368,6 +1503,10 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20190411135354'),
 ('20190415152136'),
 ('20190429042119'),
-('20200106144640');
+('20200106144640'),
+('20200410005234'),
+('20200504145258'),
+('20200504145923'),
+('20200511152900');
 
 

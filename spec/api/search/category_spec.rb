@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe "GET 'search'" do
+describe "GET 'search'", broken: true do
   context 'with category parameter' do
     before(:each) do
       nearby = create(:nearby_loc)

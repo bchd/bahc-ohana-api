@@ -8,13 +8,29 @@ module Api
       after_action :set_cache_control, only: :index
 
       def index
-        locations = Location.search(params).page(params[:page]).
-                    per(params[:per_page])
-
-        return unless stale?(etag: cache_key(locations), public: true)
+        locations = LocationsSearch.new(
+          tags: params[:tags],
+          org_name: params[:org_name],
+          keywords: params[:keyword],
+          zipcode: params[:location],
+          category_ids: params[:categories],
+          page: params[:page],
+          per_page: params[:per_page]
+        ).search.load&.objects
 
         generate_pagination_headers(locations)
-        render json: locations.preload(tables), each_serializer: LocationsSerializer, status: :ok
+
+        locations = locations.compact
+
+        # TODO: figure out a better place for this
+        if locations.any?(&:covid19?)
+          covid_19_locations = locations.select(&:covid19?).sort_by(&:updated_at).reverse
+          the_rest = locations.reject(&:covid19?)
+          the_rest.each { |loc| covid_19_locations << loc }
+          locations = covid_19_locations
+        end
+
+        render json: locations, each_serializer: LocationsSerializer, status: :ok
       end
 
       def search_needs

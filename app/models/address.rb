@@ -1,4 +1,6 @@
 class Address < ApplicationRecord
+  update_index('locations#location') { location }
+
   belongs_to :location, touch: true
 
   validates :address_1,
@@ -17,6 +19,10 @@ class Address < ApplicationRecord
                         :country, squish: true
 
   after_destroy :reset_location_coordinates
+
+  def full_address
+    [address_1, city, postal_code].join(', ')
+  end
 
   private
 
