@@ -191,7 +191,7 @@ en:
           description: 'Which email addresses should be allowed to update and delete this location?'
 
         description:
-          description: "A description of the location's services."
+          description: "A description of the location's services. Use '<br>' for line breaks."
 
         languages:
           placeholder: 'Select one or more languages'
