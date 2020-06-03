@@ -1,0 +1,18 @@
+csv.headers :id, :name, :location_name, :description, :address, :contact_info, :updated_at, :audience
+
+csv.rows Service.food_and_covid do |csv, service|
+  csv.cells :id, :name
+  csv.cell :location_name
+  csv.cell :description
+
+  if service.address.present?
+    csv.cell :address
+  end
+
+  if service.contact_info.present?
+    csv.cell :contact_info
+  end
+
+  csv.cell :updated_at
+  csv.cell :audience
+end
