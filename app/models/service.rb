@@ -57,7 +57,8 @@ class Service < ApplicationRecord
   def self.food_and_covid
     food = ServicesSearch.new(tags: 'food').search.load.objects
     covid = ServicesSearch.new(tags: 'covid-19').search.load.objects
-    (food + covid).uniq
+    both = food + covid
+    both.uniq
   end
 
   after_save :update_location_status, if: :saved_change_to_status?
