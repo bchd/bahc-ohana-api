@@ -2,6 +2,7 @@ class Service < ApplicationRecord
   include HandleTags
 
   update_index('locations#location') { location }
+  update_index('services#service') { self }
 
   belongs_to :location, touch: true, optional: false
   belongs_to :program, touch: true
