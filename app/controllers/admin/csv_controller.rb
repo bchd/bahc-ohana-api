@@ -12,6 +12,8 @@ class Admin
 
     def covid_19_locations; end
 
+    def food_and_covid_services; end
+
     def holiday_schedules; end
 
     def locations; end

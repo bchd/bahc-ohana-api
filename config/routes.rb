@@ -38,6 +38,7 @@ Rails.application.routes.draw do
         get 'categories'
         get 'contacts'
         get 'covid_19_locations'
+        get 'food_and_covid_services'
         get 'holiday_schedules'
         get 'locations'
         get 'organizations'
