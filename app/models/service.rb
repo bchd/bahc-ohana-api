@@ -54,7 +54,29 @@ class Service < ApplicationRecord
     joins(:location).where('location_id IN (?)', ids).distinct
   end
 
+  def self.food_and_covid
+    food = ServicesSearch.new(tags: 'food').search.load.objects
+    covid = ServicesSearch.new(tags: 'covid-19').search.load.objects
+    food + covid
+  end
+
   after_save :update_location_status, if: :saved_change_to_status?
+
+  def location_name
+    location.name
+  end
+
+  def address
+    location.full_address
+  end
+
+  def contact_info
+    contacts_strings = contacts.map do |contact|
+      "#{contact.name}: #{contact.email}, #{contact.phones.map(&:number).join(', ')}"
+    end
+
+    contacts_strings.join(' // ')
+  end
 
   private
 
