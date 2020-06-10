@@ -544,4 +544,38 @@ describe "GET 'search'" do
       expect(json[1]['name']).to eq(@loc1.name)
     end
   end
+
+  context 'it should order the locations' do
+    before(:all) do
+      @organization = create(:organization)
+
+      @loc1 = create_location("covid location", @organization)
+      @loc2 = create_location("Not featured and not covid", @organization)
+      @loc3 = create_location("featured location", @organization, "1")
+
+      LocationsIndex.reset!
+    end
+
+    after(:all) do
+      Organization.find_each(&:destroy)
+    end
+
+    it 'it should return featured locations first, second covid19 locations, and then the rest' do
+      expect(@loc1.organization.name).to eq('Parent Agency')
+      expect(@loc2.organization.name).to eq('Parent Agency')
+      expect(@loc3.organization.name).to eq('Parent Agency')
+
+      get api_search_index_url(keyword: 'parent')
+
+      expect(json[0]['name']).to eq(@loc3.name)
+      expect(json[1]['name']).to eq(@loc1.name)
+      expect(json[2]['name']).to eq(@loc2.name)
+    end
+  end
+end
+
+private
+
+def create_location(name, organization, featured = "0")
+  create(:location, name: name, organization: organization, featured: featured)
 end
