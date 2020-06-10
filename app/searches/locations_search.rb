@@ -35,7 +35,7 @@ class LocationsSearch
   end
 
   def order
-    index.order(:featured_at)
+    index.order(:featured_at, :covid19)
   end
 
   def tags_query
