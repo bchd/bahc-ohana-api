@@ -31,6 +31,8 @@ class Location < ApplicationRecord
 
   update_index('locations#location') { self }
 
+  attr_accessor :featured
+
   belongs_to :organization, touch: true, optional: false
 
   has_one :address, dependent: :destroy
@@ -157,6 +159,15 @@ class Location < ApplicationRecord
 
   def full_address
     address.try(:full_address)
+  end
+
+  def featured
+    !featured_at.nil?
+  end
+
+  def featured=(value)
+    self.featured_at = nil
+    self.featured_at = Time.current if value == "1"
   end
 
   # See app/models/concerns/search.rb
