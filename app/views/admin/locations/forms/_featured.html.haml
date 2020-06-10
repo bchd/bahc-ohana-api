@@ -1,0 +1,9 @@
+.inst-box
+  %header
+    = f.label :featured
+  = field_set_tag do
+    .row
+      .col-sm-1
+        = f.check_box :featured, class: 'form-control'
+      .col-sm-1
+      Featured?
