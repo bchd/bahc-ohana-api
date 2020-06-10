@@ -13,5 +13,6 @@ class LocationsIndex < Chewy::Index
     field :keywords, value: -> { services.map(&:keywords).compact.join(', ') }
     field :category_ids, value: -> { services.map(&:categories).flatten.uniq.map(&:id) }
     field :tags, value: -> { tags.map(&:name) }
+    field :featured_at, type: 'date'
   end
 end

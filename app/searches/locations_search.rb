@@ -29,8 +29,13 @@ class LocationsSearch
       tags_query,
       keyword_filter,
       zipcode_filter,
-      category_filter
+      category_filter,
+      order
     ].compact.reduce(:merge)
+  end
+
+  def order
+    index.order(:featured_at)
   end
 
   def tags_query
