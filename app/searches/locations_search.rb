@@ -35,7 +35,11 @@ class LocationsSearch
   end
 
   def order
-    index.order(:featured_at, :covid19)
+    index.order(
+      featured_at: { missing: "_last", order: "asc" },
+      covid19: { missing: "_last", order: "asc" },
+      updated_at: { order: "desc" }
+    )
   end
 
   def tags_query
