@@ -2,8 +2,6 @@
   %header
     = f.label :featured
   = field_set_tag do
-    .row
-      .col-sm-1
-        = f.check_box :featured, class: 'form-control'
-      .col-sm-1
-      Featured?
+    .form-check
+      = f.check_box :featured, class: "form-check-input"
+      = f.label "Featured location?", class: "form-check-label"
