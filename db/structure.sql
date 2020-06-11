@@ -277,7 +277,8 @@ CREATE TABLE public.flags (
     email character varying,
     description text,
     created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL
+    updated_at timestamp without time zone NOT NULL,
+    report jsonb DEFAULT '{}'::jsonb
 );
 
 
@@ -1149,6 +1150,13 @@ CREATE INDEX index_contacts_on_service_id ON public.contacts USING btree (servic
 
 
 --
+-- Name: index_flags_on_report; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_flags_on_report ON public.flags USING gin (report);
+
+
+--
 -- Name: index_friendly_id_slugs_on_slug_and_sluggable_type; Type: INDEX; Schema: public; Owner: -
 --
 
@@ -1510,5 +1518,6 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20200504145923'),
 ('20200511152900'),
 ('20200610142735');
+('20200611115557');
 
 
