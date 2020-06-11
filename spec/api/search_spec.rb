@@ -546,7 +546,7 @@ describe "GET 'search'" do
   end
 
   context 'it should order the locations' do
-    before(:all) do
+    before(:each) do
       @organization = create(:organization)
 
       @loc1 = create_location("covid location", @organization)
@@ -556,7 +556,7 @@ describe "GET 'search'" do
       LocationsIndex.reset!
     end
 
-    after(:all) do
+    after(:each) do
       Organization.find_each(&:destroy)
     end
 
@@ -565,7 +565,11 @@ describe "GET 'search'" do
       expect(@loc2.organization.name).to eq('Parent Agency')
       expect(@loc3.organization.name).to eq('Parent Agency')
 
+      LocationsIndex.reset!
+
       get api_search_index_url(keyword: 'parent')
+
+      sleep 0.5
 
       expect(json[0]['name']).to eq(@loc3.name)
       expect(json[1]['name']).to eq(@loc1.name)
@@ -582,6 +586,8 @@ describe "GET 'search'" do
       LocationsIndex.reset!
 
       get api_search_index_url(keyword: 'parent')
+
+      sleep 0.5
 
       expect(json[0]['name']).to eq(@loc3.name)
       expect(json[1]['name']).to eq(@loc2.name)
