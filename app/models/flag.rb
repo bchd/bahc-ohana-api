@@ -1,4 +1,6 @@
 class Flag < ApplicationRecord
+  store_accssor :report, :attributes
+
   belongs_to :resource, polymorphic: true
 
   validates :email,
