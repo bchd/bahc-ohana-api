@@ -4,7 +4,7 @@ class Flag < ApplicationRecord
   belongs_to :resource, polymorphic: true
 
   validates :email,
-            format: { with: EMAIL_REGEX, message: 'Wrong Format' },
+            format: { with: EMAIL_REGEX, message: 'wrong format' },
             if: ->(flag) { flag.email.present? }
 
   # validates_length_of :description, maximum: 250, allow_blank: false
