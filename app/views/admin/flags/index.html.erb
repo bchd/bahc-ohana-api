@@ -24,7 +24,13 @@
                   <h5>Description</h5>
                   <p><%= flag.description  %></p>
                   <h5>Report</h5>
-                  <p><pre><%= flag.report_attributes || "No report" %></pre></p>
+                  <p>
+                    <pre>
+                      <% flag.report_attributes&.each do |attribute| %>
+                        <%= Flag.get_report_attribute_label_for(attribute) %>: <%= attribute[1] %>
+                      <% end %>
+                    </pre>
+                  </p>
                   <h5>Resource Type</h5>
                   <p><%= flag.resource_type  %></p>
                   <h5>Resource Id</h5>
