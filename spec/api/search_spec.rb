@@ -5,8 +5,8 @@ describe "GET 'search'" do
     before :all do
       @loc = create(:location)
       @nearby = create(:nearby_loc)
-      @loc.update(updated_at: Time.zone.now - 1.day)
-      @nearby.update(updated_at: Time.zone.now - 1.hour)
+      @loc.update_columns(updated_at: Time.zone.now - 1.day)
+      @nearby.update_columns(updated_at: Time.zone.now - 1.hour)
       LocationsIndex.reset!
     end
 
@@ -544,4 +544,60 @@ describe "GET 'search'" do
       expect(json[1]['name']).to eq(@loc1.name)
     end
   end
+
+  context 'it should order the locations' do
+    before(:each) do
+      @organization = create(:organization)
+
+      @loc1 = create_location("covid location", @organization)
+      @loc2 = create_location("Not featured and not covid", @organization)
+      @loc3 = create_location("featured location", @organization, "1")
+
+      LocationsIndex.reset!
+    end
+
+    after(:each) do
+      Organization.find_each(&:destroy)
+    end
+
+    it 'it should return featured locations first, second covid19 locations, and then the rest' do
+      expect(@loc1.organization.name).to eq('Parent Agency')
+      expect(@loc2.organization.name).to eq('Parent Agency')
+      expect(@loc3.organization.name).to eq('Parent Agency')
+
+      LocationsIndex.reset!
+
+      get api_search_index_url(keyword: 'parent')
+
+      sleep 0.5
+
+      expect(json[0]['name']).to eq(@loc3.name)
+      expect(json[1]['name']).to eq(@loc1.name)
+      expect(json[2]['name']).to eq(@loc2.name)
+    end
+
+    it 'it should return locations order based on updated_at property if no featured_at and covid19 locations' do
+      time = Time.current
+
+      @loc1.update_columns(name: "regular location1", updated_at: time - 5.minutes)
+      @loc2.update_columns(name: "regular location2", updated_at: time - 3.minutes)
+      @loc3.update_columns(name: "regular location3", featured_at: time, updated_at: time - 1.minutes)
+
+      LocationsIndex.reset!
+
+      get api_search_index_url(keyword: 'parent')
+
+      sleep 0.5
+
+      expect(json[0]['name']).to eq(@loc3.name)
+      expect(json[1]['name']).to eq(@loc2.name)
+      expect(json[2]['name']).to eq(@loc1.name)
+    end
+  end
+end
+
+private
+
+def create_location(name, organization, featured = "0")
+  create(:location, name: name, organization: organization, featured: featured)
 end

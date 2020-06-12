@@ -391,7 +391,8 @@ CREATE TABLE public.locations (
     virtual boolean DEFAULT false,
     active boolean DEFAULT true,
     website character varying(255),
-    email character varying(255)
+    email character varying(255),
+    featured_at timestamp without time zone
 );
 
 
@@ -1507,6 +1508,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20200410005234'),
 ('20200504145258'),
 ('20200504145923'),
-('20200511152900');
+('20200511152900'),
+('20200610142735');
 
 

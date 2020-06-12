@@ -9,6 +9,7 @@ FactoryBot.define do
     latitude { 37.583939 }
     longitude { -122.3715745 }
     organization
+    featured_at { nil }
     address
     # id {  SecureRandom.random_number(10) }
 
