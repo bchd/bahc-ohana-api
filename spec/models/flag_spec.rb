@@ -3,6 +3,8 @@ require 'rails_helper'
 describe Flag, type: :model do
   subject { Flag.new }
 
+  it { is_expected.to belong_to(:resource) }
+
   context "validations" do
     it do
       is_expected.to validate_presence_of(:report_attributes).
@@ -20,6 +22,12 @@ describe Flag, type: :model do
       subject.valid?
 
       expect(subject.errors[:report_attributes].first).to be_eql("can't be blank")
+    end
+
+    it "should validate wrong email address" do
+      subject.email = "abc"
+      subject.valid?
+      expect(subject.errors[:email].first).to be_eql("wrong format")
     end
   end
 end
