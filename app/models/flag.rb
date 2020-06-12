@@ -1,5 +1,5 @@
 class Flag < ApplicationRecord
-  store_accssor :report, :attributes
+  store_accessor :report, :report_attributes
 
   belongs_to :resource, polymorphic: true
 
@@ -7,7 +7,9 @@ class Flag < ApplicationRecord
             format: { with: EMAIL_REGEX, message: 'Wrong Format' },
             if: ->(flag) { flag.email.present? }
 
-  validates_length_of :description, maximum: 250, allow_blank: false
+  # validates_length_of :description, maximum: 250, allow_blank: false
+
+  validate :check_report_attributes
 
   def resource_path
     paths = Rails.application.routes.url_helpers
@@ -19,6 +21,14 @@ class Flag < ApplicationRecord
       paths.edit_admin_organization_path(resource)
     when 'Service'
       paths.edit_admin_service_path(resource)
+    end
+  end
+
+  private
+
+  def check_report_attributes
+    if report_attributes.nil? || report_attributes.all? {|k, v| v.blank? || v == "0" }
+      errors.add(:report_attributes, "can't be blank")
     end
   end
 end
