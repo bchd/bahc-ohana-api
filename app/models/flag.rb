@@ -37,16 +37,16 @@ class Flag < ApplicationRecord
     ]
   end
 
+  def self.report_attributes_in_order
+    Flag.report_attributes_schema.collect(&:values).transpose[0]
+  end
+
   def self.get_report_attribute_label_for(attr)
     attribute = report_attributes_schema.find do |ar|
-      ar[:name].to_s == attr[0]
+      ar[:name] == attr
     end
 
-    if found_attribute
-      found_attribute[:label]
-    else
-      attr[0]
-    end
+    attribute ? attribute[:label] : attr[0]
   end
 
   def resource_path

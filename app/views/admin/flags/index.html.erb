@@ -26,8 +26,8 @@
                   <h5>Report</h5>
                   <p>
                     <pre>
-                      <% flag.report_attributes&.each do |attribute| %>
-                        <%= Flag.get_report_attribute_label_for(attribute) %>: <%= attribute[1] %>
+                      <% Flag.report_attributes_in_order.each_with_index do |attribute, index| %>
+                        <%= report_attribute_info(attribute, index, flag) %>
                       <% end %>
                     </pre>
                   </p>
