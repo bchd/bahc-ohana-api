@@ -26,6 +26,7 @@ class LocationsSearch
     # Order matters
     [
       organization_filter,
+      archive_filter,
       tags_query,
       keyword_filter,
       zipcode_filter,
@@ -63,6 +64,16 @@ class LocationsSearch
     end
   end
 
+  def archive_filter
+    if archived?
+      index.query(
+        terms: {
+          archived: false
+        }
+      )
+    end
+  end
+
   def zipcode_filter
     # NOTE: I think we also need to consider location's coordinates and its radius.
     # Because some of our specs are using these scenarios too.
@@ -73,6 +84,8 @@ class LocationsSearch
                    })
     end
   end
+
+
 
   def keyword_filter
     if keywords?
