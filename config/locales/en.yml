@@ -136,7 +136,7 @@ en:
       add_location: 'Add a new location'
       create_location: 'Create location'
       delete_location: 'Permanently delete this location'
-      archive_location: 'Archive this location'
+      archive_location: 'Temporarily Archive this location'
       unarchive_location: 'Unarchive this location'
       confirm_delete_location: 'I understand the consequences, delete this location'
       add_program: 'Add a new program'
