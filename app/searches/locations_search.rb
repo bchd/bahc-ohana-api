@@ -30,8 +30,17 @@ class LocationsSearch
       tags_query,
       keyword_filter,
       zipcode_filter,
-      category_filter
+      category_filter,
+      order
     ].compact.reduce(:merge)
+  end
+
+  def order
+    index.order(
+      featured_at: { missing: "_last", order: "asc" },
+      covid19: { missing: "_last", order: "asc" },
+      updated_at: { order: "desc" }
+    )
   end
 
   def tags_query
