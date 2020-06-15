@@ -32,11 +32,15 @@
   %p
     = link_to t('admin.buttons.delete_location'), {}, href: '', data: { toggle: 'modal', target: '#modal-window' }, class: 'boxed-action'
   %h4
-    Archive this contact
+    Archive this location
   %p
     Once you archive this contact, you can unarchive this contact.
-  %p
-    = link_to t('admin.buttons.archive_location'), { action: :archive_location, id: location.id }, method: :put, class: 'boxed-action'
+  = if location.archived? 
+    %p
+      = link_to t('admin.buttons.unarchive_location'), { action: :unarchive_location, id: location.id }, method: :put, class: 'boxed-action'    
+  = if location.archived? == false
+    %p
+      = link_to t('admin.buttons.archive_location'), { action: :archive_location, id: location.id }, method: :put, class: 'boxed-action'
 
 .modal.fade#modal-window{ 'aria-hidden' => 'true', 'aria-labelledby' => 'my-modal-label', 'role' => 'dialog', 'tabindex' => '-1' }
   = render 'admin/locations/confirm_delete_location', location_id: location.id, loc_name: location.name, org_name: org.name
