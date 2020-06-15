@@ -2,6 +2,7 @@
 class LocationsIndex < Chewy::Index
   define_type Location.includes(:organization, :address, services: :categories) do
     field :archived, type: 'boolean'
+    field :archived_at, type: 'date'
     field :category_ids, value: -> { services.map(&:categories).flatten.uniq.map(&:id) }
     field :created_at, type: 'date'
     field :description

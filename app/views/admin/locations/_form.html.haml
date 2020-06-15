@@ -33,12 +33,14 @@
     = link_to t('admin.buttons.delete_location'), {}, href: '', data: { toggle: 'modal', target: '#modal-window' }, class: 'boxed-action'
   %h4
     Archive this location
-  %p
-    Once you archive this contact, you can unarchive this contact.
   = if location.archived? 
+    %p
+      This location has already been archived.
     %p
       = link_to t('admin.buttons.unarchive_location'), { action: :unarchive_location, id: location.id }, method: :put, class: 'boxed-action'    
   = if location.archived? == false
+    %p
+      This location has not been archived.
     %p
       = link_to t('admin.buttons.archive_location'), { action: :archive_location, id: location.id }, method: :put, class: 'boxed-action'
 
