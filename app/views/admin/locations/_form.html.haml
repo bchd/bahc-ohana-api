@@ -34,16 +34,10 @@
   %h4
     Archive this location
   = if location.archived? 
-    %p
-      This location has already been archived.
-    %p
-      = link_to t('admin.buttons.unarchive_location'), { action: :unarchive_location, id: location.id }, method: :put, class: 'boxed-action'    
+    %p This location has already been archived.
+    #- = link_to t('admin.buttons.unarchive_location'), { action: :unarchive_location, id: location.id }, method: :put, class: 'boxed-action'    
   = if location.archived? == false
-    %p
-      This location has not been archived.
-    %p
-      = link_to t('admin.buttons.archive_location'), { action: :archive_location, id: location.id }, method: :put, class: 'boxed-action'
-
+    = f.check_box(:archived,  label: t('admin.buttons.archive_location'))
 .modal.fade#modal-window{ 'aria-hidden' => 'true', 'aria-labelledby' => 'my-modal-label', 'role' => 'dialog', 'tabindex' => '-1' }
   = render 'admin/locations/confirm_delete_location', location_id: location.id, loc_name: location.name, org_name: org.name
 

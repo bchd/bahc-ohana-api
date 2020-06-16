@@ -408,8 +408,9 @@ CREATE TABLE public.locations (
     active boolean DEFAULT true,
     website character varying(255),
     email character varying(255),
-    archived boolean,
-    featured_at timestamp without time zone
+    featured_at timestamp without time zone,
+    archived boolean DEFAULT false NOT NULL,
+    archived_at timestamp without time zone
 );
 
 
