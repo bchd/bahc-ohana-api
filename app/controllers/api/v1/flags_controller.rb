@@ -7,7 +7,7 @@ module Api
       protect_from_forgery with: :null_session
 
       def create
-        @flag = Flag.create(JSON.parse(params[:flag]))
+        @flag = Flag.new(JSON.parse(params[:flag]))
         render json: @flag if @flag.save
       end
     end
