@@ -11,6 +11,8 @@ class Flag < ApplicationRecord
 
   validate :check_report_attributes
 
+  after_initialize :set_default_report_attributes
+
   def resource_path
     paths = Rails.application.routes.url_helpers
 
@@ -25,6 +27,10 @@ class Flag < ApplicationRecord
   end
 
   private
+
+  def set_default_report_attributes
+    self.report_attributes = {} if self.report_attributes.nil?
+  end
 
   def check_report_attributes
     if report_attributes.nil? || report_attributes.all? {|k, v| v["value"].blank? || v["value"] == "0" }
