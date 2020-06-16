@@ -35,7 +35,7 @@
     Archive this location
   = if location.archived? 
     %p This location has already been archived.
-    #- = link_to t('admin.buttons.unarchive_location'), { action: :unarchive_location, id: location.id }, method: :put, class: 'boxed-action'    
+    = f.check_box(:archived,  label: t('admin.buttons.archive_location'))
   = if location.archived? == false
     = f.check_box(:archived,  label: t('admin.buttons.archive_location'))
 .modal.fade#modal-window{ 'aria-hidden' => 'true', 'aria-labelledby' => 'my-modal-label', 'role' => 'dialog', 'tabindex' => '-1' }
