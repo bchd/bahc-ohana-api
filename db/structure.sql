@@ -658,7 +658,9 @@ CREATE TABLE public.services (
     program_id integer,
     interpretation_services text,
     wait_time_updated_at timestamp without time zone,
-    icarol_categories character varying
+    icarol_categories character varying,
+    archived boolean DEFAULT false NOT NULL,
+    archived_at timestamp without time zone
 );
 
 
@@ -1528,6 +1530,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20200504145923'),
 ('20200511152900'),
 ('20200610142735'),
-('20200614183600');
+('20200614183600'),
+('20200616200024');
 
 

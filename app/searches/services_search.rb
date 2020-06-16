@@ -6,6 +6,8 @@ class ServicesSearch
 
   attribute :tags, type: String
   attribute :page, type: String
+  attribute :archived, type: Boolean
+
   attribute :per_page, type: String
 
   def index
@@ -21,6 +23,7 @@ class ServicesSearch
   def search_results
     # Order matters
     [
+      archive_filter,
       tags_query,
     ].compact.reduce(:merge)
   end
@@ -34,6 +37,16 @@ class ServicesSearch
                     fuzziness: 'AUTO'
                   })
     end
+  end
+  
+  def archive_filter
+      index.filter(
+        term: {
+          archived: {
+            value: false
+          }
+        }
+      )
   end
 
   def fetch_page
