@@ -195,6 +195,15 @@
   }
 }
 
+.archive-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.archive-checkbox {
+  padding-left: 10px
+}
+
 a.boxed-action,
 a.boxed-action:link,
 a.boxed-action:visited {
