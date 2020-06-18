@@ -17,6 +17,12 @@ FactoryBot.define do
       admin_emails { ['moncef@smcgov.org'] }
       association :organization, factory: :nearby_org
     end
+    
+    factory :archived_location do
+      admin_emails { ['moncef@smcgov.org'] }
+      association :organization, factory: :nearby_org
+      archived { true }
+    end
 
     factory :location_for_org_admin do
       name { 'Samaritan House' }

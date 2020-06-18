@@ -593,11 +593,55 @@ describe "GET 'search'" do
       expect(json[1]['name']).to eq(@loc2.name)
       expect(json[2]['name']).to eq(@loc1.name)
     end
-  end
-end
+
+    it 'it should not return archived locations' do
+      time = Time.current
+
+      @loc1.update_columns(name: "regular location1", archived: true)
+      @loc2.update_columns(name: "regular location2", archived: false)
+      @loc3.update_columns(name: "regular location3", archived: true)
+
+      LocationsIndex.reset!
+
+      get api_search_index_url(keyword: 'parent')
+      sleep 0.5
+
+      expect(json.size).to eq(1)
+      expect(json.first['name']).to eq(@loc2.name)
+    end
+
+#     it 'it should not return archived services' do
+#       time = Time.current
+
+#       service1 = Service.new(name: "Healthy Service", archived: true)
+#       service2 = Service.new(name: 'Pantry Service', archived: false)
+#       service3 = Service.new(name: "Reading Service", archived: true)
+      
+#       import(service: [service1, service2, service3])
+
+#       ServicesIndex.reset!
+
+#       results = search(service: service2).objects
+# require 'pry'; binding.pry
+#       sleep 0.5
+
+#       expect(json.size).to eq(1)
+#       expect(json.first['name']).to eq(@service6.name)
+#     end
+#   end
+# end
 
 private
 
 def create_location(name, organization, featured = "0")
   create(:location, name: name, organization: organization, featured: featured)
+end
+
+def search(attributes = {})
+  ServicesSearch.new(attributes).search.load
+end
+
+
+def import(*args)
+  ServicesIndex.import!(*args)
 end
