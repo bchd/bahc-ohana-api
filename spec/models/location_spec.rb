@@ -244,4 +244,20 @@ describe Location do
       expect(loc).to be_valid
     end
   end
+  
+  describe 'archived location' do
+    it 'can create archived location' do
+      org = build_stubbed(:nearby_org)
+      loc = Location.new(
+        name: 'foo',
+        description: 'bar',
+        address_attributes: attributes_for(:address),
+        languages: 'Spanish',
+        organization_id: org.id,
+        archived: true
+      )
+
+      expect(loc.archived).to eq(true)
+    end
+  end
 end
