@@ -204,6 +204,16 @@
   padding-left: 10px
 }
 
+.location-result {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  .archived-location-result {
+    font-weight: bolder;
+  }
+
+}
+
 a.boxed-action,
 a.boxed-action:link,
 a.boxed-action:visited {

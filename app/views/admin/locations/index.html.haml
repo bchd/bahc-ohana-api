@@ -15,8 +15,13 @@
 
 %p
   - @locations.each do |location|
-    %ul
-      = link_to location.second, edit_admin_location_path(location.third), class: "location-links"
+    - if location.last == true
+      %ul.location-result
+        = link_to location.second, edit_admin_location_path(location.third), class: "location-links"
+        %h5.archived-location-result Archived
+    - if location.last == false 
+      %ul.location-result
+        = link_to location.second, edit_admin_location_path(location.third), class: "location-links"
   = paginate @locations
 
 - if @locations.present?
