@@ -3,7 +3,7 @@ class ServicePolicy < ApplicationPolicy
     def resolve
       return scope.pluck(:location_id, :id, :name, :archived).sort_by(&:third) if user.super_admin?
 
-      scope.with_locations(location_ids).pluck(:location_id, :id, :name, :archived)
+      scope.with_locations(location_ids).pluck(:location_id, :id, :name)
     end
   end
 end
