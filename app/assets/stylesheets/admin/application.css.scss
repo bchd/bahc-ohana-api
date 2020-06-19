@@ -209,9 +209,19 @@
   flex-direction: row;
   justify-content: space-between;
   .archived-location-result {
+    color: $light-red;
     font-weight: bolder;
   }
+}
 
+.service-result {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  .archived-service-result {
+    color: $light-red;
+    font-weight: bolder;
+  }
 }
 
 a.boxed-action,

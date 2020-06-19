@@ -17,7 +17,9 @@
 
 %p
   - @services.each do |service|
-    %ul
+    %ul.service-result
       - location_name ||= Location.find(service[0]).name
       = link_to "#{service[2]} / #{location_name}", edit_admin_location_service_path(service[0], service[1]), class: "link"
+      - if service.last == true 
+        %h5.archived-service-result Archived
   = paginate @services
