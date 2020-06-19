@@ -195,13 +195,26 @@
   }
 }
 
-.archive-container {
+.archive-prompt {
   display: flex;
   flex-direction: column;
-}
+  label {
+    display: flex;
+    justify-content: space-between;
+    background-color: $gray;
+    border: 1px solid $light-green;
+    color: $light-red;
+    font-weight: bold;
+    padding: 10px;
+    text-decoration: none;
+    width: auto;
+  }
 
-.archive-checkbox {
-  padding-left: 10px
+  label:hover,
+  label.archive-checkbox:active {
+    background-color: $light-red;
+    color: $white;
+  }
 }
 
 .location-result {
