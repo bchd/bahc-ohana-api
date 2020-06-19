@@ -65,8 +65,6 @@ CREATE FUNCTION public.fill_search_vector_for_location() RETURNS trigger
 
 SET default_tablespace = '';
 
-SET default_table_access_method = heap;
-
 --
 -- Name: addresses; Type: TABLE; Schema: public; Owner: -
 --
