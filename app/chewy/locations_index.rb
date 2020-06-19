@@ -3,7 +3,6 @@ class LocationsIndex < Chewy::Index
   define_type Location.includes(:organization, :address, services: :categories) do
     field :archived, type: 'boolean'
     field :archived_at, type: 'date'
-    field :category_ids, value: -> { services.map(&:categories).flatten.uniq.map(&:id) }
     field :created_at, type: 'date'
     field :description
     field :id, type: 'integer'
@@ -14,7 +13,6 @@ class LocationsIndex < Chewy::Index
     field :tags, value: -> { tags.map(&:name) }
     field :updated_at, type: 'date'
     field :zipcode, value: -> { address.try(:postal_code) }
-    field :keywords, value: -> { services.map(&:keywords).compact.join(', ') }
     field :category_ids, value: -> { services.map(&:categories).flatten.uniq.map(&:id) }
     field :tags, value: -> { tags.map(&:name) }
     field :featured_at, type: 'date'
