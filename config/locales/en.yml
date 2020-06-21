@@ -284,6 +284,9 @@ en:
         description:
           description: 'A description of the service.'
 
+        address_details:
+          description: 'Additional directions.'
+
         eligibility:
           description: 'What criteria must served groups meet to receive service?'
 
