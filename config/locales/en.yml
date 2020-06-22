@@ -105,6 +105,7 @@ en:
         alternate_name: 'Alternate Name'
 
       service:
+        address_details: 'Address Details'
         alternate_name: 'Alternate Name'
         application_process: 'Application Process'
         funding_sources: 'Funding Sources'
