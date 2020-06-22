@@ -19,6 +19,7 @@ describe 'PATCH /locations/:location_id/services/:id' do
       alternate_name: 'AKA',
       audience: 'Low-income seniors',
       description: 'SNAP market',
+      address_details: 'Entrance through red door.',
       eligibility: 'seniors',
       email: 'foo@example.com',
       fees: 'none',
