@@ -51,6 +51,8 @@ CREATE FUNCTION public.fill_search_vector_for_location() RETURNS trigger
 
 SET default_tablespace = '';
 
+SET default_with_oids = false;
+
 --
 -- Name: addresses; Type: TABLE; Schema: public; Owner: -
 --
@@ -641,7 +643,8 @@ CREATE TABLE public.services (
     program_id integer,
     interpretation_services text,
     wait_time_updated_at timestamp without time zone,
-    icarol_categories character varying
+    icarol_categories character varying,
+    address_details text
 );
 
 
