@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 class LocationsIndex < Chewy::Index
   define_type Location.includes(:organization, :address, services: :categories) do
-    field :archived, type: 'boolean'
     field :archived_at, type: 'date'
+    field :archived, type: 'boolean', value: -> { !archived_at.nil? } 
     field :created_at, type: 'date'
     field :description
     field :id, type: 'integer'
@@ -19,3 +19,4 @@ class LocationsIndex < Chewy::Index
     field :covid19, value: -> { covid19? ? created_at : nil }, type: 'date'
   end
 end
+
