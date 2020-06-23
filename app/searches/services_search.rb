@@ -24,7 +24,7 @@ class ServicesSearch
   def search_results
     # Order matters
     [
-      archive_filter,
+      # archive_filter,
       tags_query,
     ].compact.reduce(:merge)
   end
@@ -40,15 +40,15 @@ class ServicesSearch
     end
   end
   
-  def archive_filter
-    index.filter(
-        term: {
-          archived: {
-            value: false
-          }
-        }
-      )
-  end
+  # def archive_filter
+  #   index.filter(
+  #       term: {
+  #         archived: {
+  #           value: false
+  #         }
+  #       }
+  #     )
+  # end
 
   def fetch_page
     page.presence || PAGE

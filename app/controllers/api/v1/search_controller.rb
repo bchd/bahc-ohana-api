@@ -13,12 +13,11 @@ module Api
           org_name: params[:org_name],
           keywords: params[:keyword],
           zipcode: params[:location],
-          archived_at: nil,
           category_ids: params[:categories],
           page: params[:page],
           per_page: params[:per_page]
         ).search.load&.objects
-
+        
         generate_pagination_headers(locations)
 
         locations = locations.compact
