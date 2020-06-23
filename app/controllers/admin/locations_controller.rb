@@ -28,6 +28,7 @@ class Admin
       authorize @location
 
       if @location.update(location_params)
+
         redirect_to [:admin, @location],
                     notice: 'Location was successfully updated.'
       else

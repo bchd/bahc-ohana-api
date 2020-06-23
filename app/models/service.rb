@@ -6,7 +6,7 @@ class Service < ApplicationRecord
 
   belongs_to :location, touch: true, optional: false
   belongs_to :program, touch: true
-
+  scope :unarchived, -> { where(archived_at: nil)}
   has_and_belongs_to_many :categories,
                           after_add: :touch_location,
                           after_remove: :touch_location
@@ -61,7 +61,7 @@ class Service < ApplicationRecord
     both = food + covid
     both.uniq
   end
-
+  
   after_save :update_location_status, if: :saved_change_to_status?
 
   def location_name

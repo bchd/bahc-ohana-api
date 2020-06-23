@@ -9,6 +9,10 @@ class LocationSerializer < LocationsSerializer
 
   has_one :organization, serializer: SummarizedOrganizationSerializer
 
+  def services
+    object.services.unarchived.includes(%i[categories contacts phones regular_schedules holiday_schedules])
+  end
+
   def accessibility
     object.accessibility.map(&:text)
   end

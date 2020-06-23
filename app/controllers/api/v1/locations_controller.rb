@@ -19,11 +19,10 @@ module Api
 
       def show
         location = Location.includes(
-          contacts: :phones,
-          services: %i[categories contacts phones regular_schedules
-                       holiday_schedules]
-        ).find(params[:id])
-        render json: location, status: :ok if stale?(location, public: true)
+          contacts: :phones
+          ).find(params[:id])
+
+        render json: location,  status: :ok if stale?(location, public: true)
       end
 
       def update

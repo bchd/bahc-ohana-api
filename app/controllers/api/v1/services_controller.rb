@@ -10,8 +10,9 @@ module Api
       def index
         location = Location.includes(
           services: %i[categories contacts phones regular_schedules
-                       holiday_schedules]
+                       holiday_schedules archived_at]
         ).find(params[:location_id])
+        
         services = location.services
         render json: services, status: :ok
       end
@@ -46,7 +47,7 @@ module Api
 
       def service_params
         params.permit(
-          { accepted_payments: [] }, :alternate_name, :audience, :description,
+          { accepted_payments: [] }, :archived_at, :alternate_name, :audience, :description,
           :eligibility, :email, :fees, { funding_sources: [] },
           :application_process, :interpretation_services, { keywords: [] },
           { languages: [] }, :name, { required_documents: [] },
