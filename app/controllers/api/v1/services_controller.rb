@@ -10,7 +10,7 @@ module Api
       def index
         location = Location.includes(
           services: %i[categories contacts phones regular_schedules
-                       holiday_schedules archived_at]
+                       holiday_schedules]
         ).find(params[:location_id])
         
         services = location.services
