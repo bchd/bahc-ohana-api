@@ -27,9 +27,9 @@ RSpec.describe LocationsSearch, :elasticsearch do
 
       LocationsIndex.reset!
 
-      location_1.update_columns(archived: true)
-      location_2.update_columns(archived: false)
-      location_3.update_columns(archived: true)
+      location_1.update_columns(archived_at: Time.zone.yesterday)
+      location_2.update_columns(archived_at: nil)
+      location_3.update_columns(archived_at: Time.zone.yesterday)
 
       LocationsIndex.reset!
 
@@ -39,9 +39,9 @@ RSpec.describe LocationsSearch, :elasticsearch do
       expect(results.size).to eq(1)
       expect(results).not_to include([location_1, location_3])
 
-      location_1.update_columns(archived: false)
-      location_2.update_columns(archived: true)
-      location_3.update_columns(archived: false)
+      location_1.update_columns(archived_at: nil)
+      location_2.update_columns(archived_at: Time.zone.yesterday)
+      location_3.update_columns(archived_at: nil)
 
       LocationsIndex.reset!
 

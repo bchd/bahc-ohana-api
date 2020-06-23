@@ -127,11 +127,11 @@ describe Service do
   describe 'archived service' do
     it 'can create archived service' do
       service = build(
-        :service, archived: true
+        :service, archived_at: Date.yesterday
       )
       service.save
 
-      expect(service.archived).to eq(true)
+      expect(service.archived_at.present?).to be(true)
     end
   end
 end

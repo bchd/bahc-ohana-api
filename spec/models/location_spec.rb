@@ -254,10 +254,10 @@ describe Location do
         address_attributes: attributes_for(:address),
         languages: 'Spanish',
         organization_id: org.id,
-        archived: true
+        archived_at: Time.zone.yesterday
       )
 
-      expect(loc.archived).to eq(true)
+      expect(loc.archived_at.present?).to be(true)
     end
   end
 end
