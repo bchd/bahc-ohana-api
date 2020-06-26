@@ -10,10 +10,27 @@
   %p
     As a super admin, you have access to all services in the database. Please make updates responsibly.
 
-.search-container
+.search-container-multiple
   = form_tag(admin_services_path, method: :get, class: 'search-form') do
-    = text_field_tag :q, @search_term, class: 'form-control'
-    = submit_tag t('admin.buttons.search'), class: 'btn submit-button'
+    .row.reset-space-around
+      %p.bold Keyword
+      = text_field_tag "q[keyword]", nil, class: 'form-control'
+
+    .row.reset-space-around.mt-15
+      %p.bold Date last updated
+      = field_set_tag do
+        .col-sm-3.reset-space-around
+          %p Start
+          = date_field :q, :start_date, class: 'form-control'
+        .col-sm-3
+          %p End
+          = date_field :q, :end_date, class: 'form-control'
+
+    .row.reset-space-around.mt-15
+      %p.bold Tag
+      = select_tag "q[tag]", options_for_select(tag_select_options(@tags)), include_blank: true, class: "form-control wait-time-options"
+
+    = submit_tag t('admin.buttons.search'), class: 'btn submit-button mt-10'
 
 %p
   - @services.each do |service|

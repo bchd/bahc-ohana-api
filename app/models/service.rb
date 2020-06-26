@@ -48,6 +48,10 @@ class Service < ApplicationRecord
   serialize :keywords, Array
   serialize :service_areas, Array
 
+  def self.updated_between (start_date, end_date)
+    where("updated_at > ? and updated_at < ?", start_date, end_date)
+  end
+
   extend Enumerize
   enumerize :status, in: %i[active defunct inactive]
 

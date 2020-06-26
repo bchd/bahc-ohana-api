@@ -7,10 +7,40 @@ class Admin
     layout 'admin'
 
     def index
-      @search_term = search_params(params)[:q]
-      all_services = search(policy_scope(Service), @search_term, 2)
+      @search_terms = search_params(params)
+
+      date_range_filtered_services =
+        if @search_terms[:start_date].present? && @search_terms[:end_date].present?
+          # what happens if they are just empty and you send them in?
+          Service.updated_between(@search_terms[:start_date], @search_terms[:end_date])
+        else
+          Service.all
+        end
+
+      keyword_filtered_services =
+        if @search_terms[:keyword].present?
+          search(policy_scope(date_range_filtered_services), @search_terms[:keyword], 2)
+        else
+          date_range_filtered_services
+        end
+
+  # Next steps for adding tags into the fold:
+
+      # all_filtered_services =
+      #   if @search_terms[:tag].present?
+          #  TagResource.get_resources(@search_terms[:tag])]
+      #   else
+      #     keyword_filtered_services
+      #   end
+
+      # @services = Kaminari.paginate_array(all_filtered_services).
+      #             page(params[:page]).per(params[:per_page])
+
+      all_services = search(policy_scope(Service), @search_terms, 2)
       @services = Kaminari.paginate_array(all_services).
                   page(params[:page]).per(params[:per_page])
+
+      @tags = Tag.all
     end
 
     def edit
