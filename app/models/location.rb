@@ -105,6 +105,10 @@ class Location < ApplicationRecord
   extend FriendlyId
   friendly_id :slug_candidates, use: [:history]
 
+  def self.updated_between (start_date, end_date)
+    where("updated_at > ? and updated_at < ?", start_date, end_date)
+  end
+
   # Try building a slug based on the following fields in
   # increasing order of specificity.
   def slug_candidates

@@ -7,8 +7,37 @@ class Admin
     include Searchable
 
     def index
-      @search_term = search_params(params)[:q]
-      all_locations = search(policy_scope(Location), @search_term, 1)
+      @tags = Tag.all
+      @search_terms = search_params(params)
+
+      date_range_filtered_locations =
+        if @search_terms[:start_date].present? && @search_terms[:end_date].present?
+          # what happens if they are just empty and you send them in?
+          Location.updated_between(@search_terms[:start_date], @search_terms[:end_date])
+        else
+          Location.all
+        end
+
+      keyword_filtered_locations =
+        if @search_terms[:keyword].present?
+          search(policy_scope(date_range_filtered_locations), @search_terms[:keyword], 2)
+        else
+          date_range_filtered_locations
+        end
+
+  # Next steps for adding tags into the fold:
+
+      # all_filtered_locations =
+      #   if @search_terms[:tag].present?
+          #  TagResource.get_resources(@search_terms[:tag])]
+      #   else
+      #     keyword_filtered_locations
+      #   end
+
+      # @locations = Kaminari.paginate_array(all_filtered_locations).
+      #             page(params[:page]).per(params[:per_page])
+
+      all_locations = search(policy_scope(Location), @search_terms, 1)
       @locations = Kaminari.paginate_array(all_locations).
                    page(params[:page]).per(params[:per_page])
     end
