@@ -37,9 +37,10 @@ class Service < ApplicationRecord
 
   validates :website, url: true, allow_blank: true
 
-  auto_strip_attributes :alternate_name, :audience, :description, :eligibility,
-                        :email, :fees, :application_process, :interpretation_services,
-                        :name, :wait_time, :status, :website
+  auto_strip_attributes :alternate_name, :audience, :description, :address_details,
+                        :eligibility, :email, :fees, :application_process,
+                        :interpretation_services, :name, :wait_time, :status,
+                        :website
 
   auto_strip_attributes :funding_sources, :keywords, :service_areas,
                         reject_blank: true, nullify: false

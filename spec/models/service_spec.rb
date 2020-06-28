@@ -77,6 +77,7 @@ describe Service do
       expect(service.alternate_name).to eq('AKA')
       expect(service.audience).to eq('Low-income seniors')
       expect(service.description).to eq('SNAP market')
+      expect(service.address_details).to eq('Entrance through red door.')
       expect(service.eligibility).to eq('seniors')
       expect(service.email).to eq('foo@example.com')
       expect(service.fees).to eq('none')
