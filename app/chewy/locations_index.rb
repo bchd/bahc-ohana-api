@@ -10,7 +10,6 @@ class LocationsIndex < Chewy::Index
     field :name
     field :organization_id, type: 'integer'
     field :organization_name, value: -> { organization.try(:name) }
-    field :tags, value: -> { tags.map(&:name) }
     field :updated_at, type: 'date'
     field :zipcode, value: -> { address.try(:postal_code) }
     field :category_ids, value: -> { services.map(&:categories).flatten.uniq.map(&:id) }
