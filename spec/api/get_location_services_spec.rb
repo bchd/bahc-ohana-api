@@ -13,7 +13,7 @@ describe 'GET /locations/:location_id/services' do
 
     it 'serializes all service attributes and associations' do
       expect(json.first.keys).to eq(
-        %w[id accepted_payments alternate_name audience description
+        %w[id accepted_payments alternate_name audience description address_details
            eligibility email fees funding_sources application_process
            interpretation_services keywords languages name required_documents
            service_areas status website wait_time updated_at wait_time_updated_at categories

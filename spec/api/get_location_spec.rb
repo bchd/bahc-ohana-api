@@ -97,6 +97,7 @@ describe 'GET /locations/:id' do
           'alternate_name' => nil,
           'audience' => nil,
           'description' => @location.services.first.description,
+          'address_details' => nil,
           'eligibility' => nil,
           'email' => nil,
           'fees' => nil,
