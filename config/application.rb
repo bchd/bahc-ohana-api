@@ -66,7 +66,7 @@ module OhanaApi
     config.upload_server = if ENV["UPLOAD_SERVER"].present?
       ENV["UPLOAD_SERVER"].to_sym
     elsif Rails.env.production?
-      :s3
+      :s3_multipart
     else
       :app
     end
