@@ -65,7 +65,6 @@ CREATE FUNCTION public.fill_search_vector_for_location() RETURNS trigger
 
 SET default_tablespace = '';
 
-
 --
 -- Name: addresses; Type: TABLE; Schema: public; Owner: -
 --
@@ -658,8 +657,9 @@ CREATE TABLE public.services (
     interpretation_services text,
     wait_time_updated_at timestamp without time zone,
     icarol_categories character varying,
+
     archived_at timestamp without time zone
-);
+
 
 
 --
@@ -1538,5 +1538,6 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20200611115557'),
 ('20200614183600'),
 ('20200616200024');
+
 
 

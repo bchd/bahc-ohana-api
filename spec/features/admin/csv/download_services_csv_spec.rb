@@ -18,7 +18,7 @@ feature 'Downloading Services CSV' do
     it 'contains the same headers as in the import Wiki' do
       expect(csv.first).to eq %w[
         id location_id program_id accepted_payments
-        alternate_name application_process audience description
+        alternate_name application_process audience description address_details
         eligibility email fees funding_sources
         interpretation_services keywords languages name
         required_documents service_areas status wait_time website
@@ -29,10 +29,11 @@ feature 'Downloading Services CSV' do
     it 'converts arrays to comma-separated strings' do
       expect(csv.second).to eq [
         @service.id.to_s, @service.location_id.to_s, nil, 'Cash, Credit',
-        'AKA', 'in person', 'Low-income seniors', 'SNAP market', 'seniors',
-        'foo@example.com', 'none', 'County', 'CTS LanguageLink',
-        'health, yoga', 'French, English', 'Benefits', 'ID', 'Belmont',
-        'active', '2 days', 'http://www.monfresh.com', '101, 102, 105'
+        'AKA', 'in person', 'Low-income seniors', 'SNAP market',
+        'Entrance through red door.', 'seniors', 'foo@example.com', 'none',
+        'County', 'CTS LanguageLink', 'health, yoga', 'French, English',
+        'Benefits', 'ID', 'Belmont', 'active', '2 days',
+        'http://www.monfresh.com', '101, 102, 105'
       ]
     end
   end
@@ -46,7 +47,7 @@ feature 'Downloading Services CSV' do
     it 'converts value to nil or empty string' do
       expect(csv.second).to eq [
         @service.id.to_s, @service.location_id.to_s, nil, '', nil, 'By phone.',
-        nil, 'yoga classes', nil, nil, nil, '', nil, '', '',
+        nil, 'yoga classes', nil, nil, nil, nil, '', nil, '', '',
         'Literacy Program', '', '', 'active', nil, nil, ''
       ]
     end
