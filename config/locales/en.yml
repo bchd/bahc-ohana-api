@@ -194,6 +194,9 @@ en:
         description:
           description: "A description of the location's services. Use '<br>' for line breaks."
 
+        file_upload:
+          description: 'Upload a pdf file to attach to this location.'
+
         languages:
           placeholder: 'Select one or more languages'
 
@@ -322,9 +325,9 @@ en:
           description: 'How long on average does a client need to wait to receive services?'
 
       capacity:
-        update_status: "Update Status"
-        capacity_status: "Capacity Status"
-        last_updated: "Last updated "
+        update_status: 'Update Status'
+        capacity_status: 'Capacity Status'
+        last_updated: 'Last updated '
 
     shared:
       forms:
@@ -344,24 +347,24 @@ en:
   enumerize:
     location:
       accessibility:
-        cd: "Information on CD"
-        deaf_interpreter: "Interpreter for the deaf"
-        disabled_parking: "Disabled Parking"
-        elevator: "Elevator"
-        ramp: "Ramp"
-        restroom: "Disabled Restroom"
-        tape_braille: "Information on tape or in Braille"
-        tty: "TTY"
-        wheelchair: "Wheelchair"
-        wheelchair_van: "Wheelchair-accessible van"
+        cd: 'Information on CD'
+        deaf_interpreter: 'Interpreter for the deaf'
+        disabled_parking: 'Disabled Parking'
+        elevator: 'Elevator'
+        ramp: 'Ramp'
+        restroom: 'Disabled Restroom'
+        tape_braille: 'Information on tape or in Braille'
+        tty: 'TTY'
+        wheelchair: 'Wheelchair'
+        wheelchair_van: 'Wheelchair-accessible van'
 
     phone:
       number_type:
-        fax: "Fax"
-        hotline: "Hotline"
-        sms: "SMS"
-        tty: "TTY"
-        voice: "Voice"
+        fax: 'Fax'
+        hotline: 'Hotline'
+        sms: 'SMS'
+        tty: 'TTY'
+        voice: 'Voice'
 
   errors:
     messages:
@@ -386,7 +389,7 @@ en:
       invalid_url: 'is not a valid URL'
       invalid_weekday: 'is not a valid weekday'
       invalid_zip: 'is not a valid ZIP code'
-      no_address: "must be provided unless a Location is virtual"
+      no_address: 'must be provided unless a Location is virtual'
       not_an_array: 'is not an Array.'
 
   helpers:
@@ -422,9 +425,9 @@ en:
         password_confirmation: 'Confirm password'
 
   titles:
-    brand: "CHARMcare Data"
-    admin: "Data Admin"
-    developer: "Data Developers"
+    brand: 'CHARMcare Data'
+    admin: 'Data Admin'
+    developer: 'Data Developers'
 
   navigation:
     edit_account: 'Edit account'

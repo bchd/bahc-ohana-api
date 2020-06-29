@@ -30,6 +30,12 @@ gem 'select2-rails', '~> 3.5'
 gem 'simplemde-rails', '~> 1.11', '>= 1.11.2'
 gem 'smarter_csv'
 gem 'uglifier', '>= 1.3.0'
+gem 'shrine', '~> 3.0'
+gem 'aws-sdk-s3', '~> 1.14'
+gem 'image_processing', '~> 1.10'
+gem 'uppy-s3_multipart', '>= 0.3.2'
+gem 'marcel'
+gem 'fastimage'
 
 group :test, :development do
   gem 'bullet'

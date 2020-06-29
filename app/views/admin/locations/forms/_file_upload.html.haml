@@ -1,0 +1,11 @@
+.inst-box
+  %header
+    %strong
+      = f.label :accessibility
+    %p.desc
+      = t('.description')
+
+  = field_set_tag nil, class: 'accessibility' do
+    = f.collection_check_boxes(:accessibility, Location.accessibility.options, :last, :first) do |b|
+      .checkbox
+        = b.label { b.check_box + b.text }
