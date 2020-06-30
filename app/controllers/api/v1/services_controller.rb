@@ -47,7 +47,7 @@ module Api
 
       def service_params
         params.permit(
-          { accepted_payments: [] }, :archived_at, :alternate_name, :audience, :description,
+          { accepted_payments: [] }, :address_details, :archived_at, :alternate_name, :audience, :description,
           :eligibility, :email, :fees, { funding_sources: [] },
           :application_process, :interpretation_services, { keywords: [] },
           { languages: [] }, :name, { required_documents: [] },
