@@ -65,7 +65,6 @@ CREATE FUNCTION public.fill_search_vector_for_location() RETURNS trigger
 
 SET default_tablespace = '';
 
-
 --
 -- Name: addresses; Type: TABLE; Schema: public; Owner: -
 --
