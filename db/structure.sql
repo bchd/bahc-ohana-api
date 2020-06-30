@@ -10,6 +10,20 @@ SET client_min_messages = warning;
 SET row_security = off;
 
 --
+-- Name: pg_stat_statements; Type: EXTENSION; Schema: -; Owner: -
+--
+
+CREATE EXTENSION IF NOT EXISTS pg_stat_statements WITH SCHEMA public;
+
+
+--
+-- Name: EXTENSION pg_stat_statements; Type: COMMENT; Schema: -; Owner: -
+--
+
+COMMENT ON EXTENSION pg_stat_statements IS 'track execution statistics of all SQL statements executed';
+
+
+--
 -- Name: fill_search_vector_for_location(); Type: FUNCTION; Schema: public; Owner: -
 --
 
@@ -393,7 +407,8 @@ CREATE TABLE public.locations (
     active boolean DEFAULT true,
     website character varying(255),
     email character varying(255),
-    featured_at timestamp without time zone
+    featured_at timestamp without time zone,
+    archived_at timestamp without time zone
 );
 
 
@@ -641,7 +656,9 @@ CREATE TABLE public.services (
     program_id integer,
     interpretation_services text,
     wait_time_updated_at timestamp without time zone,
-    icarol_categories character varying
+    icarol_categories character varying,
+    archived_at timestamp without time zone,
+    address_details text
 );
 
 
@@ -1518,6 +1535,9 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20200504145923'),
 ('20200511152900'),
 ('20200610142735'),
-('20200611115557');
+('20200611115557'),
+('20200614183600'),
+('20200616200024'),
+('20200621223318');
 
 

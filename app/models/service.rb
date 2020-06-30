@@ -6,7 +6,7 @@ class Service < ApplicationRecord
 
   belongs_to :location, touch: true, optional: false
   belongs_to :program, touch: true
-
+  scope :unarchived, -> { where(archived_at: nil)}
   has_and_belongs_to_many :categories,
                           after_add: :touch_location,
                           after_remove: :touch_location
@@ -40,9 +40,10 @@ class Service < ApplicationRecord
 
   validates :website, url: true, allow_blank: true
 
-  auto_strip_attributes :alternate_name, :audience, :description, :eligibility,
-                        :email, :fees, :application_process, :interpretation_services,
-                        :name, :wait_time, :status, :website
+  auto_strip_attributes :alternate_name, :audience, :description, :address_details,
+                        :eligibility, :email, :fees, :application_process,
+                        :interpretation_services, :name, :wait_time, :status,
+                        :website
 
   auto_strip_attributes :funding_sources, :keywords, :service_areas,
                         reject_blank: true, nullify: false
@@ -94,7 +95,7 @@ class Service < ApplicationRecord
     both = food + covid
     both.uniq
   end
-
+  
   after_save :update_location_status, if: :saved_change_to_status?
 
   def location_name

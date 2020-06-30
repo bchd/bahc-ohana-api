@@ -19,6 +19,7 @@ describe 'PATCH /locations/:location_id/services/:id' do
       alternate_name: 'AKA',
       audience: 'Low-income seniors',
       description: 'SNAP market',
+      address_details: 'Entrance through red door.',
       eligibility: 'seniors',
       email: 'foo@example.com',
       fees: 'none',
@@ -45,6 +46,7 @@ describe 'PATCH /locations/:location_id/services/:id' do
       api_location_service_url(@location, @service, subdomain: ENV['API_SUBDOMAIN']),
       @attrs
     )
+    
     expect(response).to have_http_status(200)
     expected_attributes.each do |key, value|
       expect(json[key.to_s]).to eq value
