@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :service do
-    name { 'Literacy Program' }
+    name { "Literacy Program" }
     description { 'yoga classes' }
     application_process { 'By phone.' }
     keywords { ['library', 'food pantries', 'stood famps', 'emergency'] }

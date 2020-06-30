@@ -22,6 +22,7 @@
 
 # Redis DB
 dump.rdb
+/data/latest.dump
 
 # Ignore test-related files
 /coverage.data

@@ -17,7 +17,7 @@ module Api
           page: params[:page],
           per_page: params[:per_page]
         ).search.load&.objects
-
+        
         generate_pagination_headers(locations)
 
         locations = locations.compact

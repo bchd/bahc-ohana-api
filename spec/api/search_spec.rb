@@ -601,3 +601,12 @@ private
 def create_location(name, organization, featured = "0")
   create(:location, name: name, organization: organization, featured: featured)
 end
+
+def search(attributes = {})
+  described_class.new(attributes).search.load
+end
+
+
+def import(*args)
+  ServicesIndex.import!(*args)
+end

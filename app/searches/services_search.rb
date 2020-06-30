@@ -6,6 +6,7 @@ class ServicesSearch
 
   attribute :tags, type: String
   attribute :page, type: String
+
   attribute :per_page, type: String
 
   def index

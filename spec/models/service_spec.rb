@@ -124,4 +124,15 @@ describe Service do
       expect(@location.updated_at).to_not eq @old_timestamp
     end
   end
+
+  describe 'archived service' do
+    it 'can create archived service' do
+      service = build(
+        :service, archived_at: Date.yesterday
+      )
+      service.save
+
+      expect(service.archived_at.present?).to be(true)
+    end
+  end
 end

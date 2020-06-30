@@ -28,6 +28,7 @@ class Admin
       authorize @location
 
       if @location.update(location_params)
+
         redirect_to [:admin, @location],
                     notice: 'Location was successfully updated.'
       else
@@ -72,9 +73,10 @@ class Admin
 
     # rubocop:disable MethodLength
     def location_params
+      update_archived_at_params
       params.require(:location).permit(
         :organization_id, { accessibility: [] }, :active, { admin_emails: [] },
-        :alternate_name, :description, :email, :featured, { languages: [] }, :latitude,
+        :alternate_name, :archived_at, :description, :email, :featured, { languages: [] }, :latitude,
         { tag_list: [] }, :longitude, :name, :short_desc, :transportation, :website, :virtual,
         address_attributes: %i[
           address_1 address_2 city state_province postal_code country id _destroy
@@ -85,6 +87,14 @@ class Admin
         regular_schedules_attributes: %i[weekday opens_at closes_at id _destroy],
         holiday_schedules_attributes: %i[closed start_date end_date opens_at closes_at id _destroy]
       )
+    end
+
+    def update_archived_at_params
+      if params['location']['archived_at'] == '1'
+        params['location']['archived_at'] = Time.zone.now
+      elsif params['location']['archived_at'] == '0'
+        params['location']['archived_at'] = nil
+      end
     end
     # rubocop:enable MethodLength
   end

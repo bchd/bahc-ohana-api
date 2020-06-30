@@ -195,6 +195,48 @@
   }
 }
 
+.archive-prompt {
+  display: flex;
+  flex-direction: column;
+  label {
+    display: flex;
+    justify-content: space-between;
+    background-color: $gray;
+    border: 1px solid $light-green;
+    color: $light-red;
+    font-weight: bold;
+    padding: 10px;
+    text-decoration: none;
+    width: auto;
+  }
+
+  label:hover,
+  label.archive-checkbox:active {
+    background-color: $light-red;
+    color: $white;
+  }
+}
+
+.location-result {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  .archived-location-result {
+    color: $light-red;
+    font-weight: bolder;
+  }
+}
+
+.service-result {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  .archived-service-result {
+    color: $light-red;
+    font-weight: bolder;
+  }
+}
+
 a.boxed-action,
 a.boxed-action:link,
 a.boxed-action:visited {

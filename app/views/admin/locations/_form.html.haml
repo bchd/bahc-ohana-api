@@ -31,6 +31,21 @@
     Once you delete a location, there is no going back. Please be certain.
   %p
     = link_to t('admin.buttons.delete_location'), {}, href: '', data: { toggle: 'modal', target: '#modal-window' }, class: 'boxed-action'
+  .archive-container
+    %h4
+      Archive this location
+    = if location.archived_at?
+      %p.archive-prompt
+        This location has already been archived.
+        %label
+          = t('admin.buttons.unarchive_location')
+          = f.check_box(:archived_at,  label: t('admin.buttons.unarchive_location'), class: 'archive-checkbox', checked: true)
+    = if location.archived_at? == false
+      %p.archive-prompt
+        This location has not been archived.
+        %label 
+          = t('admin.buttons.archive_location')
+          = f.check_box(:archived_at, label: t('admin.buttons.archive_location'), class: 'archive-checkbox')
 .modal.fade#modal-window{ 'aria-hidden' => 'true', 'aria-labelledby' => 'my-modal-label', 'role' => 'dialog', 'tabindex' => '-1' }
   = render 'admin/locations/confirm_delete_location', location_id: location.id, loc_name: location.name, org_name: org.name
 
