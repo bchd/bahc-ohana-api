@@ -38,6 +38,10 @@
     %span
       No results found
 
+  - if @services.present? && @search_terms.present?
+    %p
+      Search results
+
   - @services.each do |service|
     %ul
       = link_to "#{service.name} / #{service.location.name}", edit_admin_location_service_path(service.location_id, service.id), class: "link"
