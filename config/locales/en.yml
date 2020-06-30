@@ -286,7 +286,7 @@ en:
           description: 'A description of the service.'
 
         address_details:
-          description: 'Additional directions.'
+          description: 'Detailed geographic location of service. For example, "This pantry is located at 2500 North Avenue, Baltimore MD, 21219. It is on the 3rd floor in room 205"'
 
         eligibility:
           description: 'What criteria must served groups meet to receive service?'
