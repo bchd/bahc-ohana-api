@@ -6,8 +6,6 @@ class ServicesSearch
 
   attribute :tags, type: String
   attribute :page, type: String
-  attribute :archived_at, type: Date
-  attribute :archived, type: Boolean
 
   attribute :per_page, type: String
 
