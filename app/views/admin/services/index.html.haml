@@ -19,10 +19,10 @@
     .row.reset-space-around.mt-15
       %p.bold Date last updated
       = field_set_tag do
-        .col-sm-3.reset-space-around
+        .col-sm-3.date-picker
           %p Start
           = date_field :q, :start_date, class: 'form-control'
-        .col-sm-3
+        .col-sm-3.date-picker
           %p End
           = date_field :q, :end_date, class: 'form-control'
 
@@ -30,9 +30,14 @@
       %p.bold Tag
       = select_tag "q[tag]", options_for_select(tag_select_options(@tags)), include_blank: true, class: "form-control wait-time-options"
 
-    = submit_tag t('admin.buttons.search'), class: 'btn submit-button mt-10'
+      = submit_tag t('admin.buttons.search'), class: 'btn submit-button mt-10'
+      = button_to t('admin.buttons.clear_filters'), admin_services_path, name: "commit", class: 'btn clear-filters-button mt-10'
 
-%p
+%div
+  - if @services.empty?
+    %span
+      No results found
+
   - @services.each do |service|
     %ul
       - location_name ||= Location.find(service[0]).name

@@ -7,11 +7,16 @@ class Admin
     layout 'admin'
 
     def index
-      @search_terms = search_params(params)
+      @tags = Tag.all
+      params_parsed_by_button = params[:commit] == "Clear Filters" ?
+        params.merge("q" => {"keyword"=>"", "start_date"=>"", "end_date"=>"", "tag"=>""}) :
+        params
+      @search_terms = params_parsed_by_button[:q].present? ?
+        search_params(params_parsed_by_button) :
+        ActionController::Parameters.new({q: {}})
 
       date_range_filtered_services =
         if @search_terms[:start_date].present? && @search_terms[:end_date].present?
-          # what happens if they are just empty and you send them in?
           Service.updated_between(@search_terms[:start_date], @search_terms[:end_date])
         else
           Service.all
@@ -21,26 +26,23 @@ class Admin
         if @search_terms[:keyword].present?
           search(policy_scope(date_range_filtered_services), @search_terms[:keyword], 2)
         else
-          date_range_filtered_services
+          policy_scope(date_range_filtered_services)
         end
 
-  # Next steps for adding tags into the fold:
+      all_filtered_services =
+        if @search_terms[:tag].present?
+          items_filtered_by_tag = TagResource.get_resources(@search_terms[:tag])
+          services_filtered_by_tag = items_filtered_by_tag.select { |tag_resource| tag_resource[2] = "Service" }
+          keyword_filtered_services.select { |item|
+            services_filtered_by_tag.flatten.include?(item[1])
+          }
+        else
+          keyword_filtered_services
+        end
 
-      # all_filtered_services =
-      #   if @search_terms[:tag].present?
-          #  TagResource.get_resources(@search_terms[:tag])]
-      #   else
-      #     keyword_filtered_services
-      #   end
-
-      # @services = Kaminari.paginate_array(all_filtered_services).
-      #             page(params[:page]).per(params[:per_page])
-
-      all_services = search(policy_scope(Service), @search_terms, 2)
-      @services = Kaminari.paginate_array(all_services).
+      @services = Kaminari.paginate_array(all_filtered_services).
                   page(params[:page]).per(params[:per_page])
 
-      @tags = Tag.all
     end
 
     def edit
