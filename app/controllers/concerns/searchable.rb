@@ -6,9 +6,9 @@ module Searchable
     regex = /#{search_terms}/i
     collection.select! { |item| regex.match? item[field_index] }
     collection
-end
+  end
 
   def search_params(params)
-    params.require(:q).permit(:keyword, :start_date, :end_date, :tag)
+    params.permit(q: [:keyword, :start_date, :end_date, :tag]).fetch(:q, {})
   end
 end

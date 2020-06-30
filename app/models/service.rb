@@ -25,6 +25,9 @@ class Service < ApplicationRecord
   accepts_nested_attributes_for :phones,
                                 allow_destroy: true, reject_if: :all_blank
 
+  has_many :tag_resources, as: :resource
+  has_many :tags, through: :tag_resources
+
   validates :accepted_payments, :languages, :required_documents, pg_array: true
 
   validates :email, email: true, allow_blank: true
@@ -48,8 +51,34 @@ class Service < ApplicationRecord
   serialize :keywords, Array
   serialize :service_areas, Array
 
-  def self.updated_between (start_date, end_date)
-    where("updated_at > ? and updated_at < ?", start_date, end_date)
+  def self.updated_between(start_date, end_date)
+    query = where({})
+
+    if start_date.present?
+      query = query.where("services.updated_at > ?", start_date)
+    end
+
+    if end_date.present?
+      query = query.where("services.updated_at < ?", end_date)
+    end
+
+    query
+  end
+
+  def self.with_name(keyword)
+    if keyword.present?
+      where("services.name ILIKE ?", "%#{keyword}%")
+    else
+      all
+    end
+  end
+
+  def self.with_tag(tag_id)
+    if tag_id.present?
+      joins(:tags).where(:tags => {:id => tag_id})
+    else
+      all
+    end
   end
 
   extend Enumerize

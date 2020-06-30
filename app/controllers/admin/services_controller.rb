@@ -8,40 +8,16 @@ class Admin
 
     def index
       @tags = Tag.all
-      params_parsed_by_button = params[:commit] == "Clear Filters" ?
-        params.merge("q" => {"keyword"=>"", "start_date"=>"", "end_date"=>"", "tag"=>""}) :
-        params
-      @search_terms = params_parsed_by_button[:q].present? ?
-        search_params(params_parsed_by_button) :
-        ActionController::Parameters.new({q: {}})
+      @search_terms = search_params(params)
 
-      date_range_filtered_services =
-        if @search_terms[:start_date].present? && @search_terms[:end_date].present?
-          Service.updated_between(@search_terms[:start_date], @search_terms[:end_date])
-        else
-          Service.all
-        end
+      filtered_services =
+        Service.
+          updated_between(@search_terms[:start_date], @search_terms[:end_date]).
+          with_name(@search_terms[:keyword]).
+          with_tag(@search_terms[:tag]).includes(:location).
+          page(params[:page]).per(params[:per_page])
 
-      keyword_filtered_services =
-        if @search_terms[:keyword].present?
-          search(policy_scope(date_range_filtered_services), @search_terms[:keyword], 2)
-        else
-          policy_scope(date_range_filtered_services)
-        end
-
-      all_filtered_services =
-        if @search_terms[:tag].present?
-          items_filtered_by_tag = TagResource.get_resources(@search_terms[:tag])
-          services_filtered_by_tag = items_filtered_by_tag.select { |tag_resource| tag_resource[2] = "Service" }
-          keyword_filtered_services.select { |item|
-            services_filtered_by_tag.flatten.include?(item[1])
-          }
-        else
-          keyword_filtered_services
-        end
-
-      @services = Kaminari.paginate_array(all_filtered_services).
-                  page(params[:page]).per(params[:per_page])
+      @services = policy_scope(filtered_services)
 
     end
 
