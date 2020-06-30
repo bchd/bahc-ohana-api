@@ -11,7 +11,6 @@ class LocationsSearch
   attribute :tags, type: String
   attribute :archived_at, type: Date
   attribute :archived, type: Boolean
-  attribute :services, type: String
   
   attribute :page, type: String
   attribute :per_page, type: String
