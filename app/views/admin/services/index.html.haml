@@ -45,6 +45,6 @@
   - @services.each do |service|
     %ul.service-result
       = link_to "#{service.name} / #{service.location.name}", edit_admin_location_service_path(service.location_id, service.id), class: "link"
-      - if service.last.present?
+      - if service.archived_at.present?
         %h5.archived-service-result Archived
   = paginate @services
