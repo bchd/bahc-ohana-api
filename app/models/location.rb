@@ -51,6 +51,9 @@ class Location < ApplicationRecord
 
   has_many :services, dependent: :destroy
 
+  has_many :tag_resources, as: :resource
+  has_many :tags, through: :tag_resources
+
   has_many :regular_schedules, dependent: :destroy, inverse_of: :location
   accepts_nested_attributes_for :regular_schedules,
                                 allow_destroy: true, reject_if: :all_blank
@@ -109,6 +112,36 @@ class Location < ApplicationRecord
 
   extend FriendlyId
   friendly_id :slug_candidates, use: [:history]
+
+  def self.updated_between(start_date, end_date)
+    query = where({})
+
+    if start_date.present?
+      query = query.where("locations.updated_at > ?", start_date)
+    end
+
+    if end_date.present?
+      query = query.where("locations.updated_at < ?", end_date)
+    end
+
+    query
+  end
+
+  def self.with_name(keyword)
+    if keyword.present?
+      where("locations.name ILIKE ?", "%#{keyword}%")
+    else
+      all
+    end
+  end
+
+  def self.with_tag(tag_id)
+    if tag_id.present?
+      joins(:tags).where(:tags => {:id => tag_id})
+    else
+      all
+    end
+  end
 
   # Try building a slug based on the following fields in
   # increasing order of specificity.
