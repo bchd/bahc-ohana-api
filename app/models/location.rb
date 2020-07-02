@@ -52,6 +52,9 @@ class Location < ApplicationRecord
   accepts_nested_attributes_for :holiday_schedules,
                                 allow_destroy: true, reject_if: :all_blank
 
+  has_many :file_uploads, dependent: :destroy
+  accepts_nested_attributes_for :file_uploads, allow_destroy: true
+
   validates :address,
             presence: { message: I18n.t('errors.messages.no_address') },
             unless: :virtual?

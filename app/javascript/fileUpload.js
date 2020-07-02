@@ -9,7 +9,7 @@ import {
   XHRUpload
 } from 'uppy'
 import 'uppy/dist/uppy.min.css'
-
+console.log('uppy')
 const singleFileUpload = (fileInput) => {
   const imagePreview = document.getElementById(fileInput.dataset.previewElement)
   const formGroup = fileInput.parentNode

@@ -58,3 +58,5 @@ script/import_to_staging
 *.log
 */**.bak
 .sass-cache/
+node_modules
+vendor/bundle/*
