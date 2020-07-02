@@ -24,9 +24,9 @@ gem 'puma'
 gem 'pundit'
 gem 'rack-cache'
 gem 'rack-cors', require: 'rack/cors'
-gem 'rails', '~> 5.1.7'
-gem 'sass-rails', '~> 5.0'
-gem 'select2-rails', '~> 3.5'
+gem 'rails', '~> 5.2.3'
+gem 'sass-rails', '~> 6.0.0'
+gem 'select2-rails', '~> 4.0.3'
 gem 'simplemde-rails', '~> 1.11', '>= 1.11.2'
 gem 'smarter_csv'
 gem 'uglifier', '>= 1.3.0'
@@ -36,13 +36,14 @@ gem 'image_processing', '~> 1.10'
 gem 'uppy-s3_multipart', '>= 0.3.2'
 gem 'marcel'
 gem 'fastimage'
+gem 'webpacker', '~> 5.1', '>= 5.1.1'
 
 group :test, :development do
   gem 'bullet'
   gem 'byebug'
   gem 'factory_bot_rails'
   gem 'rspec-its'
-  gem 'rspec-rails', '~> 3.1'
+  gem 'rspec-rails', '~> 4.0'
 end
 
 group :test do

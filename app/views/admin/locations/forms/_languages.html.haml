@@ -4,4 +4,4 @@
       Languages spoken at the location
 
   = field_set_tag do
-    = f.select :languages, SETTINGS.try(:[], :languages), {}, multiple: true, class: 'form-control', data: { placeholder: t('.placeholder') }
+    = f.select :languages, SETTINGS.try(:[], :languages), {}, multiple: true, class: 'form-control', id: 'location-language-select', data: { placeholder: t('.placeholder') }

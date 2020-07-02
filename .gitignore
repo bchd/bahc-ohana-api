@@ -60,3 +60,9 @@ script/import_to_staging
 .sass-cache/
 node_modules
 vendor/bundle/*
+/public/packs
+/public/packs-test
+/node_modules
+/yarn-error.log
+yarn-debug.log*
+.yarn-integrity

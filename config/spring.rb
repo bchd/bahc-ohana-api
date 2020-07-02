@@ -1,3 +1,6 @@
-Spring.watch 'config/application.yml'
-Spring.watch 'config/settings.yml'
-Spring.watch_method = :listen
+%w[
+  .ruby-version
+  .rbenv-vars
+  tmp/restart.txt
+  tmp/caching-dev.txt
+].each { |path| Spring.watch(path) }

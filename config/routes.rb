@@ -6,7 +6,12 @@ Rails.application.routes.draw do
   # first created -> highest priority.
   # See how all your routes lay out with 'rake routes'.
   # Read more about routing: http://guides.rubyonrails.org/routing.html
-
+case Rails.configuration.upload_server
+        when :s3_multipart
+          mount Shrine.uppy_s3_multipart(:cache) => "/s3/multipart"
+        when :app
+          mount Shrine.upload_endpoint(:cache) => "/upload"
+        end
 
   devise_for :users, controllers: { registrations: 'user/registrations' }
   devise_for(
@@ -18,12 +23,7 @@ Rails.application.routes.draw do
         root to: 'dashboard#index', as: :dashboard
         get '/csv_downloads', to: 'dashboard#csv_downloads', as: "csv_downloads"
 
-        case Rails.configuration.upload_server
-        when :s3_multipart
-          mount Shrine.uppy_s3_multipart(:cache) => "/s3/multipart"
-        when :app
-          mount Shrine.upload_endpoint(:cache) => "/upload"
-        end
+
         resources :locations, except: :show do
           resources :services, except: %i[show index] do
             resources :contacts, except: %i[show index], controller: 'service_contacts'
