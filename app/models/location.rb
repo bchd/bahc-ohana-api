@@ -24,7 +24,7 @@ class Location < ApplicationRecord
         date = service.updated_at if service.updated_at > date
       end
     end
-    
+
     if services.any?
       services.each do |service|
         date = service.updated_at if service.updated_at > date
