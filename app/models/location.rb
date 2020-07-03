@@ -117,11 +117,11 @@ class Location < ApplicationRecord
     query = where({})
 
     if start_date.present?
-      query = query.where("locations.updated_at > ?", start_date)
+      query = query.where("locations.updated_at >= ?", start_date.to_datetime.beginning_of_day)
     end
 
     if end_date.present?
-      query = query.where("locations.updated_at < ?", end_date)
+      query = query.where("locations.updated_at <= ?", end_date.to_datetime.end_of_day)
     end
 
     query
