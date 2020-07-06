@@ -9,6 +9,7 @@ class LocationsSearch
   attribute :org_name, type: String
   attribute :category_ids, type: Array
   attribute :tags, type: String
+  attribute :archived_at, type: Date
   attribute :archived, type: Boolean
   
   attribute :page, type: String
@@ -18,6 +19,11 @@ class LocationsSearch
   def index
     LocationsIndex
   end
+  
+  def services_index
+    ServicesIndex
+  end
+
 
   def search
     search_results.page(fetch_page).per(fetch_per_page)
@@ -69,10 +75,16 @@ class LocationsSearch
 
   def archive_filter
       index.filter(
-        term: {
+        terms: [{
           archived: {
             value: false
-          }
+          }, {
+            services: {
+              archived: {
+                value: false
+              } 
+            }
+          }]
         }
       )
   end

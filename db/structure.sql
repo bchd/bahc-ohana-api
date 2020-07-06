@@ -65,6 +65,8 @@ CREATE FUNCTION public.fill_search_vector_for_location() RETURNS trigger
 
 SET default_tablespace = '';
 
+SET default_table_access_method = heap;
+
 --
 -- Name: addresses; Type: TABLE; Schema: public; Owner: -
 --
@@ -407,7 +409,8 @@ CREATE TABLE public.locations (
     active boolean DEFAULT true,
     website character varying(255),
     email character varying(255),
-    featured_at timestamp without time zone
+    featured_at timestamp without time zone,
+    archived_at timestamp without time zone
 );
 
 
@@ -656,7 +659,6 @@ CREATE TABLE public.services (
     interpretation_services text,
     wait_time_updated_at timestamp without time zone,
     icarol_categories character varying,
-    archived boolean DEFAULT false NOT NULL,
     archived_at timestamp without time zone
 );
 
@@ -1456,7 +1458,7 @@ CREATE UNIQUE INDEX unique_schema_migrations ON public.schema_migrations USING b
 -- Name: locations locations_search_content_trigger; Type: TRIGGER; Schema: public; Owner: -
 --
 
-CREATE TRIGGER locations_search_content_trigger BEFORE INSERT OR UPDATE ON public.locations FOR EACH ROW EXECUTE PROCEDURE public.fill_search_vector_for_location();
+CREATE TRIGGER locations_search_content_trigger BEFORE INSERT OR UPDATE ON public.locations FOR EACH ROW EXECUTE FUNCTION public.fill_search_vector_for_location();
 
 
 --
@@ -1537,3 +1539,5 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20200611115557'),
 ('20200614183600'),
 ('20200616200024');
+
+

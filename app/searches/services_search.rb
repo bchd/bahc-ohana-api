@@ -6,6 +6,7 @@ class ServicesSearch
 
   attribute :tags, type: String
   attribute :page, type: String
+  attribute :archived_at, type: Date
   attribute :archived, type: Boolean
 
   attribute :per_page, type: String
@@ -40,7 +41,7 @@ class ServicesSearch
   end
   
   def archive_filter
-      index.filter(
+    index.filter(
         term: {
           archived: {
             value: false

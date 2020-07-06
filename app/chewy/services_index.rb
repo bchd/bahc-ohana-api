@@ -2,8 +2,8 @@
 
 class ServicesIndex < Chewy::Index
   define_type Service.includes(:location) do
-    field :archived, type: 'boolean'
     field :archived_at, type: 'date'
+    field :archived, type: 'boolean', value: -> { !archived_at.nil? } 
     field :id, type: 'integer'
     field :location_id, type: 'integer'
     field :name
