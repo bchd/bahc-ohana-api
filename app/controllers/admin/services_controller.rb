@@ -130,7 +130,7 @@ class Admin
     # rubocop:disable MethodLength
     def service_params
       params.require(:service).permit(
-        { accepted_payments: [] }, :alternate_name, :audience, :description, :eligibility, :email,
+        { accepted_payments: [] }, :alternate_name, :archived, :audience, :description, :eligibility, :email,
         :fees, { funding_sources: [] }, :application_process, :interpretation_services,
         { keywords: [] }, { tag_list: [] }, { languages: [] }, :name, { required_documents: [] },
         { service_areas: [] }, :status, :website, :wait_time, { category_ids: [] },

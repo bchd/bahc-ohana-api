@@ -146,6 +146,8 @@ en:
       add_service: 'Add a new service'
       create_service: 'Create service'
       delete_service: 'Permanently delete this service'
+      archive_service: 'Temporarily Archive this service'
+      unarchive_service: 'Unarchive this service'
       confirm_delete_service: 'I understand the consequences, delete this service'
       add_contact: 'Add a new contact'
       create_contact: 'Create contact'
