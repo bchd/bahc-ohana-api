@@ -1,13 +1,16 @@
 # frozen_string_literal: true
-
 class LocationsIndex < Chewy::Index
   define_type Location.includes(:organization, :address, services: :categories) do
+    field :archived, type: 'boolean'
+    field :category_ids, value: -> { services.map(&:categories).flatten.uniq.map(&:id) }
+    field :created_at, type: 'date'
+    field :description
     field :id, type: 'integer'
+    field :keywords, value: -> { services.map(&:keywords).compact.join(', ') }
+    field :name
     field :organization_id, type: 'integer'
     field :organization_name, value: -> { organization.try(:name) }
-    field :name
-    field :description
-    field :created_at, type: 'date'
+    field :tags, value: -> { tags.map(&:name) }
     field :updated_at, type: 'date'
     field :zipcode, value: -> { address.try(:postal_code) }
     field :keywords, value: -> { services.map(&:keywords).compact.join(', ') }
