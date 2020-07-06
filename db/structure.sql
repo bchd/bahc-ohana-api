@@ -51,10 +51,7 @@ CREATE FUNCTION public.fill_search_vector_for_location() RETURNS trigger
 
 SET default_tablespace = '';
 
-<<<<<<< HEAD
 
-=======
->>>>>>> c7383ac... Revert "DB changes"
 --
 -- Name: addresses; Type: TABLE; Schema: public; Owner: -
 --
