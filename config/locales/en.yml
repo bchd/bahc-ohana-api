@@ -181,6 +181,7 @@ en:
       download_regular_schedules: 'Download Regular Schedules'
       download_services: 'Download Services'
       search: 'Search'
+      clear_filters: 'Clear Filters'
       flag: 'Flag Resources'
     locations:
       index:
