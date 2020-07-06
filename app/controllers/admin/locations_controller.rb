@@ -9,6 +9,7 @@ class Admin
     def index
       @search_term = search_params(params)[:q]
       all_locations = search(policy_scope(Location), @search_term, 1)
+      # require 'pry'; binding.pry
       @locations = Kaminari.paginate_array(all_locations).
                    page(params[:page]).per(params[:per_page])
     end
