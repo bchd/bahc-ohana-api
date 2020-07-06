@@ -10,6 +10,20 @@ SET client_min_messages = warning;
 SET row_security = off;
 
 --
+-- Name: pg_stat_statements; Type: EXTENSION; Schema: -; Owner: -
+--
+
+CREATE EXTENSION IF NOT EXISTS pg_stat_statements WITH SCHEMA public;
+
+
+--
+-- Name: EXTENSION pg_stat_statements; Type: COMMENT; Schema: -; Owner: -
+--
+
+COMMENT ON EXTENSION pg_stat_statements IS 'track execution statistics of all SQL statements executed';
+
+
+--
 -- Name: fill_search_vector_for_location(); Type: FUNCTION; Schema: public; Owner: -
 --
 
@@ -50,6 +64,8 @@ CREATE FUNCTION public.fill_search_vector_for_location() RETURNS trigger
 
 
 SET default_tablespace = '';
+
+SET default_table_access_method = heap;
 
 --
 -- Name: addresses; Type: TABLE; Schema: public; Owner: -
@@ -1440,7 +1456,7 @@ CREATE UNIQUE INDEX unique_schema_migrations ON public.schema_migrations USING b
 -- Name: locations locations_search_content_trigger; Type: TRIGGER; Schema: public; Owner: -
 --
 
-CREATE TRIGGER locations_search_content_trigger BEFORE INSERT OR UPDATE ON public.locations FOR EACH ROW EXECUTE PROCEDURE public.fill_search_vector_for_location();
+CREATE TRIGGER locations_search_content_trigger BEFORE INSERT OR UPDATE ON public.locations FOR EACH ROW EXECUTE FUNCTION public.fill_search_vector_for_location();
 
 
 --
@@ -1518,6 +1534,8 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20200504145923'),
 ('20200511152900'),
 ('20200610142735'),
-('20200611115557');
+('20200611115557'),
+('20200614183600');
+
 
 
