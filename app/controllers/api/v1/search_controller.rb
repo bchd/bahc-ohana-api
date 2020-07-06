@@ -13,6 +13,7 @@ module Api
           org_name: params[:org_name],
           keywords: params[:keyword],
           zipcode: params[:location],
+          archived: false,
           category_ids: params[:categories],
           page: params[:page],
           per_page: params[:per_page]

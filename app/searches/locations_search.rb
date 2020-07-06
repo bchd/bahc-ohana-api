@@ -9,8 +9,11 @@ class LocationsSearch
   attribute :org_name, type: String
   attribute :category_ids, type: Array
   attribute :tags, type: String
+  attribute :archived, type: Boolean
+  
   attribute :page, type: String
   attribute :per_page, type: String
+
 
   def index
     LocationsIndex
@@ -31,7 +34,7 @@ class LocationsSearch
       keyword_filter,
       zipcode_filter,
       category_filter,
-      order
+      order,
     ].compact.reduce(:merge)
   end
 
@@ -65,13 +68,13 @@ class LocationsSearch
   end
 
   def archive_filter
-    if archived?
-      index.query(
-        terms: {
-          archived: false
+      index.filter(
+        term: {
+          archived: {
+            value: false
+          }
         }
       )
-    end
   end
 
   def zipcode_filter

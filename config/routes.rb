@@ -17,6 +17,7 @@ Rails.application.routes.draw do
       root to: 'dashboard#index', as: :dashboard
       get '/csv_downloads', to: 'dashboard#csv_downloads', as: "csv_downloads"
 
+
       resources :locations, except: :show do
         resources :services, except: %i[show index] do
           resources :contacts, except: %i[show index], controller: 'service_contacts'
@@ -49,7 +50,6 @@ Rails.application.routes.draw do
       end
 
       get 'capacity', to: 'locations#capacity'
-
       get 'locations/:location_id/services/:id', to: 'services#edit'
       get 'locations/:location_id/services/:service_id/contacts/:id', to: 'service_contacts#edit'
       patch 'locations/:location_id/services/:id/update_capacity', to: 'services#update_capacity', as: "service_update_capacity"
