@@ -5,9 +5,9 @@ feature 'Search locations' do
   background do
     location = FactoryBot.create(
       :location,
-      name: "VRS Services",
-      updated_at: DateTime.new(2019,7,8)
+      name: "VRS Services"
     )
+    location.update(updated_at: DateTime.new(2019,7,8))
     tag = FactoryBot.create(:tag, name: "VRS")
     FactoryBot.create(:tag_resource, tag: tag, resource: location)
     login_super_admin
