@@ -85,10 +85,12 @@ module Features
     end
 
     def fill_in_editor_field(text)
-      within ".CodeMirror" do
-        current_scope.click
-        field = current_scope.find("textarea", visible: false)
-        field.send_keys text
+      within '.inst-box-description'do 
+        within ".CodeMirror" do
+          current_scope.click
+          field = current_scope.find("textarea", visible: false)
+          field.send_keys text
+        end
       end
     end
 
