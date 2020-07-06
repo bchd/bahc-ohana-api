@@ -7,10 +7,18 @@ class Admin
     layout 'admin'
 
     def index
-      @search_term = search_params(params)[:q]
-      all_services = search(policy_scope(Service), @search_term, 2)
-      @services = Kaminari.paginate_array(all_services).
-                  page(params[:page]).per(params[:per_page])
+      @tags = Tag.all
+      @search_terms = search_params(params)
+
+      filtered_services =
+        Service.
+          updated_between(@search_terms[:start_date], @search_terms[:end_date]).
+          with_name(@search_terms[:keyword]).
+          with_tag(@search_terms[:tag]).includes(:location).
+          page(params[:page]).per(params[:per_page])
+
+      @services = policy_scope(filtered_services)
+
     end
 
     def edit
