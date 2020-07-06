@@ -44,7 +44,7 @@ class ApplicationPolicy
     end
 
     def location_ids
-      Pundit.policy_scope!(user, Location).map(&:id)
+      Pundit.policy_scope!(user, Location).map(&:id).flatten
     end
   end
 end

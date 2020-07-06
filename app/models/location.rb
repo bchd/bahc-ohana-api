@@ -143,6 +143,12 @@ class Location < ApplicationRecord
     end
   end
 
+  def self.with_email(email)
+    if email.present?
+      where("'#{email}' = ANY (admin_emails)")
+    end
+  end
+
   # Try building a slug based on the following fields in
   # increasing order of specificity.
   def slug_candidates
