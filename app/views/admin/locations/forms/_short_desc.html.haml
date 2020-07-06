@@ -2,7 +2,7 @@
   %header
     = f.label :short_desc
   = field_set_tag do
-    = f.text_area :short_desc, required: false, class: 'markdown-editor', id: 'location_short_desc', value: @location.short_desc.try(:gsub, /\n/, '\n')
+    = f.text_area :short_desc, required: false, class: 'markdown-editor-short-desc', id: 'location_short_desc', value: @location.short_desc.try(:gsub, /\n/, '\n')
 
 :javascript
-  var simplemde = new SimpleMDE({ element: $(".markdown-editor")[0] });
+  var simplemde_short_desc = new SimpleMDE({ element: $(".markdown-editor-short-desc")[0] });

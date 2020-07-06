@@ -89,6 +89,7 @@ feature 'Create a new location' do
   end
 
   scenario 'with valid holiday schedule', :js do
+
     fill_in_all_required_fields
     add_holiday_schedule(
       start_month: 'January',
