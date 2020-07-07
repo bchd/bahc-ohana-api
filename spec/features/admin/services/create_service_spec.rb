@@ -29,8 +29,9 @@ feature 'Create a new service' do
   end
 
   scenario 'with alternate_name', :js do
-    fill_in_required_service_fields
     fill_in 'service_alternate_name', with: 'Alternate name'
+    fill_in_required_service_fields
+    
     click_button I18n.t('admin.buttons.create_service')
     click_link 'New VRS Services service'
 
@@ -38,8 +39,8 @@ feature 'Create a new service' do
   end
 
   scenario 'with audience', :js do
-    fill_in_required_service_fields
     fill_in 'service_audience', with: 'Low-income residents.'
+    fill_in_required_service_fields
     click_button I18n.t('admin.buttons.create_service')
     click_link 'New VRS Services service'
 
@@ -47,8 +48,8 @@ feature 'Create a new service' do
   end
 
   scenario 'with eligibility', :js do
-    fill_in_required_service_fields
     fill_in 'service_eligibility', with: 'Low-income residents.'
+    fill_in_required_service_fields
     click_button I18n.t('admin.buttons.create_service')
     click_link 'New VRS Services service'
 
@@ -56,8 +57,8 @@ feature 'Create a new service' do
   end
 
   scenario 'with email', :js do
-    fill_in_required_service_fields
     fill_in 'service_email', with: 'foo@bar.com'
+    fill_in_required_service_fields
     click_button I18n.t('admin.buttons.create_service')
     click_link 'New VRS Services service'
 
@@ -65,8 +66,8 @@ feature 'Create a new service' do
   end
 
   scenario 'with fees', :js do
-    fill_in_required_service_fields
     fill_in 'service_fees', with: 'Low-income residents.'
+    fill_in_required_service_fields
     click_button I18n.t('admin.buttons.create_service')
     click_link 'New VRS Services service'
 
@@ -74,8 +75,8 @@ feature 'Create a new service' do
   end
 
   scenario 'when adding an accepted payment', :js do
-    fill_in_required_service_fields
     select2('Cash', 'service_accepted_payments', multiple: true)
+    fill_in_required_service_fields
     click_button I18n.t('admin.buttons.create_service')
     click_link 'New VRS Services service'
 
@@ -84,8 +85,8 @@ feature 'Create a new service' do
   end
 
   scenario 'when adding a funding source', :js do
-    fill_in_required_service_fields
     select2('County', 'service_funding_sources', multiple: true)
+    fill_in_required_service_fields
     click_button I18n.t('admin.buttons.create_service')
     click_link 'New VRS Services service'
 
@@ -94,8 +95,8 @@ feature 'Create a new service' do
   end
 
   scenario 'with application_process', :js do
-    fill_in_required_service_fields
     fill_in 'service_application_process', with: 'Low-income residents.'
+    fill_in_required_service_fields
     click_button I18n.t('admin.buttons.create_service')
     click_link 'New VRS Services service'
 
@@ -103,8 +104,8 @@ feature 'Create a new service' do
   end
 
   scenario 'when adding interpretation services', :js do
-    fill_in_required_service_fields
     fill_in 'service_interpretation_services', with: 'CTS LanguageLink'
+    fill_in_required_service_fields
     click_button I18n.t('admin.buttons.create_service')
     click_link 'New VRS Services service'
 
@@ -112,8 +113,8 @@ feature 'Create a new service' do
   end
 
   scenario 'with status', :js do
-    fill_in_required_service_fields
     select 'Inactive', from: 'service_status'
+    fill_in_required_service_fields
     click_button I18n.t('admin.buttons.create_service')
     click_link 'New VRS Services service'
 
@@ -121,9 +122,9 @@ feature 'Create a new service' do
   end
 
   scenario 'when adding multiple keywords', :js do
-    fill_in_required_service_fields
     select2('first', 'service_keywords', multiple: true, tag: true)
     select2('second', 'service_keywords', multiple: true, tag: true)
+    fill_in_required_service_fields
     click_button I18n.t('admin.buttons.create_service')
     click_link 'New VRS Services service'
 
@@ -132,8 +133,8 @@ feature 'Create a new service' do
   end
 
   scenario 'when adding a language', :js do
-    fill_in_required_service_fields
     select2('French', 'service_languages', multiple: true)
+    fill_in_required_service_fields
     click_button I18n.t('admin.buttons.create_service')
     click_link 'New VRS Services service'
 
@@ -143,8 +144,8 @@ feature 'Create a new service' do
   end
 
   scenario 'when adding a required document', :js do
-    fill_in_required_service_fields
     select2('Picture ID', 'service_required_documents', multiple: true)
+    fill_in_required_service_fields
     click_button I18n.t('admin.buttons.create_service')
     click_link 'New VRS Services service'
 
@@ -153,8 +154,8 @@ feature 'Create a new service' do
   end
 
   scenario 'when adding a service area', :js do
-    fill_in_required_service_fields
     select2('Belmont', 'service_service_areas', multiple: true)
+    fill_in_required_service_fields
     click_button I18n.t('admin.buttons.create_service')
     click_link 'New VRS Services service'
 
@@ -163,8 +164,8 @@ feature 'Create a new service' do
   end
 
   scenario 'when adding a website', :js do
-    fill_in_required_service_fields
     fill_in 'service_website', with: 'http://ruby.com'
+    fill_in_required_service_fields
     click_button I18n.t('admin.buttons.create_service')
     click_link 'New VRS Services service'
 
@@ -177,9 +178,9 @@ feature 'Create a new service' do
     emergency.children.create!(name: 'Subcategory 2', taxonomy_id: '101-02', type: 'service')
     visit('/admin/locations/vrs-services/services/new')
 
-    fill_in_required_service_fields
     check 'category_101'
     check 'category_101-01'
+    fill_in_required_service_fields
     click_button I18n.t('admin.buttons.create_service')
     click_link 'New VRS Services service'
 
@@ -188,12 +189,12 @@ feature 'Create a new service' do
   end
 
   scenario 'when adding hours of operation', :js do
-    fill_in_required_service_fields
     add_hour(
       weekday: 'Tuesday',
       opens_at_hour: '9 AM', opens_at_minute: '30',
       closes_at_hour: '5 PM', closes_at_minute: '45'
     )
+    fill_in_required_service_fields
     click_button I18n.t('admin.buttons.create_service')
     click_link 'New VRS Services service'
 
@@ -209,7 +210,6 @@ feature 'Create a new service' do
   end
 
   scenario 'when adding holiday schedule', :js do
-    fill_in_required_service_fields
     add_holiday_schedule(
       start_month: 'January',
       start_day: '1',
@@ -217,6 +217,7 @@ feature 'Create a new service' do
       end_day: '2',
       closed: 'Closed'
     )
+    fill_in_required_service_fields
     click_button I18n.t('admin.buttons.create_service')
     click_link 'New VRS Services service'
 
@@ -240,8 +241,8 @@ feature 'Create a new service' do
   scenario 'when copying the service to other locations', :js do
     @new_loc = create(:far_loc, organization_id: @loc.organization.id)
     visit('/admin/locations/vrs-services/services/new')
-    fill_in_required_service_fields
     check 'Belmont Farmers Market'
+    fill_in_required_service_fields
     click_button I18n.t('admin.buttons.create_service')
 
     expect(page).to have_content 'successfully created'
