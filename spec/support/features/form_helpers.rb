@@ -87,7 +87,7 @@ module Features
     def fill_in_editor_field(text)
       within ".CodeMirror" do
         current_scope.click
-        field = current_scope.find("textarea", visible: false)
+        field = current_scope.find("textarea", visible: false).native
         field.send_keys text
       end
     end
