@@ -179,9 +179,6 @@ module Features
 
       fill_in_editor_field 'new description'
       expect(page).to have_editor_display text: 'new description'
-
-
-      page.execute_script("$('.CodeMirror').hide();")
     end
   end
 end
