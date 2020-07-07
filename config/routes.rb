@@ -23,6 +23,7 @@ Rails.application.routes.draw do
       root to: "dashboard#index", as: :dashboard
       get "/csv_downloads", to: "dashboard#csv_downloads", as: "csv_downloads"
 
+
       resources :locations, except: :show do
         resources :services, except: %i[show index] do
           resources :contacts, except: %i[show index], controller: "service_contacts"
@@ -54,16 +55,15 @@ Rails.application.routes.draw do
         get "services"
       end
 
-      get "capacity", to: "locations#capacity"
-
-      get "locations/:location_id/services/:id", to: "services#edit"
-      get "locations/:location_id/services/:service_id/contacts/:id", to: "service_contacts#edit"
-      patch "locations/:location_id/services/:id/update_capacity", to: "services#update_capacity", as: "service_update_capacity"
-      get "locations/:location_id/contacts/:id", to: "contacts#edit"
-      get "locations/:id", to: "locations#edit"
-      get "organizations/:id", to: "organizations#edit"
-      get "organizations/:organization_id/contacts/:id", to: "organization_contacts#edit"
-      get "programs/:id", to: "programs#edit"
+      get 'capacity', to: 'locations#capacity'
+      get 'locations/:location_id/services/:id', to: 'services#edit'
+      get 'locations/:location_id/services/:service_id/contacts/:id', to: 'service_contacts#edit'
+      patch 'locations/:location_id/services/:id/update_capacity', to: 'services#update_capacity', as: "service_update_capacity"
+      get 'locations/:location_id/contacts/:id', to: 'contacts#edit'
+      get 'locations/:id', to: 'locations#edit'
+      get 'organizations/:id', to: 'organizations#edit'
+      get 'organizations/:organization_id/contacts/:id', to: 'organization_contacts#edit'
+      get 'programs/:id', to: 'programs#edit'
 
       resources :management, only: %i[index edit update]
       put "/drop_admin", to: "management#drop_admin", as: "drop_from_location"

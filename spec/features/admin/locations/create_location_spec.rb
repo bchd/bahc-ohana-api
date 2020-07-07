@@ -13,7 +13,8 @@ feature 'Create a new location' do
 
     expect(current_path).to eq '/admin/locations/new-parent-agency-location'
     expect(find_field('location_name').value).to eq 'New Parent Agency location'
-    expect(find_field('location_description').value).to eq 'new description'
+    fill_in_editor_field 'new description'
+    expect(page).to have_editor_display text: 'new description'
     expect(find_field('location_address_attributes_address_1').value).
       to eq '123 Main St.'
     expect(find_field('location_address_attributes_city').value).
@@ -88,6 +89,7 @@ feature 'Create a new location' do
   end
 
   scenario 'with valid holiday schedule', :js do
+
     fill_in_all_required_fields
     add_holiday_schedule(
       start_month: 'January',
@@ -152,7 +154,8 @@ feature 'Create a new location' do
   scenario 'when setting the virtual attribute', :js do
     select2('Parent Agency', 'org-name')
     fill_in 'location_name', with: 'New Parent Agency location'
-    fill_in 'location_description', with: 'new description'
+    fill_in_editor_field 'new description'
+    expect(page).to have_editor_display text: 'new description'
     select('Does not have a physical address', from: 'location_virtual')
     click_button I18n.t('admin.buttons.create_location')
 

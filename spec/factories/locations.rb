@@ -9,12 +9,19 @@ FactoryBot.define do
     latitude { 37.583939 }
     longitude { -122.3715745 }
     organization
+    featured_at { nil }
     address
     # id {  SecureRandom.random_number(10) }
 
     factory :location_with_admin do
       admin_emails { ['moncef@smcgov.org'] }
       association :organization, factory: :nearby_org
+    end
+    
+    factory :archived_location do
+      admin_emails { ['moncef@smcgov.org'] }
+      association :organization, factory: :nearby_org
+      archived { true }
     end
 
     factory :location_for_org_admin do

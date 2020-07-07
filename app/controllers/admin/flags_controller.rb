@@ -5,9 +5,7 @@ class Admin
 
     # GET /flags
     def index
-      @flags = Flag.all.sort_by(&:updated_at).reverse
-      @orgs = Organization.all
-      @flag = Flag.new
+      @flags = Flag.includes(:resource).all.order("updated_at desc")
     end
 
     # GET /flags/1

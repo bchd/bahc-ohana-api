@@ -6,7 +6,7 @@ class Service < ApplicationRecord
 
   belongs_to :location, touch: true, optional: false
   belongs_to :program, touch: true
-
+  scope :unarchived, -> { where(archived_at: nil)}
   has_and_belongs_to_many :categories,
                           after_add: :touch_location,
                           after_remove: :touch_location
@@ -25,6 +25,9 @@ class Service < ApplicationRecord
   accepts_nested_attributes_for :phones,
                                 allow_destroy: true, reject_if: :all_blank
 
+  has_many :tag_resources, as: :resource
+  has_many :tags, through: :tag_resources
+
   validates :accepted_payments, :languages, :required_documents, pg_array: true
 
   validates :email, email: true, allow_blank: true
@@ -37,9 +40,10 @@ class Service < ApplicationRecord
 
   validates :website, url: true, allow_blank: true
 
-  auto_strip_attributes :alternate_name, :audience, :description, :eligibility,
-                        :email, :fees, :application_process, :interpretation_services,
-                        :name, :wait_time, :status, :website
+  auto_strip_attributes :alternate_name, :audience, :description, :address_details,
+                        :eligibility, :email, :fees, :application_process,
+                        :interpretation_services, :name, :wait_time, :status,
+                        :website
 
   auto_strip_attributes :funding_sources, :keywords, :service_areas,
                         reject_blank: true, nullify: false
@@ -47,6 +51,36 @@ class Service < ApplicationRecord
   serialize :funding_sources, Array
   serialize :keywords, Array
   serialize :service_areas, Array
+
+  def self.updated_between(start_date, end_date)
+    query = where({})
+
+    if start_date.present?
+      query = query.where("services.updated_at > ?", start_date)
+    end
+
+    if end_date.present?
+      query = query.where("services.updated_at < ?", end_date)
+    end
+
+    query
+  end
+
+  def self.with_name(keyword)
+    if keyword.present?
+      where("services.name ILIKE ?", "%#{keyword}%")
+    else
+      all
+    end
+  end
+
+  def self.with_tag(tag_id)
+    if tag_id.present?
+      joins(:tags).where(:tags => {:id => tag_id})
+    else
+      all
+    end
+  end
 
   extend Enumerize
   enumerize :status, in: %i[active defunct inactive]
@@ -61,7 +95,7 @@ class Service < ApplicationRecord
     both = food + covid
     both.uniq
   end
-
+  
   after_save :update_location_status, if: :saved_change_to_status?
 
   def location_name

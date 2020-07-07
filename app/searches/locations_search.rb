@@ -9,8 +9,12 @@ class LocationsSearch
   attribute :org_name, type: String
   attribute :category_ids, type: Array
   attribute :tags, type: String
+  attribute :archived_at, type: Date
+  attribute :archived, type: Boolean
+  
   attribute :page, type: String
   attribute :per_page, type: String
+
 
   def index
     LocationsIndex
@@ -26,11 +30,21 @@ class LocationsSearch
     # Order matters
     [
       organization_filter,
+      archive_filter,
       tags_query,
       keyword_filter,
       zipcode_filter,
-      category_filter
+      category_filter,
+      order,
     ].compact.reduce(:merge)
+  end
+
+  def order
+    index.order(
+      featured_at: { missing: "_last", order: "asc" },
+      covid19: { missing: "_last", order: "asc" },
+      updated_at: { order: "desc" }
+    )
   end
 
   def tags_query
@@ -54,6 +68,16 @@ class LocationsSearch
     end
   end
 
+  def archive_filter
+      index.filter(
+        term: {
+          archived: {
+            value: false
+          }
+        }
+      )
+  end
+
   def zipcode_filter
     # NOTE: I think we also need to consider location's coordinates and its radius.
     # Because some of our specs are using these scenarios too.
@@ -64,6 +88,8 @@ class LocationsSearch
                    })
     end
   end
+
+
 
   def keyword_filter
     if keywords?

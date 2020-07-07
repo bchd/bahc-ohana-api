@@ -3,7 +3,6 @@ class Location < ApplicationRecord
 
   def real_updated_at
     date = updated_at
-
     if address.present?
       date = address.updated_at if address.updated_at > date
     end
@@ -25,11 +24,19 @@ class Location < ApplicationRecord
         date = service.updated_at if service.updated_at > date
       end
     end
+    
+    if services.any?
+      services.each do |service|
+        date = service.updated_at if service.updated_at > date
+      end
+    end
 
     date
   end
 
   update_index('locations#location') { self }
+
+  attr_accessor :featured
 
   belongs_to :organization, touch: true, optional: false
 
@@ -160,6 +167,15 @@ class Location < ApplicationRecord
 
   def full_address
     address.try(:full_address)
+  end
+
+  def featured
+    !featured_at.nil?
+  end
+
+  def featured=(value)
+    self.featured_at = nil
+    self.featured_at = Time.current if value == "1"
   end
 
   # See app/models/concerns/search.rb

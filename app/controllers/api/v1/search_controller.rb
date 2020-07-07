@@ -17,18 +17,10 @@ module Api
           page: params[:page],
           per_page: params[:per_page]
         ).search.load&.objects
-
+        
         generate_pagination_headers(locations)
 
         locations = locations.compact
-
-        # TODO: figure out a better place for this
-        if locations.any?(&:covid19?)
-          covid_19_locations = locations.select(&:covid19?).sort_by(&:updated_at).reverse
-          the_rest = locations.reject(&:covid19?)
-          the_rest.each { |loc| covid_19_locations << loc }
-          locations = covid_19_locations
-        end
 
         render json: locations, each_serializer: LocationsSerializer, status: :ok
       end

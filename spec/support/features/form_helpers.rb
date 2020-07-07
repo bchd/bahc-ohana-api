@@ -56,19 +56,47 @@ module Features
     def delete_all_admins
       find_link(I18n.t('admin.buttons.delete_admin'), match: :first).click
       find_link(I18n.t('admin.buttons.delete_admin'), match: :first).click
+
+
+      # NOTE: 
+      # Currently, we are getting this following Selenium error:
+      #`````````````````````````````````````````````````````````1
+      # Selenium::WebDriver::Error::ElementClickInterceptedError:
+      # element click intercepted: Element <input type="submit" name="commit" value="Save changes &amp; apply edits to database" class="btn btn-success" data-disable-with="Please wait..."> 
+      # is not clickable at point (545, 563). Other element would receive the click: <div class="CodeMirror-scroll" tabindex="-1">...</div>
+      #``````````````````````````````````````````````````````````
+      # So added this hack temporarily but need a better way to fix this.
+      page.execute_script("$('.CodeMirror').hide();")
+
       click_button I18n.t('admin.buttons.save_changes')
     end
 
     def fill_in_all_required_fields
       select2('Parent Agency', 'org-name')
       fill_in 'location_name', with: 'New Parent Agency location'
-      fill_in 'location_description', with: 'new description'
+      fill_in_editor_field 'new description'
+      expect(page).to have_editor_display text: 'new description'
       click_link I18n.t('admin.buttons.add_street_address')
       fill_in 'location_address_attributes_address_1', with: '123 Main St.'
       fill_in 'location_address_attributes_city', with: 'Belmont'
       fill_in 'location_address_attributes_state_province', with: 'CA'
       fill_in 'location_address_attributes_postal_code', with: '12345'
       fill_in 'location_address_attributes_country', with: 'US'
+    end
+
+    def fill_in_editor_field(text)
+      within '.description' do 
+        within ".CodeMirror" do
+          current_scope.click
+          field = current_scope.find("textarea", visible: false)
+          field.send_keys text
+        end
+      end
+    end
+
+    def have_editor_display(options)
+      editor_display_locator = ".CodeMirror-code"
+      have_css(editor_display_locator, options)
     end
 
     def select2(value, id, options = {})

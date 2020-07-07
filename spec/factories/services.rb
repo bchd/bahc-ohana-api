@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :service do
-    name { 'Literacy Program' }
+    name { "Literacy Program" }
     description { 'yoga classes' }
     application_process { 'By phone.' }
     keywords { ['library', 'food pantries', 'stood famps', 'emergency'] }
@@ -14,6 +14,7 @@ FactoryBot.define do
     alternate_name { 'AKA ' }
     audience { 'Low-income seniors ' }
     description { ' SNAP market' }
+    address_details { 'Entrance through red door.' }
     eligibility { ' seniors ' }
     email { ' foo@example.com ' }
     fees { 'none ' }

@@ -10,14 +10,41 @@
   %p
     As a super admin, you have access to all services in the database. Please make updates responsibly.
 
-.search-container
+.search-container-multiple
   = form_tag(admin_services_path, method: :get, class: 'search-form') do
-    = text_field_tag :q, @search_term, class: 'form-control'
-    = submit_tag t('admin.buttons.search'), class: 'btn submit-button'
+    .row.reset-space-around
+      %p.bold Keyword
+      = text_field_tag "q[keyword]", @search_terms[:keyword], class: 'form-control'
 
-%p
+    .row.reset-space-around.mt-15
+      %p.bold Date last updated
+      = field_set_tag do
+        .col-sm-3.date-picker
+          %p Start
+          = date_field :q, :start_date, value: @search_terms[:start_date], class: 'form-control'
+        .col-sm-3.date-picker
+          %p End
+          = date_field :q, :end_date, value: @search_terms[:end_date], class: 'form-control'
+
+    .row.reset-space-around.mt-15
+      %p.bold Tag
+      = select_tag "q[tag]", options_from_collection_for_select(@tags, "id", "name", @search_terms[:tag]), include_blank: true, class: "form-control wait-time-options"
+
+      = submit_tag t('admin.buttons.search'), class: 'btn submit-button mt-10'
+      = link_to t('admin.buttons.clear_filters'), admin_services_path, name: "commit", class: 'btn clear-filters-button mt-10'
+
+%div
+  - if @services.empty?
+    %span
+      No results found
+
+  - if @services.present? && @search_terms.present?
+    %p
+      Search results
+
   - @services.each do |service|
-    %ul
-      - location_name ||= Location.find(service[0]).name
-      = link_to "#{service[2]} / #{location_name}", edit_admin_location_service_path(service[0], service[1]), class: "link"
+    %ul.service-result
+      = link_to "#{service.name} / #{service.location.name}", edit_admin_location_service_path(service.location_id, service.id), class: "link"
+      - if service.archived_at.present?
+        %h5.archived-service-result Archived
   = paginate @services

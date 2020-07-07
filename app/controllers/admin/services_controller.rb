@@ -7,10 +7,18 @@ class Admin
     layout 'admin'
 
     def index
-      @search_term = search_params(params)[:q]
-      all_services = search(policy_scope(Service), @search_term, 2)
-      @services = Kaminari.paginate_array(all_services).
-                  page(params[:page]).per(params[:per_page])
+      @tags = Tag.all
+      @search_terms = search_params(params)
+
+      filtered_services =
+        Service.
+          updated_between(@search_terms[:start_date], @search_terms[:end_date]).
+          with_name(@search_terms[:keyword]).
+          with_tag(@search_terms[:tag]).includes(:location).
+          page(params[:page]).per(params[:per_page])
+
+      @services = policy_scope(filtered_services)
+
     end
 
     def edit
@@ -24,7 +32,7 @@ class Admin
       preprocess_service_params
       authorize @location
       preprocess_service
-
+      
       if @service.update(service_params.except(:locations)) && @service.touch(:updated_at)
         redirect_to [:admin, @location, @service],
                     notice: 'Service was successfully updated.'
@@ -129,8 +137,9 @@ class Admin
 
     # rubocop:disable MethodLength
     def service_params
+      update_archived_at_params
       params.require(:service).permit(
-        { accepted_payments: [] }, :alternate_name, :audience, :description, :eligibility, :email,
+        { accepted_payments: [] }, :alternate_name, :archived_at, :audience, :description, :eligibility, :email,
         :fees, { funding_sources: [] }, :application_process, :interpretation_services,
         { keywords: [] }, { tag_list: [] }, { languages: [] }, :name, { required_documents: [] },
         { service_areas: [] }, :status, :website, :wait_time, { category_ids: [] },
@@ -144,8 +153,16 @@ class Admin
         ]
       )
     end
+    
+    def update_archived_at_params
+      if params['service']['archived_at'] == '1'
+        params['service']['archived_at'] = Time.zone.now
+      elsif params['service']['archived_at'] == '0'
+        params['service']['archived_at'] = nil
+      end
+    end
     # rubocop:enable MethodLength
-
+    
     def service_capacity_params
       params.permit(:wait_time, :id)
     end

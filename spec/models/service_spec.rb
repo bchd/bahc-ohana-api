@@ -77,6 +77,7 @@ describe Service do
       expect(service.alternate_name).to eq('AKA')
       expect(service.audience).to eq('Low-income seniors')
       expect(service.description).to eq('SNAP market')
+      expect(service.address_details).to eq('Entrance through red door.')
       expect(service.eligibility).to eq('seniors')
       expect(service.email).to eq('foo@example.com')
       expect(service.fees).to eq('none')
@@ -121,6 +122,17 @@ describe Service do
 
     it 'touches location when category is added' do
       expect(@location.updated_at).to_not eq @old_timestamp
+    end
+  end
+
+  describe 'archived service' do
+    it 'can create archived service' do
+      service = build(
+        :service, archived_at: Date.yesterday
+      )
+      service.save
+
+      expect(service.archived_at.present?).to be(true)
     end
   end
 end
