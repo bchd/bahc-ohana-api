@@ -174,12 +174,12 @@ module Features
     end
 
     def fill_in_required_service_fields
+      select 'Active', from: 'service_status'
       fill_in 'service_name', with: 'New VRS Services service'
 
       fill_in_editor_field 'new description'
       expect(page).to have_editor_display text: 'new description'
 
-      select 'Active', from: 'service_status'
 
       page.execute_script("$('.CodeMirror').hide();")
     end
