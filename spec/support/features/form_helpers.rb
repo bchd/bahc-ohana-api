@@ -182,9 +182,9 @@ module Features
         field.send_keys 'new description'
       end
       
-      page.execute_script("$('.CodeMirror').hide();")
       
       select 'Active', from: 'service_status'
+      page.execute_script("$('.CodeMirror').hide();")
     end
   end
 end
