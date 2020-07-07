@@ -2,7 +2,7 @@
   .description
     %header
       = f.label :description
-      %p.desc
+      %span.desc
         = t('.description')
     = field_set_tag do
       = f.text_area :description, required: false, class: 'markdown-editor', class: 'form-control', value: @service.description.try(:gsub, /\n/, '\n')
