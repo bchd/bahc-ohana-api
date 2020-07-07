@@ -62,6 +62,7 @@ node_modules
 vendor/bundle/*
 /public/packs
 /public/packs-test
+/public/uploads/cache
 /node_modules
 /yarn-error.log
 yarn-debug.log*
