@@ -8,13 +8,18 @@ feature 'Create a new service' do
     click_link I18n.t('admin.buttons.add_service')
   end
 
-  scenario 'with all required fields' do
+  scenario 'with all required fields', :js do
     fill_in_required_service_fields
+
     click_button I18n.t('admin.buttons.create_service')
+
     click_link 'New VRS Services service'
 
     expect(find_field('service_name').value).to eq 'New VRS Services service'
-    expect(find_field('service_description').value).to eq 'new description'
+
+    within '.CodeMirror' do 
+      expect(current_scope).to have_content 'new description'
+    end
   end
 
   scenario 'without any required fields' do
@@ -23,7 +28,7 @@ feature 'Create a new service' do
     expect(page).to have_content "Name can't be blank for Service"
   end
 
-  scenario 'with alternate_name' do
+  scenario 'with alternate_name', :js do
     fill_in_required_service_fields
     fill_in 'service_alternate_name', with: 'Alternate name'
     click_button I18n.t('admin.buttons.create_service')
@@ -32,7 +37,7 @@ feature 'Create a new service' do
     expect(find_field('service_alternate_name').value).to eq 'Alternate name'
   end
 
-  scenario 'with audience' do
+  scenario 'with audience', :js do
     fill_in_required_service_fields
     fill_in 'service_audience', with: 'Low-income residents.'
     click_button I18n.t('admin.buttons.create_service')
@@ -41,7 +46,7 @@ feature 'Create a new service' do
     expect(find_field('service_audience').value).to eq 'Low-income residents.'
   end
 
-  scenario 'with eligibility' do
+  scenario 'with eligibility', :js do
     fill_in_required_service_fields
     fill_in 'service_eligibility', with: 'Low-income residents.'
     click_button I18n.t('admin.buttons.create_service')
@@ -50,7 +55,7 @@ feature 'Create a new service' do
     expect(find_field('service_eligibility').value).to eq 'Low-income residents.'
   end
 
-  scenario 'with email' do
+  scenario 'with email', :js do
     fill_in_required_service_fields
     fill_in 'service_email', with: 'foo@bar.com'
     click_button I18n.t('admin.buttons.create_service')
@@ -59,7 +64,7 @@ feature 'Create a new service' do
     expect(find_field('service_email').value).to eq 'foo@bar.com'
   end
 
-  scenario 'with fees' do
+  scenario 'with fees', :js do
     fill_in_required_service_fields
     fill_in 'service_fees', with: 'Low-income residents.'
     click_button I18n.t('admin.buttons.create_service')
@@ -88,7 +93,7 @@ feature 'Create a new service' do
       to eq(['County'])
   end
 
-  scenario 'with application_process' do
+  scenario 'with application_process', :js do
     fill_in_required_service_fields
     fill_in 'service_application_process', with: 'Low-income residents.'
     click_button I18n.t('admin.buttons.create_service')
@@ -97,7 +102,7 @@ feature 'Create a new service' do
     expect(find_field('service_application_process').value).to eq 'Low-income residents.'
   end
 
-  scenario 'when adding interpretation services' do
+  scenario 'when adding interpretation services', :js do
     fill_in_required_service_fields
     fill_in 'service_interpretation_services', with: 'CTS LanguageLink'
     click_button I18n.t('admin.buttons.create_service')
@@ -106,7 +111,7 @@ feature 'Create a new service' do
     expect(find_field('service_interpretation_services').value).to eq 'CTS LanguageLink'
   end
 
-  scenario 'with status' do
+  scenario 'with status', :js do
     fill_in_required_service_fields
     select 'Inactive', from: 'service_status'
     click_button I18n.t('admin.buttons.create_service')
@@ -157,7 +162,7 @@ feature 'Create a new service' do
       to eq(['Belmont'])
   end
 
-  scenario 'when adding a website' do
+  scenario 'when adding a website', :js do
     fill_in_required_service_fields
     fill_in 'service_website', with: 'http://ruby.com'
     click_button I18n.t('admin.buttons.create_service')
@@ -232,7 +237,7 @@ feature 'Create a new service' do
     expect(find_field("#{prefix}_closes_at_5i").value).to eq ''
   end
 
-  scenario 'when copying the service to other locations' do
+  scenario 'when copying the service to other locations', :js do
     @new_loc = create(:far_loc, organization_id: @loc.organization.id)
     visit('/admin/locations/vrs-services/services/new')
     fill_in_required_service_fields

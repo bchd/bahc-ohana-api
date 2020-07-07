@@ -85,12 +85,10 @@ module Features
     end
 
     def fill_in_editor_field(text)
-      within '.inst-box-description'do 
-        within ".CodeMirror" do
-          current_scope.click
-          field = current_scope.find("textarea", visible: false)
-          field.send_keys text
-        end
+      within ".CodeMirror" do
+        current_scope.click
+        field = current_scope.find("textarea", visible: false)
+        field.send_keys text
       end
     end
 
@@ -177,7 +175,13 @@ module Features
 
     def fill_in_required_service_fields
       fill_in 'service_name', with: 'New VRS Services service'
-      fill_in 'service_description', with: 'new description'
+
+      within ".CodeMirror" do 
+        current_scope.click
+        field = current_scope.find("textarea", visible: false)
+        field.send_keys 'new description'
+      end
+      
       select 'Active', from: 'service_status'
     end
   end
