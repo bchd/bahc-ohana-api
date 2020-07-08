@@ -87,11 +87,7 @@ module Features
     def fill_in_editor_field(text)
       within ".CodeMirror" do
         current_scope.click
-
-        field = current_scope.find("textarea", visible: false).native
-
-        field.send_keys(text)
-
+        current_scope.find("textarea", visible: false).set(text)
       end
     end
 
@@ -182,6 +178,8 @@ module Features
 
       fill_in_editor_field 'new description'
       expect(page).to have_editor_display text: 'new description'
+
+
       page.execute_script("$('.CodeMirror').hide();")
     end
   end
