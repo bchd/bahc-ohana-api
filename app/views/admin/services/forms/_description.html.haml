@@ -8,7 +8,7 @@
       = f.text_area :description, required: false, class: 'markdown-editor', class: 'form-control', value: @service.description.try(:gsub, /\n/, '\n')
 
 :javascript
-  const simplemde = new SimpleMDE({ element: $(".markdown-editor")[0] });
+  let simplemde = new SimpleMDE({ element: $(".markdown-editor")[0] });
 
   
 
