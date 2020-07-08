@@ -88,7 +88,8 @@ module Features
       within '.description' do 
         within ".CodeMirror" do
           current_scope.click
-          current_scope.find("textarea", visible: false).set(text)
+          field = current_scope.find("textarea", visible: false)
+          field.set_keys(text)
         end
       end
     end
