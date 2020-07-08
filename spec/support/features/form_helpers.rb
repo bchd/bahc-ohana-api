@@ -85,9 +85,11 @@ module Features
     end
 
     def fill_in_editor_field(text)
-      within ".CodeMirror" do
-        current_scope.click
-        current_scope.find("textarea", visible: false).set(text)
+      within '.description' do 
+        within ".CodeMirror" do
+          current_scope.click
+          current_scope.find("textarea", visible: false).set(text)
+        end
       end
     end
 
