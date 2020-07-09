@@ -227,14 +227,14 @@
   }
 }
 
-.service-result {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  .archived-service-result {
-    color: $light-red;
-    font-weight: bolder;
-  }
+.archive-btn {
+  float: right;
+  background-color: $light-red;
+}
+
+.archived-service-result {
+  color: $light-red;
+  font-weight: bolder;
 }
 
 a.boxed-action,

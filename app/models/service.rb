@@ -95,11 +95,15 @@ class Service < ApplicationRecord
     both = food + covid
     both.uniq
   end
-  
+
   after_save :update_location_status, if: :saved_change_to_status?
 
   def location_name
     location.name
+  end
+
+  def full_name
+    "#{name} / #{location_name}"
   end
 
   def address

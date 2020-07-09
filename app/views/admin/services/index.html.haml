@@ -42,9 +42,23 @@
     %p
       Search results
 
-  - @services.each do |service|
-    %ul.service-result
-      = link_to "#{service.name} / #{service.location.name}", edit_admin_location_service_path(service.location_id, service.id), class: "link"
-      - if service.archived_at.present?
-        %h5.archived-service-result Archived
-  = paginate @services
+  - if @policy.archive?
+    = form_tag(admin_services_path, method: :post, class: 'service-result') do
+      = submit_tag t('admin.buttons.batch_archive_services'), class: 'btn submit-button archive-btn'
+      %div
+        - @services.each do |service|
+          %ul
+            - if service.archived_at.nil?
+              = check_box_tag('archive[]', service.id)
+            = link_to service.full_name, edit_admin_location_service_path(service.location_id, service.id), class: "link"
+            - if service.archived_at.present?
+              %span.archived-service-result Archived
+        = paginate @services
+  - else
+    %div
+      - @services.each do |service|
+        %ul
+          = link_to service.full_name, edit_admin_location_service_path(service.location_id, service.id), class: "link"
+          - if service.archived_at.present?
+            %span.archived-service-result Archived
+      = paginate @services

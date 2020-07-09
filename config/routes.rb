@@ -64,6 +64,7 @@ Rails.application.routes.draw do
 
       get 'analytics', to: 'analytics#index'
       post 'analytics', to: 'analytics#update'
+      post 'services', to: 'services#archive'
     end
   end
 
