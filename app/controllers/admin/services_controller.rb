@@ -18,7 +18,15 @@ class Admin
           page(params[:page]).per(params[:per_page])
 
       @services = policy_scope(filtered_services)
+      @policy = policy(@services)
+    end
 
+    def archive
+      if params[:archive].present?
+        archive_selected_services
+      else
+        redirect_to admin_services_url, alert: 'No services selected'
+      end
     end
 
     def edit
@@ -76,6 +84,19 @@ class Admin
     end
 
     private
+
+    def archive_selected_services
+      Service.transaction do
+        Service.find(params[:archive]).each do |service|
+          service.update!(archived_at: Time.zone.now)
+        end
+      end
+      redirect_to admin_services_url,
+                  notice: 'Archive successful.'
+    rescue ActiveRecord::RecordInvalid => e
+      redirect_to admin_services_url,
+                  error: "Could not archive #{e.record.full_name}. Please deselect and try again."
+    end
 
     def prepare_and_authorize_service_creation
       preprocess_service_params
