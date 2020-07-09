@@ -160,6 +160,7 @@ en:
       delete_service: 'Permanently delete this service'
       archive_service: 'Check this box to archive this service'
       unarchive_service: 'Uncheck this box to unarchive this service'
+      batch_archive_services: 'Archive selected services'
       confirm_delete_service: 'I understand the consequences, delete this service'
       add_contact: 'Add a new contact'
       create_contact: 'Create contact'
