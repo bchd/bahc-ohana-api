@@ -1,15 +1,18 @@
+import 'uppy/dist/uppy.min.css'
+
 import {
-  AwsS3Multipart,
   Core,
-  Dashboard,
   FileInput,
   Informer,
   ProgressBar,
   ThumbnailGenerator,
-  XHRUpload
+  Dashboard,
+  XHRUpload,
+  AwsS3Multipart
 } from 'uppy'
-import 'uppy/dist/uppy.min.css'
-console.log('uppy')
+
+const randomstring = require('randomstring')
+
 const singleFileUpload = (fileInput) => {
   const imagePreview = document.getElementById(fileInput.dataset.previewElement)
   const formGroup = fileInput.parentNode
@@ -64,6 +67,7 @@ const multipleFileUpload = (fileInput) => {
     const hiddenField = document.createElement('input')
 
     hiddenField.type = 'hidden'
+    hiddenField.name = `location[file_uploads_attributes][${randomstring.generate()}][image]`
     hiddenField.value = uploadedFileData(file, response, fileInput)
 
     document.querySelector('form').appendChild(hiddenField)

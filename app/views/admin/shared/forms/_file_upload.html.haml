@@ -1,11 +1,10 @@
 %li
   .media
-    = link_to 'Download', get_upload_url(file_upload.image.id), class: 'btn btn-light', target: "_blank"
     = file_upload.image.inspect
     .media-body
-      .form-group
-        = f.label :title
-        = f.text_field :title, class: "form-control"
-      .form-group
-        = f.label :_destroy, "Remove File"
-        = f.check_box :_destroy
+      %tr
+        %td= link_to file_upload.image.metadata['filename'], get_upload_url(file_upload.image.id), class: 'btn btn-light', target: "_blank"
+        %td
+          .form-group
+            = f.label :_destroy, "Remove File"
+            = f.check_box :_destroy
