@@ -44,12 +44,14 @@
 
   - if @policy.archive?
     = form_tag(admin_services_path, method: :post, class: 'service-result') do
+      = check_box_tag "select-all", nil, nil, class: "select-all-archive"
+      = label_tag  "select-all", "Select all on page", class: 'select-all-label'
       = submit_tag t('admin.buttons.batch_archive_services'), class: 'btn submit-button archive-btn'
       %div
         - @services.each do |service|
           %ul
             - if service.archived_at.nil?
-              = check_box_tag('archive[]', service.id)
+              = check_box_tag('archive[]', service.id, nil, class: "select-archive")
             = link_to service.full_name, edit_admin_location_service_path(service.location_id, service.id), class: "link"
             - if service.archived_at.present?
               %span.archived-service-result Archived
