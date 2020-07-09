@@ -5,22 +5,21 @@ SET client_encoding = 'UTF8';
 SET standard_conforming_strings = on;
 SELECT pg_catalog.set_config('search_path', '', false);
 SET check_function_bodies = false;
-SET xmloption = content;
 SET client_min_messages = warning;
 SET row_security = off;
 
 --
--- Name: pg_stat_statements; Type: EXTENSION; Schema: -; Owner: -
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: -
 --
 
-CREATE EXTENSION IF NOT EXISTS pg_stat_statements WITH SCHEMA public;
+CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
 
 
 --
--- Name: EXTENSION pg_stat_statements; Type: COMMENT; Schema: -; Owner: -
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: -
 --
 
-COMMENT ON EXTENSION pg_stat_statements IS 'track execution statistics of all SQL statements executed';
+COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
 
 
 --
@@ -64,6 +63,8 @@ CREATE FUNCTION public.fill_search_vector_for_location() RETURNS trigger
 
 
 SET default_tablespace = '';
+
+SET default_with_oids = false;
 
 --
 -- Name: addresses; Type: TABLE; Schema: public; Owner: -
@@ -281,15 +282,77 @@ ALTER SEQUENCE public.contacts_id_seq OWNED BY public.contacts.id;
 
 
 --
+-- Name: file_uploads; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.file_uploads (
+    id bigint NOT NULL,
+    location_id bigint,
+    file_name character varying,
+    image_data text
+);
+
+
+--
+-- Name: file_uploads_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.file_uploads_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: file_uploads_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.file_uploads_id_seq OWNED BY public.file_uploads.id;
+
+
+--
+-- Name: flag_categories; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.flag_categories (
+    id bigint NOT NULL,
+    name text,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: flag_categories_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.flag_categories_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: flag_categories_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.flag_categories_id_seq OWNED BY public.flag_categories.id;
+
+
+--
 -- Name: flags; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.flags (
     id bigint NOT NULL,
-    resource_id bigint,
-    resource_type character varying,
-    email character varying,
+    organization_id bigint,
+    reported_by_email text,
     description text,
+    category text,
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL,
     report jsonb DEFAULT '{}'::jsonb
@@ -380,6 +443,71 @@ CREATE SEQUENCE public.holiday_schedules_id_seq
 --
 
 ALTER SEQUENCE public.holiday_schedules_id_seq OWNED BY public.holiday_schedules.id;
+
+
+--
+-- Name: inaccurate_resource_categories; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.inaccurate_resource_categories (
+    id bigint NOT NULL,
+    inaccurate_resource_id bigint,
+    category_name text,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: inaccurate_resource_categories_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.inaccurate_resource_categories_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: inaccurate_resource_categories_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.inaccurate_resource_categories_id_seq OWNED BY public.inaccurate_resource_categories.id;
+
+
+--
+-- Name: inaccurate_resources; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.inaccurate_resources (
+    id bigint NOT NULL,
+    reported_by_name text,
+    reported_by_email text NOT NULL,
+    reported_reason text NOT NULL,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: inaccurate_resources_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.inaccurate_resources_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: inaccurate_resources_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.inaccurate_resources_id_seq OWNED BY public.inaccurate_resources.id;
 
 
 --
@@ -628,6 +756,36 @@ CREATE TABLE public.schema_migrations (
 
 
 --
+-- Name: service_areasas; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.service_areasas (
+    id bigint NOT NULL,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: service_areasas_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.service_areasas_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: service_areasas_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.service_areasas_id_seq OWNED BY public.service_areasas.id;
+
+
+--
 -- Name: services; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -826,6 +984,20 @@ ALTER TABLE ONLY public.contacts ALTER COLUMN id SET DEFAULT nextval('public.con
 
 
 --
+-- Name: file_uploads id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.file_uploads ALTER COLUMN id SET DEFAULT nextval('public.file_uploads_id_seq'::regclass);
+
+
+--
+-- Name: flag_categories id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.flag_categories ALTER COLUMN id SET DEFAULT nextval('public.flag_categories_id_seq'::regclass);
+
+
+--
 -- Name: flags id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -844,6 +1016,20 @@ ALTER TABLE ONLY public.friendly_id_slugs ALTER COLUMN id SET DEFAULT nextval('p
 --
 
 ALTER TABLE ONLY public.holiday_schedules ALTER COLUMN id SET DEFAULT nextval('public.holiday_schedules_id_seq'::regclass);
+
+
+--
+-- Name: inaccurate_resource_categories id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.inaccurate_resource_categories ALTER COLUMN id SET DEFAULT nextval('public.inaccurate_resource_categories_id_seq'::regclass);
+
+
+--
+-- Name: inaccurate_resources id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.inaccurate_resources ALTER COLUMN id SET DEFAULT nextval('public.inaccurate_resources_id_seq'::regclass);
 
 
 --
@@ -886,6 +1072,13 @@ ALTER TABLE ONLY public.programs ALTER COLUMN id SET DEFAULT nextval('public.pro
 --
 
 ALTER TABLE ONLY public.regular_schedules ALTER COLUMN id SET DEFAULT nextval('public.regular_schedules_id_seq'::regclass);
+
+
+--
+-- Name: service_areasas id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.service_areasas ALTER COLUMN id SET DEFAULT nextval('public.service_areasas_id_seq'::regclass);
 
 
 --
@@ -965,6 +1158,22 @@ ALTER TABLE ONLY public.contacts
 
 
 --
+-- Name: file_uploads file_uploads_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.file_uploads
+    ADD CONSTRAINT file_uploads_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: flag_categories flag_categories_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.flag_categories
+    ADD CONSTRAINT flag_categories_pkey PRIMARY KEY (id);
+
+
+--
 -- Name: flags flags_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -986,6 +1195,22 @@ ALTER TABLE ONLY public.friendly_id_slugs
 
 ALTER TABLE ONLY public.holiday_schedules
     ADD CONSTRAINT holiday_schedules_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: inaccurate_resource_categories inaccurate_resource_categories_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.inaccurate_resource_categories
+    ADD CONSTRAINT inaccurate_resource_categories_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: inaccurate_resources inaccurate_resources_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.inaccurate_resources
+    ADD CONSTRAINT inaccurate_resources_pkey PRIMARY KEY (id);
 
 
 --
@@ -1034,6 +1259,14 @@ ALTER TABLE ONLY public.programs
 
 ALTER TABLE ONLY public.regular_schedules
     ADD CONSTRAINT regular_schedules_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: service_areasas service_areasas_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.service_areasas
+    ADD CONSTRAINT service_areasas_pkey PRIMARY KEY (id);
 
 
 --
@@ -1171,6 +1404,17 @@ CREATE INDEX index_contacts_on_service_id ON public.contacts USING btree (servic
 --
 
 CREATE INDEX index_flags_on_report ON public.flags USING gin (report);
+-- Name: index_file_uploads_on_location_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_file_uploads_on_location_id ON public.file_uploads USING btree (location_id);
+
+
+--
+-- Name: index_flags_on_organization_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_flags_on_organization_id ON public.flags USING btree (organization_id);
 
 
 --
@@ -1206,6 +1450,13 @@ CREATE INDEX index_holiday_schedules_on_location_id ON public.holiday_schedules 
 --
 
 CREATE INDEX index_holiday_schedules_on_service_id ON public.holiday_schedules USING btree (service_id);
+
+
+--
+-- Name: index_inaccurate_resource_categories_on_inaccurate_resource_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_inaccurate_resource_categories_on_inaccurate_resource_id ON public.inaccurate_resource_categories USING btree (inaccurate_resource_id);
 
 
 --
@@ -1461,6 +1712,22 @@ CREATE TRIGGER locations_search_content_trigger BEFORE INSERT OR UPDATE ON publi
 
 
 --
+-- Name: file_uploads fk_rails_6d6cd32ed7; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.file_uploads
+    ADD CONSTRAINT fk_rails_6d6cd32ed7 FOREIGN KEY (location_id) REFERENCES public.locations(id);
+
+
+--
+-- Name: flags fk_rails_f1ad691fb9; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.flags
+    ADD CONSTRAINT fk_rails_f1ad691fb9 FOREIGN KEY (organization_id) REFERENCES public.organizations(id);
+
+
+--
 -- PostgreSQL database dump complete
 --
 
@@ -1530,6 +1797,10 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20190415152136'),
 ('20190429042119'),
 ('20200106144640'),
+('20200114164517'),
+('20200406124721'),
+('20200406133855'),
+('20200410004358'),
 ('20200410005234'),
 ('20200504145258'),
 ('20200504145923'),
@@ -1539,5 +1810,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20200614183600'),
 ('20200616200024'),
 ('20200621223318');
+('20200629173821'),
+('20200707145838');
 
 
