@@ -6,6 +6,7 @@ class LocationSerializer < LocationsSerializer
   has_many :holiday_schedules
   has_many :services
   has_many :tags
+  has_many :file_uploads
 
   has_one :organization, serializer: SummarizedOrganizationSerializer
 
