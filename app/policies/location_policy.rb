@@ -13,6 +13,20 @@ class LocationPolicy < ApplicationPolicy
     end
   end
 
+  def update?
+    return true if user.super_admin?
+    if scope.any?
+      scope.take.admin_emails.include?(user.email)
+    end
+  end
+
+  def destroy?
+    return true if user.super_admin?
+    if scope.any?
+      scope.take.admin_emails.include?(user.email)
+    end
+  end
+
   class Scope < Scope
     def resolve
       return scope.order(:name) if user.super_admin?
