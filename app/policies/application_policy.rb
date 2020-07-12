@@ -9,7 +9,7 @@ class ApplicationPolicy
   def create?
     return true if user.super_admin?
 
-    scope.flatten.include?(record.id)
+    scope.include?(record.id)
   end
 
   def scope
@@ -44,7 +44,7 @@ class ApplicationPolicy
     end
 
     def location_ids
-      Pundit.policy_scope!(user, Location).map(&:first).flatten
+      Pundit.policy_scope!(user, Location).map(&:id).flatten
     end
   end
 end

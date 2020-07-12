@@ -7,10 +7,17 @@ class Admin
     include Searchable
 
     def index
-      @search_term = search_params(params)[:q]
-      all_locations = search(policy_scope(Location), @search_term, 1)
-      @locations = Kaminari.paginate_array(all_locations).
-                   page(params[:page]).per(params[:per_page])
+      @tags = Tag.all
+      @search_terms = search_params(params)
+
+      filtered_locations =
+        Location.
+          updated_between(@search_terms[:start_date], @search_terms[:end_date]).
+          with_name(@search_terms[:keyword]).
+          with_tag(@search_terms[:tag]).
+          page(params[:page]).per(params[:per_page])
+
+      @locations = policy_scope(filtered_locations)
     end
 
     def edit
