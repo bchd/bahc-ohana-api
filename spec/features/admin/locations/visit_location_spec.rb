@@ -28,6 +28,14 @@ feature 'Visiting a specific location' do
     expect(current_path).to eq(admin_dashboard_path)
   end
 
+  scenario 'when location includes domain name' do
+    @location.update!(website: 'http://samaritanhouse.com')
+    login_admin
+    visit('/admin/locations/vrs-services')
+    expect(page).to_not have_content I18n.t('admin.not_authorized')
+    @location.update!(website: '')
+  end
+
   scenario 'when admin is location admin' do
     new_admin = create(:admin_with_generic_email)
     @location.update!(admin_emails: [new_admin.email])

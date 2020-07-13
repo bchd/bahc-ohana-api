@@ -91,7 +91,7 @@ class Admin
       else
         form.select(
           :organization_id,
-          policy_scope(Organization).map { |org| [org.name, org.id] },
+          policy_scope(Organization).map { |org| [org.second, org.first] },
           {}, class: 'form-control'
         )
       end

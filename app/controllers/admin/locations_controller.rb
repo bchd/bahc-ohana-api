@@ -17,7 +17,9 @@ class Admin
           with_tag(@search_terms[:tag]).
           page(params[:page]).per(params[:per_page])
 
-      @locations = policy_scope(filtered_locations)
+      all_locations = policy_scope(filtered_locations)
+      @locations = Kaminari.paginate_array(all_locations).
+                   page(params[:page]).per(params[:per_page])
     end
 
     def edit

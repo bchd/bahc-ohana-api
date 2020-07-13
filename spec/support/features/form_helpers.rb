@@ -85,10 +85,11 @@ module Features
     end
 
     def fill_in_editor_field(text)
-      within ".CodeMirror" do
-        current_scope.click
-        field = current_scope.find("textarea", visible: false)
-        field.send_keys text
+      within '.description' do 
+        within ".CodeMirror" do
+          current_scope.click
+          current_scope.find("textarea", visible: false).set(text)
+        end
       end
     end
 
@@ -174,9 +175,14 @@ module Features
     end
 
     def fill_in_required_service_fields
-      fill_in 'service_name', with: 'New VRS Services service'
-      fill_in 'service_description', with: 'new description'
       select 'Active', from: 'service_status'
+      fill_in 'service_name', with: 'New VRS Services service'
+
+      fill_in_editor_field 'new description'
+      expect(page).to have_editor_display text: 'new description'
+
+
+      page.execute_script("$('.CodeMirror').hide();")
     end
   end
 end

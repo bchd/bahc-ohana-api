@@ -38,4 +38,8 @@ class ServicePolicy < ApplicationPolicy
       scope.with_locations(location_ids).order(:name)
     end
   end
+
+  def archive?
+    user.super_admin?
+  end
 end
