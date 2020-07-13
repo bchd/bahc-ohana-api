@@ -52,7 +52,7 @@ steps:
       ADMIN_APP_TOKEN: testing123
     commands:
       - apt-get update -qy && apt-get install apt-transport-https
-      - sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt buster-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
+      - sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt stretch-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
       - wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add -
       - curl -sL https://deb.nodesource.com/setup_12.x | bash -
       - curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
