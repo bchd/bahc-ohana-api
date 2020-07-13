@@ -15,7 +15,8 @@ class Admin
           with_name(@search_terms[:keyword]).
           page(params[:page]).per(params[:per_page])
 
-      @orgs = policy_scope(@all_orgs)
+      @all_orgs = policy_scope(@all_orgs)
+      @orgs = Kaminari.paginate_array(@all_orgs).page(params[:page])
 
       respond_to do |format|
         format.html

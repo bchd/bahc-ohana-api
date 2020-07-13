@@ -19,7 +19,7 @@ class ProgramPolicy < ApplicationPolicy
     end
 
     def org_ids
-      Pundit.policy_scope!(user, Organization).map(&:id)
+      Pundit.policy_scope!(user, Organization).map(&:first).flatten
     end
   end
 end

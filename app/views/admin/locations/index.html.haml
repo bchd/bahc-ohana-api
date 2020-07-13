@@ -43,8 +43,8 @@
 %p
   - @locations.each do |location|
     %ul.location-result
-      = link_to location.name, edit_admin_location_path(location.slug), class: "location-links"
-      - if location.archived_at.present?
+      = link_to location.second, edit_admin_location_path(location.third), class: "location-links"
+      - if location.last.present?
         %h5.archived-location-result Archived
   = paginate @locations
 

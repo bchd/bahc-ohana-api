@@ -1,9 +1,9 @@
 class OrganizationPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      return scope.order(:name) if user.super_admin?
+      return scope.pluck(:id, :name, :slug).sort_by(&:second) if user.super_admin?
 
-      scope.with_locations(location_ids).order(:name)
+      scope.with_locations(location_ids).pluck(:id, :name, :slug)
     end
   end
 end
