@@ -12,9 +12,10 @@
 
 .search-container
   = form_tag(admin_organizations_path, method: :get, class: 'search-form') do
+    %p.bold Organization name
     = text_field_tag "q[keyword]", @search_terms[:keyword], class: 'form-control'
     = submit_tag t('admin.buttons.search'), class: 'btn submit-button'
-    = link_to t('admin.buttons.clear_filters'), admin_organizations_path, name: "commit", class: 'btn clear-filters-button mt-10'
+    = link_to t('admin.buttons.clear_filters'), admin_organizations_path, name: "commit", class: 'btn clear-filters-button'
 %div
   - if @orgs.empty?
     %span
