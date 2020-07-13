@@ -66,6 +66,7 @@ steps:
       - sleep 15
       - RAILS_ENV=test bundle exec rake db:create && bundle exec rake db:structure:load
       - RAILS_ENV=test bundle exec rails webpacker:compile
+      - yarn install
       - RAILS_ENV=test bundle exec rspec spec
 
 trigger:
