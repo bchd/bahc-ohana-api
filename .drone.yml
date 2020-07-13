@@ -52,14 +52,14 @@ steps:
       ADMIN_APP_TOKEN: testing123
     commands:
       - apt-get update -qy && apt-get install apt-transport-https
-      - sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
+      - sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt buster-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
       - wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add -
       - curl -sL https://deb.nodesource.com/setup_12.x | bash -
       - curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
       - echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
       - apt-get update && apt-get install -y nodejs yarn
       - apt-get install -y libnss3
-      - apt install -y postgresql-client-10
+      - apt-get install -y postgresql-client-10
       - gem install bundler --conservative
       - bundle check || bundle install --jobs 20 --retry 5
       - cp config/drone.database.yml config/database.yml
