@@ -87,7 +87,7 @@ class Admin
 
     def archive_selected_services
       Service.transaction do
-        Service.find(params[:archive]).each do |service|
+        Service.includes(:program).find(params[:archive]).each do |service|
           service.update!(archived_at: Time.zone.now)
         end
       end
