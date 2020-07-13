@@ -54,7 +54,7 @@ steps:
       - apt-get update -qy && apt-get install apt-transport-https
       - curl -sL https://deb.nodesource.com/setup_13.x | bash -
       - apt-get update && apt-get install -y nodejs
-      - apt update && apt install --no-install-recommends yarn
+      - apt-get update && apt-get install yarn
       - apt-get install -y libnss3
       - apt install -y postgresql-client
       - gem install bundler --conservative
