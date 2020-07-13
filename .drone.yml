@@ -69,7 +69,7 @@ steps:
       - PATH=/chromedriver:$PATH
       - chromedriver -v
       - sleep 15
-      - RAILS_ENV=test bundle exec rake db:create && bundle exec rake db:structure:load
+      - RAILS_ENV=test bundle exec rake db:create && bundle exec rake db:migrate
       - RAILS_ENV=test bundle exec rails webpacker:compile
       - RAILS_ENV=test bundle exec rspec spec
 
