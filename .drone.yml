@@ -26,13 +26,16 @@ services:
       - 9200
 
 steps:
+  - name: node module install
+    image: node:12.18.1
+    commands:
+      - yarn install
   - name: test
     image: alpine:3.8
     commands:
       - apk add curl
       - sleep 20
       - curl http://elasticsearch:9200
-
   - name: tests
     image: ruby:2.5.3
     environment:
@@ -66,7 +69,6 @@ steps:
       - sleep 15
       - RAILS_ENV=test bundle exec rake db:create && bundle exec rake db:structure:load
       - RAILS_ENV=test bundle exec rails webpacker:compile
-      - yarn install
       - RAILS_ENV=test bundle exec rspec spec
 
 trigger:
