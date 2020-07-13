@@ -168,6 +168,24 @@ describe Admin::ServicesController do
     end
   end
 
+  describe 'archive' do
+    before(:each) do
+      @location = create(:location_with_admin)
+      @service = @location.services.create!(attributes_for(:service))
+    end
+
+    context 'when admin is super admin' do
+      it 'archives a service' do
+        log_in_as_admin(:super_admin)
+
+        post(:archive, params: { archive: [@service.id] })
+
+        expect(response).to redirect_to admin_services_url
+        expect(flash[:notice]).to include('Archive successful.')
+      end
+    end
+  end
+
   describe 'update' do
     before(:each) do
       @location = create(:location_with_admin)
