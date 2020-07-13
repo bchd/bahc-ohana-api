@@ -54,6 +54,7 @@ steps:
       - apt-get update -qy && apt-get install apt-transport-https
       - curl -sL https://deb.nodesource.com/setup_13.x | bash -
       - apt-get update && apt-get install -y nodejs
+      - apt update && apt install yarn
       - apt-get install -y libnss3
       - apt install -y postgresql-client
       - gem install bundler --conservative
@@ -68,7 +69,7 @@ steps:
       - chromedriver -v
       - sleep 15
       - RAILS_ENV=test bundle exec rake db:create && bundle exec rake db:structure:load
-      - RAILS_ENV=test bundle exec rails assets:precompile
+      - RAILS_ENV=test bundle exec rails webpacker:compile
       - RAILS_ENV=test bundle exec rspec spec
 
 trigger:
