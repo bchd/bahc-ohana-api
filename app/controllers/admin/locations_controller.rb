@@ -14,8 +14,7 @@ class Admin
         Location.
           updated_between(@search_terms[:start_date], @search_terms[:end_date]).
           with_name(@search_terms[:keyword]).
-          with_tag(@search_terms[:tag]).
-          page(params[:page]).per(params[:per_page])
+          with_tag(@search_terms[:tag])
 
       all_locations = policy_scope(filtered_locations)
       @locations = Kaminari.paginate_array(all_locations).

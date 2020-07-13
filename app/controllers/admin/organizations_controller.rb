@@ -12,11 +12,10 @@ class Admin
       @all_orgs =
         Organization.
           unscoped.
-          with_name(@search_terms[:keyword]).
-          page(params[:page]).per(params[:per_page])
+          with_name(@search_terms[:keyword])
 
-      @all_orgs = policy_scope(@all_orgs)
-      @orgs = Kaminari.paginate_array(@all_orgs).page(params[:page])
+      @scoped_orgs = policy_scope(@all_orgs)
+      @orgs = Kaminari.paginate_array(@scoped_orgs).page(params[:page])
 
       respond_to do |format|
         format.html
