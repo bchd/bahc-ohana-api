@@ -13,7 +13,7 @@
 .search-container
   = form_tag(admin_services_path, method: :get, class: 'search-form') do
     .row.reset-space-around
-      %p.bold Keyword
+      %p.bold Service Name
       = text_field_tag "q[keyword]", @search_terms[:keyword], class: 'form-control'
 
     .row.reset-space-around.mt-15
@@ -34,19 +34,23 @@
       = link_to t('admin.buttons.clear_filters'), admin_services_path, name: "commit", class: 'btn clear-filters-button mt-10'
 
 %div
-  - if @services.empty?
+  - if @search_terms.present? && @services.empty?
     %span
       No results found
+  - elsif @services.empty?
+    %span
+      No services available
 
   - if @services.present? && @search_terms.present?
     %p
-      Search results
+      Search results:
 
   - if @policy.archive?
-    = form_tag(admin_services_path, method: :post, class: 'service-result') do
-      = check_box_tag "select-all", nil, nil, class: "select-all-archive"
-      = label_tag  "select-all", "Select all on page", class: 'select-all-label'
-      = submit_tag t('admin.buttons.batch_archive_services'), class: 'btn submit-button archive-btn'
+    = form_tag(admin_services_path, method: :post) do
+      - unless @search_terms.present? && @services.empty?
+        = check_box_tag "select-all", nil, nil, class: "select-all-archive"
+        = label_tag  "select-all", "Select all on page", class: 'select-all-label'
+        = submit_tag t('admin.buttons.batch_archive_services'), data: { confirm: 'Are you sure you want to archive the selected items?' }, class: 'btn submit-button archive-btn'
       %div
         - @services.each do |service|
           %ul
@@ -54,7 +58,7 @@
               = check_box_tag('archive[]', service.id, nil, class: "select-archive")
             = link_to service.full_name, edit_admin_location_service_path(service.location_id, service.id), class: "link"
             - if service.archived_at.present?
-              %span.archived-service-result Archived
+              %span.archived-flag Archived
         = paginate @services
   - else
     %div

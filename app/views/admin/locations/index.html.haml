@@ -32,23 +32,40 @@
     = link_to t('admin.buttons.clear_filters'), admin_locations_path, name: "commit", class: 'btn clear-filters-button mt-10'
 
 %div
-  - if @locations.empty?
+  - if @search_terms.present? && @locations.empty?
     %span
       No results found
+  - elsif @locations.empty?
+    %span
+      No locations available
 
   - if @locations.present? && @search_terms.present?
     %p
-      Search results
+      Search results:
 
-%p
-  - @locations.each do |location|
-    %ul.location-result
-      = link_to location.second, edit_admin_location_path(location.third), class: "location-links"
-      - if location.last.present?
-        %h5.archived-location-result Archived
-  = paginate @locations
-
-
-- if @locations.present?
+- if current_admin.super_admin?
+  = form_tag('/admin/locations/archive', method: :post, class: 'service-result') do
+    - unless @search_terms.present? && @locations.empty?
+      = check_box_tag "select-all", nil, nil, class: "select-all-archive"
+      = label_tag  "select-all", "Select all on page", class: 'select-all-label'
+      = submit_tag t('admin.buttons.batch_archive_locations'), data: { confirm: 'Are you sure you want to archive the selected items?' }, class: 'btn submit-button archive-btn'
+    %p
+      - @locations.each do |location|
+        %ul
+          - if location.last.nil?
+            = check_box_tag('archive[]', location.first, nil, class: "select-archive")
+          = link_to location.second, edit_admin_location_path(location.third), class: "location-links"
+          - if location.last.present?
+            %span.archived-flag Archived
+      = paginate @locations
+    - if @locations.present?
+      %p
+        = link_to t('admin.buttons.add_location'), new_admin_location_path, class: 'button action'
+- else
   %p
-    = link_to t('admin.buttons.add_location'), new_admin_location_path, class: 'button action'
+    - @locations.each do |location|
+      %ul
+        = link_to location.second, edit_admin_location_path(location.third), class: "location-links"
+        - if location.last.present?
+          %span.archived-flag Archived
+    = paginate @locations
