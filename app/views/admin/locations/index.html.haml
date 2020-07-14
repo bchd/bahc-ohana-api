@@ -10,8 +10,35 @@
 
 .search-container
   = form_tag(admin_locations_path, method: :get, class: 'search-form') do
-    = text_field_tag :q, @search_term, class: 'form-control'
-    = submit_tag t('admin.buttons.search'), class: 'btn submit-button'
+    .row.reset-space-around
+      %p.bold Location name
+      = text_field_tag "q[keyword]", @search_terms[:keyword], class: 'form-control'
+
+    .row.reset-space-around.mt-15
+      %p.bold Date last updated
+      = field_set_tag do
+        .col-sm-3.date-picker
+          %p Start
+          = date_field :q, :start_date, value: @search_terms[:start_date], class: 'form-control'
+        .col-sm-3.date-picker
+          %p End
+          = date_field :q, :end_date, value: @search_terms[:end_date], class: 'form-control'
+
+    .row.reset-space-around.mt-15
+      %p.bold Tag
+      = select_tag "q[tag]", options_from_collection_for_select(@tags, "id", "name", @search_terms[:tag]), include_blank: true, class: "form-control search-form-select"
+
+    = submit_tag t('admin.buttons.search'), class: 'btn submit-button mt-10'
+    = link_to t('admin.buttons.clear_filters'), admin_locations_path, name: "commit", class: 'btn clear-filters-button mt-10'
+
+%div
+  - if @locations.empty?
+    %span
+      No results found
+
+  - if @locations.present? && @search_terms.present?
+    %p
+      Search results
 
 %p
   - @locations.each do |location|
@@ -20,6 +47,7 @@
       - if location.last.present?
         %h5.archived-location-result Archived
   = paginate @locations
+
 
 - if @locations.present?
   %p
