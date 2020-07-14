@@ -10,17 +10,17 @@ SET client_min_messages = warning;
 SET row_security = off;
 
 --
--- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: -
+-- Name: pg_stat_statements; Type: EXTENSION; Schema: -; Owner: -
 --
 
-CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
+CREATE EXTENSION IF NOT EXISTS pg_stat_statements WITH SCHEMA public;
 
 
 --
--- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: -
+-- Name: EXTENSION pg_stat_statements; Type: COMMENT; Schema: -; Owner: -
 --
 
-COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
+COMMENT ON EXTENSION pg_stat_statements IS 'track execution statistics of all SQL statements executed';
 
 
 --
@@ -314,46 +314,15 @@ ALTER SEQUENCE public.file_uploads_id_seq OWNED BY public.file_uploads.id;
 
 
 --
--- Name: flag_categories; Type: TABLE; Schema: public; Owner: -
---
-
-CREATE TABLE public.flag_categories (
-    id bigint NOT NULL,
-    name text,
-    created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL
-);
-
-
---
--- Name: flag_categories_id_seq; Type: SEQUENCE; Schema: public; Owner: -
---
-
-CREATE SEQUENCE public.flag_categories_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
---
--- Name: flag_categories_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
---
-
-ALTER SEQUENCE public.flag_categories_id_seq OWNED BY public.flag_categories.id;
-
-
---
 -- Name: flags; Type: TABLE; Schema: public; Owner: -
 --
 
 CREATE TABLE public.flags (
     id bigint NOT NULL,
-    organization_id bigint,
-    reported_by_email text,
+    resource_id bigint,
+    resource_type character varying,
+    email character varying,
     description text,
-    category text,
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL,
     report jsonb DEFAULT '{}'::jsonb
@@ -692,36 +661,6 @@ CREATE TABLE public.schema_migrations (
 
 
 --
--- Name: service_areasas; Type: TABLE; Schema: public; Owner: -
---
-
-CREATE TABLE public.service_areasas (
-    id bigint NOT NULL,
-    created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL
-);
-
-
---
--- Name: service_areasas_id_seq; Type: SEQUENCE; Schema: public; Owner: -
---
-
-CREATE SEQUENCE public.service_areasas_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
---
--- Name: service_areasas_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
---
-
-ALTER SEQUENCE public.service_areasas_id_seq OWNED BY public.service_areasas.id;
-
-
---
 -- Name: services; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -927,13 +866,6 @@ ALTER TABLE ONLY public.file_uploads ALTER COLUMN id SET DEFAULT nextval('public
 
 
 --
--- Name: flag_categories id; Type: DEFAULT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.flag_categories ALTER COLUMN id SET DEFAULT nextval('public.flag_categories_id_seq'::regclass);
-
-
---
 -- Name: flags id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -994,13 +926,6 @@ ALTER TABLE ONLY public.programs ALTER COLUMN id SET DEFAULT nextval('public.pro
 --
 
 ALTER TABLE ONLY public.regular_schedules ALTER COLUMN id SET DEFAULT nextval('public.regular_schedules_id_seq'::regclass);
-
-
---
--- Name: service_areasas id; Type: DEFAULT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.service_areasas ALTER COLUMN id SET DEFAULT nextval('public.service_areasas_id_seq'::regclass);
 
 
 --
@@ -1088,14 +1013,6 @@ ALTER TABLE ONLY public.file_uploads
 
 
 --
--- Name: flag_categories flag_categories_pkey; Type: CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.flag_categories
-    ADD CONSTRAINT flag_categories_pkey PRIMARY KEY (id);
-
-
---
 -- Name: flags flags_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -1165,14 +1082,6 @@ ALTER TABLE ONLY public.programs
 
 ALTER TABLE ONLY public.regular_schedules
     ADD CONSTRAINT regular_schedules_pkey PRIMARY KEY (id);
-
-
---
--- Name: service_areasas service_areasas_pkey; Type: CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.service_areasas
-    ADD CONSTRAINT service_areasas_pkey PRIMARY KEY (id);
 
 
 --
@@ -1310,13 +1219,6 @@ CREATE INDEX index_contacts_on_service_id ON public.contacts USING btree (servic
 --
 
 CREATE INDEX index_file_uploads_on_location_id ON public.file_uploads USING btree (location_id);
-
-
---
--- Name: index_flags_on_organization_id; Type: INDEX; Schema: public; Owner: -
---
-
-CREATE INDEX index_flags_on_organization_id ON public.flags USING btree (organization_id);
 
 
 --
@@ -1622,14 +1524,6 @@ ALTER TABLE ONLY public.file_uploads
 
 
 --
--- Name: flags fk_rails_f1ad691fb9; Type: FK CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.flags
-    ADD CONSTRAINT fk_rails_f1ad691fb9 FOREIGN KEY (organization_id) REFERENCES public.organizations(id);
-
-
---
 -- PostgreSQL database dump complete
 --
 
@@ -1699,10 +1593,6 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20190415152136'),
 ('20190429042119'),
 ('20200106144640'),
-('20200114164517'),
-('20200406124721'),
-('20200406133855'),
-('20200410004358'),
 ('20200410005234'),
 ('20200504145258'),
 ('20200504145923'),
@@ -1713,8 +1603,6 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20200616200024'),
 ('20200621223318'),
 ('20200629173821'),
-('20200707145838'),
-('20200710131642'),
-('20200710131654');
+('20200707145838');
 
 
