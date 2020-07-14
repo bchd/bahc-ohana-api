@@ -12,7 +12,7 @@ $(document).ready(function() {
       data: function(term, page) {
 
         return {
-          q: term,
+          q: { keyword: term }
         }
       },
       results: function(data, page) {
