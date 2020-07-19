@@ -9,6 +9,7 @@
         = t('admin.management.name')
       %th.data.email
         = t('admin.management.email')
+      %th.table-button.edit-admin &nbsp;
 
     - @super_admins.each do |super_admin|
       = render partial: 'super_admin_row', locals: { super_admin: super_admin }

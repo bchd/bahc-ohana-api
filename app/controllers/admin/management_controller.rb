@@ -12,7 +12,7 @@ class Admin
     def edit; end
 
     def update
-      @admin.update update_admin_params[:admin]
+      @admin.update(update_admin_params)
       redirect_to admin_management_index_path
     end
 
@@ -37,7 +37,9 @@ class Admin
     end
 
     def update_admin_params
-      params.permit(admin: [:name])
+      params['admin']['super_admin'] =
+        params['admin']['super_admin'] == '1' ? true : false
+      params.require(:admin).permit(:name, :super_admin)
     end
 
     def drop_admin_params

@@ -19,6 +19,10 @@
         %br
         = f.text_field :name, autofocus: true, autocomplete: 'name'
 
+      .field.name
+        = f.check_box :super_admin
+        = f.label :super_admin, "super admin"
+
       .actions
         = link_to t('admin.management.cancel'), admin_management_index_path, class: 'button button-light'
         = f.submit t('admin.management.save'), class: 'button button-small'
