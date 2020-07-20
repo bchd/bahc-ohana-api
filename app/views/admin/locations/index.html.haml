@@ -11,7 +11,7 @@
 .search-container
   = form_tag(admin_locations_path, method: :get, class: 'search-form') do
     .row.reset-space-around
-      %p.bold Location name
+      %p.bold Location name or ID
       = text_field_tag "q[keyword]", @search_terms[:keyword], class: 'form-control'
 
     .row.reset-space-around.mt-15
@@ -43,7 +43,7 @@
 %p
   - @locations.each do |location|
     %ul.location-result
-      = link_to location.second, edit_admin_location_path(location.third), class: "location-links"
+      = link_to "#{location.second} - #{location.first}", edit_admin_location_path(location.third), class: "location-links"
       - if location.last.present?
         %h5.archived-location-result Archived
   = paginate @locations

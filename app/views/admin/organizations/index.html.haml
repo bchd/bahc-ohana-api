@@ -12,7 +12,7 @@
 
 .search-container
   = form_tag(admin_organizations_path, method: :get, class: 'search-form') do
-    %p.bold Organization name
+    %p.bold Organization name or ID
     = text_field_tag "q[keyword]", @search_terms[:keyword], class: 'form-control'
     = submit_tag t('admin.buttons.search'), class: 'btn submit-button'
     = link_to t('admin.buttons.clear_filters'), admin_organizations_path, name: "commit", class: 'btn clear-filters-button'
@@ -28,5 +28,5 @@
 %p
   - @orgs.each do |org|
     %ul
-      = link_to org.second, edit_admin_organization_path(org.third), class: "link"
+      = link_to "#{org.second} - #{org.first}", edit_admin_organization_path(org.third), class: "link"
   = paginate @orgs
