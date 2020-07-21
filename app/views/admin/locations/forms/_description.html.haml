@@ -8,4 +8,4 @@
       = f.text_area :description, required: false, class: 'markdown-editor', class: 'form-control', value: @location.description.try(:gsub, /\n/, '\n')
 
 :javascript
-  var simplemde = new SimpleMDE({ element: $(".markdown-editor")[0] });
+  window.simplemde = window.simplemde || new SimpleMDE({ element: $(".markdown-editor")[0] });

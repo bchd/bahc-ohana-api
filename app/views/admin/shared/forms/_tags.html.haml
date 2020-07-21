@@ -8,7 +8,7 @@
 
 :javascript
   var tags = #{raw (Tag.pluck(:name)).to_json}
-  $(document).ready(function() {
+  $(document).on('turbolinks:load', function() {
     $("#taggable").select2({
       tags: tags,
       tokenSeparators: [', ']

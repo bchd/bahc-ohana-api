@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).on('turbolinks:load', function() {
   $('#service_service_areas').select2();
 
   $(".select-all-archive").change(function(){

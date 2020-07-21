@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).on('turbolinks:load', function() {
   var selected = {
     name: $('#location_organization').attr('name'),
     id: $('#location_organization').attr('org_id')
