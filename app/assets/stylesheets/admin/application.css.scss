@@ -221,10 +221,6 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  .archived-location-result {
-    color: $light-red;
-    font-weight: bolder;
-  }
 }
 
 .select-all-label {
@@ -238,7 +234,7 @@
   background-color: $light-red;
 }
 
-.archived-service-result {
+.archived-flag {
   color: $light-red;
   font-weight: bolder;
 }
