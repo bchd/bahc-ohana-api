@@ -41,7 +41,7 @@ class Organization < ApplicationRecord
 
   def self.with_name(keyword)
     if keyword.present?
-      where("organizations.name ILIKE ?", "%#{keyword}%")
+      where("organizations.id = ? OR organizations.name ILIKE ?", keyword.to_i, "%#{keyword}%" )
     else
       all
     end
