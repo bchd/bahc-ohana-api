@@ -68,7 +68,7 @@ class Service < ApplicationRecord
 
   def self.with_name(keyword)
     if keyword.present?
-      where("services.name ILIKE ?", "%#{keyword}%")
+      where("services.id = ? OR services.name ILIKE ?", keyword.to_i, "%#{keyword}%" )
     else
       all
     end

@@ -49,22 +49,23 @@ steps:
       ADMIN_APP_TOKEN: testing123
     commands:
       - apt-get update -qy && apt-get install apt-transport-https
-      - curl -sL https://deb.nodesource.com/setup_13.x | bash -
-      - apt-get update && apt-get install -y nodejs
-      - apt-get install -y libnss3
-      - apt install -y postgresql-client
+      - sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt stretch-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
+      - wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add -
+      - curl -sL https://deb.nodesource.com/setup_14.x | bash -
+      - apt-get update && apt-get install -y nodejs libnss3 postgresql-client-10
       - gem install bundler --conservative
       - bundle check || bundle install --jobs 20 --retry 5
       - cp config/drone.database.yml config/database.yml
       - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
       - apt-get install -y ./google-chrome-stable_current_amd64.deb
       - mkdir /chromedriver
-      - wget -q --continue -P /chromedriver "https://chromedriver.storage.googleapis.com/76.0.3809.126/chromedriver_linux64.zip"
+      - wget -q --continue -P /chromedriver "https://chromedriver.storage.googleapis.com/LATEST_RELEASE"
+      - wget -q --continue -P /chromedriver "https://chromedriver.storage.googleapis.com/$(cat /chromedriver/LATEST_RELEASE)/chromedriver_linux64.zip"
       - unzip /chromedriver/chromedriver* -d /chromedriver
       - PATH=/chromedriver:$PATH
       - chromedriver -v
       - sleep 15
-      - RAILS_ENV=test bundle exec rake db:create && bundle exec rake db:structure:load
+      - RAILS_ENV=test bundle exec rake db:create && bundle exec rake db:migrate
       - RAILS_ENV=test bundle exec rspec spec
 
 trigger:

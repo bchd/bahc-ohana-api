@@ -129,7 +129,7 @@ class Location < ApplicationRecord
 
   def self.with_name(keyword)
     if keyword.present?
-      where("locations.name ILIKE ?", "%#{keyword}%")
+      where("locations.id = ? OR locations.name ILIKE ?", keyword.to_i, "%#{keyword}%" )
     else
       all
     end

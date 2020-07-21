@@ -263,6 +263,7 @@ a.boxed-action:active {
   position: fixed;
   right: 0;
   text-align: center;
+  z-index: 10;
 
   input {
     margin-bottom: 20px;
