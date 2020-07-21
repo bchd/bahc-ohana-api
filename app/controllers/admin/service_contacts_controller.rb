@@ -15,7 +15,7 @@ class Admin
       @service = Service.find(params[:service_id])
       location = @service.location
 
-      authorize location
+      authorize @service
 
       if @contact.update(contact_params)
         flash[:notice] = 'Contact was successfully updated.'
@@ -28,7 +28,7 @@ class Admin
     def new
       @service = Service.find(params[:service_id])
 
-      authorize @service.location
+      authorize @service
 
       @contact = Contact.new
     end
@@ -38,7 +38,7 @@ class Admin
       @contact = @service.contacts.new(contact_params)
       location = @service.location
 
-      authorize location
+      authorize @service
 
       if @contact.save
         redirect_to admin_location_service_url(location, @service),
@@ -53,7 +53,7 @@ class Admin
       service = contact.service
       location = service.location
 
-      authorize location
+      authorize service
 
       contact.destroy
       redirect_to admin_location_service_url(location, service),

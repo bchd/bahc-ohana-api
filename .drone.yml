@@ -15,10 +15,10 @@ services:
     ports:
       - 5432
 
-#   - name: chrome
-#     image: robcherry/docker-chromedriver
-#     ports:
-#       - 4444
+  #   - name: chrome
+  #     image: robcherry/docker-chromedriver
+  #     ports:
+  #       - 4444
 
   - name: elasticsearch
     image: elasticsearch:5-alpine
@@ -54,19 +54,18 @@ steps:
       - apt-get update -qy && apt-get install apt-transport-https
       - sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt stretch-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
       - wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add -
-      - curl -sL https://deb.nodesource.com/setup_12.x | bash -
+      - curl -sL https://deb.nodesource.com/setup_14.x | bash -
       - curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
       - echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
-      - apt-get update && apt-get install -y nodejs yarn
-      - apt-get install -y libnss3
-      - apt-get install -y postgresql-client-10
+      - apt-get update && apt-get install -y nodejs yarn libnss3 postgresql-client-10
       - gem install bundler --conservative
       - bundle check || bundle install --jobs 20 --retry 5
       - cp config/drone.database.yml config/database.yml
       - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
       - apt-get install -y ./google-chrome-stable_current_amd64.deb
       - mkdir /chromedriver
-      - wget -q --continue -P /chromedriver "https://chromedriver.storage.googleapis.com/76.0.3809.126/chromedriver_linux64.zip"
+      - wget -q --continue -P /chromedriver "https://chromedriver.storage.googleapis.com/LATEST_RELEASE"
+      - wget -q --continue -P /chromedriver "https://chromedriver.storage.googleapis.com/$(cat /chromedriver/LATEST_RELEASE)/chromedriver_linux64.zip"
       - unzip /chromedriver/chromedriver* -d /chromedriver
       - PATH=/chromedriver:$PATH
       - chromedriver -v

@@ -10,10 +10,10 @@
   %p
     As a super admin, you have access to all services in the database. Please make updates responsibly.
 
-.search-container-multiple
+.search-container
   = form_tag(admin_services_path, method: :get, class: 'search-form') do
     .row.reset-space-around
-      %p.bold Keyword
+      %p.bold Service name or ID
       = text_field_tag "q[keyword]", @search_terms[:keyword], class: 'form-control'
 
     .row.reset-space-around.mt-15
@@ -52,7 +52,7 @@
           %ul
             - if service.archived_at.nil?
               = check_box_tag('archive[]', service.id, nil, class: "select-archive")
-            = link_to service.full_name, edit_admin_location_service_path(service.location_id, service.id), class: "link"
+            = link_to "#{service.full_name} - #{service.id}", edit_admin_location_service_path(service.location_id, service.id), class: "link"
             - if service.archived_at.present?
               %span.archived-service-result Archived
         = paginate @services
@@ -60,7 +60,8 @@
     %div
       - @services.each do |service|
         %ul
-          = link_to service.full_name, edit_admin_location_service_path(service.location_id, service.id), class: "link"
+          = puts service.inspect
+          = link_to "#{service.full_name} - #{service.id}", edit_admin_location_service_path(service.location_id, service.id), class: "link"
           - if service.archived_at.present?
             %span.archived-service-result Archived
       = paginate @services

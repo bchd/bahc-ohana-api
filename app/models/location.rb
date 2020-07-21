@@ -24,7 +24,7 @@ class Location < ApplicationRecord
         date = service.updated_at if service.updated_at > date
       end
     end
-    
+
     if services.any?
       services.each do |service|
         date = service.updated_at if service.updated_at > date
@@ -50,6 +50,9 @@ class Location < ApplicationRecord
                                 allow_destroy: true, reject_if: :all_blank
 
   has_many :services, dependent: :destroy
+
+  has_many :tag_resources, as: :resource
+  has_many :tags, through: :tag_resources
 
   has_many :regular_schedules, dependent: :destroy, inverse_of: :location
   accepts_nested_attributes_for :regular_schedules,
@@ -112,6 +115,42 @@ class Location < ApplicationRecord
 
   extend FriendlyId
   friendly_id :slug_candidates, use: [:history]
+
+  def self.updated_between(start_date, end_date)
+    query = where({})
+
+    if start_date.present?
+      query = query.where("locations.updated_at >= ?", start_date.to_datetime.beginning_of_day)
+    end
+
+    if end_date.present?
+      query = query.where("locations.updated_at <= ?", end_date.to_datetime.end_of_day)
+    end
+
+    query
+  end
+
+  def self.with_name(keyword)
+    if keyword.present?
+      where("locations.id = ? OR locations.name ILIKE ?", keyword.to_i, "%#{keyword}%" )
+    else
+      all
+    end
+  end
+
+  def self.with_tag(tag_id)
+    if tag_id.present?
+      joins(:tags).where(:tags => {:id => tag_id})
+    else
+      all
+    end
+  end
+
+  def self.with_email(email)
+    if email.present?
+      where("'#{email}' = ANY (admin_emails)")
+    end
+  end
 
   # Try building a slug based on the following fields in
   # increasing order of specificity.

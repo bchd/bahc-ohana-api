@@ -39,6 +39,14 @@ class Organization < ApplicationRecord
 
   after_save :touch_locations, if: :needs_touch?
 
+  def self.with_name(keyword)
+    if keyword.present?
+      where("organizations.id = ? OR organizations.name ILIKE ?", keyword.to_i, "%#{keyword}%" )
+    else
+      all
+    end
+  end
+
   private
 
   def needs_touch?
