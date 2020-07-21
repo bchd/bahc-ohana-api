@@ -13,6 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap-sprockets
-//= require select2-full
+//= require select2
 //= require simplemde.min
 //= require_tree .
