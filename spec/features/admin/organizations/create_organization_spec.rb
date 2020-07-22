@@ -101,7 +101,7 @@ feature 'Create a new organization' do
   scenario 'when adding a funding source', :js do
     fill_in 'organization_name', with: 'new org'
     fill_in 'organization_description', with: 'description for new org'
-    select2('State', 'organization_funding_sources', multiple: true)
+    fill_in(placeholder: I18n.t('admin.shared.forms.funding_sources.placeholder'), with: "State\n")
     click_button I18n.t('admin.buttons.create_organization')
     click_link 'new org'
 
