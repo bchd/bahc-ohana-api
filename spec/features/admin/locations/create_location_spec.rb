@@ -152,7 +152,10 @@ feature 'Create a new location' do
   end
 
   scenario 'when setting the virtual attribute', :js do
-    select2('Parent Agency', 'org-name')
+    find('.select2', text: I18n.t('admin.shared.forms.choose_org.placeholder')).click
+    all('input[type="search"]').last.fill_in(with: "Pare")
+    find("li", text: "Parent Agency").click
+
     fill_in 'location_name', with: 'New Parent Agency location'
     fill_in_editor_field 'new description'
     expect(page).to have_editor_display text: 'new description'

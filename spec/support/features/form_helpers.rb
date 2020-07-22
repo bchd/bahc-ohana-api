@@ -58,11 +58,11 @@ module Features
       find_link(I18n.t('admin.buttons.delete_admin'), match: :first).click
 
 
-      # NOTE: 
+      # NOTE:
       # Currently, we are getting this following Selenium error:
       #`````````````````````````````````````````````````````````1
       # Selenium::WebDriver::Error::ElementClickInterceptedError:
-      # element click intercepted: Element <input type="submit" name="commit" value="Save changes &amp; apply edits to database" class="btn btn-success" data-disable-with="Please wait..."> 
+      # element click intercepted: Element <input type="submit" name="commit" value="Save changes &amp; apply edits to database" class="btn btn-success" data-disable-with="Please wait...">
       # is not clickable at point (545, 563). Other element would receive the click: <div class="CodeMirror-scroll" tabindex="-1">...</div>
       #``````````````````````````````````````````````````````````
       # So added this hack temporarily but need a better way to fix this.
@@ -72,7 +72,10 @@ module Features
     end
 
     def fill_in_all_required_fields
-      select2('Parent Agency', 'org-name')
+      find('.select2', text: I18n.t('admin.shared.forms.choose_org.placeholder')).click
+      all('input[type="search"]').last.fill_in(with: "Pare")
+      find("li", text: "Parent Agency").click
+
       fill_in 'location_name', with: 'New Parent Agency location'
       fill_in_editor_field 'new description'
       expect(page).to have_editor_display text: 'new description'
@@ -85,7 +88,7 @@ module Features
     end
 
     def fill_in_editor_field(text)
-      within '.description' do 
+      within '.description' do
         within ".CodeMirror" do
           current_scope.click
           current_scope.find("textarea", visible: false).set(text)
