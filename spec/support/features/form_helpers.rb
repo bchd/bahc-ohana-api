@@ -101,43 +101,6 @@ module Features
       have_css(editor_display_locator, options)
     end
 
-    def select2(value, id, options = {})
-      set_select2_value(value, options[:multiple], first("#s2id_#{id}"))
-
-      page.execute_script(%|$('input.select2-input:visible').keyup();|)
-
-      find(:xpath, '//body').
-        find("#{drop_container(options[:tag])} li", text: value).click
-    end
-
-    def drop_container(tag_option)
-      return '.select2-results' unless tag_option == true
-
-      '.select2-drop'
-    end
-
-    def set_select2_value(value, multiple_option, container)
-      if multiple_option == true
-        set_multiple_select2_value(value, container)
-      else
-        set_single_select2_value(value, container)
-      end
-    end
-
-    def set_multiple_select2_value(value, container)
-      container.find('.select2-choices').click
-      within container do
-        find('input.select2-input').set(value)
-      end
-    end
-
-    def set_single_select2_value(value, container)
-      container.find('.select2-choice').click
-      within '.select2-search' do
-        find('input.select2-input').set(value)
-      end
-    end
-
     def add_two_keywords
       click_link I18n.t('admin.buttons.add_keyword')
       fill_in 'service[keywords][]', with: 'homeless'
