@@ -1,6 +1,8 @@
-class StripArray
+require 'set'
+
+class StripAndDedupArray
   def self.dump(arr)
-    coder.dump(arr.reject(&:blank?))
+    coder.dump(Set.new(arr.reject(&:blank?)).to_a)
   end
 
   def self.load(str)
@@ -62,9 +64,9 @@ class Service < ApplicationRecord
   auto_strip_attributes :funding_sources, :keywords, :service_areas,
                         reject_blank: true, nullify: false
 
-  serialize :funding_sources, StripArray
-  serialize :keywords, StripArray
-  serialize :service_areas, StripArray
+  serialize :funding_sources, StripAndDedupArray
+  serialize :keywords, StripAndDedupArray
+  serialize :service_areas, StripAndDedupArray
 
   def self.updated_between(start_date, end_date)
     query = where({})
