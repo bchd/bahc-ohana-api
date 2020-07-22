@@ -1,22 +1,17 @@
 $(document).on('turbolinks:load', function() {
-  var selected = {
-    name: $('#location_organization').attr('name'),
-    id: $('#location_organization').attr('org_id')
-  };
-
   $('#org-name').select2({
     minimumInputLength: 3,
+    placeholder: $(this).data('paceholder'),
     ajax: {
       url: $(this).data('url'),
       dataType: "json",
-      data: function(term, page) {
+      data: function(params) {
 
         return {
-          q: { keyword: term }
+          q: { keyword: params.term }
         }
       },
-      results: function(data, page) {
-
+      processResults: function(data) {
         return {
           results: $.map( data, function(org, i) {
             return { id: org[0], text: org[1] }
@@ -25,6 +20,4 @@ $(document).on('turbolinks:load', function() {
       }
     }
   });
-
- $('.select2-chosen').text(selected['name']);
 });

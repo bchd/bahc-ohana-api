@@ -58,11 +58,11 @@ module Features
       find_link(I18n.t('admin.buttons.delete_admin'), match: :first).click
 
 
-      # NOTE: 
+      # NOTE:
       # Currently, we are getting this following Selenium error:
       #`````````````````````````````````````````````````````````1
       # Selenium::WebDriver::Error::ElementClickInterceptedError:
-      # element click intercepted: Element <input type="submit" name="commit" value="Save changes &amp; apply edits to database" class="btn btn-success" data-disable-with="Please wait..."> 
+      # element click intercepted: Element <input type="submit" name="commit" value="Save changes &amp; apply edits to database" class="btn btn-success" data-disable-with="Please wait...">
       # is not clickable at point (545, 563). Other element would receive the click: <div class="CodeMirror-scroll" tabindex="-1">...</div>
       #``````````````````````````````````````````````````````````
       # So added this hack temporarily but need a better way to fix this.
@@ -72,7 +72,10 @@ module Features
     end
 
     def fill_in_all_required_fields
-      select2('Parent Agency', 'org-name')
+      find('.select2', text: I18n.t('admin.shared.forms.choose_org.placeholder')).click
+      all('input[type="search"]').last.fill_in(with: "Pare")
+      find("li", text: "Parent Agency").click
+
       fill_in 'location_name', with: 'New Parent Agency location'
       fill_in_editor_field 'new description'
       expect(page).to have_editor_display text: 'new description'
@@ -85,7 +88,7 @@ module Features
     end
 
     def fill_in_editor_field(text)
-      within '.description' do 
+      within '.description' do
         within ".CodeMirror" do
           current_scope.click
           current_scope.find("textarea", visible: false).set(text)
@@ -96,43 +99,6 @@ module Features
     def have_editor_display(options)
       editor_display_locator = ".CodeMirror-code"
       have_css(editor_display_locator, options)
-    end
-
-    def select2(value, id, options = {})
-      set_select2_value(value, options[:multiple], first("#s2id_#{id}"))
-
-      page.execute_script(%|$('input.select2-input:visible').keyup();|)
-
-      find(:xpath, '//body').
-        find("#{drop_container(options[:tag])} li", text: value).click
-    end
-
-    def drop_container(tag_option)
-      return '.select2-results' unless tag_option == true
-
-      '.select2-drop'
-    end
-
-    def set_select2_value(value, multiple_option, container)
-      if multiple_option == true
-        set_multiple_select2_value(value, container)
-      else
-        set_single_select2_value(value, container)
-      end
-    end
-
-    def set_multiple_select2_value(value, container)
-      container.find('.select2-choices').click
-      within container do
-        find('input.select2-input').set(value)
-      end
-    end
-
-    def set_single_select2_value(value, container)
-      container.find('.select2-choice').click
-      within '.select2-search' do
-        find('input.select2-input').set(value)
-      end
     end
 
     def add_two_keywords

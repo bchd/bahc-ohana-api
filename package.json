@@ -6,6 +6,7 @@
   "dependencies": {
     "@rails/webpacker": "4.2.2",
     "randomstring": "^1.1.5",
+    "select2": "^4.0.13",
     "turbolinks": "^5.2.0",
     "uppy": "^1.8.0"
   },

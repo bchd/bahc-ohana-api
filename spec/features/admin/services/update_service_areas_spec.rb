@@ -15,14 +15,13 @@ feature 'Update service areas' do
   end
 
   scenario 'with one service area', :js do
-    select2('Belmont', 'service_service_areas', multiple: true)
+    fill_in(placeholder: I18n.t('admin.services.forms.service_areas.placeholder'), with: "Belmont\n")
     click_button I18n.t('admin.buttons.save_changes')
     expect(@service.reload.service_areas).to eq ['Belmont']
   end
 
   scenario 'with two service areas', :js do
-    select2('Belmont', 'service_service_areas', multiple: true)
-    select2('Atherton', 'service_service_areas', multiple: true)
+    fill_in(placeholder: I18n.t('admin.services.forms.service_areas.placeholder'), with: "Belmont\nAtherton\n")
     click_button I18n.t('admin.buttons.save_changes')
     expect(@service.reload.service_areas).to eq %w[Atherton Belmont]
   end
@@ -31,9 +30,10 @@ feature 'Update service areas' do
     @service.update!(service_areas: %w[Atherton Belmont])
     visit '/admin/locations/vrs-services'
     click_link 'Literacy Program'
-    within '#s2id_service_service_areas' do
-      first('.select2-search-choice-close').click
-    end
+
+    atherton = find('li', text: 'Atherton')
+    atherton.find('span', text: "\u{00D7}").click
+
     click_button I18n.t('admin.buttons.save_changes')
     expect(@service.reload.service_areas).to eq ['Belmont']
   end
