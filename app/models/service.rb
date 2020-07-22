@@ -1,3 +1,17 @@
+class StripArray
+  def self.dump(arr)
+    coder.dump(arr.reject(&:blank?))
+  end
+
+  def self.load(str)
+    self.coder.load(str)
+  end
+
+  def self.coder
+    @coder ||= ActiveRecord::Coders::YAMLColumn.new(:service_strip_array_field, Array)
+  end
+end
+
 class Service < ApplicationRecord
   include HandleTags
 
@@ -48,9 +62,9 @@ class Service < ApplicationRecord
   auto_strip_attributes :funding_sources, :keywords, :service_areas,
                         reject_blank: true, nullify: false
 
-  serialize :funding_sources, Array
-  serialize :keywords, Array
-  serialize :service_areas, Array
+  serialize :funding_sources, StripArray
+  serialize :keywords, StripArray
+  serialize :service_areas, StripArray
 
   def self.updated_between(start_date, end_date)
     query = where({})
