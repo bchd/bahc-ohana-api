@@ -145,7 +145,7 @@ feature 'Create a new service' do
 
   scenario 'when adding a required document', :js do
     fill_in_required_service_fields
-    select2('Picture ID', 'service_required_documents', multiple: true)
+    fill_in(placeholder: I18n.t('admin.services.forms.required_documents.placeholder'), with: "Picture ID\n")
     click_button I18n.t('admin.buttons.create_service')
     click_link 'New VRS Services service'
 
