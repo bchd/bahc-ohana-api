@@ -269,6 +269,7 @@ en:
       forms:
         accreditations:
           description: 'You can enter multiple terms in this box by pressing the comma key after each one.'
+          placeholder: 'Select (or enter) one or more accreditations'
 
         date_incorporated:
           description: 'The date the organization was incorporated.'

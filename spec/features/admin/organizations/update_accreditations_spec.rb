@@ -7,21 +7,14 @@ feature 'Update accreditations' do
     visit '/admin/organizations/parent-agency'
   end
 
-  scenario 'when no accreditations exist', :js do
-    within '#s2id_organization_accreditations' do
-      expect(page).to have_no_css('.select2-search-choice-close')
-    end
-  end
-
   scenario 'with one accreditation', :js do
-    select2('Knight Foundation Grant', 'organization_accreditations', multiple: true, tag: true)
+    fill_in(placeholder: I18n.t('admin.organizations.forms.accreditations.placeholder'), with: "Knight Foundation Grant\n")
     click_button I18n.t('admin.buttons.save_changes')
     expect(@organization.reload.accreditations).to eq ['Knight Foundation Grant']
   end
 
   scenario 'with two accreditations', :js do
-    select2('first', 'organization_accreditations', multiple: true, tag: true)
-    select2('second', 'organization_accreditations', multiple: true, tag: true)
+    fill_in(placeholder: I18n.t('admin.organizations.forms.accreditations.placeholder'), with: "first,second\n")
     click_button I18n.t('admin.buttons.save_changes')
     expect(@organization.reload.accreditations).to eq %w[first second]
   end
@@ -29,9 +22,10 @@ feature 'Update accreditations' do
   scenario 'removing an accreditation', :js do
     @organization.update!(accreditations: %w[County Donations])
     visit '/admin/organizations/parent-agency'
-    within '#s2id_organization_accreditations' do
-      first('.select2-search-choice-close').click
-    end
+
+    county = find('li', text: 'County')
+    county.find('span', text: "\u{00D7}").click
+
     click_button I18n.t('admin.buttons.save_changes')
     expect(@organization.reload.accreditations).to eq ['Donations']
   end
