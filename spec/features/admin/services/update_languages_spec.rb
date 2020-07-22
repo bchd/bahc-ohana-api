@@ -29,9 +29,10 @@ feature 'Update languages' do
     @service.update!(languages: %w[Arabic French])
     visit '/admin/locations/vrs-services'
     click_link 'Literacy Program'
-    within '#s2id_service_languages' do
-      first('.select2-search-choice-close').click
-    end
+
+    arabic = find('li', text: 'Arabic')
+    arabic.find('span', text: "\u{00D7}").click
+
     click_button I18n.t('admin.buttons.save_changes')
     expect(@service.reload.languages).to eq ['French']
   end
