@@ -27,9 +27,9 @@ describe Service do
   end
   it { is_expected.to validate_presence_of(:status).with_message("can't be blank for Service") }
 
-  it { is_expected.to serialize(:funding_sources).as(Array) }
-  it { is_expected.to serialize(:keywords).as(Array) }
-  it { is_expected.to serialize(:service_areas).as(Array) }
+  it { is_expected.to serialize(:funding_sources).as(StripArray) }
+  it { is_expected.to serialize(:keywords).as(StripArray) }
+  it { is_expected.to serialize(:service_areas).as(StripArray) }
 
   it { is_expected.not_to allow_value('codeforamerica.org').for(:email) }
   it { is_expected.not_to allow_value('codeforamerica@org').for(:email) }

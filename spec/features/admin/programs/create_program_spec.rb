@@ -17,7 +17,6 @@ feature 'Create a new program' do
     expect(page).to have_content 'Program was successfully created.'
 
     click_link 'New Program'
-    click_link 'New Program'
     expect(find_field('program_name').value).to eq 'New Program'
   end
 
