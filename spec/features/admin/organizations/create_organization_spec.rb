@@ -123,8 +123,7 @@ feature 'Create a new organization' do
   scenario 'when adding multiple licenses', :js do
     fill_in 'organization_name', with: 'new org'
     fill_in 'organization_description', with: 'description for new org'
-    select2('first', 'organization_licenses', multiple: true, tag: true)
-    select2('second', 'organization_licenses', multiple: true, tag: true)
+    fill_in(placeholder: I18n.t('admin.organizations.forms.licenses.placeholder'), with: "first,second\n")
     click_button I18n.t('admin.buttons.create_organization')
 
     organization = Organization.find_by(name: 'new org')

@@ -281,6 +281,7 @@ en:
 
         licenses:
           description: 'You can enter multiple terms in this box by pressing the comma key after each one.'
+          placeholder: 'Select (or enter) one or more licenses'
 
         tax_id:
           description: 'Tax identifier such as the Federal Employer Identification Number.'
