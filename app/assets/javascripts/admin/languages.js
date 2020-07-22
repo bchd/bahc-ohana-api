@@ -1,3 +1,3 @@
 $(document).on('turbolinks:load', function() {
-  $('#location_languages,#service_languages').select2();
+  $('#location-language-select,#service_languages').select2();
 });

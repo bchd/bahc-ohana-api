@@ -168,11 +168,10 @@ feature 'Create a new location' do
 
   scenario 'when setting languages', :js do
     fill_in_all_required_fields
-    select2('French', 'location_languages', multiple: true)
-    select2('Spanish', 'location_languages', multiple: true)
+    fill_in(placeholder: I18n.t('admin.locations.forms.languages.placeholder'), with: "French\nSpanish\n")
     click_button I18n.t('admin.buttons.create_location')
 
-    expect(find_field('location_languages', visible: false).value).
+    expect(find_field('location-language-select', visible: false).value).
       to eq %w[French Spanish]
   end
 end
