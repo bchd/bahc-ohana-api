@@ -17,7 +17,7 @@ feature 'Create a new service' do
 
     expect(find_field('service_name').value).to eq 'New VRS Services service'
 
-    within '.CodeMirror' do 
+    within '.CodeMirror' do
       expect(current_scope).to have_content 'new description'
     end
   end
@@ -31,7 +31,7 @@ feature 'Create a new service' do
   scenario 'with alternate_name', :js do
     fill_in_required_service_fields
     fill_in 'service_alternate_name', with: 'Alternate name'
-    
+
     click_button I18n.t('admin.buttons.create_service')
     click_link 'New VRS Services service'
 
@@ -134,7 +134,7 @@ feature 'Create a new service' do
 
   scenario 'when adding a language', :js do
     fill_in_required_service_fields
-    select2('French', 'service_languages', multiple: true)
+    fill_in(placeholder: I18n.t('admin.services.forms.languages.placeholder'), with: "French\n")
     click_button I18n.t('admin.buttons.create_service')
     click_link 'New VRS Services service'
 
