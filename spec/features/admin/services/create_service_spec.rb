@@ -86,7 +86,7 @@ feature 'Create a new service' do
 
   scenario 'when adding a funding source', :js do
     fill_in_required_service_fields
-    select2('County', 'service_funding_sources', multiple: true)
+    fill_in(placeholder: I18n.t('admin.shared.forms.funding_sources.placeholder'), with: "County\n")
     click_button I18n.t('admin.buttons.create_service')
     click_link 'New VRS Services service'
 
