@@ -12,9 +12,6 @@ $(document).on('turbolinks:load', function() {
         }
       },
       processResults: function(data) {
-        console.log("ey")
-        console.log(data)
-
         return {
           results: $.map( data, function(org, i) {
             return { id: org[0], text: org[1] }
