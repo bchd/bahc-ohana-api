@@ -155,7 +155,7 @@ feature 'Create a new service' do
 
   scenario 'when adding a service area', :js do
     fill_in_required_service_fields
-    select2('Belmont', 'service_service_areas', multiple: true)
+    fill_in(placeholder: I18n.t('admin.services.forms.service_areas.placeholder'), with: "Belmont\n")
     click_button I18n.t('admin.buttons.create_service')
     click_link 'New VRS Services service'
 
