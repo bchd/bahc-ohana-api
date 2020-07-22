@@ -50,7 +50,6 @@ class Admin
     end
 
     def create
-      preprocess_organization_params
       @organization = Organization.new(org_params)
       authorize @organization
 
