@@ -92,6 +92,7 @@ class Location < ApplicationRecord
   validates :languages, pg_array: true
 
   validates :admin_emails, array: { email: true }
+  validates :admin_emails, pg_array: true
 
   validates :email, email: true, allow_blank: true
 
