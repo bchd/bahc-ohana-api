@@ -35,7 +35,7 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
 
-  config.action_mailer.default_url_options = { :host => "http://localhost:8080" }
+  config.action_mailer.default_url_options = { :host => (Figaro.env.domain_name ? "http://#{Figaro.env.domain_name}" : "http://localhost:8080") }
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
