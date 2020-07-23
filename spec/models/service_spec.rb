@@ -72,7 +72,6 @@ describe Service do
   describe 'auto_strip_attributes' do
     it 'strips extra whitespace before validation' do
       service = build(:service_with_extra_whitespace)
-      require 'pry'; binding.pry
       service.valid?
       expect(service.accepted_payments).to eq(%w[Cash Credit])
       expect(service.alternate_name).to eq('AKA')
