@@ -61,6 +61,23 @@ describe Admin::LocationsController do
     end
   end
 
+  describe 'archive' do
+    before(:each) do
+      @location = create(:location_with_admin)
+    end
+
+    context 'when admin is super admin' do
+      it 'archives a location' do
+        log_in_as_admin(:super_admin)
+
+        post(:archive, params: { archive: [@location.id] })
+
+        expect(response).to redirect_to admin_locations_url
+        expect(flash[:notice]).to include('Archive successful.')
+      end
+    end
+  end
+
   describe 'update' do
     before(:each) do
       @loc = create(:location_with_admin)

@@ -72,6 +72,7 @@ Rails.application.routes.draw do
       get 'analytics', to: 'analytics#index'
       post 'analytics', to: 'analytics#update'
       post 'services', to: 'services#archive'
+      post 'locations/archive', to: 'locations#archive'
     end
   end
 
