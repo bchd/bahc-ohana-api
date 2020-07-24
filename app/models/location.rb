@@ -108,7 +108,7 @@ class Location < ApplicationRecord
   auto_strip_attributes :description, :email, :name, :short_desc,
                         :transportation, :website
 
-  auto_strip_attributes :admin_emails, reject_blank: true, nullify: false
+  auto_strip_attributes :admin_emails, reject_blank: true, nullify_array: false
 
   extend FriendlyId
   friendly_id :slug_candidates, use: [:history]
