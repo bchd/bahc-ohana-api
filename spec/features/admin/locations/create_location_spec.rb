@@ -23,7 +23,7 @@ feature 'Create a new location' do
     expect(find_field('location_address_attributes_postal_code').value).to eq '12345'
   end
 
-  scenario 'without any required fields' do
+  scenario 'without any required fields', :js do
     click_button I18n.t('admin.buttons.create_location')
     expect(page).to have_content 'Street Address must be provided unless a Location is virtual'
     expect(page).to have_content "Description can't be blank for Location"

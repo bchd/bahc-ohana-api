@@ -10,10 +10,6 @@ feature 'Update service areas' do
     click_link 'Literacy Program'
   end
 
-  scenario 'when no service areas exist', :js do
-    expect(page).to have_no_css('.select2-search-choice-close')
-  end
-
   scenario 'with one service area', :js do
     fill_in(placeholder: I18n.t('admin.services.forms.service_areas.placeholder'), with: "Belmont\n")
     click_button I18n.t('admin.buttons.save_changes')

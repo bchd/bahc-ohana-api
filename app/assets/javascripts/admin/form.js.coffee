@@ -1,4 +1,4 @@
-jQuery ->
+jQuery(document).on "turbolinks:load": ->
   $('.edit-entry').on 'click', '.delete_association', (event) ->
     $(this).prevAll('input[type=hidden]').val('1')
     $(this).closest('fieldset').hide()
