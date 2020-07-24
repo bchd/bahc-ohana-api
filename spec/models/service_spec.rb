@@ -27,9 +27,9 @@ describe Service do
   end
   it { is_expected.to validate_presence_of(:status).with_message("can't be blank for Service") }
 
-  it { is_expected.to serialize(:funding_sources).as(Array) }
-  it { is_expected.to serialize(:keywords).as(Array) }
-  it { is_expected.to serialize(:service_areas).as(Array) }
+  it { is_expected.to serialize(:funding_sources).as(StripAndDedupArray) }
+  it { is_expected.to serialize(:keywords).as(StripAndDedupArray) }
+  it { is_expected.to serialize(:service_areas).as(StripAndDedupArray) }
 
   it { is_expected.not_to allow_value('codeforamerica.org').for(:email) }
   it { is_expected.not_to allow_value('codeforamerica@org').for(:email) }
@@ -72,6 +72,7 @@ describe Service do
   describe 'auto_strip_attributes' do
     it 'strips extra whitespace before validation' do
       service = build(:service_with_extra_whitespace)
+      require 'pry'; binding.pry
       service.valid?
       expect(service.accepted_payments).to eq(%w[Cash Credit])
       expect(service.alternate_name).to eq('AKA')
