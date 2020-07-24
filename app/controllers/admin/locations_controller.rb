@@ -31,7 +31,6 @@ class Admin
     def update
       @location = Location.find(params[:id])
       @location.assign_attributes(location_params)
-      @location.description = simple_format(@location.description, {}, {})
       @org = @location.organization
 
       authorize @location
