@@ -72,7 +72,16 @@
       padding-right: 30px;
 
       &.name {
-        width: 15%;
+        width: 20%;
+      }
+      &.email {
+        width: 20%;
+      }
+      &.locations {
+        width: 40%;
+      }
+      &.full-locations {
+        width: 80%;
       }
     }
     td.table-button {
