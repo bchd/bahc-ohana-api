@@ -81,8 +81,10 @@ class Admin
     # rubocop:disable Metrics/MethodLength
     def org_autocomplete_field_for(form, admin)
       if admin.super_admin?
-        form.hidden_field(
+        form.select(
           :organization_id,
+          [],
+          {},
           id: 'org-name',
           class: 'form-control',
           data: { 'ajax-url' => admin_organizations_url,

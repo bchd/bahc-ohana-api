@@ -6,6 +6,7 @@
       %meta{ content: content_for?(:description) ? yield(:description) : "An open-source API of human services and other organizations in #{t('admin.api_location')}", name: 'description' }
         = favicon_link_tag 'CHARMcareFavicon.png', rel: 'icon', type: 'image/png'
         = stylesheet_link_tag 'application', media: 'all'
+        = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
         = csrf_meta_tags
         = yield(:head)
   %body{ class: "#{controller_name} #{action_name}" }
@@ -16,4 +17,3 @@
           .row
             = render 'shared/messages'
             = yield
-    = javascript_include_tag 'application'

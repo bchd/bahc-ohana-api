@@ -76,8 +76,7 @@ feature 'Visiting a specific location' do
       login_super_admin
       visit('/admin/locations/new')
       expect(page).to have_css(
-        'input#org-name[type="hidden"][data-placeholder="Choose an organization"]',
-        visible: false
+        %(select#org-name[data-placeholder="#{I18n.t('admin.shared.forms.choose_org.placeholder')}"])
       )
     end
   end

@@ -26,6 +26,8 @@ RSpec.configure do |config|
   # the seed, which is printed after each run.
   #     --seed 1234
   config.order = :random
+  config.tty = true
+  config.color = true
 
   config.after(:suite) do
     if File.exist?(Rails.root.join('tmp', 'archive.zip'))

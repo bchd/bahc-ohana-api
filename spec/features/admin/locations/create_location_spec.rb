@@ -23,7 +23,7 @@ feature 'Create a new location' do
     expect(find_field('location_address_attributes_postal_code').value).to eq '12345'
   end
 
-  scenario 'without any required fields' do
+  scenario 'without any required fields', :js do
     click_button I18n.t('admin.buttons.create_location')
     expect(page).to have_content 'Street Address must be provided unless a Location is virtual'
     expect(page).to have_content "Description can't be blank for Location"
@@ -152,7 +152,10 @@ feature 'Create a new location' do
   end
 
   scenario 'when setting the virtual attribute', :js do
-    select2('Parent Agency', 'org-name')
+    find('.select2', text: I18n.t('admin.shared.forms.choose_org.placeholder')).click
+    all('input[type="search"]').last.fill_in(with: "Pare")
+    find("li", text: "Parent Agency").click
+
     fill_in 'location_name', with: 'New Parent Agency location'
     fill_in_editor_field 'new description'
     expect(page).to have_editor_display text: 'new description'
@@ -165,11 +168,10 @@ feature 'Create a new location' do
 
   scenario 'when setting languages', :js do
     fill_in_all_required_fields
-    select2('French', 'location_languages', multiple: true)
-    select2('Spanish', 'location_languages', multiple: true)
+    fill_in(placeholder: I18n.t('admin.locations.forms.languages.placeholder'), with: "French\nSpanish\n")
     click_button I18n.t('admin.buttons.create_location')
 
-    expect(find_field('location_languages', visible: false).value).
+    expect(find_field('location-language-select', visible: false).value).
       to eq %w[French Spanish]
   end
 end

@@ -19,6 +19,17 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
+# The following keys must be escaped otherwise they will not be retrieved by
+# the default I18n backend:
+#
+# true, false, on, off, yes, no
+#
+# Instead, surround them with single quotes.
+#
+# en:
+#   'true': 'foo'
+#
+
 en:
   service:
     wait_time:
@@ -202,6 +213,9 @@ en:
         description:
           description: "A description of the location's services. Use '<br>' for line breaks."
 
+        file_upload:
+          description: 'Upload a pdf file to attach to this location.'
+
         languages:
           placeholder: 'Select one or more languages'
 
@@ -259,6 +273,7 @@ en:
       forms:
         accreditations:
           description: 'You can enter multiple terms in this box by pressing the comma key after each one.'
+          placeholder: 'Select (or enter) one or more accreditations'
 
         date_incorporated:
           description: 'The date the organization was incorporated.'
@@ -271,6 +286,7 @@ en:
 
         licenses:
           description: 'You can enter multiple terms in this box by pressing the comma key after each one.'
+          placeholder: 'Select (or enter) one or more licenses'
 
         tax_id:
           description: 'Tax identifier such as the Federal Employer Identification Number.'
@@ -314,6 +330,7 @@ en:
             cannot be part of the description, such as common misspellings, then the
             keywords field is where you can add them. You can enter multiple
             keywords in this box by pressing the comma key after each one.
+          placeholder: 'Type keywords'
 
         languages:
           placeholder: :admin.locations.forms.languages.placeholder
@@ -336,9 +353,9 @@ en:
           description: 'How long on average does a client need to wait to receive services?'
 
       capacity:
-        update_status: "Update Status"
-        capacity_status: "Capacity Status"
-        last_updated: "Last updated "
+        update_status: 'Update Status'
+        capacity_status: 'Capacity Status'
+        last_updated: 'Last updated '
 
     shared:
       forms:
@@ -358,24 +375,24 @@ en:
   enumerize:
     location:
       accessibility:
-        cd: "Information on CD"
-        deaf_interpreter: "Interpreter for the deaf"
-        disabled_parking: "Disabled Parking"
-        elevator: "Elevator"
-        ramp: "Ramp"
-        restroom: "Disabled Restroom"
-        tape_braille: "Information on tape or in Braille"
-        tty: "TTY"
-        wheelchair: "Wheelchair"
-        wheelchair_van: "Wheelchair-accessible van"
+        cd: 'Information on CD'
+        deaf_interpreter: 'Interpreter for the deaf'
+        disabled_parking: 'Disabled Parking'
+        elevator: 'Elevator'
+        ramp: 'Ramp'
+        restroom: 'Disabled Restroom'
+        tape_braille: 'Information on tape or in Braille'
+        tty: 'TTY'
+        wheelchair: 'Wheelchair'
+        wheelchair_van: 'Wheelchair-accessible van'
 
     phone:
       number_type:
-        fax: "Fax"
-        hotline: "Hotline"
-        sms: "SMS"
-        tty: "TTY"
-        voice: "Voice"
+        fax: 'Fax'
+        hotline: 'Hotline'
+        sms: 'SMS'
+        tty: 'TTY'
+        voice: 'Voice'
 
   errors:
     messages:
@@ -400,7 +417,7 @@ en:
       invalid_url: 'is not a valid URL'
       invalid_weekday: 'is not a valid weekday'
       invalid_zip: 'is not a valid ZIP code'
-      no_address: "must be provided unless a Location is virtual"
+      no_address: 'must be provided unless a Location is virtual'
       not_an_array: 'is not an Array.'
 
   helpers:
@@ -436,9 +453,9 @@ en:
         password_confirmation: 'Confirm password'
 
   titles:
-    brand: "CHARMcare Data"
-    admin: "Data Admin"
-    developer: "Data Developers"
+    brand: 'CHARMcare Data'
+    admin: 'Data Admin'
+    developer: 'Data Developers'
 
   navigation:
     edit_account: 'Edit account'

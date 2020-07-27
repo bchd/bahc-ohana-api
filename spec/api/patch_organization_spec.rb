@@ -76,17 +76,6 @@ describe 'PATCH /organizations/:id' do
       to eq('name' => ["can't be blank for Organization"])
   end
 
-  it 'returns 404 when id is missing' do
-    patch(
-      api_organizations_url(subdomain: ENV['API_SUBDOMAIN']),
-      description: ''
-    )
-    expect(response.status).to eq(404)
-    expect(json['message']).to eq('The requested resource could not be found.')
-    expect(json['documentation_url']).
-      to eq('http://codeforamerica.github.io/ohana-api-docs/')
-  end
-
   it 'updates the search index when organization name changes' do
     patch(
       api_organization_url(@org, subdomain: ENV['API_SUBDOMAIN']),

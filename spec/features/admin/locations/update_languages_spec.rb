@@ -13,14 +13,13 @@ feature 'Update languages' do
   end
 
   scenario 'with one language', :js do
-    select2('French', 'location_languages', multiple: true)
+    fill_in(placeholder: I18n.t('admin.locations.forms.languages.placeholder'), with: "French\n")
     click_button I18n.t('admin.buttons.save_changes')
     expect(@location.reload.languages).to eq ['French']
   end
 
   scenario 'with two languages', :js do
-    select2('French', 'location_languages', multiple: true)
-    select2('Spanish', 'location_languages', multiple: true)
+    fill_in(placeholder: I18n.t('admin.locations.forms.languages.placeholder'), with: "French\nSpanish\n")
     click_button I18n.t('admin.buttons.save_changes')
     expect(@location.reload.languages).to eq %w[French Spanish]
   end
@@ -28,7 +27,10 @@ feature 'Update languages' do
   scenario 'removing a language', :js do
     @location.update!(languages: %w[Arabic French])
     visit '/admin/locations/vrs-services'
-    first('.select2-search-choice-close').click
+
+    arabic = find('li', text: 'Arabic')
+    arabic.find('span', text: "\u{00D7}").click
+
     click_button I18n.t('admin.buttons.save_changes')
     expect(@location.reload.languages).to eq ['French']
   end

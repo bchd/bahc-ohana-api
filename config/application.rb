@@ -2,6 +2,7 @@ require File.expand_path('boot', __dir__)
 
 # Pick the frameworks you want:
 require 'active_record/railtie'
+require 'active_storage/engine'
 require 'action_controller/railtie'
 require 'action_mailer/railtie'
 require 'sprockets/railtie'
@@ -62,5 +63,13 @@ module OhanaApi
     config.action_controller.per_form_csrf_tokens = true
 
     config.active_record.time_zone_aware_types = [:datetime]
+
+    config.upload_server = if ENV["UPLOAD_SERVER"].present?
+      ENV["UPLOAD_SERVER"].to_sym
+    elsif Rails.env.production?
+      :s3_multipart
+    else
+      :app
+    end
   end
 end

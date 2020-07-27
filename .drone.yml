@@ -15,10 +15,10 @@ services:
     ports:
       - 5432
 
-#   - name: chrome
-#     image: robcherry/docker-chromedriver
-#     ports:
-#       - 4444
+  #   - name: chrome
+  #     image: robcherry/docker-chromedriver
+  #     ports:
+  #       - 4444
 
   - name: elasticsearch
     image: elasticsearch:5-alpine
@@ -26,13 +26,16 @@ services:
       - 9200
 
 steps:
+  - name: node module install
+    image: node:12.18.1
+    commands:
+      - yarn install
   - name: test
     image: alpine:3.8
     commands:
       - apk add curl
       - sleep 20
       - curl http://elasticsearch:9200
-
   - name: tests
     image: ruby:2.5.3
     environment:
@@ -52,7 +55,9 @@ steps:
       - sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt stretch-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
       - wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add -
       - curl -sL https://deb.nodesource.com/setup_14.x | bash -
-      - apt-get update && apt-get install -y nodejs libnss3 postgresql-client-10
+      - curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
+      - echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
+      - apt-get update && apt-get install -y nodejs yarn libnss3 postgresql-client-10
       - gem install bundler --conservative
       - bundle check || bundle install --jobs 20 --retry 5
       - cp config/drone.database.yml config/database.yml
@@ -66,7 +71,8 @@ steps:
       - chromedriver -v
       - sleep 15
       - RAILS_ENV=test bundle exec rake db:create && bundle exec rake db:migrate
-      - RAILS_ENV=test bundle exec rspec spec
+      - RAILS_ENV=test bundle exec rails webpacker:compile
+      - RAILS_ENV=test bundle exec rspec spec --format documentation
 
 trigger:
   event:
