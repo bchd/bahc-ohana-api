@@ -3,6 +3,7 @@ class Admin
     class SuperAdminsController < Admin::ManagementController
 
       def index
+        @search_terms = params[:search]
         @super_admins = AdminsSearch.new(
           super_admin: true,
           search_keywords: params[:search],
