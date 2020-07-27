@@ -28,6 +28,14 @@ class Admin
       authorize @location
     end
 
+    def archive
+      if params[:archive].present?
+        archive_selected_locations
+      else
+        redirect_to admin_services_url, alert: 'No services selected'
+      end
+    end
+
     def update
       @location = Location.find(params[:id])
       @location.assign_attributes(location_params)
@@ -79,6 +87,19 @@ class Admin
     end
 
     private
+
+    def archive_selected_locations
+      Location.transaction do
+        Location.find(params[:archive]).each do |location|
+          location.update!(archived_at: Time.zone.now)
+        end
+      end
+      redirect_to admin_locations_url,
+                  notice: 'Archive successful.'
+    rescue ActiveRecord::RecordInvalid => e
+      redirect_to admin_locations_url,
+                  error: "Could not archive #{e.record.name}. Please deselect and try again."
+    end
 
     # rubocop:disable MethodLength
     def location_params
