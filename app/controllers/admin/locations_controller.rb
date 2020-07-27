@@ -39,13 +39,11 @@ class Admin
     def update
       @location = Location.find(params[:id])
       @location.assign_attributes(location_params)
-      @location.description = simple_format(@location.description, {}, {})
       @org = @location.organization
 
       authorize @location
 
-      if @location.update(location_params)
-
+      if @location.save
         redirect_to [:admin, @location],
                     notice: 'Location was successfully updated.'
       else

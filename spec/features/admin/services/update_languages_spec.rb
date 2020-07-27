@@ -14,14 +14,13 @@ feature 'Update languages' do
   end
 
   scenario 'with one language', :js do
-    select2('French', 'service_languages', multiple: true)
+    fill_in(placeholder: I18n.t('admin.services.forms.languages.placeholder'), with: "French\n")
     click_button I18n.t('admin.buttons.save_changes')
     expect(@service.reload.languages).to eq ['French']
   end
 
   scenario 'with two languages', :js do
-    select2('French', 'service_languages', multiple: true)
-    select2('Spanish', 'service_languages', multiple: true)
+    fill_in(placeholder: I18n.t('admin.services.forms.languages.placeholder'), with: "French\nSpanish\n")
     click_button I18n.t('admin.buttons.save_changes')
     expect(@service.reload.languages).to eq %w[French Spanish]
   end
@@ -30,9 +29,10 @@ feature 'Update languages' do
     @service.update!(languages: %w[Arabic French])
     visit '/admin/locations/vrs-services'
     click_link 'Literacy Program'
-    within '#s2id_service_languages' do
-      first('.select2-search-choice-close').click
-    end
+
+    arabic = find('li', text: 'Arabic')
+    arabic.find('span', text: "\u{00D7}").click
+
     click_button I18n.t('admin.buttons.save_changes')
     expect(@service.reload.languages).to eq ['French']
   end

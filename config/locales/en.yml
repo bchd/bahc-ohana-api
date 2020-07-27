@@ -273,6 +273,7 @@ en:
       forms:
         accreditations:
           description: 'You can enter multiple terms in this box by pressing the comma key after each one.'
+          placeholder: 'Select (or enter) one or more accreditations'
 
         date_incorporated:
           description: 'The date the organization was incorporated.'
@@ -285,6 +286,7 @@ en:
 
         licenses:
           description: 'You can enter multiple terms in this box by pressing the comma key after each one.'
+          placeholder: 'Select (or enter) one or more licenses'
 
         tax_id:
           description: 'Tax identifier such as the Federal Employer Identification Number.'
@@ -328,6 +330,7 @@ en:
             cannot be part of the description, such as common misspellings, then the
             keywords field is where you can add them. You can enter multiple
             keywords in this box by pressing the comma key after each one.
+          placeholder: 'Type keywords'
 
         languages:
           placeholder: :admin.locations.forms.languages.placeholder
