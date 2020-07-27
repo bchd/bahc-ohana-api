@@ -67,6 +67,7 @@ GEM
       public_suffix (>= 2.0.2, < 5.0)
     ancestry (3.0.7)
       activerecord (>= 3.2.0)
+
     archive-zip (0.12.0)
       io-like (~> 0.3.0)
     arel (9.0.0)
@@ -120,9 +121,6 @@ GEM
       elasticsearch (>= 2.0.0)
       elasticsearch-dsl
     childprocess (3.0.0)
-    chromedriver-helper (2.1.1)
-      archive-zip (~> 0.10)
-      nokogiri (~> 1.8)
     cliver (0.3.2)
     coderay (1.1.3)
     coffee-rails (4.2.2)
@@ -483,7 +481,6 @@ DEPENDENCIES
   byebug
   capybara
   chewy
-  chromedriver-helper
   coffee-rails (~> 4.1)
   csv_shaper
   dalli
