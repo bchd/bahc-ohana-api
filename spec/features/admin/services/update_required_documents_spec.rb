@@ -14,14 +14,13 @@ feature 'Update required_documents' do
   end
 
   scenario 'with one required document', :js do
-    select2('Bank Statement', 'service_required_documents', multiple: true)
+    fill_in(placeholder: I18n.t('admin.services.forms.required_documents.placeholder'), with: "Bank Statement\n")
     click_button I18n.t('admin.buttons.save_changes')
     expect(@service.reload.required_documents).to eq ['Bank Statement']
   end
 
   scenario 'with two required_documents', :js do
-    select2('Bank Statement', 'service_required_documents', multiple: true)
-    select2('Picture ID', 'service_required_documents', multiple: true)
+    fill_in(placeholder: I18n.t('admin.services.forms.required_documents.placeholder'), with: "Bank Statement\nPicture ID\n")
     click_button I18n.t('admin.buttons.save_changes')
     expect(@service.reload.required_documents).to eq ['Bank Statement', 'Picture ID']
   end
@@ -30,9 +29,10 @@ feature 'Update required_documents' do
     @service.update!(required_documents: ['Bank Statement', 'Picture ID'])
     visit '/admin/locations/vrs-services'
     click_link 'Literacy Program'
-    within '#s2id_service_required_documents' do
-      first('.select2-search-choice-close').click
-    end
+
+    banks_satement_choice = find('li', text: 'Bank Statement')
+    banks_satement_choice.find('span', text: "\u{00D7}").click
+
     click_button I18n.t('admin.buttons.save_changes')
     expect(@service.reload.required_documents).to eq ['Picture ID']
   end

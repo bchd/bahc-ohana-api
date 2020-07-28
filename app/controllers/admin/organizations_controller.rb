@@ -3,7 +3,6 @@ class Admin
     before_action :authenticate_admin!
     layout 'admin'
 
-    include Taggable
     include Searchable
 
     def index
@@ -36,7 +35,6 @@ class Admin
       @organization = Organization.find(params[:id])
 
       authorize @organization
-      preprocess_organization_params
 
       if @organization.update(org_params)
         redirect_to [:admin, @organization],
@@ -52,7 +50,6 @@ class Admin
     end
 
     def create
-      preprocess_organization_params
       @organization = Organization.new(org_params)
       authorize @organization
 
@@ -72,10 +69,6 @@ class Admin
     end
 
     private
-
-    def preprocess_organization_params
-      shift_and_split_params(params[:organization], :accreditations, :licenses)
-    end
 
     def org_params
       params.require(:organization).permit(

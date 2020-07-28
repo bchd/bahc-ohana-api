@@ -65,6 +65,8 @@ CREATE FUNCTION public.fill_search_vector_for_location() RETURNS trigger
 
 SET default_tablespace = '';
 
+SET default_with_oids = false;
+
 --
 -- Name: addresses; Type: TABLE; Schema: public; Owner: -
 --
@@ -278,6 +280,37 @@ CREATE SEQUENCE public.contacts_id_seq
 --
 
 ALTER SEQUENCE public.contacts_id_seq OWNED BY public.contacts.id;
+
+
+--
+-- Name: file_uploads; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.file_uploads (
+    id bigint NOT NULL,
+    location_id bigint,
+    file_name character varying,
+    image_data text
+);
+
+
+--
+-- Name: file_uploads_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.file_uploads_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: file_uploads_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.file_uploads_id_seq OWNED BY public.file_uploads.id;
 
 
 --
@@ -826,6 +859,13 @@ ALTER TABLE ONLY public.contacts ALTER COLUMN id SET DEFAULT nextval('public.con
 
 
 --
+-- Name: file_uploads id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.file_uploads ALTER COLUMN id SET DEFAULT nextval('public.file_uploads_id_seq'::regclass);
+
+
+--
 -- Name: flags id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -962,6 +1002,14 @@ ALTER TABLE ONLY public.categories
 
 ALTER TABLE ONLY public.contacts
     ADD CONSTRAINT contacts_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: file_uploads file_uploads_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.file_uploads
+    ADD CONSTRAINT file_uploads_pkey PRIMARY KEY (id);
 
 
 --
@@ -1164,6 +1212,13 @@ CREATE INDEX index_contacts_on_organization_id ON public.contacts USING btree (o
 --
 
 CREATE INDEX index_contacts_on_service_id ON public.contacts USING btree (service_id);
+
+
+--
+-- Name: index_file_uploads_on_location_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_file_uploads_on_location_id ON public.file_uploads USING btree (location_id);
 
 
 --
@@ -1461,6 +1516,14 @@ CREATE TRIGGER locations_search_content_trigger BEFORE INSERT OR UPDATE ON publi
 
 
 --
+-- Name: file_uploads fk_rails_6d6cd32ed7; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.file_uploads
+    ADD CONSTRAINT fk_rails_6d6cd32ed7 FOREIGN KEY (location_id) REFERENCES public.locations(id);
+
+
+--
 -- PostgreSQL database dump complete
 --
 
@@ -1538,8 +1601,8 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20200611115557'),
 ('20200614183600'),
 ('20200616200024'),
-('20200621214426'),
-('20200621222659'),
-('20200621223318');
+('20200621223318'),
+('20200629173821'),
+('20200707145838');
 
 

@@ -94,14 +94,6 @@ describe 'PATCH /locations/:id)' do
       to eq('description' => ["can't be blank for Location"])
   end
 
-  it 'returns 404 when id is missing' do
-    patch api_locations_url(subdomain: ENV['API_SUBDOMAIN']),
-          description: ''
-
-    expect(response.status).to eq(404)
-    expect(json['message']).to eq('The requested resource could not be found.')
-  end
-
   it 'updates the search index when location changes' do
     patch api_location_url(@loc, subdomain: ENV['API_SUBDOMAIN']),
           name: 'changeme'

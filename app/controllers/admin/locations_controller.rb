@@ -38,13 +38,12 @@ class Admin
 
     def update
       @location = Location.find(params[:id])
-      @location.description = simple_format(@location.description, {}, {})
+      @location.assign_attributes(location_params)
       @org = @location.organization
 
       authorize @location
 
-      if @location.update(location_params)
-
+      if @location.save
         redirect_to [:admin, @location],
                     notice: 'Location was successfully updated.'
       else
@@ -114,7 +113,8 @@ class Admin
           country_prefix department extension number number_type vanity_number id _destroy
         ],
         regular_schedules_attributes: %i[weekday opens_at closes_at id _destroy],
-        holiday_schedules_attributes: %i[closed start_date end_date opens_at closes_at id _destroy]
+        holiday_schedules_attributes: %i[closed start_date end_date opens_at closes_at id _destroy],
+        file_uploads_attributes: {}
       )
     end
 
