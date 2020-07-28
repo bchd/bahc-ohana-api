@@ -5,7 +5,7 @@ class AdminsSearch
   PER_PAGE = 30
 
   attribute :super_admin, type: Boolean
-  attribute :search_keywords, type: String
+  attribute :search_terms, type: String
 
   attribute :page, type: String
   attribute :per_page, type: String
@@ -42,14 +42,39 @@ class AdminsSearch
     end
   end
 
+  # top level "must" because of interaction with super_admin_filter
+  # see bool docs for why "should" is ignored with filter:
+  # https://www.elastic.co/guide/en/elasticsearch/reference/5.6/query-dsl-bool-query.html
   def search_query
-    if search_keywords?
-      index.query(multi_match: {
-                    query: search_keywords,
-                    fields: %w[name email],
-                    analyzer: 'standard',
-                    fuzziness: 'AUTO'
-                  })
+    if search_terms?
+      index.query(
+        bool: {
+          must: [
+            {
+              bool: {
+                should: [
+                  {
+                    match: {
+                      name: {
+                        query: search_terms,
+                        analyzer: "standard",
+                        fuzziness: "AUTO"
+                      }
+                    }
+                  },
+                  {
+                    term: {
+                      email: {
+                        value: search_terms
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      )
     end
   end
 

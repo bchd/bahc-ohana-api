@@ -9,7 +9,7 @@
     = form_tag(admin_management_admins_path, method: :get, class: 'search-form') do
       = text_field_tag "search", @search_terms, placeholder: "search name or email", class: 'form-control'
       = submit_tag t('admin.buttons.search'), class: 'btn submit-button'
-      = link_to t('admin.buttons.clear_filters'), admin_management_admins_path, name: "commit", class: 'btn clear-filters-button'
+      = link_to t('admin.buttons.clear_search'), admin_management_admins_path, name: "commit", class: 'btn clear-filters-button'
 
   - if @admins.length < 1
     %div.admin-search
