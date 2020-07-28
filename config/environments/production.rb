@@ -1,6 +1,10 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  # This setting enables the use of subdomains on Heroku.
+  # See config/settings.yml for more details.
+  config.action_dispatch.tld_length = ENV['TLD_LENGTH'].to_i
+
   # Code is not reloaded between requests.
   config.cache_classes = true
 
