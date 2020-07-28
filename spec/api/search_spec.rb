@@ -506,7 +506,7 @@ describe "GET 'search'" do
     end
 
     it "should return correct location if query is 'acheive'" do
-      @loc1.update!(description: 'achieve word in description')
+      @loc1.update_columns(description: 'achieve word in description', slug: 'www.example.com')
       LocationsIndex.reset!
 
       get api_search_index_url(keyword: 'acheive')

@@ -195,6 +195,7 @@ en:
       download_services: 'Download Services'
       search: 'Search'
       clear_filters: 'Clear Filters'
+      clear_search: 'Clear Search'
       flag: 'Flag Resources'
     locations:
       index:
