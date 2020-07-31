@@ -8,7 +8,7 @@ import { multipleFileUpload, singleFileUpload } from 'fileUpload'
 // Use 'DOMContentLoaded' event if not using Turbolinks
 document.addEventListener('turbolinks:load', () => {
   console.log('loaded 🥃')
-  document.querySelectorAll('input[type=file]').forEach((fileInput) => {
+  document.querySelectorAll(`input[data-uppy=${true}]`).forEach((fileInput) => {
     if (fileInput.multiple) {
       multipleFileUpload(fileInput)
     } else {
