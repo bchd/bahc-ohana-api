@@ -26,5 +26,6 @@
         %th.table-button.edit-admin &nbsp;
 
       - @super_admins.each do |super_admin|
-        = render partial: 'super_admin_row', locals: { super_admin: super_admin }
+        - if super_admin.id != current_admin.id
+          = render partial: 'super_admin_row', locals: { super_admin: super_admin }
   = paginate @super_admins
