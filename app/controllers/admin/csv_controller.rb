@@ -28,6 +28,17 @@ class Admin
 
     def services; end
 
+    def upload_services
+      upload_services_params
+      importer = ServiceUploader.new(params[:services])
+      importer.process
+      flash[:notice] = t('admin.services.upload.success')
+      redirect_to admin_csv_downloads_path
+    rescue ServiceUploader::ServiceUploadError => e
+      flash[:error] = e.message
+      redirect_to admin_csv_downloads_path
+    end
+
     private
 
     def authorize_admin
@@ -36,6 +47,10 @@ class Admin
         return redirect_to new_admin_session_url
       end
       user_not_authorized unless current_admin.super_admin?
+    end
+
+    def upload_services_params
+      params.permit(:services)
     end
   end
 end
