@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature 'Uploading Services CSV' do
   before do
-    create(:location)
+    create(:location, id: 1)
     login_super_admin
     visit admin_csv_downloads_path
   end
