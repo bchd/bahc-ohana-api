@@ -294,6 +294,11 @@ a.boxed-action:active {
   }
 }
 #csv-downloads {
+  .select-file {
+    width: 90%;
+    margin-bottom: 10px;
+  }
+
   a {
     min-width: 250px;
   }

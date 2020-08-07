@@ -8,5 +8,5 @@
 
     %h2 CSV Uploads
     = form_tag(admin_csv_upload_services_path, multipart: true, class: 'services-upload') do
-      = file_field_tag("services")
-      = submit_tag t('admin.buttons.upload'), class: 'btn'
+      = file_field_tag "services", class: "select-file"
+      = submit_tag t('admin.buttons.upload'), class: 'btn btn-primary'
