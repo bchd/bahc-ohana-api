@@ -139,7 +139,7 @@ en:
       locations: 'Locations'
       services: 'Services'
       update_capacity: 'Update Capacity'
-      csv_downloads: 'CSV Downloads'
+      csv_section: 'CSV'
       programs: 'Programs'
       add_organization: 'Add a new organization'
       create_organization: 'Create organization'
