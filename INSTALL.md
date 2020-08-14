@@ -4,41 +4,7 @@
 
 Clone it on your computer and navigate to the project's directory:
 
-    git clone git@github.com:bchd/bahc-ohana-api.git && cd ohana-api
-
-## Docker Setup (recommended, especially for Windows users)
-
-1. Download, install, and launch [Docker]
-
-1. Set up the Docker image and start the app:
-
-        $ script/bootstrap
-
-1. Set up the test users:
-
-        $ script/users
-
-Once the docker images are up and running, the app will be accessible at
-[http://localhost:8080](http://localhost:8080).
-
-### Verify the app is returning JSON
-
-[http://localhost:8080/api/locations](http://localhost:8080/api/locations)
-
-[http://localhost:8080/api/search?keyword=food](http://localhost:8080/api/search?keyword=food)
-
-We recommend the [JSONView][jsonview] Google Chrome extension for formatting
-the JSON response so it is easier to read in the browser.
-
-[jsonview]: https://chrome.google.com/webstore/detail/jsonview/chklaanhfefbnpoihckbnefhakgolnmc
-
-### More useful Docker commands
-
-* Stop this running container: `docker-compose stop`
-* Stop and delete the containers: `docker-compose down`
-* Open a shell in the web container: `docker-compose run --rm web bash`
-
-[Docker]: https://docs.docker.com/engine/installation/
+    git clone git@github.com:bchd/bahc-ohana-api.git && cd bahc-ohana-api
 
 ## Local Setup
 
