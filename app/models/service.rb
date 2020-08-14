@@ -35,7 +35,8 @@ class Service < ApplicationRecord
   accepts_nested_attributes_for :holiday_schedules,
                                 allow_destroy: true, reject_if: :all_blank
 
-  has_many :contacts, dependent: :destroy, inverse_of: :service
+  has_many :resource_contacts, as: :resource, dependent: :destroy
+  has_many :contacts, through: :resource_contacts
 
   has_many :phones, dependent: :destroy, inverse_of: :service
   accepts_nested_attributes_for :phones,

@@ -3,13 +3,13 @@ class ServiceUploader
   end
 
   def initialize(file_path)
-    @file_path = file_path.tempfile
+    @file_path = file_path
   end
 
   def process
     csv = SmarterCSV.process(@file_path)
     Service.transaction do
-      csv.each do |attributes|
+      csv.map do |attributes|
         location = Location.find_by(id: attributes[:location_id])
         unless location
           raise ServiceUploadError, I18n.t(
@@ -24,7 +24,7 @@ class ServiceUploader
         service.audience = attributes[:audience]
         service.description = attributes[:description]
         service.eligibility = attributes[:eligibility]
-        service.languages = [attributes[:languages_list]]
+        service.languages = attributes[:languages_list].split(",").map(&:strip)
         service.address_details = attributes[:address_details]
         service.website = attributes[:website]
         service.email = attributes[:email]
@@ -38,15 +38,16 @@ class ServiceUploader
           )
         end
 
-        service_tags_array = find_or_create_tags(service, attributes[:tags])
+        find_or_create_tags(service, attributes[:tags])
 
         find_or_create_contact(
-          service.id,
-          location.id,
+          service,
           attributes[:contact_name],
           attributes[:contact_title],
           attributes[:contact_email]
         )
+
+        service
       end
     end
   end
@@ -54,38 +55,27 @@ class ServiceUploader
   private
 
   def find_or_create_tags(service, tags)
-    service_tags = []
-    if tags.present?
-      tag_array = tags.split(/\s*,\s*/)
-      tag_array.each do |tag|
-        result = Tag.find_or_create_by(name: tag)
-        service_tags << result.id
-      end
-      find_or_create_tag_resources(service.id, service_tags)
+    return unless tags.present?
+
+    tags.split(/\s*,\s*/).map do |tag|
+      Tag.find_or_create_by(name: tag)
+    end.map do |tag|
+      TagResource.find_or_create_by(
+        resource_id: service.id,
+        tag_id: tag.id,
+        resource_type: 'Service'
+      )
     end
   end
 
-  def find_or_create_tag_resources(service_id, service_tags_array)
-    if !service_tags_array.empty?
-      service_tags_array.each do |tag|
-        TagResource.find_or_create_by(
-          resource_id: service_id,
-          tag_id: tag,
-          resource_type: 'Service'
-        )
-      end
-    end
-  end
-
-  def find_or_create_contact(service_id, location_id, name, title, email)
-    if email.present?
-      contact = Contact.find_or_create_by(email: email)
-      contact.update({
-        location_id: location_id,
-        name: name,
-        title: title,
-        service_id: service_id
-      })
+  def find_or_create_contact(service, name, title, email)
+    contact = Contact.find_or_initialize_by(name: name)
+      contact.name = name
+      contact.title = title
+      contact.email = email
+      contact.save
+    if service.contacts.find_by(id: contact.id).nil?
+      service.contacts << contact
     end
   end
 end

@@ -30,7 +30,7 @@ class Admin
 
     def upload_services
       upload_services_params
-      importer = ServiceUploader.new(params[:services])
+      importer = ServiceUploader.new(params[:services].tempfile)
       importer.process
       flash[:notice] = t('admin.services.upload.success')
       redirect_to admin_csv_downloads_path
