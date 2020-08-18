@@ -70,7 +70,7 @@ git push dev develop:main
 git push staging staging:main
 
 # Deploy Production
-git push prod master
+git push prod main
 ```
 
 ## Running the tests
