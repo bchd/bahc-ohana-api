@@ -60,6 +60,19 @@ Our taxonomy lives at `/data/taxonomy.csv`.
 ## Deploying to Heroku
 See the [Wiki](https://github.com/codeforamerica/ohana-api/wiki/How-to-deploy-the-Ohana-API-to-your-Heroku-account).
 
+Set your heroku remotes for each app appropriately, `dev` for the development app, `staging` for the staging app, and `prod` for the production app.
+
+```bash
+# Deploy Development
+git push dev develop:main
+
+# Deploy Staging
+git push staging staging:main
+
+# Deploy Production
+git push prod master
+```
+
 ## Running the tests
 
 Run tests locally with this simple command:
