@@ -6,6 +6,7 @@ class Contact < ApplicationRecord
   belongs_to :organization, touch: true
   belongs_to :service, touch: true
 
+  has_many :resource_contacts, dependent: :destroy
   has_many :phones, dependent: :destroy, inverse_of: :contact
   accepts_nested_attributes_for :phones,
                                 allow_destroy: true, reject_if: :all_blank
