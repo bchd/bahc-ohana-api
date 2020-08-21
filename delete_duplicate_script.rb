@@ -1,7 +1,7 @@
 # Performed after ResourceContacts have been made based on contacts
 
 # Israel Ojo
-Contact.transation do
+Contact.transaction do
   contact_to_keep = Contact.find(762)
   duplicate_to_delete = Contact.find(763)
 
@@ -13,7 +13,7 @@ Contact.transation do
 end
 
 # Jocelyn Bratton-Payne
-Contact.transation do
+Contact.transaction do
   contact_to_keep = Contact.find(758)
   to_delete = [Contact.find(872), Contact.find(871)]
 
@@ -28,7 +28,7 @@ Contact.transation do
 end
 
 # Kelsey Barlow
-Contact.transation do
+Contact.transaction do
   contact_to_keep = Contact.find(878)
   duplicate_to_delete = Contact.find(218)
 
@@ -40,7 +40,7 @@ Contact.transation do
 end
 
 # Lillian Donnard
-Contact.transation do
+Contact.transaction do
   contact_to_keep = Contact.find(254)
   duplicate_to_delete = Contact.find(772)
 
@@ -54,7 +54,7 @@ Contact.transation do
 end
 
 # Meghan Westwood
-Contact.transation do
+Contact.transaction do
   contact_to_keep = Contact.find(801)
   duplicate_to_delete = Contact.find(802)
 
@@ -66,7 +66,7 @@ Contact.transation do
 end
 
 # Richard Doran
-Contact.transation do
+Contact.transaction do
   contact_to_keep = Contact.find(730)
   duplicate_to_delete = Contact.find(657)
 
@@ -78,7 +78,7 @@ Contact.transation do
 end
 
 # Ronald Peterson
-Contact.transation do
+Contact.transaction do
   contact_to_keep = Contact.find(416)
   duplicate_to_delete = Contact.find(107)
 
@@ -90,7 +90,7 @@ Contact.transation do
 end
 
 # Yevola S. Peters
-Contact.transation do
+Contact.transaction do
   contact_to_keep = Contact.find(272)
   duplicate_to_delete = Contact.find(710)
 
