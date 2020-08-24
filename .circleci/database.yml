@@ -1,0 +1,19 @@
+default: &default
+  adapter: postgresql
+  min_messages: warning
+  host: localhost
+  port: 5432
+  user: postgres
+  password: password
+
+development:
+  <<: *default
+  database: ohana_api_dev
+
+test:
+  <<: *default
+  database: ohana_api_test
+
+production:
+  <<: *default
+  database: ohana_api_prod
