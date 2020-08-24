@@ -69,6 +69,9 @@ jobs:
     resource_class: medium
     docker:
       - image: circleci/ruby:2.5.3-node-browsers
+        environment:
+          PGHOST: 127.0.0.1
+          PGUSER: root
       - image: mdillon/postgis:10
         environment:
           POSTGRES_DB: ohana_api_test
