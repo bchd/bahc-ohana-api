@@ -48,7 +48,7 @@ jobs:
       - run: RAILS_ENV=test bundle exec rails webpacker:compile
 
   specs:
-    resource_class: large
+    resource_class: medium
     docker:
       - image: circleci/ruby:2.5.3-node-browsers
       - image: midillon/postgis:10
