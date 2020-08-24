@@ -34,13 +34,13 @@
   .archive-container
     %h4
       Archive this location
-    = if location.archived_at?
+    - if location.archived_at?
       %p.archive-prompt
         This location has already been archived.
         %label
           = t('admin.buttons.unarchive_location')
           = f.check_box(:archived_at,  label: t('admin.buttons.unarchive_location'), class: 'archive-checkbox', checked: true)
-    = if location.archived_at? == false
+    - if location.archived_at? === false
       %p.archive-prompt
         This location has not been archived.
         %label 
