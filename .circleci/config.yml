@@ -69,7 +69,7 @@ jobs:
     resource_class: medium
     docker:
       - image: circleci/ruby:2.5.3-node-browsers
-      - image: midillon/postgis:10
+      - image: mdillon/postgis:10
         environment:
           POSTGRES_DB: ohana_api_test
           POSTGRES_USER: postgres
