@@ -72,11 +72,10 @@ jobs:
         environment:
           PGHOST: 127.0.0.1
           PGUSER: root
-      - image: mdillon/postgis:10
+      - image: circleci/postgres:10-postgis
         environment:
           POSTGRES_DB: ohana_api_test
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: password
+          POSTGRES_USER: root
       - image: elasticsearch:5.5
     environment:
       API_PATH: api
