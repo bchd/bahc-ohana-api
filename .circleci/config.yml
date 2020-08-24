@@ -76,6 +76,7 @@ jobs:
         environment:
           POSTGRES_DB: ohana_api_test
           POSTGRES_USER: root
+          POSTGRES_HOST_AUTH_METHOD: trust
       - image: elasticsearch:5.5
     environment:
       API_PATH: api
