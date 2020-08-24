@@ -75,7 +75,6 @@ describe ContactImporter do
         its(:email) { is_expected.to eq 'john@example.org' }
         its(:name) { is_expected.to eq 'John Smith' }
         its(:title) { is_expected.to eq 'Food Pantry Manager' }
-        its(:location_id) { is_expected.to eq 1 }
       end
     end
 
