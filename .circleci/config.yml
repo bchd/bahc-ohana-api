@@ -17,6 +17,15 @@ jobs:
       - save_cache:
           paths: ~/bundle
           key: v1-gem-cache-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+      - restore_cache:
+        keys:
+          - v1-yarn-cache-{{ .Branch }}-{{ checksum "yarn.lock" }}
+          - v1-yarn-cache-{{ .Branch }}
+          - v1-yarn-cache
+      - run: yarn install
+      - save_cache:
+          paths: node_modules
+          key: v1-yarn-cache-{{ .Branch }}-{{ checksum "yarn.lock" }}
 
   webpack:
     docker:
@@ -45,6 +54,15 @@ jobs:
       - save_cache:
           paths: ~/bundle
           key: v1-gem-cache-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+      - restore_cache:
+        keys:
+          - v1-yarn-cache-{{ .Branch }}-{{ checksum "yarn.lock" }}
+          - v1-yarn-cache-{{ .Branch }}
+          - v1-yarn-cache
+      - run: yarn install
+      - save_cache:
+          paths: node_modules
+          key: v1-yarn-cache-{{ .Branch }}-{{ checksum "yarn.lock" }}
       - run: RAILS_ENV=test bundle exec rails webpacker:compile
 
   specs:
@@ -81,6 +99,15 @@ jobs:
       - save_cache:
           paths: ~/bundle
           key: v1-gem-cache-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+      - restore_cache:
+        keys:
+          - v1-yarn-cache-{{ .Branch }}-{{ checksum "yarn.lock" }}
+          - v1-yarn-cache-{{ .Branch }}
+          - v1-yarn-cache
+      - run: yarn install
+      - save_cache:
+          paths: node_modules
+          key: v1-yarn-cache-{{ .Branch }}-{{ checksum "yarn.lock" }}
       - run: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run: dockerize -wait tcp://localhost:9200 -timeout 1m
       - run: ./bin/rails db:drop db:create db:migrate
