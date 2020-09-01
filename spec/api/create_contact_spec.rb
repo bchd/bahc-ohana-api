@@ -50,6 +50,6 @@ describe 'POST /locations/:location_id/contacts' do
     )
     get api_location_url(@loc, subdomain: ENV['API_SUBDOMAIN'])
     expect(json['contacts'].length).to eq 2
-    expect(json['contacts'][1]['name']).to eq 'foo'
+    expect(json['contacts'][0]['name']).to eq 'foo'
   end
 end

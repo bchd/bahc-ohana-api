@@ -7,7 +7,7 @@ describe Organization do
 
   it { is_expected.to have_many(:locations).dependent(:destroy) }
   it { is_expected.to have_many(:programs).dependent(:destroy) }
-  it { is_expected.to have_many(:contacts).dependent(:destroy) }
+  it { is_expected.to have_many(:resource_contacts).dependent(:destroy) }
 
   it { is_expected.to have_many(:phones).dependent(:destroy).inverse_of(:organization) }
   it { is_expected.to accept_nested_attributes_for(:phones).allow_destroy(true) }

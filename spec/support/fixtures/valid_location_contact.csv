@@ -1,2 +1,2 @@
-id,location_id,organization_id,service_id,name,title,email,department
-2,1,,,John Smith,Food Pantry Manager,john@example.org,Food Pantry
+id,resource_id,resource_type,name,title,email,department
+2,1,Location,John Smith,Food Pantry Manager,john@example.org,Food Pantry

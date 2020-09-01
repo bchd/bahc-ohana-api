@@ -652,6 +652,39 @@ ALTER SEQUENCE public.regular_schedules_id_seq OWNED BY public.regular_schedules
 
 
 --
+-- Name: resource_contacts; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.resource_contacts (
+    id bigint NOT NULL,
+    contact_id bigint NOT NULL,
+    resource_id bigint NOT NULL,
+    resource_type character varying NOT NULL,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: resource_contacts_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.resource_contacts_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: resource_contacts_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.resource_contacts_id_seq OWNED BY public.resource_contacts.id;
+
+
+--
 -- Name: schema_migrations; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -929,6 +962,13 @@ ALTER TABLE ONLY public.regular_schedules ALTER COLUMN id SET DEFAULT nextval('p
 
 
 --
+-- Name: resource_contacts id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.resource_contacts ALTER COLUMN id SET DEFAULT nextval('public.resource_contacts_id_seq'::regclass);
+
+
+--
 -- Name: services id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -1082,6 +1122,14 @@ ALTER TABLE ONLY public.programs
 
 ALTER TABLE ONLY public.regular_schedules
     ADD CONSTRAINT regular_schedules_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: resource_contacts resource_contacts_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.resource_contacts
+    ADD CONSTRAINT resource_contacts_pkey PRIMARY KEY (id);
 
 
 --
@@ -1397,6 +1445,20 @@ CREATE INDEX index_regular_schedules_on_weekday ON public.regular_schedules USIN
 
 
 --
+-- Name: index_resource_contacts_on_cntct_id_and_rsrc_id_and_rsrc_type; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_resource_contacts_on_cntct_id_and_rsrc_id_and_rsrc_type ON public.resource_contacts USING btree (contact_id, resource_id, resource_type);
+
+
+--
+-- Name: index_resource_contacts_on_resource_id_and_resource_type; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_resource_contacts_on_resource_id_and_resource_type ON public.resource_contacts USING btree (resource_id, resource_type);
+
+
+--
 -- Name: index_services_on_languages; Type: INDEX; Schema: public; Owner: -
 --
 
@@ -1603,6 +1665,8 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20200616200024'),
 ('20200621223318'),
 ('20200629173821'),
-('20200707145838');
+('20200707145838'),
+('20200810152350'),
+('20200810190344');
 
 

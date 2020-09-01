@@ -8,7 +8,7 @@ describe Location do
   # Associations
   it { is_expected.to belong_to(:organization).required }
   it { is_expected.to have_one(:address).dependent(:destroy) }
-  it { is_expected.to have_many(:contacts).dependent(:destroy) }
+  it { is_expected.to have_many(:resource_contacts).dependent(:destroy) }
   it { is_expected.to have_many(:phones).dependent(:destroy).inverse_of(:location) }
   it { is_expected.to have_many(:services).dependent(:destroy) }
   it { is_expected.to have_many(:regular_schedules).dependent(:destroy).inverse_of(:location) }

@@ -120,6 +120,19 @@ describe Admin::OrganizationContactsController do
         expect(response).to redirect_to admin_organization_url(organization.friendly_id)
         expect(organization.contacts.last.name).to eq 'Jane'
       end
+
+      it 'attaches the contact if found' do
+        location = create(:location_with_admin)
+        organization = location.organization
+        log_in_as_admin(:location_admin)
+        contact = create(:contact, name: 'Jane', title: 'old')
+
+        post :create, params: { organization_id: organization.id, contact: { name: 'Jane', title: 'new' } }
+
+        expect(response).to redirect_to admin_organization_url(organization.friendly_id)
+        expect(organization.contacts.last.name).to eq 'Jane'
+        expect(contact.reload.title).to eq 'new'
+      end
     end
   end
 
@@ -207,7 +220,7 @@ describe Admin::OrganizationContactsController do
         delete :destroy, params: { organization_id: @org.id, id: @contact.id }
 
         expect(response).to redirect_to admin_organization_url(@org.friendly_id)
-        expect(Contact.find_by(id: @contact.id)).to be_nil
+        expect(@org.resource_contacts.find_by(contact_id: @contact.id)).to be_nil
       end
     end
   end

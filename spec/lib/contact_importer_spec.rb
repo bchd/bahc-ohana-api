@@ -46,15 +46,6 @@ describe ContactImporter do
 
       its(:errors) { is_expected.to eq(errors) }
     end
-
-    context 'when a parent does not exist' do
-      let(:content) { no_parent }
-
-      errors = ['Line 2: Contact is missing a parent: Location or ' \
-        'Organization or Service']
-
-      its(:errors) { is_expected.to eq(errors) }
-    end
   end
 
   describe '#import' do
@@ -91,7 +82,12 @@ describe ContactImporter do
 
         subject { Contact.first }
 
-        its(:service_id) { is_expected.to eq 1 }
+        specify "associates the resource contact" do
+          expect(subject.resource_contacts.count).to eq 1
+          resource_contact = subject.resource_contacts.first
+          expect(resource_contact.resource_type).to eq 'Service'
+          expect(resource_contact.resource_id).to eq 1
+        end
       end
     end
 
@@ -103,7 +99,12 @@ describe ContactImporter do
 
         subject { Contact.first }
 
-        its(:organization_id) { is_expected.to eq 1 }
+        specify "assciates the resource contact" do
+          expect(subject.resource_contacts.count).to eq 1
+          resource_contact = subject.resource_contacts.first
+          expect(resource_contact.resource_type).to eq 'Organization'
+          expect(resource_contact.resource_id).to eq 1
+        end
       end
     end
 
@@ -159,14 +160,6 @@ describe ContactImporter do
         path = Rails.root.join('spec', 'support', 'fixtures', 'invalid_contact.csv')
         ContactImporter.check_and_import_file(path)
       end
-    end
-  end
-
-  describe '.required_headers' do
-    it 'matches required headers in Wiki' do
-      expect(ContactImporter.required_headers).
-        to eq %w[id location_id organization_id service_id department email name
-                 title]
     end
   end
 end

@@ -131,6 +131,22 @@ describe Admin::ServiceContactsController do
           to redirect_to admin_location_service_url(@location.friendly_id, @service.id)
         expect(@service.contacts.last.name).to eq 'Jane'
       end
+
+
+      it 'attaches the contact if found' do
+        log_in_as_admin(:location_admin)
+        contact = create(:contact, name: 'Jane', title: 'old')
+
+        post :create,
+             params: {
+               location_id: @location.id, service_id: @service.id, contact: { name: 'Jane', title: 'new' }
+             }
+
+        expect(response).
+          to redirect_to admin_location_service_url(@location.friendly_id, @service.id)
+        expect(@service.contacts.last.name).to eq 'Jane'
+        expect(contact.reload.title).to eq 'new'
+      end
     end
   end
 
@@ -252,7 +268,7 @@ describe Admin::ServiceContactsController do
 
         expect(response).
           to redirect_to admin_location_service_url(@location.friendly_id, @service.id)
-        expect(Contact.find_by(id: @contact.id)).to be_nil
+        expect(@service.resource_contacts.find_by(contact_id: @contact.id)).to be_nil
       end
     end
   end
