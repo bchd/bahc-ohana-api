@@ -12,7 +12,7 @@ class Contact < ApplicationRecord
                                 allow_destroy: true, reject_if: :all_blank
 
   validates :name,
-            presence: { message: I18n.t('errors.messages.blank_for_contact') }
+            presence: { message: I18n.t('errors.messages.blank_for_contact') }, uniqueness: true
 
   validates :email, email: true, allow_blank: true
 

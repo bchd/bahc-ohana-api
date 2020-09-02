@@ -19,16 +19,22 @@ describe 'GET /organizations/:organization_id/locations' do
         address_attributes: attributes_for(:address)
       }
       @location = @org.locations.create!(attrs)
-      @location.contacts.create!(attributes_for(:contact))
       @location.phones.create!(attributes_for(:phone))
-      @location.contacts.create!(attributes_for(:contact))
       @location.services.create!(attributes_for(:service))
 
       get api_org_locations_url(@org, subdomain: ENV['API_SUBDOMAIN'])
     end
 
+    before :each do
+      @location.contacts.create!(attributes_for(:contact))
+    end
+
     after(:all) do
       Organization.find_each(&:destroy)
+    end
+
+    after(:each) do
+      Contact.find_each(&:destroy)
     end
 
     it 'returns a 200 status' do
