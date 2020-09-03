@@ -2,6 +2,7 @@ require 'rails_helper'
 
 describe 'PATCH contact' do
   before(:all) do
+    Contact.delete_all
     @loc = create(:location)
     @contact = @loc.contacts.create!(attributes_for(:contact))
   end

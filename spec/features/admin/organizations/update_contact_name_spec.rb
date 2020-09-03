@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 feature 'Update name' do
+  before(:all) do
+    Contact.delete_all
+  end
+
   background do
     org = create(:organization)
     org.contacts.create!(attributes_for(:contact))
