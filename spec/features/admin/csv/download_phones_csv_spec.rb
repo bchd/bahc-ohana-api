@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 feature 'Downloading Phones CSV' do
+  before(:all) do
+    Contact.delete_all
+  end
+
   before do
     login_super_admin
     @service = create(:service)
