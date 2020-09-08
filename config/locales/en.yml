@@ -363,6 +363,7 @@ en:
         location_not_found: "Upload unsuccessful. Location with id: %{location_id} not found"
         validation_errors: "Upload unsuccessful. %{errors} for location id: %{location_id}"
         success: 'Success! Service upload complete'
+        missing: 'No file selected'
 
     shared:
       forms:

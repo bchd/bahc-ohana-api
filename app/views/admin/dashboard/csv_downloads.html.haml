@@ -6,7 +6,9 @@
         = link_to t("admin.buttons.download_#{table}"),
         send(:"admin_csv_#{table}_url"), class: 'btn btn-primary'
 
-    %h2 CSV Uploads
+    %h2.mt-45 CSV Uploads
+
+    %h4.mt-15 Upload Services
     = form_tag(admin_csv_upload_services_path, multipart: true, class: 'services-upload') do
       = file_field_tag "services", class: "select-file"
       = submit_tag t('admin.buttons.upload'), class: 'btn btn-primary'

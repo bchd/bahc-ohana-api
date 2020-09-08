@@ -30,6 +30,10 @@ class Admin
 
     def upload_services
       upload_services_params
+      unless params[:services].present?
+        flash[:error] = t('admin.services.upload.missing')
+        redirect_to admin_csv_downloads_path and return
+      end
       importer = ServiceUploader.new(params[:services].tempfile)
       importer.process
       flash[:notice] = t('admin.services.upload.success')
