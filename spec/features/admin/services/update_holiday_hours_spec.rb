@@ -1,10 +1,6 @@
 require 'rails_helper'
 
 feature 'Update holiday schedule' do
-  before(:all) do
-    Contact.delete_all
-  end
-
   background do
     create_service
     login_super_admin

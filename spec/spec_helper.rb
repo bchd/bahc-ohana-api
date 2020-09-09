@@ -43,10 +43,6 @@ RSpec.configure do |config|
     Chewy.strategy(:bypass)
   end
 
-  config.before(:all) do
-    Contact.delete_all
-  end
-
   # allows you to run only the failures from the previous run:
   # rspec --only-failures
   config.example_status_persistence_file_path = './tmp/rspec-examples.txt'

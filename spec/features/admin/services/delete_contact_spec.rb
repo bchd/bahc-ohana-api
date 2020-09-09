@@ -1,10 +1,6 @@
 require 'rails_helper'
 
 feature 'Delete contact' do
-  before(:all) do
-    Contact.delete_all
-  end
-
   background do
     create_service
     @service.contacts.create!(attributes_for(:contact))

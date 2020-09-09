@@ -1,16 +1,9 @@
 require 'rails_helper'
 
 describe 'POST /locations/:location_id/contacts' do
-  before(:all) do
+  before do
     @loc = create(:location)
-  end
-
-  before(:each) do
     @contact_attributes = { name: 'Moncef', title: 'Consultant' }
-  end
-
-  after(:all) do
-    Organization.find_each(&:destroy)
   end
 
   it 'creates a contact with valid attributes' do
@@ -50,6 +43,9 @@ describe 'POST /locations/:location_id/contacts' do
     )
     get api_location_url(@loc, subdomain: ENV['API_SUBDOMAIN'])
     expect(json['contacts'].length).to eq 2
-    expect(json['contacts'][0]['name']).to eq 'foo'
+    names = json['contacts'].map do |contact|
+      contact['name']
+    end
+    expect(names).to include('foo')
   end
 end

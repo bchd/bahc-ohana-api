@@ -1,18 +1,10 @@
 require 'rails_helper'
 
 describe 'PATCH contact' do
-  before(:all) do
-    Contact.delete_all
+  before do
     @loc = create(:location)
     @contact = @loc.contacts.create!(attributes_for(:contact))
-  end
-
-  before(:each) do
     @attrs = { name: 'Moncef', title: 'Consultant', email: 'bar@foo.com' }
-  end
-
-  after(:all) do
-    Organization.find_each(&:destroy)
   end
 
   describe 'PATCH /locations/:location_id/contacts/:id' do
@@ -42,11 +34,14 @@ describe 'PATCH contact' do
     end
 
     it "doesn't add a new contact" do
-      patch(
-        api_location_contact_url(@loc, @contact, subdomain: ENV['API_SUBDOMAIN']),
-        @attrs
-      )
-      expect(Contact.count).to eq(1)
+      expect {
+        patch(
+          api_location_contact_url(@loc, @contact, subdomain: ENV['API_SUBDOMAIN']),
+          @attrs
+        )
+      }.to change {
+        Contact.count
+      }.by(0)
     end
 
     it 'requires a valid contact id' do

@@ -1,17 +1,10 @@
 require 'rails_helper'
 
 describe 'PATCH phone' do
-  before(:all) do
+  before do
     @loc = create(:location)
     @phone = @loc.phones.create!(attributes_for(:phone))
-  end
-
-  before(:each) do
     @attrs = { number: '123-456-7890', number_type: 'fax' }
-  end
-
-  after(:all) do
-    Organization.find_each(&:destroy)
   end
 
   describe 'PATCH /locations/:location_id/phones/:id' do
