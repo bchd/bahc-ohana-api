@@ -21,13 +21,8 @@ describe HolidayScheduleImporter do
     Rails.root.join('spec', 'support', 'fixtures', 'hs_with_2_digit_year.csv')
   end
 
-  before(:all) do
-    DatabaseCleaner.clean_with(:truncation)
+  before do
     create(:location)
-  end
-
-  after(:all) do
-    Organization.find_each(&:destroy)
   end
 
   subject(:importer) { HolidayScheduleImporter.new(content) }

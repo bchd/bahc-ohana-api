@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe Admin::ServicesController do
   describe 'GET edit' do
-    before(:each) do
+    before do
       @loc = create(:location_with_admin)
       @service = @loc.services.create!(attributes_for(:service))
     end
@@ -41,7 +41,7 @@ describe Admin::ServicesController do
   end
 
   describe 'GET new' do
-    before(:each) do
+    before do
       @loc = create(:location_with_admin)
     end
 
@@ -79,7 +79,7 @@ describe Admin::ServicesController do
   end
 
   describe 'PATCH update' do
-    before(:each) do
+    before do
       @loc = create(:location_for_org_admin)
       @service = @loc.services.create!(attributes_for(:service))
       @new_loc = create(:far_loc, organization_id: @loc.organization.id)
@@ -119,7 +119,7 @@ describe Admin::ServicesController do
   end
 
   describe 'create' do
-    before(:each) do
+    before do
       @location = create(:location_with_admin)
     end
 
@@ -169,7 +169,7 @@ describe Admin::ServicesController do
   end
 
   describe 'archive' do
-    before(:each) do
+    before do
       @location = create(:location_with_admin)
       @service = @location.services.create!(attributes_for(:service))
     end
@@ -187,7 +187,7 @@ describe Admin::ServicesController do
   end
 
   describe 'update' do
-    before(:each) do
+    before do
       @location = create(:location_with_admin)
       @service = @location.services.create!(attributes_for(:service))
       @attrs = {
@@ -234,7 +234,7 @@ describe Admin::ServicesController do
   end
 
   describe 'destroy' do
-    before(:each) do
+    before do
       @location = create(:location_with_admin)
       @service = @location.services.create!(attributes_for(:service))
     end

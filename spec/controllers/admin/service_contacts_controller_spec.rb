@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe Admin::ServiceContactsController do
   describe 'GET edit' do
-    before(:each) do
+    before do
       @location = create(:location_with_admin)
       @service = @location.services.create!(attributes_for(:service))
       @contact = @service.contacts.create!(attributes_for(:contact))
@@ -44,7 +44,7 @@ describe Admin::ServiceContactsController do
   end
 
   describe 'GET new' do
-    before(:each) do
+    before do
       @location = create(:location_with_admin)
       @service = @location.services.create!(attributes_for(:service))
     end
@@ -83,7 +83,7 @@ describe Admin::ServiceContactsController do
   end
 
   describe 'create' do
-    before(:each) do
+    before do
       @location = create(:location_with_admin)
       @service = @location.services.create!(attributes_for(:service))
     end
@@ -151,7 +151,7 @@ describe Admin::ServiceContactsController do
   end
 
   describe 'update' do
-    before(:each) do
+    before do
       @location = create(:location_with_admin)
       @service = @location.services.create!(attributes_for(:service))
       @contact = @service.contacts.create!(attributes_for(:contact))
@@ -227,7 +227,7 @@ describe Admin::ServiceContactsController do
   end
 
   describe 'destroy' do
-    before(:each) do
+    before do
       @location = create(:location_with_admin)
       @service = @location.services.create!(attributes_for(:service))
       @contact = @service.contacts.create!(attributes_for(:contact))

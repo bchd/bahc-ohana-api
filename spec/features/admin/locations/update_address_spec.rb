@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 feature 'Add a street address' do
-  before(:each) do
+  before do
     @location = create(:no_address)
     login_super_admin
     visit '/admin/locations/no-address'
@@ -24,17 +24,10 @@ feature 'Add a street address' do
 end
 
 feature "Updating a location's address with invalid values" do
-  before(:all) do
+  before do
     @location = create(:location)
-  end
-
-  before(:each) do
     login_super_admin
     visit '/admin/locations/vrs-services'
-  end
-
-  after(:all) do
-    Organization.find_each(&:destroy)
   end
 
   scenario 'with an empty street' do

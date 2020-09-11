@@ -86,7 +86,7 @@ describe Organization do
   end
 
   describe 'slug' do
-    before(:each) { @org = create(:organization) }
+    before { @org = create(:organization) }
 
     context 'when name is not updated' do
       it "doesn't update slug" do

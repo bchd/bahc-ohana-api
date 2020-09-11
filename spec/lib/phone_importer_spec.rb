@@ -12,13 +12,8 @@ describe PhoneImporter do
   end
   let(:no_parent) { Rails.root.join('spec', 'support', 'fixtures', 'phone_with_no_parent.csv') }
 
-  before(:all) do
-    DatabaseCleaner.clean_with(:truncation)
+  before do
     create(:location)
-  end
-
-  after(:all) do
-    Organization.find_each(&:destroy)
   end
 
   subject(:importer) { PhoneImporter.new(content) }

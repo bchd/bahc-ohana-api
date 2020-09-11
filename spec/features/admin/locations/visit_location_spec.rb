@@ -1,16 +1,9 @@
 require 'rails_helper'
 
 feature 'Visiting a specific location' do
-  before(:all) do
+  before do
     @location = create(:location)
-  end
-
-  before(:each) do
     @location.reload
-  end
-
-  after(:all) do
-    Organization.find_each(&:destroy)
   end
 
   scenario "when location doesn't include generic email" do

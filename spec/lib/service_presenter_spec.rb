@@ -1,13 +1,8 @@
 require 'rails_helper'
 
 describe ServicePresenter do
-  before(:all) do
-    DatabaseCleaner.clean_with(:truncation)
+  before do
     create(:location)
-  end
-
-  after(:all) do
-    Organization.find_each(&:destroy)
   end
 
   let(:properties) do

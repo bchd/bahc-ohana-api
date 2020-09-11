@@ -11,13 +11,9 @@ RSpec.describe LocationsSearch, :elasticsearch do
 
   describe 'archive location search' do
 
-    before(:each) do
+    before do
       @organization = create(:organization)
       LocationsIndex.reset!
-    end
-
-    after(:each) do
-      Organization.find_each(&:destroy)
     end
 
     specify 'only returns locations not archived' do
@@ -53,7 +49,7 @@ RSpec.describe LocationsSearch, :elasticsearch do
   end
 end
 
-private 
+private
 
 def create_location(name, organization, featured = "0")
   create(:location, name: name, organization: organization, featured: featured)

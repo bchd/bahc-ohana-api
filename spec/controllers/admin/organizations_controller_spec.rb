@@ -43,7 +43,7 @@ describe Admin::OrganizationsController do
       }
     end
 
-    before(:each) do
+    before do
       loc = create(:location_with_admin)
       @org = loc.organization
     end
@@ -84,7 +84,7 @@ describe Admin::OrganizationsController do
   end
 
   describe 'destroy' do
-    before(:each) do
+    before do
       location = create(:location_with_admin)
       @organization = location.organization
     end
@@ -126,7 +126,7 @@ describe Admin::OrganizationsController do
   end
 
   describe 'edit' do
-    before(:each) do
+    before do
       location = create(:location_with_admin)
       @organization = location.organization
     end

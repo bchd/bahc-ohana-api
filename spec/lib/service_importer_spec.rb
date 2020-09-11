@@ -7,13 +7,8 @@ describe ServiceImporter do
   end
   let(:valid_content) { Rails.root.join('spec', 'support', 'fixtures', 'valid_service.csv') }
 
-  before(:all) do
-    DatabaseCleaner.clean_with(:truncation)
+  before do
     @org = create(:location).organization
-  end
-
-  after(:all) do
-    Organization.find_each(&:destroy)
   end
 
   subject(:importer) { ServiceImporter.new(content) }

@@ -14,13 +14,8 @@ describe RegularScheduleImporter do
     Rails.root.join('spec', 'support', 'fixtures', 'regular_schedule_with_no_parent.csv')
   end
 
-  before(:all) do
-    DatabaseCleaner.clean_with(:truncation)
+  before do
     create(:location)
-  end
-
-  after(:all) do
-    Organization.find_each(&:destroy)
   end
 
   subject(:importer) { RegularScheduleImporter.new(content) }

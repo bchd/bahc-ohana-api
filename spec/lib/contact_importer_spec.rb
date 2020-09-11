@@ -13,13 +13,8 @@ describe ContactImporter do
   end
   let(:no_parent) { Rails.root.join('spec', 'support', 'fixtures', 'contact_with_no_parent.csv') }
 
-  before(:all) do
-    DatabaseCleaner.clean_with(:truncation)
+  before do
     create(:location)
-  end
-
-  after(:all) do
-    Organization.find_each(&:destroy)
   end
 
   subject(:importer) { ContactImporter.new(content) }

@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 feature 'Editing User account' do
-  before :each do
+  before do
     login_user
     visit edit_user_registration_path
   end

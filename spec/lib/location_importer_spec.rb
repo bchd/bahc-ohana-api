@@ -18,13 +18,8 @@ describe LocationImporter do
     AddressExtractor.extract_addresses(path)
   end
 
-  before(:all) do
-    DatabaseCleaner.clean_with(:truncation)
+  before do
     create(:organization)
-  end
-
-  after(:all) do
-    Organization.find_each(&:destroy)
   end
 
   subject(:importer) { LocationImporter.new(content, address) }

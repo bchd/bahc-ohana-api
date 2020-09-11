@@ -5,13 +5,8 @@ describe ProgramImporter do
   let(:valid_content) { Rails.root.join('spec', 'support', 'fixtures', 'valid_program.csv') }
   let(:no_parent) { Rails.root.join('spec', 'support', 'fixtures', 'program_with_no_parent.csv') }
 
-  before(:all) do
-    DatabaseCleaner.clean_with(:truncation)
+  before do
     create(:organization)
-  end
-
-  after(:all) do
-    Organization.find_each(&:destroy)
   end
 
   subject(:importer) { ProgramImporter.new(content) }

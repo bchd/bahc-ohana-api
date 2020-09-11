@@ -20,7 +20,7 @@ describe 'PATCH /locations/:id)' do
     }
   end
 
-  before(:each) do
+  before do
     @loc = create(:location)
   end
 
