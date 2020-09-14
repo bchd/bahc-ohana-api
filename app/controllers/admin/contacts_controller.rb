@@ -57,7 +57,7 @@ class Admin
       resource.destroy
 
       redirect_to admin_location_url(location),
-                  notice: "Contact '#{contact.name}' was successfully deleted."
+                  notice: "Contact '#{contact.name}' was successfully removed from #{location.name}."
     end
 
     private

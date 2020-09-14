@@ -7,7 +7,7 @@ describe ServiceImporter do
   end
   let(:valid_content) { Rails.root.join('spec', 'support', 'fixtures', 'valid_service.csv') }
 
-  before do
+  before(:all) do
     @org = create(:location).organization
   end
 

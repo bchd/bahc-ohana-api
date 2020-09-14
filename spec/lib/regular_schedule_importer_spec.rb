@@ -14,7 +14,7 @@ describe RegularScheduleImporter do
     Rails.root.join('spec', 'support', 'fixtures', 'regular_schedule_with_no_parent.csv')
   end
 
-  before do
+  before(:all) do
     create(:location)
   end
 

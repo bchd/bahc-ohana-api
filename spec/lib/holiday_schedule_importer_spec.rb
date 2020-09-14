@@ -21,7 +21,7 @@ describe HolidayScheduleImporter do
     Rails.root.join('spec', 'support', 'fixtures', 'hs_with_2_digit_year.csv')
   end
 
-  before do
+  before(:all) do
     create(:location)
   end
 

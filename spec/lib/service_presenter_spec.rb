@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe ServicePresenter do
-  before do
+  before(:all) do
     create(:location)
   end
 

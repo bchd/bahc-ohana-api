@@ -18,7 +18,7 @@ describe LocationImporter do
     AddressExtractor.extract_addresses(path)
   end
 
-  before do
+  before(:all) do
     create(:organization)
   end
 

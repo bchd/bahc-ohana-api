@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe LocationPresenter do
-  before do
+  before(:all) do
     create(:organization)
   end
 

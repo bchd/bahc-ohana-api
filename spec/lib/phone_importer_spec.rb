@@ -12,7 +12,7 @@ describe PhoneImporter do
   end
   let(:no_parent) { Rails.root.join('spec', 'support', 'fixtures', 'phone_with_no_parent.csv') }
 
-  before do
+  before(:all) do
     create(:location)
   end
 
