@@ -1,6 +1,6 @@
 id,location_id,service_id,weekday,opens_at,closes_at
-1,1,,Monday,9:30,
-2,1,,Tuesday,9:30,5:00 PM
-3,1,,Wednesday,9:30,5:00 PM
-4,1,,Thursday,9:30,5:00 PM
-5,1,,Friday,9:00,4:00 PM
+1,{LOCATION_ID},,Monday,9:30,
+2,{LOCATION_ID},,Tuesday,9:30,5:00 PM
+3,{LOCATION_ID},,Wednesday,9:30,5:00 PM
+4,{LOCATION_ID},,Thursday,9:30,5:00 PM
+5,{LOCATION_ID},,Friday,9:00,4:00 PM

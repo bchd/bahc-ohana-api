@@ -1,29 +1,23 @@
 require 'rails_helper'
 
 describe HolidayScheduleImporter do
+  include CSVHelpers
+
   let(:invalid_content) do
-    Rails.root.join('spec', 'support', 'fixtures', 'invalid_holiday_schedule.csv')
+    path = Rails.root.join('spec', 'support', 'fixtures', 'invalid_holiday_schedule.csv')
+    replace_variables_in_csv(path, {location_id: location.id})
   end
-  let(:invalid_date) { Rails.root.join('spec', 'support', 'fixtures', 'hs_with_invalid_date.csv') }
+
   let(:valid_content) do
-    Rails.root.join('spec', 'support', 'fixtures', 'valid_location_holiday_schedule.csv')
+    path = Rails.root.join('spec', 'support', 'fixtures', 'valid_location_holiday_schedule.csv')
+    replace_variables_in_csv(path, {location_id: location.id})
   end
-  let(:valid_service_holiday_schedule) do
-    Rails.root.join('spec', 'support', 'fixtures', 'valid_service_holiday_schedule.csv')
-  end
+
   let(:no_parent) do
     Rails.root.join('spec', 'support', 'fixtures', 'holiday_schedule_with_no_parent.csv')
   end
-  let(:spelled_out_date) do
-    Rails.root.join('spec', 'support', 'fixtures', 'hs_with_spelled_out_date.csv')
-  end
-  let(:org_with_2_digit_year) do
-    Rails.root.join('spec', 'support', 'fixtures', 'hs_with_2_digit_year.csv')
-  end
 
-  before(:all) do
-    create(:location)
-  end
+  let!(:location) { create(:location) }
 
   subject(:importer) { HolidayScheduleImporter.new(content) }
 
@@ -61,6 +55,11 @@ describe HolidayScheduleImporter do
     end
 
     context 'when the date is not valid' do
+      let(:invalid_date) do
+        path = Rails.root.join('spec', 'support', 'fixtures', 'hs_with_invalid_date.csv')
+        replace_variables_in_csv(path, {location_id: location.id})
+      end
+
       let(:content) { invalid_date }
 
       errors = ["Line 2: End Date 13/27/2014 is not a valid date, " \
@@ -89,12 +88,15 @@ describe HolidayScheduleImporter do
         its(:end_date) { is_expected.to eq Date.parse('November 27, 2014') }
         its(:opens_at) { is_expected.to eq Time.utc(2000, 1, 1, 10, 00, 0) }
         its(:closes_at) { is_expected.to eq Time.utc(2000, 1, 1, 15, 00, 0) }
-        its(:location_id) { is_expected.to eq 1 }
+        its(:location_id) { is_expected.to eq(location.id) }
       end
     end
 
     context 'when the date is formatted as month, day, year' do
-      let(:content) { spelled_out_date }
+      let(:content) do
+        path = Rails.root.join('spec', 'support', 'fixtures', 'hs_with_spelled_out_date.csv')
+        replace_variables_in_csv(path, {location_id: location.id})
+      end
 
       describe 'the org' do
         before { importer.import }
@@ -106,7 +108,10 @@ describe HolidayScheduleImporter do
     end
 
     context 'when the year only contains two digits' do
-      let(:content) { org_with_2_digit_year }
+      let(:content) do
+        path = Rails.root.join('spec', 'support', 'fixtures', 'hs_with_2_digit_year.csv')
+        replace_variables_in_csv(path, {location_id: location.id})
+      end
 
       describe 'the org' do
         before { importer.import }
@@ -118,19 +123,19 @@ describe HolidayScheduleImporter do
     end
 
     context 'when the holiday_schedule belongs to a service' do
-      before do
-        DatabaseCleaner.clean_with(:truncation)
-        create(:service)
-      end
+      let!(:service) { create(:service, location: location) }
 
-      let(:content) { valid_service_holiday_schedule }
+      let(:content) do
+        path = Rails.root.join('spec', 'support', 'fixtures', 'valid_service_holiday_schedule.csv')
+        replace_variables_in_csv(path, {service_id: service.id})
+      end
 
       describe 'the holiday_schedule' do
         before { importer.import }
 
         subject { HolidaySchedule.first }
 
-        its(:service_id) { is_expected.to eq 1 }
+        its(:service_id) { is_expected.to eq(service.id) }
       end
     end
 
@@ -143,9 +148,7 @@ describe HolidayScheduleImporter do
     end
 
     context 'when the holiday_schedule already exists' do
-      before do
-        importer.import
-      end
+      before { importer.import }
 
       let(:content) { valid_content }
 
@@ -161,30 +164,27 @@ describe HolidayScheduleImporter do
 
   describe '.check_and_import_file' do
     it 'calls FileChecker' do
-      path = Rails.root.join('spec', 'support', 'fixtures', 'valid_location_holiday_schedule.csv')
-
       file = double('FileChecker')
       allow(file).to receive(:validate).and_return true
 
       expect(Kernel).to receive(:puts).
-        with("\n===> Importing valid_location_holiday_schedule.csv")
+        with(/\n===> Importing .*/)
 
       expect(FileChecker).to receive(:new).
-        with(path, HolidayScheduleImporter.required_headers).and_return(file)
+        with(valid_content, HolidayScheduleImporter.required_headers).and_return(file)
 
-      HolidayScheduleImporter.check_and_import_file(path)
+      HolidayScheduleImporter.check_and_import_file(valid_content)
     end
 
     context 'with invalid data' do
       it 'outputs error message' do
         expect(Kernel).to receive(:puts).
-          with("\n===> Importing invalid_holiday_schedule.csv")
+          with(/\n===> Importing .*/)
 
         expect(Kernel).to receive(:puts).
           with("Line 2: Closes At can't be blank for Holiday Schedule when open on that day")
 
-        path = Rails.root.join('spec', 'support', 'fixtures', 'invalid_holiday_schedule.csv')
-        HolidayScheduleImporter.check_and_import_file(path)
+        HolidayScheduleImporter.check_and_import_file(invalid_content)
       end
     end
   end

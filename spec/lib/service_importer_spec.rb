@@ -1,15 +1,24 @@
 require 'rails_helper'
 
 describe ServiceImporter do
-  let(:invalid_content) { Rails.root.join('spec', 'support', 'fixtures', 'invalid_service.csv') }
+  include CSVHelpers
+
+  let(:invalid_content) do
+    path = Rails.root.join('spec', 'support', 'fixtures', 'invalid_service.csv')
+    replace_variables_in_csv(path, {location_id: location.id})
+  end
+
   let(:invalid_location) do
     Rails.root.join('spec', 'support', 'fixtures', 'invalid_service_location.csv')
   end
-  let(:valid_content) { Rails.root.join('spec', 'support', 'fixtures', 'valid_service.csv') }
 
-  before(:all) do
-    @org = create(:location).organization
+  let(:valid_content) do
+    path = Rails.root.join('spec', 'support', 'fixtures', 'valid_service.csv')
+    replace_variables_in_csv(path, {location_id: location.id})
   end
+
+  let!(:location) { create(:location) }
+  let!(:organization) { location.organization }
 
   subject(:importer) { ServiceImporter.new(content) }
 
@@ -73,13 +82,13 @@ describe ServiceImporter do
         its(:status) { is_expected.to eq 'active' }
         its(:wait_time) { is_expected.to eq 'No wait.' }
         its(:website) { is_expected.to eq 'http://example.org/service' }
-        its(:location_id) { is_expected.to eq 1 }
+        its(:location_id) { is_expected.to eq(location.id) }
       end
     end
 
     context 'when the service belongs to a program' do
       before do
-        @org.programs.create!(attributes_for(:program))
+        organization.programs.create!(attributes_for(:program))
       end
 
       let(:content) { valid_content }
@@ -119,12 +128,12 @@ describe ServiceImporter do
     end
 
     context 'when the service already exists' do
-      before do
-        DatabaseCleaner.clean_with(:truncation)
-        create(:service)
-      end
+      let!(:service) { create(:service, location: location) }
 
-      let(:content) { valid_content }
+      let(:content) do
+        path = Rails.root.join('spec', 'support', 'fixtures', 'valid_service_reimport.csv')
+        replace_variables_in_csv(path, {location_id: location.id, service_id: service.id})
+      end
 
       it 'does not create a new service' do
         expect { importer.import }.to_not change(Service, :count)
@@ -138,30 +147,27 @@ describe ServiceImporter do
 
   describe '.check_and_import_file' do
     it 'calls FileChecker' do
-      path = Rails.root.join('spec', 'support', 'fixtures', 'valid_service.csv')
-
       file = double('FileChecker')
       allow(file).to receive(:validate).and_return true
 
       expect(Kernel).to receive(:puts).
-        with("\n===> Importing valid_service.csv")
+        with(/\n===> Importing .*/)
 
       expect(FileChecker).to receive(:new).
-        with(path, ServiceImporter.required_headers).and_return(file)
+        with(valid_content, ServiceImporter.required_headers).and_return(file)
 
-      ServiceImporter.check_and_import_file(path)
+      ServiceImporter.check_and_import_file(valid_content)
     end
 
     context 'with invalid data' do
       it 'outputs error message' do
         expect(Kernel).to receive(:puts).
-          with("\n===> Importing invalid_service.csv")
+          with(/\n===> Importing .*/)
 
         expect(Kernel).to receive(:puts).
           with("Line 2: Name can't be blank for Service")
 
-        path = Rails.root.join('spec', 'support', 'fixtures', 'invalid_service.csv')
-        ServiceImporter.check_and_import_file(path)
+        ServiceImporter.check_and_import_file(invalid_content)
       end
     end
   end

@@ -1,22 +1,23 @@
 require 'rails_helper'
 
 describe RegularScheduleImporter do
+  include CSVHelpers
+
   let(:invalid_content) do
-    Rails.root.join('spec', 'support', 'fixtures', 'invalid_regular_schedule.csv')
+    path = Rails.root.join('spec', 'support', 'fixtures', 'invalid_regular_schedule.csv')
+    replace_variables_in_csv(path, {location_id: location.id})
   end
+
   let(:valid_content) do
-    Rails.root.join('spec', 'support', 'fixtures', 'valid_location_regular_schedule.csv')
+    path = Rails.root.join('spec', 'support', 'fixtures', 'valid_location_regular_schedule.csv')
+    replace_variables_in_csv(path, {location_id: location.id})
   end
-  let(:valid_service_regular_schedule) do
-    Rails.root.join('spec', 'support', 'fixtures', 'valid_service_regular_schedule.csv')
-  end
+
   let(:no_parent) do
     Rails.root.join('spec', 'support', 'fixtures', 'regular_schedule_with_no_parent.csv')
   end
 
-  before(:all) do
-    create(:location)
-  end
+  let!(:location) { create(:location) }
 
   subject(:importer) { RegularScheduleImporter.new(content) }
 
@@ -70,24 +71,24 @@ describe RegularScheduleImporter do
         its(:weekday) { is_expected.to eq 1 }
         its(:opens_at) { is_expected.to eq Time.utc(2000, 1, 1, 9, 30, 0) }
         its(:closes_at) { is_expected.to eq Time.utc(2000, 1, 1, 17, 00, 0) }
-        its(:location_id) { is_expected.to eq 1 }
+        its(:location_id) { is_expected.to eq(location.id) }
       end
     end
 
     context 'when the regular_schedule belongs to a service' do
-      before do
-        DatabaseCleaner.clean_with(:truncation)
-        create(:service)
-      end
+      let!(:service) { create(:service, location: location) }
 
-      let(:content) { valid_service_regular_schedule }
+      let(:content) do
+        path = Rails.root.join('spec', 'support', 'fixtures', 'valid_service_regular_schedule.csv')
+        replace_variables_in_csv(path, {service_id: service.id})
+      end
 
       describe 'the regular_schedule' do
         before { importer.import }
 
         subject { RegularSchedule.first }
 
-        its(:service_id) { is_expected.to eq 1 }
+        its(:service_id) { is_expected.to eq(service.id) }
       end
     end
 
@@ -119,8 +120,6 @@ describe RegularScheduleImporter do
   describe '.check_and_import_file' do
     context 'when FileChecker returns skip import' do
       it 'does not import the file' do
-        path = Rails.root.join('spec', 'support', 'fixtures', 'valid_location_regular_schedule.csv')
-
         file = double('FileChecker')
         allow(file).to receive(:validate).and_return 'skip import'
 
@@ -128,41 +127,38 @@ describe RegularScheduleImporter do
         expect(RegularScheduleImporter).to_not receive(:import)
 
         expect(FileChecker).to receive(:new).
-          with(path, RegularScheduleImporter.required_headers).and_return(file)
+          with(valid_content, RegularScheduleImporter.required_headers).and_return(file)
 
-        RegularScheduleImporter.check_and_import_file(path)
+        RegularScheduleImporter.check_and_import_file(valid_content)
       end
     end
 
     context 'when FileChecker returns true' do
       it 'imports the file' do
-        path = Rails.root.join('spec', 'support', 'fixtures', 'valid_location_regular_schedule.csv')
-
         file = double('FileChecker')
         allow(file).to receive(:validate).and_return true
 
         expect(Kernel).to receive(:puts).
-          with("\n===> Importing valid_location_regular_schedule.csv")
+          with(/\n===> Importing .*/)
 
-        expect(RegularScheduleImporter).to receive(:process_import).with(path)
+        expect(RegularScheduleImporter).to receive(:process_import).with(valid_content)
 
         expect(FileChecker).to receive(:new).
-          with(path, RegularScheduleImporter.required_headers).and_return(file)
+          with(valid_content, RegularScheduleImporter.required_headers).and_return(file)
 
-        RegularScheduleImporter.check_and_import_file(path)
+        RegularScheduleImporter.check_and_import_file(valid_content)
       end
     end
 
     context 'with invalid data' do
       it 'outputs error message' do
         expect(Kernel).to receive(:puts).
-          with("\n===> Importing invalid_regular_schedule.csv")
+          with(/\n===> Importing .*/)
 
         expect(Kernel).to receive(:puts).
           with("Line 2: Closes at can't be blank for Regular Schedule")
 
-        path = Rails.root.join('spec', 'support', 'fixtures', 'invalid_regular_schedule.csv')
-        RegularScheduleImporter.check_and_import_file(path)
+        RegularScheduleImporter.check_and_import_file(invalid_content)
       end
     end
   end
