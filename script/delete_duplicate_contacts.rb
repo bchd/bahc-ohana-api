@@ -17,7 +17,8 @@ Contact.transaction do
   contact_to_keep = Contact.find(758)
   to_delete = [Contact.find(872), Contact.find(871)]
 
-  contact_to_keep.update!(title: 'Director of SUD Programs')
+  contact_to_keep.title = 'Director of SUD Programs'
+  contact_to_keep.save(validate: false)
 
   to_delete.map do |duplicate|
     duplicate.resource_contacts.each do |resource_contact|
@@ -44,7 +45,8 @@ Contact.transaction do
   contact_to_keep = Contact.find(254)
   duplicate_to_delete = Contact.find(772)
 
-  contact_to_keep.update!(email: 'Ldonard@GlenwoodLife.org')
+  contact_to_keep.email = 'Ldonard@GlenwoodLife.org'
+  contact_to_keep.save(validate: false)
 
   duplicate_to_delete.resource_contacts.each do |resource_contact|
       resource_contact.update!(contact: contact_to_keep)
