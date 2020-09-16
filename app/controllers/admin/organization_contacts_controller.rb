@@ -7,14 +7,14 @@ class Admin
       @organization = Organization.find(params[:organization_id])
       @contact = Contact.find(params[:id])
 
-      authorize @contact
+      authorize @organization
     end
 
     def update
       @contact = Contact.find(params[:id])
       @organization = Organization.find(params[:organization_id])
 
-      authorize @contact
+      authorize @organization
 
       if @contact.update(contact_params)
         flash[:notice] = 'Contact was successfully updated.'
@@ -34,11 +34,12 @@ class Admin
 
     def create
       @organization = Organization.find(params[:organization_id])
-      @contact = @organization.contacts.new(contact_params)
+      @contact = Contact.find_or_initialize_by(name: contact_params[:name])
 
-      authorize @contact
+      authorize @organization
 
-      if @contact.save
+      if @contact.update(contact_params)
+        @organization.contacts << @contact
         flash[:notice] = "Contact '#{@contact.name}' was successfully created."
         redirect_to admin_organization_url(@organization)
       else
@@ -47,11 +48,15 @@ class Admin
     end
 
     def destroy
-      contact = Contact.find(params[:id])
-      authorize contact
+      organization = Organization.find(params[:organization_id])
 
-      contact.destroy
-      redirect_to admin_organization_url(contact.organization),
+      authorize organization
+
+      resource = organization.resource_contacts.find_by(contact_id: params[:id])
+      contact = resource.contact
+      resource.destroy
+
+      redirect_to admin_organization_url(organization),
                   notice: "Contact '#{contact.name}' was successfully deleted."
     end
 

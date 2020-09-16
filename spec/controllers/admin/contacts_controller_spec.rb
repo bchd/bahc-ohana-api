@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe Admin::ContactsController do
   describe 'GET edit' do
-    before(:each) do
+    before do
       @loc = create(:location_with_admin)
       @contact = @loc.contacts.create!(attributes_for(:contact))
     end
@@ -41,7 +41,7 @@ describe Admin::ContactsController do
   end
 
   describe 'GET new' do
-    before(:each) do
+    before do
       @loc = create(:location_with_admin)
     end
 
@@ -79,7 +79,7 @@ describe Admin::ContactsController do
   end
 
   describe 'create' do
-    before(:each) do
+    before do
       @loc = create(:location_with_admin)
     end
 
@@ -114,11 +114,22 @@ describe Admin::ContactsController do
         expect(response).to redirect_to admin_location_url(@loc.friendly_id)
         expect(@loc.contacts.last.name).to eq 'John'
       end
+
+      it 'attaches the contact if found' do
+        log_in_as_admin(:location_admin)
+        contact = create(:contact, name: 'John', title: 'old')
+
+        post :create, params: { location_id: @loc.id, contact: { name: 'John', title: 'new' } }
+
+        expect(response).to redirect_to admin_location_url(@loc.friendly_id)
+        expect(@loc.contacts.last.name).to eq 'John'
+        expect(contact.reload.title).to eq 'new'
+      end
     end
   end
 
   describe 'update' do
-    before(:each) do
+    before do
       @loc = create(:location_with_admin)
       @contact = @loc.contacts.create!(attributes_for(:contact))
     end
@@ -160,7 +171,7 @@ describe Admin::ContactsController do
   end
 
   describe 'destroy' do
-    before(:each) do
+    before do
       @loc = create(:location_with_admin)
       @contact = @loc.contacts.create!(attributes_for(:contact))
     end
@@ -194,7 +205,7 @@ describe Admin::ContactsController do
         delete :destroy, params: { location_id: @loc.id, id: @contact.id }
 
         expect(response).to redirect_to admin_location_url(@loc.friendly_id)
-        expect(Contact.find_by(id: @contact.id)).to be_nil
+        expect(@loc.resource_contacts.find_by(contact_id: @contact.id)).to be_nil
       end
     end
   end

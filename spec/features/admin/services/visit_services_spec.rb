@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature 'Services page' do
   context 'when not signed in' do
-    before :each do
+    before do
       visit '/admin/services'
     end
 
@@ -23,7 +23,7 @@ feature 'Services page' do
   end
 
   context 'when signed in' do
-    before :each do
+    before do
       login_admin
       visit '/admin/services'
     end
@@ -49,7 +49,7 @@ feature 'Services page' do
   end
 
   context 'when signed in as super admin' do
-    before :each do
+    before do
       @nearby = create(:nearby_loc)
       @service = @nearby.services.
                  create!(attributes_for(:service).

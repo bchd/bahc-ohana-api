@@ -8,7 +8,7 @@ describe Location do
   # Associations
   it { is_expected.to belong_to(:organization).required }
   it { is_expected.to have_one(:address).dependent(:destroy) }
-  it { is_expected.to have_many(:contacts).dependent(:destroy) }
+  it { is_expected.to have_many(:resource_contacts).dependent(:destroy) }
   it { is_expected.to have_many(:phones).dependent(:destroy).inverse_of(:location) }
   it { is_expected.to have_many(:services).dependent(:destroy) }
   it { is_expected.to have_many(:regular_schedules).dependent(:destroy).inverse_of(:location) }
@@ -110,7 +110,7 @@ describe Location do
   end
 
   describe 'slug candidates' do
-    before(:each) { @loc = create(:location) }
+    before { @loc = create(:location) }
 
     context 'when address is present and name is already taken' do
       it 'creates a new slug based on address street' do
@@ -136,7 +136,7 @@ describe Location do
   end
 
   describe 'geolocation methods' do
-    before(:each) { @loc = create(:location) }
+    before { @loc = create(:location) }
 
     it "doesn't geocode when address hasn't changed" do
       @loc.name = 'new name'
@@ -244,7 +244,7 @@ describe Location do
       expect(loc).to be_valid
     end
   end
-  
+
   describe 'archived location' do
     it 'can create archived location' do
       org = build_stubbed(:nearby_org)

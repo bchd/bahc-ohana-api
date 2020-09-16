@@ -1,16 +1,9 @@
 require 'rails_helper'
 
 describe 'PATCH /locations/:location_id/services/:id' do
-  before(:all) do
+  before do
     create_service
-  end
-
-  before(:each) do
     @attrs = attributes_for(:service_with_extra_whitespace)
-  end
-
-  after(:all) do
-    Organization.find_each(&:destroy)
   end
 
   let(:expected_attributes) do
@@ -46,7 +39,7 @@ describe 'PATCH /locations/:location_id/services/:id' do
       api_location_service_url(@location, @service, subdomain: ENV['API_SUBDOMAIN']),
       @attrs
     )
-    
+
     expect(response).to have_http_status(200)
     expected_attributes.each do |key, value|
       expect(json[key.to_s]).to eq value

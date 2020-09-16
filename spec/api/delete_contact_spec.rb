@@ -1,13 +1,9 @@
 require 'rails_helper'
 
 describe 'DELETE /locations/:location_id/contacts/:id' do
-  before(:all) do
+  before do
     @loc = create(:location)
     @contact = @loc.contacts.create!(attributes_for(:contact))
-  end
-
-  after(:all) do
-    Organization.find_each(&:destroy)
   end
 
   it 'deletes the contact' do

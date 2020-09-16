@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe ImporterErrors do
   let(:errors) { double(:errors, full_messages: ['not enough cowbell']) }

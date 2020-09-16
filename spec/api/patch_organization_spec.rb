@@ -1,17 +1,10 @@
 require 'rails_helper'
 
 describe 'PATCH /organizations/:id' do
-  before(:all) do
+  before do
     loc_with_org = create(:location)
     @org = loc_with_org.organization
-  end
-
-  before(:each) do
     @org.reload
-  end
-
-  after(:all) do
-    Organization.find_each(&:destroy)
   end
 
   let(:valid_attributes) do

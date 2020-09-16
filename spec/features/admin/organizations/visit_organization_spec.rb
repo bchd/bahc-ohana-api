@@ -1,18 +1,11 @@
 require 'rails_helper'
 
 feature 'Visiting a specific organization' do
-  before(:all) do
+  before do
     @location = create(:location)
     @organization = @location.organization
-  end
-
-  before(:each) do
     @organization.reload
     @location.reload
-  end
-
-  after(:all) do
-    Organization.find_each(&:destroy)
   end
 
   scenario 'when admin has unmatched generic email' do

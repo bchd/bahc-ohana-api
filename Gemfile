@@ -48,7 +48,7 @@ end
 
 group :test do
   gem 'capybara'
-  gem 'database_cleaner', '>= 1.0.0.RC1'
+  gem 'database_cleaner-active_record'
   gem 'haml_lint'
   gem 'poltergeist'
   gem 'rails-controller-testing'

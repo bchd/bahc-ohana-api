@@ -2,17 +2,10 @@ require 'rails_helper'
 
 describe 'GET /locations/:id' do
   context 'with valid id' do
-    before :all do
+    before do
       create_service
-    end
-
-    before(:each) do
       @location.reload
       get api_location_url(@location, subdomain: ENV['API_SUBDOMAIN'])
-    end
-
-    after(:all) do
-      Organization.find_each(&:destroy)
     end
 
     it 'includes the location id' do
@@ -223,7 +216,7 @@ describe 'GET /locations/:id' do
   end
 
   context 'with invalid id' do
-    before :each do
+    before do
       get api_location_url(1, subdomain: ENV['API_SUBDOMAIN'])
     end
 
@@ -246,7 +239,7 @@ describe 'GET /locations/:id' do
   end
 
   context 'with nil fields' do
-    before(:each) do
+    before do
       @loc = create(:loc_with_nil_fields)
     end
 
@@ -259,7 +252,7 @@ describe 'GET /locations/:id' do
   end
 
   describe 'ordering service categories by taxonomy_id' do
-    before :each do
+    before do
       @food = create(:category)
       @food_child = @food.children.
                     create!(name: 'Community Gardens', taxonomy_id: '101-01', type: 'service')

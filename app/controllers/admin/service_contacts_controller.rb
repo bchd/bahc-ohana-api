@@ -35,12 +35,13 @@ class Admin
 
     def create
       @service = Service.find(params[:service_id])
-      @contact = @service.contacts.new(contact_params)
+      @contact = Contact.find_or_initialize_by(name: contact_params[:name])
       location = @service.location
 
       authorize @service
 
-      if @contact.save
+      if @contact.update(contact_params)
+        @service.contacts << @contact
         redirect_to admin_location_service_url(location, @service),
                     notice: "Contact '#{@contact.name}' was successfully created."
       else
@@ -49,13 +50,15 @@ class Admin
     end
 
     def destroy
-      contact = Contact.find(params[:id])
-      service = contact.service
-      location = service.location
+      service = Service.find(params[:service_id])
 
       authorize service
 
-      contact.destroy
+      resource = service.resource_contacts.find_by(contact_id: params[:id])
+      contact = resource.contact
+      resource.destroy
+
+      location = service.location
       redirect_to admin_location_service_url(location, service),
                   notice: "Contact '#{contact.name}' was successfully deleted."
     end

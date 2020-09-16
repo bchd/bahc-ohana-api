@@ -1,18 +1,23 @@
 require 'rails_helper'
 
 describe ProgramImporter do
-  let(:invalid_content) { Rails.root.join('spec', 'support', 'fixtures', 'invalid_program.csv') }
-  let(:valid_content) { Rails.root.join('spec', 'support', 'fixtures', 'valid_program.csv') }
-  let(:no_parent) { Rails.root.join('spec', 'support', 'fixtures', 'program_with_no_parent.csv') }
+  include CSVHelpers
 
-  before(:all) do
-    DatabaseCleaner.clean_with(:truncation)
-    create(:organization)
+  let(:invalid_content) do
+    path = Rails.root.join('spec', 'support', 'fixtures', 'invalid_program.csv')
+    replace_variables_in_csv(path, {org_id: organization.id})
   end
 
-  after(:all) do
-    Organization.find_each(&:destroy)
+  let(:valid_content) do
+    path = Rails.root.join('spec', 'support', 'fixtures', 'valid_program.csv')
+    replace_variables_in_csv(path, {org_id: organization.id})
   end
+
+  let(:no_parent) do
+    Rails.root.join('spec', 'support', 'fixtures', 'program_with_no_parent.csv')
+  end
+
+  let!(:organization) { create(:organization) }
 
   subject(:importer) { ProgramImporter.new(content) }
 
@@ -64,7 +69,7 @@ describe ProgramImporter do
         its(:id) { is_expected.to eq 2 }
         its(:name) { is_expected.to eq 'Defeat Hunger' }
         its(:alternate_name) { is_expected.to be_nil }
-        its(:organization_id) { is_expected.to eq 1 }
+        its(:organization_id) { is_expected.to eq(organization.id) }
       end
     end
 
@@ -95,30 +100,27 @@ describe ProgramImporter do
 
   describe '.check_and_import_file' do
     it 'calls FileChecker' do
-      path = Rails.root.join('spec', 'support', 'fixtures', 'valid_program.csv')
-
       file = double('FileChecker')
       allow(file).to receive(:validate).and_return true
 
       expect(Kernel).to receive(:puts).
-        with("\n===> Importing valid_program.csv")
+        with(/\n===> Importing .*/)
 
       expect(FileChecker).to receive(:new).
-        with(path, ProgramImporter.required_headers).and_return(file)
+        with(valid_content, ProgramImporter.required_headers).and_return(file)
 
-      ProgramImporter.check_and_import_file(path)
+      ProgramImporter.check_and_import_file(valid_content)
     end
 
     context 'with invalid data' do
       it 'outputs error message' do
         expect(Kernel).to receive(:puts).
-          with("\n===> Importing invalid_program.csv")
+          with(/\n===> Importing .*/)
 
         expect(Kernel).to receive(:puts).
           with("Line 2: Name can't be blank for Program")
 
-        path = Rails.root.join('spec', 'support', 'fixtures', 'invalid_program.csv')
-        ProgramImporter.check_and_import_file(path)
+        ProgramImporter.check_and_import_file(invalid_content)
       end
     end
   end

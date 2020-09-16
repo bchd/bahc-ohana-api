@@ -43,7 +43,8 @@ class Location < ApplicationRecord
   has_one :address, dependent: :destroy
   accepts_nested_attributes_for :address, allow_destroy: true
 
-  has_many :contacts, dependent: :destroy
+  has_many :resource_contacts, as: :resource, dependent: :destroy
+  has_many :contacts, through: :resource_contacts
 
   has_many :phones, dependent: :destroy, inverse_of: :location
   accepts_nested_attributes_for :phones,
