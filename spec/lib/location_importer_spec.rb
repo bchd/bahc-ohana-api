@@ -35,7 +35,6 @@ describe LocationImporter do
   end
 
   let!(:organization) { create(:organization) }
-
   subject(:importer) { LocationImporter.new(content, address) }
 
   describe '#valid?' do
@@ -121,7 +120,7 @@ describe LocationImporter do
         its(:latitude) { is_expected.to eq(37.7726402) }
         its(:longitude) { is_expected.to eq(-122.4099154) }
         its(:organization_id) { is_expected.to eq(organization.id) }
-        its(:accessibility) { is_expected.to eq %w[cd ramp] }
+        its(:accessibility) { is_expected.to eq %w[ramp] }
         its(:languages) { is_expected.to eq %w[French spanish] }
         its(:admin_emails) { is_expected.to eq %w[test@test.com foo@bar.com] }
       end
