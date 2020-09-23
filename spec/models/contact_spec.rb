@@ -1,27 +1,35 @@
 require 'rails_helper'
 
 describe Contact do
-  subject { build(:contact) }
 
-  it { is_expected.to_not be_valid }
+  describe 'validations' do
+    subject { described_class.new }
 
-  it { is_expected.to belong_to(:location).touch(true) }
-  it { is_expected.to belong_to(:service).touch(true) }
-  it { is_expected.to belong_to(:organization) }
-  it { is_expected.to have_many(:phones).dependent(:destroy).inverse_of(:contact) }
+    it { is_expected.to_not be_valid }
 
-  it { is_expected.to accept_nested_attributes_for(:phones).allow_destroy(true) }
+    it do
+      is_expected.to validate_presence_of(:name).
+        with_message("can't be blank for Contact")
+    end
 
-  it do
-    is_expected.to validate_presence_of(:name).
-      with_message("can't be blank for Contact")
+    it { is_expected.to allow_value('moncef@blah.com').for(:email) }
+
+    it do
+      is_expected.not_to allow_value('moncef@blahcom').for(:email).
+        with_message('moncef@blahcom is not a valid email')
+    end
   end
 
-  it { is_expected.to allow_value('moncef@blah.com').for(:email) }
+  describe 'associations' do
+    subject { build(:contact) }
 
-  it do
-    is_expected.not_to allow_value('moncef@blahcom').for(:email).
-      with_message('moncef@blahcom is not a valid email')
+    it { is_expected.to have_many(:locations) }
+    it { is_expected.to have_many(:services) }
+    it { is_expected.to have_many(:organizations) }
+    it { is_expected.to have_many(:resource_contacts).dependent(:destroy) }
+    it { is_expected.to have_many(:phones).dependent(:destroy).inverse_of(:contact) }
+
+    it { is_expected.to accept_nested_attributes_for(:phones).allow_destroy(true) }
   end
 
   describe 'auto_strip_attributes' do

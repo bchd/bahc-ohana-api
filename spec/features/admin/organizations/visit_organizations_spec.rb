@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature 'Organizations page' do
   context 'when not signed in' do
-    before :each do
+    before do
       visit '/admin/organizations'
     end
 
@@ -24,7 +24,7 @@ feature 'Organizations page' do
   end
 
   context 'when signed in' do
-    before :each do
+    before do
       login_admin
       visit '/admin/organizations'
     end
@@ -45,7 +45,7 @@ feature 'Organizations page' do
   end
 
   context 'when signed in as super admin' do
-    before :each do
+    before do
       create(:location_for_org_admin)
       @loc = create(:location)
       login_super_admin

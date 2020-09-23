@@ -33,7 +33,6 @@ class Admin
 
     def update
       @organization = Organization.find(params[:id])
-
       authorize @organization
 
       if @organization.update(org_params)

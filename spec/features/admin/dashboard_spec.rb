@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature 'Admin Home page' do
   context 'when not signed in' do
-    before :each do
+    before do
       visit '/admin'
     end
 
@@ -38,7 +38,7 @@ feature 'Admin Home page' do
   end
 
   context 'when signed in' do
-    before :each do
+    before do
       login_admin
       visit '/admin'
     end
@@ -146,7 +146,7 @@ feature 'Admin Home page' do
   end
 
   context 'when signed in as super admin and no orgs exist' do
-    before :each do
+    before do
       login_super_admin
       visit '/admin'
     end
@@ -168,7 +168,7 @@ feature 'Admin Home page' do
   end
 
   context 'when signed in as super admin and orgs exist' do
-    before :each do
+    before do
       create(:organization)
       login_super_admin
       visit '/admin'

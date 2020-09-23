@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe Admin::OrganizationContactsController do
   describe 'GET edit' do
-    before(:each) do
+    before do
       location = create(:location_with_admin)
       @org = location.organization
       @contact = @org.contacts.create!(attributes_for(:contact))
@@ -42,7 +42,7 @@ describe Admin::OrganizationContactsController do
   end
 
   describe 'GET new' do
-    before(:each) do
+    before do
       location = create(:location_with_admin)
       @org = location.organization
     end
@@ -81,7 +81,7 @@ describe Admin::OrganizationContactsController do
   end
 
   describe 'create' do
-    before(:each) do
+    before do
       loc = create(:location)
       @org = loc.organization
     end
@@ -120,11 +120,24 @@ describe Admin::OrganizationContactsController do
         expect(response).to redirect_to admin_organization_url(organization.friendly_id)
         expect(organization.contacts.last.name).to eq 'Jane'
       end
+
+      it 'attaches the contact if found' do
+        location = create(:location_with_admin)
+        organization = location.organization
+        log_in_as_admin(:location_admin)
+        contact = create(:contact, name: 'Jane', title: 'old')
+
+        post :create, params: { organization_id: organization.id, contact: { name: 'Jane', title: 'new' } }
+
+        expect(response).to redirect_to admin_organization_url(organization.friendly_id)
+        expect(organization.contacts.last.name).to eq 'Jane'
+        expect(contact.reload.title).to eq 'new'
+      end
     end
   end
 
   describe 'update' do
-    before(:each) do
+    before do
       @loc = create(:location_with_admin)
       @org = @loc.organization
       @contact = @org.contacts.create!(attributes_for(:contact))
@@ -171,7 +184,7 @@ describe Admin::OrganizationContactsController do
   end
 
   describe 'destroy' do
-    before(:each) do
+    before do
       @loc = create(:location_with_admin)
       @org = @loc.organization
       @contact = @org.contacts.create!(attributes_for(:contact))
@@ -207,7 +220,7 @@ describe Admin::OrganizationContactsController do
         delete :destroy, params: { organization_id: @org.id, id: @contact.id }
 
         expect(response).to redirect_to admin_organization_url(@org.friendly_id)
-        expect(Contact.find_by(id: @contact.id)).to be_nil
+        expect(@org.resource_contacts.find_by(contact_id: @contact.id)).to be_nil
       end
     end
   end

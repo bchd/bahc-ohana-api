@@ -2,18 +2,11 @@ require 'rails_helper'
 
 describe 'GET /categories/:category_id/children' do
   context 'when category has children' do
-    before :all do
+    before do
       @food = Category.create!(name: 'Food', taxonomy_id: '101')
       @food_child = @food.children.
                     create!(name: 'Emergency Food', taxonomy_id: '101-01')
-    end
-
-    before :each do
       get api_category_children_url(@food.taxonomy_id, subdomain: ENV['API_SUBDOMAIN'])
-    end
-
-    after(:all) do
-      Category.find_each(&:destroy)
     end
 
     it 'returns a 200 status' do
@@ -42,16 +35,9 @@ describe 'GET /categories/:category_id/children' do
   end
 
   context "when category doesn't have children" do
-    before :all do
+    before do
       @food = Category.create!(name: 'Food', taxonomy_id: '101')
-    end
-
-    before :each do
       get api_category_children_url(@food.taxonomy_id, subdomain: ENV['API_SUBDOMAIN'])
-    end
-
-    after(:all) do
-      Category.find_each(&:destroy)
     end
 
     it 'returns an empty array' do

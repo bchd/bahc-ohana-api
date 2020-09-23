@@ -7,7 +7,7 @@ describe Organization do
 
   it { is_expected.to have_many(:locations).dependent(:destroy) }
   it { is_expected.to have_many(:programs).dependent(:destroy) }
-  it { is_expected.to have_many(:contacts).dependent(:destroy) }
+  it { is_expected.to have_many(:resource_contacts).dependent(:destroy) }
 
   it { is_expected.to have_many(:phones).dependent(:destroy).inverse_of(:organization) }
   it { is_expected.to accept_nested_attributes_for(:phones).allow_destroy(true) }
@@ -86,7 +86,7 @@ describe Organization do
   end
 
   describe 'slug' do
-    before(:each) { @org = create(:organization) }
+    before { @org = create(:organization) }
 
     context 'when name is not updated' do
       it "doesn't update slug" do

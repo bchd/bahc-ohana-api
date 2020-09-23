@@ -47,7 +47,7 @@ feature 'Signing up' do
   end
 
   context 'when signing up with existing email', email: true do
-    before(:each) do
+    before do
       sign_up('Moncef', 'moncef@foo.com', 'ohanatest', 'ohanatest')
       sign_up('Moncef', 'moncef@foo.com', 'ohanatest', 'ohanatest')
     end
@@ -103,7 +103,7 @@ feature 'Signing up' do
     end
 
     context 'when duplicate email and name is missing during sign up' do
-      before(:each) do
+      before do
         sign_up('Moncef', 'moncef@foo.com', 'ohanatest', 'ohanatest')
         sign_up('', 'moncef@foo.com', 'ohanatest', 'ohanatest')
       end
@@ -112,7 +112,7 @@ feature 'Signing up' do
     end
 
     context 'when duplicate email and password is missing during sign up' do
-      before(:each) do
+      before do
         sign_up('Moncef', 'moncef@foo.com', 'ohanatest', 'ohanatest')
         sign_up('', 'moncef@foo.com', '', 'ohanatest')
       end
@@ -121,7 +121,7 @@ feature 'Signing up' do
     end
 
     context 'when duplicate email and password_confirmation invalid during sign up' do
-      before(:each) do
+      before do
         sign_up('Moncef', 'moncef@foo.com', 'ohanatest', 'ohanatest')
         sign_up('Moncef', 'moncef@foo.com', 'ohanatest', '')
       end
@@ -130,7 +130,7 @@ feature 'Signing up' do
     end
 
     context 'when duplicate email and password is too short during sign up' do
-      before(:each) do
+      before do
         sign_up('Moncef', 'moncef@foo.com', 'ohanatest', 'ohanatest')
         sign_up('Moncef', 'moncef@foo.com', 'foo', 'foo')
       end

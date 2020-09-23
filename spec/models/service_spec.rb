@@ -12,7 +12,7 @@ describe Service do
   it { is_expected.to accept_nested_attributes_for(:regular_schedules).allow_destroy(true) }
   it { is_expected.to have_many(:holiday_schedules).dependent(:destroy).inverse_of(:service) }
   it { is_expected.to accept_nested_attributes_for(:holiday_schedules).allow_destroy(true) }
-  it { is_expected.to have_many(:contacts).dependent(:destroy).inverse_of(:service) }
+  it { is_expected.to have_many(:resource_contacts).dependent(:destroy) }
   it { is_expected.to have_many(:phones).dependent(:destroy).inverse_of(:service) }
   it { is_expected.to accept_nested_attributes_for(:phones).allow_destroy(true) }
 

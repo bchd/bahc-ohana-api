@@ -1,18 +1,11 @@
 require 'rails_helper'
 
 feature "Update a location's accessibility options" do
-  before(:all) do
+  before do
     @location = create(:soup_kitchen)
-  end
-
-  before(:each) do
     @location.reload
     login_super_admin
     visit '/admin/locations/soup-kitchen'
-  end
-
-  after(:all) do
-    Organization.find_each(&:destroy)
   end
 
   scenario "when location doesn't have any options" do

@@ -1,11 +1,8 @@
 require 'rails_helper'
 
 describe 'Create an organization (POST /organizations/)' do
-  before(:all) do
+  before do
     create(:organization)
-  end
-
-  before(:each) do
     @org_attributes = {
       accreditations: ['BBB', 'State Board of Education'],
       alternate_name: 'Alternate Name',
@@ -20,10 +17,6 @@ describe 'Create an organization (POST /organizations/)' do
       tax_status: '501(c)(3)',
       website: 'https://foo.org'
     }
-  end
-
-  after(:all) do
-    Organization.find_each(&:destroy)
   end
 
   it 'creates an organization with valid attributes' do

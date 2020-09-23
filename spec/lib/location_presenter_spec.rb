@@ -1,25 +1,23 @@
 require 'rails_helper'
 
 describe LocationPresenter do
-  before(:all) do
-    DatabaseCleaner.clean_with(:truncation)
-    create(:organization)
-  end
+  include CSVHelpers
 
-  after(:all) do
-    Organization.find_each(&:destroy)
-  end
+  let!(:organization) { create(:organization) }
 
   let(:properties) do
     {
-      organization_id: '1',
+      organization_id: organization.id.to_s,
       id: '1',
       name: 'Example Location',
       description: 'Example description'
     }
   end
 
-  let(:path) { Rails.root.join('spec', 'support', 'fixtures', 'valid_location.csv') }
+  let(:path) do
+    path = Rails.root.join('spec', 'support', 'fixtures', 'valid_location.csv')
+    replace_variables_in_csv(path, {org_id: organization.id})
+  end
 
   let(:address_path) { Rails.root.join('spec', 'support', 'fixtures', 'valid_address.csv') }
 
@@ -52,9 +50,15 @@ describe LocationPresenter do
     end
 
     context 'when the location already exists' do
-      before do
-        DatabaseCleaner.clean_with(:truncation)
-        create(:location)
+      let!(:location) { create(:location, organization: organization) }
+
+      let(:properties) do
+        {
+          organization_id: organization.id.to_s,
+          id: location.id.to_s,
+          name: 'Example Location',
+          description: 'Example description'
+        }
       end
 
       it 'does not create a new location' do

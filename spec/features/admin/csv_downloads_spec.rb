@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature 'Admin CSV Downloads page' do
   context 'when not signed in' do
-    before :each do
+    before do
       visit '/admin/csv_downloads'
     end
 
@@ -12,7 +12,7 @@ feature 'Admin CSV Downloads page' do
   end
 
   context 'when signed in as admin' do
-    before :each do
+    before do
       login_admin
       visit '/admin/csv_downloads'
     end
@@ -30,7 +30,7 @@ feature 'Admin CSV Downloads page' do
   end
 
   context 'when signed in as super admin' do
-    before :each do
+    before do
       login_super_admin
       visit '/admin/csv_downloads'
     end

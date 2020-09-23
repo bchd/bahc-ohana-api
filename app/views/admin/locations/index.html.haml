@@ -54,7 +54,7 @@
         %ul
           - if location.last.nil?
             = check_box_tag('archive[]', location.first, nil, class: "select-archive")
-          = link_to location.second, edit_admin_location_path(location.third), class: "location-links"
+          = link_to "#{location.second} - #{location.first}", edit_admin_location_path(location.third), class: "location-links"
           - if location.last.present?
             %span.archived-flag Archived
       = paginate @locations
@@ -65,7 +65,7 @@
   %p
     - @locations.each do |location|
       %ul
-        = link_to location.second, edit_admin_location_path(location.third), class: "location-links"
+        = link_to "#{location.second} - #{location.first}", edit_admin_location_path(location.third), class: "location-links"
         - if location.last.present?
           %span.archived-flag Archived
     = paginate @locations

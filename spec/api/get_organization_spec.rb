@@ -2,16 +2,9 @@ require 'rails_helper'
 
 describe 'GET /organizations/:id' do
   context 'with valid id' do
-    before :all do
+    before do
       @org = create(:location).organization
-    end
-
-    before :each do
       get api_organization_url(@org, subdomain: ENV['API_SUBDOMAIN'])
-    end
-
-    after(:all) do
-      Organization.find_each(&:destroy)
     end
 
     it 'includes the organization id' do
@@ -57,7 +50,7 @@ describe 'GET /organizations/:id' do
   end
 
   context 'with invalid id' do
-    before :each do
+    before do
       get api_organization_url(1, subdomain: ENV['API_SUBDOMAIN'])
     end
 
@@ -80,7 +73,7 @@ describe 'GET /organizations/:id' do
   end
 
   context 'with nil fields' do
-    before(:each) do
+    before do
       @org = create(:organization)
     end
 

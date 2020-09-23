@@ -4,7 +4,7 @@ require 'rails_helper'
 xfeature 'Signing in' do
   # The 'sign_in' method is defined in spec/support/features/session_helpers.rb
   context 'with correct credentials' do
-    before :each do
+    before do
       valid_user = FactoryBot.create(:user)
       sign_in(valid_user.email, valid_user.password)
     end

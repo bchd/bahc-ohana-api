@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 feature 'Visiting the Sign in page' do
-  before :each do
+  before do
     visit new_admin_session_path
   end
 
@@ -32,7 +32,7 @@ end
 
 feature 'Signing in' do
   context 'with correct credentials' do
-    before :each do
+    before do
       @valid_admin = create(:admin)
       sign_in_admin(@valid_admin.email, @valid_admin.password)
     end

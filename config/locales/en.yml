@@ -139,7 +139,7 @@ en:
       locations: 'Locations'
       services: 'Services'
       update_capacity: 'Update Capacity'
-      csv_downloads: 'CSV Downloads'
+      csv_section: 'CSV'
       programs: 'Programs'
       add_organization: 'Add a new organization'
       create_organization: 'Create organization'
@@ -197,6 +197,7 @@ en:
       clear_filters: 'Clear Filters'
       clear_search: 'Clear Search'
       flag: 'Flag Resources'
+      upload: 'Upload'
     locations:
       index:
         description: 'See the locations for this organization.'
@@ -357,6 +358,12 @@ en:
         update_status: 'Update Status'
         capacity_status: 'Capacity Status'
         last_updated: 'Last updated '
+
+      upload:
+        location_not_found: "Upload unsuccessful. Location with id: %{location_id} not found"
+        validation_errors: "Upload unsuccessful. %{errors} for location id: %{location_id}"
+        success: 'Success! Service upload complete'
+        missing: 'No file selected'
 
     shared:
       forms:
