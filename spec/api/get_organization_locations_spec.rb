@@ -5,7 +5,7 @@ describe 'GET /organizations/:organization_id/locations' do
     before do
       @org = create(:organization)
       attrs = {
-        accessibility: %w[restroom],
+        accessibility: %w[ramp],
         admin_emails: %w[foo@bar.com],
         description: 'testing 1 2 3',
         email: 'foo@bar.com',

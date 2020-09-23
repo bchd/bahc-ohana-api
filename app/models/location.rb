@@ -106,8 +106,8 @@ class Location < ApplicationRecord
   # Don't change the terms here! You can change their display
   # name in config/locales/en.yml
   enumerize :accessibility,
-            in: %i[cd deaf_interpreter disabled_parking elevator ramp
-                   restroom tape_braille tty wheelchair wheelchair_van],
+            in: %i[deaf_interpreter disabled_parking ramp
+                    tape_braille wheelchair],
             multiple: true
 
   auto_strip_attributes :description, :email, :name, :short_desc,

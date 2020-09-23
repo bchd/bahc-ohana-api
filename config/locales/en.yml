@@ -383,16 +383,11 @@ en:
   enumerize:
     location:
       accessibility:
-        cd: 'Information on CD'
-        deaf_interpreter: 'Interpreter for the deaf'
-        disabled_parking: 'Disabled Parking'
-        elevator: 'Elevator'
-        ramp: 'Ramp'
-        restroom: 'Disabled Restroom'
-        tape_braille: 'Information on tape or in Braille'
-        tty: 'TTY'
-        wheelchair: 'Wheelchair'
-        wheelchair_van: 'Wheelchair-accessible van'
+        deaf_interpreter: 'Interpreter For The Deaf Or TTY'
+        disabled_parking: 'Disabled Parking Available'
+        ramp: 'Ramp Available'
+        tape_braille: 'Information In Braille Or Audio Format'
+        wheelchair: 'Wheelchair Accessible'
 
     phone:
       number_type:

@@ -63,8 +63,8 @@ describe Location do
   it do
     is_expected.to enumerize(:accessibility).
       in(
-        :cd, :deaf_interpreter, :disabled_parking, :elevator, :ramp, :restroom,
-        :tape_braille, :tty, :wheelchair, :wheelchair_van
+        :deaf_interpreter, :disabled_parking, :ramp,
+        :tape_braille, :wheelchair
       )
   end
 

@@ -28,7 +28,7 @@ describe 'PATCH /locations/:id)' do
     patch api_location_url(@loc, subdomain: ENV['API_SUBDOMAIN']), attributes
 
     expect(response).to have_http_status(200)
-    expect(json['accessibility']).to eq ['Disabled Parking', 'Ramp']
+    expect(json['accessibility']).to eq ['Disabled Parking Available', 'Ramp Available']
     expect(json['active']).to eq attributes[:active]
     expect(json['admin_emails']).to eq %w[foo@test.com bar@test.com]
     expect(json['alternate_name']).to eq attributes[:alternate_name]

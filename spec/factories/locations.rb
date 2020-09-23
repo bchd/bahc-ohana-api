@@ -50,7 +50,7 @@ FactoryBot.define do
     name { 'Library' }
     description { 'great books about jobs' }
     short_desc { 'short description' }
-    accessibility { [:elevator] }
+    accessibility { [:ramp] }
     latitude { 37.5808591 }
     longitude { -122.343072 }
     association :address, factory: :near

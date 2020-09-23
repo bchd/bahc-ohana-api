@@ -119,10 +119,10 @@ feature 'Create a new location' do
 
   scenario 'when adding an accessibility option', :js do
     fill_in_all_required_fields
-    check 'location_accessibility_elevator'
+    check 'location_accessibility_ramp'
     click_button I18n.t('admin.buttons.create_location')
 
-    expect(find('#location_accessibility_elevator')).to be_checked
+    expect(find('#location_accessibility_ramp')).to be_checked
   end
 
   scenario 'when adding transportation option', :js do
