@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   when :s3_multipart
     mount Shrine.uppy_s3_multipart(:cache) => "/s3/multipart"
   when :app
-    mount Shrine.upload_endpoint(:cache) => "/upload"
+    mount Shrine.upload_endpoint(:cache) => "/uploads"
   end
 
   devise_for :users, controllers: { registrations: "user/registrations" }
