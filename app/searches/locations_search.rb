@@ -11,7 +11,7 @@ class LocationsSearch
   attribute :tags, type: String
   attribute :archived_at, type: Date
   attribute :archived, type: Boolean
-  attribute :accessibility, type: String
+  attribute :accessibility, type: Array
 
   
   attribute :page, type: String
@@ -73,9 +73,8 @@ class LocationsSearch
 
   def accessibility_filter
     if accessibility?
-
       index.filter(
-        match: {
+        terms: {
           accessibility: accessibility
         }
       )

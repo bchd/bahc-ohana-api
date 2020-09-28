@@ -13,7 +13,7 @@ RSpec.describe LocationsSearch, :elasticsearch do
 
     before do
       @organization = create(:organization)
-      LocationsIndex.delete!
+      LocationsIndex.reset!
     end
 
     specify 'only returns locations not archived' do
@@ -21,12 +21,12 @@ RSpec.describe LocationsSearch, :elasticsearch do
       location_2 = create_location("Not featured and not covid", @organization)
       location_3 = create_location("featured location", @organization, "1")
 
-      
+
       location_1.update_columns(archived_at: Time.zone.yesterday)
       location_2.update_columns(archived_at: nil)
       location_3.update_columns(archived_at: Time.zone.yesterday)
-      
-      
+
+
       import(location_1, location_2, location_3)
 
 
@@ -53,7 +53,7 @@ RSpec.describe LocationsSearch, :elasticsearch do
   describe 'archive location search' do
     before do
       @organization = create(:organization)
-      LocationsIndex.delete!
+      LocationsIndex.reset!
     end
 
 
@@ -61,18 +61,18 @@ RSpec.describe LocationsSearch, :elasticsearch do
       location_1 = create_location("covid location", @organization, accessibility: 'ramp')
       location_2 = create_location("Not featured and not covid", @organization, accessibilty: 'ramp')
       location_3 = create_location("featured location", @organization, "1")
-      
+
       import(location_1, location_2, location_3)
-      
-      results = search({accessibility: 'disabled_parking'}).objects
-      expect(results).to include(location_3)
+
+      location_1.update_columns(accessibility: ['ramp'])
+      import(location_1, location_2, location_3)
+
+      results = search({accessibility: 'ramp'}).objects
+      expect(results).to include(location_1)
       expect(results.size).to eq(1)
-      expect(results).not_to include(location_2, location_1)
-      # disabled_parking
+      expect(results).not_to include(location_2, location_3)
     end
-
   end
-
 end
 
 private
