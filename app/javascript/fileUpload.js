@@ -1,5 +1,3 @@
-import 'uppy/dist/uppy.min.css'
-
 import {
   Core,
   FileInput,
