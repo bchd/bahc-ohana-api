@@ -89,7 +89,7 @@ const fileUpload = (fileInput) => {
     })
   } else {
     uppy.use(XHRUpload, {
-      endpoint: '/upload' // Shrine's upload endpoint
+      endpoint: '/uploads' // Shrine's upload endpoint
     })
   }
 
