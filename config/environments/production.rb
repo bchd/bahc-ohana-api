@@ -66,7 +66,7 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { :host => (ENV['DOMAIN_NAME'] ? ENV['DOMAIN_NAME'] : "http://localhost:8080") }
 
   config.action_mailer.smtp_settings = {
-    :domain => ENV['DOMAIN_NAME'],
+    :domain => ENV['MAILGUN_DOMAIN_NAME'],
     :port => ENV['MAILGUN_SMTP_PORT'],
     :address => ENV['MAILGUN_SMTP_SERVER'],
     :user_name => ENV['MAILGUN_SMTP_LOGIN'],
