@@ -97,12 +97,8 @@ const fileUpload = (fileInput) => {
 }
 
 const uploadedFileData = (file, response, fileInput) => {
-  if (fileInput.dataset.uploadServer == 's3') {
-    const id = file.meta['key'].match(/^cache\/(.+)/)[1] // object key without prefix
-
-    return JSON.stringify(fileData(file, id))
-  } else if (fileInput.dataset.uploadServer == 's3_multipart') {
-    const id = response.uploadURL.match(/\/cache\/([^\?]+)/)[1] // object key without prefix
+  if (fileInput.dataset.uploadServer == 's3_multipart') {
+    const id = response.uploadURL.match(/-cache\/([^\?]+)/)[1] // object key without prefix
 
     return JSON.stringify(fileData(file, id))
   } else {
