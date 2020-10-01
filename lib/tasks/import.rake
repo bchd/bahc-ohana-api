@@ -6,7 +6,7 @@ namespace :import do
 
   desc 'Imports organizations'
   task :organizations, [:path] => :environment do |_, args|
-    args.with_defaults(path: Rails.root.join('data', 'organizations.csv'))
+    args.with_defaults(path: Rails.root.join('data', 'icarol-csv/organizations.csv'))
     OrganizationImporter.check_and_import_file(args[:path])
   end
 
@@ -20,7 +20,7 @@ namespace :import do
   task :locations, %i[path addresses_path] => :environment do |_, args|
     Kernel.puts("\n===> Importing locations.csv and addresses.csv")
     args.with_defaults(
-      path: Rails.root.join('data', 'locations.csv'),
+      path: Rails.root.join('data', 'icarol-csv/locations.csv'),
       addresses_path: Rails.root.join('data', 'addresses.csv')
     )
     LocationImporter.check_and_import_file(args[:path], args[:addresses_path])
@@ -32,14 +32,15 @@ namespace :import do
     Category.destroy_all
     puts '  done.'
     Category.connection.reset_pk_sequence! Category.table_name
-    args.with_defaults(path: Rails.root.join('data', 'taxonomy.csv'))
+    args.with_defaults(path: Rails.root.join('data', 'icarol-csv/taxonomy.csv'))
     CategoryImporter.check_and_import_file(args[:path])
+    puts '----yay'
     Category.connection.reset_pk_sequence! Category.table_name
   end
 
   desc 'Imports services'
   task :services, [:path] => :environment do |_, args|
-    args.with_defaults(path: Rails.root.join('data', 'services.csv'))
+    args.with_defaults(path: Rails.root.join('data', 'icarol-csv/services.csv'))
     ServiceImporter.check_and_import_file(args[:path])
   end
 
@@ -117,7 +118,7 @@ namespace :import do
   desc 'Record original icarol categories to services'
   task :record_icarol_categories, [:path] => :environment do |_, args|
     puts '===> record iCarol categories'
-    args.with_defaults(path: Rails.root.join('data', 'service_icarol_categories.json'))
+    args.with_defaults(path: Rails.root.join('data', 'icarol-csv/service_icarol_categories.json'))
     text = File.read(args[:path], encoding: 'UTF-8')
     data = JSON.parse text
     data.each_key do |service_id|

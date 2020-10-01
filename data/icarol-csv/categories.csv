@@ -516,3 +516,9 @@ bom,id,name,taxonomy_id,parent_id,parent_name,type,filter,filter_parent,filter_p
 ,515,Cell-Phone Allowed,132-08,132,Substance Use Treatment Preferences,situation,TRUE,FALSE,
 ,516,Case Management Services Provided,132-09,132,Substance Use Treatment Preferences,situation,TRUE,FALSE,
 ,517,Support Groups Services Provided,132-10,132,Substance Use Treatment Preferences,situation,TRUE,FALSE,
+,518,Accessibility,99,,,service,TRUE,TRUE,90
+,519,Interpreter For The Deaf Or TTY,99-01, 518,Accessibility,service,TRUE,FALSE,
+,520,Disabled Parking Available,99-02,518,Accessibility,service,TRUE,FALSE,
+,521,Ramp Available,99-02,518,Accessibility,service,TRUE,FALSE,
+,522,Information In Braille Or Audio Format,99-03,518,Accessibility,service,TRUE,FALSE,
+,523,Wheelchair Accessible,99-04,518,Accessibility,service,TRUE,FALSE,
