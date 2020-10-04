@@ -6,7 +6,7 @@ namespace :import do
 
   desc 'Imports organizations'
   task :organizations, [:path] => :environment do |_, args|
-    args.with_defaults(path: Rails.root.join('data', 'icarol-csv/organizations.csv'))
+    args.with_defaults(path: Rails.root.join('data', 'organizations.csv'))
     OrganizationImporter.check_and_import_file(args[:path])
   end
 
@@ -32,7 +32,7 @@ namespace :import do
     Category.destroy_all
     puts '  done.'
     Category.connection.reset_pk_sequence! Category.table_name
-    args.with_defaults(path: Rails.root.join('data', 'icarol-csv/taxonomy.csv'))
+    args.with_defaults(path: Rails.root.join('data', 'taxonomy.csv'))
     CategoryImporter.check_and_import_file(args[:path])
     puts '----yay'
     Category.connection.reset_pk_sequence! Category.table_name
@@ -40,7 +40,7 @@ namespace :import do
 
   desc 'Imports services'
   task :services, [:path] => :environment do |_, args|
-    args.with_defaults(path: Rails.root.join('data', 'icarol-csv/services.csv'))
+    args.with_defaults(path: Rails.root.join('data', 'services.csv'))
     ServiceImporter.check_and_import_file(args[:path])
   end
 

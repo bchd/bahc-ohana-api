@@ -2,7 +2,6 @@ module Api
   module V1
     class CategoriesController < ApplicationController
       def index
-        require 'pry'; binding.pry
         categories = Category.all
         render json: categories, status: :ok
       end
