@@ -26,16 +26,16 @@
   .archive-container
     %h4
       Archive this service
-    = if service.archived_at?
+    - if service.archived_at?
       %p.archive-prompt
         This service has already been archived.
         %label
           = t('admin.buttons.unarchive_service')
           = f.check_box(:archived_at,  label: t('admin.buttons.unarchive_service'), class: 'archive-checkbox', checked: true)
-    = if service.archived_at? == false
+    - if service.archived_at? == false
       %p.archive-prompt
         This service has not been archived.
-        %label 
+        %label
           = t('admin.buttons.archive_service')
           = f.check_box(:archived_at,  label: t('admin.buttons.archive_service'), class: 'archive-checkbox')
 

@@ -1,9 +1,8 @@
 %li
   .media
-    = file_upload.image.inspect
     .media-body
       %tr
-        %td= link_to file_upload.image.metadata['filename'], get_upload_url(file_upload.image.id), class: 'btn btn-light', target: "_blank"
+        %td= link_to file_upload.image.metadata['filename'], file_upload.image_url, class: 'btn btn-light', target: "_blank"
         %td
           .form-group
             = f.label :_destroy, "Remove File"

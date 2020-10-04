@@ -46,7 +46,7 @@ Rails.application.configure do
   config.active_storage.service = :local
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
-  # config.force_ssl = true
+  config.force_ssl = true
 
   # Use the lowest log level to ensure availability of diagnostic information
   # when problems arise.
@@ -63,14 +63,17 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "ohana_api_#{Rails.env}"
 
   config.action_mailer.perform_caching = false
-  config.action_mailer.default_url_options = { :host => (ENV['DOMAIN_NAME'] ? ENV['DOMAIN_NAME'] : "http://localhost:8080") }
+  config.action_mailer.default_url_options = {
+    :host => ENV['DOMAIN_NAME'],
+    :scheme => "https"
+  }
 
   config.action_mailer.smtp_settings = {
-    :user_name => ENV['SENDGRID_USERNAME'],
-    :password => ENV['SENDGRID_PASSWORD'],
-    :domain => ENV['DOMAIN_NAME'],
-    :address => 'smtp.sendgrid.net',
-    :port => 587,
+    :domain => ENV['MAILGUN_DOMAIN_NAME'],
+    :port => ENV['MAILGUN_SMTP_PORT'],
+    :address => ENV['MAILGUN_SMTP_SERVER'],
+    :user_name => ENV['MAILGUN_SMTP_LOGIN'],
+    :password => ENV['MAILGUN_SMTP_PASSWORD'],
     :authentication => :plain,
     :enable_starttls_auto => true
   }
