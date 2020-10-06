@@ -20,7 +20,7 @@ namespace :import do
   task :locations, %i[path addresses_path] => :environment do |_, args|
     Kernel.puts("\n===> Importing locations.csv and addresses.csv")
     args.with_defaults(
-      path: Rails.root.join('data', 'icarol-csv/locations.csv'),
+      path: Rails.root.join('data', 'locations.csv'),
       addresses_path: Rails.root.join('data', 'addresses.csv')
     )
     LocationImporter.check_and_import_file(args[:path], args[:addresses_path])
