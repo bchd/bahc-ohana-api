@@ -11,6 +11,8 @@ class LocationsSearch
   attribute :tags, type: String
   attribute :archived_at, type: Date
   attribute :archived, type: Boolean
+  attribute :accessibility, type: Array
+
   
   attribute :page, type: String
   attribute :per_page, type: String
@@ -35,6 +37,7 @@ class LocationsSearch
       keyword_filter,
       zipcode_filter,
       category_filter,
+      accessibility_filter,
       order,
     ].compact.reduce(:merge)
   end
@@ -63,6 +66,16 @@ class LocationsSearch
       index.filter(
         terms: {
           category_ids: category_ids
+        }
+      )
+    end
+  end
+
+  def accessibility_filter
+    if accessibility?
+      index.filter(
+        terms: {
+          accessibility: accessibility
         }
       )
     end

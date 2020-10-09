@@ -9,6 +9,7 @@ module Api
 
       def index
         locations = LocationsSearch.new(
+          accessibility: params[:accessibility],
           tags: params[:tags],
           org_name: params[:org_name],
           keywords: params[:keyword],

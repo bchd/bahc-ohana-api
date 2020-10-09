@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 class LocationsIndex < Chewy::Index
   define_type Location.includes(:organization, :address, services: :categories) do
+    field :accessibility
     field :archived_at, value: -> { archived_at? ? archived_at : nil }, type: 'date'
     field :archived, type: 'boolean', value: -> { !archived_at.nil? } 
     field :created_at, type: 'date'
