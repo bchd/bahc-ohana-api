@@ -73,6 +73,15 @@ git push staging staging:main
 git push prod main
 ```
 
+### Bucketeer / S3
+
+In order for direct uploads to S3 to work, we need to set the policy on the bucketeer bucket to allow for our URLs.
+
+```bash
+aws s3api put-bucket-cors --bucket bucketeer-[id] --cors-configuration file://bucketeer-cors.json
+```
+
+
 ## Running the tests
 
 Run tests locally with this simple command:
