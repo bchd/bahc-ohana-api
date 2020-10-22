@@ -1,0 +1,18 @@
+{
+    "CORSRules": [
+        {
+            "AllowedHeaders": [ "*" ],
+            "ExposeHeaders": ["ETag", "x-amz-meta-custom-header"],
+            "AllowedMethods": [
+                "HEAD",
+                "GET",
+                "PUT"
+            ],
+            "AllowedOrigins": [
+                "https://dev-ahc-ohana-api.herokuapp.com",
+                "https://stge-ahc-ohana-api.herokuapp.com",
+                "https://data.charmcare.org"
+            ]
+        }
+    ]
+}
