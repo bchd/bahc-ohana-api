@@ -13,7 +13,7 @@ feature 'Update languages' do
     expect(@service.reload.languages).to eq []
   end
 
-  scenario 'with one language', :js do
+  skip 'with one language', :js do
     fill_in(placeholder: I18n.t('admin.services.forms.languages.placeholder'), with: "French\n")
     click_button I18n.t('admin.buttons.save_changes')
     expect(@service.reload.languages).to eq ['French']
