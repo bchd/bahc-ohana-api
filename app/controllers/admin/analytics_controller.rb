@@ -9,8 +9,9 @@ class Admin
 
     def index
       @ui_analytics = get_ui_analytics
-      @total_homepage_views = total_homepage_views(@ui_analytics)
-      @new_homepage_views = new_homepage_views(@ui_analytics, @start_date, @end_date)
+      @total_homepage_views = @ui_analytics['total_homepage_views']
+      @new_homepage_views = @ui_analytics['new_homepage_views']
+
       @organizations_count = Organization.all.count
       @new_org_count = Organization.where(created_at: @start_date.beginning_of_day..@end_date.end_of_day).count
       @locations_count = Location.all.count

@@ -10,6 +10,7 @@
             ],
             "AllowedOrigins": [
                 "https://dev-ahc-ohana-api.herokuapp.com",
+                "https://dev-ahc-ohana-ui.herokuapp.com",
                 "https://stge-ahc-ohana-api.herokuapp.com",
                 "https://data.charmcare.org"
             ]
