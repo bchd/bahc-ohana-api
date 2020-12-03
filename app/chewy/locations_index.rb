@@ -1,16 +1,26 @@
 # frozen_string_literal: true
 class LocationsIndex < Chewy::Index
+
+  settings analysis: {
+    analyzer: {
+      remove_stop_words: {
+        type: "standard",
+        stopwords: "_english_"
+      }
+    }
+  }
+
   define_type Location.includes(:organization, :address, services: :categories) do
     field :accessibility
     field :archived_at, value: -> { archived_at? ? archived_at : nil }, type: 'date'
     field :archived, type: 'boolean', value: -> { !archived_at.nil? } 
     field :created_at, type: 'date'
-    field :description
+    field :description, analyzer: 'remove_stop_words'
     field :id, type: 'integer'
-    field :keywords, value: -> { services.map(&:keywords).compact.join(', ') }
-    field :name
+    field :keywords, value: -> { services.map(&:keywords).compact.join(', ') }, analyzer: 'remove_stop_words'
+    field :name, analyzer: 'remove_stop_words'
     field :organization_id, type: 'integer'
-    field :organization_name, value: -> { organization.try(:name) }
+    field :organization_name, value: -> { organization.try(:name) }, analyzer: 'remove_stop_words'
     field :updated_at, type: 'date'
     field :zipcode, value: -> { address.try(:postal_code) }
     field :category_ids, value: -> { services.map(&:categories).flatten.uniq.map(&:id) }

@@ -37,7 +37,7 @@ class LocationsSearch
       keyword_filter,
       zipcode_filter,
       category_filter,
-      accessibility_filter,
+      accessibility_filter, 
       order,
     ].compact.reduce(:merge)
   end
@@ -46,7 +46,8 @@ class LocationsSearch
     index.order(
       featured_at: { missing: "_last", order: "asc" },
       covid19: { missing: "_last", order: "asc" },
-      updated_at: { order: "desc" }
+      "_score": { "order": "desc" },
+      updated_at: { order: "desc" },
     )
   end
 
@@ -109,7 +110,6 @@ class LocationsSearch
       index.query(multi_match: {
                     query: keywords,
                     fields: %w[organization_name^3 name^2 description^1 keywords],
-                    analyzer: 'standard',
                     fuzziness: 'AUTO'
                   })
     end

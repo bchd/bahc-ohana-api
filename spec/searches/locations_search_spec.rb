@@ -80,6 +80,31 @@ RSpec.describe LocationsSearch, :elasticsearch do
       expect(results).not_to include(location_2, location_3)
     end
   end
+
+  describe 'location search' do
+    before do
+      @organization = create(:organization)
+      LocationsIndex.reset!
+    end
+  
+    it 'should return same results searching with and without stoping words' do
+      location_1 = create_location("Animal Shelter", @organization)
+      location_2 = create_location("Food and Shelter", @organization)
+      location_3 = create_location("This is a Featured location", @organization)
+  
+      import(location_1, location_2, location_3)
+  
+      results_no_stop_words = search({keywords: 'Animal Shelter'}).objects
+      expect(results_no_stop_words).to include(location_1)
+      expect(results_no_stop_words).to include(location_2)
+      expect(results_no_stop_words.size).to eq(2)
+  
+      results_with_stop_words = search({keywords: 'the Animal Shelter is an a'}).objects
+      expect(results_with_stop_words).to include(location_1)
+      expect(results_with_stop_words).to include(location_2)
+      expect(results_with_stop_words.size).to eq(2)
+    end
+  end
 end
 
 private
