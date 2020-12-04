@@ -24,6 +24,7 @@ class LocationsIndex < Chewy::Index
     field :updated_at, type: 'date'
     field :zipcode, value: -> { address.try(:postal_code) }
     field :category_ids, value: -> { services.map(&:categories).flatten.uniq.map(&:id) }
+    field :categories, value: -> { services.map(&:categories).flatten.uniq.map(&:name) }
     field :tags, value: -> { tags.map(&:name) }
     field :featured_at, type: 'date'
     field :covid19, value: -> { covid19? ? created_at : nil }, type: 'date'

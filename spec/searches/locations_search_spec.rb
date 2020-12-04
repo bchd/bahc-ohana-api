@@ -9,8 +9,31 @@ RSpec.describe LocationsSearch, :elasticsearch do
     LocationsIndex.import!(*args)
   end
 
-  describe 'archive location search' do
+  describe 'by service category' do
+    before do
+      @organization = create(:organization)
+      LocationsIndex.reset!
+    end
 
+    specify 'partial matches on service categories are included in results' do
+      location_1 = create_location("service categories don't match", @organization)
+      location_2 = create_location("service categories contain a partial match", @organization)
+
+      service_1 = create(:service, location: location_1)
+      service_2 = create(:service, location: location_2)
+
+      create(:category, services: [service_2], name: "QWERTY UIOP")
+
+      import(location_1, location_2)
+
+      results = search({keywords: 'QWERTY'}).objects
+
+      expect(results).to include(location_2)
+      expect(results).not_to include(location_1)
+    end
+  end
+
+  describe 'archive location search' do
     before do
       @organization = create(:organization)
       LocationsIndex.reset!
