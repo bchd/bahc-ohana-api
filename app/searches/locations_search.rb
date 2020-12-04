@@ -92,9 +92,6 @@ class LocationsSearch
   end
 
   def zipcode_filter
-    # NOTE: I think we also need to consider location's coordinates and its radius.
-    # Because some of our specs are using these scenarios too.
-
     if zipcode?
       index.filter(match: {
                      zipcode: zipcode
@@ -108,7 +105,7 @@ class LocationsSearch
     if keywords?
       index.query(multi_match: {
                     query: keywords,
-                    fields: %w[organization_name^3 name^2 description^1 keywords],
+                    fields: %w[organization_name^3 name^2 description^1 keywords categories],
                     analyzer: 'standard',
                     fuzziness: 'AUTO'
                   })
