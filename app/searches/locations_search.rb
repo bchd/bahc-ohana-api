@@ -92,9 +92,6 @@ class LocationsSearch
   end
 
   def zipcode_filter
-    # NOTE: I think we also need to consider location's coordinates and its radius.
-    # Because some of our specs are using these scenarios too.
-
     if zipcode?
       index.filter(match: {
                      zipcode: zipcode
