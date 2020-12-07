@@ -28,6 +28,7 @@ class LocationsIndex < Chewy::Index
     field :tags, value: -> { tags.map(&:name) }
     field :featured_at, type: 'date'
     field :covid19, value: -> { covid19? ? created_at : nil }, type: 'date'
+    field :organization_tags, value: -> { organization.tags.map(&:name) }
   end
 end
 
