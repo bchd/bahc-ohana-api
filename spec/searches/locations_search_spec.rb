@@ -28,6 +28,28 @@ RSpec.describe LocationsSearch, :elasticsearch do
     end
   end
 
+  describe 'by location description' do
+    before do
+      @organization = create(:organization)
+      LocationsIndex.reset!
+    end
+
+    specify 'location description contains "Salvation" AND "Army"' do
+      location_1 = create_location("NOT EVEN CLOSE", @organization)
+      location_2 = create_location("EXACT MATCH OF NAME", @organization)
+
+      location_1.update_columns(description: "This is a description that has no relationship or reference to the terms in the search query.")
+      location_2.update_columns(description: "This is a description that contains the word Salvation AND also it contains the world Army. So it should show up in the results.")
+
+      import(location_1, location_2)
+
+      results = search({keywords: 'Salvation Army'}).objects
+
+      expect(results).to include(location_2)
+      expect(results).not_to include(location_1)
+    end
+  end
+
   describe 'by service category' do
     before do
       @organization = create(:organization)
