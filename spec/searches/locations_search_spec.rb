@@ -9,6 +9,25 @@ RSpec.describe LocationsSearch, :elasticsearch do
     LocationsIndex.import!(*args)
   end
 
+  describe 'by location name' do
+    before do
+      @organization = create(:organization)
+      LocationsIndex.reset!
+    end
+
+    specify 'exact matches on location names are included in results' do
+      location_1 = create_location("NOT EVEN CLOSE", @organization)
+      location_2 = create_location("EXACT MATCH OF NAME", @organization)
+
+      import(location_1, location_2)
+
+      results = search({keywords: 'EXACT MATCH OF NAME'}).objects
+
+      expect(results).to include(location_2)
+      expect(results).not_to include(location_1)
+    end
+  end
+
   describe 'by service category' do
     before do
       @organization = create(:organization)
