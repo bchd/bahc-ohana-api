@@ -107,4 +107,9 @@ FactoryBot.define do
     association :address, factory: :far_west
     association :organization, factory: :food_pantry
   end
+
+  factory :location_with_tag, parent: :nearby_loc do
+    tags { [association(:tag)] }
+  end
+
 end

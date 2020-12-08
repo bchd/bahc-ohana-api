@@ -128,6 +128,24 @@ RSpec.describe LocationsSearch, :elasticsearch do
       expect(results_with_stop_words.size).to eq(2)
     end
   end
+
+  describe 'location search matching tags' do
+    before do
+      @organization = create(:organization)
+      LocationsIndex.reset!
+    end
+  
+    it 'should return locations matching the location - tags' do
+      #tag name (Education) taken from tags factory
+      location = create(:location_with_tag)
+      import(location)
+  
+      results = search({keywords: 'Education'}).objects
+      expect(results).to include(location)
+      expect(results.size).to eq(1)
+
+    end
+  end
 end
 
 private
