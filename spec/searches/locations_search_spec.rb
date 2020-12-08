@@ -50,6 +50,29 @@ RSpec.describe LocationsSearch, :elasticsearch do
     end
   end
 
+  describe 'terms matching across two fields' do
+    before do
+      @organization = create(:organization)
+      LocationsIndex.reset!
+    end
+
+    specify 'location description contains "Salvation" AND service description contains "Army"' do
+      location_1 = create_location("NOT EVEN CLOSE", @organization)
+      location_2 = create_location("EXACT MATCH IN TWO FIELDS", @organization)
+
+      location_1.update_columns(description: "This is a description that has no relationship or reference to the terms in the search query.")
+      location_2.update_columns(description: "This is a description that contains the word Salvation")
+      service = create(:service, location: location_2, description: "This one has the word Army in it.")
+
+      import(location_1, location_2)
+
+      results = search({keywords: 'Salvation Army'}).objects
+
+      expect(results).to include(location_2)
+      expect(results).not_to include(location_1)
+    end
+  end
+
   describe 'by service name' do
     before do
       @organization = create(:organization)
