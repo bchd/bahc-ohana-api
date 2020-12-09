@@ -34,6 +34,24 @@ RSpec.describe LocationsSearch, :elasticsearch do
       LocationsIndex.reset!
     end
 
+    specify 'location description contains "Salvation" OR "Army"' do
+      location_1 = create_location("NOT EVEN CLOSE", @organization)
+      location_2 = create_location("DESCRIPTION CONTAINS THE FIRST TERM", @organization)
+      location_3 = create_location("DESCRIPTION CONTAINS THE SECOND TERM", @organization)
+
+      location_1.update_columns(description: "This is a description that has no relationship or reference to the terms in the search query.")
+      location_2.update_columns(description: "This is a description that contains the word Salvation. So it should show up in the results.")
+      location_3.update_columns(description: "This is a description that contains the word Army. So it should show up in the results.")
+
+      import(location_1, location_2, location_3)
+
+      results = search({keywords: 'Salvation Army'}).objects
+
+      expect(results).to include(location_3)
+      expect(results).to include(location_2)
+      expect(results).not_to include(location_1)
+    end
+
     specify 'location description contains "Salvation" AND "Army"' do
       location_1 = create_location("NOT EVEN CLOSE", @organization)
       location_2 = create_location("EXACT MATCH OF NAME", @organization)
@@ -79,12 +97,30 @@ RSpec.describe LocationsSearch, :elasticsearch do
       LocationsIndex.reset!
     end
 
+    specify 'matches on location that has service name with TERM1 OR TERM2' do
+      location_1 = create_location("service name don't match", @organization)
+      location_2 = create_location("Has service with the first term", @organization)
+      location_3 = create_location("Has service with the second term", @organization)
+
+      service_1 = create(:service, location: location_1, name: "Service name with neither term")
+      service_2 = create(:service, location: location_2, name: "Term1 but not the second")
+      service_3 = create(:service, location: location_3, name: "Term2 but not the first")
+
+      import(location_1, location_2, location_3)
+
+      results = search({keywords: 'Term1 Term2'}).objects
+
+      expect(results).to include(location_3)
+      expect(results).to include(location_2)
+      expect(results).not_to include(location_1)
+    end
+
     specify 'matches on location that has service name with TERM1 AND TERM2' do
       location_1 = create_location("service name don't match", @organization)
       location_2 = create_location("Has service with both terms", @organization)
 
       service_1 = create(:service, location: location_1, name: "Service name with neither term")
-      service_2 = create(:service, location: location_2, name: "Term1 but also Term 2")
+      service_2 = create(:service, location: location_2, name: "Term1 but also Term2")
 
       import(location_1, location_2)
 
@@ -101,6 +137,23 @@ RSpec.describe LocationsSearch, :elasticsearch do
       LocationsIndex.reset!
     end
 
+    specify 'matches on location that has service description with TERM1 OR TERM2' do
+      location_1 = create_location("service description don't match", @organization)
+      location_2 = create_location("Has service description with first term", @organization)
+      location_3 = create_location("Has service description with second term", @organization)
+
+      service_1 = create(:service, location: location_1, description: "Service name with neither term")
+      service_2 = create(:service, location: location_2, description: "Term1 but not 2")
+      service_3 = create(:service, location: location_3, description: "Term2 but not 1")
+
+      import(location_1, location_2, location_3)
+
+      results = search({keywords: 'Term1 Term2'}).objects
+
+      expect(results).to include(location_3)
+      expect(results).to include(location_2)
+      expect(results).not_to include(location_1)
+    end
     specify 'matches on location that has service description with TERM1 AND TERM2' do
       location_1 = create_location("service description don't match", @organization)
       location_2 = create_location("Has service description with both terms", @organization)
