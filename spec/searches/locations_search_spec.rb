@@ -137,6 +137,23 @@ RSpec.describe LocationsSearch, :elasticsearch do
       LocationsIndex.reset!
     end
 
+    specify 'matches on location that has service description with TERM1 OR TERM2' do
+      location_1 = create_location("service description don't match", @organization)
+      location_2 = create_location("Has service description with first term", @organization)
+      location_3 = create_location("Has service description with second term", @organization)
+
+      service_1 = create(:service, location: location_1, description: "Service name with neither term")
+      service_2 = create(:service, location: location_2, description: "Term1 but not 2")
+      service_3 = create(:service, location: location_3, description: "Term2 but not 1")
+
+      import(location_1, location_2, location_3)
+
+      results = search({keywords: 'Term1 Term2'}).objects
+
+      expect(results).to include(location_3)
+      expect(results).to include(location_2)
+      expect(results).not_to include(location_1)
+    end
     specify 'matches on location that has service description with TERM1 AND TERM2' do
       location_1 = create_location("service description don't match", @organization)
       location_2 = create_location("Has service description with both terms", @organization)
