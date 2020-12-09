@@ -137,14 +137,39 @@ RSpec.describe LocationsSearch, :elasticsearch do
   
     it 'should return locations matching the location - tags' do
       #tag name (Education) taken from tags factory
-      location = create(:location_with_tag)
-      import(location)
+      location_1 = create(:location_with_tag)
+      location_2 = create_location("Location with no tag", @organization)
+      import(location_1, location_2)
   
       results = search({keywords: 'Education'}).objects
-      expect(results).to include(location)
+      expect(results).to include(location_1)
       expect(results.size).to eq(1)
 
     end
+
+    it 'should return locations matching the locations organization - tags' do
+      organization_with_tag = create(:organization_with_tag)
+      location_1 = create_location("Location with tagged organization", organization_with_tag)
+      location_2 = create_location("Location with no tagged organization", @organization)
+      import(location_1, location_2)
+  
+      results = search({keywords: 'Organization_tag'}).objects
+      expect(results).to include(location_1)
+      expect(results.size).to eq(1)
+    end
+
+    it 'should return locations matching the locations services - tags' do
+      location_1 = create(:location, organization: @organization)
+      service = create(:service, location: location_1)
+      service.tags << create(:tag_service)
+      location_2 = create_location("Location with no tagged services", @organization)
+
+      import(location_1, location_2)
+      results = search({keywords: 'Service_tag'}).objects
+      expect(results).to include(location_1)
+      expect(results.size).to eq(1)
+    end
+
   end
 end
 
