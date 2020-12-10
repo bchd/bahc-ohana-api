@@ -107,4 +107,17 @@ FactoryBot.define do
     association :address, factory: :far_west
     association :organization, factory: :food_pantry
   end
+
+  factory :location_with_tag, class: Location do
+    name { 'Location with tag' }
+    description { 'Location created for testing purposes' }
+    short_desc { 'short description' }
+    accessibility { [:ramp] }
+    latitude { 37.5808591 }
+    longitude { -122.343072 }
+    association :address, factory: :near
+    languages { %w[Spanish Arabic] }
+    association :organization, factory: :nearby_org
+    tags { [association(:tag)] }
+  end
 end
