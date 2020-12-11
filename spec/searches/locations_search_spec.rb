@@ -26,6 +26,18 @@ RSpec.describe LocationsSearch, :elasticsearch do
       expect(results).to include(location_2)
       expect(results).not_to include(location_1)
     end
+
+    specify 'exact matches are prioritized over partial matches' do
+      location_1 = create_location("DEAD ON EXACT MATCH BUDDY", @organization)
+      location_2 = create_location("PARTIAL MATCH ON BUDDY", @organization)
+
+      import(location_1, location_2)
+      
+      results = search({keywords: 'DEAD ON EXACT MATCH BUDDY'})
+
+      expect(results[0].id).to be(location_1.id)
+      expect(results[1].id).to be(location_2.id)
+    end
   end
 
   describe 'by location description' do
