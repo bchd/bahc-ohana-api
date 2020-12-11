@@ -9,6 +9,31 @@ RSpec.describe LocationsSearch, :elasticsearch do
     LocationsIndex.import!(*args)
   end
 
+  describe 'by organization name' do 
+    before do
+      @org1 = create(:organization, name: 'Partial Match on Org Name DRUG COMPANY')
+      @org2 = create(:organization, name: 'Not At All a Match Group')
+      LocationsIndex.reset!
+    end
+
+    specify 'partial match on org name tops partial match on location name or service name' do
+      location_1 = create_location("org name partial match", @org1)
+      location_2 = create_location("location name partial match DRUG COMPANY", @org2)
+      location_3 = create_location("Service name partial match", @org2)
+
+      service = create(:service, location: location_3, name: "Service with matching terms on category name")
+      create(:category, services: [service], name: "Catgory for DRUG COMPANY supplies")
+
+      import(location_1, location_2, location_3)
+
+      results = search({keywords: 'DRUG COMPANY'}).objects
+
+      expect(results.first.id).to be(location_1.id)
+      expect(results.second.id).to be(location_2.id)
+      expect(results.third.id).to be(location_3.id)
+    end
+  end
+
   describe 'by location name' do
     before do
       @organization = create(:organization)
