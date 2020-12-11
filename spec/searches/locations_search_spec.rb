@@ -349,6 +349,16 @@ RSpec.describe LocationsSearch, :elasticsearch do
       @organization = create(:organization)
       LocationsIndex.reset!
     end
+
+    it 'partial matches should top tag matches' do
+      location_1 = create(:location_with_tag)
+      location_2 = create_location("Education Location Partial Match", @organization)
+      import(location_1, location_2)
+  
+      results = search({keywords: 'Education'}).objects
+      expect(results[0].id).to eq(location_2.id)
+      expect(results.size).to eq(2)
+    end
   
     it 'should return locations matching the location - tags' do
       #tag name (Education) taken from tags factory

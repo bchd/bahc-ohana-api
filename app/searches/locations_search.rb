@@ -33,8 +33,8 @@ class LocationsSearch
     [
       organization_filter,
       archive_filter,
-      tags_query,
       keyword_filter,
+      tags_query,
       zipcode_filter,
       category_filter,
       accessibility_filter, 
