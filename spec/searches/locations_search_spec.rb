@@ -9,6 +9,31 @@ RSpec.describe LocationsSearch, :elasticsearch do
     LocationsIndex.import!(*args)
   end
 
+  describe 'by organization name' do 
+    before do
+      @org1 = create(:organization, name: 'Partial Match on Org Name DRUG COMPANY')
+      @org2 = create(:organization, name: 'Not At All a Match Group')
+      LocationsIndex.reset!
+    end
+
+    specify 'partial match on org name tops partial match on location name or service name' do
+      location_1 = create_location("org name partial match", @org1)
+      location_2 = create_location("location name partial match DRUG COMPANY", @org2)
+      location_3 = create_location("Service name partial match", @org2)
+
+      service = create(:service, location: location_3, name: "Service with matching terms on category name")
+      create(:category, services: [service], name: "Catgory for DRUG COMPANY supplies")
+
+      import(location_1, location_2, location_3)
+
+      results = search({keywords: 'DRUG COMPANY'}).objects
+
+      expect(results.first.id).to be(location_1.id)
+      expect(results.second.id).to be(location_2.id)
+      expect(results.third.id).to be(location_3.id)
+    end
+  end
+
   describe 'by location name' do
     before do
       @organization = create(:organization)
@@ -25,6 +50,18 @@ RSpec.describe LocationsSearch, :elasticsearch do
 
       expect(results).to include(location_2)
       expect(results).not_to include(location_1)
+    end
+
+    specify 'exact matches are prioritized over partial matches' do
+      location_1 = create_location("DEAD ON EXACT MATCH BUDDY", @organization)
+      location_2 = create_location("PARTIAL MATCH ON BUDDY", @organization)
+
+      import(location_1, location_2)
+      
+      results = search({keywords: 'DEAD ON EXACT MATCH BUDDY'})
+
+      expect(results[0].id).to be(location_1.id)
+      expect(results[1].id).to be(location_2.id)
     end
   end
 
@@ -311,6 +348,16 @@ RSpec.describe LocationsSearch, :elasticsearch do
     before do
       @organization = create(:organization)
       LocationsIndex.reset!
+    end
+
+    it 'partial matches should top tag matches' do
+      location_1 = create(:location_with_tag)
+      location_2 = create_location("Education Location Partial Match", @organization)
+      import(location_1, location_2)
+  
+      results = search({keywords: 'Education'}).objects
+      expect(results[0].id).to eq(location_2.id)
+      expect(results.size).to eq(2)
     end
   
     it 'should return locations matching the location - tags' do
