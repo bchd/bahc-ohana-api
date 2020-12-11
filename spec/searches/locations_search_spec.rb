@@ -211,6 +211,25 @@ RSpec.describe LocationsSearch, :elasticsearch do
     end
   end
 
+  describe 'featured locations' do
+    before do
+      @organization = create(:organization)
+      LocationsIndex.reset!
+    end
+
+    specify 'featured locations to the top' do
+      location_1 = create_location("control", @organization)
+      location_2 = create_location("not featured", @organization)
+      location_3 = create_location("featured location", @organization, "1")
+
+      import(location_1, location_2, location_3)
+
+      results = search().objects
+
+      expect(results.first.id).to be(location_3.id)
+    end
+  end
+
   describe 'archive location search' do
     before do
       @organization = create(:organization)
@@ -227,9 +246,7 @@ RSpec.describe LocationsSearch, :elasticsearch do
       location_2.update_columns(archived_at: nil)
       location_3.update_columns(archived_at: Time.zone.yesterday)
 
-
       import(location_1, location_2, location_3)
-
 
       results = search().objects
       expect(results).to contain_exactly(location_2)
