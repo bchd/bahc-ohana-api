@@ -107,25 +107,29 @@ class LocationsSearch
       index.query(bool: {
                     should: [
                       { match_phrase: { "organization_name_exact": 
-                                      { query: keywords,
-                                        boost: 9
-                                      }
-                                  } },
+                                        { query: keywords,
+                                          boost: 9
+                                        }
+                                      } 
+                      },
                       { match_phrase: { "name_exact": 
-                                      { query: keywords,
-                                        boost: 8
-                                      }
-                                    } },
+                                        { query: keywords,
+                                          boost: 8
+                                        }
+                                      } 
+                      },
                       { match: { "categories_exact": 
-                                    { query: keywords,
-                                      boost: 7 
-                                    }
-                                  } },
+                                  { query: keywords,
+                                    boost: 7 
+                                  }
+                                } 
+                      },
                       { match: { "sub_categories_exact": 
                                   { query: keywords,
                                     boost: 6
                                   }
-                                } }
+                                } 
+                      }
                     ], 
                     must: {
                       multi_match: {
