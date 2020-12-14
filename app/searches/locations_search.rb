@@ -108,19 +108,29 @@ class LocationsSearch
                     should: [
                       { match_phrase: { "organization_name_exact": 
                                       { query: keywords,
-                                        boost: 6 
+                                        boost: 9
                                       }
                                   } },
                       { match_phrase: { "name_exact": 
                                       { query: keywords,
-                                        boost: 4 
+                                        boost: 8
                                       }
-                                    } }
+                                    } },
+                      { match: { "categories_exact": 
+                                    { query: keywords,
+                                      boost: 7 
+                                    }
+                                  } },
+                      { match: { "sub_categories_exact": 
+                                  { query: keywords,
+                                    boost: 6
+                                  }
+                                } }
                     ], 
                     must: {
                       multi_match: {
                         query: keywords,
-                        fields: %w[organization_name^3 name^2 description^1 keywords categories tags organization_tags service_tags],
+                        fields: %w[organization_name^5 name^4 description^3 keywords categories tags organization_tags service_tags],
                         fuzziness: 'AUTO'
                       }
                     }
