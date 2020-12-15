@@ -20,6 +20,7 @@ RSpec.describe LocationsSearch, :elasticsearch do
       location_organization_match = create_location("Organization name exact match", @org_exact_match)
       location_name_match = create_location("Financial Aid & Loans", @org)
       location_category_service_match = create_location("Location with Service category exact match", @org)
+      location_partial_match = create_location("Financial help and easy Loans", @org)
 
       service = create(:service, location: location_category_service_match, name: "Service category exact match")
       create(:category, services: [service], name: "Financial Aid & Loans")
@@ -32,6 +33,7 @@ RSpec.describe LocationsSearch, :elasticsearch do
       expect(results.second.id).to be(location_organization_match.id)
       expect(results.third.id).to be(location_name_match.id)
       expect(results.fourth.id).to be(location_category_service_match.id)
+      expect(results.fifth.id).to be(location_partial_match.id)
     end
   end
 
