@@ -10,12 +10,13 @@ RSpec.describe LocationsSearch, :elasticsearch do
   end
 
   describe 'top order of exact matches' do
-    specify 'Exact Matches should be ordered like this: 1.Organization Name 2.Location Name 3.Service Category 4.Service Subcategory' do
+    specify 'Exact Matches should be ordered like this: (after featured) 1.Organization Name 2.Location Name 3.Service Category 4.Service Subcategory' do
 
       @org_exact_match = create(:organization, name: 'Financial Aid & Loans')
       @org = create(:organization, name: 'Regular Name')
       LocationsIndex.reset!
 
+      featured_location = create_location("financial aid & nice loans", @org, "1")
       location_organization_match = create_location("Organization name exact match", @org_exact_match)
       location_name_match = create_location("Financial Aid & Loans", @org)
       location_category_service_match = create_location("Location with Service category exact match", @org)
@@ -23,13 +24,14 @@ RSpec.describe LocationsSearch, :elasticsearch do
       service = create(:service, location: location_category_service_match, name: "Service category exact match")
       create(:category, services: [service], name: "Financial Aid & Loans")
 
-      import(location_organization_match, location_name_match, location_category_service_match)
+      import(featured_location, location_organization_match, location_name_match, location_category_service_match)
 
       results = search({keywords: 'Financial Aid & Loans'}).objects
 
-      expect(results.first.id).to be(location_organization_match.id)
-      expect(results.second.id).to be(location_name_match.id)
-      expect(results.third.id).to be(location_category_service_match.id)
+      expect(results.first.id).to be(featured_location.id)
+      expect(results.second.id).to be(location_organization_match.id)
+      expect(results.third.id).to be(location_name_match.id)
+      expect(results.fourth.id).to be(location_category_service_match.id)
     end
   end
 
