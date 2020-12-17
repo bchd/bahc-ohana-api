@@ -104,10 +104,40 @@ class LocationsSearch
 
   def keyword_filter
     if keywords?
-      index.query(multi_match: {
-                    query: keywords,
-                    fields: %w[organization_name^3 name^2 description^1 keywords categories tags organization_tags service_tags],
-                    fuzziness: 'AUTO'
+      index.query(bool: {
+                    should: [
+                      { match_phrase: { "organization_name_exact": 
+                                        { query: keywords,
+                                          boost: 20
+                                        }
+                                      } 
+                      },
+                      { match_phrase: { "name_exact": 
+                                        { query: keywords,
+                                          boost: 19
+                                        }
+                                      } 
+                      },
+                      { match_phrase: { "categories_exact": 
+                                  { query: keywords,
+                                    boost: 17
+                                  }
+                                } 
+                      },
+                      { match_phrase: { "sub_categories_exact": 
+                                  { query: keywords,
+                                    boost: 16
+                                  }
+                                } 
+                      }
+                    ], 
+                    must: {
+                      multi_match: {
+                        query: keywords,
+                        fields: %w[organization_name^3 name^2 description^1 keywords categories tags organization_tags service_tags],
+                        fuzziness: 'AUTO'
+                      }
+                    }
                   })
     end
   end
