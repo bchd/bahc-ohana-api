@@ -18,7 +18,7 @@ class LocationsIndex < Chewy::Index
     field :description, analyzer: 'remove_stop_words'
     field :id, type: 'integer'
     field :keywords, value: -> { services.map(&:keywords).compact.join(', ') }, analyzer: 'remove_stop_words'
-    field :name, analyzer: 'remove_stop_words'
+    field :name, type: 'text', analyzer: 'remove_stop_words'
     field :name_exact, value: -> { name }
     field :organization_id, type: 'integer'
     field :organization_name, value: -> { organization.try(:name) }, analyzer: 'remove_stop_words'
@@ -28,8 +28,8 @@ class LocationsIndex < Chewy::Index
     field :zipcode, value: -> { address.try(:postal_code) }
     field :category_ids, value: -> { services.map(&:categories).flatten.uniq.map(&:id) }
     field :categories, value: -> { services.map(&:categories).flatten.uniq.map(&:name) }
-    field :categories_exact, type: 'keyword', value: -> { services.flat_map(&:categories).select { |cat| cat.ancestry.blank? }.uniq.map(&:name) }
-    field :sub_categories_exact, type: 'keyword', value: -> { services.flat_map(&:categories).select { |cat| !cat.ancestry.blank? }.uniq.map(&:name) }
+    field :categories_exact, value: -> { services.flat_map(&:categories).select { |cat| cat.ancestry.blank? }.uniq.map(&:name) }
+    field :sub_categories_exact, value: -> { services.flat_map(&:categories).select { |cat| !cat.ancestry.blank? }.uniq.map(&:name) }
     field :tags, value: -> { tags.map(&:name) }
     field :featured_at, type: 'date'
     field :covid19, value: -> { covid19? ? created_at : nil }, type: 'date'
