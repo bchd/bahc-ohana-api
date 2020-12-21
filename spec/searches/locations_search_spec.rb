@@ -423,20 +423,32 @@ RSpec.describe LocationsSearch, :elasticsearch do
       organization = create(:organization, name: 'Definitely doesnt contain terms')
       organization.tags << tag_1
       organization.tags << tag_2
+      #
+      # 1. Associated org with tags containing “Salvation” tag AND “Army” tag
       location_1 = create(:location, organization: organization)
 
-      # creates location with BOTH tags
-
-      location_2 = create_location("Location with BOTH tags", @organization)
+      # creates location with FIRST tag
+      # 2. Location contains "Salvation" tag AND associated service contains "Army" tag
+      location_2 = create_location("Location with one tag", @organization)
       location_2.tags << tag_1
-      location_2.tags << tag_2
 
-      import(location_1, location_2)
+      # and service on that location with the second tag!
+      service_with_second_tag = create(:service, location: location_2)
+      service_with_second_tag.tags << tag_2
+
+      # create location with service with tag 1 and a different service with tag 2
+      location_3 = create_location("Neither tag", @organization)
+      service_with_first_tag = create(:service, location: location_3)
+      service_with_first_tag.tags << tag_1
+      another_service_with_second_tag = create(:service, location: location_3)
+
+      import(location_1, location_2, location_3)
 
       results = search({keywords: "#{term_1} #{term_2}"}).objects
 
       expect(results.first.id).to eq(location_1.id)
       expect(results.second.id).to eq(location_2.id)
+      expect(results.third.id).to eq(location_3.id)
     end
 
     it 'sorts tagged result prioritizing LOCATION AND TAGS' do
