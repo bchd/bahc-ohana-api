@@ -1,4 +1,12 @@
 GIT
+  remote: https://github.com/faker-ruby/faker.git
+  revision: ec06d217644cf3d66bd0e658c9b168af8f0c38c7
+  branch: master
+  specs:
+    faker (2.15.1)
+      i18n (>= 1.6, < 2)
+
+GIT
   remote: https://github.com/lpender/bummr.git
   revision: 6ededf2436586153834be95f212f11c663aa5040
   specs:
@@ -483,6 +491,7 @@ DEPENDENCIES
   devise (~> 4.7)
   enumerize
   factory_bot_rails
+  faker!
   fastimage
   figaro (~> 1.0)
   flamegraph
