@@ -405,14 +405,12 @@ RSpec.describe LocationsSearch, :elasticsearch do
       expect(results.size).to eq(2)
     end
 
-    # 1. Associated org with tags containing “Salvation” tag AND “Army” tag
-    # 2. Location contains "Salvation" tag AND associated service contains "Army" tag
     # 3. Associated service contains "Salvation" tag AND another associated service contains "Army" tag
     # 4. Services with tags containing “Salvation” OR “Army”
     # 5. Locations with tags containing “Salvation” OR “Army”
     # 6. Associated org with tags containing “Salvation” OR “Army”
 
-    it 'sorts tagged result prioritizing ORGANIZATION AND TAGS #1' do
+    it 'sorts tagged results' do
       term_1 = "Salvation"
       term_2 = "Army"
 
