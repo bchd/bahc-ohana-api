@@ -395,7 +395,7 @@ RSpec.describe LocationsSearch, :elasticsearch do
       LocationsIndex.reset!
     end
 
-    it 'partial matches should top tag matches' do
+    it 'partial matches should precede tag matches' do
       location_1 = create(:location_with_tag)
       location_2 = create_location("Education Location Partial Match", @organization)
       import(location_1, location_2)
@@ -404,9 +404,47 @@ RSpec.describe LocationsSearch, :elasticsearch do
       expect(results[0].id).to eq(location_2.id)
       expect(results.size).to eq(2)
     end
+
+    # 1. Associated org with tags containing “Salvation” tag AND “Army” tag
+    # 2. Location contains "Salvation" tag AND associated service contains "Army" tag
+    # 3. Associated service contains "Salvation" tag AND another associated service contains "Army" tag
+    # 4. Services with tags containing “Salvation” OR “Army”
+    # 5. Locations with tags containing “Salvation” OR “Army”
+    # 6. Associated org with tags containing “Salvation” OR “Army”
+
+    it 'sorts tagged result prioritizing ORGANIZATION AND TAGS #1' do
+      term_1 = "Salvation"
+      term_2 = "Army"
+
+      tag_1 = create(:tag, name: term_1)
+      tag_2 = create(:tag, name: term_2)
+
+      # creates organization with BOTH tags
+      organization = create(:organization, name: 'Definitely doesnt contain terms')
+      organization.tags << tag_1
+      organization.tags << tag_2
+      location_1 = create(:location, organization: organization)
+
+      # creates location with BOTH tags
+
+      location_2 = create_location("Location with BOTH tags", @organization)
+      location_2.tags << tag_1
+      location_2.tags << tag_2
+
+      import(location_1, location_2)
+
+      results = search({keywords: "#{term_1} #{term_2}"}).objects
+
+      expect(results.first.id).to eq(location_1.id)
+      expect(results.second.id).to eq(location_2.id)
+    end
+
+    it 'sorts tagged result prioritizing LOCATION AND TAGS' do
+
+    end
   
     it 'should return locations matching the location - tags' do
-      #tag name (Education) taken from tags factory
+      # tag name (Education) taken from tags factory
       location_1 = create(:location_with_tag)
       location_2 = create_location("Location with no tag", @organization)
       import(location_1, location_2)

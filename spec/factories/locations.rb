@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :location do
-    name { 'VRS Services' }
+    name { Faker::Movies::HarryPotter.location }
     description { 'Provides jobs training' }
     short_desc { 'short description' }
     accessibility { %i[tape_braille disabled_parking] }
