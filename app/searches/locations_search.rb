@@ -45,7 +45,7 @@ class LocationsSearch
   def order
     index.order(
       featured_at: { missing: "_last", order: "asc" },
-      #covid19: { missing: "_last", order: "asc" },
+      covid19: { missing: "_last", order: "asc" },
       "_score": { "order": "desc" },
       updated_at: { order: "desc" },
     )
@@ -107,25 +107,25 @@ class LocationsSearch
       index.query(bool: {
                     should: [
                       { term: { "organization_name_exact": 
-                                        { value: keywords,
+                                        { value: keywords.downcase,
                                           boost: 100
                                         }
                                       } 
                       },
                       { term: { "name_exact": 
-                                        { value: keywords,
+                                        { value: keywords.downcase,
                                           boost: 80
                                         }
                                       } 
                       },
                       { term: { "categories_exact": 
-                                  { value: keywords,
+                                  { value: keywords.downcase,
                                     boost: 60
                                   }
                                 } 
                       },
                       { term: { "sub_categories_exact": 
-                                  { value: keywords,
+                                  { value: keywords.downcase,
                                     boost: 40
                                   }
                                 } 
