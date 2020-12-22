@@ -45,7 +45,7 @@ class LocationsSearch
   def order
     index.order(
       featured_at: { missing: "_last", order: "asc" },
-      covid19: { missing: "_last", order: "asc" },
+      #covid19: { missing: "_last", order: "asc" },
       "_score": { "order": "desc" },
       updated_at: { order: "desc" },
     )
@@ -106,38 +106,37 @@ class LocationsSearch
     if keywords?
       index.query(bool: {
                     should: [
-                      { match_phrase: { "organization_name_exact": 
-                                        { query: keywords,
-                                          boost: 20
+                      { term: { "organization_name_exact": 
+                                        { value: keywords,
+                                          boost: 100
                                         }
                                       } 
                       },
-                      { match_phrase: { "name_exact": 
-                                        { query: keywords,
-                                          boost: 19
+                      { term: { "name_exact": 
+                                        { value: keywords,
+                                          boost: 80
                                         }
                                       } 
                       },
-                      { match_phrase: { "categories_exact": 
-                                  { query: keywords,
-                                    boost: 17
+                      { term: { "categories_exact": 
+                                  { value: keywords,
+                                    boost: 60
                                   }
                                 } 
                       },
-                      { match_phrase: { "sub_categories_exact": 
-                                  { query: keywords,
-                                    boost: 16
+                      { term: { "sub_categories_exact": 
+                                  { value: keywords,
+                                    boost: 40
                                   }
                                 } 
+                      },
+                      { multi_match: {
+                          query: keywords,
+                          fields: %w[organization_name^3 name^2 description^1 keywords categories tags organization_tags service_tags],
+                          fuzziness: 'AUTO'
+                        }
                       }
                     ], 
-                    must: {
-                      multi_match: {
-                        query: keywords,
-                        fields: %w[organization_name^3 name^2 description^1 keywords categories tags organization_tags service_tags],
-                        fuzziness: 'AUTO'
-                      }
-                    }
                   })
     end
   end
