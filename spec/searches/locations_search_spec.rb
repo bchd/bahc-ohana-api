@@ -25,15 +25,21 @@ RSpec.describe LocationsSearch, :elasticsearch do
       service_exact_match = create(:service, location: location_category_service_match, name: "Service category exact match")
       category_exact_match = create(:category, services: [service_exact_match], name: "Financial Aid And Loans")
 
-      import(featured_location, location_organization_match, location_name_match, location_category_service_match,location_partial_match)
+      org_sub_cat = create(:organization, name: 'Sub Cat Org')
+      location_sub_category_service_match = create_location("Location with Service sub category exact match", org_sub_cat)
+      service_sub_cat = create(:service, location: location_sub_category_service_match, name: "Service sub category exact match")
+      sub_cat = create(:financial_aid, services: [service_sub_cat])
+
+      import(featured_location, location_organization_match, location_name_match, location_category_service_match, location_partial_match, location_sub_category_service_match)
 
       results = search({keywords: 'Financial Aid And Loans'}).objects
 
-      expect(results.first.id).to be(featured_location.id)
-      expect(results.second.id).to be(location_organization_match.id)
-      expect(results.third.id).to be(location_name_match.id)
-      expect(results.fourth.id).to be(location_category_service_match.id)
-      expect(results.fifth.id).to be(location_partial_match.id)
+      expect(results[0].id).to be(featured_location.id)
+      expect(results[1].id).to be(location_organization_match.id)
+      expect(results[2].id).to be(location_name_match.id)
+      expect(results[3].id).to be(location_category_service_match.id)
+      expect(results[4].id).to be(location_sub_category_service_match.id)
+      expect(results[5].id).to be(location_partial_match.id)
     end
   end
 
