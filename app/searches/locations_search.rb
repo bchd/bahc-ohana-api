@@ -106,31 +106,31 @@ class LocationsSearch
     if keywords?
       index.query(bool: {
                     should: [
-                      { match_phrase: { "organization_name_exact": 
-                                        { query: keywords,
-                                          boost: 20
+                      { term: { "organization_name_exact": 
+                                        { value: keywords.downcase,
+                                          boost: 100
                                         }
                                       } 
                       },
-                      { match_phrase: { "name_exact": 
-                                        { query: keywords,
-                                          boost: 19
+                      { term: { "name_exact": 
+                                        { value: keywords.downcase,
+                                          boost: 80
                                         }
                                       } 
                       },
-                      { match_phrase: { "categories_exact": 
-                                  { query: keywords,
-                                    boost: 17
+                      { term: { "categories_exact": 
+                                  { value: keywords.downcase,
+                                    boost: 60
                                   }
                                 } 
                       },
-                      { match_phrase: { "sub_categories_exact": 
-                                  { query: keywords,
-                                    boost: 16
+                      { term: { "sub_categories_exact": 
+                                  { value: keywords.downcase,
+                                    boost: 40
                                   }
                                 } 
                       }
-                    ], 
+                    ],
                     must: {
                       multi_match: {
                         query: keywords,
@@ -138,7 +138,7 @@ class LocationsSearch
                         fuzziness: 'AUTO'
                       }
                     }
-                  })
+                  }) 
     end
   end
 
