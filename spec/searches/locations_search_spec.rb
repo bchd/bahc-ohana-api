@@ -455,10 +455,6 @@ RSpec.describe LocationsSearch, :elasticsearch do
       expect(results.third.id).to eq(location_3.id)
       expect(results.fourth.id).to eq(location_4.id)
     end
-
-    it 'sorts tagged result prioritizing LOCATION AND TAGS' do
-
-    end
   
     it 'should return locations matching the location - tags' do
       # tag name (Education) taken from tags factory
@@ -494,7 +490,6 @@ RSpec.describe LocationsSearch, :elasticsearch do
       expect(results).to include(location_1)
       expect(results.size).to eq(1)
     end
-
   end
 end
 
