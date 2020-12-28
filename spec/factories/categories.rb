@@ -21,4 +21,17 @@ FactoryBot.define do
     taxonomy_id { '105' }
     type { 'service' }
   end
+
+  factory :money, class: Category do
+    name { 'Money' }
+    taxonomy_id { '106' }
+    type { 'service' }
+  end
+
+  factory :financial_aid, class: Category do
+    name { 'Financial Aid And Loans' }
+    taxonomy_id { '107' }
+    ancestry { '106' }
+    type { 'service' }
+  end
 end
