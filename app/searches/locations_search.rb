@@ -134,7 +134,7 @@ class LocationsSearch
                     must: {
                       multi_match: {
                         query: keywords,
-                        fields: %w[organization_name^3 name^2 description^1 keywords categories tags organization_tags service_tags],
+                        fields: %w[organization_name^3 name^2 description^1 keywords categories tags^2 organization_tags^3 service_tags],
                         fuzziness: 'AUTO'
                       }
                     }

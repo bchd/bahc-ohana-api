@@ -401,7 +401,7 @@ RSpec.describe LocationsSearch, :elasticsearch do
       LocationsIndex.reset!
     end
 
-    it 'partial matches should top tag matches' do
+    it 'partial matches should precede tag matches' do
       location_1 = create(:location_with_tag)
       location_2 = create_location("Education Location Partial Match", @organization)
       import(location_1, location_2)
@@ -410,9 +410,60 @@ RSpec.describe LocationsSearch, :elasticsearch do
       expect(results[0].id).to eq(location_2.id)
       expect(results.size).to eq(2)
     end
+
+    # 5. Locations with tags containing “Salvation” OR “Army”
+    # 6. Associated org with tags containing “Salvation” OR “Army”
+
+    it 'sorts tagged results' do
+      term_1 = "Salvation"
+      term_2 = "Army"
+
+      tag_1 = create(:tag, name: term_1)
+      tag_2 = create(:tag, name: term_2)
+
+      # creates organization with BOTH tags
+      organization = create(:organization, name: 'Definitely doesnt contain terms')
+      organization.tags << tag_1
+      organization.tags << tag_2
+
+      #
+      # 1. Associated org with tags containing “Salvation” tag AND “Army” tag
+      location_1 = create(:location, organization: organization)
+
+      # creates location with FIRST tag
+      # 2. Location contains "Salvation" tag AND associated service contains "Army" tag
+      location_2 = create_location("Location with one tag", @organization)
+      location_2.tags << tag_1
+
+      # and service on that location with the second tag!
+      service_with_second_tag = create(:service, location: location_2)
+      service_with_second_tag.tags << tag_2
+
+      # create location with service with tag 1 and a different service with tag 2
+      # 3. Associated service contains "Salvation" tag AND another associated service contains "Army" tag
+      location_3 = create_location("Neither tag", @organization)
+      service_with_first_tag = create(:service, location: location_3)
+      service_with_second_tag_2 = create(:service, location: location_3)
+      service_with_first_tag.tags << tag_1
+      service_with_second_tag_2.tags << tag_2
+      
+      # 4. Services with tags containing “Salvation” OR “Army”
+      location_4 = create_location("Single matching tag on service", @organization)
+      service_with_matching_tag = create(:service, location: location_4)
+      service_with_matching_tag.tags << tag_2
+
+      import(location_1, location_2, location_3, location_4)
+
+      results = search({keywords: "#{term_1} #{term_2}"}).objects
+
+      expect(results.first.id).to eq(location_1.id)
+      expect(results.second.id).to eq(location_2.id)
+      expect(results.third.id).to eq(location_3.id)
+      expect(results.fourth.id).to eq(location_4.id)
+    end
   
     it 'should return locations matching the location - tags' do
-      #tag name (Education) taken from tags factory
+      # tag name (Education) taken from tags factory
       location_1 = create(:location_with_tag)
       location_2 = create_location("Location with no tag", @organization)
       import(location_1, location_2)
@@ -445,7 +496,6 @@ RSpec.describe LocationsSearch, :elasticsearch do
       expect(results).to include(location_1)
       expect(results.size).to eq(1)
     end
-
   end
 end
 
