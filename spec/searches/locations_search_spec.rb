@@ -174,12 +174,12 @@ RSpec.describe LocationsSearch, :elasticsearch do
       location_3 = create_location("Has service with the second term", @organization)
 
       service_1 = create(:service, location: location_1, name: "Service name with neither term")
-      service_2 = create(:service, location: location_2, name: "Term1 but not the second")
-      service_3 = create(:service, location: location_3, name: "Term2 but not the first")
+      service_2 = create(:service, location: location_2, name: "Salvation but not the second")
+      service_3 = create(:service, location: location_3, name: "Army but not the first")
 
       import(location_1, location_2, location_3)
 
-      results = search({keywords: 'Term1 Term2'}).objects
+      results = search({keywords: 'Salvation Army'}).objects
 
       expect(results).to include(location_3)
       expect(results).to include(location_2)
@@ -191,11 +191,11 @@ RSpec.describe LocationsSearch, :elasticsearch do
       location_2 = create_location("Has service with both terms", @organization)
 
       service_1 = create(:service, location: location_1, name: "Service name with neither term")
-      service_2 = create(:service, location: location_2, name: "Term1 but also Term2")
+      service_2 = create(:service, location: location_2, name: "Salvation but also Army")
 
       import(location_1, location_2)
 
-      results = search({keywords: 'Term1 Term2'}).objects
+      results = search({keywords: 'Salvation Army'}).objects
 
       expect(results).to include(location_2)
       expect(results).not_to include(location_1)
@@ -214,27 +214,28 @@ RSpec.describe LocationsSearch, :elasticsearch do
       location_3 = create_location("Has service description with second term", @organization)
 
       service_1 = create(:service, location: location_1, description: "Service name with neither term")
-      service_2 = create(:service, location: location_2, description: "Term1 but not 2")
-      service_3 = create(:service, location: location_3, description: "Term2 but not 1")
+      service_2 = create(:service, location: location_2, description: "Salvation but not 2")
+      service_3 = create(:service, location: location_3, description: "Army but not 1")
 
       import(location_1, location_2, location_3)
 
-      results = search({keywords: 'Term1 Term2'}).objects
+      results = search({keywords: 'Salvation Army'}).objects
 
       expect(results).to include(location_3)
       expect(results).to include(location_2)
       expect(results).not_to include(location_1)
     end
+
     specify 'matches on location that has service description with TERM1 AND TERM2' do
       location_1 = create_location("service description don't match", @organization)
       location_2 = create_location("Has service description with both terms", @organization)
 
       service_1 = create(:service, location: location_1, description: "Service name with neither term")
-      service_2 = create(:service, location: location_2, description: "Term1 but also Term 2")
+      service_2 = create(:service, location: location_2, description: "Has the words Salvation and the word Army")
 
       import(location_1, location_2)
 
-      results = search({keywords: 'Term1 Term2'}).objects
+      results = search({keywords: 'Salvation Army'}).objects
 
       expect(results).to include(location_2)
       expect(results).not_to include(location_1)
@@ -411,8 +412,33 @@ RSpec.describe LocationsSearch, :elasticsearch do
       expect(results.size).to eq(2)
     end
 
-    # 5. Locations with tags containing “Salvation” OR “Army”
-    # 6. Associated org with tags containing “Salvation” OR “Army”
+    it 'sorts results containing 1 of 2 terms' do
+      # Location description containing “Salvation” OR “Army”
+      # Service name containing “Salvation” OR “Army”
+      # Service description containing “Salvation” OR “Army”
+      # Location description contains "Salvation" OR associated service contains "Army"
+
+      term_1 = "Salvation"
+      term_2 = "Army"
+      terms = [term_1, term_2]
+      keywords = terms.join(" ")
+
+      location_1 = create_location("Match in Description", @organization)
+      location_1.update_columns(description: "This description contains one of the two terms: #{terms[rand(0..1)]}")
+
+      location_2 = create_location("Match in Service Name", @organization)
+      service_1 = create(:service, location: location_2, name: "Service Name containing one of the terms: #{terms[rand(0..1)]}")
+
+      location_3 = create_location("Match in Service description", @organization)
+      service_2 = create(:service, location: location_3, description: "Service Description containing one of the terms: #{terms[rand(0..1)]}")
+
+      import(location_1, location_2, location_3)
+
+      results = search({keywords: "#{term_1} #{term_2}"}).objects
+      expect(results.first.id).to eq(location_1.id)
+      expect(results.second.id).to eq(location_2.id)
+      expect(results.third.id).to eq(location_3.id)
+    end
 
     it 'sorts tagged results' do
       term_1 = "Salvation"
@@ -426,7 +452,6 @@ RSpec.describe LocationsSearch, :elasticsearch do
       organization.tags << tag_1
       organization.tags << tag_2
 
-      #
       # 1. Associated org with tags containing “Salvation” tag AND “Army” tag
       location_1 = create(:location, organization: organization)
 
