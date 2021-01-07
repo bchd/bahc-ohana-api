@@ -62,7 +62,7 @@ _Note: Installation and preparation can take several minutes to complete!_
 
 ### Load data from a dump file
 
-    bundle exec rails db < /latest.dump
+    $ pg_restore --verbose --clean --no-acl --no-owner -h localhost -d ohana_api_development latest.dump
 
 _Note: Make sure you put the full path to where your dump file is located_
 ### Reset Chewy (recreate indexes on Elasticsearch)
