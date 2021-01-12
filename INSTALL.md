@@ -4,41 +4,23 @@
 
 Clone it on your computer and navigate to the project's directory:
 
-    git clone git@github.com:bchd/bahc-ohana-api.git && cd ohana-api
+    git clone git@github.com:bchd/bahc-ohana-api.git && cd bchd-ohana-api
 
-## Docker Setup (recommended, especially for Windows users)
 
-1. Download, install, and launch [Docker]
+## Elasticsearch Setup
 
-1. Set up the Docker image and start the app:
+- Install right version of ElasticSearch 
+    
+    [Elasticsearch 5.6 download](https://www.elastic.co/downloads/past-releases/elasticsearch-5-6-0)
 
-        $ script/bootstrap
+- Download it and unzip it 
 
-1. Set up the test users:
+- Go to the elastic search directory using terminal and type the following command:
+        
+        $ bin/elasticsearch
 
-        $ script/users
+- Go to: [http://localhost:9200](http://localhost:9200) and check that is running and the version is 5.6
 
-Once the docker images are up and running, the app will be accessible at
-[http://localhost:8080](http://localhost:8080).
-
-### Verify the app is returning JSON
-
-[http://localhost:8080/api/locations](http://localhost:8080/api/locations)
-
-[http://localhost:8080/api/search?keyword=food](http://localhost:8080/api/search?keyword=food)
-
-We recommend the [JSONView][jsonview] Google Chrome extension for formatting
-the JSON response so it is easier to read in the browser.
-
-[jsonview]: https://chrome.google.com/webstore/detail/jsonview/chklaanhfefbnpoihckbnefhakgolnmc
-
-### More useful Docker commands
-
-* Stop this running container: `docker-compose stop`
-* Stop and delete the containers: `docker-compose down`
-* Open a shell in the web container: `docker-compose run --rm web bash`
-
-[Docker]: https://docs.docker.com/engine/installation/
 
 ## Local Setup
 
@@ -78,11 +60,27 @@ provided by default.
 
 _Note: Installation and preparation can take several minutes to complete!_
 
+### Load data from a dump file
+
+    $ pg_restore --verbose --clean --no-acl --no-owner -h localhost -d ohana_api_development latest.dump
+
+_Note: Make sure you put the full path to where your dump file is located_
+### Reset Chewy (recreate indexes on Elasticsearch)
+
+    rake chewy:reset
+
+_Note: you have to make sure that Elasticsearch is up and running_
 ### Run the app
 
-Start the app locally on port 8080:
+    ./start-rails.sh
 
-    puma -p 8080
+### Data Admin page
+
+Visit: 
+    [http://localhost:8080/admin](http://localhost:8080/admin)
+
+    email: masteradmin@ohanapi.org
+    password: ohanatest
 
 ### Verify the app is returning JSON
 
@@ -199,3 +197,65 @@ admin you want to set as a super admin.
 ##### On Heroku:
 Follow the same steps above, but replace `psql ohana_api_development` with
 `heroku pg:psql -a your-heroku-app-name`.
+
+## Docker Setup (recommended for Windows users)
+
+1. Download, install, and launch [Docker]
+
+1. Set up the Docker image and start the app:
+
+        $ script/bootstrap
+
+1. Set up the test users:
+
+        $ script/users
+
+Once the docker images are up and running, the app will be accessible at
+[http://localhost:8080](http://localhost:8080).
+
+### Verify the app is returning JSON
+
+[http://localhost:8080/api/locations](http://localhost:8080/api/locations)
+
+[http://localhost:8080/api/search?keyword=food](http://localhost:8080/api/search?keyword=food)
+
+We recommend the [JSONView][jsonview] Google Chrome extension for formatting
+the JSON response so it is easier to read in the browser.
+
+[jsonview]: https://chrome.google.com/webstore/detail/jsonview/chklaanhfefbnpoihckbnefhakgolnmc
+
+### More useful Docker commands
+
+* Stop this running container: `docker-compose stop`
+* Stop and delete the containers: `docker-compose down`
+* Open a shell in the web container: `docker-compose run --rm web bash`
+
+[Docker]: https://docs.docker.com/engine/installation/
+
+# Troubleshooting
+
+### Error: Using wrong ruby version: 
+
+- Make sure to have asdf installed and run the following commands:
+
+    $ asdf install ruby 2.5.3
+    
+    $ asdf global ruby 2.5.3
+
+- Make sure that the right version is being used now:
+
+    $ asdf current
+
+### Error: Bundle install failing:
+    $gem update --system
+_Note: [reference here](https://bundler.io/blog/2019/05/14/solutions-for-cant-find-gem-bundler-with-executable-bundle.html)_
+
+### Error: Could not install Yarn
+    $yarn install --ignore-engines
+
+### Error: Missing Required Configuration Keys
+- You should be missing configuration definitions on your file: 
+    
+    /config/application.yml
+
+_Note: you might have to ask a colleage for a fresh copy_
