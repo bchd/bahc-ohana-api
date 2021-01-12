@@ -412,6 +412,66 @@ RSpec.describe LocationsSearch, :elasticsearch do
       expect(results.size).to eq(2)
     end
 
+    it 'sorts results containing both 2 terms' do
+      # Location description containing “Salvation” AND “Army”
+      # Service name containing “Salvation” AND “Army”
+      # Service description containing “Salvation” AND “Army”
+      # Location description contains "Salvation" AND associated service contains "Army"
+
+      term_1 = "Salvation"
+      term_2 = "Army"
+      terms = [term_1, term_2]
+      keywords = terms.join(" ")
+
+      location_desc_and_match = create_location("Match in Description", @organization)
+      location_desc_and_match.update_columns(description: "This description contains both terms: #{keywords}")
+
+      location_service_name_and_match = create_location("Match in Service Name", @organization)
+      service_name_and_match = create(:service, location: location_service_name_and_match, name: "Service Name containing both terms: #{keywords}")
+
+      location_service_dec_and_match = create_location("Match in Service description", @organization)
+      service_dec_and_match = create(:service, location: location_service_dec_and_match, description: "Service Description containing both terms: #{keywords}")
+
+      import(location_desc_and_match, location_service_name_and_match, location_service_dec_and_match)
+      results = search({keywords: "#{term_1} #{term_2}"}).objects
+      expect(results.first.id).to eq(location_desc_and_match.id)
+      expect(results.second.id).to eq(location_service_name_and_match.id)
+      expect(results.third.id).to eq(location_service_dec_and_match.id)
+    end
+
+    it 'sorts results containing both 2 terms before results containign one term' do
+
+      term_1 = "Salvation"
+      term_2 = "Army"
+      terms = [term_1, term_2]
+      keywords = terms.join(" ")
+
+      location_desc_and_match = create_location("AND Match in Description", @organization)
+      location_desc_and_match.update_columns(description: "This description contains both terms: #{keywords}")
+
+      location_service_name_and_match = create_location("AND Match in Service Name", @organization)
+      service_name_and_match = create(:service, location: location_service_name_and_match, name: "Service Name containing both terms: #{keywords}")
+
+      location_service_dec_and_match = create_location("AND Match in Service description", @organization)
+      service_dec_and_match = create(:service, location: location_service_dec_and_match, description: "Service Description containing both terms: #{keywords}")
+
+      location_1 = create_location("OR Match in Description", @organization)
+      location_1.update_columns(description: "This description contains one of the two terms: #{terms[rand(0..1)]}")
+
+      location_2 = create_location("OR Match in Service Name", @organization)
+      service_1 = create(:service, location: location_2, name: "Service Name containing one of the terms: #{terms[rand(0..1)]}")
+
+      location_3 = create_location("OR Match in Service description", @organization)
+      service_2 = create(:service, location: location_3, description: "Service Description containing one of the terms: #{terms[rand(0..1)]}")
+
+      import(location_desc_and_match, location_service_name_and_match, location_service_dec_and_match, location_1, location_2, location_3)
+      results = search({keywords: "#{term_1} #{term_2}"}).objects
+
+      expect(results.first.id).to eq(location_desc_and_match.id)
+      expect(results.second.id).to eq(location_service_name_and_match.id)
+      expect(results.third.id).to eq(location_service_dec_and_match.id)
+    end
+
     it 'sorts results containing 1 of 2 terms' do
       # Location description containing “Salvation” OR “Army”
       # Service name containing “Salvation” OR “Army”
