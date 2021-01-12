@@ -159,7 +159,9 @@ class Location < ApplicationRecord
   def slug_candidates
     [
       :name,
+      :alternate_name,
       %i[name address_street],
+      %i[alternate_name address_street],
       %i[name]
     ]
   end
