@@ -129,7 +129,12 @@ class LocationsSearch
                                     boost: 40
                                   }
                                 } 
-                      }
+                      },
+                      { multi_match: {
+                        query: keywords,
+                        fields: %w[description^3 service_names^2 service_descriptions],
+                        fuzziness: 'AUTO'
+                      } }
                     ],
                     must: {
                       multi_match: {
