@@ -15,4 +15,8 @@ class Category < ApplicationRecord
             }
 
   has_ancestry
+
+  def resource_count
+    services.count
+  end
 end
