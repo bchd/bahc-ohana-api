@@ -9,6 +9,38 @@ RSpec.describe LocationsSearch, :elasticsearch do
     LocationsIndex.import!(*args)
   end
 
+  describe 'Search Overall Results order' do
+    specify 'the results should follow the following order 1. Featured  2. Exact Matches 3. Partial Matches 4. tagged Results' do
+      @org = create(:organization, name: 'Regular Name')
+      LocationsIndex.reset!
+
+      featured_location = create_location("Featured - Salvation Church", @org, "1")
+      location_name_exact_match = create_location("Salvation Army", @org)
+      location_name_partial_match = create_location("Salvation Army from Baltimore Maryland", @org)
+
+      tag_1 = create(:tag, name: "Salvation")
+      tag_2 = create(:tag, name: "Army")
+
+      organization_with_matching_tags = create(:organization, name: 'Definitely doesnt contain terms')
+      organization_with_matching_tags.tags << tag_1
+      organization_with_matching_tags.tags << tag_2
+
+      location_with_org_matching_tags = create_location("Location with associated Tagged Organization", organization_with_matching_tags)
+
+      location_random_attributes = create_location("Random Location", @org)
+
+      import(featured_location, location_name_exact_match, location_name_partial_match, location_with_org_matching_tags)
+
+      results = search({keywords: 'Salvation Army'}).objects
+
+      expect(results[0].id).to be(featured_location.id)
+      expect(results[1].id).to be(location_name_exact_match.id)
+      expect(results[2].id).to be(location_name_partial_match.id)
+      expect(results[3].id).to be(location_with_org_matching_tags.id)
+      expect(results).not_to include(location_random_attributes)
+    end
+  end
+
   describe 'top order of exact matches' do
     specify 'Exact Matches should be ordered like this: (after featured) 1.Organization Name 2.Location Name 3.Service Category 4.Service Subcategory' do
 
@@ -412,6 +444,38 @@ RSpec.describe LocationsSearch, :elasticsearch do
       expect(results.size).to eq(2)
     end
 
+    it 'sorts results containing both 2 terms' do
+      # Location description containing “Salvation” AND “Army”
+      # Service name containing “Salvation” AND “Army”
+      # Service description containing “Salvation” AND “Army”
+      # Location description contains "Salvation" AND associated service contains "Army"
+
+      term_1 = "Salvation"
+      term_2 = "Army"
+      terms = [term_1, term_2]
+      keywords = terms.join(" ")
+
+      location_desc_and_match = create_location("Match in Description", @organization)
+      location_desc_and_match.update_columns(description: "This description contains both terms: #{keywords}")
+
+      location_service_name_and_match = create_location("Match in Service Name", @organization)
+      service_name_and_match = create(:service, location: location_service_name_and_match, name: "Service Name containing both terms: #{keywords}")
+
+      location_service_dec_and_match = create_location("Match in Service description", @organization)
+      service_dec_and_match = create(:service, location: location_service_dec_and_match, description: "Service Description containing both terms: #{keywords}")
+
+      location_random_terms = create_location("Random location", @organization)
+
+      import(location_desc_and_match, location_service_name_and_match, location_service_dec_and_match, location_random_terms)
+
+      results = search({keywords: "#{term_1} #{term_2}"}).objects
+
+      expect(results.first.id).to eq(location_desc_and_match.id)
+      expect(results.second.id).to eq(location_service_name_and_match.id)
+      expect(results.third.id).to eq(location_service_dec_and_match.id)
+      expect(results).not_to include(location_random_terms)
+    end
+
     it 'sorts results containing 1 of 2 terms' do
       # Location description containing “Salvation” OR “Army”
       # Service name containing “Salvation” OR “Army”
@@ -435,6 +499,8 @@ RSpec.describe LocationsSearch, :elasticsearch do
       import(location_1, location_2, location_3)
 
       results = search({keywords: "#{term_1} #{term_2}"}).objects
+      results.map { |location| puts location.name }
+      
       expect(results.first.id).to eq(location_1.id)
       expect(results.second.id).to eq(location_2.id)
       expect(results.third.id).to eq(location_3.id)
@@ -453,7 +519,7 @@ RSpec.describe LocationsSearch, :elasticsearch do
       organization.tags << tag_2
 
       # 1. Associated org with tags containing “Salvation” tag AND “Army” tag
-      location_1 = create(:location, organization: organization)
+      location_1 = create_location("Location with tagged Organization ", organization)
 
       # creates location with FIRST tag
       # 2. Location contains "Salvation" tag AND associated service contains "Army" tag
@@ -470,7 +536,6 @@ RSpec.describe LocationsSearch, :elasticsearch do
       service_with_first_tag = create(:service, location: location_3)
       service_with_second_tag_2 = create(:service, location: location_3)
       service_with_first_tag.tags << tag_1
-      service_with_second_tag_2.tags << tag_2
       
       # 4. Services with tags containing “Salvation” OR “Army”
       location_4 = create_location("Single matching tag on service", @organization)
@@ -482,8 +547,7 @@ RSpec.describe LocationsSearch, :elasticsearch do
       results = search({keywords: "#{term_1} #{term_2}"}).objects
 
       expect(results.first.id).to eq(location_1.id)
-      expect(results.second.id).to eq(location_2.id)
-      expect(results.third.id).to eq(location_3.id)
+      expect([results.second.id, results.third.id]).to match_array([location_2.id, location_3.id])
       expect(results.fourth.id).to eq(location_4.id)
     end
   

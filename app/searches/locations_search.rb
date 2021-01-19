@@ -130,19 +130,29 @@ class LocationsSearch
                                   }
                                 } 
                       },
-                      { multi_match: {
-                        query: keywords,
-                        fields: %w[description^3 service_names^2 service_descriptions],
-                        fuzziness: 'AUTO'
-                      } }
+                      # {
+                      #   bool: {
+                      #     must: [
+                      #       {
+                      #         match: { service_tags: service_tags }
+                      #       },
+                      #       {
+                      #         match: { tags: tags }
+                      #       }
+                      #     ]
+                      #   },
+                      #   boost: 7
+                      # }
                     ],
-                    must: {
-                      multi_match: {
-                        query: keywords,
-                        fields: %w[organization_name^3 name^2 description^1 keywords categories tags^2 organization_tags^3 service_tags service_names^1 service_descriptions],
-                        fuzziness: 'AUTO'
+                    must: [
+                      {
+                        multi_match: {
+                          query: keywords,
+                          fields: %w[organization_name^11 name^10 categories^9 organization_tags^8 service_tags^6 tags^5 description^4 service_names^3 service_descriptions^2 keywords],
+                          fuzziness: 'AUTO'
+                        }
                       }
-                    }
+                    ]
                   }) 
     end
   end
