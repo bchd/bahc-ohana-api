@@ -66,7 +66,6 @@ RSpec.describe LocationsSearch, :elasticsearch do
 
       results = search({keywords: 'Financial Aid And Loans'}).objects
 
-      results.map { |location| puts location.name }
       expect(results[0].id).to be(featured_location.id)
       expect(results[1].id).to be(location_organization_match.id)
       expect(results[2].id).to be(location_name_match.id)
