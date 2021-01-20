@@ -49,7 +49,7 @@ RSpec.describe LocationsSearch, :elasticsearch do
       LocationsIndex.reset!
 
       featured_location = create_location("financial aid and nice loans", org_regular_name, "1")
-      location_organization_match = create_location("Organization name exact match", org_exact_match)
+      location_organization_match = create_location("Financial Aid And Happy Loans", org_exact_match)
       location_name_match = create_location("Financial Aid And Loans", org_regular_name)
       location_category_service_match = create_location("Location with Service category exact match", org_regular_name)
       location_partial_match = create_location("Financial help and super easy fast Loans", org_regular_name)
@@ -66,6 +66,7 @@ RSpec.describe LocationsSearch, :elasticsearch do
 
       results = search({keywords: 'Financial Aid And Loans'}).objects
 
+      results.map { |location| puts location.name }
       expect(results[0].id).to be(featured_location.id)
       expect(results[1].id).to be(location_organization_match.id)
       expect(results[2].id).to be(location_name_match.id)
