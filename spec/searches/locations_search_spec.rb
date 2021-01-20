@@ -44,15 +44,15 @@ RSpec.describe LocationsSearch, :elasticsearch do
   describe 'top order of exact matches' do
     specify 'Exact Matches should be ordered like this: (after featured) 1.Organization Name 2.Location Name 3.Service Category 4.Service Subcategory' do
 
-      @org_exact_match = create(:organization, name: 'Financial Aid And Loans')
-      @org = create(:organization, name: 'Regular Name')
+      org_exact_match = create(:organization, name: 'Financial Aid And Loans')
+      org_regular_name = create(:organization, name: 'Regular Name not containing any relevant terms')
       LocationsIndex.reset!
 
-      featured_location = create_location("financial aid and nice loans", @org, "1")
-      location_organization_match = create_location("Organization name exact match", @org_exact_match)
-      location_name_match = create_location("Financial Aid And Loans", @org)
-      location_category_service_match = create_location("Location with Service category exact match", @org)
-      location_partial_match = create_location("Financial help and super easy fast Loans", @org)
+      featured_location = create_location("financial aid and nice loans", org_regular_name, "1")
+      location_organization_match = create_location("Organization name exact match", org_exact_match)
+      location_name_match = create_location("Financial Aid And Loans", org_regular_name)
+      location_category_service_match = create_location("Location with Service category exact match", org_regular_name)
+      location_partial_match = create_location("Financial help and super easy fast Loans", org_regular_name)
 
       service_exact_match = create(:service, location: location_category_service_match, name: "Service category exact match")
       category_exact_match = create(:category, services: [service_exact_match], name: "Financial Aid And Loans")
@@ -499,7 +499,6 @@ RSpec.describe LocationsSearch, :elasticsearch do
       import(location_1, location_2, location_3)
 
       results = search({keywords: "#{term_1} #{term_2}"}).objects
-      results.map { |location| puts location.name }
       
       expect(results.first.id).to eq(location_1.id)
       expect(results.second.id).to eq(location_2.id)
@@ -529,26 +528,19 @@ RSpec.describe LocationsSearch, :elasticsearch do
       # and service on that location with the second tag!
       service_with_second_tag = create(:service, location: location_2)
       service_with_second_tag.tags << tag_2
-
-      # create location with service with tag 1 and a different service with tag 2
-      # 3. Associated service contains "Salvation" tag AND another associated service contains "Army" tag
-      location_3 = create_location("Neither tag", @organization)
-      service_with_first_tag = create(:service, location: location_3)
-      service_with_second_tag_2 = create(:service, location: location_3)
-      service_with_first_tag.tags << tag_1
       
-      # 4. Services with tags containing “Salvation” OR “Army”
-      location_4 = create_location("Single matching tag on service", @organization)
-      service_with_matching_tag = create(:service, location: location_4)
+      # 3. Services with tags containing “Salvation” OR “Army”
+      location_3 = create_location("Single matching tag on service", @organization)
+      service_with_matching_tag = create(:service, location: location_3)
       service_with_matching_tag.tags << tag_2
 
-      import(location_1, location_2, location_3, location_4)
+      import(location_1, location_2, location_3)
 
       results = search({keywords: "#{term_1} #{term_2}"}).objects
 
       expect(results.first.id).to eq(location_1.id)
-      expect([results.second.id, results.third.id]).to match_array([location_2.id, location_3.id])
-      expect(results.fourth.id).to eq(location_4.id)
+      expect(results.second.id).to eq(location_2.id)
+      expect(results.third.id).to eq(location_3.id)
     end
   
     it 'should return locations matching the location - tags' do

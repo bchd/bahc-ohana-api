@@ -108,19 +108,19 @@ class LocationsSearch
                     should: [
                       { term: { "organization_name_exact": 
                                         { value: keywords.downcase,
-                                          boost: 100
+                                          boost: 160
                                         }
                                       } 
                       },
                       { term: { "name_exact": 
                                         { value: keywords.downcase,
-                                          boost: 80
+                                          boost: 120
                                         }
                                       } 
                       },
                       { term: { "categories_exact": 
                                   { value: keywords.downcase,
-                                    boost: 60
+                                    boost: 80
                                   }
                                 } 
                       },
@@ -129,26 +129,13 @@ class LocationsSearch
                                     boost: 40
                                   }
                                 } 
-                      },
-                      # {
-                      #   bool: {
-                      #     must: [
-                      #       {
-                      #         match: { service_tags: service_tags }
-                      #       },
-                      #       {
-                      #         match: { tags: tags }
-                      #       }
-                      #     ]
-                      #   },
-                      #   boost: 7
-                      # }
+                      }
                     ],
                     must: [
                       {
                         multi_match: {
                           query: keywords,
-                          fields: %w[organization_name^11 name^10 categories^9 organization_tags^8 service_tags^6 tags^5 description^4 service_names^3 service_descriptions^2 keywords],
+                          fields: %w[organization_name^18 name^16 categories^14 organization_tags^12 tags^10 service_tags^8 description^6 service_names^4 service_descriptions^2 keywords],
                           fuzziness: 'AUTO'
                         }
                       }
