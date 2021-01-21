@@ -1,6 +1,9 @@
 
 %h1 Tag Management
 
+- if current_admin.super_admin?
+  = link_to "Add New Tag", new_admin_tag_path
+
 %div
   - if @tags.empty?
     %span
