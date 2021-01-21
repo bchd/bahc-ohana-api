@@ -40,6 +40,8 @@ Rails.application.routes.draw do
       resources :flags
       resources :flag_categories
 
+      resources :tags
+
       namespace :csv, defaults: { format: "csv" } do
         get "addresses"
         get "categories"

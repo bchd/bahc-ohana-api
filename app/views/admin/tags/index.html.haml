@@ -1,0 +1,17 @@
+
+%h1 Tag Management
+
+%div
+  - if @tags.empty?
+    %span
+      No results found
+  - else
+    %table
+      %tbody
+        %tr
+          %td Tag Name:
+          %td Actions:
+        - @tags.each do |tag|
+          %tr
+            %td= tag.name
+            %td Update / Delete
