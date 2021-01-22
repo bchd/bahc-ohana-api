@@ -483,6 +483,14 @@ RSpec.describe LocationsSearch, :elasticsearch do
 
       location_random_terms = create_location("Random location", @organization)
 
+      time = Time.current
+
+      # Set for all of them the same updated_at time stamp so they get ordered only considering score
+      location_desc_and_match.update_columns(updated_at: time)
+      location_service_name_and_match.update_columns(updated_at: time)
+      location_service_dec_and_match.update_columns(updated_at: time)
+      location_random_terms.update_columns(updated_at: time)
+
       import(location_desc_and_match, location_service_name_and_match, location_service_dec_and_match, location_random_terms)
 
       results = search({keywords: "#{term_1} #{term_2}"}).objects
@@ -512,6 +520,13 @@ RSpec.describe LocationsSearch, :elasticsearch do
 
       location_3 = create_location("Match in Service description", @organization)
       service_2 = create(:service, location: location_3, description: "Service Description containing one of the terms: #{terms[rand(0..1)]}")
+
+      time = Time.current
+
+      # Set for all of them the same updated_at time stamp so they get ordered only considering score
+      location_1.update_columns(updated_at: time)
+      location_2.update_columns(updated_at: time)
+      location_3.update_columns(updated_at: time)
 
       import(location_1, location_2, location_3)
 
