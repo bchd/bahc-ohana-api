@@ -45,7 +45,6 @@ class LocationsSearch
   def order
     index.order(
       featured_at: { missing: "_last", order: "asc" },
-      covid19: { missing: "_last", order: "asc" },
       "_score": { "order": "desc" },
       updated_at: { order: "desc" },
     )
