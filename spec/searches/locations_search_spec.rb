@@ -62,6 +62,16 @@ RSpec.describe LocationsSearch, :elasticsearch do
       service_sub_cat = create(:service, location: location_sub_category_service_match, name: "Service sub category exact match")
       sub_cat = create(:financial_aid, services: [service_sub_cat])
 
+      time = Time.current
+      
+      # Set for all of them the same updated_at time stamp so they get ordered only considering score
+      featured_location.update_columns(updated_at: time)
+      location_organization_match.update_columns(updated_at: time)
+      location_name_match.update_columns(updated_at: time)
+      location_category_service_match.update_columns(updated_at: time)
+      location_partial_match.update_columns(updated_at: time)
+      location_sub_category_service_match.update_columns(updated_at: time)
+
       import(featured_location, location_organization_match, location_name_match, location_category_service_match, location_partial_match, location_sub_category_service_match)
 
       results = search({keywords: 'Financial Aid And Loans'}).objects
@@ -89,6 +99,13 @@ RSpec.describe LocationsSearch, :elasticsearch do
 
       service = create(:service, location: location_3, name: "Service with matching terms on category name")
       create(:category, services: [service], name: "Catgory for DRUG COMPANY supplies")
+
+      time = Time.current
+
+      # Set for all of them the same updated_at time stamp so they get ordered only considering score
+      location_1.update_columns(updated_at: time)
+      location_2.update_columns(updated_at: time)
+      location_3.update_columns(updated_at: time)
 
       import(location_1, location_2, location_3)
 
