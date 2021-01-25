@@ -519,7 +519,7 @@ describe "GET 'search'" do
     before do
       @organization = create(:organization)
 
-      @loc1 = create_location("Not featured and not covid", @organization)
+      @loc1 = create_location("Not featured", @organization)
       @loc2 = create_location("featured location", @organization, "1")
 
       LocationsIndex.reset!
