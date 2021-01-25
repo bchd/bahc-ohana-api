@@ -45,7 +45,6 @@ class LocationsSearch
   def order
     index.order(
       featured_at: { missing: "_last", order: "asc" },
-      covid19: { missing: "_last", order: "asc" },
       "_score": { "order": "desc" },
       updated_at: { order: "desc" },
     )
@@ -108,19 +107,19 @@ class LocationsSearch
                     should: [
                       { term: { "organization_name_exact": 
                                         { value: keywords.downcase,
-                                          boost: 100
+                                          boost: 160
                                         }
                                       } 
                       },
                       { term: { "name_exact": 
                                         { value: keywords.downcase,
-                                          boost: 80
+                                          boost: 120
                                         }
                                       } 
                       },
                       { term: { "categories_exact": 
                                   { value: keywords.downcase,
-                                    boost: 60
+                                    boost: 80
                                   }
                                 } 
                       },
@@ -129,20 +128,17 @@ class LocationsSearch
                                     boost: 40
                                   }
                                 } 
-                      },
-                      { multi_match: {
-                        query: keywords,
-                        fields: %w[description^3 service_names^2 service_descriptions],
-                        fuzziness: 'AUTO'
-                      } }
-                    ],
-                    must: {
-                      multi_match: {
-                        query: keywords,
-                        fields: %w[organization_name^3 name^2 description^1 keywords categories tags^2 organization_tags^3 service_tags service_names^1 service_descriptions],
-                        fuzziness: 'AUTO'
                       }
-                    }
+                    ],
+                    must: [
+                      {
+                        multi_match: {
+                          query: keywords,
+                          fields: %w[organization_name^20 name^16 categories^14 organization_tags^12 tags^10 service_tags^8 description^6 service_names^4 service_descriptions^2 keywords],
+                          fuzziness: 'AUTO'
+                        }
+                      }
+                    ]
                   }) 
     end
   end
