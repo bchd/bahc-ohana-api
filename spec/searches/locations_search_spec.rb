@@ -41,8 +41,8 @@ RSpec.describe LocationsSearch, :elasticsearch do
     end
   end
 
-  describe 'top order of exact matches' do
-    specify 'Exact Matches should be ordered like this: (after featured) 1.Organization Name 2.Location Name 3.Service Category 4.Service Subcategory' do
+  describe 'Exact Matches should be ordered like this: (after featured) 1.Organization Name 2.Location Name 3.Service Category 4.Service Subcategory' do
+    specify 'Organization name exact match should be on top of service category exact match' do
 
       org_exact_match = create(:organization, name: 'Financial Aid And Loans')
       org_regular_name = create(:organization, name: 'Regular Name not containing any relevant terms')
@@ -50,12 +50,34 @@ RSpec.describe LocationsSearch, :elasticsearch do
 
       featured_location = create_location("financial aid and nice loans", org_regular_name, "1")
       location_organization_match = create_location("Financial Aid And Happy Loans", org_exact_match)
-      location_name_match = create_location("Financial Aid And Loans", org_regular_name)
       location_category_service_match = create_location("Location with Service category exact match", org_regular_name)
-      location_partial_match = create_location("Financial help and super easy fast Loans", org_regular_name)
 
       service_exact_match = create(:service, location: location_category_service_match, name: "Service category exact match")
       category_exact_match = create(:category, services: [service_exact_match], name: "Financial Aid And Loans")
+
+      time = Time.current
+      
+      # Set for all of them the same updated_at time stamp so they get ordered only considering score
+      featured_location.update_columns(updated_at: time)
+      location_organization_match.update_columns(updated_at: time)
+      location_category_service_match.update_columns(updated_at: time)
+
+      import(featured_location, location_organization_match, location_category_service_match)
+
+      results = search({keywords: 'Financial Aid And Loans'}).objects
+
+      expect(results[0].id).to be(featured_location.id)
+      expect(results[1].id).to be(location_organization_match.id)
+      expect(results[2].id).to be(location_category_service_match.id)
+    end
+
+    specify 'Location Name exact match should be on top of service sub category exact match' do
+
+      org_regular_name = create(:organization, name: 'Regular Name not containing any relevant terms')
+      LocationsIndex.reset!
+
+      featured_location = create_location("financial aid and nice loans", org_regular_name, "1")
+      location_name_exact_match = create_location("Financial Aid And Loans", org_regular_name)
 
       org_sub_cat = create(:organization, name: 'Sub Cat Org')
       location_sub_category_service_match = create_location("Location with Service sub category exact match", org_sub_cat)
@@ -66,22 +88,16 @@ RSpec.describe LocationsSearch, :elasticsearch do
       
       # Set for all of them the same updated_at time stamp so they get ordered only considering score
       featured_location.update_columns(updated_at: time)
-      location_organization_match.update_columns(updated_at: time)
-      location_name_match.update_columns(updated_at: time)
-      location_category_service_match.update_columns(updated_at: time)
-      location_partial_match.update_columns(updated_at: time)
+      location_name_exact_match.update_columns(updated_at: time)
       location_sub_category_service_match.update_columns(updated_at: time)
 
-      import(featured_location, location_organization_match, location_name_match, location_category_service_match, location_partial_match, location_sub_category_service_match)
+      import(featured_location, location_name_exact_match, location_sub_category_service_match)
 
       results = search({keywords: 'Financial Aid And Loans'}).objects
 
       expect(results[0].id).to be(featured_location.id)
-      expect(results[1].id).to be(location_organization_match.id)
-      expect(results[2].id).to be(location_name_match.id)
-      expect(results[3].id).to be(location_category_service_match.id)
-      expect(results[4].id).to be(location_sub_category_service_match.id)
-      expect(results[5].id).to be(location_partial_match.id)
+      expect(results[1].id).to be(location_name_exact_match.id)
+      expect(results[2].id).to be(location_sub_category_service_match.id)
     end
   end
 
