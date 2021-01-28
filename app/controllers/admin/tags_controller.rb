@@ -5,7 +5,10 @@ class Admin
     layout 'admin'
 
     def index
-      @tags = Tag.all
+      tags_all = Tag.all
+
+      @tags = Kaminari.paginate_array(tags_all).
+                   page(params[:page]).per(params[:per_page])
     end
 
     def new
@@ -52,7 +55,9 @@ class Admin
     def show
       @tag = Tag.find(params[:id])
 
-      @resources_array = Tag.get_resources_by_tag_id(@tag.id)
+      resources_all = Tag.get_resources_by_tag_id(@tag.id)
+      @resources_array = Kaminari.paginate_array(resources_all).
+                   page(params[:page]).per(params[:per_page])
     end
   end
 

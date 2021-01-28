@@ -4,16 +4,13 @@
 %div
   - if @resources_array.empty?
     %span
-      No resources Associated
+      No results found
   - else
-    %table
-      %tbody
-        %tr
-          %td Resource Name:
-          %td Resource Type:
-        - @resources_array.each do |resource|
-          %tr
-            %td
-              = resource.resource.name
-            %td
-              = resource.resource_type
+    %p
+      - @resources_array.each do |resource|
+        %ul
+          %span
+            = "#{resource.resource.name} - #{resource.resource_type}"
+      = paginate @resources_array
+
+
