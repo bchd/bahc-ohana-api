@@ -1,7 +1,6 @@
 class Admin
   class TagsController < ApplicationController
     include Searchable
-
     before_action :authenticate_admin!
     layout 'admin'
 
@@ -28,5 +27,35 @@ class Admin
       end
     end
 
+    def destroy
+      tag = Tag.find(params[:id])
+      name = tag.name
+      tag.destroy 
+
+      redirect_to admin_tags_path,
+                    notice: "Tag '#{tag.name}' was successfully deleted."
+    end
+
+    def edit
+      @tag = Tag.find(params[:id])
+    end
+
+    def update
+      @tag = Tag.find(params[:id])
+      permitted_params = params.require(:tag).permit(:name)
+      
+      if @tag.update(name: permitted_params["name"])
+        redirect_to admin_tags_path, notice: 'Tag was successfully updated.'
+      else
+        render :edit
+      end
+    end
+  end
+
+  private
+  def tag_params
+    params.require(:tag).permit(
+      :name
+    )
   end
 end

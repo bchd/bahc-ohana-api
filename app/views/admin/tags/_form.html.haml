@@ -1,5 +1,5 @@
 
-%header
+= form_for [:admin, @tag], url: admin_tags_path, html: { method: :post } do |f| 
     = f.label :name
     = f.text_field :name, required: true, maxlength: 20, class: 'form-control'
     = f.submit 'Save'

@@ -17,4 +17,10 @@
         - @tags.each do |tag|
           %tr
             %td= tag.name
-            %td Update / Delete
+            %td
+              %span
+                = link_to 'Destroy', admin_tag_path(tag.id), method: :delete, data: { confirm: 'Are you sure?' }
+              %span
+                /
+              %span
+                = link_to 'Edit', edit_admin_tag_path(tag.id)

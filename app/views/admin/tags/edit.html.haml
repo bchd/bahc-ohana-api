@@ -1,0 +1,7 @@
+<h1>Edit Tag</h1>
+
+= form_for [:admin, @tag], url: admin_tag_path, html: { method: :put } do |f| 
+    = f.label :name
+    = f.text_field :name, required: true, maxlength: 20, class: 'form-control'
+    = f.submit 'Save'
+= link_to 'Back', admin_tags_path 
