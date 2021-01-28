@@ -1,0 +1,19 @@
+%h3
+  = "Resources Associated to tag #{@tag.name}"
+
+%div
+  - if @resources_array.empty?
+    %span
+      No resources Associated
+  - else
+    %table
+      %tbody
+        %tr
+          %td Resource Name:
+          %td Resource Type:
+        - @resources_array.each do |resource|
+          %tr
+            %td
+              = resource.resource.name
+            %td
+              = resource.resource_type

@@ -13,10 +13,8 @@ class Admin
     end
 
     def create
-      #prepare_and_authorize_service_creation
-
       permitted_params = params.require(:tag).permit(:name)
-      
+
       @tag = Tag.new(name: permitted_params["name"])
       
       if @tag.save
@@ -43,19 +41,19 @@ class Admin
     def update
       @tag = Tag.find(params[:id])
       permitted_params = params.require(:tag).permit(:name)
-      
+
       if @tag.update(name: permitted_params["name"])
         redirect_to admin_tags_path, notice: 'Tag was successfully updated.'
       else
         render :edit
       end
     end
+
+    def show
+      @tag = Tag.find(params[:id])
+
+      @resources_array = Tag.get_resources_by_tag_id(@tag.id)
+    end
   end
 
-  private
-  def tag_params
-    params.require(:tag).permit(
-      :name
-    )
-  end
 end

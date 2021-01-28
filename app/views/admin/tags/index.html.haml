@@ -16,11 +16,12 @@
           %td Actions:
         - @tags.each do |tag|
           %tr
-            %td= tag.name
+            %td
+              = link_to tag.name, admin_tag_path(tag.id)
             %td
               %span
                 = link_to 'Destroy', admin_tag_path(tag.id), method: :delete, data: { confirm: 'Are you sure?' }
               %span
-                /
+                = "/"
               %span
                 = link_to 'Edit', edit_admin_tag_path(tag.id)

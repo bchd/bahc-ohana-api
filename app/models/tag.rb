@@ -5,4 +5,8 @@ class Tag < ApplicationRecord
 
   validates :name, presence: true
   validates :name, uniqueness: true
+
+  def self.get_resources_by_tag_id (tag_id)
+    TagResource.where(tag_id: tag_id).includes(:resource).all
+  end
 end
