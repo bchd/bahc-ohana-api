@@ -1,8 +1,8 @@
 %div.tag_list_element_div
-  %div{ style: "float:left; width: 80%; padding-left: 5px;"}
+  %div{ style: "float:left; width: 85%; padding-left: 5px;"}
     %span
       = link_to tag.name, admin_tag_path(tag.id)
-  %div{ style: "float:left; width: 20%"}
+  %div{ style: "float:left; width: 15%"}
     %span
       = link_to fa_icon("edit"), edit_admin_tag_path(tag.id), class: "tag_edit_icon"
     %span
