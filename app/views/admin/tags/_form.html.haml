@@ -1,5 +1,11 @@
 
+- if @tag.errors.any?
+  .alert.alert-danger
+    %ul
+      - @tag.errors.full_messages.each do |msg|
+        %li= "Error: #{msg}"
+
 = form_for [:admin, @tag], url: admin_tags_path, html: { method: :post } do |f| 
-    = f.label :name
-    = f.text_field :name, required: true, maxlength: 20, class: 'form-control'
-    = f.submit 'Save'
+  = f.label :name
+  = f.text_field :name, required: true, maxlength: 20, class: 'form-control'
+  = f.submit 'Save'
