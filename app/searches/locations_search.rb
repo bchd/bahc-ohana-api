@@ -12,7 +12,8 @@ class LocationsSearch
   attribute :archived_at, type: Date
   attribute :archived, type: Boolean
   attribute :accessibility, type: Array
-
+  attribute :lat, type: Float
+  attribute :long, type: Float
   
   attribute :page, type: String
   attribute :per_page, type: String
@@ -38,8 +39,20 @@ class LocationsSearch
       zipcode_filter,
       category_filter,
       accessibility_filter, 
+      distance_sort,
       order,
     ].compact.reduce(:merge)
+  end
+
+  def distance_sort
+    if lat? && long?
+      index.order(_geo_distance: {
+        coordinates: {
+          lat: lat,
+          lon: long
+        }
+      })
+    end
   end
 
   def order
@@ -47,7 +60,7 @@ class LocationsSearch
       featured_at: { missing: "_last", order: "asc" },
       covid19: { missing: "_last", order: "asc" },
       "_score": { "order": "desc" },
-      updated_at: { order: "desc" },
+      updated_at: { order: "desc" }
     )
   end
 
