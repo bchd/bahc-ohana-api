@@ -1,12 +1,6 @@
 <h1>Edit Tag</h1>
-- if @tag.errors.any?
-  .alert.alert-danger
-    %ul
-      - @tag.errors.full_messages.each do |msg|
-        %li= "Error: #{msg}"
+= render 'error_messages', tag: @tag
 
 = form_for [:admin, @tag], url: admin_tag_path, html: { method: :put } do |f| 
-  = f.label :name
-  = f.text_field :name, required: true, maxlength: 20, class: 'form-control'
-  = f.submit 'Save'
+  = render 'form', f: f
 = link_to 'Back', admin_tags_path 

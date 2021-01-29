@@ -1,4 +1,6 @@
 <h1>New Tag</h1>
+= render 'error_messages', tag: @tag
 
-= render 'form', tag: @tag 
+= form_for [:admin, @tag], url: admin_tags_path, html: { method: :post } do |f| 
+  = render 'form', f: f
 = link_to 'Back', admin_tags_path 
