@@ -1,0 +1,11 @@
+%div.tag_list_element_div
+  %div{ style: "float:left; width: 80%; padding-left: 5px;"}
+    %span
+      = link_to tag.name, admin_tag_path(tag.id)
+  %div{ style: "float:left; width: 20%"}
+    %span
+      = link_to fa_icon("edit"), edit_admin_tag_path(tag.id), class: "tag_edit_icon"
+    %span
+      = link_to fa_icon("trash"), admin_tag_path(tag.id), method: :delete, data: { confirm: 'Are you sure?' }, class: "tag_delete_icon"
+  %div{style: "clear: both;"} 
+

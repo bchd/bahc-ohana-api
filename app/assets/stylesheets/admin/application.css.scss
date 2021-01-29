@@ -20,6 +20,8 @@
 @import 'variables';
 @import "components/*";
 @import "components/*";
+@import "font-awesome";
+
 
 // creates styles for text in the navbar that is not a link
 .navbar-default {
@@ -406,4 +408,21 @@ a.boxed-action:active {
 
 .btn-row {
   display: flex;
+}
+
+.tag_delete_icon{
+  color: #c7080e;
+  font-size: 25px;
+  margin-left: 10px;
+}
+
+.tag_edit_icon{
+  color: #47a094;
+  font-size: 25px;
+}
+
+.tag_list_element_div{
+  border-bottom: 2px solid #E0E0E0;
+  width: 600px;
+  margin-top: 10px;
 }

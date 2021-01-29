@@ -1,4 +1,3 @@
-
 %h1 Tag Management
 
 - if current_admin.super_admin?
@@ -12,13 +11,6 @@
     %p
       - @tags.each do |tag|
         %ul
-          %span
-            = link_to tag.name, admin_tag_path(tag.id)
-          %span
-            = link_to 'Destroy', admin_tag_path(tag.id), method: :delete, data: { confirm: 'Are you sure?' }
-          %span
-            = "/"
-          %span
-            = link_to 'Edit', edit_admin_tag_path(tag.id)
+          = render "tag_list_element", tag: tag
       = paginate @tags
     
