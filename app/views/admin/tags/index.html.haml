@@ -3,7 +3,7 @@
 %div{style:  "width: 90%;"}
   - if current_admin.super_admin?
     %div{ style:  "float: right;" }
-      = link_to "<button class = 'new_tag_btn'> + Add New Tag</button>".html_safe, new_admin_tag_path
+      = link_to " + Add New Tag".html_safe, new_admin_tag_path, class: 'btn btn-primary'
     %div{style: "clear: both;"}
 
   %div

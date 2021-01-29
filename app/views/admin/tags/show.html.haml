@@ -10,7 +10,13 @@
       - @resources_array.each do |resource|
         %ul
           %span
-            = "#{resource.resource.name} - #{resource.resource_type}"
+            - if resource.resource_type == "Location"
+              = link_to "#{resource.resource.name} - #{resource.resource_type}", edit_admin_location_path(resource.resource_id), class: "location-links"
+            - elsif resource.resource_type == "Service"
+              = link_to "#{resource.resource.name} - #{resource.resource_type}", edit_admin_location_service_path(resource.resource.location_id, resource.resource_id), class: "location-links"
+            - elsif resource.resource_type == "Organization"
+              = link_to "#{resource.resource.name} - #{resource.resource_type}", edit_admin_organization_path(resource.resource_id), class: "location-links"
+
       = paginate @resources_array
 
 
