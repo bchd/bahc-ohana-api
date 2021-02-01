@@ -5,8 +5,13 @@ class Admin
     layout 'admin'
 
     def index
-      tags_all = Tag.all
+      @search_terms = search_params(params)
 
+      if @search_terms.empty?
+        tags_all = Tag.all
+      else
+        tags_all = Tag.with_name_or_id(@search_terms[:keyword])
+      end
       @tags = Kaminari.paginate_array(tags_all).
                    page(params[:page]).per(params[:per_page])
     end
