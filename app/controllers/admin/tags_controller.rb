@@ -24,6 +24,7 @@ class Admin
       permitted_params = params.require(:tag).permit(:name)
 
       @tag = Tag.new(name: permitted_params["name"])
+      authorize @tag
       
       if @tag.save
         redirect_to admin_tags_path,
@@ -34,20 +35,23 @@ class Admin
     end
 
     def destroy
-      tag = Tag.find(params[:id])
-      name = tag.name
-      tag.destroy 
+      @tag = Tag.find(params[:id])
+      authorize @tag
+      name = @tag.name
+      @tag.destroy 
 
       redirect_to admin_tags_path,
-                    notice: "Tag '#{tag.name}' was successfully deleted."
+                    notice: "Tag '#{name}' was successfully deleted."
     end
 
     def edit
       @tag = Tag.find(params[:id])
+      authorize @tag
     end
 
     def update
       @tag = Tag.find(params[:id])
+      authorize @tag
       permitted_params = params.require(:tag).permit(:name)
 
       if @tag.update(name: permitted_params["name"])
