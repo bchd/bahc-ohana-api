@@ -19,4 +19,8 @@ class TagPolicy < ApplicationPolicy
   def update?
     return true if user.super_admin?
   end
+
+  def show?
+    return true if user.super_admin?
+  end
 end

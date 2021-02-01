@@ -18,6 +18,7 @@ class Admin
 
     def new
       @tag = Tag.new
+      authorize @tag
     end
 
     def create
@@ -63,6 +64,7 @@ class Admin
 
     def show
       @tag = Tag.find(params[:id])
+      authorize @tag
 
       resources_all = Tag.get_resources_by_tag_id(@tag.id)
       @resources_array = Kaminari.paginate_array(resources_all).
