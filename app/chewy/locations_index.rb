@@ -25,7 +25,13 @@ class LocationsIndex < Chewy::Index
     field :categories, value: -> { services.map(&:categories).flatten.uniq.map(&:name) }
     field :categories_exact, analyzer: 'case_insensitive', value: -> { services.flat_map(&:categories).select { |cat| cat.ancestry.blank? }.uniq.map(&:name) }
     field :category_ids, value: -> { services.map(&:categories).flatten.uniq.map(&:id) }
-    field :coordinates, type: 'geo_point', value: ->{ {lat: latitude, lon: longitude}  }
+    field :coordinates, type: 'geo_point', value: -> do
+      if latitude? && longitude?
+        {lat: latitude, lon: longitude}
+      else
+        nil
+      end
+    end
     field :covid19, value: -> { covid19? ? created_at : nil }, type: 'date'
     field :created_at, type: 'date'
     field :description, analyzer: 'remove_stop_words'
