@@ -53,6 +53,7 @@ Rails.application.routes.draw do
         get "programs"
         get "regular_schedules"
         get "services"
+        get "service_categories"
         post "upload_services"
       end
 

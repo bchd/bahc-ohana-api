@@ -27,6 +27,8 @@ class Admin
     def regular_schedules; end
 
     def services; end
+    
+    def service_categories; end
 
     def upload_services
       upload_services_params

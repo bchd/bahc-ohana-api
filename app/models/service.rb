@@ -115,6 +115,15 @@ class Service < ApplicationRecord
 
   after_save :update_location_status, if: :saved_change_to_status?
 
+  def current_parent_categories
+    parent_categories = categories.where(ancestry: nil)
+    if parent_categories.any?
+      parent_categories.map(&:name).join(', ')
+    else
+      ""
+    end
+  end
+
   def location_name
     location.name
   end
