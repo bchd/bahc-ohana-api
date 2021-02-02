@@ -429,10 +429,19 @@ a.boxed-action:active {
   font-size: 25px;
 }
 
-.tag_list_element_div {
+.tag_list_element_container {
   border-bottom: 2px solid #E0E0E0;
   width: 100%;
   margin-top: 10px;
+}
+
+.tag_list_element_name_container {
+  float:left; width: 85%; padding-left: 5px;
+}
+
+.tag_list_element_actions_container {
+  float:left; 
+  width: 15%
 }
 
 .tag_form_buttons_container {
