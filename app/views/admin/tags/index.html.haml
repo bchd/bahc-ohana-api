@@ -1,8 +1,8 @@
 %h1 Tag Management
 
-%div{style:  "width: 90%;"}
+%div.tag_index_main_container
   - if current_admin.super_admin?
-    %div{ style:  "float: right;" }
+    %div.tag_add_new_button_container
       = link_to " + Add New Tag".html_safe, new_admin_tag_path, class: 'btn btn-primary'
     %div{style: "clear: both;"}
     %p

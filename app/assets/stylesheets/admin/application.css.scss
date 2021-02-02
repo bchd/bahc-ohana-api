@@ -410,24 +410,32 @@ a.boxed-action:active {
   display: flex;
 }
 
-.tag_delete_icon{
+.tag_index_main_container {
+  width: 90%;
+}
+
+.tag_add_new_button_container {
+  float: right;
+}
+
+.tag_delete_icon {
   color: #c7080e;
   font-size: 25px;
   margin-left: 10px;
 }
 
-.tag_edit_icon{
+.tag_edit_icon {
   color: #47a094;
   font-size: 25px;
 }
 
-.tag_list_element_div{
+.tag_list_element_div {
   border-bottom: 2px solid #E0E0E0;
   width: 100%;
   margin-top: 10px;
 }
 
-.tag_form_buttons_container{
+.tag_form_buttons_container {
   margin-top: 15px;
 }
 
