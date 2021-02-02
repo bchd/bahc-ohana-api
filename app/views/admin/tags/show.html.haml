@@ -1,0 +1,22 @@
+%h3
+  = "Resources Associated to tag #{@tag.name}"
+
+%div
+  - if @resources_array.empty?
+    %span
+      No results found
+  - else
+    %p
+      - @resources_array.each do |resource|
+        %ul
+          %span
+            - if resource.resource_type == "Location"
+              = link_to "#{resource.resource.name} - #{resource.resource_type}", edit_admin_location_path(resource.resource_id), class: "location-links"
+            - elsif resource.resource_type == "Service"
+              = link_to "#{resource.resource.name} - #{resource.resource_type}", edit_admin_location_service_path(resource.resource.location_id, resource.resource_id), class: "location-links"
+            - elsif resource.resource_type == "Organization"
+              = link_to "#{resource.resource.name} - #{resource.resource_type}", edit_admin_organization_path(resource.resource_id), class: "location-links"
+
+      = paginate @resources_array
+
+

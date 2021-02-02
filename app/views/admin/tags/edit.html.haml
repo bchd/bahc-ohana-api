@@ -1,0 +1,6 @@
+<h1>Edit Tag</h1>
+= render 'error_messages', tag: @tag
+
+= form_for [:admin, @tag], url: admin_tag_path, html: { method: :put } do |f| 
+  = render 'form', f: f
+

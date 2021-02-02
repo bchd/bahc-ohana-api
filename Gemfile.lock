@@ -198,6 +198,8 @@ GEM
     figaro (1.2.0)
       thor (>= 0.14.0, < 2)
     flamegraph (0.9.5)
+    font-awesome-rails (4.7.0.5)
+      railties (>= 3.2, < 6.1)
     friendly_id (5.3.0)
       activerecord (>= 4.0.0)
     geocoder (1.6.3)
@@ -495,6 +497,7 @@ DEPENDENCIES
   fastimage
   figaro (~> 1.0)
   flamegraph
+  font-awesome-rails
   friendly_id (~> 5.0)
   geocoder
   haml-rails

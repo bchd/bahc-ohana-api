@@ -16,3 +16,10 @@
 //= require select2-full
 //= require simplemde.min
 //= require_tree .
+
+document.addEventListener("turbolinks:before-cache", function() {
+  const flash_message_element = document.querySelector(".alert")
+  if (flash_message_element) {
+    flash_message_element.remove()
+  }
+})

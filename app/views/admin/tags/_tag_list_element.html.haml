@@ -1,0 +1,11 @@
+%div.tag_list_element_container
+  %div.tag_list_element_name_container
+    %span
+      = link_to tag.name, admin_tag_path(tag.id)
+  %div.tag_list_element_actions_container
+    %span
+      = link_to fa_icon("edit"), edit_admin_tag_path(tag.id), class: "tag_edit_icon"
+    %span
+      = link_to fa_icon("trash"), admin_tag_path(tag.id), method: :delete, data: { confirm: "Are you sure to delete #{tag.name} tag?" }, class: "tag_delete_icon"
+  %div{style: "clear: both;"} 
+

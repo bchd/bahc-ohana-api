@@ -1,0 +1,8 @@
+
+= f.label :name
+= f.text_field :name, required: true, maxlength: 20, class: 'form-control'
+
+%div.tag_form_buttons_container
+  = f.submit 'Save', class: 'btn btn-primary'
+  = link_to 'Back', admin_tags_path, class: 'btn btn-primary'
+  
