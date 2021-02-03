@@ -8,7 +8,7 @@ module HandleTags
   included do
     attr_accessor :tag_list
 
-    has_many :tag_resources, as: :resource, autosave: true
+    has_many :tag_resources, as: :resource, autosave: true, dependent: :destroy
     has_many :tags, through: :tag_resources, source: :tag
     accepts_nested_attributes_for :tag_resources,
                                   allow_destroy: true, reject_if: :all_blank
