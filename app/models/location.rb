@@ -52,9 +52,6 @@ class Location < ApplicationRecord
 
   has_many :services, dependent: :destroy
 
-  has_many :tag_resources, as: :resource
-  has_many :tags, through: :tag_resources
-
   has_many :regular_schedules, dependent: :destroy, inverse_of: :location
   accepts_nested_attributes_for :regular_schedules,
                                 allow_destroy: true, reject_if: :all_blank
