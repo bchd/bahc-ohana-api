@@ -13,6 +13,8 @@ module Api
           tags: params[:tags],
           org_name: params[:org_name],
           keywords: params[:keyword],
+          lat: params[:lat],
+          long: params[:long],
           zipcode: params[:location],
           category_ids: params[:categories],
           page: params[:page],
