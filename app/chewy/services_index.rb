@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ServicesIndex < Chewy::Index
-  define_type Service.includes(:location) do
+  define_type Service.includes(:location, :tags) do
     field :archived_at, type: 'date'
     field :archived, type: 'boolean', value: -> { !archived_at.nil? } 
     field :id, type: 'integer'
