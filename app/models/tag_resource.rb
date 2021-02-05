@@ -1,6 +1,4 @@
 class TagResource < ApplicationRecord
-  # We want to skip organization because the index does not exist
-  # Keep this up to date with any taggable resource
   
   belongs_to :tag
   belongs_to :resource, polymorphic: true, touch: true
