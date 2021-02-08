@@ -10,13 +10,14 @@ module Api
       def index
         locations = LocationsSearch.new(
           accessibility: params[:accessibility],
-          tags: params[:tags],
-          org_name: params[:org_name],
+          category_ids: params[:categories],
+          distance: params[:distance],
           keywords: params[:keyword],
           lat: params[:lat],
           long: params[:long],
+          org_name: params[:org_name],
+          tags: params[:tags],
           zipcode: params[:location],
-          category_ids: params[:categories],
           page: params[:page],
           per_page: params[:per_page]
         ).search.load&.objects
