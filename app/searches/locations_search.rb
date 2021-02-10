@@ -14,8 +14,6 @@ class LocationsSearch
   attribute :accessibility, type: Array
   attribute :lat, type: Float
   attribute :long, type: Float
-  # Note to reviewer, is this actually the correct data type since we're dealing with a finite list of small numbers?
-  # Please confirm and I'll remove these comments
   attribute :distance, type: Integer
   
   attribute :page, type: String
