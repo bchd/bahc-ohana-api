@@ -1,0 +1,34 @@
+%h1 Tag Management
+
+%div.tag_index_main_container
+  - if current_admin.super_admin?
+    %div.tag_add_new_button_container
+      = link_to " + Add New Tag".html_safe, new_admin_tag_path, class: 'btn btn-primary'
+    %div{style: "clear: both;"}
+    %p
+      As a super admin, you have access to all tags in the database. Please make updates responsibly.
+
+  .search-container
+    = form_tag(admin_tags_path, method: :get, class: 'search-form') do
+      %p.bold Enter Tag name or ID
+      = text_field_tag "q[keyword]", @search_terms[:keyword], class: 'form-control'
+      = submit_tag t('admin.buttons.search'), class: 'btn submit-button'
+      = link_to t('admin.buttons.clear_filters'), admin_tags_path, name: "commit", class: 'btn clear-filters-button'
+
+  %div
+  - if @tags.empty?
+    %span
+      No results found
+
+  - if @tags.present? && @search_terms.present?
+    %span
+      Search results
+
+  - if @tags.present?
+    %p
+      - @tags.each do |tag|
+        %ul
+          = render "tag_list_element", tag: tag
+      = paginate @tags
+      
+      

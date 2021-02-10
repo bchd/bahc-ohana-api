@@ -1,16 +1,9 @@
 require 'rails_helper'
 
 describe 'POST /locations/:location_id/phones' do
-  before(:all) do
+  before do
     @loc = create(:location)
-  end
-
-  before(:each) do
     @phone_attributes = { number: '123-456-7890', number_type: 'voice' }
-  end
-
-  after(:all) do
-    Organization.find_each(&:destroy)
   end
 
   it 'creates a phone with valid attributes' do

@@ -1,0 +1,27 @@
+.inst-box
+  %header
+    %strong
+      = f.label :file_upload
+    %p.desc
+      = t('.description')
+  - if @location.persisted?
+  .form-group
+    = f.label :file_uploads, "Select files"
+    = f.file_field :file_uploads,                     |
+      multiple: true,                                 |
+      accept: ImageUploader::ALLOWED_TYPES.join(","), |
+      data: {                                         |
+        upload_server: upload_server,                 |
+        uppy: true,                                   |
+      }                                               |
+      |
+  %ul
+    .table-responsive
+      %table.table
+        %thead
+          %tr
+            %th File Name
+            %th Actions
+        %tbody
+          = f.fields_for :file_uploads do |pf|
+            = render partial: "admin/shared/forms/file_upload", locals: { file_upload: pf.object, f: pf }

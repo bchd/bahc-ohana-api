@@ -1,19 +1,12 @@
 require 'rails_helper'
 
 describe ServicePresenter do
-  before(:all) do
-    DatabaseCleaner.clean_with(:truncation)
-    create(:location)
-  end
-
-  after(:all) do
-    Organization.find_each(&:destroy)
-  end
+  let!(:location) { create(:location) }
 
   let(:properties) do
     {
       id: '1',
-      location_id: '1',
+      location_id: location.id.to_s,
       name: 'Literacy Program',
       description: 'Example description',
       application_process: 'Call',
@@ -47,9 +40,17 @@ describe ServicePresenter do
     end
 
     context 'when the service already exists' do
-      before do
-        DatabaseCleaner.clean_with(:truncation)
-        create(:service)
+      let!(:service) { create(:service, location: location) }
+
+      let(:properties) do
+        {
+          id: service.id.to_s,
+          location_id: location.id.to_s,
+          name: 'Literacy Program',
+          description: 'Example description',
+          application_process: 'Call',
+          status: 'active'
+        }
       end
 
       it 'does not create a new service' do

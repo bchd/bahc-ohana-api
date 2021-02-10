@@ -1,0 +1,9 @@
+%li
+  .media
+    .media-body
+      %tr
+        %td= link_to file_upload.image.metadata['filename'], file_upload.image_url, class: 'btn btn-light', target: "_blank"
+        %td
+          .form-group
+            = f.label :_destroy, "Remove File"
+            = f.check_box :_destroy

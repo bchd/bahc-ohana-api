@@ -14,9 +14,11 @@
 
   - if current_admin.super_admin?
     %li
-      = link_to t('admin.buttons.csv_downloads'), admin_csv_downloads_path
+      = link_to t('admin.buttons.csv_section'), admin_csv_downloads_path
     %li
       = link_to "Analytics", admin_analytics_path
+    %li
+      = link_to "Tags", admin_tags_path
 
   %li
     = link_to t('navigation.sign_out'), destroy_admin_session_path, method: 'delete'

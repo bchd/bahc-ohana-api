@@ -20,7 +20,7 @@ describe 'PATCH /locations/:id)' do
     }
   end
 
-  before(:each) do
+  before do
     @loc = create(:location)
   end
 
@@ -28,7 +28,7 @@ describe 'PATCH /locations/:id)' do
     patch api_location_url(@loc, subdomain: ENV['API_SUBDOMAIN']), attributes
 
     expect(response).to have_http_status(200)
-    expect(json['accessibility']).to eq ['Disabled Parking', 'Ramp']
+    expect(json['accessibility']).to eq ['Disabled Parking Available', 'Ramp Available']
     expect(json['active']).to eq attributes[:active]
     expect(json['admin_emails']).to eq %w[foo@test.com bar@test.com]
     expect(json['alternate_name']).to eq attributes[:alternate_name]
@@ -92,14 +92,6 @@ describe 'PATCH /locations/:id)' do
     expect(response.status).to eq(422)
     expect(json['errors'].first).
       to eq('description' => ["can't be blank for Location"])
-  end
-
-  it 'returns 404 when id is missing' do
-    patch api_locations_url(subdomain: ENV['API_SUBDOMAIN']),
-          description: ''
-
-    expect(response.status).to eq(404)
-    expect(json['message']).to eq('The requested resource could not be found.')
   end
 
   it 'updates the search index when location changes' do

@@ -1,7 +1,23 @@
-csv.headers :id, :location_id, :organization_id, :service_id, :name, :title,
+csv.headers :id, :resource_id, :resource_type, :name, :title,
             :email, :department
 
-csv.rows Contact.find_each do |csv, contact|
-  csv.cells :id, :location_id, :organization_id, :service_id, :name, :title,
-            :email, :department
+Contact.find_in_batches do |contacts|
+  contacts.each do |contact|
+    csv.rows contact.resource_contacts do |csv, rc|
+      csv.cell :id, contact.id
+      csv.cell :resource_id, rc.resource_id
+      csv.cell :resource_type, rc.resource_type
+      csv.cell :name, contact.name
+      csv.cell :title, contact.title
+      csv.cell :email, contact.email
+      csv.cell :department, contact.department
+    end
+
+
+    if contact.resource_contacts.blank?
+      csv.row contact do |csv, contact|
+        csv.cells :id, :name, :title, :email, :department
+      end
+    end
+  end
 end

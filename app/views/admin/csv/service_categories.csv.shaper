@@ -1,0 +1,10 @@
+csv.headers :current_parent_categories, :name, :id, :location_name, :new_category, :new_subcategory
+
+csv.rows Service.where(archived_at: nil) do |csv, service|
+  csv.cell :current_parent_categories
+  csv.cell :name
+  csv.cell :id
+  csv.cell :location_name
+  csv.cell :new_category, ""
+  csv.cell :new_subcategory, ""
+end

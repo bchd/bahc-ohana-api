@@ -52,7 +52,7 @@ describe Address do
   end
 
   describe 'callbacks' do
-    before(:each) { @loc = create(:location) }
+    before { @loc = create(:location) }
 
     it 'calls reset_location_coordinates after destroy' do
       expect(@loc.address).to receive(:reset_location_coordinates)

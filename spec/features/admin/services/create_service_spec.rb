@@ -17,7 +17,7 @@ feature 'Create a new service' do
 
     expect(find_field('service_name').value).to eq 'New VRS Services service'
 
-    within '.CodeMirror' do 
+    within '.CodeMirror' do
       expect(current_scope).to have_content 'new description'
     end
   end
@@ -31,7 +31,7 @@ feature 'Create a new service' do
   scenario 'with alternate_name', :js do
     fill_in_required_service_fields
     fill_in 'service_alternate_name', with: 'Alternate name'
-    
+
     click_button I18n.t('admin.buttons.create_service')
     click_link 'New VRS Services service'
 
@@ -76,7 +76,7 @@ feature 'Create a new service' do
 
   scenario 'when adding an accepted payment', :js do
     fill_in_required_service_fields
-    select2('Cash', 'service_accepted_payments', multiple: true)
+    fill_in(placeholder: I18n.t('admin.services.forms.accepted_payments.placeholder'), with: "Cash\n")
     click_button I18n.t('admin.buttons.create_service')
     click_link 'New VRS Services service'
 
@@ -86,7 +86,7 @@ feature 'Create a new service' do
 
   scenario 'when adding a funding source', :js do
     fill_in_required_service_fields
-    select2('County', 'service_funding_sources', multiple: true)
+    fill_in(placeholder: I18n.t('admin.shared.forms.funding_sources.placeholder'), with: "County\n")
     click_button I18n.t('admin.buttons.create_service')
     click_link 'New VRS Services service'
 
@@ -123,8 +123,7 @@ feature 'Create a new service' do
 
   scenario 'when adding multiple keywords', :js do
     fill_in_required_service_fields
-    select2('first', 'service_keywords', multiple: true, tag: true)
-    select2('second', 'service_keywords', multiple: true, tag: true)
+    fill_in(placeholder: I18n.t('admin.services.forms.keywords.placeholder'), with: "first,second\n")
     click_button I18n.t('admin.buttons.create_service')
     click_link 'New VRS Services service'
 
@@ -134,7 +133,7 @@ feature 'Create a new service' do
 
   scenario 'when adding a language', :js do
     fill_in_required_service_fields
-    select2('French', 'service_languages', multiple: true)
+    fill_in(placeholder: I18n.t('admin.services.forms.languages.placeholder'), with: "French\n")
     click_button I18n.t('admin.buttons.create_service')
     click_link 'New VRS Services service'
 
@@ -145,7 +144,7 @@ feature 'Create a new service' do
 
   scenario 'when adding a required document', :js do
     fill_in_required_service_fields
-    select2('Picture ID', 'service_required_documents', multiple: true)
+    fill_in(placeholder: I18n.t('admin.services.forms.required_documents.placeholder'), with: "Picture ID\n")
     click_button I18n.t('admin.buttons.create_service')
     click_link 'New VRS Services service'
 
@@ -155,7 +154,7 @@ feature 'Create a new service' do
 
   scenario 'when adding a service area', :js do
     fill_in_required_service_fields
-    select2('Belmont', 'service_service_areas', multiple: true)
+    fill_in(placeholder: I18n.t('admin.services.forms.service_areas.placeholder'), with: "Belmont\n")
     click_button I18n.t('admin.buttons.create_service')
     click_link 'New VRS Services service'
 

@@ -1,3 +1,19 @@
+require 'set'
+
+class StripAndDedupArray
+  def self.dump(arr)
+    coder.dump(Set.new(arr.reject(&:blank?)).to_a)
+  end
+
+  def self.load(str)
+    self.coder.load(str)
+  end
+
+  def self.coder
+    @coder ||= ActiveRecord::Coders::YAMLColumn.new(:service_strip_array_field, Array)
+  end
+end
+
 class Service < ApplicationRecord
   include HandleTags
 
@@ -19,14 +35,12 @@ class Service < ApplicationRecord
   accepts_nested_attributes_for :holiday_schedules,
                                 allow_destroy: true, reject_if: :all_blank
 
-  has_many :contacts, dependent: :destroy, inverse_of: :service
+  has_many :resource_contacts, as: :resource, dependent: :destroy
+  has_many :contacts, through: :resource_contacts
 
   has_many :phones, dependent: :destroy, inverse_of: :service
   accepts_nested_attributes_for :phones,
                                 allow_destroy: true, reject_if: :all_blank
-
-  has_many :tag_resources, as: :resource
-  has_many :tags, through: :tag_resources
 
   validates :accepted_payments, :languages, :required_documents, pg_array: true
 
@@ -48,9 +62,9 @@ class Service < ApplicationRecord
   auto_strip_attributes :funding_sources, :keywords, :service_areas,
                         reject_blank: true, nullify: false
 
-  serialize :funding_sources, Array
-  serialize :keywords, Array
-  serialize :service_areas, Array
+  serialize :funding_sources, StripAndDedupArray
+  serialize :keywords, StripAndDedupArray
+  serialize :service_areas, StripAndDedupArray
 
   def self.updated_between(start_date, end_date)
     query = where({})
@@ -97,6 +111,15 @@ class Service < ApplicationRecord
   end
 
   after_save :update_location_status, if: :saved_change_to_status?
+
+  def current_parent_categories
+    parent_categories = categories.where(ancestry: nil)
+    if parent_categories.any?
+      parent_categories.map(&:name).join(', ')
+    else
+      ""
+    end
+  end
 
   def location_name
     location.name

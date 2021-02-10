@@ -13,13 +13,8 @@ describe ContactImporter do
   end
   let(:no_parent) { Rails.root.join('spec', 'support', 'fixtures', 'contact_with_no_parent.csv') }
 
-  before(:all) do
-    DatabaseCleaner.clean_with(:truncation)
+  before do
     create(:location)
-  end
-
-  after(:all) do
-    Organization.find_each(&:destroy)
   end
 
   subject(:importer) { ContactImporter.new(content) }
@@ -46,15 +41,6 @@ describe ContactImporter do
 
       its(:errors) { is_expected.to eq(errors) }
     end
-
-    context 'when a parent does not exist' do
-      let(:content) { no_parent }
-
-      errors = ['Line 2: Contact is missing a parent: Location or ' \
-        'Organization or Service']
-
-      its(:errors) { is_expected.to eq(errors) }
-    end
   end
 
   describe '#import' do
@@ -75,7 +61,6 @@ describe ContactImporter do
         its(:email) { is_expected.to eq 'john@example.org' }
         its(:name) { is_expected.to eq 'John Smith' }
         its(:title) { is_expected.to eq 'Food Pantry Manager' }
-        its(:location_id) { is_expected.to eq 1 }
       end
     end
 
@@ -92,7 +77,12 @@ describe ContactImporter do
 
         subject { Contact.first }
 
-        its(:service_id) { is_expected.to eq 1 }
+        specify "associates the resource contact" do
+          expect(subject.resource_contacts.count).to eq 1
+          resource_contact = subject.resource_contacts.first
+          expect(resource_contact.resource_type).to eq 'Service'
+          expect(resource_contact.resource_id).to eq 1
+        end
       end
     end
 
@@ -104,7 +94,12 @@ describe ContactImporter do
 
         subject { Contact.first }
 
-        its(:organization_id) { is_expected.to eq 1 }
+        specify "assciates the resource contact" do
+          expect(subject.resource_contacts.count).to eq 1
+          resource_contact = subject.resource_contacts.first
+          expect(resource_contact.resource_type).to eq 'Organization'
+          expect(resource_contact.resource_id).to eq 1
+        end
       end
     end
 
@@ -160,14 +155,6 @@ describe ContactImporter do
         path = Rails.root.join('spec', 'support', 'fixtures', 'invalid_contact.csv')
         ContactImporter.check_and_import_file(path)
       end
-    end
-  end
-
-  describe '.required_headers' do
-    it 'matches required headers in Wiki' do
-      expect(ContactImporter.required_headers).
-        to eq %w[id location_id organization_id service_id department email name
-                 title]
     end
   end
 end

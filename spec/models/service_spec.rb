@@ -12,7 +12,7 @@ describe Service do
   it { is_expected.to accept_nested_attributes_for(:regular_schedules).allow_destroy(true) }
   it { is_expected.to have_many(:holiday_schedules).dependent(:destroy).inverse_of(:service) }
   it { is_expected.to accept_nested_attributes_for(:holiday_schedules).allow_destroy(true) }
-  it { is_expected.to have_many(:contacts).dependent(:destroy).inverse_of(:service) }
+  it { is_expected.to have_many(:resource_contacts).dependent(:destroy) }
   it { is_expected.to have_many(:phones).dependent(:destroy).inverse_of(:service) }
   it { is_expected.to accept_nested_attributes_for(:phones).allow_destroy(true) }
 
@@ -27,9 +27,9 @@ describe Service do
   end
   it { is_expected.to validate_presence_of(:status).with_message("can't be blank for Service") }
 
-  it { is_expected.to serialize(:funding_sources).as(Array) }
-  it { is_expected.to serialize(:keywords).as(Array) }
-  it { is_expected.to serialize(:service_areas).as(Array) }
+  it { is_expected.to serialize(:funding_sources).as(StripAndDedupArray) }
+  it { is_expected.to serialize(:keywords).as(StripAndDedupArray) }
+  it { is_expected.to serialize(:service_areas).as(StripAndDedupArray) }
 
   it { is_expected.not_to allow_value('codeforamerica.org').for(:email) }
   it { is_expected.not_to allow_value('codeforamerica@org').for(:email) }

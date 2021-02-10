@@ -1,6 +1,5 @@
 class Admin
   class ServicesController < ApplicationController
-    include Taggable
     include Searchable
 
     before_action :authenticate_admin!
@@ -37,10 +36,9 @@ class Admin
 
     def update
       assign_location_service_and_taxonomy_ids
-      preprocess_service_params
       authorize @location
       preprocess_service
-      
+
       if @service.update(service_params.except(:locations)) && @service.touch(:updated_at)
         redirect_to [:admin, @location, @service],
                     notice: 'Service was successfully updated.'
@@ -99,18 +97,12 @@ class Admin
     end
 
     def prepare_and_authorize_service_creation
-      preprocess_service_params
-
       @location = Location.find(params[:location_id])
       @service = @location.services.new(service_params.except(:locations))
       @taxonomy_ids = []
 
       authorize @location
       preprocess_service
-    end
-
-    def preprocess_service_params
-      shift_and_split_params(params[:service], :keywords)
     end
 
     def preprocess_service
@@ -175,7 +167,7 @@ class Admin
         ]
       )
     end
-    
+
     def update_archived_at_params
       if params['service']['archived_at'] == '1'
         params['service']['archived_at'] = Time.zone.now
@@ -184,7 +176,7 @@ class Admin
       end
     end
     # rubocop:enable MethodLength
-    
+
     def service_capacity_params
       params.permit(:wait_time, :id)
     end

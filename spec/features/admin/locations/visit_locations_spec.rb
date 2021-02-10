@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature 'Locations page' do
   context 'when not signed in' do
-    before :each do
+    before do
       visit '/admin/locations'
     end
 
@@ -29,7 +29,7 @@ feature 'Locations page' do
   end
 
   context 'when signed in' do
-    before :each do
+    before do
       login_admin
       visit '/admin/locations'
     end
@@ -81,7 +81,7 @@ feature 'Locations page' do
   end
 
   context 'when signed in as super admin' do
-    before :each do
+    before do
       @location = create(:location)
       create(:location_for_org_admin)
       login_super_admin

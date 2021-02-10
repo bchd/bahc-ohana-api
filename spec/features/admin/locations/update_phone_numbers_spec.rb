@@ -106,18 +106,11 @@ feature 'Update phones' do
 end
 
 feature 'Update phones' do
-  before(:all) do
+  before do
     @location = create(:location)
     @location.phones.create!(attributes_for(:phone).merge!(extension: ''))
-  end
-
-  before(:each) do
     login_super_admin
     visit '/admin/locations/vrs-services'
-  end
-
-  after(:all) do
-    Organization.find_each(&:destroy)
   end
 
   scenario 'initial state of phone type' do

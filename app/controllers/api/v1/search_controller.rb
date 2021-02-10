@@ -8,12 +8,18 @@ module Api
       after_action :set_cache_control, only: :index
 
       def index
+        set_coordinates
+
         locations = LocationsSearch.new(
-          tags: params[:tags],
-          org_name: params[:org_name],
-          keywords: params[:keyword],
-          zipcode: params[:location],
+          accessibility: params[:accessibility],
           category_ids: params[:categories],
+          distance: params[:distance],
+          keywords: params[:keyword],
+          lat: @lat,
+          long: @lon,
+          org_name: params[:org_name],
+          tags: params[:tags],
+          zipcode: params[:location],
           page: params[:page],
           per_page: params[:per_page]
         ).search.load&.objects
@@ -78,6 +84,27 @@ module Api
       # rubocop:enable Style/ConditionalAssignment, Style/RescueStandardError
 
       private
+
+      def set_coordinates
+        address = params[:address]
+        if address.present? && address != "Current Location"
+          response = Geocoder.search(params[:address])
+          coordinates = response.first.data['geometry']['location']
+          @lat = coordinates['lat']
+          @lon = coordinates['lng']
+        elsif params[:lat].present? && params[:long]
+          @lat = params[:lat]
+          @lon = params[:long]
+        end
+      end
+
+      def address_params
+        if params[:address].present?
+          response = Geocoder.search(params[:address])
+          coordinates = response.first.data['geometry']['location']
+          full_address = response.first.data['formatted_address']
+        end
+      end
 
       def lookahead_params
         params.permit(:name)

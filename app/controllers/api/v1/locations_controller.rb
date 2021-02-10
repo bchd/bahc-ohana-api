@@ -19,6 +19,7 @@ module Api
 
       def show
         location = Location.includes(
+          :file_uploads,
           contacts: :phones
           ).find(params[:id])
 

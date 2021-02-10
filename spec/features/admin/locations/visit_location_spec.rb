@@ -1,16 +1,9 @@
 require 'rails_helper'
 
 feature 'Visiting a specific location' do
-  before(:all) do
+  before do
     @location = create(:location)
-  end
-
-  before(:each) do
     @location.reload
-  end
-
-  after(:all) do
-    Organization.find_each(&:destroy)
   end
 
   scenario "when location doesn't include generic email" do
@@ -76,8 +69,7 @@ feature 'Visiting a specific location' do
       login_super_admin
       visit('/admin/locations/new')
       expect(page).to have_css(
-        'input#org-name[type="hidden"][data-placeholder="Choose an organization"]',
-        visible: false
+        %(select#org-name[data-placeholder="#{I18n.t('admin.shared.forms.choose_org.placeholder')}"])
       )
     end
   end

@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 feature 'Editing Admin account' do
-  before :each do
+  before do
     login_admin
     visit '/admin/edit'
   end

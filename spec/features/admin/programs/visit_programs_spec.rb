@@ -2,7 +2,7 @@ require 'rails_helper'
 
 xfeature 'Programs page' do
   context 'when not signed in' do
-    before :each do
+    before do
       visit '/admin/programs'
     end
 
@@ -23,7 +23,7 @@ xfeature 'Programs page' do
   end
 
   context 'when signed in' do
-    before :each do
+    before do
       login_admin
       visit '/admin/programs'
     end
@@ -63,7 +63,7 @@ xfeature 'Programs page' do
   end
 
   context 'when signed in as super admin' do
-    before :each do
+    before do
       nearby = create(:nearby_loc)
       @program = nearby.organization.programs.
                  create!(attributes_for(:program).

@@ -1,5 +1,7 @@
 .devise {
   &.admin-list {
+    display: flex;
+    flex-direction: column;
     .nav-buttons {
       a.admin-list {
         color: white;
@@ -8,12 +10,31 @@
     }
   }
 
+  .header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
   h2 {
     padding-top: 30px;
     padding-bottom: 20px;
   }
 
+  .admin-search {
+    width: 100%
+  }
+
+  .search-form input {
+    margin-bottom: 20px;
+  }
+
   table {
+    &.admin-table {
+      width: 100%;
+    }
+
     &.locations {
       min-width: 50%;
       
@@ -23,6 +44,7 @@
     }
 
     .actions .button {
+      float: right;
       margin-top: 10px;
       margin-bottom: 10px;
     }
@@ -48,6 +70,19 @@
     .data {
       padding-left: 10px;
       padding-right: 30px;
+
+      &.name {
+        width: 20%;
+      }
+      &.email {
+        width: 20%;
+      }
+      &.locations {
+        width: 40%;
+      }
+      &.full-locations {
+        width: 80%;
+      }
     }
     td.table-button {
       input[type=submit] {

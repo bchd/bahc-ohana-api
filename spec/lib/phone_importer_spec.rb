@@ -1,25 +1,21 @@
 require 'rails_helper'
 
 describe PhoneImporter do
-  let(:invalid_content) { Rails.root.join('spec', 'support', 'fixtures', 'invalid_phone.csv') }
-  let(:valid_content) { Rails.root.join('spec', 'support', 'fixtures', 'valid_location_phone.csv') }
-  let(:valid_service_phone) do
-    Rails.root.join('spec', 'support', 'fixtures', 'valid_service_phone.csv')
+  include CSVHelpers
+
+  let(:invalid_content) do
+    path = Rails.root.join('spec', 'support', 'fixtures', 'invalid_phone.csv')
+    replace_variables_in_csv(path, {location_id: location.id})
   end
-  let(:valid_org_phone) { Rails.root.join('spec', 'support', 'fixtures', 'valid_org_phone.csv') }
-  let(:valid_contact_phone) do
-    Rails.root.join('spec', 'support', 'fixtures', 'valid_contact_phone.csv')
+
+  let(:valid_content) do
+    path = Rails.root.join('spec', 'support', 'fixtures', 'valid_location_phone.csv')
+    replace_variables_in_csv(path, {location_id: location.id})
   end
+
   let(:no_parent) { Rails.root.join('spec', 'support', 'fixtures', 'phone_with_no_parent.csv') }
 
-  before(:all) do
-    DatabaseCleaner.clean_with(:truncation)
-    create(:location)
-  end
-
-  after(:all) do
-    Organization.find_each(&:destroy)
-  end
+  let!(:location) { create(:location) }
 
   subject(:importer) { PhoneImporter.new(content) }
 
@@ -76,14 +72,16 @@ describe PhoneImporter do
         its(:number_type) { is_expected.to eq 'voice' }
         its(:vanity_number) { is_expected.to eq '703-555-FOOD' }
         its(:country_prefix) { is_expected.to eq '1' }
-        its(:location_id) { is_expected.to eq 1 }
+        its(:location_id) { is_expected.to eq(location.id) }
       end
     end
 
     context 'when the phone belongs to a service' do
-      before do
-        DatabaseCleaner.clean_with(:truncation)
-        create(:service)
+      let!(:service) { create(:service, location: location) }
+
+      let(:valid_service_phone) do
+        path = Rails.root.join('spec', 'support', 'fixtures', 'valid_service_phone.csv')
+        replace_variables_in_csv(path, {service_id: service.id})
       end
 
       let(:content) { valid_service_phone }
@@ -93,11 +91,18 @@ describe PhoneImporter do
 
         subject { Phone.first }
 
-        its(:service_id) { is_expected.to eq 1 }
+        its(:service_id) { is_expected.to eq(service.id) }
       end
     end
 
     context 'when the phone belongs to an organization' do
+      let(:organization) { location.organization }
+
+      let(:valid_org_phone) do
+        path = Rails.root.join('spec', 'support', 'fixtures', 'valid_org_phone.csv')
+        replace_variables_in_csv(path, {org_id: organization.id})
+      end
+
       let(:content) { valid_org_phone }
 
       describe 'the phone' do
@@ -105,14 +110,16 @@ describe PhoneImporter do
 
         subject { Phone.first }
 
-        its(:organization_id) { is_expected.to eq 1 }
+        its(:organization_id) { is_expected.to eq(organization.id) }
       end
     end
 
     context 'when the phone belongs to a contact' do
-      before do
-        DatabaseCleaner.clean_with(:truncation)
-        create(:location).contacts.create!(attributes_for(:contact))
+      let!(:contact) { location.contacts.create!(attributes_for(:contact)) }
+
+      let(:valid_contact_phone) do
+        path = Rails.root.join('spec', 'support', 'fixtures', 'valid_contact_phone.csv')
+        replace_variables_in_csv(path, {contact_id: contact.id})
       end
 
       let(:content) { valid_contact_phone }
@@ -122,7 +129,7 @@ describe PhoneImporter do
 
         subject { Phone.first }
 
-        its(:contact_id) { is_expected.to eq 1 }
+        its(:contact_id) { is_expected.to eq(contact.id) }
       end
     end
 
@@ -153,30 +160,27 @@ describe PhoneImporter do
 
   describe '.check_and_import_file' do
     it 'calls FileChecker' do
-      path = Rails.root.join('spec', 'support', 'fixtures', 'valid_location_phone.csv')
-
       file = double('FileChecker')
       allow(file).to receive(:validate).and_return true
 
       expect(Kernel).to receive(:puts).
-        with("\n===> Importing valid_location_phone.csv")
+        with(/\n===> Importing .*/)
 
       expect(FileChecker).to receive(:new).
-        with(path, PhoneImporter.required_headers).and_return(file)
+        with(valid_content, PhoneImporter.required_headers).and_return(file)
 
-      PhoneImporter.check_and_import_file(path)
+      PhoneImporter.check_and_import_file(valid_content)
     end
 
     context 'with invalid data' do
       it 'outputs error message' do
         expect(Kernel).to receive(:puts).
-          with("\n===> Importing invalid_phone.csv")
+          with(/\n===> Importing .*/)
 
         expect(Kernel).to receive(:puts).
           with("Line 2: Number Type can't be blank for Phone")
 
-        path = Rails.root.join('spec', 'support', 'fixtures', 'invalid_phone.csv')
-        PhoneImporter.check_and_import_file(path)
+        PhoneImporter.check_and_import_file(invalid_content)
       end
     end
   end

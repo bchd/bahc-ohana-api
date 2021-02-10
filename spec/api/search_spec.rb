@@ -2,20 +2,14 @@ require 'rails_helper'
 
 describe "GET 'search'" do
   context 'with valid keyword only' do
-    before :all do
+    before do
       @loc = create(:location)
       @nearby = create(:nearby_loc)
       @loc.update_columns(updated_at: Time.zone.now - 1.day)
       @nearby.update_columns(updated_at: Time.zone.now - 1.hour)
       LocationsIndex.reset!
-    end
 
-    before :each do
       get api_search_index_url(keyword: 'jobs', per_page: 1, subdomain: ENV['API_SUBDOMAIN'])
-    end
-
-    after(:all) do
-      Organization.find_each(&:destroy)
     end
 
     it 'returns a successful status code' do
@@ -52,13 +46,9 @@ describe "GET 'search'" do
     # We need to handle our new search logic based on location, coordinates, and radius.
     # Currently marking these specs as broken.
 
-    before(:all) do
+    before do
       create(:farmers_market_loc)
       LocationsIndex.reset!
-    end
-
-    after(:all) do
-      Organization.find_each(&:destroy)
     end
 
     context 'with radius too small but within range' do
@@ -104,16 +94,12 @@ describe "GET 'search'" do
   end
 
   describe 'specs that depend on :location factory', broken: true do
-    before(:all) do
+    before do
       create(:location)
     end
 
-    after(:all) do
-      Organization.find_each(&:destroy)
-    end
-
     context 'with invalid radius' do
-      before :each do
+      before do
         get api_search_index_url(location: '94403', radius: 'ads', subdomain: ENV['API_SUBDOMAIN'])
       end
 
@@ -131,7 +117,7 @@ describe "GET 'search'" do
     end
 
     context 'with invalid lat_lng parameter' do
-      before :each do
+      before do
         get api_search_index_url(lat_lng: '37.6856578-122.4138119', subdomain: ENV['API_SUBDOMAIN'])
       end
 
@@ -146,7 +132,7 @@ describe "GET 'search'" do
     end
 
     context 'with invalid (non-numeric) lat_lng parameter' do
-      before :each do
+      before do
         get api_search_index_url(lat_lng: 'Apple,Pear', subdomain: ENV['API_SUBDOMAIN'])
       end
 
@@ -186,14 +172,10 @@ describe "GET 'search'" do
   end
 
   describe 'specs that depend on :location and :nearby_loc' do
-    before(:all) do
+    before do
       create(:location)
       create(:nearby_loc)
       LocationsIndex.reset!
-    end
-
-    after(:all) do
-      Organization.find_each(&:destroy)
     end
 
     context 'when keyword only matches one location' do
@@ -273,7 +255,7 @@ describe "GET 'search'" do
   end
 
   context 'when keyword matches category name' do
-    before(:each) do
+    before do
       create(:far_loc)
       create(:loc_with_nil_fields)
       cat = create(:category)
@@ -291,15 +273,11 @@ describe "GET 'search'" do
   end
 
   context 'with org_name parameter' do
-    before(:all) do
+    before do
       create(:nearby_loc)
       create(:location)
       create(:soup_kitchen)
       LocationsIndex.reset!
-    end
-
-    after(:all) do
-      Organization.find_each(&:destroy)
     end
 
     it 'returns results when org_name only contains one word that matches' do
@@ -489,12 +467,8 @@ describe "GET 'search'" do
   end
 
   context 'with misspelled query' do
-    before(:all) do
+    before do
       @loc1 = create(:location)
-    end
-
-    after(:all) do
-      Organization.find_each(&:destroy)
     end
 
     it "should return correct location if query is 'covis-19'" do
@@ -506,7 +480,7 @@ describe "GET 'search'" do
     end
 
     it "should return correct location if query is 'acheive'" do
-      @loc1.update!(description: 'achieve word in description')
+      @loc1.update_columns(description: 'achieve word in description', slug: 'www.example.com')
       LocationsIndex.reset!
 
       get api_search_index_url(keyword: 'acheive')
@@ -524,14 +498,10 @@ describe "GET 'search'" do
   end
 
   context 'with organization name as a keyword query' do
-    before(:all) do
+    before do
       @loc1 = create(:nearby_loc, name: 'some parent name')
       @loc2 = create(:location)
       LocationsIndex.reset!
-    end
-
-    after(:all) do
-      Organization.find_each(&:destroy)
     end
 
     it 'should return organization locations on the top of search' do
@@ -546,24 +516,18 @@ describe "GET 'search'" do
   end
 
   context 'it should order the locations' do
-    before(:each) do
+    before do
       @organization = create(:organization)
 
-      @loc1 = create_location("covid location", @organization)
-      @loc2 = create_location("Not featured and not covid", @organization)
-      @loc3 = create_location("featured location", @organization, "1")
+      @loc1 = create_location("Not featured", @organization)
+      @loc2 = create_location("featured location", @organization, "1")
 
       LocationsIndex.reset!
     end
 
-    after(:each) do
-      Organization.find_each(&:destroy)
-    end
-
-    it 'it should return featured locations first, second covid19 locations, and then the rest' do
+    it 'it should return featured locations first, and then the rest' do
       expect(@loc1.organization.name).to eq('Parent Agency')
       expect(@loc2.organization.name).to eq('Parent Agency')
-      expect(@loc3.organization.name).to eq('Parent Agency')
 
       LocationsIndex.reset!
 
@@ -571,17 +535,15 @@ describe "GET 'search'" do
 
       sleep 0.5
 
-      expect(json[0]['name']).to eq(@loc3.name)
+      expect(json[0]['name']).to eq(@loc2.name)
       expect(json[1]['name']).to eq(@loc1.name)
-      expect(json[2]['name']).to eq(@loc2.name)
     end
 
-    it 'it should return locations order based on updated_at property if no featured_at and covid19 locations' do
+    it 'it should return locations order based on updated_at property if no featured_at' do
       time = Time.current
 
-      @loc1.update_columns(name: "regular location1", updated_at: time - 5.minutes)
-      @loc2.update_columns(name: "regular location2", updated_at: time - 3.minutes)
-      @loc3.update_columns(name: "regular location3", featured_at: time, updated_at: time - 1.minutes)
+      @loc1.update_columns(name: "regular location2", updated_at: time - 3.minutes)
+      @loc2.update_columns(name: "regular location3", featured_at: time, updated_at: time - 1.minutes)
 
       LocationsIndex.reset!
 
@@ -589,9 +551,8 @@ describe "GET 'search'" do
 
       sleep 0.5
 
-      expect(json[0]['name']).to eq(@loc3.name)
-      expect(json[1]['name']).to eq(@loc2.name)
-      expect(json[2]['name']).to eq(@loc1.name)
+      expect(json[0]['name']).to eq(@loc2.name)
+      expect(json[1]['name']).to eq(@loc1.name)
     end
   end
 end

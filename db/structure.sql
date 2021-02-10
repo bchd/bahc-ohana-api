@@ -65,6 +65,8 @@ CREATE FUNCTION public.fill_search_vector_for_location() RETURNS trigger
 
 SET default_tablespace = '';
 
+SET default_with_oids = false;
+
 --
 -- Name: addresses; Type: TABLE; Schema: public; Owner: -
 --
@@ -278,6 +280,37 @@ CREATE SEQUENCE public.contacts_id_seq
 --
 
 ALTER SEQUENCE public.contacts_id_seq OWNED BY public.contacts.id;
+
+
+--
+-- Name: file_uploads; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.file_uploads (
+    id bigint NOT NULL,
+    location_id bigint,
+    file_name character varying,
+    image_data text
+);
+
+
+--
+-- Name: file_uploads_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.file_uploads_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: file_uploads_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.file_uploads_id_seq OWNED BY public.file_uploads.id;
 
 
 --
@@ -619,6 +652,39 @@ ALTER SEQUENCE public.regular_schedules_id_seq OWNED BY public.regular_schedules
 
 
 --
+-- Name: resource_contacts; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.resource_contacts (
+    id bigint NOT NULL,
+    contact_id bigint NOT NULL,
+    resource_id bigint NOT NULL,
+    resource_type character varying NOT NULL,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: resource_contacts_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.resource_contacts_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: resource_contacts_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.resource_contacts_id_seq OWNED BY public.resource_contacts.id;
+
+
+--
 -- Name: schema_migrations; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -826,6 +892,13 @@ ALTER TABLE ONLY public.contacts ALTER COLUMN id SET DEFAULT nextval('public.con
 
 
 --
+-- Name: file_uploads id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.file_uploads ALTER COLUMN id SET DEFAULT nextval('public.file_uploads_id_seq'::regclass);
+
+
+--
 -- Name: flags id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -886,6 +959,13 @@ ALTER TABLE ONLY public.programs ALTER COLUMN id SET DEFAULT nextval('public.pro
 --
 
 ALTER TABLE ONLY public.regular_schedules ALTER COLUMN id SET DEFAULT nextval('public.regular_schedules_id_seq'::regclass);
+
+
+--
+-- Name: resource_contacts id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.resource_contacts ALTER COLUMN id SET DEFAULT nextval('public.resource_contacts_id_seq'::regclass);
 
 
 --
@@ -965,6 +1045,14 @@ ALTER TABLE ONLY public.contacts
 
 
 --
+-- Name: file_uploads file_uploads_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.file_uploads
+    ADD CONSTRAINT file_uploads_pkey PRIMARY KEY (id);
+
+
+--
 -- Name: flags flags_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -1034,6 +1122,14 @@ ALTER TABLE ONLY public.programs
 
 ALTER TABLE ONLY public.regular_schedules
     ADD CONSTRAINT regular_schedules_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: resource_contacts resource_contacts_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.resource_contacts
+    ADD CONSTRAINT resource_contacts_pkey PRIMARY KEY (id);
 
 
 --
@@ -1164,6 +1260,13 @@ CREATE INDEX index_contacts_on_organization_id ON public.contacts USING btree (o
 --
 
 CREATE INDEX index_contacts_on_service_id ON public.contacts USING btree (service_id);
+
+
+--
+-- Name: index_file_uploads_on_location_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_file_uploads_on_location_id ON public.file_uploads USING btree (location_id);
 
 
 --
@@ -1342,6 +1445,20 @@ CREATE INDEX index_regular_schedules_on_weekday ON public.regular_schedules USIN
 
 
 --
+-- Name: index_resource_contacts_on_cntct_id_and_rsrc_id_and_rsrc_type; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_resource_contacts_on_cntct_id_and_rsrc_id_and_rsrc_type ON public.resource_contacts USING btree (contact_id, resource_id, resource_type);
+
+
+--
+-- Name: index_resource_contacts_on_resource_id_and_resource_type; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_resource_contacts_on_resource_id_and_resource_type ON public.resource_contacts USING btree (resource_id, resource_type);
+
+
+--
 -- Name: index_services_on_languages; Type: INDEX; Schema: public; Owner: -
 --
 
@@ -1461,6 +1578,14 @@ CREATE TRIGGER locations_search_content_trigger BEFORE INSERT OR UPDATE ON publi
 
 
 --
+-- Name: file_uploads fk_rails_6d6cd32ed7; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.file_uploads
+    ADD CONSTRAINT fk_rails_6d6cd32ed7 FOREIGN KEY (location_id) REFERENCES public.locations(id);
+
+
+--
 -- PostgreSQL database dump complete
 --
 
@@ -1538,8 +1663,11 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20200611115557'),
 ('20200614183600'),
 ('20200616200024'),
-('20200621214426'),
-('20200621222659'),
-('20200621223318');
+('20200621223318'),
+('20200629173821'),
+('20200707145838'),
+('20200810152350'),
+('20200810190344'),
+('20210203011216');
 
 

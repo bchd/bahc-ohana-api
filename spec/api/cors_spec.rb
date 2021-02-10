@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'CORS Preflight Request via OPTIONS HTTP method' do
   context 'when ORIGIN is specified and resource is allowed' do
-    before :each do
+    before do
       process(
         :options,
         api_organizations_url(subdomain: ENV['API_SUBDOMAIN']),
@@ -147,7 +147,7 @@ describe 'CORS Preflight Request via OPTIONS HTTP method' do
   end
 
   context 'when request is not a valid preflight request' do
-    before(:each) do
+    before do
       process(
         :options,
         api_organizations_url(subdomain: ENV['API_SUBDOMAIN']),
@@ -172,7 +172,7 @@ end
 
 describe 'CORS REQUESTS - POST and GET' do
   context 'when ORIGIN is specified' do
-    before :each do
+    before do
       post api_organizations_url(subdomain: ENV['API_SUBDOMAIN']),
            { name: 'foo', description: 'test' },
            'HTTP_ACCEPT' => 'application/vnd.ohanapi+json; version=1',
@@ -231,7 +231,7 @@ describe 'CORS REQUESTS - POST and GET' do
   end
 
   context 'when ORIGIN is specified and path is invalid' do
-    before :each do
+    before do
       get api_location_url(123, subdomain: ENV['API_SUBDOMAIN']),
           {}, 'HTTP_ORIGIN' => 'http://ohanapi.org'
     end

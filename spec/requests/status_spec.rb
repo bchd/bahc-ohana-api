@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'GET /api/.well-known/status' do
   context 'when everything is ok' do
-    before(:each) do
+    before do
       create(:loc_with_nil_fields)
       get '/api/.well-known/status'
     end
@@ -26,7 +26,7 @@ describe 'GET /api/.well-known/status' do
   end
 
   context 'when everything is not ok' do
-    before(:each) do
+    before do
       get '/api/.well-known/status'
     end
 

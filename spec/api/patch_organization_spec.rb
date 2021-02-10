@@ -1,17 +1,10 @@
 require 'rails_helper'
 
 describe 'PATCH /organizations/:id' do
-  before(:all) do
+  before do
     loc_with_org = create(:location)
     @org = loc_with_org.organization
-  end
-
-  before(:each) do
     @org.reload
-  end
-
-  after(:all) do
-    Organization.find_each(&:destroy)
   end
 
   let(:valid_attributes) do
@@ -74,17 +67,6 @@ describe 'PATCH /organizations/:id' do
     expect(response.status).to eq(422)
     expect(json['errors'].first).
       to eq('name' => ["can't be blank for Organization"])
-  end
-
-  it 'returns 404 when id is missing' do
-    patch(
-      api_organizations_url(subdomain: ENV['API_SUBDOMAIN']),
-      description: ''
-    )
-    expect(response.status).to eq(404)
-    expect(json['message']).to eq('The requested resource could not be found.')
-    expect(json['documentation_url']).
-      to eq('http://codeforamerica.github.io/ohana-api-docs/')
   end
 
   it 'updates the search index when organization name changes' do

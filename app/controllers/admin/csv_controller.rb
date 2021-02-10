@@ -27,6 +27,23 @@ class Admin
     def regular_schedules; end
 
     def services; end
+    
+    def service_categories; end
+
+    def upload_services
+      upload_services_params
+      unless params[:services].present?
+        flash[:error] = t('admin.services.upload.missing')
+        redirect_to admin_csv_downloads_path and return
+      end
+      importer = ServiceUploader.new(params[:services].tempfile)
+      importer.process
+      flash[:notice] = t('admin.services.upload.success')
+      redirect_to admin_csv_downloads_path
+    rescue ServiceUploader::ServiceUploadError => e
+      flash[:error] = e.message
+      redirect_to admin_csv_downloads_path
+    end
 
     private
 
@@ -36,6 +53,10 @@ class Admin
         return redirect_to new_admin_session_url
       end
       user_not_authorized unless current_admin.super_admin?
+    end
+
+    def upload_services_params
+      params.permit(:services)
     end
   end
 end

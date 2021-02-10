@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe 'PATCH address' do
-  before(:each) do
+  before do
     @loc = create(:location)
     @address = @loc.address
     @attrs = { address_1: '1236 Broadway', address_2: 'Apt 101',

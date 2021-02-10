@@ -11,6 +11,10 @@ class LocationsSearch
   attribute :tags, type: String
   attribute :archived_at, type: Date
   attribute :archived, type: Boolean
+  attribute :accessibility, type: Array
+  attribute :lat, type: Float
+  attribute :long, type: Float
+  attribute :distance, type: Integer
   
   attribute :page, type: String
   attribute :per_page, type: String
@@ -31,18 +35,46 @@ class LocationsSearch
     [
       organization_filter,
       archive_filter,
-      tags_query,
       keyword_filter,
+      tags_query,
       zipcode_filter,
       category_filter,
+      accessibility_filter, 
+      distance_filter,
+      distance_sort,
       order,
     ].compact.reduce(:merge)
+  end
+
+  def distance_filter
+    if distance? && lat? && long?
+      d = distance.to_s + "mi"
+
+      index.filter(geo_distance: {
+        distance: d,
+        coordinates: {
+          lat: lat,
+          lon: long
+        }
+      })
+    end
+  end
+
+  def distance_sort
+    if lat? && long?
+      index.order(_geo_distance: {
+        coordinates: {
+          lat: lat,
+          lon: long
+        }
+      })
+    end
   end
 
   def order
     index.order(
       featured_at: { missing: "_last", order: "asc" },
-      covid19: { missing: "_last", order: "asc" },
+      "_score": { "order": "desc" },
       updated_at: { order: "desc" }
     )
   end
@@ -68,6 +100,16 @@ class LocationsSearch
     end
   end
 
+  def accessibility_filter
+    if accessibility?
+      index.filter(
+        terms: {
+          accessibility: accessibility
+        }
+      )
+    end
+  end
+
   def archive_filter
       index.filter(
         term: {
@@ -79,9 +121,6 @@ class LocationsSearch
   end
 
   def zipcode_filter
-    # NOTE: I think we also need to consider location's coordinates and its radius.
-    # Because some of our specs are using these scenarios too.
-
     if zipcode?
       index.filter(match: {
                      zipcode: zipcode
@@ -93,12 +132,43 @@ class LocationsSearch
 
   def keyword_filter
     if keywords?
-      index.query(multi_match: {
-                    query: keywords,
-                    fields: %w[organization_name^3 name^2 description^1 keywords],
-                    analyzer: 'standard',
-                    fuzziness: 'AUTO'
-                  })
+      index.query(bool: {
+                    should: [
+                      { term: { "organization_name_exact": 
+                                        { value: keywords.downcase,
+                                          boost: 160
+                                        }
+                                      } 
+                      },
+                      { term: { "name_exact": 
+                                        { value: keywords.downcase,
+                                          boost: 120
+                                        }
+                                      } 
+                      },
+                      { term: { "categories_exact": 
+                                  { value: keywords.downcase,
+                                    boost: 80
+                                  }
+                                } 
+                      },
+                      { term: { "sub_categories_exact": 
+                                  { value: keywords.downcase,
+                                    boost: 40
+                                  }
+                                } 
+                      }
+                    ],
+                    must: [
+                      {
+                        multi_match: {
+                          query: keywords,
+                          fields: %w[organization_name^20 name^16 categories^14 organization_tags^12 tags^10 service_tags^8 description^6 service_names^4 service_descriptions^2 keywords],
+                          fuzziness: 'AUTO'
+                        }
+                      }
+                    ]
+                  }) 
     end
   end
 

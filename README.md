@@ -60,6 +60,34 @@ Our taxonomy lives at `/data/taxonomy.csv`.
 ## Deploying to Heroku
 See the [Wiki](https://github.com/codeforamerica/ohana-api/wiki/How-to-deploy-the-Ohana-API-to-your-Heroku-account).
 
+Set your heroku remotes for each app appropriately, `dev` for the development app, `staging` for the staging app, and `prod` for the production app.
+
+NOTE: If you've modified the chewy indices you'll need to reset them in every heroku environment manually likeso:
+
+```
+heroku run rake chewy:reset -a prod-ahc-ohana-api
+```
+
+```bash
+# Deploy Development
+git push dev develop:main
+
+# Deploy Staging
+git push staging staging:main
+
+# Deploy Production
+git push prod main
+```
+
+### Bucketeer / S3
+
+In order for direct uploads to S3 to work, we need to set the policy on the bucketeer bucket to allow for our URLs.
+
+```bash
+aws s3api put-bucket-cors --bucket bucketeer-[id] --cors-configuration file://bucketeer-cors.json
+```
+
+
 ## Running the tests
 
 Run tests locally with this simple command:

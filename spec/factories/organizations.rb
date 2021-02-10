@@ -40,4 +40,10 @@ FactoryBot.define do
     tax_status { '501c3 ' }
     website { ' http://cfa.org' }
   end
+
+  factory :organization_with_tag, class: Organization do
+    name { 'Tagged Organization' }
+    description { 'Organization created for testing purposes' }
+    tags { [association(:tag_org)] }
+  end
 end

@@ -2,10 +2,10 @@ require 'rails_helper'
 
 describe 'GET /organizations/:organization_id/locations' do
   context 'when organization has locations' do
-    before :all do
+    before do
       @org = create(:organization)
       attrs = {
-        accessibility: %w[restroom],
+        accessibility: %w[ramp],
         admin_emails: %w[foo@bar.com],
         description: 'testing 1 2 3',
         email: 'foo@bar.com',
@@ -19,16 +19,12 @@ describe 'GET /organizations/:organization_id/locations' do
         address_attributes: attributes_for(:address)
       }
       @location = @org.locations.create!(attrs)
-      @location.contacts.create!(attributes_for(:contact))
       @location.phones.create!(attributes_for(:phone))
-      @location.contacts.create!(attributes_for(:contact))
       @location.services.create!(attributes_for(:service))
 
       get api_org_locations_url(@org, subdomain: ENV['API_SUBDOMAIN'])
-    end
 
-    after(:all) do
-      Organization.find_each(&:destroy)
+      @location.contacts.create!(attributes_for(:contact))
     end
 
     it 'returns a 200 status' do
@@ -126,7 +122,7 @@ describe 'GET /organizations/:organization_id/locations' do
   end
 
   context "when organization doesn't have locations" do
-    before :each do
+    before do
       org = create(:organization)
       get api_org_locations_url(org, subdomain: ENV['API_SUBDOMAIN'])
     end

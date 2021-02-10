@@ -1,14 +1,9 @@
 require 'rails_helper'
 
 describe 'PUT /services/:service_id/categories' do
-  before(:all) do
+  before do
     create_service
     @food = Category.create!(name: 'Food', taxonomy_id: '101')
-  end
-
-  after(:all) do
-    Organization.find_each(&:destroy)
-    Category.find_each(&:destroy)
   end
 
   context 'when the passed in taxonomy_id exists' do

@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe Admin::LocationsController do
   describe 'create' do
-    before(:each) do
+    before do
       location = create(:location_with_admin)
       @org = location.organization
     end
@@ -62,7 +62,7 @@ describe Admin::LocationsController do
   end
 
   describe 'archive' do
-    before(:each) do
+    before do
       @location = create(:location_with_admin)
     end
 
@@ -79,7 +79,7 @@ describe Admin::LocationsController do
   end
 
   describe 'update' do
-    before(:each) do
+    before do
       @loc = create(:location_with_admin)
     end
 
@@ -119,7 +119,7 @@ describe Admin::LocationsController do
   end
 
   describe 'destroy' do
-    before(:each) do
+    before do
       @location = create(:location_with_admin)
     end
 
@@ -158,7 +158,7 @@ describe Admin::LocationsController do
   end
 
   describe 'edit' do
-    before(:each) do
+    before do
       @location = create(:location_with_admin)
     end
 
@@ -196,7 +196,7 @@ describe Admin::LocationsController do
   end
 
   describe 'new' do
-    before(:each) do
+    before do
       location = create(:location_with_admin)
       @org = location.organization
     end

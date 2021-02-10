@@ -1,0 +1,130 @@
+version: 2.1
+
+jobs:
+  setup:
+    docker:
+      - image: circleci/ruby:2.5.3-node-browsers
+    steps:
+      - checkout
+      - run: cp .circleci/database.yml config/database.yml
+      - run: gem install bundler --conservative
+      - restore_cache:
+          keys:
+            - v1-gem-cache-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+            - v1-gem-cache-{{ arch }}-{{ .Branch }}-
+            - v1-gem-cache-{{ arch }}-
+      - run: bundle install -j4 --path ~/bundle
+      - save_cache:
+          paths: ~/bundle
+          key: v1-gem-cache-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+      - restore_cache:
+          keys:
+            - v1-yarn-cache-{{ .Branch }}-{{ checksum "yarn.lock" }}
+            - v1-yarn-cache-{{ .Branch }}
+            - v1-yarn-cache
+      - run: yarn install
+      - save_cache:
+          paths: node_modules
+          key: v1-yarn-cache-{{ .Branch }}-{{ checksum "yarn.lock" }}
+
+  webpack:
+    docker:
+      - image: circleci/ruby:2.5.3-node-browsers
+    environment:
+      API_PATH: api
+      ADMIN_PATH: admin
+      ASSET_HOST: example.com
+      DEFAULT_PER_PAGE: '30'
+      DOMAIN_NAME: example.com
+      MAX_PER_PAGE: '50'
+      RAILS_ENV: test
+      OHANA_API_ENDPOINT: http://ohana-api-test.herokuapp.com/api
+      ELASTICSEARCH_URL: http://localhost:9200 # This gets set in chewy.rb file.
+      ADMIN_APP_TOKEN: testing123
+    steps:
+      - checkout
+      - run: cp .circleci/database.yml config/database.yml
+      - run: gem install bundler --conservative
+      - restore_cache:
+          keys:
+            - v1-gem-cache-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+            - v1-gem-cache-{{ arch }}-{{ .Branch }}-
+            - v1-gem-cache-{{ arch }}-
+      - run: bundle install -j4 --path ~/bundle
+      - save_cache:
+          paths: ~/bundle
+          key: v1-gem-cache-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+      - restore_cache:
+          keys:
+            - v1-yarn-cache-{{ .Branch }}-{{ checksum "yarn.lock" }}
+            - v1-yarn-cache-{{ .Branch }}
+            - v1-yarn-cache
+      - run: yarn install
+      - save_cache:
+          paths: node_modules
+          key: v1-yarn-cache-{{ .Branch }}-{{ checksum "yarn.lock" }}
+      - run: RAILS_ENV=test bundle exec rails webpacker:compile
+
+  specs:
+    resource_class: medium
+    docker:
+      - image: circleci/ruby:2.5.3-node-browsers
+        environment:
+          PGHOST: 127.0.0.1
+          PGUSER: root
+      - image: circleci/postgres:10-postgis
+        environment:
+          POSTGRES_DB: ohana_api_test
+          POSTGRES_USER: root
+          POSTGRES_HOST_AUTH_METHOD: trust
+      - image: elasticsearch:5.5
+    environment:
+      API_PATH: api
+      ADMIN_PATH: admin
+      ASSET_HOST: example.com
+      DEFAULT_PER_PAGE: '30'
+      DOMAIN_NAME: example.com
+      MAX_PER_PAGE: '50'
+      RAILS_ENV: test
+      OHANA_API_ENDPOINT: http://ohana-api-test.herokuapp.com/api
+      ELASTICSEARCH_URL: http://localhost:9200 # This gets set in chewy.rb file.
+      ADMIN_APP_TOKEN: testing123
+    steps:
+      - checkout
+      - run: cp .circleci/database.yml config/database.yml
+      - run: gem install bundler --conservative
+      - run: sudo apt-get update -qq && sudo apt-get install -y postgresql-client
+      - restore_cache:
+          keys:
+            - v1-gem-cache-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+            - v1-gem-cache-{{ arch }}-{{ .Branch }}-
+            - v1-gem-cache-{{ arch }}-
+      - run: bundle install -j4 --path ~/bundle
+      - save_cache:
+          paths: ~/bundle
+          key: v1-gem-cache-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+      - restore_cache:
+          keys:
+            - v1-yarn-cache-{{ .Branch }}-{{ checksum "yarn.lock" }}
+            - v1-yarn-cache-{{ .Branch }}
+            - v1-yarn-cache
+      - run: yarn install
+      - save_cache:
+          paths: node_modules
+          key: v1-yarn-cache-{{ .Branch }}-{{ checksum "yarn.lock" }}
+      - run: dockerize -wait tcp://localhost:5432 -timeout 1m
+      - run: dockerize -wait tcp://localhost:9200 -timeout 1m
+      - run: ./bin/rails db:drop db:create db:structure:load
+      - run: bundle exec rspec --format documentation --color
+
+workflows:
+  setup-lint-test:
+    jobs:
+      - setup
+      - webpack:
+          requires:
+            - setup
+      - specs:
+          requires:
+            - setup
+

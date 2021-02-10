@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe 'ability to add an admin to a location' do
-  before(:each) do
+  before do
     @location = create(:location)
   end
 

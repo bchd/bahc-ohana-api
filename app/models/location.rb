@@ -43,16 +43,14 @@ class Location < ApplicationRecord
   has_one :address, dependent: :destroy
   accepts_nested_attributes_for :address, allow_destroy: true
 
-  has_many :contacts, dependent: :destroy
+  has_many :resource_contacts, as: :resource, dependent: :destroy
+  has_many :contacts, through: :resource_contacts
 
   has_many :phones, dependent: :destroy, inverse_of: :location
   accepts_nested_attributes_for :phones,
                                 allow_destroy: true, reject_if: :all_blank
 
   has_many :services, dependent: :destroy
-
-  has_many :tag_resources, as: :resource
-  has_many :tags, through: :tag_resources
 
   has_many :regular_schedules, dependent: :destroy, inverse_of: :location
   accepts_nested_attributes_for :regular_schedules,
@@ -61,6 +59,9 @@ class Location < ApplicationRecord
   has_many :holiday_schedules, dependent: :destroy, inverse_of: :location
   accepts_nested_attributes_for :holiday_schedules,
                                 allow_destroy: true, reject_if: :all_blank
+
+  has_many :file_uploads, dependent: :destroy
+  accepts_nested_attributes_for :file_uploads, allow_destroy: true
 
   validates :address,
             presence: { message: I18n.t('errors.messages.no_address') },
@@ -89,6 +90,7 @@ class Location < ApplicationRecord
   validates :languages, pg_array: true
 
   validates :admin_emails, array: { email: true }
+  validates :admin_emails, pg_array: true
 
   validates :email, email: true, allow_blank: true
 
@@ -101,14 +103,14 @@ class Location < ApplicationRecord
   # Don't change the terms here! You can change their display
   # name in config/locales/en.yml
   enumerize :accessibility,
-            in: %i[cd deaf_interpreter disabled_parking elevator ramp
-                   restroom tape_braille tty wheelchair wheelchair_van],
+            in: %i[deaf_interpreter disabled_parking ramp
+                    tape_braille wheelchair],
             multiple: true
 
   auto_strip_attributes :description, :email, :name, :short_desc,
                         :transportation, :website
 
-  auto_strip_attributes :admin_emails, reject_blank: true, nullify: false
+  auto_strip_attributes :admin_emails, reject_blank: true, nullify_array: false
 
   extend FriendlyId
   friendly_id :slug_candidates, use: [:history]
@@ -154,7 +156,9 @@ class Location < ApplicationRecord
   def slug_candidates
     [
       :name,
+      :alternate_name,
       %i[name address_street],
+      %i[alternate_name address_street],
       %i[name]
     ]
   end

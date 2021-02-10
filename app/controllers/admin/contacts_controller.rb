@@ -34,11 +34,12 @@ class Admin
 
     def create
       @location = Location.find(params[:location_id])
-      @contact = @location.contacts.new(contact_params)
+      @contact = Contact.find_or_initialize_by(name: contact_params[:name])
 
       authorize @location
 
-      if @contact.save
+      if @contact.update(contact_params)
+        @location.contacts << @contact
         flash[:notice] = "Contact '#{@contact.name}' was successfully created."
         redirect_to admin_location_url(@location)
       else
@@ -47,14 +48,16 @@ class Admin
     end
 
     def destroy
-      contact = Contact.find(params[:id])
-      location = contact.location
+      location = Location.find(params[:location_id])
 
       authorize location
 
-      contact.destroy
+      resource = location.resource_contacts.find_by(contact_id: params[:id])
+      contact = resource.contact
+      resource.destroy
+
       redirect_to admin_location_url(location),
-                  notice: "Contact '#{contact.name}' was successfully deleted."
+                  notice: "Contact '#{contact.name}' was successfully removed from #{location.name}."
     end
 
     private

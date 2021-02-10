@@ -1,32 +1,40 @@
 require 'rails_helper'
 
 describe LocationImporter do
-  let(:invalid_content) { Rails.root.join('spec', 'support', 'fixtures', 'invalid_location.csv') }
-  let(:invalid_org) { Rails.root.join('spec', 'support', 'fixtures', 'invalid_location_org.csv') }
-  let(:valid_content) { Rails.root.join('spec', 'support', 'fixtures', 'valid_location.csv') }
+  include CSVHelpers
+
+  let(:invalid_content) do
+    path = Rails.root.join('spec', 'support', 'fixtures', 'invalid_location.csv')
+    replace_variables_in_csv(path, {org_id: organization.id})
+  end
+
+  let(:invalid_org) do
+    Rails.root.join('spec', 'support', 'fixtures', 'invalid_location_org.csv')
+  end
+
+  let(:valid_content) do
+    path = Rails.root.join('spec', 'support', 'fixtures', 'valid_location.csv')
+    replace_variables_in_csv(path, {org_id: organization.id})
+  end
 
   let(:valid_address) do
     path = Rails.root.join('spec', 'support', 'fixtures', 'valid_address.csv')
+    #path = replace_variables_in_csv(path, {location_id: nil})
+
     AddressExtractor.extract_addresses(path)
   end
+
   let(:invalid_address) do
     path = Rails.root.join('spec', 'support', 'fixtures', 'invalid_address.csv')
     AddressExtractor.extract_addresses(path)
   end
+
   let(:missing_address) do
     path = Rails.root.join('spec', 'support', 'fixtures', 'missing_address.csv')
     AddressExtractor.extract_addresses(path)
   end
 
-  before(:all) do
-    DatabaseCleaner.clean_with(:truncation)
-    create(:organization)
-  end
-
-  after(:all) do
-    Organization.find_each(&:destroy)
-  end
-
+  let!(:organization) { create(:organization) }
   subject(:importer) { LocationImporter.new(content, address) }
 
   describe '#valid?' do
@@ -111,8 +119,8 @@ describe LocationImporter do
         its(:name) { is_expected.to eq 'Harvest Food Bank' }
         its(:latitude) { is_expected.to eq(37.7726402) }
         its(:longitude) { is_expected.to eq(-122.4099154) }
-        its(:organization_id) { is_expected.to eq 1 }
-        its(:accessibility) { is_expected.to eq %w[cd ramp] }
+        its(:organization_id) { is_expected.to eq(organization.id) }
+        its(:accessibility) { is_expected.to eq %w[ramp] }
         its(:languages) { is_expected.to eq %w[French spanish] }
         its(:admin_emails) { is_expected.to eq %w[test@test.com foo@bar.com] }
       end
@@ -166,32 +174,30 @@ describe LocationImporter do
 
   describe '.check_and_import_file' do
     it 'calls FileChecker' do
-      path = Rails.root.join('spec', 'support', 'fixtures', 'valid_location.csv')
       address_path = Rails.root.join('spec', 'support', 'fixtures', 'valid_address.csv')
 
       file = double('FileChecker')
       allow(file).to receive(:validate).and_return true
 
       expect(FileChecker).to receive(:new).ordered.
-        with(path, LocationImporter.required_headers).and_return(file)
+        with(valid_content, LocationImporter.required_headers).and_return(file)
 
       expect(FileChecker).to receive(:new).ordered.
         with(address_path, LocationImporter.required_address_headers).
         and_return(file)
 
-      LocationImporter.check_and_import_file(path, address_path)
+      LocationImporter.check_and_import_file(valid_content, address_path)
     end
 
     it 'calls process_import' do
-      path = Rails.root.join('spec', 'support', 'fixtures', 'valid_location.csv')
       address_path = Rails.root.join('spec', 'support', 'fixtures', 'valid_address.csv')
 
       file = double('FileChecker')
       allow(file).to receive(:validate).and_return true
 
-      expect(LocationImporter).to receive(:process_import).with(path, address_path)
+      expect(LocationImporter).to receive(:process_import).with(valid_content, address_path)
 
-      LocationImporter.check_and_import_file(path, address_path)
+      LocationImporter.check_and_import_file(valid_content, address_path)
     end
 
     context 'with invalid data' do
@@ -202,9 +208,8 @@ describe LocationImporter do
         expect(Kernel).to receive(:puts).ordered.
           with('Line 3: Street Address must be provided unless a Location is virtual')
 
-        path = Rails.root.join('spec', 'support', 'fixtures', 'invalid_location.csv')
         address_path = Rails.root.join('spec', 'support', 'fixtures', 'invalid_address.csv')
-        LocationImporter.check_and_import_file(path, address_path)
+        LocationImporter.check_and_import_file(invalid_content, address_path)
       end
     end
 
@@ -213,9 +218,8 @@ describe LocationImporter do
         expect(Kernel).to receive(:puts).
           with("Line 2: City can't be blank for Address")
 
-        path = Rails.root.join('spec', 'support', 'fixtures', 'valid_location.csv')
         address_path = Rails.root.join('spec', 'support', 'fixtures', 'invalid_address.csv')
-        LocationImporter.check_and_import_file(path, address_path)
+        LocationImporter.check_and_import_file(valid_content, address_path)
       end
     end
   end
