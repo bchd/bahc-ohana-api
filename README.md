@@ -62,6 +62,12 @@ See the [Wiki](https://github.com/codeforamerica/ohana-api/wiki/How-to-deploy-th
 
 Set your heroku remotes for each app appropriately, `dev` for the development app, `staging` for the staging app, and `prod` for the production app.
 
+NOTE: If you've modified the chewy indices you'll need to reset them in every heroku environment manually likeso:
+
+```
+heroku run rake chewy:reset -a prod-ahc-ohana-api
+```
+
 ```bash
 # Deploy Development
 git push dev develop:main
