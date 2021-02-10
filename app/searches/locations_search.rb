@@ -14,6 +14,7 @@ class LocationsSearch
   attribute :accessibility, type: Array
   attribute :lat, type: Float
   attribute :long, type: Float
+  attribute :distance, type: Integer
   
   attribute :page, type: String
   attribute :per_page, type: String
@@ -39,9 +40,24 @@ class LocationsSearch
       zipcode_filter,
       category_filter,
       accessibility_filter, 
+      distance_filter,
       distance_sort,
       order,
     ].compact.reduce(:merge)
+  end
+
+  def distance_filter
+    if distance? && lat? && long?
+      d = distance.to_s + "mi"
+
+      index.filter(geo_distance: {
+        distance: d,
+        coordinates: {
+          lat: lat,
+          lon: long
+        }
+      })
+    end
   end
 
   def distance_sort
