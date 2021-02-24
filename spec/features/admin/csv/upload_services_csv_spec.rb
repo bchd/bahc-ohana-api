@@ -9,8 +9,7 @@ feature 'Uploading Services CSV' do
 
   it 'allows file to be uploaded successfully' do
     page.attach_file("services", Rails.root.join("spec", "support", "fixtures", "service_upload.csv"))
-    find('[data-disable-with="Upload"]').click
+    find('#service-upload-btn').click
     expect(page).to have_content 'Success! Service upload complete'
   end
-
 end
