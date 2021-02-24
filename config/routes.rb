@@ -57,6 +57,7 @@ Rails.application.routes.draw do
         get "services"
         get "service_categories"
         post "upload_services"
+        post "upload_service_categories"
       end
 
       get 'capacity', to: 'locations#capacity'

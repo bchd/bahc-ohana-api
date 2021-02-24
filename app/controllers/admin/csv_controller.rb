@@ -30,6 +30,22 @@ class Admin
     
     def service_categories; end
 
+    def upload_service_categories
+      unless upload_service_categories_params.present?
+        flash[:error] = t('admin.services.upload.missing')
+        redirect_to admin_csv_downloads_path and return
+      end
+
+      importer = ServiceCategoriesUploader.new(params['service-categories'].tempfile)
+      importer.process
+      flash[:notice] = t('admin.services.upload.success')
+      redirect_to admin_csv_downloads_path
+
+    rescue ServiceUploader::ServiceUploadError => e
+      flash[:error] = e.message
+      redirect_to admin_csv_downloads_path
+    end
+
     def upload_services
       upload_services_params
       unless params[:services].present?
@@ -57,6 +73,10 @@ class Admin
 
     def upload_services_params
       params.permit(:services)
+    end
+
+    def upload_service_categories_params
+      params.permit('service-categories')
     end
   end
 end

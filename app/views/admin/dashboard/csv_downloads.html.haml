@@ -12,3 +12,8 @@
     = form_tag(admin_csv_upload_services_path, multipart: true, class: 'services-upload') do
       = file_field_tag "services", class: "select-file"
       = submit_tag t('admin.buttons.upload'), class: 'btn btn-primary'
+
+    %h4.mt-15 Service Category Mapping Upload
+    = form_tag(admin_csv_upload_service_categories_path, multipart: true, class: 'service-categories-upload') do
+      = file_field_tag "service-categories", class: "select-file"
+      = submit_tag t('admin.buttons.upload'), class: 'btn btn-primary'

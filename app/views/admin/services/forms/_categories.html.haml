@@ -12,3 +12,5 @@
     = nested_categories(Category.services.arrange(order: :taxonomy_id))
     = f.label :situations
     = nested_categories(Category.situations.arrange(order: :taxonomy_id))
+    = f.label :other
+    = nested_categories(Category.where(type: nil).arrange(order: :name))
