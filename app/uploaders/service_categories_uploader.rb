@@ -31,6 +31,8 @@ class ServiceCategoriesUploader
         if subcategory_string.present?
           subcategory = category.children.find_or_create_by(name: subcategory_string)
           service.categories << subcategory
+        else
+          service.categories = [category]
         end
       end
 
