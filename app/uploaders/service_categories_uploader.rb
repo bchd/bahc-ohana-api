@@ -37,17 +37,9 @@ class ServiceCategoriesUploader
       end
 
       # Clearing the categories clears the categories no matter what
-      if attributes[:clear_categories] == 'clear'
+      clear = attributes[:clear_categories]
+      if clear.present? && clear.downcase == 'clear'
         service.categories = []
-      end
-
-      # if service doesn't save throw an error
-      if !service.persisted?
-        raise ServiceUploadError, I18n.t(
-          'admin.services.upload.validation_errors',
-          errors: service.errors.full_messages.join(", "),
-          service_id:service.id
-        )
       end
 
       service
