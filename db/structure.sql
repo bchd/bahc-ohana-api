@@ -236,16 +236,6 @@ ALTER SEQUENCE public.categories_id_seq OWNED BY public.categories.id;
 
 
 --
--- Name: categories_services; Type: TABLE; Schema: public; Owner: -
---
-
-CREATE TABLE public.categories_services (
-    category_id integer NOT NULL,
-    service_id integer NOT NULL
-);
-
-
---
 -- Name: contacts; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -694,6 +684,36 @@ CREATE TABLE public.schema_migrations (
 
 
 --
+-- Name: service_categories; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.service_categories (
+    category_id integer NOT NULL,
+    service_id integer NOT NULL,
+    id bigint NOT NULL
+);
+
+
+--
+-- Name: service_categories_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.service_categories_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: service_categories_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.service_categories_id_seq OWNED BY public.service_categories.id;
+
+
+--
 -- Name: services; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -969,6 +989,13 @@ ALTER TABLE ONLY public.resource_contacts ALTER COLUMN id SET DEFAULT nextval('p
 
 
 --
+-- Name: service_categories id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.service_categories ALTER COLUMN id SET DEFAULT nextval('public.service_categories_id_seq'::regclass);
+
+
+--
 -- Name: services id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -1133,6 +1160,14 @@ ALTER TABLE ONLY public.resource_contacts
 
 
 --
+-- Name: service_categories service_categories_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.service_categories
+    ADD CONSTRAINT service_categories_pkey PRIMARY KEY (id);
+
+
+--
 -- Name: services services_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -1225,20 +1260,6 @@ CREATE INDEX index_categories_on_ancestry ON public.categories USING btree (ance
 --
 
 CREATE UNIQUE INDEX index_categories_on_slug ON public.categories USING btree (slug);
-
-
---
--- Name: index_categories_services_on_category_id_and_service_id; Type: INDEX; Schema: public; Owner: -
---
-
-CREATE UNIQUE INDEX index_categories_services_on_category_id_and_service_id ON public.categories_services USING btree (category_id, service_id);
-
-
---
--- Name: index_categories_services_on_service_id_and_category_id; Type: INDEX; Schema: public; Owner: -
---
-
-CREATE UNIQUE INDEX index_categories_services_on_service_id_and_category_id ON public.categories_services USING btree (service_id, category_id);
 
 
 --
@@ -1459,6 +1480,20 @@ CREATE INDEX index_resource_contacts_on_resource_id_and_resource_type ON public.
 
 
 --
+-- Name: index_service_categories_on_category_id_and_service_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE UNIQUE INDEX index_service_categories_on_category_id_and_service_id ON public.service_categories USING btree (category_id, service_id);
+
+
+--
+-- Name: index_service_categories_on_service_id_and_category_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE UNIQUE INDEX index_service_categories_on_service_id_and_category_id ON public.service_categories USING btree (service_id, category_id);
+
+
+--
 -- Name: index_services_on_languages; Type: INDEX; Schema: public; Owner: -
 --
 
@@ -1668,6 +1703,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20200707145838'),
 ('20200810152350'),
 ('20200810190344'),
-('20210203011216');
+('20210203011216'),
+('20210302173917');
 
 

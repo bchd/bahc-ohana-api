@@ -1,6 +1,6 @@
 class Category < ApplicationRecord
   self.inheritance_column = nil
-  has_and_belongs_to_many :services, touch: true
+  has_many :services, through: :service_categories, touch: true
 
   scope :services, -> { where(type: 'service') }
   scope :situations, -> { where(type: 'situation') }
