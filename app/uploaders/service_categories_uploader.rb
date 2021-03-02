@@ -11,38 +11,32 @@ class ServiceCategoriesUploader
 
     errors = []
     csv.map do |attributes|
-
       # Find service and raise if it's not found
       service = Service.find_by(id: attributes[:id])
-      unless service
-        message = "Service with ID #{attributes[:id]}"
-        errors << message
-      end
+      if service.present?
+        # If there is a new category set find and set the category, otherwise create it.
+        new_parent_string = attributes[:new_category]
+        if new_parent_string.present?
+          service.categories = []
+          category = Category.find_or_create_by(name: new_parent_string)
+          service.categories << category
 
-      # If there is a new category set find and set the category, otherwise create it.
-      new_parent_string = attributes[:new_category]
-      if new_parent_string.present?
-        service.categories = []
-        category = Category.find_or_create_by(name: new_parent_string)
-        service.categories << category
+          # same deal for the subcategory
+          subcategory_string = attributes[:new_subcategory]
+          if subcategory_string.present?
+            subcategory = category.children.find_or_create_by(name: subcategory_string)
+            service.categories << subcategory
+          else
+            service.categories = [category]
+          end
+        end
 
-        # same deal for the subcategory
-        subcategory_string = attributes[:new_subcategory]
-        if subcategory_string.present?
-          subcategory = category.children.find_or_create_by(name: subcategory_string)
-          service.categories << subcategory
-        else
-          service.categories = [category]
+        # Clearing the categories clears the categories no matter what
+        clear = attributes[:clear_categories]
+        if clear.present? && clear.downcase == 'clear'
+          service.categories = []
         end
       end
-
-      # Clearing the categories clears the categories no matter what
-      clear = attributes[:clear_categories]
-      if clear.present? && clear.downcase == 'clear'
-        service.categories = []
-      end
-
-      service
     end
   end
 
