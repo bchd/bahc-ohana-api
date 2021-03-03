@@ -145,6 +145,7 @@ class Admin
     def assign_location_service_and_taxonomy_ids
       @service = Service.find(params[:id])
       @location = Location.find(params[:location_id])
+      @category_ids = @service.categories.pluck(:id)
       @taxonomy_ids = @service.categories.pluck(:taxonomy_id)
     end
 
