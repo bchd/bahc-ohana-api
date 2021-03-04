@@ -121,8 +121,9 @@ describe Location do
 
     context 'when name is not updated' do
       it "doesn't update slug" do
+        old_slug = @loc.slug
         @loc.update!(description: 'new description')
-        expect(@loc.reload.slug).to eq('vrs-services')
+        expect(@loc.reload.slug).to eq(old_slug)
       end
     end
   end

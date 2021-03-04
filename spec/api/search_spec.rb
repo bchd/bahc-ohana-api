@@ -505,9 +505,6 @@ describe "GET 'search'" do
     end
 
     it 'should return organization locations on the top of search' do
-      expect(@loc1.organization.name).to eq('Food Stamps')
-      expect(@loc2.organization.name).to eq('Parent Agency')
-
       get api_search_index_url(keyword: 'parent')
 
       expect(json[0]['name']).to eq(@loc2.name)
@@ -526,9 +523,6 @@ describe "GET 'search'" do
     end
 
     it 'it should return featured locations first, and then the rest' do
-      expect(@loc1.organization.name).to eq('Parent Agency')
-      expect(@loc2.organization.name).to eq('Parent Agency')
-
       LocationsIndex.reset!
 
       get api_search_index_url(keyword: 'parent')
