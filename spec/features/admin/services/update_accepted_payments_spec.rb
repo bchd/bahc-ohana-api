@@ -2,9 +2,9 @@ require 'rails_helper'
 
 feature 'Update accepted_payments' do
   background do
-    create_service
+    @location = create_service.location
     login_super_admin
-    visit '/admin/locations/vrs-services'
+    visit '/admin/locations/' + @location.slug
     click_link 'Literacy Program'
   end
 
@@ -27,7 +27,7 @@ feature 'Update accepted_payments' do
 
   scenario 'removing an accepted payment', :js do
     @service.update!(accepted_payments: %w[Cash Check])
-    visit '/admin/locations/vrs-services'
+    visit '/admin/locations/' + @location.slug
     click_link 'Literacy Program'
 
     cash = find('li', text: 'Cash')

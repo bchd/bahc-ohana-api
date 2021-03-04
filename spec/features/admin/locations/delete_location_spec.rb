@@ -2,9 +2,9 @@ require 'rails_helper'
 
 feature 'Delete location' do
   background do
-    create(:location)
+    @location = create(:location)
     login_super_admin
-    visit '/admin/locations/vrs-services'
+    visit '/admin/locations/' + @location.slug
   end
 
   scenario 'when submitting warning', :js do

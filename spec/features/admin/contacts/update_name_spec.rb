@@ -5,7 +5,7 @@ feature 'Update name' do
     location = create(:location)
     location.contacts.create!(attributes_for(:contact))
     login_super_admin
-    visit '/admin/locations/vrs-services'
+    visit '/admin/locations/' + location.slug
     click_link 'Moncef Belyamani'
   end
 

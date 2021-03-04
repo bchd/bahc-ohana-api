@@ -4,7 +4,7 @@ feature 'Update holiday schedule' do
   background do
     @location = create(:location)
     login_super_admin
-    visit '/admin/locations/vrs-services'
+    visit '/admin/locations/' + @location.slug
   end
 
   scenario 'when closed', :js do
@@ -65,7 +65,7 @@ feature 'Update holiday schedule' do
 
   scenario 'removing a holiday schedule', :js do
     @location.holiday_schedules.create!(attributes_for(:holiday_schedule))
-    visit '/admin/locations/vrs-services'
+    visit '/admin/locations/' + @location.slug
 
     prefix = 'location_holiday_schedules_attributes_0'
     expect(find_field("#{prefix}_closed").value).to eq 'true'

@@ -2,9 +2,9 @@ require 'rails_helper'
 
 feature 'Delete service' do
   background do
-    create_service
+    @location = create_service.location
     login_super_admin
-    visit '/admin/locations/vrs-services'
+    visit '/admin/locations/' + @location.slug
   end
 
   scenario 'when submitting warning', :js do
@@ -22,7 +22,7 @@ feature 'Delete service' do
     click_link 'Literacy Program'
     find_link(I18n.t('admin.buttons.delete_service')).click
     find_button('Close').click
-    visit '/admin/locations/vrs-services'
+    visit '/admin/locations/' + @location.slug
     expect(page).to have_link 'Literacy Program'
   end
 end

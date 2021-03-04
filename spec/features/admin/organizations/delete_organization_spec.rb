@@ -2,9 +2,9 @@ require 'rails_helper'
 
 feature 'Delete organization' do
   background do
-    create(:organization)
+    @org = create(:organization)
     login_super_admin
-    visit '/admin/organizations/parent-agency'
+    visit '/admin/organizations/' + @org.slug
   end
 
   scenario 'when submitting warning', :js do

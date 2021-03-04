@@ -56,6 +56,7 @@ class Admin
 
     def new
       @location = Location.find(params[:location_id])
+      @category_ids = []
       @taxonomy_ids = []
 
       authorize @location

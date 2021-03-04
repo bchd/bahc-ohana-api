@@ -2,9 +2,9 @@ require 'rails_helper'
 
 feature 'Update languages' do
   background do
-    create_service
+    @loc = create_service.location
     login_super_admin
-    visit '/admin/locations/vrs-services'
+    visit '/admin/locations/' + @loc.slug
     click_link 'Literacy Program'
   end
 
@@ -27,7 +27,7 @@ feature 'Update languages' do
 
   scenario 'removing a language', :js do
     @service.update!(languages: %w[Arabic French])
-    visit '/admin/locations/vrs-services'
+    visit '/admin/locations/' + @loc.slug
     click_link 'Literacy Program'
 
     arabic = find('li', text: 'Arabic')

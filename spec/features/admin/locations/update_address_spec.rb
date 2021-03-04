@@ -4,13 +4,13 @@ feature 'Add a street address' do
   before do
     @location = create(:no_address)
     login_super_admin
-    visit '/admin/locations/no-address'
+    visit '/admin/locations/' + @location.slug
   end
 
   scenario 'adding a new street address with valid values', :js do
     add_street_address(address_1: '123', city: 'Vienn', state_province: 'VA',
                        postal_code: '12345', country: 'US')
-    visit '/admin/locations/no-address'
+    visit '/admin/locations/' + @location.slug
 
     expect(find_field('location_address_attributes_address_1').value).to eq '123'
     expect(find_field('location_address_attributes_city').value).to eq 'Vienn'
@@ -18,7 +18,7 @@ feature 'Add a street address' do
     expect(find_field('location_address_attributes_postal_code').value).to eq '12345'
 
     remove_street_address
-    visit '/admin/locations/no-address'
+    visit '/admin/locations/' + @location.slug
     expect(page).to have_link I18n.t('admin.buttons.add_street_address')
   end
 end
@@ -27,7 +27,7 @@ feature "Updating a location's address with invalid values" do
   before do
     @location = create(:location)
     login_super_admin
-    visit '/admin/locations/vrs-services'
+    visit '/admin/locations/' + @location.slug
   end
 
   scenario 'with an empty street' do
@@ -92,7 +92,7 @@ feature 'Remove a street address' do
     @location = create(:location)
 
     login_super_admin
-    visit '/admin/locations/vrs-services'
+    visit '/admin/locations/' + @location.slug
     remove_street_address
 
     expect(page).
@@ -103,7 +103,7 @@ feature 'Remove a street address' do
     @location = create(:virtual_with_address)
 
     login_super_admin
-    visit '/admin/locations/vrs-services'
+    visit '/admin/locations/' + @location.slug
     remove_street_address
 
     expect(@location.reload.latitude).to be_nil

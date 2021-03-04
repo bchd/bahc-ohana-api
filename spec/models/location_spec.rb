@@ -112,14 +112,6 @@ describe Location do
   describe 'slug candidates' do
     before { @loc = create(:location) }
 
-    context 'when address is present and name is already taken' do
-      it 'creates a new slug based on address street' do
-        new_loc = create(:nearby_loc)
-        new_loc.update!(name: 'VRS Services')
-        expect(new_loc.reload.slug).to eq('vrs-services-250-myrtle-road')
-      end
-    end
-
     context 'when name is not taken' do
       it 'creates a new slug based on name' do
         new_loc = create(:no_address)

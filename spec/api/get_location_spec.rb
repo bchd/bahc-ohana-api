@@ -138,8 +138,8 @@ describe 'GET /locations/:id' do
         {
           'id' => @location.organization.id,
           'alternate_name' => nil,
-          'name' => 'Parent Agency',
-          'slug' => 'parent-agency',
+          'name' => @location.name,
+          'slug' => @location.slug,
           'url' => api_organization_url(org)
         }
 

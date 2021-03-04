@@ -4,7 +4,7 @@ feature 'Update funding_sources' do
   background do
     @organization = create(:organization)
     login_super_admin
-    visit '/admin/organizations/parent-agency'
+    visit '/admin/organizations/' + @organization.slug
   end
 
   scenario 'with no funding_sources' do
@@ -26,7 +26,7 @@ feature 'Update funding_sources' do
 
   scenario 'removing a funding source', :js do
     @organization.update!(funding_sources: %w[State County])
-    visit '/admin/organizations/parent-agency'
+    visit '/admin/organizations/' + @organization.slug
 
     state = find('li', text: 'State')
     state.find('span', text: "\u{00D7}").click

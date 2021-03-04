@@ -4,7 +4,7 @@ feature 'Update languages' do
   background do
     @location = create(:location)
     login_super_admin
-    visit '/admin/locations/vrs-services'
+    visit '/admin/locations/' + @location.slug
   end
 
   scenario 'with no languages' do
@@ -26,7 +26,7 @@ feature 'Update languages' do
 
   scenario 'removing a language', :js do
     @location.update!(languages: %w[Arabic French])
-    visit '/admin/locations/vrs-services'
+    visit '/admin/locations/' + @location.slug
 
     arabic = find('li', text: 'Arabic')
     arabic.find('span', text: "\u{00D7}").click

@@ -2,11 +2,11 @@ require 'rails_helper'
 
 feature 'Update service areas' do
   background do
-    location = create(:location)
-    @service = location.services.
+    @location = create(:location)
+    @service = @location.services.
                create!(attributes_for(:service).merge(keywords: []))
     login_super_admin
-    visit '/admin/locations/vrs-services'
+    visit '/admin/locations/' + @location.slug
     click_link 'Literacy Program'
   end
 
@@ -24,7 +24,7 @@ feature 'Update service areas' do
 
   scenario 'removing a service area', :js do
     @service.update!(service_areas: %w[Atherton Belmont])
-    visit '/admin/locations/vrs-services'
+    visit '/admin/locations/' + @location.slug
     click_link 'Literacy Program'
 
     atherton = find('li', text: 'Atherton')

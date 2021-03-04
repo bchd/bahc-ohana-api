@@ -2,9 +2,9 @@ require 'rails_helper'
 
 feature 'Update audience' do
   background do
-    create_service
+    @location = create_service.location
     login_super_admin
-    visit '/admin/locations/vrs-services'
+    visit '/admin/locations/' + @location.slug
   end
 
   scenario 'with valid audience' do

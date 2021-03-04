@@ -4,7 +4,7 @@ feature 'Update email' do
   background do
     @location = create(:location)
     login_super_admin
-    visit '/admin/locations/vrs-services'
+    visit '/admin/locations/' + @location.slug
   end
 
   scenario 'with valid location email' do

@@ -2,9 +2,9 @@ require 'rails_helper'
 
 feature 'Update alternate_name' do
   background do
-    create_service
+    loc = create_service.location
     login_super_admin
-    visit '/admin/locations/vrs-services'
+    visit '/admin/locations/' + loc.slug
     click_link 'Literacy Program'
   end
 

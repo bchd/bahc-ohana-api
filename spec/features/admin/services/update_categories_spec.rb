@@ -1,15 +1,16 @@
 require 'rails_helper'
 
 feature 'Update categories' do
-  background do
-    create_service
-    emergency = Category.create!(name: 'Emergency', taxonomy_id: '101', type: 'service')
+  let(:emergency) { Category.create!(name: 'Emergency', taxonomy_id: '101', type: 'service') }
+    
+  before do
+    @location = create_service.location
     emergency.children.create!(name: 'Disaster Response', taxonomy_id: '101-01', type: 'service')
     emergency.children.create!(name: 'Subcategory 2', taxonomy_id: '101-02', type: 'service')
     emergency.children.create!(name: 'Subcategory 3', taxonomy_id: '101-03', type: 'service')
 
     login_super_admin
-    visit '/admin/locations/vrs-services'
+    visit '/admin/locations/' + @location.slug
     click_link 'Literacy Program'
   end
 
@@ -22,30 +23,30 @@ feature 'Update categories' do
   end
 
   scenario 'when adding one subcategory', :js do
-    check 'category_101'
-    check 'category_101-01'
+    check "category_#{emergency.id}"
+    check "category_#{emergency.children.first.id}"
     click_button I18n.t('admin.buttons.save_changes')
 
-    expect(find('#category_101')).to be_checked
-    expect(find('#category_101-01')).to be_checked
+    expect(find("#category_#{emergency.id}")).to be_checked
+    expect(find("#category_#{emergency.children.first.id}")).to be_checked
 
-    uncheck 'category_101'
+    uncheck "category_#{emergency.id}"
     click_button I18n.t('admin.buttons.save_changes')
 
-    expect(find('#category_101')).to_not be_checked
+    expect(find("#category_#{emergency.id}")).to_not be_checked
   end
 
   scenario 'when going to the 3rd subcategory', :js do
-    check 'category_101'
-    check 'category_101-01'
-    check 'category_101-02'
-    check 'category_101-03'
+    check "category_#{emergency.id}"
+    check "category_#{emergency.children.first.id}"
+    check "category_#{emergency.children.second.id}"
+    check "category_#{emergency.children.third.id}"
 
     click_button I18n.t('admin.buttons.save_changes')
 
-    expect(find('#category_101-03')).to be_checked
-    expect(find('#category_101-02')).to be_checked
-    expect(find('#category_101-01')).to be_checked
-    expect(find('#category_101')).to be_checked
+    expect(find("#category_#{emergency.children.third.id}")).to be_checked
+    expect(find("#category_#{emergency.children.second.id}")).to be_checked
+    expect(find("#category_#{emergency.children.first.id}")).to be_checked
+    expect(find("#category_#{emergency.id}")).to be_checked
   end
 end

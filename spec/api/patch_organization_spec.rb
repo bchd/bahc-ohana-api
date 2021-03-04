@@ -92,11 +92,12 @@ describe 'PATCH /organizations/:id' do
   end
 
   it 'is accessible by its old slug' do
+    old_slug = @org.slug
     patch(
       api_organization_url(@org, subdomain: ENV['API_SUBDOMAIN']),
       name: 'new name'
     )
-    get api_organization_url('parent-agency', subdomain: ENV['API_SUBDOMAIN'])
+    get api_organization_url(old_slug, subdomain: ENV['API_SUBDOMAIN'])
     json = JSON.parse(response.body)
     expect(json['name']).to eq('new name')
   end

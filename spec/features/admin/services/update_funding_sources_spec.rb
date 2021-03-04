@@ -2,9 +2,9 @@ require 'rails_helper'
 
 feature 'Update funding_sources' do
   background do
-    create_service
+    @location = create_service.location
     login_super_admin
-    visit '/admin/locations/vrs-services'
+    visit '/admin/locations/' + @location.slug
     click_link 'Literacy Program'
   end
 
@@ -27,7 +27,7 @@ feature 'Update funding_sources' do
 
   scenario 'removing an accepted payment', :js do
     @service.update!(funding_sources: %w[State County])
-    visit '/admin/locations/vrs-services'
+    visit '/admin/locations/' + @location.slug
     click_link 'Literacy Program'
 
     state = find('li', text: 'State')
