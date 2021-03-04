@@ -2,9 +2,9 @@ require 'rails_helper'
 
 feature 'Update tax id' do
   background do
-    create(:organization)
+    @org = create(:organization)
     login_super_admin
-    visit '/admin/organizations/parent-agency'
+    visit '/admin/organizations/' + @org.slug
   end
 
   scenario 'with tax id' do

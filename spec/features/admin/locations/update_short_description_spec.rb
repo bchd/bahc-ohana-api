@@ -2,9 +2,9 @@ require 'rails_helper'
 
 feature 'Update short description' do
   background do
-    create(:location)
+    @location = create(:location)
     login_super_admin
-    visit '/admin/locations/vrs-services'
+    visit '/admin/locations/' + @location.slug
   end
 
   scenario 'with empty description' do

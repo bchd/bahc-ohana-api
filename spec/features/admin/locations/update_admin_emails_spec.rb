@@ -4,7 +4,7 @@ feature 'Update admin_emails' do
   background do
     @location = create(:location)
     login_super_admin
-    visit '/admin/locations/vrs-services'
+    visit '/admin/locations/' + @location.slug
   end
 
   scenario 'when no admin_emails exist' do
@@ -38,7 +38,7 @@ feature 'Update admin_emails' do
 
   scenario 'with 2 admin_emails but only one is invalid', :js do
     @location.update!(admin_emails: ['foo@ruby.org'])
-    visit '/admin/locations/vrs-services'
+    visit '/admin/locations/' + @location.slug
     find_link(I18n.t('admin.buttons.add_admin')).click
     admin_emails = page.
                    all(:xpath, "//input[@name='location[admin_emails][]']")

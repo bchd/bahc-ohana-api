@@ -2,12 +2,12 @@ require 'rails_helper'
 
 feature 'Update keywords' do
   background do
-    location = create(:location)
-    @service = location.services.create!(
+    @location = create(:location)
+    @service = @location.services.create!(
       attributes_for(:service).merge(keywords: [])
     )
     login_super_admin
-    visit '/admin/locations/vrs-services'
+    visit '/admin/locations/' + @location.slug
     click_link 'Literacy Program'
   end
 
@@ -25,7 +25,7 @@ feature 'Update keywords' do
 
   scenario 'removing a keyword', :js do
     @service.update!(keywords: %w[resume computer])
-    visit '/admin/locations/vrs-services'
+    visit '/admin/locations/' + @location.slug
     click_link 'Literacy Program'
 
     resume = find('li', text: 'resume')

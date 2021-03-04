@@ -59,8 +59,8 @@ class Admin
       check_box_tag(
         'service[category_ids][]',
         category.id,
-        @taxonomy_ids.include?(category.taxonomy_id),
-        id: "category_#{category.taxonomy_id}"
+        @category_ids.include?(category.id),
+        id: "category_#{category.id}"
       )
     end
 

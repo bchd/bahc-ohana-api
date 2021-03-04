@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :organization do
-    name { 'Parent Agency' }
+    name { 'Parent Agency' + random_string }
     description { 'Organization created for testing purposes' }
   end
 

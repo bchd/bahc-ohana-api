@@ -2,9 +2,9 @@ require 'rails_helper'
 
 feature 'Update holiday schedule' do
   background do
-    create_service
+    @location = create_service.location
     login_super_admin
-    visit '/admin/locations/vrs-services'
+    visit '/admin/locations/' + @location.slug
     click_link 'Literacy Program'
   end
 
@@ -66,7 +66,7 @@ feature 'Update holiday schedule' do
 
   scenario 'removing a holiday schedule', :js do
     @service.holiday_schedules.create!(attributes_for(:holiday_schedule))
-    visit '/admin/locations/vrs-services'
+    visit '/admin/locations/' + @location.slug
     click_link 'Literacy Program'
 
     prefix = 'service_holiday_schedules_attributes_0'

@@ -2,9 +2,9 @@ require 'rails_helper'
 
 feature 'Create a new service' do
   background do
-    @loc = create(:location)
+    @location = create(:location)
     login_super_admin
-    visit('/admin/locations/vrs-services')
+    visit '/admin/locations/' + @location.slug
     click_link I18n.t('admin.buttons.add_service')
   end
 
@@ -175,16 +175,16 @@ feature 'Create a new service' do
     emergency = Category.create!(name: 'Emergency', taxonomy_id: '101', type: 'service')
     emergency.children.create!(name: 'Disaster Response', taxonomy_id: '101-01', type: 'service')
     emergency.children.create!(name: 'Subcategory 2', taxonomy_id: '101-02', type: 'service')
-    visit('/admin/locations/vrs-services/services/new')
+    visit '/admin/locations/' + @location.slug + '/services/new'
 
     fill_in_required_service_fields
-    check 'category_101'
-    check 'category_101-01'
+    check "category_#{emergency.id}"
+    check "category_#{emergency.children.first.id}"
     click_button I18n.t('admin.buttons.create_service')
     click_link 'New VRS Services service'
 
-    expect(find('#category_101-01')).to be_checked
-    expect(find('#category_101')).to be_checked
+    expect(find("#category_#{emergency.id}")).to be_checked
+    expect(find("#category_#{emergency.children.first.id}")).to be_checked
   end
 
   scenario 'when adding hours of operation', :js do
@@ -238,8 +238,8 @@ feature 'Create a new service' do
   end
 
   scenario 'when copying the service to other locations', :js do
-    @new_loc = create(:far_loc, organization_id: @loc.organization.id)
-    visit('/admin/locations/vrs-services/services/new')
+    @new_loc = create(:far_loc, organization_id: @location.organization.id)
+    visit '/admin/locations/' + @location.slug + '/services/new'
     fill_in_required_service_fields
     check 'Belmont Farmers Market'
     click_button I18n.t('admin.buttons.create_service')
@@ -251,10 +251,10 @@ end
 
 describe 'when admin does not have access to the location' do
   it 'denies access to create a new service' do
-    create(:location)
+    @location = create(:location)
     login_admin
 
-    visit('/admin/locations/vrs-services/services/new')
+    visit '/admin/locations/' + @location.slug + '/services/new'
 
     expect(page).to have_content I18n.t('admin.not_authorized')
   end

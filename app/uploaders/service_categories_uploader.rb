@@ -38,6 +38,7 @@ class ServiceCategoriesUploader
         end
       end
     end
+    LocationsIndex.import
   end
 
   private

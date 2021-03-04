@@ -90,8 +90,9 @@ describe Organization do
 
     context 'when name is not updated' do
       it "doesn't update slug" do
+        old_slug = @org.slug
         @org.update!(description: 'foo')
-        expect(@org.reload.slug).to eq('parent-agency')
+        expect(@org.reload.slug).to eq(old_slug)
       end
     end
 

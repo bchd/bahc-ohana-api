@@ -2,10 +2,10 @@ require 'rails_helper'
 
 feature 'Update contact name' do
   background do
-    create_service
+    @location = create_service.location
     @service.contacts.create!(attributes_for(:contact))
     login_super_admin
-    visit '/admin/locations/vrs-services'
+    visit '/admin/locations/' + @location.slug
     click_link 'Literacy Program'
     click_link 'Moncef Belyamani'
   end

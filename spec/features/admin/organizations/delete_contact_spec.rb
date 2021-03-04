@@ -5,7 +5,7 @@ feature 'Delete contact' do
     @org = create(:organization)
     @org.contacts.create!(attributes_for(:contact))
     login_super_admin
-    visit '/admin/organizations/parent-agency'
+    visit '/admin/organizations/' + @org.slug
     click_link 'Moncef Belyamani'
   end
 

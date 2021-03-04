@@ -48,7 +48,7 @@ feature 'Downloading Services CSV' do
       expect(csv.second).to eq [
         @service.id.to_s, @service.location_id.to_s, nil, '', nil, 'By phone.',
         nil, 'yoga classes', nil, nil, nil, nil, '', nil, '', '',
-        'Literacy Program', '', '', 'active', nil, nil, ''
+        @service.name, '', '', 'active', nil, nil, ''
       ]
     end
   end

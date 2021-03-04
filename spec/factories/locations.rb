@@ -1,8 +1,12 @@
 # Read about factories at https://github.com/thoughtbot/factory_girl
+#
+def random_string
+  ('a'..'z').to_a.shuffle.join
+end
 
 FactoryBot.define do
   factory :location do
-    name { 'VRS Services' }
+    name { 'VRS Services' + random_string }
     description { 'Provides jobs training' }
     short_desc { 'short description' }
     accessibility { %i[tape_braille disabled_parking] }

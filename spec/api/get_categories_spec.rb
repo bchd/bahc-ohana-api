@@ -4,6 +4,8 @@ describe 'GET /categories' do
   before do
     @food = Category.create!(name: 'Food', taxonomy_id: '101')
     @emergency = Category.create!(name: 'Emergency', taxonomy_id: '103')
+    @food.services << create(:service)
+    @emergency.services << create(:service)
     get api_categories_url(subdomain: ENV['API_SUBDOMAIN'])
   end
 

@@ -2,9 +2,9 @@ require 'rails_helper'
 
 feature 'Create a new contact' do
   background do
-    create(:location)
+    @location = create(:location)
     login_super_admin
-    visit('/admin/locations/vrs-services')
+    visit '/admin/locations/' + @location.slug
     click_link I18n.t('admin.buttons.add_contact')
   end
 
@@ -58,10 +58,10 @@ end
 
 describe 'when admin does not have access to the location' do
   it 'denies access to create a new contact' do
-    create(:location)
+    @location = create(:location)
     login_admin
 
-    visit('/admin/locations/vrs-services/contacts/new')
+    visit '/admin/locations/' + @location.slug + '/contacts/new'
 
     expect(page).to have_content I18n.t('admin.not_authorized')
   end

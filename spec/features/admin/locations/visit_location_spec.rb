@@ -9,14 +9,14 @@ feature 'Visiting a specific location' do
   scenario "when location doesn't include generic email" do
     admin = create(:admin_with_generic_email)
     login_as_admin(admin)
-    visit('/admin/locations/vrs-services')
+    visit '/admin/locations/' + @location.slug
     expect(page).to have_content I18n.t('admin.not_authorized')
     expect(current_path).to eq(admin_dashboard_path)
   end
 
   scenario "when location doesn't include domain name" do
     login_admin
-    visit('/admin/locations/vrs-services')
+    visit '/admin/locations/' + @location.slug
     expect(page).to have_content I18n.t('admin.not_authorized')
     expect(current_path).to eq(admin_dashboard_path)
   end
@@ -24,7 +24,7 @@ feature 'Visiting a specific location' do
   scenario 'when location includes domain name' do
     @location.update!(website: 'http://samaritanhouse.com')
     login_admin
-    visit('/admin/locations/vrs-services')
+    visit '/admin/locations/' + @location.slug
     expect(page).to_not have_content I18n.t('admin.not_authorized')
     @location.update!(website: '')
   end
@@ -33,7 +33,7 @@ feature 'Visiting a specific location' do
     new_admin = create(:admin_with_generic_email)
     @location.update!(admin_emails: [new_admin.email])
     login_as_admin(new_admin)
-    visit('/admin/locations/vrs-services')
+    visit '/admin/locations/' + @location.slug
     expect(page).to_not have_content I18n.t('admin.not_authorized')
     @location.update!(admin_emails: [])
   end
@@ -41,14 +41,14 @@ feature 'Visiting a specific location' do
   scenario 'when admin is location admin but has non-generic email' do
     login_admin
     @location.update!(admin_emails: [@admin.email])
-    visit('/admin/locations/vrs-services')
+    visit '/admin/locations/' + @location.slug
     expect(page).to_not have_content I18n.t('admin.not_authorized')
     @location.update!(admin_emails: [])
   end
 
   scenario 'when admin is super admin' do
     login_super_admin
-    visit('/admin/locations/vrs-services')
+    visit '/admin/locations/' + @location.slug
     expect(page).to_not have_content I18n.t('admin.not_authorized')
   end
 

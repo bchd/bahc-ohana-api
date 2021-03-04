@@ -2,9 +2,9 @@ require 'rails_helper'
 
 feature 'Update required_documents' do
   background do
-    create_service
+    @location = create_service.location
     login_super_admin
-    visit '/admin/locations/vrs-services'
+    visit '/admin/locations/' + @location.slug
     click_link 'Literacy Program'
   end
 
@@ -27,7 +27,7 @@ feature 'Update required_documents' do
 
   scenario 'removing a required document', :js do
     @service.update!(required_documents: ['Bank Statement', 'Picture ID'])
-    visit '/admin/locations/vrs-services'
+    visit '/admin/locations/' + @location.slug
     click_link 'Literacy Program'
 
     banks_satement_choice = find('li', text: 'Bank Statement')

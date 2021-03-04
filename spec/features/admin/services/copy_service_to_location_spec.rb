@@ -7,7 +7,7 @@ describe 'Copy service to other locations' do
       @new_loc = create(:far_loc, organization_id: @location.organization.id)
       @service = @location.services.create!(attributes_for(:service))
       login_super_admin
-      visit '/admin/locations/vrs-services'
+      visit '/admin/locations/' + @location.slug
       click_link 'Literacy Program'
     end
 
@@ -27,7 +27,7 @@ describe 'Copy service to other locations' do
       check 'Belmont Farmers Market'
       click_button I18n.t('admin.buttons.save_changes')
       expect(page).to have_content 'successfully updated'
-      expect(@new_loc.reload.services.pluck(:name)).to eq ['Literacy Program']
+      expect(@new_loc.reload.services.pluck(:name)).to eq [@service.name]
     end
   end
 
@@ -36,7 +36,7 @@ describe 'Copy service to other locations' do
       @location = create(:location)
       @location.services.create!(attributes_for(:service))
       login_super_admin
-      visit '/admin/locations/vrs-services'
+      visit '/admin/locations/' + @location.slug
       click_link 'Literacy Program'
     end
 
@@ -56,7 +56,7 @@ describe 'Copy service to other locations' do
         merge(name: 'New Service'))
 
       login_super_admin
-      visit '/admin/locations/belmont-farmers-market'
+      visit '/admin/locations/' + @location.slug
       click_link 'Literacy Program'
     end
 

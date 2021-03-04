@@ -8,7 +8,9 @@ RSpec.describe 'admin/services/forms/_categories', type: :view do
   before do
     create_service
     @taxonomy_ids = ['101']
+    @category_ids = []
     category
+    category.services << service
     render template: 'admin/services/edit'
   end
 

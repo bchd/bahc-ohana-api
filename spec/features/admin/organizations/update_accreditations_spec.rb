@@ -4,7 +4,7 @@ feature 'Update accreditations' do
   background do
     @organization = create(:organization)
     login_super_admin
-    visit '/admin/organizations/parent-agency'
+    visit('/admin/organizations/'+ @organization.slug) 
   end
 
   scenario 'with one accreditation', :js do
@@ -21,7 +21,7 @@ feature 'Update accreditations' do
 
   scenario 'removing an accreditation', :js do
     @organization.update!(accreditations: %w[County Donations])
-    visit '/admin/organizations/parent-agency'
+    visit('/admin/organizations/'+ @organization.slug) 
 
     county = find('li', text: 'County')
     county.find('span', text: "\u{00D7}").click

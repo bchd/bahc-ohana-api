@@ -4,7 +4,7 @@ feature 'Update hours' do
   background do
     @location = create(:location)
     login_super_admin
-    visit '/admin/locations/vrs-services'
+    visit '/admin/locations/' + @location.slug
   end
 
   scenario 'with valid hours', :js do
@@ -28,7 +28,7 @@ feature 'Update hours' do
 
   scenario 'removing an hour', :js do
     @location.regular_schedules.create!(attributes_for(:regular_schedule))
-    visit '/admin/locations/vrs-services'
+    visit '/admin/locations/' + @location.slug
 
     prefix = 'location_regular_schedules_attributes_0'
     expect(find_field("#{prefix}_weekday").value).to eq '7'

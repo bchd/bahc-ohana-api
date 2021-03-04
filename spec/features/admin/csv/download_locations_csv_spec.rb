@@ -25,7 +25,7 @@ feature 'Downloading Locations CSV' do
         @loc.id.to_s, @loc.organization_id.to_s,
         'tape_braille, disabled_parking',
         'foo@bar.com', nil, 'Provides job training', 'bar@foo.com',
-        'English, Vietnamese', '37.583939', '-122.3715745', 'VRS Services',
+        'English, Vietnamese', '37.583939', '-122.3715745', @loc.name,
         'Provides job training.', 'BART stop 1 block away.',
         'http://samaritanhouse.com', 'false'
       ]
@@ -44,7 +44,7 @@ feature 'Downloading Locations CSV' do
       expect(csv.second).to eq [
         @loc.id.to_s, @loc.organization_id.to_s, '', nil, nil,
         'Provides jobs training', nil, nil, '37.583939', '-122.3715745',
-        'VRS Services', 'short description', nil, nil, 'false'
+        @loc.name, 'short description', nil, nil, 'false'
       ]
     end
   end

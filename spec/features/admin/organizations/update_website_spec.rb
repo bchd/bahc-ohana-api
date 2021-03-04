@@ -4,7 +4,7 @@ feature 'Update website' do
   background do
     @org = create(:organization)
     login_super_admin
-    visit '/admin/organizations/parent-agency'
+    visit '/admin/organizations/' + @org.slug
   end
 
   scenario 'with invalid website' do

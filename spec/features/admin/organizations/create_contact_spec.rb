@@ -4,7 +4,7 @@ feature 'Create a new contact for organization' do
   background do
     @org = create(:organization)
     login_super_admin
-    visit '/admin/organizations/parent-agency'
+    visit '/admin/organizations/' + @org.slug
     click_link I18n.t('admin.buttons.add_contact')
   end
 
@@ -62,10 +62,10 @@ end
 
 describe 'when admin does not have access to the organization' do
   it 'denies access to create a new contact' do
-    create(:organization)
+    @org = create(:organization)
     login_admin
 
-    visit('/admin/organizations/parent-agency/contacts/new')
+    visit '/admin/organizations/' + @org.slug + '/contacts/new'
 
     expect(page).to have_content I18n.t('admin.not_authorized')
   end

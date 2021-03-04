@@ -4,7 +4,7 @@ feature 'Update phones' do
   background do
     @location = create(:location)
     login_super_admin
-    visit '/admin/locations/vrs-services'
+    visit '/admin/locations/' + @location.slug
   end
 
   scenario 'when no phones exist' do
@@ -25,7 +25,7 @@ feature 'Update phones' do
       vanity_number: '123-ABC-DEFG'
     )
     click_button I18n.t('admin.buttons.save_changes')
-    visit '/admin/locations/vrs-services'
+    visit '/admin/locations/' + @location.slug
 
     expect(find_field('location_phones_attributes_0_number').value).
       to eq '123-456-7890'
@@ -43,7 +43,7 @@ feature 'Update phones' do
       to eq '123-ABC-DEFG'
 
     delete_phone
-    visit '/admin/locations/vrs-services'
+    visit '/admin/locations/' + @location.slug
     within('.phones') do
       expect(page).
         to have_no_xpath('.//input[contains(@name, "[vanity_number]")]')
@@ -110,7 +110,7 @@ feature 'Update phones' do
     @location = create(:location)
     @location.phones.create!(attributes_for(:phone).merge!(extension: ''))
     login_super_admin
-    visit '/admin/locations/vrs-services'
+    visit '/admin/locations/' + @location.slug
   end
 
   scenario 'initial state of phone type' do

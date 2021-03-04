@@ -107,7 +107,7 @@ describe 'PATCH /locations/:id)' do
     patch api_location_url(@loc, subdomain: ENV['API_SUBDOMAIN']),
           name: 'new name'
 
-    get api_location_url('vrs-services', subdomain: ENV['API_SUBDOMAIN'])
+    get api_location_url(@loc.slug, subdomain: ENV['API_SUBDOMAIN'])
     expect(json['name']).to eq('new name')
   end
 
