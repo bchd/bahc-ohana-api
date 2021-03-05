@@ -19,13 +19,13 @@ class ServiceCategoriesUploader
         if new_parent_string.present?
           service.categories = []
           category = Category.find_or_create_by(name: new_parent_string)
-          service.categories << category
+          service.categories << category unless service.categories.include? category
 
           # same deal for the subcategory
           subcategory_string = attributes[:new_subcategory]
           if subcategory_string.present?
             subcategory = category.children.find_or_create_by(name: subcategory_string)
-            service.categories << subcategory
+            service.categories << subcategory unless service.categories.include? subcategory
           else
             service.categories = [category]
           end
