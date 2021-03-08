@@ -154,6 +154,7 @@ class Service < ApplicationRecord
   end
 
   def touch_location(_category)
+    LocationsIndex::Location.import(location_id)
     location.update_column(:updated_at, Time.zone.now) if persisted?
   end
 

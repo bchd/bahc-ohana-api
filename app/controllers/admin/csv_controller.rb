@@ -37,12 +37,12 @@ class Admin
       end
 
       importer = ServiceCategoriesUploader.new(params['service-categories'].tempfile)
-      importer.process
+      importer.process('admin')
       flash[:notice] = t('admin.services.upload.success')
       redirect_to admin_csv_downloads_path
 
-    rescue ServiceUploader::ServiceUploadError => e
-      flash[:error] = e.message
+    rescue ServiceCategoriesUploader::ServiceCategoriesUploadError => error
+      flash[:error] = error.message
       redirect_to admin_csv_downloads_path
     end
 

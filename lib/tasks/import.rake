@@ -4,6 +4,12 @@ namespace :import do
                holiday_schedules assign_categories category_ancestry
                reset_sequences touch_locations]
 
+  desc 'Imports service categories'
+  task :service_categories, [:path] => :environment do |_, args|
+    args.with_defaults(path: Rails.root.join('data', 'service_categories.csv'))
+    ServiceCategoriesImporter.check_and_import_file(args[:path])
+  end
+
   desc 'Imports organizations'
   task :organizations, [:path] => :environment do |_, args|
     args.with_defaults(path: Rails.root.join('data', 'organizations.csv'))
