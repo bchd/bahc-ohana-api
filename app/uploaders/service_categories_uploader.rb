@@ -7,7 +7,6 @@ class ServiceCategoriesUploader
   end
 
   def process(src)
-    puts "processing #{@file_path.path.to_s.split('/').last}"
     csv = SmarterCSV.process(@file_path)
 
     if src == 'admin' && csv.count > 100
