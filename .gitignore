@@ -47,7 +47,6 @@ dump.rdb
 /data/ohana_api_production.dump
 /data/ohana-api-smc_development.dump
 /data/big.json
-/data/*.csv
 /data/*.json
 
 script/backup_mongo
