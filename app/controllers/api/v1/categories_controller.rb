@@ -2,7 +2,7 @@ module Api
   module V1
     class CategoriesController < ApplicationController
       def index
-        categories = Category.all.select{|c| c.services.any?}
+        categories = Category.all.select{|cat| cat.services.any?{|service| !service.archived?}}
         render json: categories, status: :ok
       end
 

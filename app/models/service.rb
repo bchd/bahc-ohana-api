@@ -141,6 +141,10 @@ class Service < ApplicationRecord
     contacts_strings.join(' // ')
   end
 
+  def archived?
+    !archived_at.blank?
+  end
+
   private
 
   def update_location_status
