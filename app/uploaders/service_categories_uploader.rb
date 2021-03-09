@@ -13,7 +13,6 @@ class ServiceCategoriesUploader
       raise ServiceCategoriesUploadError, "Service Categories CSV must have 100 rows or fewer."
     end
 
-
     csv.each do |attributes|
       new_parent_string = attributes[:new_category]
       clear_string = attributes[:clear_categories]

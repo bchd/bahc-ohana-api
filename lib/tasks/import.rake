@@ -6,7 +6,7 @@ namespace :import do
 
   desc 'Imports service categories'
   task :service_categories, [:path] => :environment do |_, args|
-    args.with_defaults(path: Rails.root.join('data', 'service_categories.csv'))
+    args.with_defaults(path: Rails.root.join(args[:path]))
     ServiceCategoriesImporter.check_and_import_file(args[:path])
   end
 
