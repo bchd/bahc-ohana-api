@@ -1,0 +1,1364 @@
+current_parent_categories,name,id,location_name,new_category,new_subcategory,clear_categories
+Age Group,Senior Services,139836,Action in Maturity,,,Clear
+Age Group,Community Engagement,144741,Baltimore Harm Reduction Coalition,Safety,Adults,
+Age Group,Find a Volunteer,145021,Covaid,,,Clear
+Age Group,Stop Abuse of Elders,145020,"Counseling, Helpline, & Aid Network for Abused",Safety,Older Adults,
+Age Group,"Kennedy Krieger Family Center, Birth To Five Clinic",143511,"Kennedy Krieger Family Center, Birth To Five Clinic",,,Clear
+Age Group,Medical Examinations,144924,Baltimore Child Abuse Center,Safety,Children,
+Age Group,Division of Youth and Young Adult Ministry,143894,Division of Youth and Young Adult Ministry,,,Clear
+Age Group,Elder Coffee Hour,144568,The Pride Center of Maryland,,,Clear
+Age Group,The Exchange,144542,The Journey Center,,,Clear
+Age Group,"Retired and Senior Volunteer Program, Baltimore City",142675,"Retired and Senior Volunteer Program, Baltimore City",Food,,
+"Age Group, Disability","Kennedy Krieger Family Center, Unity Clinic",143510,"Kennedy Krieger Family Center, Birth To Five Clinic",,,Clear
+"Age Group, Disability",Catholic Charities Senior Communities,140917,Catholic Charities Division of Housing Services,,,Clear
+"Age Group, Disability, Health Specialties",Behavior and Communication Resource Services,144689,"Athelas Institute, Inc. Community Resource Center and Autism Program",,,Clear
+"Age Group, Disability, Health Specialties, Housing",Independent Living,143261,Augsburg Village,,,Clear
+"Age Group, Education",GED Classes,144638,Baltimore Healthy Start Inc,Education,GED,
+"Age Group, Education, Employment, Survivors, Substance Use Treatment Preferences",Family Resilience Project,144055,Baltimore City Health Department Office of Youth & Trauma Services,,,Clear
+"Age Group, Employment, Work",Economic Success,142797,Center for Urban Families,,,Clear
+"Age Group, Family Friendly",Leaping for Literacy,144635,Baltimore Healthy Start Inc,Child-Related,Head Start,
+"Age Group, Gender & Sexuality",SAGEConnect,145023,Advocacy & Services for LGBT Elders,,,Clear
+"Age Group, Gender & Sexuality, Goods, Health, Education, Health Specialties",Pregnancy Testing,139866,Alpha Pregnancy Center,,,Clear
+"Age Group, Gender & Sexuality, Health Specialties","Women, Pregnant Women and Women with Children's Services",144126,"Gaudenzia, Inc.",,,Clear
+"Age Group, Health",Addiction treatment,139868,"Alternatives to Dependency, Towson (Main Office)",,,Clear
+"Age Group, Health",LGBTQ Support Programs,142433,Adolescent STAR TRACK Program at University of Maryland,,,Clear
+"Age Group, Health",Medical Services,144442,"Family Health Centers of Baltimore, Cherry Hill Center",Health,Access to Care (Insurance/ prescription assistance),
+"Age Group, Health",Intensive Outpatient Program (IOP),144287,New Vision House of Hope,Substance Use,Outpatient,
+"Age Group, Health Specialties",Triad House,142193,Triad House,,,Clear
+"Age Group, Health Specialties",Adult Home Care Services,144628,"American Caregivers, Inc.",Social Support,Older Adults,
+"Age Group, Health Specialties, Care, Education",Caregiver Education,144584,Alzheimer's Association: Greater Maryland Chapter,Social Support,Older Adults,
+"Age Group, Health, Care, Education, Substance Use Treatment Preferences",Treatment on Demand,142724,Powell Recovery Center,,,Clear
+"Age Group, Health, Money, Care",Ceremony Services,144902,Wylie Funeral Home,,,Clear
+"Age Group, Housing",Emergency Shelter,144821,House of Ruth,Housing,Transitional Housing,
+"Age Group, Income, Housing, Health Specialties, Disability, Housing, Documents Needed","My Sister's Place Lodge, Catholic Charities",140442,My Sister's Place Lodge,,,Clear
+"Age Group, Survivors","Kennedy Krieger Family Center, SMART Program",143514,"Kennedy Krieger Family Center, Birth To Five Clinic",Mental Health,,
+Care,"Baltimore City Police Department, Eastern District",141214,"Baltimore City Police Department, Eastern District",Mental Health,,
+Care,Baltimore County Dept. of Recreation and Parks,139937,Baltimore County Dept. of Recreation and Parks,Mental Health,,
+Care,"Office of Child Care, Anne Arundel County",141787,"Office of Child Care, Anne Arundel County",Mental Health,,
+Care,"Office of Child Care, Baltimore City",141788,"Baltimore Housing, OHEP/Weatherization",Mental Health,,
+Care,Family/Marital Counseling,144142,Glenwood Life Counseling Center,Mental Health,,
+Care,Peer Recovery Services,144146,Glenwood Life Counseling Center,Mental Health,,
+Care,Group Treatment,144143,Glenwood Life Counseling Center,Mental Health,,
+Care,Individual Counseling,144144,Glenwood Life Counseling Center,Mental Health,,
+Care,Family Counseling,144350,House of Change Behavioral Health,Mental Health,,
+Care,Case Management,144868,Youth Empowered Society,Mental Health,,
+Care,Standard & Intensive Group Counseling,144159,"Bon Secours, New Hope Treatment Center",Mental Health,,
+Care,Individual and Group Counseling,144148,Belair Health Solutions,Mental Health,,
+Care,Family Reunification Services (Servicios de de ReunificaciÃ³n Familiar),145206,Esperanza Center (Se habla EspaÃ±ol),Mental Health,,
+Care,"Baltimore City DSS, Recruitment Foster Care & Adoption Families",141311,"Baltimore City DSS, Family Preservation Services",Mental Health,,
+Care,Individual Counseling,144158,"Bon Secours, New Hope Treatment Center",Mental Health,,
+Care,Gender-specific Group Counseling,144160,"Bon Secours, New Hope Treatment Center",Mental Health,,
+Care,Individual Counseling,144170,"Bon Secours, Adapt Cares",Mental Health,,
+Care,Standard Group Counseling,144171,"Bon Secours, Adapt Cares",Mental Health,,
+Care,Gender-Specific group counseling,144172,"Bon Secours, Adapt Cares",Mental Health,,
+Care,Family Education & Counseling,144178,"Bon Secours, Adapt Cares",Mental Health,,
+Care,DUI/DWI Program,144184,"B.N.J. Health Services, LLC",Mental Health,,
+Care,Referral Assistance,144570,Alpha Pregnancy Center,Mental Health,,
+Care,Humane Society of Baltimore County,142829,Humane Society of Baltimore County,Mental Health,,
+Care,Aftercare,142299,"Mountain Manor Treatment Center, Highlandtown",Mental Health,,
+Care,Support Groups,144276,"Native American Lifelines, Inc.",Mental Health,,
+Care,Behavioral Health/Substance Abuse Counseling,144266,"Native American Lifelines, Inc.",Mental Health,,
+Care,Post-Adoption Search and Reunion Services,144573,Board of Child Care,Mental Health,,
+Care,Mental Health Groups,144291,New Vision House of Hope,Mental Health,,
+Care,Individual Outpatient Counseling,144297,Northern Parkway Treatment Services,Mental Health,,
+Care,Peer Support,144306,"Organization of Hope, Inc.",Mental Health,,
+Care,Mental Health & Counseling,144319,Port Recovery,Mental Health,,
+Care,Group Support Activities,144336,"Health Care for the Homeless, Inc., Baltimore City",Mental Health,,
+Care,Referral Services,144503,40 West Assistance and Referral Center,Mental Health,,
+Care,Sister Circle,144633,Baltimore Healthy Start Inc,Mental Health,,
+Care,"Baltimore Animal Rescue & Care Shelter, Inc",142823,"Baltimore Animal Rescue & Care Shelter, Inc",,,Clear
+Care,"Baltimore City Police Department, Central District",141212,"Baltimore City Police Department, Central District",,,Clear
+Care,"Baltimore City Health Dept., Environmental Health Division",142714,"Baltimore City Health Department, Administration",,,Clear
+"Care, Age Group",Family Stability,144708,Center for Urban Families,,,Clear
+"Care, Age Group",Support Services (Servicios de Apoyo),144941,Meals on Wheels (Se Habla EspaÃ±ol),,,Clear
+"Care, Age Group",Support groups,144704,"Arundel House of Hope, Community Recovery Center",,,Clear
+"Care, Age Group, Disability",Assisted Living,144692,Augsburg Village,,,Clear
+"Care, Age Group, Disability, Health Specialties, Substance Use Treatment Preferences","Baltimore City Commission on Aging & Retire., Adult Day Care",141160,"Baltimore City Commission on Aging & Retire., Adult Day Care",,,Clear
+"Care, Age Group, Family Friendly",Child Development Center,142866,Child Development Center,,,Clear
+"Care, Age Group, Family Friendly",Dunbar Day Care Center,142865,Dunbar Day Care Center,,,Clear
+"Care, Age Group, Gender & Sexuality","Gay, Lesbian, Bisexual, & Transgender National Youth Talkline",144043,"Gay, Lesbian, Bisexual, & Transgender National Youth Talkline",,,Clear
+"Care, Age Group, Health Specialties",Montgomery County Senior Mental Health Services,142006,Senior Nutrition Program,Food,,
+"Care, Age Group, Health Specialties",Care Consultation,144585,Alzheimer's Association: Greater Maryland Chapter,Health,Older Adults,
+"Care, Age Group, Health Specialties",24/7 Hotline,144623,"American Cancer Society, Baltimore",Health,Adults,
+"Care, Age Group, Substance Use Treatment Preferences",Al-Anon & Alateen Group Meetings,139847,"Al-Anon & Alateen, Greater Baltimore Area",,,Clear
+"Care, Disability",Independent living services,144789,"Abilities Network, Headquarters",,,Clear
+"Care, Education",CCAR Recovery Coach Academy,144754,3C Recovery Support Training Institute,,,Clear
+"Care, Education",Education & Counseling,144166,"Bon Secours, New Hope Treatment Center",,,Clear
+"Care, Education, Age Group","Police Athletic League (PAL), Dundalk",141181,"Police Athletic League (PAL), Dundalk",,,Clear
+"Care, Education, Age Group",Prevention Education Workshops,144683,"Counseling, Helpline, & Aid Network for Abused",,,Clear
+"Care, Education, Age Group, Health Specialties, Substance Use Treatment Preferences","Alzheimer's Association, Hagerstown",143114,"Division of Rehabilitation Services, Region I, Western Maryland",,,Clear
+"Care, Education, Housing",Family Stability and Shelter Diversion,144748,"Project PLASE, Inc.",,,Clear
+"Care, Education, Race/Ethnicity",Mentoring and Tutoring Program,144731,Centro SOL,Education,ESL Classes,
+"Care, Education, Work, Criminal History, Employment, Income",Support Services,144621,America Works of Maryland,,,Clear
+"Care, Education, Work, Education, Employment, Gender & Sexuality",Career Skills Training,142209,Caroline Center,Employment,Job Training,
+"Care, Guardianship",Adoptive Parents,144501,"Adoption Makes Family, Inc.",,,Clear
+"Care, Health Specialties, Health",Hotline,144586,Alzheimer's Association: Greater Maryland Chapter,Health,Older Adults,
+"Care, Health Specialties, Health",Birth Parents,144499,"Adoption Makes Family, Inc.",,,Clear
+"Care, Legal, Age Group, Health Specialties, Substance Use Treatment Preferences","Alzheimer's Association, Western Maryland",142264,"Alzheimer's Association, Western Maryland",,,Clear
+"Care, Substance Use Treatment Preferences","Baltimore City DSS, Family Services",143523,"Baltimore City DSS, Family Preservation Services",,,Clear
+"Care, Survivors",Services for Victims of Human Trafficking (Servicios para vÃ­ctimas de trÃ¡fico humano),145207,Esperanza Center (Se habla EspaÃ±ol),Safety,Adults,
+"Care, Survivors","Baltimore City DSS, Intake & Assessment",141281,"Baltimore City DSS, Family Preservation Services",,,Clear
+"Care, Work, Age Group","Junior Achievement of Central Maryland, Inc.",142694,"Junior Achievement of Central Maryland, Inc.",,,Clear
+Citizenship,Food Delivery (Entrega de Comida),145062,Asylee Women Enterprise (GENERAL-- Se Habla EspaÃ±ol),Food,Food Delivery,
+Citizenship,Case Management (Manejo de Casos),145064,Asylee Women Enterprise (GENERAL-- Se Habla EspaÃ±ol),Safety,Adults,
+Citizenship,Medical Care (AtenciÃ³n MÃ©dica),145065,Asylee Women Enterprise (GENERAL-- Se Habla EspaÃ±ol),Health,Access to Care (Insurance/ prescription assistance),
+Citizenship,Immigration Legal Services (Servicios Legales de InmigraciÃ³n),145063,Asylee Women Enterprise (GENERAL-- Se Habla EspaÃ±ol),Legal,,
+Citizenship,Mental Health Care (AtenciÃ³n de Salud Mental),144686,Asylee Women Enterprise (GENERAL-- Se Habla EspaÃ±ol),Mental Health,,
+Citizenship,Housing (Vivienda),144684,Asylee Women Enterprise (GENERAL-- Se Habla EspaÃ±ol),Housing,,
+Citizenship,Community Day Program (Programa Diario Comunitario),144685,Asylee Women Enterprise (GENERAL-- Se Habla EspaÃ±ol),Social Support,Day Programs,
+Criminal History,Re-entry,144338,"Healthy Lives, LLC",,,Clear
+"Criminal History, Health, Care, Age Group, Substance Use Treatment Preferences",Jewish Big Brother & Big Sister League and Jewish Addiction Srvs.,140926,Jewish Big Brother & Big Sister League and Jewish Addiction Srvs.,,,Clear
+"Criminal History, Work",Maryland Re-Entry Partnership,143785,Christopher Place Employment Academy,,,Clear
+Disability,Disability Products,143358,AbleData,,,Clear
+"Disability, Age Group, Health, Health Specialties",Outpatient Mental Health,142752,"Affiliated Sante Group, Montgomery County",Mental Health,,
+"Disability, Care, Health Specialties, Housing",Community Living Services,139930,The Arc Baltimore Community Resource Center,,,Clear
+"Disability, Care, Work, Age Group",GO Center Program,142310,"Athelas Institute, Inc. Gwynn Oak Resource Center",,,Clear
+"Disability, Care, Work, Health Specialties",Way Station at Howard County,141459,Way Station at Howard County,,,Clear
+"Disability, Education, Age Group","Baltimore City Public Schools, Child Find Unit",140814,BCPS Child Find Unit,,,Clear
+"Disability, Goods, Work","Baltimore City DSS, In-Home Aide Services",141313,"Baltimore City DSS, Child Care Program",,,Clear
+"Disability, Health, Age Group, Gender & Sexuality, Health Specialties, Insurance Accepted",Behavioral Health Home,144251,"Mosaic Community Services, Baltimore City",,,Clear
+"Disability, Health, Age Group, Health Specialties, Race/Ethnicity, Substance Use Treatment Preferences",Sheppard Pratt at Howard County,142309,Way Station at Howard County,Mental Health ,,
+"Disability, Health, Care, Education, Age Group, Family Friendly, Role, Survivors, Substance Use Treatment Preferences","Family Tree, The",140483,"Family Tree, The",,,Clear
+"Disability, Health, Education",Kennedy Krieger School,141636,Kennedy Krieger Center for Development & Learning,,,Clear
+"Disability, Health, Education, Age Group, Health Specialties, Survivors, Substance Use Treatment Preferences","Kennedy Krieger Institute, Clinical Services",140320,"Kennedy Krieger Institute, Clinical Services",,,Clear
+"Disability, Health, Health Specialties",Kennedy Krieger Center for Development & Learning,141635,Kennedy Krieger Center for Development & Learning,,,Clear
+"Disability, Health, Health Specialties, Substance Use Treatment Preferences","Fellowship House, Inc.",140162,"Fellowship House, Inc.",,,Clear
+"Disability, Health, Work, Health Specialties",Workforce Technology Center,141000,Workforce Technology Center,,,Clear
+Documents Needed,Health Insurance,145028,Maryland Health Connection,Health ,Access to Care (Insurance/ prescription assistance),
+Education,Abbott Tutoring Center,144755,Abbott Memorial Presbyterian Church,Education,Adult Education,
+Education,GED Training,144351,House of Change Behavioral Health,Education,GED,
+Education,Resources for Students (Recursos para estudiantes),144946,Centro SOL (Se Habla EspaÃ±ol),Education,ESL Classes,
+Education,Baltimore City Financial Literacy Program,144676,Southern Community Action Partnership Center,Education,Adult Education,
+Education,Children and Youth Programs,144327,Paul's Place,Education,Child-Education Services and Supplies,
+Education,Computer Lab,144357,House of Change Behavioral Health,Education,Child-Education Services and Supplies,
+Education,Adult Basic Education Program,140764,"Baltimore City Community College, Adult Basic Education",Education,Child-Education Services and Supplies,
+"Education, Age Group",STEM Resources,145212,Virtual Recreation Center,,,Clear
+"Education, Age Group",Skills training,144705,"Arundel House of Hope, Community Recovery Center",Substance Use,Treatment Centers,
+"Education, Age Group",Woodbourne Day School,141221,Woodbourne Day School BCPS,,,Clear
+"Education, Age Group",CPR & ECC training,144668,American Heart Association,,,Clear
+"Education, Age Group",Police Athletic League,143498,Police Athletic League Centers,,,Clear
+"Education, Age Group, Education",National Academy Foundation,142706,National Academy Foundation BCPS,,,Clear
+"Education, Age Group, Family Friendly","Homeless Families Project, Baltimore City Head Start",140914,"Baltimore Housing, OHEP/Weatherization",,,Clear
+"Education, Care, Age Group, Family Friendly",Baltimore City Child Care Resource Center (BCCCRC),141499,Baltimore City Child Care Resource Center,,,Clear
+"Education, Disability","Head Start Program, Baltimore County",141917,"Police Athletic League (PAL), Dundalk",,,Clear
+"Education, Disability",BCPS Child Find Unit,144691,Baltimore City Public School System,,,Clear
+"Education, Disability, Age Group, Family Friendly","Head Start Program, Day Spring",143521,Dayspring Village,Child-Related,Head Start,
+"Education, Disability, Family Friendly","Head Start Program, Herring Run",143809,"Head Start Program, Herring Run",Child-Related,Head Start,
+"Education, Education",Harm Reduction Education,144742,Baltimore Harm Reduction Coalition,,,Clear
+"Education, Education, Emergency, Work, Citizenship, Employment, Race/Ethnicity, Languages",Educational Services (Servicios Educativos),144893,Esperanza Center (Se habla EspaÃ±ol),,,Clear
+"Education, Emergency, Housing, Health, Age Group, Health Specialties","Volunteers of America Chesapeake, Inc.",141968,"Volunteers of America Chesapeake, Inc.",,,Clear
+"Education, Health",AIDS INFO,140262,AIDS INFO,,,Clear
+"Education, Health Specialties","Baltimore Housing, Our House",140477,"Baltimore Housing, Our House",,,Clear
+"Education, Health Specialties",Jefferson School at Finan Center,143582,Jefferson School at Finan Center,,,Clear
+"Education, Health, Age Group, Disability",Jefferson School and Residential Treatment Center,143583,Jefferson School and Residential Treatment Center,,,Clear
+"Education, Health, Care, Age Group, Health Specialties, Substance Use Treatment Preferences",Sheppard Pratt Health System,140577,Sheppard Pratt Health System,,,Clear
+"Education, Health, Education, Substance Use Treatment Preferences",Brain Injury Association of Maryland,140385,Brain Injury Association of Maryland,,,Clear
+"Education, Health, Money, Care, Disability, Health Specialties","Kennedy Institute, Community Companions",143420,"Kennedy Institute, Community Companions",,,Clear
+"Education, Languages, Emergency, Food, Health",Information (InformaciÃ³n),144856,Centro SOL (Se Habla EspaÃ±ol),Education,ESL Classes,
+"Education, Legal, Age Group, Education, Gender & Sexuality","Free State Legal Project, Inc.",144045,FreeState Justice,,,Clear
+"Education, Legal, Citizenship",Citizenship Preparation Classes,145272,International Rescue Committee- Baltimore Resettlement Center,,,Clear
+"Education, Race/Ethnicity",Summer Scholars Program 2020,144732,Centro SOL,,,Clear
+"Education, Race/Ethnicity",Research Services,144739,Centro SOL,Education,ESL Classes,
+"Education, Work",Learning Bank Of Coil,140941,"COIL: Communities Organized to Improve Life, Inc.",,,Clear
+"Education, Work",Career Center Network,141382,"Baltimore Housing, Home Ownership & Rehabilitation Services",,,Clear
+"Education, Work, Age Group",Baltimore City Community College,143003,Baltimore City Community College,Education,Adult Education,
+"Education, Work, Age Group, Criminal History","Maryland Educational Opportunity Center, Main Office",140382,BCPS Child Find Unit,,,Clear
+"Education, Work, Citizenship, Education, Race/Ethnicity",Summer Engagement Program 2020,144733,Centro SOL,,,Clear
+Emergency,"Baltimore City Police Department, Southeastern District",141213,"Baltimore City Police Department, Southeastern District",,,Clear
+Emergency,"Baltimore City Police Department, Northern District",141216,"Baltimore City Police Department, Northern District",,,Clear
+Emergency,"Baltimore City Police Department, Northwestern District",144641,"Baltimore City Police Department, Northwestern District",,,Clear
+Emergency,National Sexual Assault Hotline (LÃ­nea nacional de agresiÃ³n sexual),144945,Maryland Coalition Against Sexual Assault (SEGURIDAD - Se habla espaÃ±ol),Safety,Adults,
+Emergency,National Domestic Violence Hotline (LÃ­nea nacional de violencia domÃ©stica),144953,Maryland Coalition Against Sexual Assault (SEGURIDAD - Se habla espaÃ±ol),Safety,Adults,
+Emergency,Volunteer - Facemasks,144836,COVID-19 VOLUNTEER - Flatten the Curve,,,Clear
+Emergency,Tools,144851,The Baltimore Community ToolBank,,,Clear
+Emergency,Internet access,144886,ELECTRIC & GAS ENERGY ASSISTANCE,Utilities,Utility Assistance,
+Emergency,Funeral Services,144901,March Funeral Homes,,,Clear
+Emergency,"Baltimore City Police Department, Western District",141217,"Baltimore City Police Department, Western District",,,Clear
+Emergency,Low Income Water Assistance Program,144913,WATER DISCOUNT INFORMATION,Utilities,Utility Assistance,
+Emergency,Disaster Relief,144669,American Red Cross,,,Clear
+Emergency,"Baltimore City Police Department, Southwestern District",141218,"Baltimore City Police Department, Southwestern District",,,Clear
+Emergency,"Baltimore City Police Department, Northeastern District",141215,"Baltimore City Police Department, Northeastern District",,,Clear
+Emergency,"Baltimore City Police Department, Southern District",141219,"Baltimore City Police Department, Southern District",,,Clear
+"Emergency, Age Group",Free Meals Program,145007,"YMCA, Free Meals Program",,,Clear
+"Emergency, Age Group",Virtual Chatline,145086,House of Ruth,Housing,Transitional Housing,
+"Emergency, Age Group, Gender & Sexuality, Family Friendly, Housing",Shelter,145324,Sarah's Hope House,Housing,,
+"Emergency, Care, Age Group",Support Services,144990,Caregiver Service Corps,Health,Older Adults,
+"Emergency, Care, Survivors",Baltimore County Crisis Response System,143157,"Affiliated Sante Group, Baltimore County",,,Clear
+"Emergency, Education, Education",Family Education,144880,Center for Urban Families,Education,Child-Education Services and Supplies,
+"Emergency, Education, Work",Free Xfinity WiFi hotspot (WiFi GRATIS),144850,Free Xfinity Wifi (for non-subscribers) (Se Habla EspaÃ±ol),Utilities,Utility Assistance,
+"Emergency, Education, Work",Free Internet Service (Servicio de Internet GRATIS),144915,Free Xfinity Wifi (for non-subscribers) (Se Habla EspaÃ±ol),Utilities,Utility Assistance,
+"Emergency, Education, Work",Internet for University Students (Internet para Estudiantes de Universidad),144916,Free Xfinity Wifi (for non-subscribers) (Se Habla EspaÃ±ol),Utilities,Utility Assistance,
+"Emergency, Food",Home Delivered Grocery Boxes,144944,Home Delivered Grocery Boxes,Food,Food Delivery,
+"Emergency, Food",Lunch Service,144864,Beans and Bread Homeless Day Resource Center,Food,Prepared Meals,
+"Emergency, Food",Hot Meal Program (Progama de Comidas Calientes),144860,Our Daily Bread Employment Center (se habla espaÃ±ol),Food,Prepared Meals,
+"Emergency, Food",Food Map,144928,The Maryland Food Bank,Food,,
+"Emergency, Food",Food Stamp (SNAP) Support,144939,The Maryland Food Bank,Food,Food Stamps/ SNAP,
+"Emergency, Food",Meal Delivery,144927,Maryland Access Point,Food,Food Delivery,
+"Emergency, Food",Grocery Delivery (Entrega de Comestibles),144940,Meals on Wheels (Se Habla EspaÃ±ol),Food,Food Delivery,
+"Emergency, Food",Resource Map (Mapa de Recursos),145141,"The Rebuild, Overcome and Rise Center (SEGURIDAD)",Food,,
+"Emergency, Food",Free grocery distribution/ Food pantry,145325,Parts of Peace,Food,Food Pantry ,
+"Emergency, Food",Food and Clothing (Ropa y Comida),144998,Sacred Heart of Jesus (Se habla EspaÃ±ol),Food,Food Pantry ,
+"Emergency, Food, Age Group",SNAP/ Food stamps legal help hotline (Comida),145127,Homeless Persons Representation Project (ALOJAMIENTO-- Se Habla EspaÃ±ol),Food,SNAP/Food Stamps,
+"Emergency, Food, Age Group",The Emergency Food Assistance Program,145006,Maryland Emergency Food Assistance Program,Food,,
+"Emergency, Food, Goods, Care, Age Group",Food and resource delivery,144931,COVID-19 FOOD -- Corona Community,Food,Food Delivery,
+"Emergency, Food, Goods, Health, Age Group",Health & Wellness Programs,144328,Paul's Place,,,Clear
+"Emergency, Food, Health",Benefit Counseling (Asesoramientos de Beneficios),144861,Our Daily Bread Employment Center (se habla espaÃ±ol),Food,SNAP/Food Stamps,
+"Emergency, Food, Housing, Care, Age Group, Gender & Sexuality, Housing",Homeless shelter,144034,Karis Home,,,Clear
+"Emergency, Food, Housing, Care, Age Group, Housing, Race/Ethnicity, Substance Use Treatment Preferences",St. Vincent de Paul Society of Baltimore,140634,Division of Youth and Young Adult Ministry,,,Clear
+"Emergency, Food, Housing, Education, Work, Age Group",Case Management Programs,144326,Paul's Place,,,Clear
+"Emergency, Food, Housing, Money, Work, Legal, Age Group, Disability","Community Assistance Network, Merritt Point Center",140081,"Police Athletic League (PAL), Dundalk",,,Clear
+"Emergency, Food, Housing, Transit, Care, Housing, Income",Ancillary Services,144921,Powell Recovery Center,Substance Use,Treatment Centers,
+"Emergency, Food, Housing, Transit, Health, Money, Work",Health Insurance and Care Coordination to Social Services,144859,HealthCare Access Maryland,Health,Access to Care (Insurance/ Prescription Assistance),
+"Emergency, Goods",Hand Sanitizer and Masks,144996,Highlandtown Business Association,Goods,Hygiene Items,
+"Emergency, Goods, Work",Jobs (Trabajos),144834,CityWide Youth Development,Employment,Job Training,
+"Emergency, Health",Telehealth Services,145026,Healthcare for the Homeless,Health,Access to Care (Insurance/ prescription assistance),
+"Emergency, Health",Free Mental Health Services,144905,The Boris Lawrence Henson Foundation,Health,Access to Care (Insurance/ prescription assistance),
+"Emergency, Health",Telehealth Services,145305,"Health Care for the Homeless, Inc., Baltimore City",Health,Access to Care (Insurance/ prescription assistance),
+"Emergency, Health",Telehealth Services,145306,"Health Care for the Homeless, Inc., Baltimore County",Health,Access to Care (Insurance/ prescription assistance),
+"Emergency, Health",Telehealth Services,145307,"Health Care for the Homeless, Inc, West Baltimore",Health,Access to Care (Insurance/ prescription assistance),
+"Emergency, Health, Age Group, Health Specialties, Substance Use Treatment Preferences","Walter P. Carter, Fayette Street Clinic",140881,"University of Maryland, Center for Infants & Child Loss",Health,Access to Care (Insurance/ prescription assistance),
+"Emergency, Health, Care",Delivery Service,144898,SPARC Center,Substance Use,Harm Reduction Treatment,
+"Emergency, Health, Education, Age Group, Health Specialties, Substance Use Treatment Preferences",Sheppard Pratt at Ellicott City,140650,Sheppard Pratt at Ellicott City,,,Clear
+"Emergency, Health, Gender & Sexuality, Health Specialties",Mobile STI Testing,145312,SPARC Center,Health,,
+"Emergency, Health, Gender & Sexuality, Survivors",Sexual Assault Legal Institute (Instituto Legal de AgresiÃ³n Sexual),144847,Maryland Coalition Against Sexual Assault (SEGURIDAD - Se habla espaÃ±ol),Safety,,
+"Emergency, Health, Health Specialties, Substance Use Treatment Preferences",Dual Diagnosis Treatment,144920,Powell Recovery Center,Substance Use,Treatment Centers,
+"Emergency, Health, Insurance Accepted, Care, Citizenship, Income, Languages, Race/Ethnicity",Multilingual Coronavirus Hotline ( LÃ­nea Directa MultilingÃ¼e de Coronavirus),144896,Esperanza Center (Se habla EspaÃ±ol),Health,"Testing Sites, Quarantine Instructions, Etc.",
+"Emergency, Health, Legal, Gender & Sexuality, Survivors",Intimate Partner Violence Services,144848,COVID-19 SAFETY -- Mercy Medical Center,Safety,Adults,
+"Emergency, Health, Money","Baltimore City DSS, Emergency Assistance to Families w/Children",143524,"Baltimore City DSS, Child Care Program",Safety,Children,
+"Emergency, Housing",Karis Home,140319,Karis Home,Housing,,
+"Emergency, Housing",Phone Intake Assistance (Ayuda TelefÃ³nica),144930,Homeless Persons Representation Project (ALOJAMIENTO-- Se Habla EspaÃ±ol),Housing,Shelter,
+"Emergency, Housing",Eviction Support,145162,Franciscan Center,Housing,Rental Assistance,
+"Emergency, Housing","Salvation Army, Baltimore, Booth House",140789,Salvation Army of Central Maryland,,,Clear
+,,,,,,
+"Emergency, Housing, Age Group, Armed Forces",Emergency Housing,144715,Maryland Center for Veterans Education and Training,,,Clear
+"Emergency, Housing, Family Friendly","Night of Peace Family Shelter, Inc.",143518,"Night of Peace Family Shelter, Inc.",,,Clear
+"Emergency, Housing, Health, Care, Health Specialties, Substance Use Treatment Preferences",Outpatient & Residential Services,144853,Powell Recovery Center,Substance Use,Outpatient,
+"Emergency, Housing, Health, Gender & Sexuality, Housing",Emergency Homeless Shelter,144032,The Harry and Jeanette Housing and Resource Center,,,Clear
+"Emergency, Housing, Health, Health Specialties, Special Hours, Substance Use Treatment Preferences",Residential Units,144854,"Baltimore Crisis Response, Inc.",,,Clear
+"Emergency, Housing, Transit, Health, Money, Care, Education, Work, Legal, Citizenship, Income, Insurance Accepted, Languages, Race/Ethnicity",Client Services (Servicios al Cliente),144895,Esperanza Center (Se habla EspaÃ±ol),Health,Adults,
+"Emergency, Insurance Accepted, Languages, Substance Use Treatment Preferences",Chemical Dependency Service,144422,University of Maryland Center for Addiction Medicine,,,Clear
+"Emergency, Languages",Adelante Familia,145205,House of Ruth,Housing,Transitional Housing,
+"Emergency, Legal, Gender & Sexuality, Survivors",Legal services (Servicios legales),144849,"The Rebuild, Overcome and Rise Center (SEGURIDAD)",Legal,Rights,
+"Emergency, Money",Social Security Administration Death Benefit,144903,Social Security Death Benefit,,,Clear
+"Emergency, Money",The Self Sufficiency Grant,145235,Modest Needs,Money,Emergency Cash/Grants,
+"Emergency, Money",The Homecoming Heroes Grant,145236,Modest Needs,Money,Emergency Cash/Grants,
+"Emergency, Money",One Fair Emergency Fund,145237,One Fair Emergency Fund,Money,Emergency Cash/Grants,
+"Emergency, Money, Languages",Community Resources (Recursos de la Comunidad),145140,Maryland Coalition Against Sexual Assault (SEGURIDAD - Se habla espaÃ±ol),Money,Emergency Cash/Grants,
+"Emergency, Survivors",Supervised child access services (Servicios supervisados â€‹â€‹de acceso infantil),144846,The Baltimore City Visitation Center (SEGURIDAD-- Se Habla EspaÃ±ol),Safety,Children,
+"Emergency, Transit",Transit Service,144889,MTA MobilityLink (Paratransit) Program,Transportation,Reduced Cost/ Free Transportation,
+"Emergency, Work",Job Training (STRIVE),144858,Center for Urban Families,Employment,Job Training,
+Employment,"Sinai Hospital, VSP",143783,"Sinai Hospital, VSP",,,Clear
+"Employment, Housing",Christopher Place Employment Academy,140819,Christopher Place Employment Academy,,,Clear
+"Employment, Transit, Health, Money, Work, Age Group, Armed Forces, Citizenship, Criminal History, Disability, Gender & Sexuality, Health Specialties, Family Friendly, Housing, Income, Insurance Accepted, Race/Ethnicity, Documents Needed, Special Hours",Vocational Services,144701,"Mosaic Community Services, Baltimore City",Employment,Job Training,
+"Employment, Work, Disability","Kennedy Institute, Positive Alternative Program",143440,"Kennedy Institute, Positive Alternative Program",,,Clear
+Family Friendly,Parent Leadership Group,144636,Baltimore Healthy Start Inc,,,Clear
+Family Friendly,Circle of Security Parenting,144639,Baltimore Healthy Start Inc,,,Clear
+Food,Hot Meals and Other Essentials,145114,God is King Center,Food,Prepared Meals,
+Food,Food Pantry,144992,Project PLASE,Food,Food Pantry ,
+Food,"Baltimore City DSS, Food & Nutrition Services (Food Stamps)",141310,"Baltimore City DSS, Food & Nutrition Services (Food Stamps)",Food,Food Pantry ,
+Food,Dundalk Church of The Brethren Pantry,140126,Dundalk Church of The Brethren Pantry,Food,Food Pantry ,
+Food,Food Pantry,144899,GEDCO CARES,Food,Food Pantry ,
+Food,Food Pantry,144838,COVID-19 FOOD -- Concord Baptist Church,Food,Food Pantry ,
+Food,Grab & Go Meals and Groceries,145111,"Harbel Community Organization, Inc.",Food,Food Pantry ,
+Food,Food Pick Up (DistribuciÃ³n de Comida),145008,Fishes and Loaves Food Pantry (Se habla espaÃ±ol),Food,Food Pantry ,
+Food,Donald Bentley Food Pantry,142750,Donald Bentley Food Pantry,Food,Food Pantry ,
+Food,"Groceries, Technology, and Other resources",144855,Thread,Food,Food Pantry ,
+Food,My Groceries to Go!,145151,My Groceries to Go! / Commodity Supplemental Food Program,Food,Food Pantry ,
+Food,Emergency Meal Sites for Children and Youth,145154,Family League,Food,Prepared Meals,
+Food,Free Grab-N-Go Meals,145155,Rec Center Meal Sites and Mobile Meal Sites,Food,Food Pantry ,
+Food,Food,144888,COVID-19 TRANSPORTATION/FOOD -- CountyRide,Food,Food Pantry ,
+Food,Food,144890,Franciscan Center,Food,Food Pantry ,
+Food,Food Pantry,145071,Citizens Policing Project / St. Peter Claver Church,Food,Food Pantry ,
+Food,Food Pantry,145075,City of Refuge,Food,Food Pantry ,
+Food,Food Delivery,145082,Bmore Community Food,Food,Food Pantry ,
+Food,Free Food,145087,Umar Boxing,Food,Food Pantry ,
+Food,Helping Hands Food Pantry,140906,Helping Hands Food Pantry,Food,Food Pantry ,
+Food,Free Food (Comida gratis),145080,Baltimore Free Farm (COMIDA),Food,Food Pantry ,
+Food,St. Peter Clever Church Pantry and lunch,145299,Citizens Policing Project / St. Peter Claver Church,Food,Food Pantry ,
+Food,Food Giveaway,145081,Bmore Community Food,Food,Food Pantry ,
+Food,Cockeysville Food Pantry,140074,Cockeysville Food Pantry,Food,Food Pantry ,
+Food,St. Paul Apostolic Holiness Pantry,140628,St. Paul Apostolic Holiness Pantry,Food,Food Pantry ,
+Food,"Whitestone Baptist Church, Food Pantry",140725,"Whitestone Baptist Church, Food Pantry",Food,Food Pantry ,
+Food,Food Buying Club,140884,Christopher Place Employment Academy,Food,Food Pantry ,
+Food,Waters Church Soup Kitchen,140717,Waters Church Soup Kitchen,Food,Food Pantry ,
+Food,Our Daily Bread Meal Services,140985,Christopher Place Employment Academy,Food,Food Pantry ,
+Food,First Apostolic Faith Church Pantry,140164,First Apostolic Faith Church Pantry,Food,Food Pantry ,
+Food,Food Pantry,144446,Academy for College and Career Exploration,Food,Food Pantry ,
+Food,Food Pantry,144498,Adams Chapel AME (Food Pantry),Food,Food Pantry ,
+Food,Food Assistance,144502,40 West Assistance and Referral Center,Food,Food Pantry ,
+Food,First Baptist Church Soup Kitchen,140166,First Baptist Church Food Pantry,Food,Food Pantry ,
+Food,All Saints Food Pantry,139851,New All Saints Roman Catholic Church Food Pantry,Food,Food Pantry ,
+"Food, Age Group",Free Food (Comida gratis),144810,Dovecote Cafe (COMIDA),Food,Food Pantry ,
+"Food, Age Group",Food Pantry,145119,The Compassion Center,Food,Food Pantry ,
+"Food, Age Group",Prepared Meals,145125,JOY Baltimore,Food,Prepared Meals,
+"Food, Age Group",Breakfast,145126,Manna House,Food,Prepared Meals,
+"Food, Age Group",Food Pantry,144807,Bridgeway Community Cupboard,Food,Food Pantry ,
+"Food, Age Group",Food Pantry,144808,Reistertown UMC Food Pantry,Food,Food Pantry ,
+"Food, Age Group",Free Food,144812,Land of Kush,Food,Food Pantry ,
+"Food, Age Group",Free Food,144811,COVID-19 FOOD -- Baltimore City Food Map,Food,Food Pantry ,
+"Food, Age Group",Hot Meals Program,144734,Our Daily Bread,Food,Prepared Meals,
+"Food, Age Group",Free Meals,145009,COVID-19 FOOD -- Highlandtown Elementary/Middle,Food,Prepared Meals,
+"Food, Age Group",Free Meals,145013,COVID-19 FOOD -- Liberty Elementary School,Food,Prepared Meals,
+"Food, Age Group",Free Meals,144876,COVID-19 FOOD -- Henderson Hopkins,Food,Prepared Meals,
+"Food, Age Group",Free Meals,144878,COVID-19 FOOD -- Harford Heights Elementary,Food,Prepared Meals,
+"Food, Age Group",Free Meals,144874,COVID-19 FOOD -- Walter P. Carter Elementary/Middle,Food,Prepared Meals,
+"Food, Age Group",Free Meals,144875,COVID-19 FOOD -- Baltimore Montessori Public Charter,Food,Prepared Meals,
+"Food, Age Group",Free Meals,144873,COVID-19 FOOD -- Fort Washington Elementary/Middle,Food,Prepared Meals,
+"Food, Age Group",Free Meals,144872,COVID-19 FOOD -- Edgewood Elementary,Food,Prepared Meals,
+"Food, Age Group",Free Meals,144871,COVID-19 FOOD -- Vanguard Collegiate Middle,Food,Prepared Meals,
+"Food, Age Group",Free Meals,144879,COVID-19 FOOD -- Sarah M. Roach Elementary,Food,Prepared Meals,
+"Food, Age Group",Free Meals,144877,COVID-19 FOOD -- Southwest Baltimore Charter,Food,Prepared Meals,
+"Food, Age Group",Lunch + Snack,145077,City of Refuge,Food,Prepared Meals,
+"Food, Age Group","KIDS ONLY Breakfast, Lunch, Dinner, and a Snack",145076,City of Refuge,Food,Prepared Meals,
+"Food, Age Group",Food Service ( Servicio de Comida),145068,Breath of God Lutheran Church (Se habla espaÃ±ol),Food,Food Pantry ,
+"Food, Age Group",Baby Pantry,145073,City of Refuge,Food,Food Pantry ,
+"Food, Age Group",Food Pantry Pickup,145089,Loch Raven United Methodist Church,Food,Food Pantry ,
+"Food, Age Group",Free Food,144813,Grace Baptist Church,Food,Food Pantry ,
+"Food, Age Group",Free Meals,145110,"COVID-19 FOOD - Langston Hughes Community, Business and Resource Center",Food,Food Pantry ,
+"Food, Age Group",Food Pantry,140361,Ark Church Food Pantry,Food,Food Pantry ,
+"Food, Age Group",Food Pantry,144680,Armistead Gardens Elementary and Middle School,Food,Food Pantry ,
+"Food, Age Group, Armed Forces, Housing",Drop in Facility,144717,Maryland Center for Veterans Education and Training,Food,Food Pantry ,
+"Food, Age Group, Disability",Grocery Delivery,145113,"COVID-19 FOOD - Langston Hughes Community, Business and Resource Center",Food,Food Delivery,
+"Food, Age Group, Income",Food Pantry,144805,"Community Crisis Center, Inc.",Food,Food Pantry ,
+"Food, Care, Education, Work",Waxter Center for Senior Citizens,141065,"Baltimore City Commission on Aging & Retire., Adult Day Care",Food,Food Pantry ,
+"Food, Care, Education, Work, Legal, Age Group","Baltimore City Commission on Aging & Retirement Education, CARE",140079,"Baltimore City Commission on Aging & Retire., Ombudsman Program",Food,Food Pantry ,
+"Food, Documents Needed",Tuesday and Wednesday food pantry - BY APPOINTMENT ONLY,145066,Bea Gaddy Family Center,Food,Food Pantry ,
+"Food, Education, Age Group",Simple Cooking with Heart Kitchen,144666,Simple Cooking with Heart Kitchen,Food,Food Pantry ,
+"Food, Education, Age Group",Simple Cooking with Heart Kitchen,144667,American Heart Association,Food,Food Pantry ,
+"Food, Education, Work, Age Group, Substance Use Treatment Preferences","COIL: Communities Organized to Improve Life, Inc.",140080,"COIL: Communities Organized to Improve Life, Inc.",Food,Food Pantry ,
+"Food, Emergency",Food Pantry,144839,New Shiloh Baptist Church Pantry,Food,Food Pantry ,
+"Food, Family Friendly",Food (Comida),144881,Centro SOL (Se Habla EspaÃ±ol),Food,Food Pantry ,
+"Food, Goods",Mattie B. Uzzle Outreach Center,140968,Mattie B. Uzzle Outreach Center,Food,Food Pantry ,
+"Food, Goods",Community Pantry,145078,Community Pantry at The Dog Chef Cafe,Food,Food Pantry ,
+"Food, Goods",Church of the Guardian Angel Pantry,140068,Church of the Guardian Angel Pantry,Food,Food Pantry ,
+"Food, Goods",Lansdowne Church of God,141960,Lansdowne Church of God,Food,Food Pantry ,
+"Food, Goods, Age Group",Food and Clothing Pantry,144543,Abbott Memorial Presbyterian Church,Food,Food Pantry ,
+"Food, Goods, Health, Age Group, Health Specialties","Baltimore City Health Dept., WIC - Bon Secours Community Center",143792,"Baltimore City Health Dept., WIC - Bon Secours Community Center",Food,WIC,
+"Food, Goods, Health, Age Group, Health Specialties","Baltimore City Health Dept., WIC - Harford Clinic",143791,"Retired and Senior Volunteer Program, Baltimore City",Food,WIC,
+"Food, Goods, Health, Age Group, Health Specialties","Baltimore City Health Dept., WIC",142771,Dunbar Day Care Center,Food,WIC,
+"Food, Goods, Health, Age Group, Health Specialties","Baltimore City Health Dept., WIC Express",143793,"Baltimore City Health Dept., WIC Express",Food,WIC,
+"Food, Goods, Race/Ethnicity, Age Group",Food Pantry and Clothing (Alimentos y ropa),139923,COVID-19 FOOD--Assisi House,Food,Food Pantry ,
+"Food, Health",Meal Delivery (Entrega de Comida),144925,Meals on Wheels (Se Habla EspaÃ±ol),Food,Food Delivery,
+"Food, Health",Medical Nutrition Therapy (Terapia de nutriciÃ³n mÃ©dica),145168,Moveable Feast (Se Habla EspaÃ±ol),Food,Food Delivery,
+"Food, Health, Care, Age Group",Senior Nutrition Program,143451,Senior Nutrition Program,,,Clear
+"Food, Health, Education, Work",Psychiatric Rehabilitation Programs (PRP),144118,Behavioral Health Clinic - Downtown,,,Clear
+"Food, Health, Education, Work",Psychiatric Rehabilitation Programs (PRP),144119,Behavioral Health Clinic - Midtown,,,Clear
+"Food, Health, Health Specialties",Nutrition Education,144413,Joy Wellness Center,,,Clear
+"Food, Health, Health Specialties",Dietitian Counseling,144546,"AbsoluteCARE, Greenbelt",,,Clear
+"Food, Health, Health Specialties",Dietitian Counseling,144547,"AbsoluteCARE, Baltimore",,,Clear
+"Food, Health, Insurance Accepted",General Health Services,144795,"Total Health Care, Inc.: Open Gates Health Center",,,Clear
+"Food, Health, Money, Substance Use Treatment Preferences",My Brother's Keeper,140440,My Brother's Keeper,,,Clear
+"Food, Housing",Room and Board (Alojamiento y Comida),145156,"Triage, Respite, and Isolation Center at The Lord Baltimore Hotel (Se Habla EspaÃ±ol)",Health,,
+"Food, Housing",Earl's Place Baltimore,144374,Earl's Place Transitional Housing,Housing,Transitional Housing,
+"Food, Housing, Care, Age Group, Armed Forces, Disability, Gender & Sexuality",Emergency Shelter,144882,Weinberg Housing Resource Center,Housing,,
+"Food, Housing, Health, Education, Work, Age Group, Armed Forces, Criminal History, Disability, Gender & Sexuality, Health Specialties, Languages, Race/Ethnicity",Occupational Therapy,144247,"Mosaic Community Services, Baltimore City",Mental Health,,
+"Food, Housing, Health, Work, Age Group, Citizenship, Criminal History, Disability, Employment, Gender & Sexuality, Income, Insurance Accepted, Race/Ethnicity, Documents Needed, Languages",Psychiatric Rehabilitation Program (PRP),144246,"Mosaic Community Services, Baltimore City",Mental Health,,
+"Food, Housing, Transit, Health, Money, Care, Age Group, Criminal History, Health Specialties, Housing, Income, Languages",AIDS Interfaith Residential Services,144217,A.I.R.S.,,,Clear
+"Food, Insurance Accepted","Baltimore County DSS, District Office-Dundalk",141365,"Police Athletic League (PAL), Dundalk",,,Clear
+"Food, Special Hours",Senior and Special Population Store Hours,144852,Special Shopping Hours,,,Clear
+"Food, Substance Use Treatment Preferences",Samaritan Community,141006,Samaritan Community,,,Clear
+"Food, Transit",Application (Solicitud),145167,Moveable Feast (Se Habla EspaÃ±ol),Food,Food Delivery,
+"Gender & Sexuality, Family Friendly",Counseling and Case Management,144220,Marian House (substance treatment center),Substance Use,Treatment Centers,
+"Gender & Sexuality, Family Friendly",Fatherhood Groups,144640,Baltimore Healthy Start Inc,,,Clear
+Goods,Ruth's Closet,145231,House of Ruth,Goods,Clothing + Clothing for Jobs,
+Goods,Surprise Shop,140640,Surprise Shop,Goods,Clothing + Clothing for Jobs,
+Goods,Monthly Clothing Closet,144567,The Pride Center of Maryland,Goods,Clothing + Clothing for Jobs,
+"Goods, Age Group",Attire-4-Hire,144722,Franciscan Center,Goods,Clothing + Clothing for Jobs,
+"Goods, Age Group",Clothing & Toiletries,144723,Franciscan Center,Goods,Clothing + Clothing for Jobs,
+"Goods, Age Group",Free Hygiene Products,144917,Parts of Peace,Goods,Hygiene Items,
+"Goods, Age Group",Thrift Store,144367,"Goodwill Industries of the Chesapeake, Inc.",Goods,Household Items,
+"Goods, Gender & Sexuality, Food, Care, Education, Work","My Sister's Place Drop-In Center (Women's Center), Catholic Charities",140976,"My Sister's Place Drop-In Center, Catholic Charities",,,Clear
+"Goods, Health","Women, Infants & Children (Mujeres, BebÃ©s y NiÃ±os)",144935,Baltimore City Health Department Maternal and Child Health Services (Se Habla EspaÃ±ol),Health,Children,
+"Goods, Money, Age Group, Income",Other Services,144806,"Community Crisis Center, Inc.",,,Clear
+Health,Outpatient Services and Assessment Sites,144125,"Gaudenzia, Inc.",,,Clear
+Health,Mental Health/Co-Occurring Services,144128,"Gaudenzia, Inc.",Mental Health,Treatment Centers,
+Health,Partial Hospitalization Program,144349,House of Change Behavioral Health,,,Clear
+Health,General Services,144799,St. Agnes,Health,Access to Care (Insurance/ prescription assistance),
+Health,General Services,144801,Highlandtown,Health,Access to Care (Insurance/ prescription assistance),
+Health,General Services,144800,Belair Edison,Health,Access to Care (Insurance/ prescription assistance),
+Health,General Services,144804,Reisterstown Road Plaza,Health,Access to Care (Insurance/ prescription assistance),
+Health,General Services,144802,Belvedere Avenue,Health,Access to Care (Insurance/ prescription assistance),
+,,,,,,
+Health,General Services,144798,Orleans Square,,,Clear
+Health,General Services,144803,Men & Family Health Center,,,Clear
+Health,HIV Education and Testing,144141,Glenwood Life Counseling Center,,,Clear
+Health,Medication Assisted Treatment (MAT),144145,Glenwood Life Counseling Center,,,Clear
+Health,Wellness Sessions,145136,Baltimore Harm Reduction Coalition,Substance Use,Harm Reduction Treatment,
+Health,Intensive Outpatient (IOP),144133,Grant House Women's Location,,,Clear
+Health,Outpatient Treatment (OP),144135,Grant House Women's Location,,,Clear
+Health,Maryland Alcohol & Drug Abuse Administration,143539,Westside Emergency Shelter,,,Clear
+Health,Community Health,144736,Centro SOL,Health,,
+Health,Intensive Outpatient (IOP),144134,Grant House Men's Location,,,Clear
+Health,Outpatient Treatment (OP),144136,Grant House Men's Location,,,Clear
+Health,Dental Referrals and Support,145145,Franciscan Center,Health,Dental Care,
+Health,Free Medication Delivery,145016,Medstar Union Memorial Pharmacy,Health,,
+Health,Free Medication Delivery (Entrega de Medicamentos Gratis),145015,Johns Hopkins Hospital Pharmacy (SALUD -- Se Habla EspaÃ±ol),Health,,
+Health,Mental Healthcare,144866,COVID-19 -- Thrive,Mental Health,Treatment Centers,
+Health,"Kennedy Krieger Family Center, Family Clinic",143513,"Kennedy Krieger Family Center, Birth To Five Clinic",,,Clear
+Health,Intensive Outpatient Program (IOP),144147,Glenwood Life Counseling Center,,,Clear
+Health,Baltimore Families First,143770,"Baltimore Housing, OHEP/Weatherization",,,Clear
+Health,Healthy Teens & Young Adults (Adolescentes Sanos y Adultos JÃ³venes),144934,Baltimore City Health Department Maternal and Child Health Services (Se Habla EspaÃ±ol),Health,Sexual/Family Planning,
+Health,Family Planning & Reproductive Health Services for Adults(Servicios de PlanificaciÃ³n Familiar y Salud Reproductiva para Adultos),144933,Baltimore City Health Department Maternal and Child Health Services (Se Habla EspaÃ±ol),,,Clear
+Health,Healthcare (Cuidado de la Salud),145157,"Triage, Respite, and Isolation Center at The Lord Baltimore Hotel (Se Habla EspaÃ±ol)",Health,Sexual/Family Planning,
+Health,"Total Health Care Inc., Substance Abuse Program",140652,"Total Health Care, Inc.: Saratoga Street",Substance Use,Treatment Centers,
+Health,Online Mental Health Screenings (ExÃ¡menes de Salud Mental En LÃ­nea),145090,Mental Health America (Se habla espaÃ±ol),Mental Health,Treatment Centers,
+Health,Health (Salud),144857,Centro SOL (Se Habla EspaÃ±ol),Health,General Population,
+Health,Therapy Directory,145093,Therapy for Black Girls,Mental Health,Treatment Centers,
+Health,Residential Treatment,145278,Howard House for Men,Mental Health,Treatment Centers,
+Health,Crisis Stabalization,145273,Tuerk House Main Campus,Mental Health,Treatment Centers,
+Health,Partial Hospitalization,145275,Tuerk House Main Campus,Mental Health,Treatment Centers,
+Health,Residential Treatment,145279,Nilsson House for Women,Mental Health,Treatment Centers,
+Health,Medication-Assisted Treatment,145277,Tuerk House Main Campus,Substance Use,Medicated Assisted Treatment,
+Health,Medication-Assisted Treatment,145285,Weisman- Kaplan House (Men),Substance Use,Medicated Assisted Treatment,
+Health,Medication-Assisted Treatment,145286,"Sister Augusta Reilly, R.S.N. Home for Women in Recovery (Coming soon)",Substance Use,Medicated Assisted Treatment,
+Health,Medication-Assisted Treatment,145287,Howard House for Men,Substance Use,Medicated Assisted Treatment,
+Health,Medication-Assisted Treatment,145288,Nilsson House for Women,Substance Use,Medicated Assisted Treatment,
+Health,PSYCHIATRIC REHABILITATION SERVICES,144072,"All Walks of Life, LLC",Mental Health ,Treatment Facilities,
+Health,Virtual Grief Counseling,145295,Virtual Bereavement Group,Mental Health,Counseling Services ,
+Health,Methadone Administration,144149,Belair Health Solutions,Substance Use,Medicated Assisted Treatment,
+Health,DBSA Support Groups (Grupos de Apoyo),145017,Depression and Bipolar Support Alliance (Se habla espaÃ±ol),Mental Health,Support Groups,
+Health,Eyeglass Support Services,145137,Franciscan Center,Health,Medical Equipment,
+Health,Drug Court 3.1 and 3.3,144083,"A Step Forward, Inc.",Substance Use,Treatment Centers,
+Health,Prescription Support Services,145144,Franciscan Center,Health,Access to Care (Insurance/ Prescription Assistance),
+Health,Intensive Outpatient Program (IOP),144154,"Beyond This Day Behavioral Health, Inc",,,Clear
+Health,Outpatient Program (OP),144155,"Beyond This Day Behavioral Health, Inc",,,Clear
+Health,Emergency Dental Care (Cuidado dental de emergencia),144936,Baltimore City Health Department Clinical Services (SALUD -- Se Habla EspaÃ±ol),Health,Dental Care,
+Health,Sexual Health Clinic (ClÃ­nica de ETS),144937,Baltimore City Health Department Clinical Services (SALUD -- Se Habla EspaÃ±ol),Health,Sexual/Family Planning,
+Health,TB & Pregnancy Tests,144153,Belair Health Solutions,Health,Sexual/Family Planning,
+Health,OUTPATIENT MENTAL HEALTH CLINIC,144053,"All Walks of Life, LLC",Mental Health,Treatment Centers,
+Health,WARMLine,145316,Maryland Volunteer Lawyers Services,Legal,Reduced Cost/ Free Transportation,
+Health,Overdose Prevention,144163,"Bon Secours, New Hope Treatment Center",Substance Use,Treatment Centers,
+Health,Primary Care,144167,"Bon Secours, New Hope Treatment Center",,,Clear
+Health,"HIV Education, Counseling and Testing",144168,"Bon Secours, New Hope Treatment Center",,,Clear
+Health,"Key Point Health Services, Inc., Catonsville",142540,"Key Point Health Services, Inc., Catonsville",,,Clear
+Health,"HIV Education, Counseling and Testing",144179,"Bon Secours, Adapt Cares",,,Clear
+Health,"Baltimore City DSS, Public Assistance to Adults (PAA)",143525,"Baltimore City DSS, HEESU",Safety,Adults,
+Health,"Baltimore City DSS, Temporary Disability Assistance Prog. (TDAP)",141317,"Baltimore City DSS, HEESU",Safety,Adults,
+Health,Primary Care,144180,"Bon Secours, Adapt Cares",Health,Access to Care (Insurance/ prescription assistance),
+Health,Methadone Maintenance Treatment (MMT),144181,"B.N.J. Health Services, LLC",Substance Use,Medicated Assisted Treatment,
+Health,Intensive Outpatient Therapy,144182,"B.N.J. Health Services, LLC",Substance Use,Treatment Centers,
+Health,Outpatient Program,144183,"B.N.J. Health Services, LLC",Substance Use,Treatment Centers,
+Health,Substance Use Disorder,144185,"Bridging The Gap Services, LLC",Substance Use,Treatment Centers,
+Health,Medication Assisted Therapy,144186,"Bridging The Gap Services, LLC",Substance Use,Medicated Assisted Treatment,
+Health,Narcotics Anonymous (NA) - 12 Step Program,144189,"Bridging The Gap Services, LLC",Substance Use,Treatment Centers,
+Health,Outpatient Program (OP),144192,"By Grace, Inc (counseling services)",Substance Use,Treatment Centers,
+Health,Intensive Outpatient Program (IOP),144191,"By Grace, Inc (counseling services)",Substance Use,Treatment Centers,
+Health,Community-Based Education and Training,144425,Community Asthma Program,Health,,
+Health,"Baltimore City Health Department, Administration",142579,"Baltimore City Health Department, Administration",Substance Use,Treatment Centers,
+Health,Medicated Assisted Treatment,144199,"CCG Brooklyn, MD Treatment Center Location",Substance Use,Treatment Centers,
+Health,Psychiatric Rehabilitation Program,144433,Changing Lives at Home,Substance Use,Treatment Centers,
+Health,Medicated Assisted Treatment,144201,"CCG Frederick, MD Treatment Center",Substance Use,Treatment Centers,
+Health,Medicated Assisted Treatment,144202,"CCG Brooklyn, MD Treatment Center Location",Substance Use,Treatment Centers,
+Health,Substance Abuse Outpatient Treatment (OP),144111,"BACHS Healthcare, LLC - Baltimore",Substance Use,Treatment Centers,
+Health,"Complete Wellness, Inc",144205,The Complete Wellness Mission,Substance Use,Treatment Centers,
+Health,Suboxone,144434,Changing Lives at Home,Substance Use,Medicated Assisted Treatment,
+Health,Medication Management,144435,Changing Lives at Home,Substance Use,Harm Reduction Treatment,
+Health,MEDICATION ASSISTED THERAPY,144207,"Omnis Health Life, LLC",Substance Use,Medicated Assisted Treatment,
+Health,Outpatient Mental Health Care,144436,Changing Lives at Home,Substance Use,Treatment Centers,
+Health,Substance Use Treatment,144437,"Chase Brexton Health Services, Inc., Baltimore",Substance Use,Treatment Centers,
+Health,Substance Abuse Treatment,144085,ABA Health Services,Substance Use,Treatment Centers,
+Health,"Men's Health Center, The",143058,"Baltimore City Health Dept., Druid Health District",,,Clear
+Health,Outpatient Programs (OP),144262,"Mountain Manor Treatment Center, Highlandtown",Substance Use,Treatment Centers,
+Health,Intensive Outpatient Programs (IOP),144263,"Mountain Manor Treatment Center, Highlandtown",Substance Use,Treatment Centers,
+Health,Dental Care,144270,"Native American Lifelines, Inc.",Health,Dental Care,
+Health,Health Promotion/Disease Prevention,144271,"Native American Lifelines, Inc.",Health,,
+Health,Back to School Dental Day,144282,"Native American Lifelines, Inc.",Health,Dental Care,
+Health,HIV/AIDS and Hepatitis Prevention,144273,"Native American Lifelines, Inc.",,,Clear
+Health,Random Toxicology Screening,144292,New Vision House of Hope,,,Clear
+Health,Methadone Treatment,144294,Northern Parkway Treatment Services,Substance Use,Medicated Assisted Treatment,
+Health,Intensive Outpatient Program (IOP),144308,"Organization of Hope, Inc.",Substance Use,Treatment Centers,
+Health,Intensive Outpatient Program (IOP),144323,Port Recovery,Substance Use,Outpatient,
+Health,Medical Care,144329,"Health Care for the Homeless, Inc., Baltimore City",Health,Access to Care (Insurance/ Prescription Assistance),
+Health,Dental Care,144330,"Health Care for the Homeless, Inc., Baltimore City",Health,Access to Care (Insurance/ Prescription Assistance),
+Health,Intensive Outpatient Programs (IOP),144346,House of Change Behavioral Health,Substance Use,Outpatient,
+Health,Outpatient Program (OP),144344,"Healthy Lives, LLC",Substance Use,Outpatient,
+Health,Outpatient Program (OP),144347,House of Change Behavioral Health,Substance Use,Outpatient,
+Health,Intensive Outpatient Program (IOP),144343,"Healthy Lives, LLC",Substance Use,Outpatient,
+Health,Onsite PRP Partnerships,144355,House of Change Behavioral Health,Substance Use,Treatment Centers,
+Health,Intensive Outpatient Program (IOP),144359,Huber Rehabilitation Services,Substance Use,Outpatient,
+Health,Outpatient Program (OP),144358,Huber Rehabilitation Services,Substance Use,Outpatient,
+Health,"I Can't, We Can, Inc.",142884,"I Can't, We Can, Inc.",,,Clear
+Health,Emergency contraception,144494,Family planning and reproductive health services (eastern location),,,Clear
+Health,Intensive Outpatient Program (IOP),144370,Johns Hopkins Bayview Medical Center - Community Psychiatry Program,Substance Use,Outpatient,
+Health,Intensive Outpatient Program (IOP),144232,"MISHA House, LLC",Substance Use,Outpatient,
+Health,Outpatient Program (OP),144234,"MISHA House, LLC",Substance Use,Outpatient,
+Health,"Tuerk House, Inc",141058,"Tuerk House, Inc",,,Clear
+Health,Health Screenings,144634,Baltimore Healthy Start Inc,,,Clear
+Health,Day Hospital,144682,Aspen Day Treatment,,,Clear
+Health,Opioid Use Disorder Treatment,144376,Sinai Hospital Addictions Recovery Program,,,Clear
+Health,Psychiatric Rehabilitation Services,144092,American Psychiatric Group,,,Clear
+Health,Health Education,144544,"AbsoluteCARE, Greenbelt",,,Clear
+Health,Mental health services,144695,Baltimore Cares Inc,,,Clear
+Health,"Key Point Health Services, Inc. Dundalk",142472,"Key Point Health Services, Inc. Dundalk",,,Clear
+Health,"Key Point Health Services, Inc., Aberdeen",143768,"Key Point Health Services, Inc., Aberdeen",,,Clear
+Health,"Baltimore City DSS, Office of Male Initiatives",142718,"Baltimore City DSS, Family Preservation Services",,,Clear
+Health,"Baltimore City DSS, Temporary Cash Assistance (TCA)",143526,"Baltimore City DSS, Child Care Program",,,Clear
+Health,Medicated Assisted Treatment,144200,Central Baltimore,,,Clear
+Health,Intensive Outpatient Treatment and Outpatient Therapy,144074,"A Step Forward, Inc.",,,Clear
+Health,"Walter P. Carter, Carruthers Clinic",140803,Walter P. Carter Fayette Clinic,,,Clear
+Health,Methadone Treatment,144094,Pine Heights Treatment Center,,,Clear
+Health,Intensive Outpatient Services,144100,Audacity of Hope Behavioral Health,,,Clear
+Health,Substance Abuse Intensive Outpatient Program (IOP),144110,"BACHS Healthcare, LLC - Baltimore",,,Clear
+Health,Blood Services,144670,American Red Cross,,,Clear
+"Health Specialties, Health",Risk of Diabetes Test,144480,"American Diabetes Association, Baltimore Location",,,Clear
+"Health Specialties, Health, Age Group","Baltimore City Health Department, Community Asthma Program",142405,"Baltimore City Health Department, Administration",,,Clear
+"Health Specialties, Health, Age Group, Disability",Psychiatric Rehabilitation Programs,144577,"Affiliated Sante Group, Prince George's County",,,Clear
+"Health, Age Group",Counseling,144583,"Alternatives to Dependency, Towson (Main Office)",,,Clear
+"Health, Age Group",Drug and alcohol screening,144582,"Alternatives to Dependency, Towson (Main Office)",,,Clear
+"Health, Age Group",Substance Abuse Treatment,144694,Baltimore Cares Inc,,,Clear
+"Health, Age Group",Baltimore Neighbors Network,144837,Baltimore Neighbors Network,,,Clear
+"Health, Age Group",Free Medication Delivery,145014,CVS Pharmacy,Health,Access to Care (Insurance/ Prescription Assistance),
+"Health, Age Group",NAMI Connection Metropolitan Baltimore Virtual Health Events,145018,National Alliance on Mental Illness,Mental Health,,
+"Health, Age Group",Virtual Exercise,145213,Virtual Recreation Center,,,Clear
+"Health, Age Group",GiveFit FREE Workout Programs,145024,GiveFit,,,Clear
+"Health, Age Group","Kennedy Krieger Family Center, Evaluation Clinic",143512,"Kennedy Krieger Family Center, Birth To Five Clinic",,,Clear
+"Health, Age Group",Mental Health Resources,144918,Child Mind Institute,,,Clear
+"Health, Age Group",Connect With a Therapist,145102,Black Mental Health Alliance,Mental Health ,,
+"Health, Age Group",Substance Use Disorder Treatment,144440,"Family Health Centers of Baltimore, Cherry Hill Center",,,Clear
+"Health, Age Group",Prince George's County Crisis Response,144009,"Affiliated Sante Group, Prince George's County",,,Clear
+"Health, Age Group","Family Health Centers of Baltimore, Calvert Street Center",142994,"Family Health Centers of Baltimore, Calvert Street Center",,,Clear
+"Health, Age Group",Outpatient Psychiatric and Therapeutic Services,144706,Balance Point Wellness Baltimore,,,Clear
+"Health, Age Group",Acupuncture,144707,Balance Point Wellness Baltimore,,,Clear
+"Health, Age Group",Psychological Testing,144086,ABA Health Services,,,Clear
+"Health, Age Group",Substance Abuse Treatment,144439,"Family Health Centers of Baltimore, Brooklyn",,,Clear
+"Health, Age Group",Rehabilitation,144693,Augsburg Village,,,Clear
+"Health, Age Group",Mental Health Therapy and Counseling,144084,ABA Health Services,,,Clear
+"Health, Age Group",Psychiatric Visits,144052,ABA Health Services,,,Clear
+"Health, Age Group",Substance Abuse Treatment,144479,"Glass Substance Abuse Program, Inc.",,,Clear
+"Health, Age Group",Therapeutic Behavioral Services,144087,ABA Health Services,,,Clear
+"Health, Age Group",Medical Services,144441,"Family Health Centers of Baltimore, Brooklyn",,,Clear
+"Health, Age Group",Outpatient Program (OP),144288,New Vision House of Hope,,,Clear
+"Health, Age Group",Outpatient Clinic,144369,Johns Hopkins Bayview Medical Center - Community Psychiatry Program,,,Clear
+"Health, Age Group",Promoting Student Resilience,144056,Baltimore City Health Department Office of Youth & Trauma Services,,,Clear
+"Health, Age Group",Outpatient Mental Health,144581,"Affiliated Sante Group, Prince George's County",,,Clear
+"Health, Age Group, Armed Forces",Health Care,144712,Maryland Center for Veterans Education and Training,,,Clear
+"Health, Age Group, Armed Forces, Citizenship, Criminal History, Gender & Sexuality, Health Specialties, Income, Insurance Accepted, Languages, Race/Ethnicity, Documents Needed, Special Hours",PrEP,144485,Sexual Health Clinic (Druid STD Clinic),,,Clear
+"Health, Age Group, Armed Forces, Citizenship, Criminal History, Gender & Sexuality, Health Specialties, Income, Insurance Accepted, Languages, Race/Ethnicity, Documents Needed, Special Hours",PrEP,144486,Sexual Health Clinic,,,Clear
+"Health, Age Group, Armed Forces, Gender & Sexuality, Family Friendly, Substance Use Treatment Preferences",Substance Abuse Treatment,144206,"Omnis Health Life, LLC",,,Clear
+"Health, Age Group, Citizenship, Criminal History, Gender & Sexuality, Health Specialties, Insurance Accepted, Languages, Race/Ethnicity",Hepatitis C,144487,Sexual Health Clinic (Druid STD Clinic),,,Clear
+"Health, Age Group, Citizenship, Criminal History, Gender & Sexuality, Health Specialties, Insurance Accepted, Languages, Race/Ethnicity",Hepatitis C,144488,Sexual Health Clinic,,,Clear
+"Health, Age Group, Citizenship, Gender & Sexuality, Health Specialties, Insurance Accepted, Languages, Race/Ethnicity",HIV treatment,144489,Sexual Health Clinic (Druid STD Clinic),,,Clear
+"Health, Age Group, Citizenship, Gender & Sexuality, Health Specialties, Insurance Accepted, Languages, Race/Ethnicity",HIV treatment,144490,Sexual Health Clinic,,,Clear
+"Health, Age Group, Disability",Home Care,144556,Active Day of Timonium,,,Clear
+"Health, Age Group, Disability",Home Care,144558,Active Day of Arbutus,,,Clear
+"Health, Age Group, Disability",Home Care,144553,Active Day of Baltimore,,,Clear
+"Health, Age Group, Disability",Home Care,144554,Active Day of Parkville,,,Clear
+"Health, Age Group, Disability",Home Care,144552,Active Day of Randallstown,,,Clear
+"Health, Age Group, Disability",THERAPEUTIC BEHAVIORAL SERVICES,144090,"All Walks of Life, LLC",,,Clear
+"Health, Age Group, Disability",Baltimore Infants and Toddlers Program,144069,"Baltimore Infants and Toddlers Program, Baltimore City Health Department",,,Clear
+"Health, Age Group, Disability, Gender & Sexuality, Health Specialties, Race/Ethnicity, Documents Needed, Housing",Residential Rehabilitation Services (RRP),144248,"Mosaic Community Services, Baltimore City",,,Clear
+"Health, Age Group, Disability, Health Specialties",Psychiatric Rehabilitation Program,145327,Allover Healthcare Community,,,Clear
+"Health, Age Group, Disability, Health Specialties",BACHS Healthcare,144219,BACHS Healthcare,,,Clear
+"Health, Age Group, Disability, Health Specialties",Psychiatric Rehabilitation Programs,144578,"Affiliated Sante Group, Montgomery County",,,Clear
+"Health, Age Group, Family Friendly",Outdoor Activities,145211,Virtual Recreation Center,,,Clear
+"Health, Age Group, Family Friendly",Indoor Activities,145210,Virtual Recreation Center,,,Clear
+"Health, Age Group, Family Friendly, Insurance Accepted",Families First Counseling,144204,Families First Counseling,,,Clear
+"Health, Age Group, Family Friendly, Insurance Accepted",Insightful Life Therapeutic Services,144203,Insightful Life Therapeutic Services,,,Clear
+"Health, Age Group, Gender & Sexuality, Documents Needed",Methadone Treatment,144024,MedMark Treatment Centers Baltimore Downtown,,,Clear
+"Health, Age Group, Gender & Sexuality, Health Specialties",HIV/AIDS testing,144491,"New Opportunities for Women, Inc.",,,Clear
+"Health, Age Group, Gender & Sexuality, Health Specialties, Family Friendly, Insurance Accepted, Race/Ethnicity, Documents Needed",Off-Site Counseling,144255,"Mosaic Community Services, Baltimore City",,,Clear
+"Health, Age Group, Gender & Sexuality, Health Specialties, Insurance Accepted",Contraception (birth control),144493,Family planning and reproductive health services (eastern location),,,Clear
+"Health, Age Group, Gender & Sexuality, Insurance Accepted",LGBT Health Services,145165,Chase Brexton Healthcare,,,Clear
+"Health, Age Group, Gender & Sexuality, Insurance Accepted, Special Hours, Armed Forces, Citizenship, Disability, Employment, Health Specialties, Family Friendly, Income, Languages, Race/Ethnicity, Documents Needed",Outpatient Mental Health Clinic,144245,"Mosaic Community Services, Baltimore City",,,Clear
+,,,,,,
+"Health, Age Group, Health Specialties",Home Visiting Services,144423,"Baltimore City Health Dept., The Healthy Home Division",,,Clear
+"Health, Age Group, Health Specialties",Home Visiting Services,144424,Community Asthma Program,,,Clear
+"Health, Age Group, Health Specialties",HIV/AIDS Prevention Education,144492,"New Opportunities for Women, Inc.",,,Clear
+"Health, Age Group, Health Specialties",Outpatient Clinic,144681,Aspen Day Treatment,,,Clear
+"Health, Age Group, Health Specialties",Outpatient Services,144696,"Baltimore City Counseling Center, Frederick St.",,,Clear
+"Health, Age Group, Health Specialties, Family Friendly, Languages",Lead Prevention Home Visits,144195,"Baltimore City Health Department, Childhood Lead Poisoning Prevention and Environmental Case Management Program",,,Clear
+"Health, Age Group, Health Specialties, Family Friendly, Role",The Early Child Development Program,144625,Baltimore Healthy Start Inc,,,Clear
+"Health, Age Group, Health Specialties, Insurance Accepted",Bright Horizons,144218,Bright Horizons,,,Clear
+"Health, Age Group, Health Specialties, Insurance Accepted",Crisis Information and Referral Line,144054,Health Care Access Maryland,,,Clear
+"Health, Age Group, Health Specialties, Insurance Accepted, Special Hours, Substance Use Treatment Preferences",Prevention and Recovery Center,144216,"Harbel Community Organization, Inc.",,,Clear
+"Health, Age Group, Health Specialties, Insurance Accepted, Substance Use Treatment Preferences",Substance Abuse Program,144091,American Psychiatric Group,,,Clear
+"Health, Age Group, Health Specialties, Substance Use Treatment Preferences",Community Institute of Behavioral Services,140943,"Bon Secours, Adapt Cares",,,Clear
+"Health, Age Group, Income",Medical Clinic,144703,"Arundel House of Hope, Medical Clinic",,,Clear
+"Health, Age Group, Insurance Accepted",Laboratory Services,144093,American Psychiatric Group,,,Clear
+"Health, Age Group, Substance Use Treatment Preferences",Outpatient Services,144726,Powell Recovery Center,,,Clear
+"Health, Age Group, Substance Use Treatment Preferences",Withdrawal Management,144725,Powell Recovery Center,,,Clear
+"Health, Age Group, Substance Use Treatment Preferences",Residential Services,144727,Powell Recovery Center,,,Clear
+"Health, Care","Sinai Hospital, Addictions Recovery Program",140843,Sinai Hospital Addictions Recovery Program,,,Clear
+"Health, Care",Recovery For Life,144364,Recovery for Life,,,Clear
+"Health, Care",Self-Help Support Groups-Methadone Anonymous,144161,"Bon Secours, New Hope Treatment Center",,,Clear
+"Health, Care",University of Maryland Drug Treatment Center,142425,"University of Maryland, Center for Infants & Child Loss",,,Clear
+"Health, Care","Baltimore City DSS, Child Care Program",141279,"Baltimore City DSS, Child Care Program",,,Clear
+"Health, Care, Age Group",Psychiatric Rehabilitation Program,144728,Powell Recovery Center,,,Clear
+"Health, Care, Age Group",Phone Case Management,145003,Charm City Care Connection,,,Clear
+"Health, Care, Age Group",Friendship Line,145019,Institute on Aging,,,Clear
+"Health, Care, Age Group",Children Having Incarcerated Parents,144572,"Alternative Directions, Inc.",,,Clear
+"Health, Care, Age Group",Respite Care,144629,"American Caregivers, Inc.",,,Clear
+"Health, Care, Age Group",Senior Services,144579,"Affiliated Sante Group, Montgomery County",,,Clear
+"Health, Care, Age Group",Consumer-Run Wellness and Recovery Center,144580,"Affiliated Sante Group, Montgomery County",,,Clear
+"Health, Care, Age Group",Center for Family Services,140876,"Catholic Charities of Balto., Center for Family Services",,,Clear
+"Health, Care, Age Group",Home Visits,144624,Baltimore Healthy Start Inc,,,Clear
+"Health, Care, Age Group, Armed Forces",Substance Use Disorder/Mental Health,144719,Maryland Center for Veterans Education and Training,,,Clear
+"Health, Care, Age Group, Armed Forces, Housing",Case Management/Counseling,144713,Maryland Center for Veterans Education and Training,,,Clear
+"Health, Care, Age Group, Citizenship, Health Specialties, Family Friendly",B'More for Healthy Babies,144061,Baltimore City Health Department Maternal & Child Health,,,Clear
+"Health, Care, Age Group, Disability",Alternative Opportunities Program,144688,Athelas Institute Inc. Alternative Opportunities Program,,,Clear
+"Health, Care, Age Group, Disability, Health Specialties",Way Station Camp Journey Respite Program,143506,Way Station Camp Journey Respite Program,,,Clear
+"Health, Care, Age Group, Disability, Substance Use Treatment Preferences",Kernan Hospital,140329,Brain Injury Association of Maryland,,,Clear
+"Health, Care, Age Group, Gender & Sexuality","Hearts & Ears, Inc.",144041,"Hearts & Ears, Inc.",,,Clear
+"Health, Care, Age Group, Gender & Sexuality, Health Specialties, Race/Ethnicity, Survivors",Counseling,144325,"Hawkes Counseling Services, LLC",,,Clear
+"Health, Care, Age Group, Health Specialties",Adult Day Health Care,144559,Active Day of Baltimore,,,Clear
+"Health, Care, Age Group, Health Specialties",Adult Day Health Care,144560,Active Day of Randallstown,,,Clear
+"Health, Care, Age Group, Health Specialties",Adult Day Health Care,144561,Active Day of Parkville,,,Clear
+"Health, Care, Age Group, Health Specialties",Adult Day Health Care,144563,Active Day of Timonium,,,Clear
+"Health, Care, Age Group, Health Specialties",Adult Day Health Care,144565,Active Day of Arbutus,,,Clear
+"Health, Care, Age Group, Health Specialties, Insurance Accepted",Autism Spectrum Services,144630,"American Caregivers, Inc.",,,Clear
+"Health, Care, Age Group, Health Specialties, Insurance Accepted",Therapeutic Services,144627,"American Caregivers, Inc.",,,Clear
+"Health, Care, Age Group, Health Specialties, Substance Use Treatment Preferences",Senior Outreach Service,142168,Senior Outreach Service,,,Clear
+"Health, Care, Education","Baltimore City Health Dept., The Healthy Home Division",143208,"Baltimore City Health Dept., The Healthy Home Division",,,Clear
+"Health, Care, Education, Age Group, Disability, Health Specialties, Substance Use Treatment Preferences",Franklin Square Hospital Center,140181,Family Health Center at Medstar Franklin Square,,,Clear
+"Health, Care, Education, Age Group, Education, Gender & Sexuality","Gay, Lesbian, & Straight Education Network (GLSEN)",144044,"Gay, Lesbian, & Straight Education Network (GLSEN) Maryland",,,Clear
+"Health, Care, Education, Armed Forces, Gender & Sexuality",Residential Program,144751,The Baltimore Station,,,Clear
+"Health, Care, Education, Health Specialties",Support Groups,144571,"The ALS Association, DC-MD-VA Chapter",,,Clear
+"Health, Care, Education, Health Specialties, Substance Use Treatment Preferences","St. Joseph Medical Center, Community Outreach",140823,"St. Joseph Medical Center, Cardiovascular Fitness Program",,,Clear
+"Health, Care, Education, Substance Use Treatment Preferences",Recovery in Community,142952,Recovery in Community,,,Clear
+"Health, Care, Education, Substance Use Treatment Preferences",Substance Use Disorder Services,142172,"Act II Counseling Services, Inc.",,,Clear
+"Health, Care, Insurance Accepted",Clinical Services,144077,"A Step Forward, Inc.",,,Clear
+,,,,,,
+"Health, Care, Survivors, Age Group, Gender & Sexuality",Abuse/Trauma Care and Support,142901,"Counseling, Helpline, & Aid Network for Abused",,,Clear
+"Health, Disability, Emergency, Goods, Care, Work, Age Group, Health Specialties, Substance Use Treatment Preferences","Way Station, Inc.",140719,"Way Station, Inc.",,,Clear
+"Health, Disability, Health Specialties","St. Joseph Medical Center, Medical Services",140613,"St. Joseph Medical Center, Cardiovascular Fitness Program",,,Clear
+"Health, Disability, Health Specialties","Sinai Hospital, Rehabilitation Center",141101,"Sinai Hospital of Baltimore, Inc.",,,Clear
+"Health, Education",Events (Eventos),144952,Centro SOL (Se Habla EspaÃ±ol),,,Clear
+"Health, Education",Baltimore City Needle Exchange Program (Programa de Intercambio de Agujas),144897,Baltimore City Needle Exchange Program (NEP) (Se Habla EspaÃ±ol),,,Clear
+"Health, Education, Age Group","Maryland Cooperative Extension, Cecil County",141238,"Maryland Cooperative Extension, Cecil County",,,Clear
+"Health, Education, Age Group",Psychiatric Rehabilitation Program,144089,ABA Health Services,,,Clear
+"Health, Education, Age Group","Maryland Cooperative Extension, Baltimore City",141233,"Maryland Cooperative Extension, Baltimore City",,,Clear
+"Health, Education, Age Group","Baltimore City Health Dept., Comprehensive School Health Services",140827,"Baltimore City Health Department, Administration",,,Clear
+"Health, Education, Age Group","Baltimore City Health Dept., Maternal & Child Health Admin",142702,"Baltimore City Health Department, Administration",,,Clear
+"Health, Education, Age Group, Family Friendly, Substance Use Treatment Preferences",Dundalk Youth Service Center,140127,Dundalk Church of The Brethren Pantry,,,Clear
+"Health, Education, Age Group, Health Specialties, Race/Ethnicity, Substance Use Treatment Preferences, Legal",STAR TRACK Clinic,142860,Adolescent STAR TRACK Program at University of Maryland,,,Clear
+"Health, Education, Age Group, Housing",Services for Children,144419,Baltimore Outreach Services,,,Clear
+"Health, Education, Age Group, Substance Use Treatment Preferences","Baltimore City Health Dept., Druid Health District",140844,"Baltimore City Health Dept., Druid Health District",,,Clear
+"Health, Education, Disability",Parkinson's Disease and Movement Disorder Center of Johns Hopkins,142353,Parkinson's Disease and Movement Disorder Center of Johns Hopkins,,,Clear
+"Health, Education, Gender & Sexuality, Health Specialties",Sexual Health Education,144541,The Journey Center,,,Clear
+"Health, Education, Health Specialties","Total Health Care Inc., Division Street",141429,"Total Health Care, Inc.: Division Street",,,Clear
+"Health, Education, Health Specialties","Catholic Charities of Balto., Pregnancy, Parenting/Adoption Svcs.",141037,"Catholic Charities of Balto., Center for Family Services",,,Clear
+"Health, Education, Health Specialties, Substance Use Treatment Preferences","Total Health Care Inc., Kirk Avenue Center",141431,"Total Health Care, Inc.: Kirk Avenue Center",,,Clear
+"Health, Education, Legal, Age Group, Education, Gender & Sexuality, Health Specialties, Survivors",Supporting Our Students,144059,Baltimore City Health Department Office of Youth & Trauma Services,,,Clear
+"Health, Education, Legal, Gender & Sexuality","AIDS Action Baltimore, Inc.",141461,"AIDS Action Baltimore, Inc.",,,Clear
+"Health, Education, Legal, Insurance Accepted",DWI/DUI Program,144076,"A Step Forward, Inc.",,,Clear
+"Health, Education, Race/Ethnicity, Substance Use Treatment Preferences","Baltimore City Health Dept., HIV/STD Prevention Program",142456,"Baltimore City Health Department, Administration",,,Clear
+"Health, Education, Work","Esperanza Center, Catholic Charities",140261,"Catholic Charities of Balto., Immigration Legal Services",,,Clear
+"Health, Education, Work, Age Group, Disability, Health Specialties, Family Friendly","Baltimore City Health Dept., Adult School and Community Health",140897,"Baltimore City Health Department, Administration",,,Clear
+"Health, Emergency, Citizenship, Income, Insurance Accepted, Languages, Race/Ethnicity",Esperanza Center Health Clinic (ClÃ­nica de Salud) (ECHC),144894,Esperanza Center (Se habla EspaÃ±ol),,,Clear
+"Health, Family Friendly","University of Maryland, Center for Infants & Child Loss",142333,"University of Maryland, Center for Infants & Child Loss",,,Clear
+"Health, Food",CASA Health Hotline,144948,CASA,,,Clear
+"Health, Food, Care, Legal, Age Group, Disability, Health Specialties, Survivors, Substance Use Treatment Preferences",Jewish Community Services,140927,Jewish Big Brother & Big Sister League and Jewish Addiction Srvs.,,,Clear
+"Health, Gender & Sexuality",Podcast,145094,Therapy for Black Girls,,,Clear
+"Health, Gender & Sexuality, Family Friendly",Family Planning,144626,Baltimore Healthy Start Inc,,,Clear
+"Health, Gender & Sexuality, Health Specialties",Reproductive Life Plan,144631,Baltimore Healthy Start Inc,,,Clear
+"Health, Gender & Sexuality, Health Specialties",Milk Mates,144637,Baltimore Healthy Start Inc,,,Clear
+"Health, Gender & Sexuality, Survivors",Case Management,144830,SPARC Center,,,Clear
+"Health, Goods, Money, Care, Age Group, Disability","Baltimore City Commission on Aging & Retire., Senior Care Program",141163,"Baltimore City Commission on Aging & Retire., Ombudsman Program",,,Clear
+"Health, Health Specialties",Narcotics Anonymous Meetings,145128,The Cheasapeake and Potamic Region of Narcotics Anonymous,,,Clear
+"Health, Health Specialties",Drug Treatment,144829,COVID-19 HEALTH -- REACH Health Services,,,Clear
+"Health, Health Specialties","Health, Substance Use Treatment",144831,Behavioral Health Leadership Institute Van,,,Clear
+"Health, Health Specialties",Behavioral Health Partners of Frederick,143682,Behavioral Health Partners of Frederick,,,Clear
+"Health, Health Specialties",Living with Type 2 Diabetes Program,144483,"American Diabetes Association, Baltimore Location",,,Clear
+"Health, Health Specialties",Diabetes Self-Management Education and Support Services,144482,"American Diabetes Association, Baltimore Location",,,Clear
+"Health, Health Specialties",Diabetes Prevention Program,144481,"American Diabetes Association, Baltimore Location",,,Clear
+"Health, Health Specialties",HIV & Hepatitis C Testing,144537,The Journey Center,,,Clear
+"Health, Health Specialties",PrEP & PEP,144540,The Journey Center,,,Clear
+"Health, Health Specialties",Condom Distribution,144538,The Journey Center,,,Clear
+"Health, Health Specialties",Linkage to HIV and/or Hepatitis C Medical Services,144539,The Journey Center,,,Clear
+"Health, Health Specialties",Health Education,144545,"AbsoluteCARE, Baltimore",,,Clear
+"Health, Health Specialties",Psychiatric Rehabilitation Program,144075,"A Step Forward, Inc.",,,Clear
+"Health, Health Specialties",Other Health Care Needs,144548,"AbsoluteCARE, Baltimore",,,Clear
+"Health, Health Specialties",Other Health Care Needs,144549,"AbsoluteCARE, Greenbelt",,,Clear
+"Health, Health Specialties",Belly Buddies,144632,Baltimore Healthy Start Inc,,,Clear
+"Health, Health Specialties, Care, Education, Legal, Age Group, Disability, Survivors, Substance Use Treatment Preferences","Sinai Hospital of Baltimore, Inc.",140580,"Sinai Hospital of Baltimore, Inc.",,,Clear
+"Health, Health Specialties, Family Friendly, Housing",Group Education Sessions/ Healthy Home Gatherings,144196,"Baltimore City Health Department, Childhood Lead Poisoning Prevention and Environmental Case Management Program",,,Clear
+"Health, Health Specialties, Family Friendly, Role",Infant Safe Sleep Program,144067,Health Care Access Maryland,,,Clear
+"Health, Health Specialties, Income, Substance Use Treatment Preferences",Our Daily Bread Employment Center,143778,Christopher Place Employment Academy,,,Clear
+"Health, Health Specialties, Insurance Accepted",OBGYN Services,144797,"Total Health Care, Inc.: West Side Health Center",,,Clear
+"Health, Health Specialties, Substance Use Treatment Preferences, Criminal History, Disability, Documents Needed",Recovery Network,143182,Recovery Network,,,Clear
+"Health, Health Specialties, Substance Use Treatment Preferences, Housing",AIDS Interfaith Residential Services (AIRS),139846,Homeless Persons Representation Project,,,Clear
+"Health, Insurance Accepted",Revitalization Sessions,144078,"A Step Forward, Inc.",,,Clear
+"Health, Insurance Accepted",General Services,144794,"Total Health Care, Inc.: Men's Health Center",,,Clear
+"Health, Insurance Accepted",General Health Services,144796,"Total Health Care, Inc.: West Side Health Center",,,Clear
+"Health, Insurance Accepted",Opiate addiction treatment,144575,"Alternatives to Dependency, Essex",,,Clear
+"Health, Insurance Accepted",Mental Health Program,144063,American Psychiatric Group,,,Clear
+"Health, Insurance Accepted",Methadone Maintenance,144550,A Helping Hand,,,Clear
+"Health, Insurance Accepted",Suboxone Maintenance,144551,A Helping Hand,,,Clear
+"Health, Insurance Accepted, Substance Use Treatment Preferences",Substance Abuse Treatment,144080,"A Step Forward, Inc.",,,Clear
+"Health, Languages",TAP Primary Care Clinics (TAP ClÃ­nicas de AtenciÃ³n Primaria),145159,The Access Partnership (SALUD -- Se Habla EspaÃ±ol),,,Clear
+"Health, Languages",TAP Navigator (Ayudante de elegibilidad y casos),145160,The Access Partnership (SALUD -- Se Habla EspaÃ±ol),,,Clear
+"Health, Legal, Age Group, Health Specialties, Insurance Accepted","Inspirations, LLS",144062,"Inspiration, LLC",,,Clear
+"Health, Legal, Health Specialties, Substance Use Treatment Preferences","University of Maryland Medical Ctr., PACT",139835,"University of Maryland, Center for Infants & Child Loss",,,Clear
+"Health, Money",Financial Assistance Grants,142250,American Kidney Fund,,,Clear
+"Health, Money, Age Group, Income",Care Coordination Program,144064,Health Care Access Maryland,,,Clear
+"Health, Money, Care",Family Resources,145224,Wylie Funeral Home,,,Clear
+"Health, Money, Care, Age Group, Family Friendly",Grief Support,145223,Wylie Funeral Home,,,Clear
+"Health, Money, Care, Age Group, Gender & Sexuality, Health Specialties","AIDS Action Baltimore, Inc.",144047,"AIDS Action Baltimore, Inc.",,,Clear
+"Health, Money, Care, Education, Substance Use Treatment Preferences","Jewish Community Services, Howard County",142046,"Jewish Community Services, Howard County",,,Clear
+"Health, Money, Education, Work, Family Friendly, Race/Ethnicity",Bon Secours Family Support Center,143048,"Baltimore City Health Dept., WIC - Bon Secours Community Center",,,Clear
+"Health, Money, Gender & Sexuality, Race/Ethnicity",Loveland Therapy Fund,145096,Loveland Therapy Fund,,,Clear
+"Health, Money, Insurance Accepted","Baltimore City DSS, Medical Assistance",141314,"Baltimore City DSS, Medical Assistance",,,Clear
+"Health, Money, Insurance Accepted","Senior Health Insurance Assistance Program (SHIP), Baltimore City",143822,"Baltimore City Commission on Aging & Retire., Ombudsman Program",,,Clear
+"Health, Substance Use Treatment Preferences","St. Joseph Medical Center, Psychiatric Services",140614,"St. Joseph Medical Center, Cardiovascular Fitness Program",,,Clear
+"Health, Substance Use Treatment Preferences","Baltimore City DSS, Family Preservation Services",141309,"Baltimore City DSS, Family Preservation Services",,,Clear
+"Health, Substance Use Treatment Preferences","Baltimore City DSS, Social Services to Adults",141956,"Baltimore City DSS, Social Services to Adults",,,Clear
+"Health, Substance Use Treatment Preferences",Buprenorphine treatment,144375,HealthCare on the Spot,,,Clear
+"Health, Substance Use Treatment Preferences, Age Group, Income, Insurance Accepted, Languages, Documents Needed, Special Hours",Residential Treatment,143213,"Gaudenzia, Inc. at Park Heights",,,Clear
+"Health, Substance Use Treatment Preferences, Insurance Accepted",Substance Use Disorder Treatment,144418,"Apex Counseling Center, LLC",,,Clear
+"Health, Survivors","Kennedy Krieger Family Center, New Start",143543,"Kennedy Krieger Family Center, Birth To Five Clinic",,,Clear
+"Health, Survivors",Resiliency in Communties After Stress and Trauma,144060,Baltimore City Health Department Office of Youth & Trauma Services,,,Clear
+"Health, Work, Age Group, Gender & Sexuality, Housing",Services for Women,144420,Baltimore Outreach Services,,,Clear
+"Health, Work, Disability, Health Specialties",Community Resource Center Program,142311,"Athelas Institute, Inc. Community Resource Center and Autism Program",,,Clear
+Housing,Housing,144130,"Gaudenzia, Inc.",,,Clear
+Housing,Residential Housing Programs,143206,"A Step Forward, Inc.",,,Clear
+Housing,Patient Lodging Programs,144792,"American Cancer Society, Baltimore",,,Clear
+Housing,Rapid Rehousing,144870,Youth Empowered Society,,,Clear
+Housing,No-cost Legal Advice and Possible Representation: Maryland Legal Aid,144884,Eviction Information and Resources,,,Clear
+Housing,Drop-In Services,144867,Youth Empowered Society,,,Clear
+Housing,"Baltimore Housing, OHEP/Weatherization",140952,"Baltimore Housing, OHEP/Weatherization",,,Clear
+Housing,Single Room Occupancy,144316,"Organization of Hope, Inc.",,,Clear
+Housing,Emergency Re-sheltering,144314,"Organization of Hope, Inc.",,,Clear
+Housing,Rapid Rehousing,144313,"Organization of Hope, Inc.",,,Clear
+Housing,Transitional Housing,144315,"Organization of Hope, Inc.",Housing,,
+Housing,Residential Inpatient,144317,"Organization of Hope, Inc.",Substance Use,Inpatient,
+Housing,Supports to Help Individuals Stay Housed,144335,"Health Care for the Homeless, Inc., Baltimore City",,,Clear
+Housing,Succor Transitional Program (STP),144340,"Healthy Lives, LLC",,,Clear
+Housing,Help Securing Temporary and Permanent Housing,144334,"Health Care for the Homeless, Inc., Baltimore City",Housing,,
+Housing,Crisis Housing,144345,House of Change Behavioral Health,,,Clear
+Housing,Sister to Sister House of New Beginnings,143903,Sister to Sister House of New Beginnings,,,Clear
+"Housing, Age Group",Housing,144071,Catholic Charities Basilica Place,Housing,,
+"Housing, Age Group",Low Income Senior Citizen Water Discount Program,144673,Southern Community Action Partnership Center,Utilities,Utility Assistance,
+"Housing, Age Group",Low Income Water Assistance Program,144672,Southern Community Action Partnership Center,Utilities,Utility Assistance,
+"Housing, Age Group",Office of Home Energy Programs,144674,Southern Community Action Partnership Center,Utilities,Utility Assistance,
+"Housing, Age Group",Renters/Homeowners Tax Application Assistance,144675,Southern Community Action Partnership Center,Utilities,Utility Assistance,
+"Housing, Age Group",Family Stability Program,144366,"Goodwill Industries of the Chesapeake, Inc.",,,Clear
+"Housing, Age Group, Armed Forces",Transitional Housing,144716,Maryland Center for Veterans Education and Training,Housing,Transitional Housing,
+"Housing, Age Group, Armed Forces",Single Room Occupancy,144718,Maryland Center for Veterans Education and Training,,,Clear
+"Housing, Age Group, Gender & Sexuality, Housing",Supportive Housing,144421,Baltimore Outreach Services,Housing,Transitional Housing,
+"Housing, Age Group, Gender & Sexuality, Housing, Health Specialties",Transitional housing,145317,Earl's Place,Housing,Transitional Housing,
+"Housing, Age Group, Health Specialties, Housing",Permanent Housing Program,144687,"At Jacob's Well, Inc.",Housing,,
+"Housing, Age Group, Housing",Day and Resource Center,144702,"Arundel House of Hope, Day and Resource Center",Housing,Shelter,
+"Housing, Age Group, Housing",Transitional Housing,143905,"Arundel House of Hope, The Fouse Center",Housing,Shelter,
+"Housing, Armed Forces, Criminal History, Housing",Subsidized permanent housing,144747,"Project PLASE, Inc.",Housing,,
+"Housing, Care, Age Group, Guardianship",Living Units in Baltimore Residential Campus,144574,Board of Child Care,,,Clear
+"Housing, Care, Disability, Health Specialties",Community Living Services,144645,The Arc Baltimore at Dundalk,,,Clear
+"Housing, Care, Disability, Health Specialties",Community Living Services,144646,The Arc Baltimore at Homeland,,,Clear
+"Housing, Care, Disability, Health Specialties",Community Living Services,144647,The Arc Baltimore at Seton Business Park,,,Clear
+"Housing, Care, Disability, Health Specialties",Community Living Services,144642,The Arc Baltimore at Loch Ridge,,,Clear
+"Housing, Care, Disability, Health Specialties",Community Living Services,144643,The Arc Baltimore at Woodlawn,,,Clear
+"Housing, Care, Disability, Health Specialties",Community Living Services,144644,The Arc Baltimore at Towson,,,Clear
+"Housing, Disability, Gender & Sexuality, Health Specialties, Housing",Transitional Housing,145318,Prospect Place,,,Clear
+"Housing, Education",Rental assistance & Housing,145315,Un Nuevo Comienzo Program,Housing,Rental Assistance,"tag: spanish speaking, hispanic pop"
+"Housing, Education, Gender & Sexuality, Survivors, Age Group",Anna's House,140845,Anna's House,,,Clear
+"Housing, Education, Work, Legal, Age Group, Family Friendly, Housing",Volunteers of America Irvington Woods Apartment,144363,"Volunteers of America Chesapeake, Inc.",,,Clear
+"Housing, Emergency, Goods, Gender & Sexuality, Food",Baltimore Rescue Mission,139952,Men's Division,,,Clear
+"Housing, Gender & Sexuality, Substance Use Treatment Preferences",Substance Use and Housing,144070,"Light of Truth Center, Inc.",,,Clear
+"Housing, Goods, Health, Disability",Maryland Technology Assistance Program,140397,Workforce Technology Center,,,Clear
+"Housing, Health",Spring Grove Hospital Center,141041,Westside Emergency Shelter,,,Clear
+"Housing, Health",Homeless Services,144824,Healthcare for the Homeless,,,Clear
+"Housing, Health",Discharge (Alta MÃ©dica),145158,"Triage, Respite, and Isolation Center at The Lord Baltimore Hotel (Se Habla EspaÃ±ol)",,,Clear
+"Housing, Health",Homeless Services,145308,"Health Care for the Homeless, Inc, West Baltimore",,,Clear
+"Housing, Health",Homeless Services,145309,"Health Care for the Homeless, Inc., Baltimore County",,,Clear
+"Housing, Health",Homeless Services,145310,"Health Care for the Homeless, Inc., Baltimore City",,,Clear
+"Housing, Health Specialties, Housing",Transitional Housing Program,141096,"At Jacob's Well, Inc.",,,Clear
+"Housing, Health, Age Group, Disability, Gender & Sexuality, Health Specialties, Insurance Accepted, Languages, Race/Ethnicity, Documents Needed",Housing for Older Adults,144250,"Mosaic Community Services, Baltimore City",,,Clear
+"Housing, Health, Age Group, Housing, Food",Beans and Bread,141495,Beans and Bread,Housing,Shelter,
+"Housing, Health, Care, Criminal History, Employment, Housing",Housing/Living Situation,144037,"Druid Heights Community Development Corporation, Inc.",,,Clear
+"Housing, Health, Care, Education, Legal, Age Group, Family Friendly, Housing",Volunteers of America Pratt House,144362,"Volunteers of America Chesapeake, Inc.",,,Clear
+"Housing, Health, Care, Substance Use Treatment Preferences",Dayspring Village,142614,Dayspring Village,,,Clear
+"Housing, Health, Education, Family Friendly","Baltimore Housing, Family Enhancement Unit",140880,"Baltimore Housing, Family Enhancement Unit",,,Clear
+"Housing, Health, Education, Food, Care, Legal, Criminal History, Disability, Gender & Sexuality, Family Friendly, Housing, Documents Needed, Special Hours, Substance Use Treatment Preferences",Helping Other People Through Empowerment (HOPE),143890,Helping Other People Through Empowerment (HOPE),,,Clear
+"Housing, Health, Education, Work, Gender & Sexuality",Free and Confidential Case Management,144566,The Pride Center of Maryland,,,Clear
+"Housing, Housing, Special Hours",Transitional Housing,144036,New Vision House of Hope,,,Clear
+"Housing, Income, Documents Needed",Fuel Fund Assistance,144900,GEDCO CARES,Utilities,Utility Assistance,
+"Housing, Legal","Baltimore Housing, Home Ownership & Rehabilitation Services",140912,"Baltimore Housing, Home Ownership & Rehabilitation Services",,,Clear
+"Housing, Legal, Health Specialties, Substance Use Treatment Preferences","On Our Own, Dundalk",142576,"Police Athletic League (PAL), Dundalk",,,Clear
+"Housing, Money",Eviction Prevention Program,145319,Eastern Community Action Partnership Center,Legal,Eviction,
+"Housing, Money",Eviction Prevention Program,145320,Northwest Community Action Partnership Center,Legal,Eviction,
+"Housing, Money",Eviction Prevention Program,145321,Southern Community Action Partnership Center,Legal,Eviction,
+"Housing, Money",Eviction Prevention Program,145322,Northern Community Action Partnership Center,Legal,Eviction,
+"Housing, Money",Eviction Prevention Program,145323,Southeast Community Action Partnership Center,Legal,Eviction,
+"Housing, Money, Care, Employment, Housing",Drop-in Center,144721,Youth Empowered Society,,,Clear
+"Housing, Money, Care, Substance Use Treatment Preferences","Baltimore City DSS, HEESU",141312,"Baltimore City DSS, HEESU",,,Clear
+"Housing, Money, Family Friendly, Housing, Income",Rapid Rehousing Program,144065,Health Care Access Maryland,,,Clear
+"Housing, Money, Housing, Income",Homeless Services Program,144066,Health Care Access Maryland,,,Clear
+"Housing, Money, Substance Use Treatment Preferences, Education","Druid Heights Community Development Corporation, Inc.",142695,"Druid Heights Community Development Corporation, Inc.",,,Clear
+"Housing, Transit, Money, Care, Work",Supportive Services for Veteran Families (SSVF),144286,New Vision House of Hope,,,Clear
+"Housing, Work",Veterans Services Center,144698,"Mosaic Community Services, Broadway",,,Clear
+"Housing, Work, Age Group, Disability, Employment, Health Specialties",Adult Psychiatric Rehabilitation Program (PRP),145326,Allover Healthcare Community,,,Clear
+Insurance Accepted,Cognitive Behavior Therapy,144417,"Apex Counseling Center, LLC",,,Clear
+Insurance Accepted,Network Referral/Support Services,144079,"A Step Forward, Inc.",,,Clear
+"Insurance Accepted, Health",Substance Use Treatment,144438,"Chase Brexton Health Services, Inc., Glen Burnie",,,Clear
+"Insurance Accepted, Health, Education, Health Specialties","Total Health Care Inc., Mondawmin Mall",141430,"Total Health Care, Inc.: Mondawmin Mall",,,Clear
+"Insurance Accepted, Health, Education, Health Specialties",General Health Services,140653,"Total Health Care, Inc.: Saratoga Street",,,Clear
+"Insurance Accepted, Substance Use Treatment Preferences, Health",Mental Health Services,144081,"A Step Forward, Inc.",Mental Health ,,
+Legal,"Lawyer Referral Service, Harford County",140939,Harford County Bar Foundation,,,Clear
+Legal,Maryland Cancer Action Center,144791,"American Cancer Society, Baltimore",,,Clear
+Legal,"Legal Aid Bureau, Inc., Northeastern Maryland Office",140344,Harford County Bar Foundation,,,Clear
+Legal,Maryland Dept. of Veterans Affairs,140398,"U.S. Citizenship and Immigration Services, Baltimore Field Office",Legal,Immigration,
+Legal,Alternate Legal Service Providers (Provedores de Servicios Legales Alternativos),145225,Homeless Persons Representation Project (ALOJAMIENTO-- Se Habla EspaÃ±ol),Legal,Reduced-Fee Services/ Legal Aid,
+Legal,Legal Information links,145227,Maryland Volunteer Lawyers Services,Legal,Reduced-Fee Services/ Legal Aid,these shouldn't be separate
+Legal,Intake Services,144914,Maryland Volunteer Lawyers Services,Legal,Reduced-Fee Services/ Legal Aid,
+Legal,"Baltimore City Commission on Aging & Retire., Ombudsman Program",141161,"Baltimore City Commission on Aging & Retire., Ombudsman Program",,,Clear
+Legal,"Jewish Community Services, Legal Services",142899,Jewish Big Brother & Big Sister League and Jewish Addiction Srvs.,,,Clear
+Legal,"Catholic Charities of Balto., Immigration Legal Services",140920,"Catholic Charities of Balto., Immigration Legal Services",,,Clear
+Legal,Legal Assistance,139867,"Alternative Directions, Inc.",Legal,,
+Legal,"Pro Se Project, Harford County",141170,"Pro Se Project, Harford County",Legal,,
+Legal,Harford County Bar Foundation,140239,Harford County Bar Foundation,,,Clear
+"Legal, Age Group",Legislative Advocacy,144740,Baltimore Harm Reduction Coalition,,,Clear
+"Legal, Age Group","BCSAO, Family Bereavement Center",144697,BCSAO Victim/Witness Svc Unit,,,Clear
+"Legal, Age Group",Friend of a Friend Program,142711,American Friends Service Committee,,,Clear
+"Legal, Age Group, Disability, Health Specialties, Race/Ethnicity",Baltimore County Human Relations Commission,139939,Baltimore County Dept. of Recreation and Parks,,,Clear
+"Legal, Citizenship",Legal Services,145169,International Rescue Committee- Baltimore Resettlement Center,,,Clear
+"Legal, Citizenship, Emergency, Housing, Work, Housing, Race/Ethnicity, Languages",Legal Services (Servicios Legales de InmigraciÃ³n),144892,Esperanza Center (Se habla EspaÃ±ol),Legal,Immigration,
+"Legal, Emergency, Food, Health, Money, Work",CASA General Hotline,144947,CASA,Legal,Immigration,
+"Legal, Health, Care, Education, Work, Age Group, Employment, Health Specialties, Family Friendly","Women's Housing Coalition, The",140742,"Women's Housing Coalition, The",,,Clear
+"Legal, Health, Care, Survivors, Substance Use Treatment Preferences","Baltimore City State's Attorney's Ofc., Family Bereavement Center",140877,"Baltimore City Commission on Aging & Retire., Ombudsman Program",,,Clear
+"Legal, Income, Housing, Age Group, Armed Forces, Criminal History, Housing",Homeless Persons Representation Project,140265,Homeless Persons Representation Project,Legal,Reduced-Fee Services/ Legal Aid,
+"Legal, Substance Use Treatment Preferences","Baltimore City Commission on Aging & Retire., Public Guardianship",141162,"Baltimore City Commission on Aging & Retire., Ombudsman Program",,,Clear
+"Legal, Survivors",Carroll County State's Attorney's Office,140022,Carroll County State's Attorney's Office,,,Clear
+Money,Eviction Prevention,145296,Fransiscan Center of Baltimore,Housing,Eviction ,
+Money,COVID-19 Rapid Response Fund (Fondo de respuesta rÃ¡pida para COVID-19),144988,Mission Asset Fund (Se Habla EspaÃ±ol),,,Clear
+Money,"Baltimore City DSS, Eviction Prevention Program",143540,"Baltimore City DSS, Eviction Prevention Program",,,Clear
+Money,"Rental Allowance Program, Baltimore City",143857,"Rental Allowance Program, Baltimore City",Housing,Rental Assistance,
+Money,Tax Preparation,144677,Southern Community Action Partnership Center,,,Clear
+"Money, Age Group",Money Smart,144678,Southern Community Action Partnership Center,,,Clear
+"Money, Age Group, Disability","Senior Info. & Asst., Baltimore City",141014,"Baltimore City Commission on Aging & Retire., Ombudsman Program",,,Clear
+"Money, Age Group, Disability",Acorn County,143497,"Police Athletic League (PAL), Dundalk",,,Clear
+"Money, Legal, Armed Forces",Military Order of The Purple Heart,140417,"U.S. Citizenship and Immigration Services, Baltimore Field Office",,,Clear
+"Money, Survivors","BCSAO, Victim/Witness Svc Unit",142054,BCSAO Victim/Witness Svc Unit,,,Clear
+Special Hours,Service 2,144665,Testing 123_Location # 1,,,Clear
+"Special Hours, Substance Use Treatment Preferences, Emergency, Health, Health Specialties","Crisis, Information and Referral Hotline",144922,"Baltimore Crisis Response, Inc.",Mental Health,,
+Substance Use Treatment Preferences,"Baltimore City DSS, Project Home",141315,"Baltimore City DSS, Project Home",,Children,Clear
+Substance Use Treatment Preferences,"Baltimore Housing, Family Self-Sufficiency",142217,"Baltimore Housing, Family Enhancement Unit",,Children,Clear
+Substance Use Treatment Preferences,Substance Use Disorder Treatment,144426,Johns Hopkins Center for Addiction and Pregnancy (CAP),Substance Use,Treatment Centers,
+Substance Use Treatment Preferences,Pediatric Health Care,144429,Johns Hopkins Center for Addiction and Pregnancy (CAP),Substance Use,Treatment Centers,
+Substance Use Treatment Preferences,Psychiatric Evaluation and Care,144427,Johns Hopkins Center for Addiction and Pregnancy (CAP),Substance Use,Treatment Centers,
+Substance Use Treatment Preferences,Obstetric Evaluation and Care,144428,Johns Hopkins Center for Addiction and Pregnancy (CAP),Substance Use,Treatment Centers,
+Substance Use Treatment Preferences,Family Planning,144431,Johns Hopkins Center for Addiction and Pregnancy (CAP),Substance Use,Treatment Centers,
+Substance Use Treatment Preferences,Overnight Stay Service,144430,Johns Hopkins Center for Addiction and Pregnancy (CAP),Substance Use,Inpatient,
+Substance Use Treatment Preferences,"Baltimore City DSS, Family Support Services",143527,"Baltimore City DSS, Family Preservation Services",Safety,Children,
+"Substance Use Treatment Preferences, Emergency","Baltimore City DSS, Adult Protective Services",141278,"Baltimore City DSS, Adult Protective Services",Safety,Adults,
+Transit,Transportation,144887,COVID-19 TRANSPORTATION/FOOD -- CountyRide,Transportation,Reduced Cost/ Free Transportation,
+Transit,Medical Transportation (Transporte mÃ©dico),145166,Moveable Feast (Se Habla EspaÃ±ol),Transportation,Medical Transportation Assistance,
+Transit,Taxi Service,144904,MTA MobilityLink (Paratransit) Program,Transportation,Reduced Cost/ Free Transportation,
+Transit,Transportation Services,144279,"Native American Lifelines, Inc.",Transportation,Reduced Cost/ Free Transportation,
+Transit,Transportation,144318,Port Recovery,Transportation,Reduced Cost/ Free Transportation,
+"Transit, Age Group, Disability",MobilityLink,144050,Maryland Transit Association,Transportation,Public Transportation Assistance,
+"Transit, Age Group, Disability, Insurance Accepted, Documents Needed",Seniors Reduced Fare Card Program,144049,Maryland Transit Association,Transportation,Public Transportation Assistance,tag: 
+"Transit, Care, Age Group, Disability",Day Habitation Program,144690,"Athelas Institute, Inc. Experience Unlimited Program",,,Clear
+"Transit, Health Specialties",Road to Recover,144790,"American Cancer Society, Baltimore",,,Clear
+"Transit, Health, Age Group",Mental Health Services,144729,Thrive Behavioral Health,Mental Health,,
+Work,Workforce Development,144356,House of Change Behavioral Health,Employment,Job Training,
+Work,Employment Services,144756,"Abilities Network, Headquarters",Employment,Job Placement Services,
+Work,"Jewish Community Services, Career Services",140928,Jewish Big Brother & Big Sister League and Jewish Addiction Srvs.,Employment,Job Placement Services,
+Work,Workforce,144869,Youth Empowered Society,,,Clear
+Work,Workforce Reception Center,143167,Workforce Reception Center,Employment,Job Placement Services,
+Work,"Baltimore Housing, Step-Up Program",142725,"Baltimore Housing, Home Ownership & Rehabilitation Services",Employment,Job Placement Services,
+Work,Our Daily Bread Employment Services,143784,Christopher Place Employment Academy,Employment,Job Placement Services,
+Work,Vocational Training and Employment Services,144310,"Organization of Hope, Inc.",Employment,Job Placement Services,
+Work,Emerge Initiative,144365,"Goodwill Industries of the Chesapeake, Inc.",,,Clear
+Work,Employment Services,144497,G. 1440 Staffing,Employment,Job Placement Services,
+"Work, Age Group",Turnaround Tuesday East,144710,BUILD,,,Clear
+"Work, Age Group",Turnaround Tuesday West,144711,BUILD,,,Clear
+"Work, Age Group",Baltimore County Office of Workforce Development,139941,Baltimore County Dept. of Recreation and Parks,,,Clear
+"Work, Age Group",Volunteer Service and Placement,142898,Jewish Volunteer Connection,,,Clear
+"Work, Age Group, Armed Forces",Education/Employment,144714,Maryland Center for Veterans Education and Training,,,Clear
+"Work, Age Group, Criminal History",Training Programs,144361,"Goodwill Industries of the Chesapeake, Inc.",,,Clear
+"Work, Age Group, Criminal History, Employment",Professional Development,144190,"Bridging The Gap Services, LLC",,,Clear
+"Work, Age Group, Disability",Supported Employment Services,144660,The Arc Baltimore at Homeland,Employment,Supported Employment Services,
+"Work, Age Group, Disability",Supported Employment Services,144657,The Arc Baltimore at Loch Ridge,Employment,Supported Employment Services,
+"Work, Age Group, Disability",Supported Employment Services,144658,The Arc Baltimore at Seton Business Park,Employment,Supported Employment Services,
+"Work, Age Group, Disability",Supported Employment Services,144659,The Arc Baltimore at Dundalk,Employment,Supported Employment Services,
+"Work, Age Group, Disability",Supported Employment Services,144661,The Arc Baltimore Community Resource Center,Employment,Supported Employment Services,
+"Work, Age Group, Disability",Day Services,144650,The Arc Baltimore at Towson,Social Support,Day Programs,
+"Work, Age Group, Disability",Day Services,144651,The Arc Baltimore at Seton Business Park,Social Support,Day Programs,
+"Work, Age Group, Disability",Day Services,144652,The Arc Baltimore at Dundalk,Social Support,Day Programs,
+"Work, Age Group, Disability",Day Services,144648,The Arc Baltimore at Loch Ridge,Social Support,Day Programs,
+"Work, Age Group, Disability",Day Services,144649,The Arc Baltimore at Woodlawn,Social Support,Day Programs,
+"Work, Age Group, Disability",Day Services,144653,The Arc Baltimore at Homeland,Social Support,Day Programs,
+"Work, Age Group, Disability",Day Services,144654,The Arc Baltimore Community Resource Center,Social Support,Day Programs,
+"Work, Age Group, Disability",Supported Employment Services,144655,The Arc Baltimore at Woodlawn,Employment,Supported Employment Services,
+"Work, Age Group, Disability",Supported Employment Services,144656,The Arc Baltimore at Towson,Employment,Supported Employment Services,
+"Work, Age Group, Employment",Computer Classes & Job Readiness,144724,Franciscan Center,Employment,Job Training,
+"Work, Armed Forces, Employment",Automotive Mechanic Training/ Automotive Painting,144743,Herbert J. Hoelter Vocational Training Center,Employment,Job Training,
+"Work, Criminal History",Philemon Ministry,144368,Philemon Ministry,,,Clear
+"Work, Criminal History, Employment",Job Placement,144619,America Works of Maryland,Employment,Job Placement Services,
+"Work, Criminal History, Employment",Job Readiness,144620,America Works of Maryland,Employment,Job Training,
+"Work, Disability, Health Specialties","Division of Rehabilitation Services, Region I, Western Maryland",141780,"Division of Rehabilitation Services, Region I, Western Maryland",,,Clear
+"Work, Employment",CDL Class B License Training,144744,Herbert J. Hoelter Vocational Training Center,Employment,Job Training,
+"Work, Employment",HVAC Training,144745,Herbert J. Hoelter Vocational Training Center,Employment,Job Training,
+"Work, Employment",Drone Training,144746,Herbert J. Hoelter Vocational Training Center,Employment,Job Training,
+"Work, Employment",Workforce Development,144432,Changing Lives at Home,,,Clear
+,,,,,,Clear
+,Inpatient and Halfway House Services,144124,"Gaudenzia, Inc.",,,Clear
+,Withdrawal Management/Detoxification/Medication Assisted Treatment (MAT),144127,"Gaudenzia, Inc.",,,Clear
+,Supportive Housing,144131,Grant House Women's Location,,,Clear
+,South San Francisco Citadel Corps,17,Latrobe Homes,,,Clear
+,Prevention/Recovery Support Services,144129,"Gaudenzia, Inc.",,,Clear
+,Administrative Care Coordination (ACC) / Ombudsman Services,144068,Health Care Access Maryland,,,Clear
+,Comprehensive Substance Abuse Assessment,144354,House of Change Behavioral Health,,,Clear
+,Undocumented Populations (Poblaciones Indocumentadas),145117,Our Daily Bread Employment Center (se habla espaÃ±ol),,,Clear
+,HelpLine,144793,American Kidney Fund,,,Clear
+,Esperanza Center,145220,COVID Telephonic Call Lines,,,Clear
+,Tobacco/smoking cessation,144938,Baltimore City Health Department Chronic Disease Prevention,,,Clear
+,COVID-19 Relief Fund (Fondo de ayuda COVID-19),144949,League of United Latin American Citizens (Se Habla EspaÃ±ol),,,Clear
+,Family Services and Mental Health Services (Servicios Familiares y de Salud Mental),145116,Our Daily Bread Employment Center (se habla espaÃ±ol),Mental Health,,
+,Childbirth Education,145121,Pampers,,,Clear
+,Support Groups and Classes,145120,The Womb Room,,,Clear
+,Buprenorphine Treatment,144028,MedMark Treatment Centers Essex,,,Clear
+,Breastfeeding Support Groups,145124,B'more for Healthy Babies,,,Clear
+,Employment Services (Servicios de Empleo),145118,Our Daily Bread Employment Center (se habla espaÃ±ol),,,Clear
+,Virtual Resources,145216,Alzheimer's Association: Greater Maryland Chapter,,,Clear
+,Women's Growth Center,144038,Women's Growth Center,,,Clear
+,Consumer Protection Project,145217,Maryland Volunteer Lawyers Services,,,Clear
+,Mom's Clubs,145123,B'more for Healthy Babies,,,Clear
+,"Baltimore City Health Dept., Bureau of Vector Control",140998,"Baltimore City Health Dept., Bureau of Vector Control",,,Clear
+,Volunteer Services,144814,Neighborhood Volunteer Services,,,Clear
+,Supportive Housing,144132,Grant House Men's Location,,,Clear
+,24/7 Substance Use/Mental Health Help,145133,B'more for Healthy Babies,,,Clear
+,Baltimore City Public Schools Child Find,145134,B'more for Healthy Babies,,,Clear
+,DUI/DWI Education,144138,Grant House Men's Location,,,Clear
+,Black Mental Health Alliance,145135,B'more for Healthy Babies,,,Clear
+,24 Hour Parent Helpline,145132,B'more for Healthy Babies,,,Clear
+,"Research, Policy, and Publications",144735,Centro SOL,,,Clear
+,DUI/DWI Education,144137,Grant House Women's Location,,,Clear
+,Non-Food Related Emergency Needs,145112,Maryland Access Point,,,Clear
+,Mail Pick Up (Recogida de Correo),145138,Our Daily Bread Employment Center (se habla espaÃ±ol),,,Clear
+,"U.S. Citizenship and Immigration Services, Baltimore Field Office",140921,"U.S. Citizenship and Immigration Services, Baltimore Field Office",,,Clear
+,"District Court of Maryland, Civil Division",142542,"Baltimore City DSS, Eviction Prevention Program",,,Clear
+,Naloxone,144828,Power Inside,,,Clear
+,Grocery Boxes,145000,Grocery Boxes & Produce Boxes for All,,,Clear
+,Temporary Housing,144750,"Project PLASE, Inc.",,,Clear
+,Temporary Housing,144749,1814 Maryland Ave,,,Clear
+,Senior Farmers' Market Nutrition Program,145142,2020 Senior Farmers' Market Nutrition Program,,,Clear
+,School Sites for Produce Boxes,145143,World Central Kitchen Produce Boxes,,,Clear
+,Naloxone and Fentanyl Distribution,145005,Charm City Care Connection,,,Clear
+,The Pride Center of Maryland,144042,The Pride Center of Maryland,,,Clear
+,Syringe Services,145004,Charm City Care Connection,,,Clear
+,"St. Joseph Medical Center, Cardiovascular Fitness Program",140612,"St. Joseph Medical Center, Cardiovascular Fitness Program",,,Clear
+,Transitional Housing,144752,The Baltimore Station,,,Clear
+,Intensive Outpatient Programming,144753,The Baltimore Station,,,Clear
+,,,,,,
+,"Hampden, Woodberry, Remington, Mt Washington Food Pantry",143939,"Hampden, Woodberry, Remington, Mt Washington Food Pantry",,,Clear
+,,,,,,
+,Meal Distribution for Older Adults,145148,Baltimore County Food Resources,,,Clear
+,211 Maryland Resource Line,145218,COVID Telephonic Call Lines,,,Clear
+,Saturday Food Distribution,145149,Baltimore County Food Resources,,,Clear
+,311 Baltimore City Resource Line,145219,COVID Telephonic Call Lines,,,Clear
+,Food Pantry (Despensa de Alimentos),145150,Salvation Army of Central Maryland,,,Clear
+,Sinai Hospital,145221,COVID Telephonic Call Lines,,,Clear
+,UMD Nursing Call Line,145222,COVID Telephonic Call Lines,,,Clear
+,"Outpatient Treatment (OTP, Health Home)",144015,"Man Alive, Inc.",,,Clear
+,Senior Call Check Program,145022,Senior Call Check Program,,,Clear
+,Case Management,144139,Glenwood Life Counseling Center,,,Clear
+,Mental Health Screening & Referral,144140,Glenwood Life Counseling Center,,,Clear
+,Energy Assistance,144885,ELECTRIC & GAS ENERGY ASSISTANCE,,,Clear
+,Emergency Food Delivery Program,145152,Civic Works,,,Clear
+,Service 1,144662,Testing 123_Location # 2,,,Clear
+,Vitality Program,145033,People Encouraging People Recovery Center,,,Clear
+,"Kennedy Krieger Family Center, S.T.A.R.",143515,"Kennedy Krieger Family Center, Birth To Five Clinic",,,Clear
+,Service 2,144664,Testing 123_Location # 2,,,Clear
+,Service 1,144663,Testing 123_Location # 1,,,Clear
+,Pro Bono Counseling Project,145130,B'more for Healthy Babies,,,Clear
+,"Family League of Baltimore City, Inc.",143161,"Baltimore Housing, OHEP/Weatherization",,,Clear
+,Assertive Community Treatment,145030,People Encouraging People Recovery Center,,,Clear
+,C.A.R.E.S. Program,145032,People Encouraging People Recovery Center,,,Clear
+,MISA Program,145034,People Encouraging People Recovery Center,,,Clear
+,Young Adult Program,145035,People Encouraging People Recovery Center,,,Clear
+,Residential Rehabilitation Services,145039,People Encouraging People Recovery Center,,,Clear
+,Supported Living Services,145040,People Encouraging People Recovery Center,,,Clear
+,Deaf Unity,145042,People Encouraging People Recovery Center,,,Clear
+,Transitional Age Youth Program,145043,People Encouraging People Recovery Center,,,Clear
+,Forensic Program,145044,People Encouraging People Recovery Center,,,Clear
+,Youth Leadership,145048,Youth Empowered Society,,,Clear
+,Intensive Case Management,145031,People Encouraging People Recovery Center,,,Clear
+,Placement Services,145037,People Encouraging People Recovery Center,,,Clear
+,Job Coaching and Support,145038,People Encouraging People Recovery Center,,,Clear
+,Psychiatric Group Practice,145029,People Encouraging People Recovery Center,,,Clear
+,FYI: For Your Independence,145045,People Encouraging People Recovery Center,,,Clear
+,Attorney Grievance Commission of Maryland,140780,"Office of Child Care, Anne Arundel County",,,Clear
+,Community Living Program,145036,People Encouraging People Recovery Center,,,Clear
+,Affordable Housing,145041,People Encouraging People Recovery Center,,,Clear
+,Recovery Services for The Treatment of Addictims & Co-Ocuring disorders,145046,People Encouraging People Recovery Center,,,Clear
+,Legal Navigation,145047,Youth Empowered Society,,,Clear
+,Baltimore Community Doulas,145129,B'more for Healthy Babies,,,Clear
+,House of Ruth,145131,B'more for Healthy Babies,,,Clear
+,Training,145051,Baltimore Child Abuse Center,,,Clear
+,Housing for homeless veterans and chronically homeless veterans,145052,Project PLASE,,,Clear
+,Forensic Interviews,145049,Baltimore Child Abuse Center,,,Clear
+,Priority Partners Transportation Program,144048,Priority Partners MCO,,,Clear
+,Housing for homeless indiviudals looking for permanent housing,145054,Project PLASE,,,Clear
+,SBA Debt Relief,145061,U.S. Small Business Administration,,,Clear
+,Baltimore Infants & Toddlers Program,145056,B'more for Healthy Babies,,,Clear
+,DUI/DWI Education,144348,House of Change Behavioral Health,,,Clear
+,Home Visiting Program,145055,B'more for Healthy Babies,,,Clear
+,Community Services,144215,"Harbel Community Organization, Inc.",,,Clear
+,ShareBaby Emergency Diapers Hub,145228,ShareBaby,,,Clear
+,Standard Outpatient Treatment,144014,"Institute for Behavior Resources, Inc. Reach Health Services",,,Clear
+,Free Portable Crib Program,145058,B'more for Healthy Babies,,,Clear
+,SBA Express Bridge Loans,145060,U.S. Small Business Administration,,,Clear
+,"Special Supplemental Nutrition Program for Women, Infants, and Children (WIC)",145057,B'more for Healthy Babies,,,Clear
+,Electronic Monitoring Request,145229,Baltimore Action Legal Team - Jail Support Hotline,,,Clear
+,Community Bail Fund,145230,Baltimore Action Legal Team - Jail Support Hotline,,,Clear
+,Treatment and Counseling Services,145050,Baltimore Child Abuse Center,,,Clear
+,Mail,144891,Franciscan Center,,,Clear
+,Connect you to food service,145069,Southeast Community Development Corporation,,,Clear
+,Thursday walk-in food pantry,145067,Bea Gaddy Family Center,,,Clear
+,Antiviral Linkage Initiative (ALI),144107,Baltimore Crisis Response,,,Clear
+,Food Pantry,145070,Coldstream Homestead Montebello Community Organization,,,Clear
+,Internet Essentials,145088,Comcast Internet Essentials,,,Clear
+,Moveable Feast,144908,Places to Donate,,,Clear
+,Housing for homeless individuals looking for temporary housing,145053,Project PLASE,,,Clear
+,Baltimore Virtual Tip Jar,144909,Places to Donate,,,Clear
+,Telehealth,145083,Child Mind Institute,,,Clear
+,United Way of Central Maryland,144907,Places to Donate,,,Clear
+,COVID-19 Emergency Fund for Artists and Freelancers,144910,Places to Donate,,,Clear
+,Symptom Checker,145084,Child Mind Institute,,,Clear
+,Comprehensive Screening and Assessments,144157,"Bon Secours, New Hope Treatment Center",,,Clear
+,Counseling,144113,"BACHS Healthcare, LLC - Baltimore",,,Clear
+,Free Fans,145161,COVID-19 GENERAL -- Baltimore City Health Department Aging Services,,,Clear
+,Senior Citizen Water Discount Program,145099,WATER DISCOUNT INFORMATION,,,Clear
+,Produce Boxes,145100,Grocery Boxes & Produce Boxes for All,,,Clear
+,Supplies (Suministros),145115,Our Daily Bread Employment Center (se habla espaÃ±ol),,,Clear
+,The Salvation Army Adult Rehabilitation Center/Family Store,145233,Salvation Army of Central Maryland,,,Clear
+,Helpline,145101,Disaster Distress Helpline,,,Clear
+,Central Maryland Ecumenical Council,140039,Central Maryland Ecumenical Council,,,Clear
+,Tools for Landlords,145234,COVID-19 FINANCES -- Tenant Guidance: Rent Repayment Plans,,,Clear
+,ID Support,145163,Franciscan Center,,,Clear
+,Birth Certificates,145164,Franciscan Center,,,Clear
+,Inpatient Detoxification,145274,Tuerk House Main Campus,,,Clear
+,Vocational Programs,144112,"BACHS Healthcare, LLC - Baltimore",,,Clear
+,No-cost Legal Advice and Possible Representation: Public Justice Center,145103,Eviction Information and Resources,,,Clear
+,Community Giveaway,145304,Project PLASE,,,Clear
+,No-cost Legal Advice and Possible Representation: Disability Rights Maryland,145105,Eviction Information and Resources,,,Clear
+,Housing & Transportation,144117,Behavioral Health Clinic - Downtown,,,Clear
+,No-cost Legal Advice and Possible Representation: Homeless Persons Representation Project,145104,Eviction Information and Resources,,,Clear
+,Apply for Energy Assistance,145238,COVID-19 UTILITIES - Office of Home Energy Programs,,,Clear
+,Outpatient Treatment,145280,Nilsson House for Women,,,Clear
+,Peer Support,145276,Tuerk House Main Campus,,,Clear
+,No-cost Legal Advice and Possible Representation: Civil Justice Network,145106,Eviction Information and Resources,Legal,Eviction,
+,Fuel Fund assistance,145239,COVID-19 UTILITIES - Fuel Fund of Maryland,Utilities,Utility Assistance,
+,Salvation Army Food Delivery,145108,Maryland Access Point,,,Clear
+,Food Resources,145109,Maryland Access Point,,,Clear
+,Outpatient Treatment,145282,"Sister Augusta Reilly, R.S.N. Home for Women in Recovery (Coming soon)",,,Clear
+,Outpatient Treatment,145283,Weisman- Kaplan House (Men),,,Clear
+,Outpatient Treatment,145284,Tuerk House Main Campus,,,Clear
+,FREE Childrenâ€™s MEALS - Grab & Go,145170,Be a Chef for a Day,,,Clear
+,Outpatient Treatment,145281,Howard House for Men,,,Clear
+,Arrest Support Form,145085,Baltimore Action Legal Team - Jail Support Hotline,,,Clear
+,Peer Support,145289,Nilsson House for Women,,,Clear
+,Peer Support,145290,Howard House for Men,,,Clear
+,Weekly Produce Boxes Distribution,145171,Be a Chef for a Day,,,Clear
+,Peer Support,145291,"Sister Augusta Reilly, R.S.N. Home for Women in Recovery (Coming soon)",,,Clear
+,Peer Support,145292,Weisman- Kaplan House (Men),,,Clear
+,Gateway Project and Si Puedo,145293,House of Ruth,,,Clear
+,Covid SMS,145294,Covaid,,,Clear
+,Utility Bill Assistance,145204,COVID-19 FINANCES -- State of Maryland (SNAP and OHEP),,,Clear
+,Emergency Meal Service,145303,Baltimore Safe Haven,,,Clear
+,Economic Injury Disaster Loan Emergency Advance,145059,U.S. Small Business Administration,,,Clear
+,Dual Diagnosis and Evaluation,144082,"A Step Forward, Inc.",,,Clear
+,Partners in Recovery,144700,"Mosaic Community Services, Baltimore City",,,Clear
+,Intake Screening Assessment,144150,Belair Health Solutions,,,Clear
+,Breakfast Service,145208,Beans and Bread Homeless Day Resource Center,,,Clear
+,Food (Alimentos),145209,YO! Baltimore West (COMIDA),,,Clear
+,Youth Success Program,145298,International Rescue Committee- Baltimore Resettlement Center,,,Clear
+,Thanksgiving Food Giveaway,145301,Thanksgiving Food Giveaway,,,Clear
+,Loving Arms,144051,Loving Arms,,,Clear
+,Referral Services,144352,House of Change Behavioral Health,,,Clear
+,Diapers (PaÃ±ales),145027,Centro SOL (Se Habla EspaÃ±ol),,,Clear
+,Urinalysis,144151,Belair Health Solutions,,,Clear
+,Annual Physicals,144152,Belair Health Solutions,,,Clear
+,Psychiatric Rehabilitation Program (PRP),144156,"Beyond This Day Behavioral Health, Inc",,,Clear
+,Housing Opportunities and Stability Program,145311,Weinberg Housing Resource Center,,,Clear
+,Transitional and Supportive Housing,145313,City of Refuge,,,Clear
+,Supportive Housing,145314,Don Miller Homes,,,Clear
+,MEDICATION MANAGEMENT,144073,"All Walks of Life, LLC",,,Clear
+,Smoking Cessation,144164,"Bon Secours, New Hope Treatment Center",,,Clear
+,Relapse Prevention Family,144165,"Bon Secours, New Hope Treatment Center",,,Clear
+,Addiction Recovery,144114,Behavioral Health Clinic - Downtown,,,Clear
+,Patient Advisory Board,144162,"Bon Secours, New Hope Treatment Center",,,Clear
+,Comprehensive Screening and Assessments,144169,"Bon Secours, Adapt Cares",,,Clear
+,Patient Advisory Board,144174,"Bon Secours, Adapt Cares",,,Clear
+,Self-Help Support Groups-Methadone Anonymous,144173,"Bon Secours, Adapt Cares",,,Clear
+,Overdose Prevention,144175,"Bon Secours, Adapt Cares",,,Clear
+,Smoking Cessation,144177,"Bon Secours, Adapt Cares",,,Clear
+,Relapse Prevention,144176,"Bon Secours, Adapt Cares",,,Clear
+,Case Management,144033,The Harry and Jeanette Housing and Resource Center,,,Clear
+,LEAD,144105,Baltimore Crisis Response,,,Clear
+,Co-Occurring Disorder,144187,"Bridging The Gap Services, LLC",,,Clear
+,DUI/DWI Education,144188,"Bridging The Gap Services, LLC",,,Clear
+,Methadone Maintenance,144193,"By Grace, Inc (counseling services)",,,Clear
+,DWI/DUI Program,144194,"By Grace, Inc (counseling services)",,,Clear
+,"Housing Choice Voucher Program, Baltimore City",140915,"Housing Choice Voucher Program, Baltimore City",,,Clear
+,Latrobe Homes,143301,Latrobe Homes,,,Clear
+,Point-of-Care Lead Testing,144197,"Baltimore City Health Department, Childhood Lead Poisoning Prevention and Environmental Case Management Program",,,Clear
+,Lead Case Management,144198,"Baltimore City Health Department, Childhood Lead Poisoning Prevention and Environmental Case Management Program",,,Clear
+,Intake Screening Assessment,144210,Hampden Health Solutions at the Rail,,,Clear
+,Psychiatric Rehabilitation Program (PRP),144109,"BACHS Healthcare, LLC - Baltimore",,,Clear
+,TB & Pregnancy tests,144213,Hampden Health Solutions at the Rail,,,Clear
+,Individual and Group Counseling,144208,Hampden Health Solutions at the Rail,,,Clear
+,Methadone Administration,144209,Hampden Health Solutions at the Rail,,,Clear
+,Housing Partnership Workshop and Counceling Services,144214,"Harbel Community Organization, Inc.",,,Clear
+,Urinalysis,144211,Hampden Health Solutions at the Rail,,,Clear
+,Annual Physicals,144212,Hampden Health Solutions at the Rail,,,Clear
+,Transportation,144444,"Family Health Centers of Baltimore, Brooklyn",,,Clear
+,Transportation,144443,"Family Health Centers of Baltimore, Cherry Hill Center",,,Clear
+,Drug and Alcohol Addiction,144230,Penn-North Recovery Center,,,Clear
+,Giovanni's Room Open Mic,144569,The Pride Center of Maryland,,,Clear
+,Educational Services,144223,Marian House (substance treatment center),,,Clear
+,Employment Assistance and Placement,144224,Marian House (substance treatment center),,,Clear
+,Community,144226,Marian House (substance treatment center),,,Clear
+,Employment Assistance,144227,Penn-North Recovery Center,,,Clear
+,Acudetox,144229,Penn-North Recovery Center,,,Clear
+,Addiction Treatment Services,144221,Marian House (substance treatment center),,,Clear
+,Family Reunification,144222,Marian House (substance treatment center),,,Clear
+,Life skills,144225,Marian House (substance treatment center),,,Clear
+,Wellness & Community Services,144228,Penn-North Recovery Center,,,Clear
+,Recovery Support Services,144241,"MISHA House, LLC",,,Clear
+,Baltimore Recovery Corps,144231,Penn-North Recovery Center,,,Clear
+,Living In Balance,144235,"MISHA House, LLC",,,Clear
+,Cognitive Behavioral Therapy,144238,"MISHA House, LLC",,,Clear
+,Mindfulness Practices,144239,"MISHA House, LLC",,,Clear
+,24 Hour Staff Availability,144240,"MISHA House, LLC",,,Clear
+,Community Referrals,144242,"MISHA House, LLC",,,Clear
+,Recovery Plan Management,144243,"MISHA House, LLC",,,Clear
+,Emotion Regulation,144237,"MISHA House, LLC",,,Clear
+,12 Step Self-Help Meetings,144244,"MISHA House, LLC",,,Clear
+,Off-Site Substance Abuse Assessment & Treatment Programs,144252,"Mosaic Community Services, Baltimore City",,,Clear
+,Assertive Community Treatment (ACT),144253,"Mosaic Community Services, Baltimore City",,,Clear
+,Rehabilitation Groups,144260,"Mountain Manor Treatment Center, West Baltimore",,,Clear
+,Alcohol and Drug Addiction Treatment,144259,"Mountain Manor Treatment Center, West Baltimore",,,Clear
+,Specialized Young Adult and Adult Treatment,144261,"Mountain Manor Treatment Center, West Baltimore",,,Clear
+,DUI/DWI Services,144264,"Mountain Manor Treatment Center, Highlandtown",,,Clear
+,Substance Abuse Assessment,144265,"Mountain Manor Treatment Center, Highlandtown",,,Clear
+,Community Outreach,144269,"Native American Lifelines, Inc.",,,Clear
+,Christmas Sponsorship Program,144283,"Native American Lifelines, Inc.",,,Clear
+,Prison Outreach Programming,144274,"Native American Lifelines, Inc.",,,Clear
+,Cultural Activities,144268,"Native American Lifelines, Inc.",,,Clear
+,Resources and Referrals,144293,New Vision House of Hope,,,Clear
+,Comprehensive Case Management,144267,"Native American Lifelines, Inc.",,,Clear
+,Summer Food Service Program,144284,"Native American Lifelines, Inc.",,,Clear
+,Suicide Prevention,144277,"Native American Lifelines, Inc.",,,Clear
+,Youth Programs,144281,"Native American Lifelines, Inc.",,,Clear
+,Tobacco Education,144278,"Native American Lifelines, Inc.",,,Clear
+,Healthy Native Parenting,144272,"Native American Lifelines, Inc.",,,Clear
+,Trauma Specific Interventions,144280,"Native American Lifelines, Inc.",,,Clear
+,Substance Abuse Prevention,144275,"Native American Lifelines, Inc.",,,Clear
+,Breast exams for ages 20+,144496,Family planning and reproductive health services (eastern location),,,Clear
+,Youth and Families Culture Class,144285,"Native American Lifelines, Inc.",,,Clear
+,Westside Emergency Shelter,144012,Westside Emergency Shelter,,,Clear
+,Individual Counseling,144289,New Vision House of Hope,,,Clear
+,Referrals,144296,Northern Parkway Treatment Services,,,Clear
+,Psychosocial Assessment,144299,Northern Parkway Treatment Services,,,Clear
+,Transitional/Recovery Housing Program,144301,One Promise Counseling & Education,,,Clear
+,Group Counseling,144290,New Vision House of Hope,,,Clear
+,Alcohol and Drug Education,144298,Northern Parkway Treatment Services,,,Clear
+,Group Therapy,144303,"Organization of Hope, Inc.",,,Clear
+,DUI Assessment and Training,144305,"Organization of Hope, Inc.",,,Clear
+,24-hours Crises Coverage,144311,"Organization of Hope, Inc.",,,Clear
+,Case Management,144295,Northern Parkway Treatment Services,,,Clear
+,"Physical Examination, Medical Consultation, and Medication Management",144300,Northern Parkway Treatment Services,,,Clear
+,Family Therapy,144302,"Organization of Hope, Inc.",,,Clear
+,Individual Sessions,144304,"Organization of Hope, Inc.",,,Clear
+,Community Based Support and Interpersonal Process Groups,144307,"Organization of Hope, Inc.",,,Clear
+,Alcohol and Drug Monitoring,144309,"Organization of Hope, Inc.",Substance Use,Treatment Centers,
+,Spiritual Meetings,144321,Port Recovery,,,Clear
+,Weekly Community Meeting,144322,Port Recovery,,,Clear
+,Case Management,144312,"Organization of Hope, Inc.",,,Clear
+,DUI/DWI Program,144324,Port Recovery,,,Clear
+,On-Site Weekly 12-Step Meeting,144320,Port Recovery,,,Clear
+,Convalescent Care,140253,"Health Care for the Homeless, Inc., Baltimore City",,,Clear
+,Mental Health,144341,"Healthy Lives, LLC",Mental Health,,
+,Psychiatric Care,144331,"Health Care for the Homeless, Inc., Baltimore City",,,Clear
+,Behavioral Health and Addiction Services,144332,"Health Care for the Homeless, Inc., Baltimore City",,,Clear
+,"Help Securing ID, Referrals, and Transportation to Appointments",144333,"Health Care for the Homeless, Inc., Baltimore City",,,Clear
+,Public Benefits Assistance,144337,"Health Care for the Homeless, Inc., Baltimore City",,,Clear
+,Psychiatric Rehabilitation Program (PRP),144339,"Healthy Lives, LLC",,,Clear
+,DOT Drug Abuse,144342,"Healthy Lives, LLC",,,Clear
+,Aftercare Services,144353,House of Change Behavioral Health,,,Clear
+,Pregnancy testing and results,144495,Family planning and reproductive health services (eastern location),,,Clear
+,Counseling,144576,"Alternatives to Dependency, Essex",,,Clear
+,Assertive Community Treatment (ACT),144371,Johns Hopkins Bayview Medical Center - Community Psychiatry Program,,,Clear
+,DUI/DWI Education Classes,144233,"MISHA House, LLC",,,Clear
+,Relapse Prevention,144236,"MISHA House, LLC",,,Clear
+,Hispanic Clinic,144372,Johns Hopkins Bayview Medical Center - Community Psychiatry Program,,,Clear
+,Supporting Male Survivors of Violence,144057,Baltimore City Health Department Office of Youth & Trauma Services,,,Clear
+,Intensive Outpatient Treatment,144017,"Institute for Behavior Resources, Inc. Reach Health Services",,,Clear
+,Methadone Treatment,144022,MedMark Treatment Centers Essex,,,Clear
+,Youth Service and Advocacy Project,144058,Baltimore City Health Department Office of Youth & Trauma Services,,,Clear
+,Mental Health Service - Individual Therapy,144115,Behavioral Health Clinic - Downtown,,,Clear
+,Buprenorphine Treatment,144026,MedMark Treatment Centers Baltimore Downtown,,,Clear
+,"Federal Bureau of Investigation, Baltimore Field Office",140882,"Federal Bureau of Investigation, Baltimore Field Office",,,Clear
+,Long Term Support Services,144373,Long Term Support Services,,,Clear
+,Crisis and Behavioral Health Information,144377,HealthCare Access Maryland Crisis Information and Referral Services,,,Clear
+,"Baltimore City Health Dept., Prescription Discount Program",143744,"Baltimore City Health Department, Administration",,,Clear
+,Mobile Crisis Team,144103,Baltimore Crisis Response,,,Clear
+,Residential Treatment,144104,Baltimore Crisis Response,,,Clear
+,Healing Arts,144411,Joy Wellness Center,,,Clear
+,Movement Education,144410,Joy Wellness Center,,,Clear
+,Stress Reduction,144412,Joy Wellness Center,,,Clear
+,Intensive Outpatient Program,144018,Central Baltimore,,,Clear
+,"Catholic Charities, Project Serve",143196,"Catholic Charities, Project Serve",,,Clear
+,T.I.K.E Clinic,144414,Immunization Program,,,Clear
+,Suboxone Treatment,144095,Pine Heights Treatment Center,,,Clear
+,Subutex Treatment,144096,Pine Heights Treatment Center,,,Clear
+,Therapeutic Treatments,144098,Pine Heights Treatment Center,,,Clear
+,Dual Diagnosis Treatment,144101,Audacity of Hope Behavioral Health,,,Clear
+,Baltimore's Immunization Registry Project,144415,Immunization Program,,,Clear
+,Addiction Outpatient Treatment,144097,Pine Heights Treatment Center,,,Clear
+,Therapeutic Interventions,144099,Pine Heights Treatment Center,,,Clear
+,Court Approved DWI/DUI Program,144102,Audacity of Hope Behavioral Health,,,Clear
+,Case Management,144106,Baltimore Crisis Response,,,Clear
+,Community Outreach,144108,Baltimore Crisis Response,,,Clear
+,Housing & Transportation,144120,Behavioral Health Clinic - Midtown,,,Clear
+,Community Education and Outreach,144416,Immunization Program,,,Clear
+,Mental Health Service - Group Therapy,144116,Behavioral Health Clinic - Downtown,,,Clear
+,Mental Health Service - Group Therapy,144121,Behavioral Health Clinic - Midtown,,,Clear
+,Mental Health Service - Individual Therapy,144122,Behavioral Health Clinic - Midtown,,,Clear
+,Addiction Recovery,144123,Behavioral Health Clinic - Midtown,,,Clear
+,Training Services,144671,American Red Cross,,,Clear
+,Chesapeake Connections,144254,"Mosaic Community Services, Baltimore City",,,Clear
+,Residential Crisis Program,144249,"Mosaic Community Services, Baltimore City",,,Clear
+,,,,,,
+,,,,,,
+,,,,,,
+"Age Group, Gender & Sexuality, Housing, Substance Use Treatment Preferences",Spiritual Recovery Program,144720,Helping Up Mission,,,Clear
+"Emergency, Food, Health, Care, Gender & Sexuality",Naloxone,144826,COVID-19 HEALTH -- Baltimore Safe Haven,,,Clear
+"Emergency, Food, Age Group",Food Delivery,144942,COVID-19 FOOD -- Civic Works,,,Clear
+,Diaper Giveaway,144950,COVID-19 FOOD — Fishes and Loaves Food Pantry,,,Clear
+,Produce pick up,144951,COVID-19 FOOD — Fishes and Loaves Food Pantry,,,Clear
+"Care, Education, Age Group, Education",Thread Student Services,144730,Thread,,,Clear
+"Food, Age Group",Free Food,144809,COVID-19 FOOD -- Free meals for youth and families,,,Clear
+Age Group,Senior Call Check,144825,COVID-19 SAFETY -- Senior Call Check,,,Clear
+"Emergency, Food",Emergency Groceries and Delivery,144833,COVID-19 FOOD - Tendea Family Emergency Grocery Delivery,,,Clear
+Emergency,Volunteer,144835,COVID-19 VOLUNTEER -- Domesticity,,,Clear
+Food,Free Hot Lunch,144840,COVID-19 FOOD -- Greater Harvest Baptist Church,,,Clear
+Food,Community Lunch,144841,COVID-19 FOOD -- Morning Star Baptist of Christ,,,Clear
+"Emergency, Employment",Small Business Administration Loan,144842,COVID-19 FINANCES -- U.S. Small Business Administration Paycheck Protection Program,,,Clear
+"Health, Age Group",Resources for Baltimore City Parents,144843,"COVID-19 HEALTH -- Resources for Baltimore City Residents, Parents, Families",,,Clear
+"Emergency, Health, Age Group, Survivors",Resources for child abuse survivors,144845,COVID-19 SAFETY -- Baltimore Child Abuse Center,,,Clear
+,COVID-19 Telephonic Helplines,144883,COVID-19 HEALTH -- COVID-19 Telephonic Call Lines,,,Clear
+,Talking to Kids about COVID-19 Guide,144911,"COVID-19 HEALTH -- Resources for Baltimore City Residents, Parents, Families",,,Clear
+Health,Meditation,144906,COVID-19 MENTAL HEALTH -- Calm.com,,,Clear
+,Child Mind Institute Resources,144912,"COVID-19 HEALTH -- Resources for Baltimore City Residents, Parents, Families",,,Clear
+"Emergency, Health, Age Group, Survivors",Investigation of Child Abuse,144923,COVID-19 SAFETY -- Baltimore Child Abuse Center,,,Clear
+Education,Education on Child Abuse,144926,COVID-19 SAFETY -- Baltimore Child Abuse Center,,,Clear
+"Food, Age Group",Food Pantry,144929,COVID-19 Food-- Loch Raven United Methodist Church,,,Clear
+"Health, Age Group, Armed Forces, Citizenship, Criminal History, Disability, Education, Employment, Gender & Sexuality, Health Specialties, Family Friendly, Income, Insurance Accepted, Languages, Race/Ethnicity, Documents Needed, Special Hours",Certified Community Behavioral Health Clinic,144699,"Mosaic Community Services, Baltimore City",,,Clear
+"Emergency, Housing, Goods, Health, Age Group, Gender & Sexuality, Housing",Homeless Shelter,140259,Helping Up Mission,,,Clear
+"Education, Legal, Education, Health Specialties, Substance Use Treatment Preferences","Alzheimer's Association, Eastern Shore Region",143212,"Alzheimer's Association, Eastern Shore Region",,,Clear
+"Health, Education",Baltimore City Needle Exchange Program,142469,Baltimore City Needle Exchange Program,,,Clear
+"Health, Legal, Age Group, Gender & Sexuality, Survivors, Substance Use Treatment Preferences",DIVAS,140812,Baltimore Child Abuse Center,,,Clear
+"Health, Care, Education, Survivors",Intervention and Treatment Program,140571,Baltimore Child Abuse Center,,,Clear
+,New Service,144987,AIRS,,,Clear
+,,,,,,
+,,,,,,
+,,,,,,
+Food,Produce Boxes,145346,Lakeland Elementary/Middle School,,,
+Food,Produce Boxes,145347,Fallstaff Elementary/Middle School,,,
+Food,Produce Boxes,145350,John Ruhrah Elementary/Middle School,,,
+Food,Produce Boxes,145348,Historic Cherry Hill Elementary/Middle School,,,
+Food,Produce Boxes,145349,Maree G. Farring Elementary/Middle School,,,
+Food,Produce Boxes,145351,The Belair Edison School,,,
+Food,Procude Boxes,145352,Arlington Elementary School,,,
+Food,Produce Boxes,145360,Thomas Jefferson Elementary/Middle School,,,
+Food,Produce Boxes,145353,Leith Walk Elementary/Middle School,,,
+Food,Produce Boxes,145354,Forest Park High School,,,
+Food,Produce Boxes,145355,Paul Laurence Dunbar High School,,,
+Food,Produce Boxes,145363,Mergenthaler Vocational-Technical Highschool,,,
+Food,Produce Boxes,145356,Furman Templeton Elementary School,,,
+Food,Produce Boxes,145357,Henderson Hopkins,,,
+Food,Produce Boxes,145358,Beechfield Elementary/Middle School,,,
+Food,Produce Boxes,145359,Ft Worthington Elementary/Middle School,,,
+Food,Produce Boxes,145364,Dorothy I. Height Elementary,,,
+Food,Produce Boxes,145365,Sinclair Lane Elementary,,,
+Food,Produce Boxes,145366,Holabird Academy,,,
+Food,Produce Boxes,145367,Mary E. Rodman Elementary,,,
+Food,Produce Boxes,145368,Glenmount Elementary/Middle School,,,
+Food,Produce Boxes,145369,Commodore John Rodgers Elementary/Middle School,,,
+Food,Produce Boxes,145370,Franklin Square Elementary,,,
+Food,Produce Boxes,145361,Gwynns Falls Elementary School,,,
+Food,Produce Boxes,145362,Alexander Hamilton Elementary School,,,
+Food,Produce Boxes,145372,Solo Gibbs Rec Center,,,
+Food,Produce Boxes,145389,Centro SOL (Se Habla Español),,,
+Food,Produce Boxes,145371,Walter P Carter Elementary/Middle,,,
+Food,Produce Boxes,145374,Men and Families Center,,,
+Food,Produce Boxes,145373,Barnes Memorial Church,,,
+Food,Produce Boxes,145376,Monarch Academy,,,
+Food,Produce Boxes,145387,The Well,,,
+Food,Produce Boxes,145375,Victorious Ministries,,,
+Food,Produce Boxes,145377,Carroll Cook Rec Center,,,
+Food,Produce Boxes,145388,Westport Academy,,,
+Food,City Produce Boxes,145378,Greenmount Rec Center,,,
+Food,Produce Boxes,145380,Herring Run Rec Center,,,
+Food,Produce Boxes,145382,Virginia S Baker Rec Center,,,
+Food,Produce Boxes,145386,Plantation Park Heights,,,
+Food,Produce Boxes,145379,Rita Church Rec Center,,,
+Food,Produce Boxes,145381,Madison Square Rec Center,,,
+Food,Produce Boxes,145383,Bentalou Rec Center,,,
+Food,Produce Boxes,145384,Harlem Park Rec Center,,,
+Food,Produce Boxes,145385,CC Jackson Rec Center,,,
+Food,Produce Boxes,145391,Haven City Church/Compassion Center,,,
+Food,Produce Boxes,145392,Kreative Influence,,,
+Food,Produce Boxes,145394,Stillmeadow Community Fellowship Church,,,
+Food,Produce Boxes,145395,Arch Social Club,,,
+Food,Produce Boxes,145390,The Pillar Worship Center,,,
+Food,Produce Boxes,145396,Abundant Family Life Ministries,,,
+Food,Produce Boxes,145397,CASA de Maryland,,,
+Food,Produce Boxes,145398,Outcast-Beacon Resource Center,,,
+Food,Grocery Boxes,145409,Kingdom Life Church,,,
+Food,Grocery Boxes,145410,Koinonia Baptist Church,,,
+Food,Food Pantry,145399,Central Learning Center,,,
+Food,Food Pantry,145400,Center for African American Male Engagement,,,
+Food,Food Pantry,145401,901 Arts,,,
+Food,Meal Site,145402,Solo Gibbs Rec Center,,,
+Food,Grocery Boxes,145403,Another Life Saved,,,
+Food,Grocery Boxes,145404,Beth Am Synagogue,,,
+Food,Grocery Boxes,145406,City Seeds,,,
+Food,Grocery Boxes,145405,Central Baptist Church,,,
+Food,Grocery Boxes,145407,Franciscan Center,,,
+Food,Grocery Boxes,145408,Gospel Tabernacle Baptist Church,,,
+Food,Produce Boxes,145393,First Mount Calvary Baptist Church,,,
+Food,Grocery Boxes,145416,Ruth Kirk,,,
+Food,Mixed Boxes,145411,McCulloh Homes,,,
+Food,Grocery Boxes,145421,Zion Baptist Church,,,
+Food,Grocery Boxes,145419,South Church,,,
+Food,Grocery Boxes,145412,Mix Church,,,
+Food,Grocery Boxes,145420,Union Baptist Church,,,
+Food,Grocery Boxes,145413,Mount Moriah Baptist Church,,,
+Food,Grocery Boxes,145414,Mount Pleasant Development Corporation,,,
+Food,Grocery Boxes,145415,Mount Sinai Baptist Church,,,
+Food,Grocery Boxes,145418,Sacred Heart of Jesus,,,
+"Emergency, Health",COVID-19 Testing,145332,University of Maryland Medical Center- Downtown Campus,,,
+Food,Grocery Boxes,145424,The Food Project Baltimore,,,
+Food,Grocery Boxes,145422,First Mount Calvary Baptist Church,,,
+Food,Grocery Boxes,145423,"The Door, Inc.",,,
+Food,Grocery Boxes,145425,Westport Academy,,,
+Food,Grocery Boxes,145426,Historic Cherry Hill Elementary/Middle School,,,
+Food,Meal Pantry,145427,Historic Cherry Hill Elementary/Middle School,,,
+Food,Grocery Boxes,145428,William Paca Elementary School,,,
+Food,Meal Pantry,145429,William Paca Elementary School,,,
+Food,Food Pantry,145435,Arundel Elementary School,,,
+Food,Food Pantry,145431,Abbottston Elementary School,,,
+Food,Food Pantry,145432,AFYA Public Charter School,,,
+Food,Food Pantry,145433,Alexander Hamilton Elementary School,,,
+Food,Food Pantry,145434,Arlington Elementary School,,,
+Food,Food Pantry,145436,Baltimore International Academy,,,
+"Emergency, Housing, Age Group, Gender & Sexuality, Housing",Emergency Shelter,145328,Pinderhughes Shelter,,,
+"Food, Housing, Care, Family Friendly",Baltimore City Nurse Family Partnership,145329,Baltimore City Nurse Family Partnership,,,
+"Emergency, Health",COVID- 19 Testing,145330,Baltimore Convention Center,,,
+"Emergency, Health",COVID-19 Testing,145331,Mercy Health Services,,,
+"Emergency, Health",COVID-19 Testing,145333,Johns Hopkins Medicine,,,
+"Emergency, Housing, Age Group, Housing",Overnight Guest Services,145334,Helping Up Mission,,,
+"Health, Age Group, Gender & Sexuality, Health Specialties, Housing, Documents Needed, Substance Use Treatment Preferences",Spritual Recovery Program,145335,Helping Up Mission,,,
+Food,Produce Boxes,145336,Nate Tatum Community Center,,,
+Food,Produce Boxes,145341,Let's Thrive Baltimore,,,
+Food,Produce Boxes,145337,City of Life Ministries,,,
+Food,Produce Boxes,145339,Liberty Village Project,,,
+Food,Produce Boxes,145340,"The Door, Inc.",,,
+Food,Produce Boxes,145338,Charm City Land Trust,,,
+Food,Produce Boxes,145342,We Our Us,,,
+Food,Produce Boxes,145343,Creative City Public Charter School,,,
+Food,Produce Boxes,145344,City Produce Boxes,,,
+Food,Produce Boxes,145345,Zion Hill Baptist Church,,,
