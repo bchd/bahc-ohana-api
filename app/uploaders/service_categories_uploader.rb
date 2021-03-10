@@ -29,7 +29,7 @@ class ServiceCategoriesUploader
           puts "Updating categories for service: #{service.name}"
 
           new_categories = []
-          category = Category.find_or_create_by(name: new_parent_string)
+          category = Category.find_or_create_by(name: new_parent_string, ancestry: nil)
           new_categories << category
 
           # same deal for the subcategory
