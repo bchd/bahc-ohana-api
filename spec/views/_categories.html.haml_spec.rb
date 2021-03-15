@@ -14,14 +14,6 @@ RSpec.describe 'admin/services/forms/_categories', type: :view do
     render template: 'admin/services/edit'
   end
 
-  it 'will show the services label' do
-    expect(rendered).to have_content('Services')
-  end
-
-  it 'will show the situations label' do
-    expect(rendered).to have_content('Situations')
-  end
-
   it 'will show the categories' do
     expect(rendered).to have_content(category.name)
   end
