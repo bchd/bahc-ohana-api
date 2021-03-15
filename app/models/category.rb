@@ -18,7 +18,8 @@ class Category < ApplicationRecord
   def self.unarchived
     Category.
       joins(services: :location).
-      where.not(services: { locations: { archived_at: nil } }).distinct
+      where(services: { locations: { archived_at: nil } }).
+      distinct.order(:name)
   end
 
   def resource_count
