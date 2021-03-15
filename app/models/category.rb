@@ -15,6 +15,12 @@ class Category < ApplicationRecord
 
   has_ancestry
 
+  def self.unarchived
+    Category.
+      joins(services: :location).
+      where.not(services: { locations: { archived_at: nil } })
+  end
+
   def resource_count
     services.count
   end
