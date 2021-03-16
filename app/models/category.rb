@@ -18,6 +18,7 @@ class Category < ApplicationRecord
   def self.unarchived
     Category.
       joins(services: :location).
+      where(services: { archived_at: nil }).
       where(services: { locations: { archived_at: nil } }).
       distinct.order(:name)
   end
