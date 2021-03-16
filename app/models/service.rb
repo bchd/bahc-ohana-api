@@ -22,7 +22,7 @@ class Service < ApplicationRecord
 
   belongs_to :location, touch: true, optional: false
   belongs_to :program, touch: true
-  scope :unarchived, -> { where(archived_at: nil)}
+  scope :unarchived, -> { includes(:location).where(archived_at: nil, locations: { archived_at: nil }) }
   has_and_belongs_to_many :categories,
                           after_add: :touch_location,
                           after_remove: :touch_location

@@ -1,6 +1,6 @@
 csv.headers :current_parent_categories, :name, :id, :location_name, :new_category, :new_subcategory, :clear_categories
 
-csv.rows Service.where(archived_at: nil) do |csv, service|
+csv.rows Service.unarchived do |csv, service|
   csv.cell :current_parent_categories
   csv.cell :name
   csv.cell :id
