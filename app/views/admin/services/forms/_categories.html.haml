@@ -9,4 +9,4 @@
   = field_set_tag nil, id: 'categories' do
     = f.label :services
     = categories_expand_button
-    = nested_categories(Category.all.arrange(order: :name))
+    = nested_categories(Category.unarchived)
