@@ -4,10 +4,15 @@ feature 'Update categories' do
   let(:emergency) { Category.create!(name: 'Emergency', taxonomy_id: '101', type: 'service') }
     
   before do
-    @location = create_service.location
-    emergency.children.create!(name: 'Disaster Response', taxonomy_id: '101-01', type: 'service')
+    @service = create_service
+    @other_service = create(:service, name: "Something else")
+    emergency.services = [@service, @other_service]
+    @location = @service.location
+    sub1 = emergency.children.create!(name: 'Disaster Response', taxonomy_id: '101-01', type: 'service')
     emergency.children.create!(name: 'Subcategory 2', taxonomy_id: '101-02', type: 'service')
     emergency.children.create!(name: 'Subcategory 3', taxonomy_id: '101-03', type: 'service')
+
+    emergency.children.each{|cat| cat.services << @service}
 
     login_super_admin
     visit '/admin/locations/' + @location.slug
