@@ -172,9 +172,13 @@ feature 'Create a new service' do
   end
 
   scenario 'when adding categories', :js do
+    other_service = create_service
     emergency = Category.create!(name: 'Emergency', taxonomy_id: '101', type: 'service')
+    emergency.services << other_service
     emergency.children.create!(name: 'Disaster Response', taxonomy_id: '101-01', type: 'service')
+    emergency.children.last.services << other_service
     emergency.children.create!(name: 'Subcategory 2', taxonomy_id: '101-02', type: 'service')
+    emergency.children.last.services << other_service
     visit '/admin/locations/' + @location.slug + '/services/new'
 
     fill_in_required_service_fields
