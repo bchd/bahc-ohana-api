@@ -40,8 +40,7 @@
                 <h5>Resource Id</h5>
                 <p><%= flag.resource_id  %></p>
                 <h5>Flagged At</h5>
-                <p><%= flag.created_at.strftime("%x")  %></p>
-                <p><%= flag.id  %></p>
+                <p><%= flag.created_at.strftime("%c")  %></p>
 
                 <%= form_for :flag, url: admin_flag_path(flag), html: { method: :update }, class: 'flagged-resource-checkbox' do |f| %>
                 Complete: <%= f.check_box(:completed_at, label: t('admin.buttons.unarchive_location'), data: {id: flag.id, url: admin_flag_path(flag), checked: false}, class: 'flagged-checkbox', checked: flag.completed_at?) %>
@@ -75,12 +74,12 @@
                 <h5>Resource Id</h5>
                 <p><%= flag.resource_id  %></p>
                 <h5>Flagged At</h5>
-                <p><%= flag.created_at.strftime("%x")  %></p>
+                <p><%= flag.created_at.strftime("%c")  %></p>
                 <h5>Completed At</h5>
-                <p><%= flag.created_at.strftime("%x")  %></p>
+                <p><%= flag.created_at.strftime("%c")  %></p>
 
                 <%= form_for :flag, url: admin_flag_path(flag), html: { method: :update }, class: 'flagged-resource-checkbox' do |f| %>
-                Uncomplete: <%= f.check_box(:completed_at, label: t('admin.buttons.unarchive_location'), data: {id: flag.id, url: admin_flag_path(flag), checked: true}, class: 'flagged-checkbox', checked: flag.completed_at?) %>
+                Complete: <%= f.check_box(:completed_at, label: t('admin.buttons.unarchive_location'), data: {id: flag.id, url: admin_flag_path(flag), checked: true}, class: 'flagged-checkbox', checked: flag.completed_at?) %>
                 <% end %>
             </ul>
           <% end %>
