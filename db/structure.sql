@@ -325,7 +325,8 @@ CREATE TABLE public.flags (
     description text,
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL,
-    report jsonb DEFAULT '{}'::jsonb
+    report jsonb DEFAULT '{}'::jsonb,
+    completed_at timestamp without time zone
 );
 
 
@@ -1668,6 +1669,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20200707145838'),
 ('20200810152350'),
 ('20200810190344'),
-('20210203011216');
+('20210203011216'),
+('20210705015154');
 
 

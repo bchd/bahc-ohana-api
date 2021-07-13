@@ -39,6 +39,13 @@ gem 'marcel'
 gem 'fastimage'
 gem 'webpacker', '~> 5.1', '>= 5.1.1'
 
+#
+# Very important!
+#
+# mimemagic is GPL now *except* for this version
+# Keep pinned here until https://github.com/rails/rails/issues/41750 is resolved
+gem 'mimemagic', '0.3.7'
+
 group :test, :development do
   gem 'bullet'
   gem 'byebug'

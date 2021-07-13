@@ -8,42 +8,99 @@
       </p>
     </div>
   </div>
-    <div class="row">
-      <div class="col-md-12">
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h3 class="panel-title">Organizations Flagged</h3>
-          </div>
-          <div class="panel-body">
-            <% @flags.each do |flag| %>
-              <ul class="list-group">
-                <li class="list-group-item">
-                  <%= link_to(flag.resource.name, flag.resource_path) %>
-                  <h5>Reported By</h5>
-                  <p><%= flag.email.blank? ? "N/A" : flag.email  %></p>
-                  <%- if flag.description? %>
-                    <h5>Description</h5>
-                    <p><%= flag.description  %></p>
-                  <% end %>
-                  <%- if flag.report_attributes != {} %>
-                    <h5>Report</h5>
-                    <p>
-                      <pre>
-                        <% flag.report_attributes.each do |key, value| %>
-                          <%= report_attribute_info(value, key) %>
-                        <% end %>
-                      </pre>
-                    </p>
-                  <% end %>
-                  <h5>Resource Type</h5>
-                  <p><%= flag.resource_type  %></p>
-                  <h5>Resource Id</h5>
-                  <p><%= flag.resource_id  %></p>
-                </ul>
-              <% end %>
-            </div>
-            <div class="panel-footer">Total: <%= @flags.count %> </div>
-          </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Organizations Flagged</h3>
         </div>
+        <div class="panel-body">
+          <% @flags.to_a.select{ |f| f.completed_at.nil?}.each do |flag| %>
+            <ul class="list-group">
+              <li class="list-group-item">
+                <%= link_to(flag.resource.name, flag.resource_path) %>
+                <h5>Reported By</h5>
+                <p><%= flag.email.blank? ? "N/A" : flag.email  %></p>
+                <%- if flag.description? %>
+                <h5>Description</h5>
+                <p><%= flag.description %></p>
+                <% end %>
+                <%- if flag.report_attributes != {} %>
+                <h5>Report</h5>
+                <p>
+                <pre>
+                    <% flag.report_attributes.each do |key, value| %>
+                      <%= report_attribute_info(value, key) %>
+                    <% end %>
+                  </pre>
+                </p>
+                <% end %>
+                <h5>Resource Type</h5>
+                <p><%= flag.resource_type  %></p>
+                <h5>Resource Id</h5>
+                <p><%= flag.resource_id  %></p>
+                <h5>Flagged At</h5>
+                <p><%= flag.created_at.strftime("%c")  %></p>
+
+                <%= form_for :flag, url: admin_flag_path(flag), html: { method: :update }, class: 'flagged-resource-checkbox' do |f| %>
+                Complete: <%= f.check_box(:completed_at, label: t('admin.buttons.unarchive_location'), data: {id: flag.id, url: admin_flag_path(flag), checked: false}, class: 'flagged-checkbox', checked: flag.completed_at?) %>
+                <% end %>
+            </ul>
+          <%end%>
+
+
+          <% @flags.to_a.select{|f| f.completed_at?}.each do |flag| %>
+            <ul class="list-group">
+              <li class="list-group-item">
+                <%= link_to(flag.resource.name, flag.resource_path) %>
+                <h5>Reported By</h5>
+                <p><%= flag.email.blank? ? "N/A" : flag.email  %></p>
+                <%- if flag.description? %>
+                <h5>Description</h5>
+                <p><%= flag.description  %></p>
+                <% end %>
+                <%- if flag.report_attributes != {} %>
+                <h5>Report</h5>
+                <p>
+                <pre>
+                    <% flag.report_attributes.each do |key, value| %>
+                      <%= report_attribute_info(value, key) %>
+                    <% end %>
+                  </pre>
+                </p>
+                <% end %>
+                <h5>Resource Type</h5>
+                <p><%= flag.resource_type  %></p>
+                <h5>Resource Id</h5>
+                <p><%= flag.resource_id  %></p>
+                <h5>Flagged At</h5>
+                <p><%= flag.created_at.strftime("%c")  %></p>
+                <h5>Completed At</h5>
+                <p><%= flag.created_at.strftime("%c")  %></p>
+
+                <%= form_for :flag, url: admin_flag_path(flag), html: { method: :update }, class: 'flagged-resource-checkbox' do |f| %>
+                Complete: <%= f.check_box(:completed_at, label: t('admin.buttons.unarchive_location'), data: {id: flag.id, url: admin_flag_path(flag), checked: true}, class: 'flagged-checkbox', checked: flag.completed_at?) %>
+                <% end %>
+            </ul>
+          <% end %>
+        </div>
+        <div class="panel-footer">Total: <%= @flags.count %> </div>
       </div>
     </div>
+  </div>
+</div>
+
+<script>
+  $(".flagged-checkbox").on("click", function() {
+    console.log('YAYA')
+    console.log($(this).data())
+
+    $.ajax({
+      url: $(this).data().url,
+      type: 'PUT',
+      data: {
+        'flag': $(this).data()
+      }
+    });
+  });
+</script>

@@ -32,6 +32,8 @@ class Admin
 
     # PATCH/PUT /flags/1
     def update
+      return update_resource(params) if params['flag']['checked'] == 'true' || params['flag']['checked'] == 'false'
+
       if @flag.update(flag_params)
         redirect_to @flag, notice: 'Flag category was successfully updated.'
       else
@@ -43,6 +45,12 @@ class Admin
     def destroy
       @flag.destroy
       redirect_to admin_flags_url, notice: 'Flag category was successfully destroyed.'
+    end
+
+    def refresh_index
+      respond_to do |format|
+        format.js {render  notice: 'Flag category was successfully updated.', inline: "location.reload();" }
+      end
     end
 
     private
@@ -58,6 +66,12 @@ class Admin
         :email,
         :description
       )
+    end
+
+    def update_resource(params)
+      @flag.update(completed_at: nil) if params['flag']['checked'] == 'true'
+      @flag.update(completed_at: DateTime.now) if params['flag']['checked'] == 'false'
+      refresh_index
     end
   end
 end
