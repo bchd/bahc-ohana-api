@@ -10,6 +10,20 @@ SET client_min_messages = warning;
 SET row_security = off;
 
 --
+-- Name: pg_stat_statements; Type: EXTENSION; Schema: -; Owner: -
+--
+
+CREATE EXTENSION IF NOT EXISTS pg_stat_statements WITH SCHEMA public;
+
+
+--
+-- Name: EXTENSION pg_stat_statements; Type: COMMENT; Schema: -; Owner: -
+--
+
+COMMENT ON EXTENSION pg_stat_statements IS 'track execution statistics of all SQL statements executed';
+
+
+--
 -- Name: fill_search_vector_for_location(); Type: FUNCTION; Schema: public; Owner: -
 --
 
@@ -58,16 +72,16 @@ SET default_table_access_method = heap;
 --
 
 CREATE TABLE public.addresses (
-    id bigint NOT NULL,
-    location_id bigint,
+    id integer NOT NULL,
+    location_id integer,
     address_1 text,
     city text,
     state_province text,
     postal_code text,
-    created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL,
-    country character varying NOT NULL,
-    address_2 character varying
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone,
+    country character varying(255) NOT NULL,
+    address_2 character varying(255)
 );
 
 
@@ -95,24 +109,24 @@ ALTER SEQUENCE public.addresses_id_seq OWNED BY public.addresses.id;
 --
 
 CREATE TABLE public.admins (
-    id bigint NOT NULL,
-    email character varying DEFAULT ''::character varying NOT NULL,
-    encrypted_password character varying DEFAULT ''::character varying NOT NULL,
-    name character varying DEFAULT ''::character varying NOT NULL,
-    reset_password_token character varying,
+    id integer NOT NULL,
+    email character varying(255) DEFAULT ''::character varying NOT NULL,
+    encrypted_password character varying(255) DEFAULT ''::character varying NOT NULL,
+    name character varying(255) DEFAULT ''::character varying NOT NULL,
+    reset_password_token character varying(255),
     reset_password_sent_at timestamp without time zone,
     remember_created_at timestamp without time zone,
     sign_in_count integer DEFAULT 0 NOT NULL,
     current_sign_in_at timestamp without time zone,
     last_sign_in_at timestamp without time zone,
-    current_sign_in_ip character varying,
-    last_sign_in_ip character varying,
-    confirmation_token character varying,
+    current_sign_in_ip character varying(255),
+    last_sign_in_ip character varying(255),
+    confirmation_token character varying(255),
     confirmed_at timestamp without time zone,
     confirmation_sent_at timestamp without time zone,
-    unconfirmed_email character varying,
-    created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL,
+    unconfirmed_email character varying(255),
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone,
     super_admin boolean DEFAULT false
 );
 
@@ -141,14 +155,14 @@ ALTER SEQUENCE public.admins_id_seq OWNED BY public.admins.id;
 --
 
 CREATE TABLE public.api_applications (
-    id bigint NOT NULL,
-    user_id bigint,
+    id integer NOT NULL,
+    user_id integer,
     name text,
     main_url text,
     callback_url text,
     api_token text,
-    created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
 );
 
 
@@ -188,13 +202,13 @@ CREATE TABLE public.ar_internal_metadata (
 --
 
 CREATE TABLE public.categories (
-    id bigint NOT NULL,
+    id integer NOT NULL,
     name text,
     taxonomy_id text,
     slug text,
-    created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL,
-    ancestry character varying,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone,
+    ancestry character varying(255),
     type character varying,
     filter boolean DEFAULT false,
     filter_parent boolean DEFAULT false,
@@ -226,8 +240,8 @@ ALTER SEQUENCE public.categories_id_seq OWNED BY public.categories.id;
 --
 
 CREATE TABLE public.categories_services (
-    category_id bigint NOT NULL,
-    service_id bigint NOT NULL
+    category_id integer NOT NULL,
+    service_id integer NOT NULL
 );
 
 
@@ -236,16 +250,16 @@ CREATE TABLE public.categories_services (
 --
 
 CREATE TABLE public.contacts (
-    id bigint NOT NULL,
-    location_id bigint,
+    id integer NOT NULL,
+    location_id integer,
     name text,
     title text,
     email text,
-    created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL,
-    department character varying,
-    organization_id bigint,
-    service_id bigint
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone,
+    department character varying(255),
+    organization_id integer,
+    service_id integer
 );
 
 
@@ -340,8 +354,8 @@ ALTER SEQUENCE public.flags_id_seq OWNED BY public.flags.id;
 --
 
 CREATE TABLE public.friendly_id_slugs (
-    id bigint NOT NULL,
-    slug character varying NOT NULL,
+    id integer NOT NULL,
+    slug character varying(255) NOT NULL,
     sluggable_id integer NOT NULL,
     sluggable_type character varying(40),
     created_at timestamp without time zone
@@ -372,9 +386,9 @@ ALTER SEQUENCE public.friendly_id_slugs_id_seq OWNED BY public.friendly_id_slugs
 --
 
 CREATE TABLE public.holiday_schedules (
-    id bigint NOT NULL,
-    location_id bigint,
-    service_id bigint,
+    id integer NOT NULL,
+    location_id integer,
+    service_id integer,
     closed boolean NOT NULL,
     start_date date NOT NULL,
     end_date date NOT NULL,
@@ -407,8 +421,8 @@ ALTER SEQUENCE public.holiday_schedules_id_seq OWNED BY public.holiday_schedules
 --
 
 CREATE TABLE public.locations (
-    id bigint NOT NULL,
-    organization_id bigint,
+    id integer NOT NULL,
+    organization_id integer,
     accessibility text,
     admin_emails text[] DEFAULT '{}'::text[],
     description text,
@@ -419,14 +433,14 @@ CREATE TABLE public.locations (
     short_desc text,
     transportation text,
     slug text,
-    created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone,
     tsv_body tsvector,
-    alternate_name character varying,
+    alternate_name character varying(255),
     virtual boolean DEFAULT false,
     active boolean DEFAULT true,
-    website character varying,
-    email character varying,
+    website character varying(255),
+    email character varying(255),
     featured_at timestamp without time zone,
     archived_at timestamp without time zone
 );
@@ -456,17 +470,17 @@ ALTER SEQUENCE public.locations_id_seq OWNED BY public.locations.id;
 --
 
 CREATE TABLE public.mail_addresses (
-    id bigint NOT NULL,
-    location_id bigint,
+    id integer NOT NULL,
+    location_id integer,
     attention text,
     address_1 text,
     city text,
     state_province text,
     postal_code text,
-    created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL,
-    country character varying NOT NULL,
-    address_2 character varying
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone,
+    country character varying(255) NOT NULL,
+    address_2 character varying(255)
 );
 
 
@@ -494,22 +508,22 @@ ALTER SEQUENCE public.mail_addresses_id_seq OWNED BY public.mail_addresses.id;
 --
 
 CREATE TABLE public.organizations (
-    id bigint NOT NULL,
+    id integer NOT NULL,
     name text,
     slug text,
-    created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL,
-    alternate_name character varying,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone,
+    alternate_name character varying(255),
     date_incorporated date,
     description text NOT NULL,
-    email character varying,
-    legal_status character varying,
-    tax_id character varying,
-    tax_status character varying,
-    website character varying,
-    funding_sources character varying[] DEFAULT '{}'::character varying[],
-    accreditations character varying[] DEFAULT '{}'::character varying[],
-    licenses character varying[] DEFAULT '{}'::character varying[]
+    email character varying(255),
+    legal_status character varying(255),
+    tax_id character varying(255),
+    tax_status character varying(255),
+    website character varying(255),
+    funding_sources character varying(255)[] DEFAULT '{}'::character varying[],
+    accreditations character varying(255)[] DEFAULT '{}'::character varying[],
+    licenses character varying(255)[] DEFAULT '{}'::character varying[]
 );
 
 
@@ -537,19 +551,19 @@ ALTER SEQUENCE public.organizations_id_seq OWNED BY public.organizations.id;
 --
 
 CREATE TABLE public.phones (
-    id bigint NOT NULL,
-    location_id bigint,
+    id integer NOT NULL,
+    location_id integer,
     number text,
     department text,
     extension text,
     vanity_number text,
-    created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL,
-    number_type character varying,
-    country_prefix character varying,
-    contact_id bigint,
-    organization_id bigint,
-    service_id bigint
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone,
+    number_type character varying(255),
+    country_prefix character varying(255),
+    contact_id integer,
+    organization_id integer,
+    service_id integer
 );
 
 
@@ -577,12 +591,12 @@ ALTER SEQUENCE public.phones_id_seq OWNED BY public.phones.id;
 --
 
 CREATE TABLE public.programs (
-    id bigint NOT NULL,
-    organization_id bigint,
-    name character varying,
-    alternate_name character varying,
-    created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL
+    id integer NOT NULL,
+    organization_id integer,
+    name character varying(255),
+    alternate_name character varying(255),
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
 );
 
 
@@ -610,12 +624,12 @@ ALTER SEQUENCE public.programs_id_seq OWNED BY public.programs.id;
 --
 
 CREATE TABLE public.regular_schedules (
-    id bigint NOT NULL,
+    id integer NOT NULL,
     weekday integer,
     opens_at time without time zone,
     closes_at time without time zone,
-    service_id bigint,
-    location_id bigint
+    service_id integer,
+    location_id integer
 );
 
 
@@ -676,7 +690,7 @@ ALTER SEQUENCE public.resource_contacts_id_seq OWNED BY public.resource_contacts
 --
 
 CREATE TABLE public.schema_migrations (
-    version character varying NOT NULL
+    version character varying(255) NOT NULL
 );
 
 
@@ -685,8 +699,8 @@ CREATE TABLE public.schema_migrations (
 --
 
 CREATE TABLE public.services (
-    id bigint NOT NULL,
-    location_id bigint,
+    id integer NOT NULL,
+    location_id integer,
     audience text,
     description text NOT NULL,
     eligibility text,
@@ -697,16 +711,16 @@ CREATE TABLE public.services (
     funding_sources text,
     service_areas text,
     keywords text,
-    created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL,
-    accepted_payments character varying[] DEFAULT '{}'::character varying[],
-    alternate_name character varying,
-    email character varying,
-    languages character varying[] DEFAULT '{}'::character varying[],
-    required_documents character varying[] DEFAULT '{}'::character varying[],
-    status character varying DEFAULT 'active'::character varying NOT NULL,
-    website character varying,
-    program_id bigint,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone,
+    accepted_payments character varying(255)[] DEFAULT '{}'::character varying[],
+    alternate_name character varying(255),
+    email character varying(255),
+    languages character varying(255)[] DEFAULT '{}'::character varying[],
+    required_documents character varying(255)[] DEFAULT '{}'::character varying[],
+    status character varying(255) DEFAULT 'active'::character varying NOT NULL,
+    website character varying(255),
+    program_id integer,
     interpretation_services text,
     wait_time_updated_at timestamp without time zone,
     icarol_categories character varying,
@@ -803,24 +817,24 @@ ALTER SEQUENCE public.tags_id_seq OWNED BY public.tags.id;
 --
 
 CREATE TABLE public.users (
-    id bigint NOT NULL,
-    email character varying DEFAULT ''::character varying NOT NULL,
-    encrypted_password character varying DEFAULT ''::character varying NOT NULL,
-    name character varying DEFAULT ''::character varying NOT NULL,
-    reset_password_token character varying,
+    id integer NOT NULL,
+    email character varying(255) DEFAULT ''::character varying NOT NULL,
+    encrypted_password character varying(255) DEFAULT ''::character varying NOT NULL,
+    name character varying(255) DEFAULT ''::character varying NOT NULL,
+    reset_password_token character varying(255),
     reset_password_sent_at timestamp without time zone,
     remember_created_at timestamp without time zone,
     sign_in_count integer DEFAULT 0 NOT NULL,
     current_sign_in_at timestamp without time zone,
     last_sign_in_at timestamp without time zone,
-    current_sign_in_ip character varying,
-    last_sign_in_ip character varying,
-    confirmation_token character varying,
+    current_sign_in_ip character varying(255),
+    last_sign_in_ip character varying(255),
+    confirmation_token character varying(255),
     confirmed_at timestamp without time zone,
     confirmation_sent_at timestamp without time zone,
-    unconfirmed_email character varying,
-    created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL
+    unconfirmed_email character varying(255),
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
 );
 
 
@@ -1120,14 +1134,6 @@ ALTER TABLE ONLY public.resource_contacts
 
 
 --
--- Name: schema_migrations schema_migrations_pkey; Type: CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.schema_migrations
-    ADD CONSTRAINT schema_migrations_pkey PRIMARY KEY (version);
-
-
---
 -- Name: services services_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -1223,17 +1229,17 @@ CREATE UNIQUE INDEX index_categories_on_slug ON public.categories USING btree (s
 
 
 --
--- Name: index_categories_services_on_category_id; Type: INDEX; Schema: public; Owner: -
+-- Name: index_categories_services_on_category_id_and_service_id; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX index_categories_services_on_category_id ON public.categories_services USING btree (category_id);
+CREATE UNIQUE INDEX index_categories_services_on_category_id_and_service_id ON public.categories_services USING btree (category_id, service_id);
 
 
 --
--- Name: index_categories_services_on_service_id; Type: INDEX; Schema: public; Owner: -
+-- Name: index_categories_services_on_service_id_and_category_id; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX index_categories_services_on_service_id ON public.categories_services USING btree (service_id);
+CREATE UNIQUE INDEX index_categories_services_on_service_id_and_category_id ON public.categories_services USING btree (service_id, category_id);
 
 
 --
@@ -1556,6 +1562,13 @@ CREATE INDEX organizations_name ON public.organizations USING gin (to_tsvector('
 --
 
 CREATE INDEX services_service_areas ON public.services USING gin (to_tsvector('english'::regconfig, service_areas));
+
+
+--
+-- Name: unique_schema_migrations; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE UNIQUE INDEX unique_schema_migrations ON public.schema_migrations USING btree (version);
 
 
 --
