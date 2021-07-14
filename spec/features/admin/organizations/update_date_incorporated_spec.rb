@@ -7,15 +7,12 @@ feature 'Update date incorporated' do
     visit '/admin/organizations/' + @org.slug
   end
 
-  scenario 'with date incorporated' do
-    select_date(Time.zone.today, from: 'organization_date_incorporated')
-    click_button I18n.t('admin.buttons.save_changes')
-
-    expect(find_field('organization_date_incorporated_1i').value).
-      to eq Time.zone.today.year.to_s
-    expect(find_field('organization_date_incorporated_2i').value).
-      to eq Time.zone.today.month.to_s
-    expect(find_field('organization_date_incorporated_3i').value).
-      to eq Time.zone.today.day.to_s
+  scenario 'date incorporated does not render' do
+    expect(page.should_not have_css('organization_date_incorporated_1i')).
+      to eq(true)
+    expect(page.should_not have_css('organization_date_incorporated_2i')).
+      to eq(true)
+    expect(page.should_not have_css('organization_date_incorporated_3i')).
+      to eq(true)
   end
 end
