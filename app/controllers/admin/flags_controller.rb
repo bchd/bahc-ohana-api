@@ -69,8 +69,8 @@ class Admin
     end
 
     def update_resource(params)
-      @flag.update(completed_at: nil) if params['flag']['checked'] == 'true'
-      @flag.update(completed_at: DateTime.now) if params['flag']['checked'] == 'false'
+      @flag.update_attribute(:completed_at, nil) if params['flag']['checked'] == 'true'
+      @flag.update_attribute(:completed_at, DateTime.now) if params['flag']['checked'] == 'false'
       refresh_index
     end
   end
