@@ -317,7 +317,7 @@ en:
           description: 'Detailed geographic location of service. For example, "This pantry is located at 2500 North Avenue, Baltimore MD, 21219. It is on the 3rd floor in room 205"'
 
         eligibility:
-          description: 'What criteria must served groups meet to receive service?'
+          description: 'What are the criteria that need to be met? (For example: age, income limits, disability, geographic location.)'
 
         fees:
           description: 'Are there any fees to receive this service?'
@@ -374,7 +374,7 @@ en:
           placeholder: 'Choose an organization'
 
         email:
-          description: "The %{type}'s general email."
+          description: "General contact information. (For example: email, phone number.)"
 
         funding_sources:
           description: 'How is this %{type} funded?'

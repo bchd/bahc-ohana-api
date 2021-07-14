@@ -74,26 +74,6 @@ feature 'Create a new service' do
     expect(find_field('service_fees').value).to eq 'Low-income residents.'
   end
 
-  scenario 'when adding an accepted payment', :js do
-    fill_in_required_service_fields
-    fill_in(placeholder: I18n.t('admin.services.forms.accepted_payments.placeholder'), with: "Cash\n")
-    click_button I18n.t('admin.buttons.create_service')
-    click_link 'New VRS Services service'
-
-    expect(find('#service_accepted_payments', visible: false).value).
-      to eq(['Cash'])
-  end
-
-  scenario 'when adding a funding source', :js do
-    fill_in_required_service_fields
-    fill_in(placeholder: I18n.t('admin.shared.forms.funding_sources.placeholder'), with: "County\n")
-    click_button I18n.t('admin.buttons.create_service')
-    click_link 'New VRS Services service'
-
-    expect(find('#service_funding_sources', visible: false).value).
-      to eq(['County'])
-  end
-
   scenario 'with application_process', :js do
     fill_in_required_service_fields
     fill_in 'service_application_process', with: 'Low-income residents.'
@@ -101,34 +81,6 @@ feature 'Create a new service' do
     click_link 'New VRS Services service'
 
     expect(find_field('service_application_process').value).to eq 'Low-income residents.'
-  end
-
-  scenario 'when adding interpretation services', :js do
-    fill_in_required_service_fields
-    fill_in 'service_interpretation_services', with: 'CTS LanguageLink'
-    click_button I18n.t('admin.buttons.create_service')
-    click_link 'New VRS Services service'
-
-    expect(find_field('service_interpretation_services').value).to eq 'CTS LanguageLink'
-  end
-
-  scenario 'with status', :js do
-    fill_in_required_service_fields
-    select 'Inactive', from: 'service_status'
-    click_button I18n.t('admin.buttons.create_service')
-    click_link 'New VRS Services service'
-
-    expect(find_field('service_status').value).to eq 'inactive'
-  end
-
-  scenario 'when adding multiple keywords', :js do
-    fill_in_required_service_fields
-    fill_in(placeholder: I18n.t('admin.services.forms.keywords.placeholder'), with: "first,second\n")
-    click_button I18n.t('admin.buttons.create_service')
-    click_link 'New VRS Services service'
-
-    service = Service.find_by(name: 'New VRS Services service')
-    expect(service.keywords).to eq %w[first second]
   end
 
   scenario 'when adding a language', :js do
@@ -140,26 +92,6 @@ feature 'Create a new service' do
     service = Service.find_by(name: 'New VRS Services service')
     expect(service.languages).to eq ['French']
     expect(find('#service_languages', visible: false).value).to eq(['French'])
-  end
-
-  scenario 'when adding a required document', :js do
-    fill_in_required_service_fields
-    fill_in(placeholder: I18n.t('admin.services.forms.required_documents.placeholder'), with: "Picture ID\n")
-    click_button I18n.t('admin.buttons.create_service')
-    click_link 'New VRS Services service'
-
-    expect(find('#service_required_documents', visible: false).value).
-      to eq(['Picture ID'])
-  end
-
-  scenario 'when adding a service area', :js do
-    fill_in_required_service_fields
-    fill_in(placeholder: I18n.t('admin.services.forms.service_areas.placeholder'), with: "Belmont\n")
-    click_button I18n.t('admin.buttons.create_service')
-    click_link 'New VRS Services service'
-
-    expect(find('#service_service_areas', visible: false).value).
-      to eq(['Belmont'])
   end
 
   scenario 'when adding a website', :js do

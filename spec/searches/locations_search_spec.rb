@@ -33,10 +33,10 @@ RSpec.describe LocationsSearch, :elasticsearch do
 
       results = search({keywords: 'Salvation Army'}).objects
 
-      expect(results[0].id).to be(featured_location.id)
-      expect(results[1].id).to be(location_name_exact_match.id)
-      expect(results[2].id).to be(location_name_partial_match.id)
-      expect(results[3].id).to be(location_with_org_matching_tags.id)
+      expect(results[0].id).to eq(featured_location.id)
+      expect(results[1].id).to eq(location_name_exact_match.id)
+      expect(results[2].id).to eq(location_name_partial_match.id)
+      expect(results[3].id).to eq(location_with_org_matching_tags.id)
       expect(results).not_to include(location_random_attributes)
     end
   end
@@ -56,7 +56,7 @@ RSpec.describe LocationsSearch, :elasticsearch do
       category_exact_match = create(:category, services: [service_exact_match], name: "Financial Aid And Loans")
 
       time = Time.current
-      
+
       # Set for all of them the same updated_at time stamp so they get ordered only considering score
       featured_location.update_columns(updated_at: time)
       location_organization_match.update_columns(updated_at: time)
@@ -85,7 +85,7 @@ RSpec.describe LocationsSearch, :elasticsearch do
       sub_cat = create(:financial_aid, services: [service_sub_cat])
 
       time = Time.current
-      
+
       # Set for all of them the same updated_at time stamp so they get ordered only considering score
       featured_location.update_columns(updated_at: time)
       location_name_exact_match.update_columns(updated_at: time)
@@ -101,7 +101,7 @@ RSpec.describe LocationsSearch, :elasticsearch do
     end
   end
 
-  xdescribe 'by organization name', debt: true do 
+  xdescribe 'by organization name', debt: true do
     specify 'partial match on org name tops partial match on location name or service name' do
 
       org1 = create(:organization, name: 'Partial Match on Org Name DRUG COMPANY')
@@ -155,7 +155,7 @@ RSpec.describe LocationsSearch, :elasticsearch do
       location_2 = create_location("PARTIAL MATCH ON BUDDY", @organization)
 
       import(location_1, location_2)
-      
+
       results = search({keywords: 'DEAD ON EXACT MATCH BUDDY'})
 
       expect(results[0].id).to be(location_1.id)
@@ -305,7 +305,7 @@ RSpec.describe LocationsSearch, :elasticsearch do
       expect(results).not_to include(location_1)
     end
   end
-  
+
   describe 'by service category' do
     before do
       @organization = create(:organization)
@@ -440,19 +440,19 @@ RSpec.describe LocationsSearch, :elasticsearch do
       @organization = create(:organization)
       LocationsIndex.reset!
     end
-  
+
     it 'should return same results searching with and without stoping words' do
       location_1 = create_location("Animal Shelter", @organization)
       location_2 = create_location("Food and Shelter", @organization)
       location_3 = create_location("This is a Featured location", @organization)
-  
+
       import(location_1, location_2, location_3)
-  
+
       results_no_stop_words = search({keywords: 'Animal Shelter'}).objects
       expect(results_no_stop_words).to include(location_1)
       expect(results_no_stop_words).to include(location_2)
       expect(results_no_stop_words.size).to eq(2)
-  
+
       results_with_stop_words = search({keywords: 'the Animal Shelter is an a'}).objects
       expect(results_with_stop_words).to include(location_1)
       expect(results_with_stop_words).to include(location_2)
@@ -471,7 +471,7 @@ RSpec.describe LocationsSearch, :elasticsearch do
       location_1 = create(:location_with_tag)
       location_2 = create_location("Education Location Partial Match", organization)
       import(location_1, location_2)
-  
+
       results = search({keywords: 'Education'}).objects
       expect(results[0].id).to eq(location_2.id)
       expect(results.size).to eq(2)
@@ -552,7 +552,7 @@ RSpec.describe LocationsSearch, :elasticsearch do
       import(location_1, location_2, location_3)
 
       results = search({keywords: "#{term_1} #{term_2}"}).objects
-      
+
       expect(results[0].id).to eq(location_1.id)
       expect(results[1].id).to eq(location_2.id)
       expect(results[2].id).to eq(location_3.id)
@@ -584,7 +584,7 @@ RSpec.describe LocationsSearch, :elasticsearch do
       # and service on that location with the second tag!
       service_with_second_tag = create(:service, location: location_2)
       service_with_second_tag.tags << tag_2
-      
+
       # 3. Services with tags containing “Salvation” OR “Army”
       location_3 = create_location("Single matching tag on service", org)
       service_with_matching_tag = create(:service, location: location_3)
@@ -598,7 +598,7 @@ RSpec.describe LocationsSearch, :elasticsearch do
       expect(results.second.id).to eq(location_2.id)
       expect(results.third.id).to eq(location_3.id)
     end
-  
+
     it 'should return locations matching the location - tags' do
       organization = create(:organization)
       LocationsIndex.reset!
@@ -607,7 +607,7 @@ RSpec.describe LocationsSearch, :elasticsearch do
       location_1 = create(:location_with_tag)
       location_2 = create_location("Location with no tag", organization)
       import(location_1, location_2)
-  
+
       results = search({keywords: 'Education'}).objects
       expect(results).to include(location_1)
       expect(results.size).to eq(1)
@@ -622,7 +622,7 @@ RSpec.describe LocationsSearch, :elasticsearch do
       location_1 = create_location("Location with tagged organization", organization_with_tag)
       location_2 = create_location("Location with no tagged organization", organization)
       import(location_1, location_2)
-  
+
       results = search({keywords: 'Organization_tag'}).objects
       expect(results).to include(location_1)
       expect(results.size).to eq(1)

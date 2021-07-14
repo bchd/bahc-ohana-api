@@ -63,16 +63,6 @@ feature 'Create a new organization' do
     expect(find_field('organization_legal_status').value).to eq 'non-profit'
   end
 
-  scenario 'when adding a tax id' do
-    fill_in 'organization_name', with: 'new org'
-    fill_in 'organization_description', with: 'description for new org'
-    fill_in 'organization_tax_id', with: '12-1234567'
-    click_button I18n.t('admin.buttons.create_organization')
-    click_link 'new org'
-
-    expect(find_field('organization_tax_id').value).to eq '12-1234567'
-  end
-
   scenario 'when adding a tax status' do
     fill_in 'organization_name', with: 'new org'
     fill_in 'organization_description', with: 'description for new org'
@@ -83,32 +73,6 @@ feature 'Create a new organization' do
     expect(find_field('organization_tax_status').value).to eq '501(c)(3)'
   end
 
-  scenario 'with date incorporated' do
-    fill_in 'organization_name', with: 'new org'
-    fill_in 'organization_description', with: 'description for new org'
-    select_date(Time.zone.today, from: 'organization_date_incorporated')
-    click_button I18n.t('admin.buttons.create_organization')
-    click_link 'new org'
-
-    expect(find_field('organization_date_incorporated_1i').value).
-      to eq Time.zone.today.year.to_s
-    expect(find_field('organization_date_incorporated_2i').value).
-      to eq Time.zone.today.month.to_s
-    expect(find_field('organization_date_incorporated_3i').value).
-      to eq Time.zone.today.day.to_s
-  end
-
-  scenario 'when adding a funding source', :js do
-    fill_in 'organization_name', with: 'new org'
-    fill_in 'organization_description', with: 'description for new org'
-    fill_in(placeholder: I18n.t('admin.shared.forms.funding_sources.placeholder'), with: "State\n")
-    click_button I18n.t('admin.buttons.create_organization')
-    click_link 'new org'
-
-    expect(find('#organization_funding_sources', visible: false).value).
-      to eq(['State'])
-  end
-
   scenario 'when adding multiple accreditations', :js do
     fill_in 'organization_name', with: 'new org'
     fill_in 'organization_description', with: 'description for new org'
@@ -117,15 +81,5 @@ feature 'Create a new organization' do
 
     organization = Organization.find_by(name: 'new org')
     expect(organization.accreditations).to eq %w[first second]
-  end
-
-  scenario 'when adding multiple licenses', :js do
-    fill_in 'organization_name', with: 'new org'
-    fill_in 'organization_description', with: 'description for new org'
-    fill_in(placeholder: I18n.t('admin.organizations.forms.licenses.placeholder'), with: "first,second\n")
-    click_button I18n.t('admin.buttons.create_organization')
-
-    organization = Organization.find_by(name: 'new org')
-    expect(organization.licenses).to eq %w[first second]
   end
 end
