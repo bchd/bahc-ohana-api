@@ -6,21 +6,19 @@ Clone it on your computer and navigate to the project's directory:
 
     git clone git@github.com:bchd/bahc-ohana-api.git && cd bchd-ohana-api
 
-
 ## Elasticsearch Setup
 
-- Install right version of ElasticSearch 
-    
+- Install right version of ElasticSearch
+
     [Elasticsearch 5.6 download](https://www.elastic.co/downloads/past-releases/elasticsearch-5-6-0)
 
-- Download it and unzip it 
+- Download it and unzip it
 
 - Go to the elastic search directory using terminal and type the following command:
-        
+
         $ bin/elasticsearch
 
 - Go to: [http://localhost:9200](http://localhost:9200) and check that is running and the version is 5.6
-
 
 ## Local Setup
 
@@ -76,7 +74,7 @@ _Note: you have to make sure that Elasticsearch is up and running_
 
 ### Data Admin page
 
-Visit: 
+Visit:
     [http://localhost:8080/admin](http://localhost:8080/admin)
 
     email: masteradmin@ohanapi.org
@@ -234,12 +232,12 @@ the JSON response so it is easier to read in the browser.
 
 # Troubleshooting
 
-### Error: Using wrong ruby version: 
+### Error: Using wrong ruby version:
 
 - Make sure to have asdf installed and run the following commands:
 
     $ asdf install ruby 2.5.3
-    
+
     $ asdf global ruby 2.5.3
 
 - Make sure that the right version is being used now:
@@ -254,8 +252,18 @@ _Note: [reference here](https://bundler.io/blog/2019/05/14/solutions-for-cant-fi
     $yarn install --ignore-engines
 
 ### Error: Missing Required Configuration Keys
-- You should be missing configuration definitions on your file: 
-    
+- You should be missing configuration definitions on your file:
+
     /config/application.yml
 
 _Note: you might have to ask a colleage for a fresh copy_
+
+### Error: Data/Services Won't Show Up
+- You visit ui dashboard and no data is showing up:
+
+- make sure the database is created
+- run `bundle exec rake db:{drop,create}`
+- run `pg_restore --verbose --clean --no-acl --no-owner -h localhost -d ohana_api_development <DUMP FILE LOCATION>`
+- run `bundle exec rake db:migrate`
+- start the api server by running `bundle exec puma -p 8080`
+- start ui server by running `rails s`
