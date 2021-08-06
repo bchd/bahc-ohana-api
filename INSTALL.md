@@ -259,3 +259,13 @@ _Note: [reference here](https://bundler.io/blog/2019/05/14/solutions-for-cant-fi
     /config/application.yml
 
 _Note: you might have to ask a colleage for a fresh copy_
+
+### Error: Data/Services Won't Show Up
+- You visit ui dashboard and no data is showing up: 
+
+- make sure the database is created
+- run `bundle exec rake db:{drop,create}`
+- run `pg_restore --verbose --clean --no-acl --no-owner -h localhost -d ohana_api_development <DUMP FILE LOCATION>`
+- run `bundle exec rake db:migrate`
+- start the api server by running `bundle exec puma -p 8080`
+- start ui server by running `rails s`
