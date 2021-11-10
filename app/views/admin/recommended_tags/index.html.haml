@@ -1,0 +1,31 @@
+%h1 Tag Manager
+
+%ul.nav.nav-tabs
+  %li= link_to "Tags", admin_tags_path
+  %li.active= link_to "Recommended", admin_recommended_tags_path
+
+%div
+  - if current_admin.super_admin?
+    %div.tag_add_new_button_container
+      = link_to " + Add New Tag".html_safe, new_admin_recommended_tag_path, class: 'btn btn-primary'
+    %div{style: "clear: both;"}
+    %p
+      As a super admin, you have access to all tags in the database. Please make updates responsibly.
+
+  %div
+    - if @recommended_tags.empty?
+      %span
+        No results found
+
+    - if @recommended_tags.present?
+      %table.table
+        %thead
+          %tr
+            %th Recommended Name
+            %th Associated Tag(s)
+            %th Active/Inactive
+            %th Actions
+
+        %tbody
+          - @recommended_tags.each do |recommended_tag|
+            = render "recommended_tag", recommended_tag: recommended_tag

@@ -13,9 +13,9 @@ describe ConfigValidator do
 
     let(:valid_env) do
       {
-        'ASSET_HOST' => 'lvh.me',
+        'ASSET_HOST' => 'sldev.me',
         'DEFAULT_PER_PAGE' => '30',
-        'DOMAIN_NAME' => 'lvh.me',
+        'DOMAIN_NAME' => 'sldev.me',
         'MAX_PER_PAGE' => '30',
         'DEV_SUBDOMAIN' => ''
       }

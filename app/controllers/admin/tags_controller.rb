@@ -26,7 +26,7 @@ class Admin
 
       @tag = Tag.new(name: permitted_params["name"])
       authorize @tag
-      
+
       if @tag.save
         redirect_to admin_tags_path,
                     notice: "Tag '#{@tag.name}' was successfully created."
@@ -39,7 +39,7 @@ class Admin
       @tag = Tag.find(params[:id])
       authorize @tag
       name = @tag.name
-      @tag.destroy 
+      @tag.destroy
 
       redirect_to admin_tags_path,
                     notice: "Tag '#{name}' was successfully deleted."

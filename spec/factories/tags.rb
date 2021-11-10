@@ -10,4 +10,8 @@ FactoryBot.define do
   factory :tag_service, class: Tag do
     name { 'Service_tag' }
   end
+
+  factory :recommended_tag, class: RecommendedTag do
+    name { 'Recommended Search' }
+  end
 end
