@@ -1,0 +1,6 @@
+- if @recommended_tag.errors.any?
+  .alert.alert-danger
+    %ul
+      - @recommended_tag.errors.full_messages.each do |msg|
+        %li= "Error: #{msg}"
+

@@ -41,6 +41,7 @@ Rails.application.routes.draw do
       resources :flag_categories
 
       resources :tags
+      resources :recommended_tags
 
       namespace :csv, defaults: { format: "csv" } do
         get "addresses"
@@ -124,6 +125,8 @@ Rails.application.routes.draw do
             to: "services#update_categories", as: :service_categories
         get "categories/:taxonomy_id/children", to: "categories#children", as: :category_children
         get "locations/:location_id/nearby", to: "search#nearby", as: :location_nearby
+
+        resources :recommended_tags, only: :index
 
         match "*unmatched_route" => "errors#raise_not_found!",
               via: %i[get delete patch post put]

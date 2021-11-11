@@ -1,0 +1,22 @@
+.inst-box.funding_sources
+  %header
+    %strong
+      = f.label :name, "Recommended Name (displays to user)"
+
+  = field_set_tag do
+    = f.text_field :name, required: true, maxlength: 20, class: 'form-control'
+
+.inst-box
+  %header
+    = f.label :active
+  = field_set_tag do
+    .form-check
+      %label.switch
+        = f.check_box :active
+        %span.slider.round
+
+= render 'admin/shared/forms/tags', f: f
+
+%div.tag_form_buttons_container
+  = f.submit 'Save', class: 'btn btn-primary'
+  = link_to 'Back', admin_recommended_tags_path, class: 'btn btn-primary'

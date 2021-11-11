@@ -1,0 +1,17 @@
+%tr
+  %td= link_to recommended_tag.name, admin_recommended_tag_path(recommended_tag.id)
+  %td= recommended_tag.tags.map(&:name).join(", ")
+  %td
+    - if current_admin.super_admin?
+      = form_for [:admin, recommended_tag], html: { method: :put } do |f|
+        %label.switch
+          = f.check_box :active, onchange: "javascript:submit()"
+          %span.slider.round
+    - else
+      = recommended_tag.active ? "Active" : "Inactive"
+
+  %td
+    %span
+      = link_to fa_icon("edit"), edit_admin_recommended_tag_path(recommended_tag.id), class: "tag_edit_icon"
+    %span
+      = link_to fa_icon("trash"), admin_recommended_tag_path(recommended_tag.id), method: :delete, data: { confirm: "Are you sure to delete #{recommended_tag.name} recommended tag?" }, class: "tag_delete_icon"

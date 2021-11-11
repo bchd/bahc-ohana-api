@@ -1,0 +1,14 @@
+%h3
+  Recommended Tag -
+  = @recommended_tag.name
+
+  %span
+    = link_to fa_icon("edit"), edit_admin_recommended_tag_path(@recommended_tag.id), class: "tag_edit_icon"
+  %span
+    = link_to fa_icon("trash"), admin_recommended_tag_path(@recommended_tag.id), method: :delete, data: { confirm: "Are you sure to delete #{@recommended_tag.name} tag?" }, class: "tag_delete_icon"
+%div{style: "clear: both;"}
+
+%strong Associated Tag(s)
+
+%div
+  = @recommended_tag.tags.map(&:name).join(", ")

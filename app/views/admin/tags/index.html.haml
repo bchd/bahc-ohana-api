@@ -1,4 +1,8 @@
-%h1 Tag Management
+%h1 Tag Manager
+
+%ul.nav.nav-tabs
+  %li.active= link_to "Tags", admin_tags_path
+  %li= link_to "Recommended", admin_recommended_tags_path
 
 %div.tag_index_main_container
   - if current_admin.super_admin?
@@ -30,5 +34,3 @@
         %ul
           = render "tag_list_element", tag: tag
       = paginate @tags
-      
-      
