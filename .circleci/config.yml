@@ -114,7 +114,7 @@ jobs:
           key: v1-yarn-cache-{{ .Branch }}-{{ checksum "yarn.lock" }}
       - run: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run: dockerize -wait tcp://localhost:9200 -timeout 1m
-      - run: ./bin/rails db:drop db:create db:structure:load
+      - run: ./bin/rails db:drop db:create db:migrate
       - run: bundle exec rspec --format documentation --color
 
 workflows:
