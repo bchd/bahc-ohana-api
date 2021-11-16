@@ -1,9 +1,12 @@
 version: 2.1
 
+orbs:
+  browser-tools: circleci/browser-tools@1.1.3
+
 jobs:
   setup:
     docker:
-      - image: circleci/ruby:2.5.3-node-browsers
+      - image: cimg/ruby:2.6.8-node
     steps:
       - checkout
       - run: cp .circleci/database.yml config/database.yml
@@ -29,7 +32,7 @@ jobs:
 
   webpack:
     docker:
-      - image: circleci/ruby:2.5.3-node-browsers
+      - image: cimg/ruby:2.6.8-node
     environment:
       API_PATH: api
       ADMIN_PATH: admin
@@ -68,11 +71,11 @@ jobs:
   specs:
     resource_class: medium
     docker:
-      - image: circleci/ruby:2.5.3-node-browsers
+      - image: cimg/ruby:2.6.8-node
         environment:
           PGHOST: 127.0.0.1
           PGUSER: root
-      - image: circleci/postgres:10-postgis
+      - image: circleci/postgres:12-postgis
         environment:
           POSTGRES_DB: ohana_api_test
           POSTGRES_USER: root
@@ -91,6 +94,8 @@ jobs:
       ADMIN_APP_TOKEN: testing123
     steps:
       - checkout
+      - browser-tools/install-chrome
+      - browser-tools/install-chromedriver
       - run: cp .circleci/database.yml config/database.yml
       - run: gem install bundler --conservative
       - run: sudo apt-get update -qq && sudo apt-get install -y postgresql-client
@@ -114,7 +119,7 @@ jobs:
           key: v1-yarn-cache-{{ .Branch }}-{{ checksum "yarn.lock" }}
       - run: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run: dockerize -wait tcp://localhost:9200 -timeout 1m
-      - run: ./bin/rails db:drop db:create db:structure:load
+      - run: ./bin/rails db:drop db:create db:migrate
       - run: bundle exec rspec --format documentation --color
 
 workflows:

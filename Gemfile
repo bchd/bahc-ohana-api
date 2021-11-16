@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.5.3'
+ruby '2.6.8'
 gem 'active_data'
 gem 'active_model_serializers', '~> 0.8.0'
 gem 'ancestry'
