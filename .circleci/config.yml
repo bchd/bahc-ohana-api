@@ -3,7 +3,7 @@ version: 2.1
 jobs:
   setup:
     docker:
-      - image: circleci/ruby:2.5.3-node-browsers
+      - image: cimg/ruby:2.6.8-browsers
     steps:
       - checkout
       - run: cp .circleci/database.yml config/database.yml
@@ -29,7 +29,7 @@ jobs:
 
   webpack:
     docker:
-      - image: circleci/ruby:2.5.3-node-browsers
+      - image: cimg/ruby:2.6.8-browsers
     environment:
       API_PATH: api
       ADMIN_PATH: admin
@@ -68,7 +68,7 @@ jobs:
   specs:
     resource_class: medium
     docker:
-      - image: circleci/ruby:2.5.3-node-browsers
+      - image: cimg/ruby:2.6.8-browsers
         environment:
           PGHOST: 127.0.0.1
           PGUSER: root
