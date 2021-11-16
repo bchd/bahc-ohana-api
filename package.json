@@ -4,7 +4,7 @@
   "license": "MIT",
   "repository": "https://github.com/bchd/bahc-ohana-api.git",
   "dependencies": {
-    "@rails/webpacker": "4.2.2",
+    "@rails/webpacker": "5.4.3",
     "randomstring": "^1.1.5",
     "select2": "^4.0.13",
     "turbolinks": "^5.2.0",
