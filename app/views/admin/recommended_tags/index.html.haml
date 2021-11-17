@@ -7,7 +7,7 @@
 %div
   - if current_admin.super_admin?
     %div.tag_add_new_button_container
-      = link_to " + Add New Tag".html_safe, new_admin_recommended_tag_path, class: 'btn btn-primary'
+      = link_to " + Add New Recommended".html_safe, new_admin_recommended_tag_path, class: 'btn btn-primary'
     %div{style: "clear: both;"}
     %p
       As a super admin, you have access to all tags in the database. Please make updates responsibly.
