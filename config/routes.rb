@@ -127,6 +127,7 @@ Rails.application.routes.draw do
         get "locations/:location_id/nearby", to: "search#nearby", as: :location_nearby
 
         resources :recommended_tags, only: :index
+        resources :languages, only: :index
 
         match "*unmatched_route" => "errors#raise_not_found!",
               via: %i[get delete patch post put]

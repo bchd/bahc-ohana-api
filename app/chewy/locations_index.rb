@@ -51,6 +51,7 @@ class LocationsIndex < Chewy::Index
     field :tags, value: -> { tags.map(&:name) }
     field :updated_at, type: 'date'
     field :zipcode, value: -> { address.try(:postal_code) }
+    field :languages, type: 'keyword', value: -> { services.map(&:languages).concat(languages).flatten.uniq.reject(&:blank?) }
   end
 end
 

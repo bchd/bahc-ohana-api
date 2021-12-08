@@ -1,6 +1,10 @@
 class Location < ApplicationRecord
   include HandleTags
 
+  def self.active_languages
+    select("unnest(languages) as language").where(archived_at: nil).distinct.map(&:language)
+  end
+
   def real_updated_at
     date = updated_at
     if address.present?
