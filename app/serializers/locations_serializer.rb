@@ -1,7 +1,7 @@
 class LocationsSerializer < ActiveModel::Serializer
   attributes :id, :active, :admin_emails, :alternate_name, :coordinates,
              :description, :latitude, :longitude, :name, :short_desc, :slug,
-             :website, :updated_at, :url, :featured, :languages
+             :website, :updated_at, :url, :featured
 
   has_one :address
   has_one :organization, serializer: LocationsOrganizationSerializer
@@ -12,10 +12,6 @@ class LocationsSerializer < ActiveModel::Serializer
 
     [object.longitude, object.latitude]
   end
-
-  def languages
-    return object.services.map(&:languages).concat(object.languages).flatten.uniq.reject(&:blank?)
-  end  
 
   def url
     api_location_url(object)
