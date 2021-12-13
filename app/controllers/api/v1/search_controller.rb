@@ -27,23 +27,6 @@ module Api
         
         generate_pagination_headers(locations)
 
-        languages = LocationsSearch.new(
-          accessibility: params[:accessibility],
-          category_ids: params[:categories],
-          distance: params[:distance],
-          keywords: params[:keyword],
-          lat: @lat,
-          long: @lon,
-          org_name: params[:org_name],
-          tags: params[:tags],
-          zipcode: params[:location],
-          page: params[:page],
-          per_page: params[:per_page],
-          languages: params[:languages]
-        ).languages
-
-        Rails.logger.info languages
-
         locations = locations.compact
 
         render json: locations, each_serializer: LocationsSerializer, status: :ok
