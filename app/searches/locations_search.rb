@@ -15,6 +15,7 @@ class LocationsSearch
   attribute :lat, type: Float
   attribute :long, type: Float
   attribute :distance, type: Integer
+  attribute :languages, type: Array
   
   attribute :page, type: String
   attribute :per_page, type: String
@@ -27,6 +28,7 @@ class LocationsSearch
   def search
     search_results.page(fetch_page).per(fetch_per_page)
   end
+  
 
   private
 
@@ -39,6 +41,7 @@ class LocationsSearch
       tags_query,
       zipcode_filter,
       category_filter,
+      language_filter,
       accessibility_filter, 
       distance_filter,
       distance_sort,
@@ -95,6 +98,16 @@ class LocationsSearch
       index.filter(
         terms: {
           category_ids: category_ids
+        }
+      )
+    end
+  end
+
+  def language_filter
+    if languages?
+      index.filter(
+        terms: {
+          languages: languages
         }
       )
     end

@@ -21,7 +21,8 @@ module Api
           tags: params[:tags],
           zipcode: params[:location],
           page: params[:page],
-          per_page: params[:per_page]
+          per_page: params[:per_page],
+          languages: params[:languages]
         ).search.load&.objects
         
         generate_pagination_headers(locations)
