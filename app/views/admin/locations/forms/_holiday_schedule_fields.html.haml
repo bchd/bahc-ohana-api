@@ -1,5 +1,10 @@
 = field_set_tag do
   .form-group
+    = f.label :label
+    .row
+      .col-md-6
+        = f.text_field :label, required: 'false', class: 'form-control'
+  .form-group
     = f.label :start_date
     .row
       .col-md-6
