@@ -122,6 +122,7 @@ describe 'GET /locations/:id' do
               'closed' => true,
               'start_date' => '2014-12-24',
               'end_date' => '2014-12-24',
+              'label' => nil,
               'opens_at' => nil,
               'closes_at' => nil
             }
@@ -200,6 +201,7 @@ describe 'GET /locations/:id' do
           'closed' => true,
           'start_date' => '2014-12-24',
           'end_date' => '2014-12-24',
+          'label' => nil,
           'opens_at' => nil,
           'closes_at' => nil
         }
