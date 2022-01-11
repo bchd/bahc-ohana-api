@@ -1,7 +1,7 @@
 class LocationsSerializer < ActiveModel::Serializer
   attributes :id, :active, :admin_emails, :alternate_name, :coordinates,
              :description, :latitude, :longitude, :name, :short_desc, :slug,
-             :website, :updated_at, :url, :featured
+             :website, :updated_at, :url, :featured, :audience
 
   has_one :address
   has_one :organization, serializer: LocationsOrganizationSerializer

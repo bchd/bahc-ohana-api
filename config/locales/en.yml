@@ -304,9 +304,6 @@ en:
         application_process:
           description: 'How does a client apply to receive services, if applicable?'
 
-        audience:
-          description: 'What groups are served, if not everyone?'
-
         categories:
           description: 'What categories best describe this service?'
 
@@ -379,6 +376,9 @@ en:
         funding_sources:
           description: 'How is this %{type} funded?'
           placeholder: 'Select one or more funding sources'
+
+        audience:
+          description: 'What groups are served, if not everyone?'  
 
   enumerize:
     location:

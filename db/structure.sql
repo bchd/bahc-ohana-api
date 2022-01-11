@@ -393,7 +393,8 @@ CREATE TABLE public.holiday_schedules (
     start_date date NOT NULL,
     end_date date NOT NULL,
     opens_at time without time zone,
-    closes_at time without time zone
+    closes_at time without time zone,
+    label character varying
 );
 
 
@@ -442,7 +443,8 @@ CREATE TABLE public.locations (
     website character varying(255),
     email character varying(255),
     featured_at timestamp without time zone,
-    archived_at timestamp without time zone
+    archived_at timestamp without time zone,
+    audience character varying
 );
 
 
@@ -1718,6 +1720,8 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20200810190344'),
 ('20210203011216'),
 ('20210705015154'),
-('20211108235002');
+('20211108235002'),
+('20211222211416'),
+('20220111231732');
 
 
