@@ -443,7 +443,8 @@ CREATE TABLE public.locations (
     website character varying(255),
     email character varying(255),
     featured_at timestamp without time zone,
-    archived_at timestamp without time zone
+    archived_at timestamp without time zone,
+    audience character varying
 );
 
 
@@ -1720,6 +1721,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20210203011216'),
 ('20210705015154'),
 ('20211108235002'),
-('20211222211416');
+('20211222211416'),
+('20220111231732');
 
 
