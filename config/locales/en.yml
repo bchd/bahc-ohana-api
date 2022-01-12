@@ -70,6 +70,7 @@ en:
         opens_at: 'Opens At'
         end_date: 'End Date'
         start_date: 'Start Date'
+        label: 'Label'
 
       location:
         accessibility: 'Accessibility Options'

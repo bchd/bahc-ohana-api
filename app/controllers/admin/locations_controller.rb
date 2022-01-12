@@ -113,7 +113,7 @@ class Admin
           country_prefix department extension number number_type vanity_number id _destroy
         ],
         regular_schedules_attributes: %i[weekday opens_at closes_at id _destroy],
-        holiday_schedules_attributes: %i[closed start_date end_date opens_at closes_at id _destroy],
+        holiday_schedules_attributes: %i[label closed start_date end_date opens_at closes_at id _destroy],
         file_uploads_attributes: {}
       )
     end
