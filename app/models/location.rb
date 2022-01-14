@@ -42,6 +42,12 @@ class Location < ApplicationRecord
 
   attr_accessor :featured
 
+  after_initialize do |location|
+    if !location.persisted? && location.languages.empty?
+      location.languages = ["English"]
+    end
+  end
+
   belongs_to :organization, touch: true, optional: false
 
   has_one :address, dependent: :destroy
