@@ -101,6 +101,7 @@ class Admin
       @location = Location.find(params[:location_id])
       @service = @location.services.new(service_params.except(:locations))
       @taxonomy_ids = []
+      @category_ids = service_params[:category_ids]
 
       authorize @location
       preprocess_service
