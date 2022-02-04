@@ -90,9 +90,11 @@ module Api
         address = params[:address]
         if address.present? && address != "Current Location"
           response = Geocoder.search(params[:address])
-          coordinates = response.first.data['geometry']['location']
-          @lat = coordinates['lat']
-          @lon = coordinates['lng']
+          unless response.empty?
+            coordinates = response.first.data['geometry']['location']
+            @lat = coordinates['lat']
+            @lon = coordinates['lng']
+          end  
         elsif params[:lat].present? && params[:long]
           @lat = params[:lat]
           @lon = params[:long]
