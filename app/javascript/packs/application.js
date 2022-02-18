@@ -1,4 +1,5 @@
 require('turbolinks').start()
+require('../app/app-init');
 
 import 'core-js/stable'
 import 'regenerator-runtime/runtime'
