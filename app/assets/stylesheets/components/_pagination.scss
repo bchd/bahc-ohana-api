@@ -1,0 +1,82 @@
+// Pagination styles for paging through search results list.
+.pagination
+{
+  text-align: left;
+  @include inline-block();
+
+  > h1,ul,li
+  {
+    @include inline-block();
+  }
+
+  li
+  {
+    background: $pagination-bg;
+    vertical-align: baseline;
+    @include type-size(baseline);
+    text-align: center;
+    min-width: 35px;
+    min-height: 44px;
+    line-height: 44px;
+  }
+
+  li.collapsed
+  {
+    color: $pagination-disabled-color;
+    background: $pagination-disabled-bg;
+  }
+
+  li:not(.collapsed):not(.current)
+  {
+    @include single-box-shadow(0, 0, 1px, 0, $pagination-border, inset);
+
+    &:hover
+    {
+      background: $pagination-hover-bg;
+      cursor:pointer;
+      a {
+        color: $pagination-hover-color
+      }
+    }
+  }
+
+  a
+  {
+    color: $pagination-color;
+    text-decoration: none;
+    border-bottom: none;
+    display: block;
+    min-width: 35px;
+    min-height: 44px;
+    line-height: 44px;
+  }
+
+  .current
+  {
+    color: $pagination-active-color !important;
+    background: $pagination-active-bg;
+  }
+
+  .next,
+  .prev
+  {
+    background:$pagination-next-bg;
+    a
+    {
+      color:$pagination-next-color !important;
+      border-bottom:none;
+    }
+    a:hover
+    {
+      text-decoration: none !important;
+    }
+  }
+  .next:hover,
+  .prev:hover {
+    a {
+      color: $pagination-next-hover-color !important;
+    }
+    background: $pagination-next-hover-bg !important;
+  }
+
+}

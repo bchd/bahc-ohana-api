@@ -1,0 +1,100 @@
+#category-topics {
+  display: table;
+  margin: 0 auto;
+
+  h2 {
+    color: $purple;
+    font-family: $font-sans-serif;
+    font-size: 24px;
+    margin: 20px auto;
+    text-align: center;
+  }
+
+  .topics {
+    max-width: 745px;
+    flex: 100px;
+  }
+
+  .topic {
+    display: inline-block;
+    width: 105px;
+    margin: 20px;
+    text-align: center;
+    vertical-align: top;
+
+    span {
+      background-image: linear-gradient(to bottom right, $light-orange, $orange);
+      border-radius: 50%;
+      color: $white;
+      font-size: 2.5em;
+      line-height: 2em;
+      width: 80px;
+      height: 80px;
+    }
+    p {
+      margin-top: .5em;
+    }
+
+    a {
+      color: $grey;
+      text-decoration: none;
+    }
+
+    a:hover span {
+      background-image: none;
+      background-color: orange;
+    }
+  }
+
+  #covid-19 {
+    border-radius: 5px;
+    border: solid 1px #f0f0f0;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    .critical-topic {
+      display: inline-block;
+      width: 100%;
+      margin: 20px;
+      text-align: center;
+      vertical-align: top;
+
+      .critical {
+        background-image: linear-gradient(to bottom right, $light-green, $green);
+        border-radius: 50%;
+        color: $white;
+        font-size: 2.5em;
+        line-height: 2em;
+        width: 80px;
+        height: 80px;
+      }
+
+      p {
+        font-size: 2em;
+        margin-top: .5em;
+      }
+
+      a {
+        color: $grey;
+        text-decoration: none;
+      }
+
+      a:hover span {
+        background-image: none;
+        background-color: $light-green;
+      }
+
+      a:hover {
+        font-weight: 900;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 479px) {
+#category-topics {
+  .topic {
+    margin: 20px 40px;
+  }
+}
+}

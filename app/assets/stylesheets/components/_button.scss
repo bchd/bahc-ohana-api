@@ -1,0 +1,117 @@
+.button-small {
+  background-image: $button-small-bg;
+  border: none;
+  color: $white;
+  font-family: $font_sans_serif;
+  @include type-size(baseline);
+  @include rounded-except(none);
+  @include box-sizing(border-box);
+  padding: .5em 2.6em .5em 2.6em;
+  cursor: pointer;
+  border: 1px solid rgba(0, 0, 0, 0);
+
+  .fa {
+    color: $button-small-fa-color;
+  }
+
+  .button-small:hover {
+    background-image: linear-gradient(to right, tint($blue, 10), tint($purple, 10));
+
+    .fa {
+      color: $button-small-hover-color;
+    }
+  }
+}
+
+.button-small[disabled],
+.button-small[disabled]:hover {
+  border:1px solid rgba(0, 0, 0, 0);
+  background: none;
+  color: lightest($black);
+  cursor: default;
+
+  .fa {
+    color: lightest($black);
+  }
+}
+
+a.button-small,
+a.button-small:hover {
+  font-family: $font_sans_serif;
+  text-decoration: none;
+}
+
+a.translate-active {
+  @extend .button-small:hover;
+  cursor:default;
+}
+
+// Utility buttons appear in the floating header, which is above the search results and
+// the details page and is set in a fixed position when the page scrolls.
+.button-utility {
+  background: $button-utility-bg;
+  text-decoration: none;
+  @include inline-block();
+  @include type-size(baseline);
+  color: $button-utility-color;
+  @include box-sizing(border-box);
+  padding: 10px;
+  margin: 0;
+  cursor: pointer;
+
+  .fa {
+    color: $button-utility-fa-color;
+  }
+
+  &:hover {
+    background: $button-utility-bg-hover;
+    color: $button-utility-hover-color !important;
+
+    .fa {
+      color: $button-utility-hover-color;
+    }
+  }
+}
+
+.button-utility[disabled],
+.button-utility[disabled]:hover {
+  background: none;
+  color: lightest($black);
+  cursor: default !important;
+
+  .fa {
+    color: lightest($black);
+  }
+}
+
+.button-plain {
+  background-color: $blue;
+  border: none;
+  color: $white;
+  font-family: $font_sans_serif;
+  @include type-size(baseline);
+  @include rounded-except(none);
+  @include box-sizing(border-box);
+  padding: .5em 2.6em .5em 2.6em;
+  cursor: pointer;
+  border: 1px solid rgba(0, 0, 0, 0);
+
+  .button-plain:hover {
+    background-image: tint($blue, 10);
+  }
+}
+
+.unfavorite {
+  background-color: rgba(0,0,0,0);
+  border-color: $blue;
+  color: $blue;
+}
+
+.search-button-container {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.update-button {
+  width:100%;
+}

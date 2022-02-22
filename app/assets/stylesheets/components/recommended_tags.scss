@@ -1,0 +1,36 @@
+#recommended-tags {
+  position: absolute !important;
+
+  padding: 10px 20px;
+  margin-left: 1em;
+  width: 100%;
+
+  border-collapse: collapse;
+  @include box-sizing(border-box);
+  @include rounded-except(none);
+
+  text-align: left;
+  background: $white;
+  font-size: $font_size_110;
+  @include border-radius(4px);
+  border:1px solid rgba($input-border-color, 0.4);
+  color: $greyscale_dark;
+
+  z-index: 9998;
+
+  a, span {
+    display: block;
+    font-size: $font_size_110;
+    padding: 10px;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  hr {
+    border: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+}

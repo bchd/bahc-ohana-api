@@ -1,0 +1,1573 @@
+// Establish baseline for vertical rhythm
+@include establish-baseline();
+
+
+/*
+ * HTML5 Boilerplate
+ *
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+html {
+    color: #222;
+    font-size: 1em;
+    line-height: 1.4;
+}
+
+/*
+ * Remove text-shadow in selection highlight: h5bp.com/i
+ * These selection rule sets have to be separate.
+ * Customize the background color to match your design.
+ */
+
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+/*
+ * A better looking default horizontal rule
+ */
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid rgb(126, 126, 126);
+    margin: .5rem 0;
+    padding: 0;
+}
+
+/*
+ * Remove the gap between images, videos, audio and canvas and the bottom of
+ * their containers: h5bp.com/i/440
+ */
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+    vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+    resize: vertical;
+}
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+html,
+body {
+  height: 100%;
+  font-family: $font_sans_serif;
+}
+
+body {
+  @include background-size(100% auto);
+  background-position: top;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-color: $white;
+}
+
+h1 {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+
+// Align and size super/subscripted text.
+sup,
+sub {
+  vertical-align: baseline;
+  position: relative;
+  top: -0.2em;
+  font-size: 80%;
+}
+sub {
+  top: 0.4em;
+}
+
+// Remove bullets from lists by default.
+ul {
+  list-style-type: none;
+}
+
+// Prevent selection of font awesome icons.
+.fa {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+//=================================================================================
+// Content area is everything visible on the page.
+// This section sets up the header and footer, but not the main content area.
+#content {
+  background: $white;
+
+  // Main page header and logo area.
+  > header {
+    position: relative;
+    z-index: 9999;
+
+    width: 100%;
+    background: rgba($blue, .05);
+    @include box-sizing(border-box);
+
+    font-size: $font_size_100;
+    padding: .2em;
+
+    h1 {
+        font-size: $font_size_110;
+        @include inline-block();
+        margin-left: 13px;
+    }
+
+    h2 {
+        color: $purple;
+        font-size: $font_size_115;
+        font-weight: 500;
+        font-family: $font_sans_serif;
+        @include inline-block();
+        margin-left: 14px;
+        padding-right: 15px;
+    }
+
+    nav {
+      @include inline-block();
+      float: right;
+      padding-right: 1em;
+      text-align: center;
+      line-height: 5em;
+
+      li {
+        padding-right: 10px;
+        @include inline-block();
+      }
+
+      a {
+        font-family: $font_sans_serif;
+        font-weight: 550;
+        font-size: $font_size_100;
+        color: $grey;
+        text-decoration: none;
+      }
+
+      .button-small{
+        background-image: linear-gradient(to right, $blue, $purple);
+        color: $white;
+        padding: .5em 2.6em .5em 2.6em;
+        border: none;
+      }
+      .button-small:hover {
+        background-image: linear-gradient(to right, tint($blue, 10), tint($purple, 10));
+      }
+      div.button-logged-in {
+        font-size: $font_size_110;
+        color: $white;
+        background-image: linear-gradient(to right, $blue, $purple);
+        border-radius: 50%;
+        height: 2em;
+        width: 2em;
+        text-align: center;
+        line-height: 2em;
+      }
+      div.button-logged-in:hover {
+        background-image: linear-gradient(to right, tint($blue, 10), tint($purple, 10));
+      }
+    }
+  }
+}
+
+#logo {
+  span {
+    color: $black; // IE fallback
+    font-size: $font_size_90;
+    margin-left: 5px;
+    position: relative;
+    top: -10px;
+    font-family: $font_sans_serif;
+  }
+
+  a,
+  a:hover {
+    text-decoration: none;
+    border-bottom: 0;
+    padding: 0;
+  }
+
+  img {
+    max-width: 80px;
+    padding: .4em;
+  }
+}
+
+#app-footer {
+  position: relative;
+  text-align: center;
+  background: $white;
+  clear: both;
+  padding-bottom: 20px;
+
+  > p,
+  > div {
+    padding: 20px;
+    padding-bottom: 0;
+    font-size: $font_size_95;
+    font-family: $font_sans_serif;
+    color: $greyscale_midtone;
+  }
+
+  p span.cfaflag {
+    width: 30px;
+    height: 10px;
+    @include inline-block();
+    // The Code for America flag icon appears below.
+    background-image: url('data: image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAKCAYAAADGmhxQAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDE0IDc5LjE1MTQ4MSwgMjAxMy8wMy8xMy0xMjowOToxNSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDowQTgwMTE3NDA3MjA2ODExODA4M0Y4NDQzQjY1NUU4QSIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpGREU5NDQ3QUZFRjIxMUUyODdFMUExNEQxOEY5RTcwNiIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpGREU5NDQ3OUZFRjIxMUUyODdFMUExNEQxOEY5RTcwNiIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1LjEgV2luZG93cyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkM3NzQxMjdENjNGMjExRTJCMUU5RTMwNzJEMjEwQzU4IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkM3NzQxMjdFNjNGMjExRTJCMUU5RTMwNzJEMjEwQzU4Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+Pb9MpAAAAHRJREFUeNq8lEsOwCAIRCGZS/aEHJPujIvyaQZlaaI8n4Pq7qKqUtQjXFlyrmUb0YAyAqB7ubAXSDDG8G7Pot4gwaYMSgSKbhaGDVb9Fii2hcqgXYL/NJjmYGiSO/bSDFagJw2Gr6eX/8HfWcfAlB6tV4ABAMgqJBh6/fGdAAAAAElFTkSuQmCC');
+    background-repeat: no-repeat;
+    padding-right: 10px;
+    position: relative;
+    top: -1px;
+  }
+
+  img {
+    max-width: 100px;
+    float: left;
+  }
+}
+
+#footer-container{
+  width: 35%;
+  display: inline-block;
+}
+
+
+//=================================================================================
+// Main content box - everything below the header area.
+// The main content area sets up the table display styling for positioning
+// the search box in the middle of the screen and laying out the search box and
+// content as a two column layout on inside pages.
+
+.main {
+  * {
+    // Prevent popup overlap.
+    position: relative;
+  }
+}
+
+.inside .main {
+  background-image: $search-sidebar-bg;
+}
+
+//=================================================================================
+// Google Website Translator Gadget styles.
+
+// The container for the Google Website Translator Gadget.
+#google-translate-container {
+  padding-bottom: 20px;
+  float: right;
+}
+
+// Hides the Google Translate translation banner at the top of the page.
+.goog-te-banner-frame.skiptranslate {
+  display: none !important;
+}
+body {
+  top: 0 !important;
+}
+
+//=================================================================================
+// Area above the search box, which holds the language translation links box.
+.home .search-utilities {
+  background: $search-bg; // IE fallback
+  background: rgba($search-bg, 0.8);
+  min-height: 44px;
+  padding: 10px;
+  padding-right: 25px;
+  text-align: right;
+}
+
+// Area below the search box, which could hold settings, but doesn't currently.
+.home #search-bottom-utilities {
+  border-bottom: 2px solid $main-border-color;
+}
+
+//=================================================================================
+// Language translation links on the upper-right homepage.
+.home #language-box {
+  padding-bottom: 10px;
+
+  ul {
+    @include inline-block();
+    text-align: right;
+
+    li {
+      @include inline-block();
+      margin-top: 10px;
+    }
+  }
+}
+
+//=================================================================================
+// Search options.
+.home #search-container {
+  background-image: image_url("map_landing.png");
+  background-size: cover;
+  position: relative;
+
+  form {
+    position: static;
+  }
+}
+
+.main_category {
+  font-size: 1.375rem !important; 
+}
+
+.inside #search-container {
+  float: left;
+  vertical-align: top;
+  width: 250px;
+  min-height: 1000px;
+  height: auto;
+  padding: 1rem;
+}
+
+.home-page-or {
+  color: white;
+  margin-left: 1rem;
+  height: 3.125rem;
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+}
+
+.home #search-box {
+  padding: 0;
+
+  ul {
+    text-align: left;
+  }
+
+  > div {
+    padding: 60px;
+    text-align: center;
+    background-image: linear-gradient(100deg, rgba($blue, .8), rgba($purple, .8));
+    vertical-align: bottom;
+    height: 625px;
+
+    > * {
+      @include inline-block();
+
+    }
+
+  }
+
+  // Form input field labels.
+  label {
+    font-size: 56px;
+    @include inline-block();
+
+    color: $white;
+  }
+
+  .input-search-big {
+    @include inline-block();
+  }
+}
+
+
+
+.inside #search-box {
+  text-align: left;
+  margin-bottom: 20px;
+
+  section {
+    text-align: left;
+  }
+
+}
+
+#search-controls {
+  margin: 10px;
+}
+
+#geolocate {
+  border: 0;
+  background: 0;
+}
+
+#button-geolocate {
+  padding-left: .24rem;
+  padding-right: .25rem;
+  &:hover { 
+    color: $purple;
+    cursor: pointer;
+  }
+}
+
+.geolocated {
+  color: $purple;
+}
+
+#geolocate-box {
+  align-items: center;
+  background-color: $white;
+  @include border-radius(4px);
+  border:1px solid rgba($input-border-color, 0.4);
+  display: flex;
+  height: 2.5rem;
+  right: 0;
+  .fa-crosshairs {
+    padding: .75rem; 
+  }
+}
+
+
+#address-label {
+  margin-top: .625rem;
+}
+
+#address {
+  border: 0;
+  width: 100%;
+}
+
+#search-options {
+  font-family: $font_sans_serif;
+
+  fieldset {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    padding-top: 10px;
+
+    legend {
+      color: $search-accent-color;
+      font-size: 14px;
+    }
+  }
+}
+
+#category-filters-label {
+  font-size: $font-size_95;
+}
+
+#category-box {
+  background: $greyscale_lightest;
+  padding: 20px;
+  text-align: center;
+
+  > section {
+    @include single-box-shadow(0, 0, 5px, 0, rgba($black, .1));
+    @include inline-block();
+    @include border-radius(4px);
+    margin: 10px;
+    vertical-align: top;
+    border: 1px solid $list-search-border;
+
+    > ul {
+      > li {
+        text-align: left;
+        text-transform: capitalize;
+        font-size: 24px;
+        @include inline-block();
+        vertical-align: top;
+        margin-bottom: 40px;
+        background: $white;
+        padding: 10px;
+        margin: 10px;
+        > ul {
+          > li {
+            margin: 5px;
+            margin-left: 20px;
+            padding-left: 10px;
+            font-size: $font_size_100;
+            border-left: 6px solid $listitem-search-border;
+          }
+          > li:nth-child(odd) {
+            border-left: 6px solid tint($listitem-search-border, 25);
+          }
+        }
+      }
+    }
+  }
+}
+
+#emergency-services {
+  border: 1px solid $list-search-important-border !important;
+  background: $white;
+  z-index: 9997;
+
+  > ul {
+    > li {
+      > ul {
+        > li {
+          border-left: 6px solid $listitem-search-important-border !important;
+        }
+        > li:nth-child(odd) {
+          border-left: 6px solid tint($listitem-search-important-border, 25) !important;
+        }
+      }
+    }
+  }
+}
+
+
+//=================================================================================
+// Search results container.
+// Displays search results in inside page.
+#results-container {
+  position: relative;
+  z-index: 9998;
+  vertical-align: top;
+  margin-left: 240px;
+  background: $white;
+  display: table-cell;
+  width: 100%;
+}
+
+.results-header {
+  position: absolute;
+  top: 400px;
+  right: 0;
+  z-index: 9999;
+  min-height: 45px;
+  font-family: $font_sans_serif;
+  background: $greyscale_lightest;
+  width: 100%;
+  text-align: right;
+  @include box-sizing(border-box);
+
+  h1 {
+    font-size: $font_size_110;
+    letter-spacing: 1px;
+    margin: 0;
+    padding-left: 20px;
+    padding-top: 9px;
+    padding-bottom: 6px;
+    padding-right: 20px;
+    color: $black;
+    font-family: $font_sans_serif;
+    @include ellipsis();
+  }
+
+  // Print, Email, Directions, Back to search
+  .utility-links {
+    > span {
+      @include inline-block();
+      vertical-align: baseline;
+    }
+
+    > span:last-child {
+      border-right: 1px dotted $greyscale_light;
+    }
+  }
+
+  .button-top {
+    border-left: 1px dotted $greyscale_light;
+  }
+
+  .button-map-zoom {
+    border-right: 1px dotted $greyscale_light;
+  }
+
+  .left-column {
+    z-index: $layer-7;
+    text-align: left;
+
+    > .static-content, {
+      @include inline-block();
+    }
+  }
+
+  .right-column {
+    float: right;
+    z-index: $layer-8;
+
+    > * {
+      @include inline-block();
+    }
+  }
+
+  .search-summary {
+    padding-left: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 20px;
+    @include inline-block();
+
+    > * {
+      @include inline-block();
+    }
+
+    strong {
+      font-weight: bold;
+      color: $pagination-highlight;
+    }
+
+    .map-summary {
+      margin-left: 20px;
+    }
+
+    @media only screen and (max-width: 902px) {
+      .map-summary {
+        display: none;
+      }
+    }
+
+    .fa-map-marker {
+      color: $greyscale_midtone;
+    }
+  }
+
+  > *:last-child {
+  }
+}
+
+.detail-header {
+  top: 0;
+}
+
+#results-container.result-map-showing .results-header {
+}
+
+// Hide static content when header is floating.
+#floating-results-header.floating .static-content {
+  display: none !important;
+}
+
+#list-view div:last-child {
+  text-align: right;
+  padding: 20px;
+}
+
+.results-header.floating {
+  -webkit-backface-visibility: hidden;
+  width: 100%;
+  @include single-box-shadow(0, 1px, 6px, 0, rgba($black, .4));
+  top: 0;
+}
+
+#results-entries {
+  min-height: 475px;
+
+  > ul {
+    padding: 0;
+    margin-top: 0;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  // No results styling.
+  section.no-results {
+    font-family: $font_sans_serif;
+    border-bottom: 1px solid $greyscale_midtone; // IE fallback
+    border-bottom: 1px solid rgba($black,.1);
+
+    .message {
+      margin: 80px auto;
+      max-width: 245px;
+      font-size: $font_size_100;
+
+      > strong {
+        font-size: $font_size_110;
+        font-weight: bold;
+        display: block;
+        margin-bottom: 10px;
+      }
+
+      > em {
+        font-color: $greyscale_midtone;
+      }
+
+      ul {
+        list-style-type: square;
+      }
+
+      li {
+        margin-top: 5px;
+      }
+    }
+  }
+}
+
+.locations-results-container {
+  display: table-row;
+}
+//=================================================================================
+// Results - terminology infobox. Certain keywords display an informational box
+// above the search results. See app/helpers/info_box_helper.rb for more info.
+//
+#terminology-box-container,
+#organization-detail-container {
+  border-bottom: 1px solid $greyscale_midtone; // IE fallback
+  border-bottom: 1px solid rgba($black, .1);
+}
+
+//=================================================================================
+// Results - list view
+#list-view {
+  font-family: $font_sans_serif;
+  > ul {
+    > li {
+      position: relative;
+      background: $white;
+      background: $greyscale_lightest;
+
+      > a {
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 9997;
+        border-bottom: 0;
+      }
+
+      .results-entry {
+        padding: 10px;
+        padding-bottom: 20px;
+        padding-top: 20px;
+
+        a {
+          z-index: 9998;
+        }
+      }
+    }
+
+    > li:hover {
+      background: $primary-lightest; // IE fallback
+      background: rgba($blue, .25);
+      h1 {
+        padding-bottom: 5px;
+        a {
+          color: $black;
+        }
+      }
+    }
+
+    > li:first-child {
+      border-top: 0;
+    }
+
+    > li:last-child {
+      margin-bottom: 0;
+      border-bottom: 1px solid $greyscale_light; // IE fallback
+      border-bottom: 1px solid rgba($black, .1);
+    }
+  }
+
+  .search-result-highlight {
+    background: #FFD919;
+    border-bottom: 1px solid #e6f2f7;
+  }
+  .search-result-blue {
+    background: tint($blue, 90)
+  }
+  .search-result-white {
+    background: $white;
+  }
+  .results-entry {
+    cursor: pointer;
+
+    > header {
+
+      .featured_location_tag {
+        font-size: 12px;
+        font-family: $font_sans_serif;
+        color: #222222;
+        font-family: Lato;
+        font-weight: 500;
+        font-size: 1em;
+        background-color: #FFC247;
+        width: 190px;
+        margin-top: -20px;
+        margin-left: -10px;
+        border-bottom-right-radius: 8px;
+        padding: 8px 24px 8px 24px;
+        text-align: center;
+      }
+
+      > hgroup {
+        font-family: $font_sans_serif;
+        padding: 10px;
+
+        h1.name {
+          font-size: 24px;
+          display: inline;
+          font-family: $font_sans_serif;
+          color: $purple;
+          a {
+            color: $purple;
+          }
+        }
+
+        h1.name > a:hover::after {
+          color: $black;
+          border-right: 0;
+          border-top: 0;
+        }
+
+        h2.agency {
+          font-size: $font_size_105;
+          color: $greyscale_dark;
+          font-family: $font_sans_serif;
+
+          span {
+            margin-top: 5px;
+          }
+          a {
+            color: $blue;
+          }
+        }
+      }
+    }
+    h2.service-capacity {
+      color: $blue;
+      font-size: #{$font_size_95 + 3};
+      padding-bottom: .5em;
+    }
+
+    .content {
+      margin-left: 20px;
+    }
+
+    .kind {
+      color: $primary-dark;
+      font-size: 14px;
+
+      a:hover {
+        text-decoration: underline;
+      }
+    }
+
+    .icon {
+      padding-left: 20px;
+      margin-left: 8px;
+    }
+
+    .address {
+      @include type-size(baseline);
+    }
+
+    .short-desc {
+      font-size: $font_size_105;
+      color: $blue;
+    }
+
+    .short-desc-list-view {
+      font-size: $font_size_100;
+      padding: 5px 0 10px 28px;
+      text-align: left;
+      strong { font-weight: bold; }
+      em { font-style: italic; }
+    }
+  }
+
+  footer {
+    margin-right: 20px;
+    text-align: right;
+    max-height: 44px;
+  }
+}
+
+#map-view {
+  background: $white;
+  padding-bottom: 45px;
+}
+
+#map-canvas {
+  height: 150px;
+
+  .infoBox {
+    background-color: $white;
+    @include border-radius(0px 4px 4px 4px);
+    @include single-box-shadow(0, 0, 5px, 0, midtone($black, 0.4));
+    border: 1px solid $primary-dark;
+    padding: 3px 6px;
+    opacity: 0.95;
+
+    > div {
+      position: relative;
+    }
+
+    h1 {
+      font-weight: bold;
+      font-size: $font_size_95;
+      margin-left: 20px;
+    }
+
+    h2 {
+      font-size: $font_size_95;
+      margin-left: 20px;
+    }
+
+    a {
+      color: $greyscale_midtone; // IE fallback
+      color: rgba($black, .6);
+      cursor: pointer;
+      border-bottom: 1px solid $white;
+      @include inline-block();
+    }
+
+    a:hover {
+      color: $primary-dark;
+      border-bottom: 1px solid $greyscale_midtone;
+      border-bottom: 1px solid rgba($black, .4);
+      text-decoration: none;
+    }
+
+    p {
+      text-align: center;
+      margin-top: 4px;
+      border-top: 1px solid midtone($primary,0.5);
+      font-size: $font_size_90;
+      margin-bottom: 2px;
+    }
+
+    .button-close {
+      color: $greyscale_midtone; // IE Fallback
+      color: rgba($black, .5);
+      position: absolute;
+      left: 0;
+      top: -10px;
+      font-size: $font_size_120;
+      font-family: $font_sans_serif;
+    }
+
+    .button-close::after {
+      content: "×";
+    }
+
+    .button-close:hover {
+      color: $black;
+      cursor: pointer;
+    }
+  }
+
+  .infoBox:hover a {
+    color: $primary-dark;
+  }
+}
+#map-canvas.max {
+  height: 400px !important;
+}
+
+#map-size-control {
+  @include inline-block();
+  font-family: $font_sans_serif;
+  @include box-sizing(border-box);
+  cursor: pointer;
+}
+
+#map-size-control:hover {
+  color: $black;
+}
+
+//Charmcare Favorite Tooltip
+.tooltip {
+  position: relative;
+  display: inline-block;
+  z-index: 10000;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 250px;
+  background-color: #222222;
+  color: #ffffff;
+  text-align: center;
+  padding: 16px;
+  border-radius: 8px;
+  top: 100%;
+  left: 50%;
+  margin-left: -30px;
+  margin-top: 23px;
+  position: absolute;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+.tooltip .tooltiptext::after {
+  content: " ";
+  position: absolute;
+  bottom: 100%; 
+  left: 12%;
+  margin-left: -17px;
+  border-width: 15px;
+  border-style: solid;
+  border-color: transparent transparent #222222 transparent;
+}
+
+.tooltip .tooltiptext > * {
+  padding: 4px;
+}
+
+//=================================================================================
+// Location details view.
+#detail-info {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  background-color: white;
+  justify-content: space-between;
+
+  .details-content {
+    margin-left: 40px;
+    width: 100%;
+    margin-right: 24px;
+  }
+
+  h2 {
+    color: rgba(27, 27, 27, 0.75);
+    font-size: 1.5em;
+  }
+
+  // Location header.
+  > section > header {
+   
+    @include border-radius(4px 4px 0 0);
+
+    .featured-location-badge {
+      width: 160px;
+      height: 74px;
+      float:  right;
+      margin-left: 24px;
+      background: rgba(255, 194, 71, 0.25);
+      border: 1px solid #FFC247;
+      box-sizing: border-box;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+
+    .kind {
+      color: $primary-dark;
+      @include type-size(baseline);
+    }
+
+    .icon {
+      padding-left: 20px;
+      margin-left: 0;
+    }
+
+    > hgroup {
+
+      // name
+      h1 {
+        @include type-size(large);
+        color: $purple;
+        font-size: 3em;
+      }
+
+      // agency
+      h2 {
+        @include type-size(medium);
+        color: rgba(27, 27, 27, 0.75);
+        font-size: 1.5em;
+        a {
+          color: rgba(27, 27, 27, 0.75);
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
+  // Individual location detail sections.
+  > * > section {
+
+    > section:only-of-type {
+      padding-bottom: 0;
+    }
+
+    > h1 {
+      //@include type-size(small);
+      font-size: $font_size_100;
+      color: $greyscale_midtone;
+      margin-top: 0;
+      margin-bottom: 10px;
+      padding-left: 1em;
+      font-family: $font_sans_serif;
+      @include inline-block();
+      // Overrides compass inline-block mixin setting - needed for correct font alignment.
+      vertical-align: baseline;
+    }
+
+    > * > section {
+      margin: 0;
+      @include type-size(baseline);
+      margin-right: 20px;
+      color: shade($grey, 70);
+      padding: 2%;
+      font-family: Lato;
+    }
+  }
+
+  // Location detail values that have bulleted lists (languages, homepage, service areas).
+  .service-opt-box ul,
+  .services-box ul {
+    margin-bottom: 0;
+    margin-left: 20px;
+    list-style-type: square;
+    li {
+      color: $main-list-mark-color; // IE fallback
+      > span {
+        color: shade($grey, 70);
+      }
+    }
+  }
+
+  // Details view sidebar.
+  > .location-sidebar-box {
+   
+    z-index: $layer-9;
+    
+
+    a {
+      Font-style: italic;
+      border: none !important;
+      padding-bottom: 20px;
+    }
+
+    .directions {
+      margin-left: 20px;
+    }
+
+    ul {
+      list-style-type: square;
+      margin-left: 20px;
+      li {
+        color: $main-list-mark-color; // IE fallback
+        > span {
+          color: shade($grey, 70);
+        }
+      }  
+    }
+
+    > .location-sidebar:first-child {
+    }
+    > .location-sidebar {
+      //margin-bottom: 20px;
+      background: rgba($purple, .1);
+      -ms-word-break: break-all;
+      word-break: break-all;
+      // Non-standard for webkit.
+      word-break: break-word;
+      height: 100%;
+      width: 376px;
+
+      .tag {
+        color: #007FAA;
+        background: rgba(0, 127, 170, 0.05);
+        border: 1px solid #007FAA;
+        border-radius: 100px;
+        padding: 2px 8px;
+        text-transform: capitalize;
+        white-space: nowrap;
+        display: inline-block;
+        margin: 3px;
+      }
+
+      .location-sidebar-footer {
+        font-style: italic;
+        margin-left: 20px;
+        color: rgba(27, 27, 27, 0.75);
+        
+        > * {
+          margin-top: 10px;
+          display: block;
+        }
+      }
+
+      .sidebar-header {
+        font-size: 18px;
+        line-height: 22px;
+        color: #222222;
+        margin-left: 20px;
+        width: 85%;
+        padding-top: 40px;
+      }
+
+      .location-sidebar-section {
+        margin-bottom: 20px;
+        margin-left: 20px;
+
+        h1, h4 {
+          font-size: 16px;
+          line-height: 19px;
+          text-transform: uppercase;
+          color: #222222;
+          margin-bottom: 4px;
+        }
+
+        .location-sidebar-content {
+          color: rgba(27, 27, 27, 0.75);
+          font-size: 16px;
+          line-height: 19px;
+          > section {
+            margin-bottom: 10px;
+            margin-right: 20px;
+          }
+          .location-sidebar-content-group {
+            > section {
+              margin-bottom: 20px;
+            }
+          }
+        }
+      }
+
+      .service-categories > ul {
+        margin-bottom: 20px;
+        margin-left: 10px;
+        list-style-type: square;
+        li {
+          color: $main-list-mark-color; // IE fallback
+          color: rgba($main-list-mark-color, .4);
+          > span {
+            color: $black;
+          }
+        }
+
+        // Indentation for service category hierarchy.
+        .hierarchy-depth-1{ margin-left: 10px; }
+        .hierarchy-depth-2{ margin-left: 20px; }
+        .hierarchy-depth-3{ margin-left: 30px; }
+      }
+    }
+  }
+
+
+  // Section specific styles. Accommodate aside width.
+  .overview-box {
+    padding: 16px;
+    margin-bottom: 40px;
+    margin-top: 14px;
+    max-height: 378px;
+    position: static;
+    background-color: #007FAA;
+    border-radius: 8px;
+  
+    .markdown-short-desc, .short-desc, a, .phone-type, section {
+      color: white;
+    }
+
+    hr {
+      background: white;
+    }
+
+    h4 {
+      text-transform: uppercase;
+    }
+
+    .overview-flex-container{
+      display: flex;
+      flex-wrap: wrap;
+      flex-grow: 1;
+    }
+  }
+
+  .flex-column {
+    max-width: 50%;
+    flex-grow: 1;
+  }
+
+  .overview-flex-container > * {
+    margin-top: 10px;
+    word-wrap: break-word;
+  }
+
+  .overview-flex-container span {
+    color: white;
+    font-size: 16px;
+  }
+
+  .header-right {
+    float: right;
+  }
+
+  .favorite-toggle{
+    color: #007FAA;
+    cursor: pointer;
+    border: none;
+    background: none;
+  }
+
+  .button-share-email > * {
+    color: #007FAA;
+  }
+
+  .button-back > * {
+    color: rgba(27, 27, 27, 0.75);
+  }
+
+
+  .service-opt-box {
+    > section > section
+    {
+      @include inline-block();
+      vertical-align: top;
+    }
+  }
+
+  .services-box {
+    margin-top: 40px;
+    margin-bottom: 40px;
+
+    h1, h4{
+      font-size: 16px;
+      line-height: 19px;
+      text-transform: uppercase;
+      color: #222222;
+    }
+
+    .service {
+      background: #F1F1F1;
+      border-radius: 8px;
+      margin-top: 15px;
+    }
+
+    .status {
+      font-size: $font_size_95;
+      color: $alert-error-base;
+    }
+    // The service's contact methods (website, email, phone).
+    .contact-box {
+      padding-bottom: 0;
+    }
+    .contact-box > section,
+    .contact-box .phone {
+      @include inline-block();
+      // Overrides compass inline-block mixin setting.
+      // Needed for correct font alignment.
+      vertical-align: baseline;
+      margin-right: 10px;
+      margin-bottom: 20px;
+    }
+    .contact-box .phones {
+      margin-bottom: 0;
+    }
+    .title-box {
+      padding-bottom: 0;
+      margin-left: 0;
+      font-size: 18px;
+      color: #222222;
+    }
+    .schedules-box {
+      @include inline-block();
+      vertical-align: top;
+      h1 {
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+  .map {
+    position: relative;
+  }
+
+  .map #detail-map-canvas {
+    height: 250px;
+    width: 100%;
+    @include box-sizing(border-box);
+    //border-top: 1px solid $primary-dark;
+
+    // Error message text if map doesn't load.
+    > span {
+      padding: 10px;
+      margin: 5px;
+      margin-top: 20px;
+      font-size: $font_size_95;
+      background: $alert-bg;
+      @include border-radius(5px);
+      @include inline-block();
+      color: $white;
+      vertical-align: middle;
+    }
+  }
+
+  .metadata {
+    // Clear any floats to prevent overlap into footer.
+    clear: both;
+    text-align: right;
+    padding: 0 20px 20px 20px;
+  }
+}
+.details-footer {
+  margin-right: 350px;
+  bottom: 50px;
+}
+
+.gmnoprint img {
+  max-width: none !important;
+  max-height: none !important;
+}
+
+@include site-link('#general-services', $white);
+@include site-link('#emergency-services', $white);
+@include site-link('#detail-info header', rgba($white, 0));
+@include site-link('#detail-info .service', $white);
+@include site-link('#detail-info .metadata', $white);
+@include site-link('#detail-info .location-sidebar', $white);
+@include site-link('.no-results', $white);
+@include site-link('#app-footer', $white);
+@include site-link('#list-view li', rgba($white, 0));
+
+/* ==========================================================================
+   State classes
+   ========================================================================== */
+// Classes that set a certain state of a component.
+
+// Character limited text will have a link with a more/less button to expand
+// and contract the amount of text shown.
+.character-limited {
+  a:last-child {
+    @include inline-block();
+    // Overrides compass inline-block mixin setting - needed for correct font alignment.
+    vertical-align: baseline;
+    font-family: $font_sans_serif;
+    margin-left: 5px;
+    line-height: normal;
+    color: $purple !important;
+
+    span:first-child {
+      color: $greyscale_midtone; // IE fallback
+      color: $purple;
+    }
+
+    span:last-child {
+      color: $greyscale_midtone; // IE fallback
+      color: $purple;
+    }
+
+    &:hover {
+      border-bottom: 1px solid $greyscale_midtone; // IE fallback
+      border-bottom: 1px solid rgba($black,.4);
+      cursor: pointer;
+    }
+  }
+}
+
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+.row {
+  display: table-row;
+}
+
+/*
+ * Hide visually and from screen readers: h5bp.com/u
+ */
+
+.hidden {
+    display: none !important;
+    visibility: hidden;
+}
+
+/*
+ * Hide only visually, but have it available for screen readers: h5bp.com/v
+ */
+
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+/*
+ * Extends the .visuallyhidden class to allow the element to be focusable
+ * when navigated to via the keyboard: h5bp.com/p
+ */
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+}
+
+/*
+ * Hide visually and from screen readers, but maintain layout
+ */
+
+.invisible {
+    visibility: hidden;
+}
+
+/*
+ * Clearfix: contain floats
+ *
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that receive the `clearfix` class.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+
+.clearfix:before,
+.clearfix:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+#progress { 
+  width: 100%;
+}
+
+#bar {
+  display: none;
+  width: 1%;
+  height: 7px;
+  background-color: $purple;
+}

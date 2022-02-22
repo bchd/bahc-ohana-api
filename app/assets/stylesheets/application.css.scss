@@ -14,13 +14,86 @@
  *= require framework_and_overrides
  */
 
-@import 'variables';
 @import "admin/components/*";
 @import "simplemde.min";
-
-@import "font-awesome";
 
 // creates styles for text in the navbar that is not a link
 .navbar-default .navbar-nav > li > a.logged-in {
   color: $light-red;
 }
+
+
+/* ==========================================================================
+   Compass imports
+   ========================================================================== */
+@import "compass/reset";
+@import "compass/css3/images";
+@import "compass/css3/box-shadow";
+@import "compass/css3/border-radius";
+@import "compass/css3/filter";
+@import "compass/css3/transform";
+@import "compass/css3/transition";
+@import "compass/css3/box-sizing";
+@import "compass/css3/opacity";
+@import "compass/css3/inline-block";
+@import "compass/css3/user-interface";
+@import "compass/css3/background-size";
+@import "compass/typography/text/ellipsis";
+@import "compass/typography/vertical_rhythm";
+@import "compass";
+
+/* ==========================================================================
+  Vendor imports
+  ========================================================================== */
+
+// The font icons used throughout the app.
+@import "font-awesome";
+
+/* ==========================================================================
+  Main app imports
+  ========================================================================== */
+
+// Settings used for customizing values across the site, such as colors.
+@import "variables";
+
+// Custom functions are like mixins (see below) but they don't set CSS
+// properties directly.
+@import "functions";
+
+// Mixins are custom functions that abbreviate generating CSS rules.
+@import "mixins";
+
+// Effects are things like opacity, display, and position changes.
+// Anything that affects a component's appearance along a scale or
+// in a binary fashion.
+@import "effects";
+
+
+// Stand-alone UI elements such as buttons.
+@import "components/*";
+
+// Styles that use images from the asset pipeline (which needs to be an ERB).
+@import "assets";
+
+// General styles that bring the app together.
+@import "base";
+
+/* ==========================================================================
+  Media type imports
+  ========================================================================== */
+
+// Style overrides for handling different screen sizes using media queries.
+@import "responsive";
+
+// Style overrides for handling the app's display when printed.
+@import "print";
+
+/* ==========================================================================
+  Browser-specific override imports
+  ========================================================================== */
+
+// Style overrides for handling quirks in Internet Explorer 8.
+@import "ie8";
+
+// Custom CSS
+@import "flagging";

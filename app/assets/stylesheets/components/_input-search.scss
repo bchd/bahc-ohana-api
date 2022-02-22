@@ -1,0 +1,377 @@
+// Form input styles.
+
+// Search.
+// Reset browser-specific added styles.
+@include reset-input-webkit();
+@include reset-input-ie();
+
+.input-search-small {
+  @include input-placeholder(rgba($black, 0.6), regular);
+  position:relative;
+
+  input:focus {
+    outline: none;
+  }
+
+  > input {
+    font-size: $font_size_105;
+    margin-left: 0;
+    height: 45px;
+    padding: 3px;
+    padding-left: 45px;
+    padding-right: 25px;
+    width: 100%;
+    vertical-align: bottom;
+    @include rounded-except(none);
+
+    border-collapse: collapse;
+    border: none;
+    background: none;
+    //border-bottom: 1px solid $primary-dark;
+    @include single-box-shadow(0, 1px, 6px, 1px, rgba($black, 0.1), inset);
+    @include box-sizing(border-box);
+    color: $white;
+  }
+
+  > .button-icon {
+    background: none;
+    border: none;
+    margin: 0;
+    margin-left: 5px;
+    padding: 10px;
+    @include box-sizing(border-box);
+    vertical-align: baseline;
+    font-family: $font_sans_serif;
+    font-size: $font_size_110;
+    line-height: 0;
+    height: 40px;
+    min-width: 34px;
+    border-collapse: collapse;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: $layer-8;
+
+    >.fa {
+      color: $orange;
+    }
+  }
+}
+
+@media only screen and (min-width: 1023px) {
+  .search-box label {
+    min-width: 150px;
+    text-align: right;
+  }
+
+  html:lang(es) {
+    .search-box label {
+      min-width: 210px; // "Necesito" is wider
+    }
+  }
+}
+
+.input-search-big {
+  position: relative;
+  width: 440px;
+
+  input:focus {
+    outline: none;
+  }
+
+  > input {
+    padding-left: 45px;
+    margin-left: 1em;
+    width: 100%;
+
+    border-collapse: collapse;
+    @include box-sizing(border-box);
+    @include rounded-except(none);
+
+    height: 50px;
+    padding-right: 10px;
+    font-size: $font_size_110;
+    vertical-align:middle;
+    background: $white;
+    @include border-radius(4px);
+    border:1px solid rgba($input-border-color, 0.4);
+    color: $greyscale_dark;
+  }
+
+  > .button-icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: auto;
+    z-index: $layer-8;
+    height: 50px;
+    min-width: 134px;
+    margin: 0;
+    margin-left: 5px;
+    padding: 10px;
+    border-collapse: collapse;
+    @include box-sizing(border-box);
+    @include rounded-except(left);
+    background: $button-bg;
+
+    font-size: $font_size_115;
+    vertical-align: baseline;
+    font-family: $font_sans_serif;
+    line-height: 0;
+    cursor: pointer;
+
+    > span {
+      @include inline-block();
+      color: $black; // IE fallback
+      color: midtone($black, .5);
+      text-shadow: 1px 4px 6px $accentA-light, 0 0 0 $black, 1px 4px 6px $accentA-light;
+      line-height: 20px; // Needed by Opera to handle vertical-align:middle properly
+      color: $button-color;
+    }
+
+    >.fa {
+      color: $button-fa-color;
+    }
+
+    &:hover {
+      background: $button-hover-bg;
+
+      >span {
+        text-shadow: none;
+        color: $button-hover-color;
+      }
+
+      >.fa {
+        color: $button-fa-color;
+      }
+    }
+  }
+}
+
+div.input-search-big::after {
+  position:absolute;
+  @include box-sizing(border-box);
+  @include rounded-except(right);
+  height: 50px;
+  background-color: $white;
+  border: 1px solid rgba($input-border-color, 0.4);
+  border-right: none;
+  border-collapse: collapse;
+  -webkit-appearance: none; // Remove rounding styling of input fields on iOS.
+  font-family: FontAwesome;
+  padding: .5em .7em .2em .7em;
+  margin-left: 1em;
+  color: $orange;
+  top: 0;
+}
+
+.input-search-big.location::after{
+  content: "\f041";
+  font-size: $font_size_110;
+  padding: .5em .7em .2em .7em;
+  left: 0;
+}
+.input-search-big.keyword::after{
+  content: "\f002";
+  font-size: $font_size_105;
+  padding: .7em .7em .2em .7em;
+  left: 2px;
+}
+
+input.search-input::-webkit-input-placeholder {
+  font-style: normal;
+  color: $grey;
+}
+input.search-input::-moz-placeholder { /* Firefox 19+ */
+  font-style: normal;
+  color: $grey;}
+input.search-input:-ms-input-placeholder { /* IE 10+ */
+  font-style: normal;
+  color: $grey;}
+input.search-input:-moz-placeholder { /* Firefox 18- */
+  font-style: normal;
+  color: $grey;}
+
+input.search-input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px white inset;
+  -webkit-text-fill-color: $greyscale_dark !important;
+}
+
+.home-page-search-container {
+  display: flex;                  /* establish flex container */
+  flex-direction: row;            /* default value; can be omitted */
+  flex-wrap: nowrap;              /* default value; can be omitted */
+  justify-content: space-between; /* switched from default (flex-start, see below) */
+  align-items: flex-end;
+  margin: 1.5rem auto auto auto;
+}
+
+.category_search_select{
+  font-style: normal;
+  color: $grey;
+  width: 100%;
+  min-width: 180px;
+  height: 50px;
+  vertical-align: middle;
+  font-family: $font_sans_serif;
+  font-size: $font_size_110;
+  border-collapse: collapse;
+  border: 1px solid rgba(0, 95, 128, 0.4);
+  padding-left: 1rem;
+  @include box-sizing(border-box);
+  @include rounded-except(none);
+}
+
+.category-search-select-left-menu{
+  font-style: normal;
+  color: $grey;
+  width: 100%;
+  min-width: 180px;
+  min-height: 40px;
+  vertical-align: middle;
+  font-family: $font_sans_serif;
+  font-size: 15px;
+  border-collapse: collapse;
+  border: 1px solid rgba(0, 95, 128, 0.4);
+  padding-left: 1rem;
+  @include box-sizing(border-box);
+  @include rounded-except(none);
+}
+
+@-moz-document url-prefix() {
+  select {
+      padding-top: 10px;
+  }
+}
+
+.label_tag{
+  font-size: 35px;
+  color: orange;
+}
+
+.input-search-filter {
+  @include input-placeholder(rgba($grey, 0.6), regular);
+  position: relative;
+
+  > label {
+    font-size: $font_size_100;
+    color: $black;
+  }
+
+  > .filter-input-group {
+    > .button-icon {
+      font-size: $font_size_105;
+      position: absolute;
+      z-index: $layer-8;
+      margin-left: 3px;
+      padding: 0;
+      border: none;
+      background: none;
+      color: $orange;
+      width: 30px;
+      height: 40px;
+      text-align: center;
+      line-height: 2em;
+    }
+
+    > input {
+      width: 100%;
+      height: 40px;
+      padding-left: 35px;
+      padding-right: 25px;
+      @include box-sizing(border-box);
+      @include rounded-except(none);
+      border: 1px solid rgba($grey, .3);
+      border-collapse: collapse;
+      -webkit-appearance: none; // Remove rounding styling of input fields on iOS.
+      font-size: $font_size_95;
+      background: $white;
+      color: $black;
+    }
+
+  }
+}
+
+.input-search-filter.input-search-filter-option {
+    .input-search-filter-option {
+    font-size: $font_size_100;
+    border: none;
+    margin: 0;
+    padding: 3px;
+    padding-top: 0;
+    padding-bottom: 0;
+    max-height: 23px;
+    background: rgba($white, 0.3);
+    border: 1px solid rgba($white, 0);
+    cursor: pointer;
+    @include rounded-except(bottom);
+
+    > span {
+      color: $black; // IE fallback
+      color: midtone($black, 0.5);
+    }
+
+    > .fa {
+      color: $input-fa-color;
+    }
+
+    &:hover {
+      background: $search-button-hover-background;
+      border: 1px solid rgba($input-border-color, 0.2);
+      border-bottom: 1px solid rgba($white, 0.3);
+
+      .fa {
+        color: $search-button-fa-hover-color;
+      }
+    }
+
+    // Prevent hover state appearance when 'disabled' attribute is present.
+    &[disabled] {
+      background: rgba($white, 0.3);
+      border: 1px solid rgba($white, 0);
+      cursor: auto;
+
+      .fa {
+        color: $input-fa-color;
+      }
+    }
+  }
+}
+
+// Clearable input fields have a (x) that can be clicked for clearing the
+// field's content.
+.clearable {
+  position: relative;
+
+  &:hover {
+    .button-clear {
+      color: rgba($black, .4);
+    }
+  }
+
+  .button-clear {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    margin-top: -15px;
+
+    color: $greyscale_midtone; // IE Fallback
+    color: rgba($black, .1);
+    font-size: $font_size_110;
+
+    border-collapse: collapse;
+    border: none;
+    outline: none;
+    background: transparent;
+  }
+
+  .button-clear::after {
+    content: "×";
+  }
+
+  .button-clear:hover {
+    color: $black;
+    cursor: pointer;
+  }
+}
+

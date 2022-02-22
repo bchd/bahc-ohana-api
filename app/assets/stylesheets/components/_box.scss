@@ -1,0 +1,50 @@
+.search-form{
+  text-align: center;
+  margin-top: 10%;
+}
+.search-form label {
+  font-family: $font_sans_serif;
+  font-weight: bold;
+}
+
+.vaccination-link {
+  font-family: $font_sans_serif;
+  font-weight: bold;
+  font-size: $font_size_110;
+  color: $white;
+}
+
+.vaccination-link-container {
+  margin-top:7%;
+}
+
+.landing-button-icon {
+  display: inline-block;
+  z-index: $layer-8;
+  height: 50px;
+  min-width: 134px;
+  border-collapse: collapse;
+  @include box-sizing(border-box);
+  @include rounded-except(none);
+  border: 1px;
+  background: $button-bg;
+  font-size: $font_size_110;
+  font-weight: bold;
+  vertical-align: middle;
+  font-family: $font_sans_serif;
+  margin-left: 45px;
+
+  cursor: pointer;
+
+  > span {
+    @include inline-block();
+    color: $black; // IE fallback
+    line-height: 20px; // Needed by Opera to handle vertical-align:middle properly
+    color: $button-utility-color;
+    vertical-align: unset;
+  }
+
+  &:hover {
+    background: $button-hover-bg;
+  }
+}
