@@ -3,4 +3,7 @@
 Kaminari.configure do |config|
   config.default_per_page = ENV['DEFAULT_PER_PAGE'].to_i
   config.max_per_page = ENV['MAX_PER_PAGE'].to_i
+
+  config.window = 2
+  config.outer_window = 1
 end

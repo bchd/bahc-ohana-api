@@ -8,6 +8,7 @@ Figaro.require_keys(
   'ASSET_HOST',
   'DEFAULT_PER_PAGE',
   'DOMAIN_NAME',
-  'MAX_PER_PAGE'
+  'MAX_PER_PAGE',
+  'OHANA_API_ENDPOINT'
 )
 ConfigValidator.new.validate
