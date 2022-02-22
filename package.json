@@ -4,6 +4,7 @@
   "license": "MIT",
   "repository": "https://github.com/bchd/bahc-ohana-api.git",
   "engines": {
+    "yarn": "1.x",
     "node": "16.x"
   },
   "dependencies": {
@@ -11,10 +12,27 @@
     "randomstring": "^1.1.5",
     "select2": "^4.0.13",
     "turbolinks": "^5.2.0",
-    "uppy": "^1.8.0"
+    "uppy": "^1.8.0",
+    "ahoy.js": "^0.3.4",
+    "fstream": "^1.0.12",
+    "google-maps-infobox": "^2.0.0",
+    "jquery": "^3.5.0",
+    "js-yaml": "^3.13.1",
+    "lint": "^0.7.0",
+    "macaddress": "^0.2.9",
+    "rails-erb-loader": "^5.2.1",
+    "sshpk": "~> 1.13.2",
+    "stringstream": "^0.0.6",
+    "webpack-cli": "^3.3.10"
   },
   "version": "0.1.0",
   "devDependencies": {
+    "babel-eslint": "^7.2.3",
+    "babel-plugin-syntax-dynamic-import": "^6.18.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "eslint": "~> 4.18.2",
+    "eslint-config-airbnb-base": "^11.2.0",
+    "eslint-plugin-import": "^2.2.0",
     "webpack-dev-server": "^3.10.1"
   }
 }
