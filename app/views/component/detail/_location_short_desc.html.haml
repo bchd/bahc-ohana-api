@@ -1,0 +1,4 @@
+- if location.short_desc.present?
+  %section.short-desc
+    %h4 ABOUT
+    %span.markdown-short-desc= render_markdown(location.short_desc)

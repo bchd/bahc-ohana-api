@@ -1,0 +1,10 @@
+- title 'Favorites'
+%div.about-container
+  .about-summary
+    %h2 My Favorites
+    %ul
+      - @favorites.each do |favorite|
+        - url = "/locations/#{favorite.resource_id}"
+        %a{ href: url }
+          %li= favorite.name
+

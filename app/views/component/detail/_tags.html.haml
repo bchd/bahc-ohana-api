@@ -1,0 +1,8 @@
+- if tags.present?
+  %section.icon-text-block
+    %i.fa.fa-tags.fa-lg
+    %span.annotated-text-block
+      %h4 Tags
+  - tags.each do |tag| 
+    %span.tag
+      #{tag.name}   

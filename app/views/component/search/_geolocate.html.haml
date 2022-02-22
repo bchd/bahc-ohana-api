@@ -1,0 +1,23 @@
+%div.filter-label-container
+  = label_tag :filters, t('labels.filters.filters_menu_title'), class: 'filter-header-label'
+
+= field_set_tag nil, id: 'distance-filter', class: 'input-search-filter input-search-filter-option' do
+  = label_tag :distance, 'By Distance', style: "font-size: 16px;"
+  %hr
+  = label_tag 'within', t('labels.distance_filter')
+  = select_tag :distance, options_for_select([["1 mile", 1], ["2 miles", 2], ["10 miles", 10], ["25 miles", 25]], @selected_distance_filter), include_blank: 'All', class: "category-search-select-left-menu"
+%div.geolocate-of-word-container
+  = "Of"
+
+= field_set_tag nil, id: 'geolocation-filter', class: 'input-search-filter input-search-filter-option' do
+  = label_tag 'address', 'Address or Zip Code', id: 'address-label'
+  #geolocate-box
+    = hidden_field_tag :lat, @lat
+    = hidden_field_tag :long, @long
+    - if @lat.present? && @long.present?
+      = button_tag 'geolocate', id: 'geolocate' do
+        %i.fa.fa-crosshairs.fa-lg.geolocated#button-geolocate{ "aria-label" => t('buttons.services_near_me'), "title" => t('buttons.services_near_me') }
+    - else 
+      %i.fa.fa-crosshairs.fa-lg#button-geolocate{ "aria-label" => t('buttons.services_near_me'), "title" => t('buttons.services_near_me') }
+
+    = text_field_tag :address, @address

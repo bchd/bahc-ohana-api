@@ -1,0 +1,57 @@
+%div.about-container
+  .about-summary
+    %img{ src: asset_path(SETTINGS[:site_logo_alt]), alt: "#{SETTINGS[:site_title]} Logo", class: "logo"}
+    = t('views.about.charmcare_summary_html')
+    = link_to SETTINGS[:baltimore_accountable_health_community] do
+      %button.button-plain
+        = t('views.about.learn_more')
+  %h1
+    = t('views.about.real_time_capacity_header')
+
+  .real-time-summary
+    = t('views.about.real_time_capacity_html')
+    %div.capacity-option
+      %span.fa.fa-check-circle-o.available
+      %p.capacity-label
+        =t('service_fields.availability.available_today_short')
+    %div
+      %span.fa.fa-chevron-circle-right.next-day
+      %p.capacity-label
+        =t('service_fields.availability.next_day_service')
+    %div
+      %span.fa.fa-clock-o.two-three-days
+      %p.capacity-label
+        =t('service_fields.availability.two_three_day_wait')
+    %div
+      %span.fa.fa-times-circle.one-week
+      %p.capacity-label
+        =t('service_fields.availability.one_week_wait')
+
+    = t('views.about.real_time_capacity_cont_html')
+
+
+  %h1
+    = t('views.about.contact.connect_with_us')
+
+  .contact
+    = t('views.about.contact.connect_html')
+    %div
+      = form_tag('/feedback', method: :post) do
+        %p
+          = label_tag 'organization_name', t('views.about.contact.organization_name')
+          = text_field_tag 'organization_name', nil, class: 'organization-name'
+        %p
+          = label_tag 'name', t('views.about.contact.your_name')
+          = text_field_tag 'name', nil, required: 'true', class: 'name'
+        %p
+          = label_tag 'from', t('views.about.contact.your_email')
+          = email_field_tag 'from', nil, required: 'true', class: 'email'
+        %p
+          = label_tag 'message', t('views.about.contact.message')
+          = text_area_tag('message',
+                            nil,
+                            rows: '4',
+                            required: 'true',
+                            class: 'comment')
+        = hidden_field_tag 'agent', user_agent
+        = button_tag 'Submit', class: 'button-plain'

@@ -1,19 +1,32 @@
 !!!
-%html
+/[if lt IE 7] <html class='no-js lt-ie9 lt-ie8 lt-ie7'>
+/[if IE 7]    <html class='no-js lt-ie9 lt-ie8'>
+/[if IE 8]    <html class='no-js lt-ie9'>
+<!--[if gt IE 8]><!-->
+%html.no-js{ lang: 'en' }
+  <!--<![endif]-->
   %head
-    %meta{ content: 'width=device-width, initial-scale=1.0', name: 'viewport' }
-      %title= content_for?(:title) ? yield(:title) : t('titles.brand')
-      %meta{ content: content_for?(:description) ? yield(:description) : "An open-source API of human services and other organizations in #{t('admin.api_location')}", name: 'description' }
-        = favicon_link_tag 'CHARMcareFavicon.png', rel: 'icon', type: 'image/png'
-        = stylesheet_link_tag 'application', media: 'all'
-        = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
-        = csrf_meta_tags
-        = yield(:head)
-  %body{ class: "#{controller_name} #{action_name}" }
-    = render 'shared/navigation'
-    #main{ role: 'main' }
-      .content
-        .container
-          .row
-            = render 'shared/messages'
-            = yield
+    = render 'shared/google_analytics/tag_manager'
+    = render 'shared/google_analytics/page_tracking'
+    = render 'shared/hotjar'
+    = render 'shared/head'
+    = javascript_include_tag 'application', 'jquery', 'data-turbolinks-track': true
+
+  %body{ class: "#{controller_name == 'home' ? '' : 'inside '}#{controller_name} #{action_name}" }
+    = render 'shared/google_analytics/tag_manager_iframe'
+    %section#content
+      = render 'shared/alert'
+      = render 'shared/header', user_agent: @user_agent
+      #progress
+        #bar
+      %main.main= yield
+      = render 'shared/footer'
+
+    - if Rails.env.production? && ENV['GOOGLE_ANALYTICS_ID'].present?
+      = render 'shared/google_analytics/event_tracking'
+
+    = render 'shared/environment_variables'
+
+    = javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{ENV['GOOGLE_MAPS_API_KEY']}"
+    = javascript_pack_tag 'application'
+    = javascript_pack_tag "#{controller_name}-#{action_name}"

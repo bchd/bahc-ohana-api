@@ -1,0 +1,15 @@
+%aside#search-container
+  %section#search-box
+    = form_tag('/locations', method: :get, id: 'form-search', return: false) do
+
+      %section#search-options
+
+        = render 'component/search/category'
+        = render 'component/search/filters'
+        = render 'component/search/keyword'
+        = render 'component/search/geolocate'
+        = render 'component/search/language'
+
+      .search-button-container
+        %button#reset-button{ type: "button" } Clear Filters
+

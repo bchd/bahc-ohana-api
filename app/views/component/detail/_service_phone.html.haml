@@ -1,0 +1,6 @@
+- if service.phones.present?
+  %section.phones
+    %h1= t('service_fields.phone')
+    %span
+      - service.phones.each do |phone|
+        = render 'component/detail/phone', phone: phone, show_phone_type_and_department: true

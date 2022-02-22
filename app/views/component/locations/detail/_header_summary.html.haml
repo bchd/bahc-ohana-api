@@ -1,0 +1,20 @@
+%div.content-header
+  %span.utility-links
+    %span
+      %a.button-utility.button-back{ href: "#{locations_url(request.query_parameters)}##{location.id}", target: '_self' }
+        %i.fa.fa-arrow-left
+        Back
+    %span.header-right><
+      %a.button-utility.button-share-email{ href: mailto_url }
+        %i.fa.fa-share-square-o.fa-lg
+  
+ 
+      %button.fa.fa-heart-o.favorite-toggle.fa-lg
+
+        
+
+  .left-column
+    .floating-content.hide
+      %h1
+        = superscript_ordinals(full_name_content_for(location))
+

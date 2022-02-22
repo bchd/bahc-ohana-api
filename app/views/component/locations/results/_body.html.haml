@@ -1,0 +1,33 @@
+%section#results-entries
+  - unless search.map_data.empty?
+    = render 'component/locations/results/map_view', search: search
+
+  - if info_box_key_corresponding_to_keyword.present?
+    %section#terminology-box-container
+      .terminology-box
+        = render_info_box(info_box_key_corresponding_to_keyword)
+
+  - if search.locations.present?
+    = render 'component/locations/results/header', search: search
+
+    - if params[:org_name].present?
+      %section#organization-detail-container
+        = render 'component/locations/results/organization_detail',
+          organization: search.locations.first.organization
+
+    = render 'component/locations/results/list_view', search: search
+  - else
+    %section.no-results
+      .message
+        %strong= t('no_results.main')
+        %em= t('no_results.secondary')
+        %ul
+          %li
+            = t('no_results.options.one')
+          %li
+            = t('no_results.options.two')
+          %li
+            %a{ href: '/locations' }
+              = t('no_results.options.browse_all')
+
+    =# render 'home/homepage_links'
