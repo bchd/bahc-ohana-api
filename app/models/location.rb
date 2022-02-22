@@ -229,7 +229,7 @@ class Location < ApplicationRecord
   end
 
   # See app/models/concerns/search.rb
-  include LocationsSearch
+  include HandleSearch
 
     # Calls the search endpoint of the Ohana API.
   #

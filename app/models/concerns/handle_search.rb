@@ -2,7 +2,7 @@ require 'email_filter'
 require 'location_filter'
 require 'services_filter'
 
-module LocationsSearch
+module HandleSearch
   extend ActiveSupport::Concern
 
   included do
