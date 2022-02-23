@@ -1,64 +1,43 @@
-# Ohana API
+# BCHD CHARMcare
 
-[![CircleCI](https://circleci.com/gh/codeforamerica/ohana-api/tree/master.svg?style=svg)](https://circleci.com/gh/codeforamerica/ohana-api/tree/master) [![Dependency Status](https://gemnasium.com/codeforamerica/ohana-api.svg)](https://gemnasium.com/codeforamerica/ohana-api) [![Maintainability](https://api.codeclimate.com/v1/badges/64c25ee17eae19dd61ed/maintainability)](https://codeclimate.com/github/codeforamerica/ohana-api/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/64c25ee17eae19dd61ed/test_coverage)](https://codeclimate.com/github/codeforamerica/ohana-api/test_coverage)
-[![security](https://hakiri.io/github/codeforamerica/ohana-api/master.svg)](https://hakiri.io/github/codeforamerica/ohana-api/master)
+CHARMcare is an application to help Baltimore residents find local services.
 
-Ohana API is a Ruby on Rails application that makes it easy for communities to publish and maintain a database of social services, and allows developers to build impactful applications that serve underprivileged residents.
-
-This is the API + Admin Interface portion of the Ohana project, developed by [@monfresh](https://github.com/monfresh), [@spara](https://github.com/spara), and [@anselmbradford](https://github.com/anselmbradford) during their Code for America Fellowship in 2013, in partnership with San Mateo County's Human Services Agency.
-
-Apps built on top of Ohana API include a [web-based search interface](https://github.com/codeforamerica/ohana-web-search) and an [SMS app] that allow anyone to easily find services that are available in a particular community.
-
-[SMS app]: https://github.com/monfresh/ohana-sms
+It is based off of [Ohana API](https://github.com/codeforamerica/ohana-api).
 
 ## Stack Overview
 
-* Ruby version 2.5.3
+* Ruby version 2.7.5
 * Rails version 5.1.6
-* Postgres
+* PostgreSQL
 * Elasticsearch version 5.6
-* Testing Frameworks: RSpec, Factory Girl, Capybara
 
-## Local Installation
+## Installation
 
-Follow the instructions in [INSTALL.md][install] to get the app up and running, and to learn how to import your data.
+## Setup
 
-[install]: https://github.com/FearlessSolutions/bahc-ohana-api/blob/master/INSTALL.md
+Install PostgreSQL through [Postgres.app](https://postgresapp.com/). Make sure to have **PostgreSQL 12** or above.
 
-## Demo
-You can see a running version of the different parts of the application here:
+Install [the nix package manager](https://nixos.org/download.html#nix-install-macos) by following their multi-user installer. Once nix is installed, setup [direnv](https://direnv.net/) by hooking into your shell.
 
-**Developer portal**: [http://ohana-api-demo.herokuapp.com/](http://ohana-api-demo.herokuapp.com/)
-(see [db/seeds.rb][developer_portal_seeds] for two usernames and passwords you can sign in with).
+```bash
+nix-env -f '<nixpkgs>' -iA direnv
+echo 'eval "$(direnv hook zsh)"' >> ~/.zshrc
+```
 
-**API**: [http://ohana-api-demo.herokuapp.com/api](http://ohana-api-demo.herokuapp.com/api)
+Once direnv is installed and your shell is restarted, clone the project and `cd` into it. You should see direnv warn about an untrusted `.envrc` file. Allow the file and finish installing dependencies and setting up the application.
 
-**Admin Interface**: [http://ohana-api-demo.herokuapp.com/admin](http://ohana-api-demo.herokuapp.com/admin)
-(see [db/seeds.rb][admin_interface_seeds] for three usernames and passwords you can sign in with).
+```bash
+direnv allow
 
-[developer_portal_seeds]: https://github.com/codeforamerica/ohana-api/blob/master/db/seeds.rb#L10-L23
-[admin_interface_seeds]: https://github.com/codeforamerica/ohana-api/blob/master/db/seeds.rb#L25-45
+bundle
+rails db:create db:migrate db:test:prepare
+yarn install
+rails server
+```
 
-## API documentation
-[http://codeforamerica.github.io/ohana-api-docs/](http://codeforamerica.github.io/ohana-api-docs/)
-
-## Client libraries
-
-- Ruby: [Ohanakapa][ohanakapa] (our official wrapper)
-
-We would love to see libraries for other programming languages.
-If you've built one, let us know and we'll add it here.
-
-[ohanakapa]: https://github.com/codeforamerica/ohanakapa
-
-## Taxonomy
-Code For America's Ohana API project supports the [Open Eligibility](http://openeligibility.org)
-taxonomy. We used their Wiki article on [taxonomy basics](https://github.com/codeforamerica/ohana-api/wiki/Taxonomy-basics) to add and extend on categories by importing our own taxonomy.
-
-Our taxonomy lives at `/data/taxonomy.csv`.
+Now you can visit [`localhost:3000`](http://localhost:3000) from your browser.
 
 ## Deploying to Heroku
-See the [Wiki](https://github.com/codeforamerica/ohana-api/wiki/How-to-deploy-the-Ohana-API-to-your-Heroku-account).
 
 Set your heroku remotes for each app appropriately, `dev` for the development app, `staging` for the staging app, and `prod` for the production app.
 
@@ -87,18 +66,14 @@ In order for direct uploads to S3 to work, we need to set the policy on the buck
 aws s3api put-bucket-cors --bucket bucketeer-[id] --cors-configuration file://bucketeer-cors.json
 ```
 
-
 ## Running the tests
 
 Run tests locally with this simple command:
 
-    script/test
-
-To see the actual tests, browse through the [spec](https://github.com/codeforamerica/ohana-api/tree/master/spec) directory.
-
-## Contributing
-
-We'd love to get your help developing this project! Take a look at the [Contribution Document](https://github.com/codeforamerica/ohana-api/blob/master/CONTRIBUTING.md) to see how you can make a difference.
+```bash
+rspec
+```
 
 ## Copyright
+
 Copyright (c) 2013 Code for America. See [LICENSE](https://github.com/codeforamerica/ohana-api/blob/master/LICENSE.md) for details.
