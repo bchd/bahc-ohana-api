@@ -76,7 +76,6 @@ GEM
     ancestry (3.0.7)
       activerecord (>= 3.2.0)
     arel (9.0.0)
-    ast (2.4.1)
     auto_strip_attributes (2.6.0)
       activerecord (>= 4.0)
     autoprefixer-rails (9.8.5)
@@ -216,11 +215,6 @@ GEM
       haml (>= 4.0.6, < 6.0)
       html2haml (>= 1.0.1)
       railties (>= 5.1)
-    haml_lint (0.35.0)
-      haml (>= 4.0, < 5.2)
-      rainbow
-      rubocop (>= 0.50.0)
-      sysexits (~> 1.1)
     hashdiff (1.0.1)
     heapy (0.1.4)
     html2haml (2.2.0)
@@ -250,7 +244,6 @@ GEM
       activerecord
       kaminari-core (= 1.2.1)
     kaminari-core (1.2.1)
-    kwalify (0.7.2)
     launchy (2.5.0)
       addressable (~> 2.7)
     letter_opener (1.7.0)
@@ -285,21 +278,16 @@ GEM
       mini_portile2 (~> 2.5.0)
       racc (~> 1.4)
     orm_adapter (0.5.0)
-    parallel (1.19.2)
-    parser (2.7.1.4)
-      ast (~> 2.4.1)
     pg (1.2.3)
     poltergeist (1.18.1)
       capybara (>= 2.1, < 4)
       cliver (~> 0.3.1)
       websocket-driver (>= 0.2.0)
-    powerpack (0.1.2)
     pry (0.13.1)
       coderay (~> 1.1)
       method_source (~> 1.0)
     pry-rails (0.3.9)
       pry (>= 0.10.4)
-    psych (3.1.0)
     public_suffix (4.0.6)
     puma (5.5.2)
       nio4r (~> 2.0)
@@ -350,11 +338,6 @@ GEM
     rb-fsevent (0.10.4)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
-    reek (6.0.1)
-      kwalify (~> 0.7.0)
-      parser (>= 2.5.0.0, < 2.8, != 2.5.1.1)
-      psych (~> 3.1.0)
-      rainbow (>= 2.0, < 4.0)
     regexp_parser (1.7.1)
     responders (3.0.1)
       actionpack (>= 5.0)
@@ -381,14 +364,6 @@ GEM
       rspec-mocks (~> 3.9)
       rspec-support (~> 3.9)
     rspec-support (3.9.3)
-    rubocop (0.52.1)
-      parallel (~> 1.10)
-      parser (>= 2.4.0.2, < 3.0)
-      powerpack (~> 0.1)
-      rainbow (>= 2.2.2, < 4.0)
-      ruby-progressbar (~> 1.7)
-      unicode-display_width (~> 1.0, >= 1.0.1)
-    ruby-progressbar (1.10.1)
     ruby-statistics (2.1.2)
     ruby-vips (2.0.17)
       ffi (~> 1.9)
@@ -437,7 +412,6 @@ GEM
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
     stackprof (0.2.15)
-    sysexits (1.2.0)
     temple (0.8.2)
     thor (1.0.1)
     thread_safe (0.3.6)
@@ -446,7 +420,6 @@ GEM
       thread_safe (~> 0.1)
     uglifier (4.2.0)
       execjs (>= 0.3.0, < 3)
-    unicode-display_width (1.7.0)
     unicode_plot (0.0.4)
       enumerable-statistics (>= 2.0.1)
     uniform_notifier (1.13.0)
@@ -504,7 +477,6 @@ DEPENDENCIES
   friendly_id (~> 5.0)
   geocoder
   haml-rails
-  haml_lint
   image_processing (~> 1.10)
   jquery-rails (~> 4.0)
   kaminari (~> 1.1)
@@ -522,10 +494,8 @@ DEPENDENCIES
   rack-mini-profiler
   rails (~> 5.2.3)
   rails-controller-testing
-  reek
   rspec-its
   rspec-rails (~> 4.0)
-  rubocop (~> 0.52.1)
   sass-rails (~> 6.0.0)
   select2-rails (~> 4.0.3)
   selenium-webdriver
@@ -545,7 +515,7 @@ DEPENDENCIES
   webpacker (~> 5.1, >= 5.1.1)
 
 RUBY VERSION
-   ruby 2.6.8p205
+   ruby 2.7.5p203
 
 BUNDLED WITH
-   2.2.31
+   2.3.7

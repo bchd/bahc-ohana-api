@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
-ruby '2.6.8'
+ruby '2.7.5'
+
 gem 'active_data'
 gem 'active_model_serializers', '~> 0.8.0'
 gem 'ancestry'
@@ -58,10 +59,8 @@ end
 group :test do
   gem 'capybara'
   gem 'database_cleaner-active_record'
-  gem 'haml_lint'
   gem 'poltergeist'
   gem 'rails-controller-testing'
-  gem 'rubocop', '~> 0.52.1'
   gem 'selenium-webdriver'
   gem 'shoulda-matchers', git: 'https://github.com/thoughtbot/shoulda-matchers.git'
   gem 'simplecov', require: false
@@ -78,7 +77,6 @@ group :development do
   gem 'pry-rails'
   gem 'meta_request'
   gem 'rack-mini-profiler'
-  gem 'reek'
   gem 'spring'
   gem 'spring-commands-rspec'
   gem 'spring-watcher-listen'

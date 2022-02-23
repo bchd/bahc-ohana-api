@@ -7,7 +7,7 @@ orbs:
 jobs:
   setup:
     docker:
-      - image: cimg/ruby:2.6.8
+      - image: cimg/ruby:2.7.5
     steps:
       - checkout
       - node/install:
@@ -36,7 +36,7 @@ jobs:
 
   webpack:
     docker:
-      - image: cimg/ruby:2.6.8
+      - image: cimg/ruby:2.7.5
     environment:
       API_PATH: api
       ADMIN_PATH: admin
@@ -78,7 +78,7 @@ jobs:
   specs:
     resource_class: medium
     docker:
-      - image: cimg/ruby:2.6.8
+      - image: cimg/ruby:2.7.5
         environment:
           PGHOST: 127.0.0.1
           PGUSER: root
