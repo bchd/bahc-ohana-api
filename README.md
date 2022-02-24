@@ -11,8 +11,6 @@ It is based off of [Ohana API](https://github.com/codeforamerica/ohana-api).
 * PostgreSQL
 * Elasticsearch version 5.6
 
-## Installation
-
 ## Setup
 
 Install PostgreSQL through [Postgres.app](https://postgresapp.com/). Make sure to have **PostgreSQL 12** or above.
