@@ -90,6 +90,8 @@ jobs:
       - image: elasticsearch:7.17.0
         environment:
           ELASTIC_PASSWORD: password
+          discovery.type: single-node
+          xpack.security.enabled: true
     environment:
       API_PATH: api
       ADMIN_PATH: admin
