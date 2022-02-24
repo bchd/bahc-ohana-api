@@ -77,8 +77,5 @@ group :development do
   gem 'pry-rails'
   gem 'meta_request'
   gem 'rack-mini-profiler'
-  gem 'spring'
-  gem 'spring-commands-rspec'
-  gem 'spring-watcher-listen'
   gem 'stackprof'
 end
