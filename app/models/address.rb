@@ -1,5 +1,5 @@
 class Address < ApplicationRecord
-  update_index('locations#location') { location }
+  update_index('locations') { location }
 
   belongs_to :location, touch: true
 

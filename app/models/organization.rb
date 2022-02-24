@@ -1,7 +1,7 @@
 class Organization < ApplicationRecord
   include HandleTags
 
-  update_index('locations#location') { locations }
+  update_index('locations') { locations }
 
   default_scope { order('id DESC') }
 

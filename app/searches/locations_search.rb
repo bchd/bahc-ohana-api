@@ -20,7 +20,6 @@ class LocationsSearch
   attribute :page, type: String
   attribute :per_page, type: String
 
-
   def index
     LocationsIndex
   end
@@ -28,7 +27,6 @@ class LocationsSearch
   def search
     search_results.page(fetch_page).per(fetch_per_page)
   end
-  
 
   private
 
