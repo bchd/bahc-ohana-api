@@ -120,7 +120,7 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (~> 1.5)
       xpath (~> 3.2)
-    chewy (6.0.0)
+    chewy (7.0.1)
       activesupport (>= 5.2)
       elasticsearch (>= 6.3.0)
       elasticsearch-dsl
@@ -224,7 +224,7 @@ GEM
       haml (>= 4.0, < 6)
       nokogiri (>= 1.6.0)
       ruby_parser (~> 3.5)
-    i18n (1.10.0)
+    i18n (1.8.5)
       concurrent-ruby (~> 1.0)
     image_processing (1.11.0)
       mini_magick (>= 4.9.5, < 5)
@@ -450,7 +450,7 @@ DEPENDENCIES
   bummr!
   byebug
   capybara
-  chewy (~> 6.0)
+  chewy (~> 7.0.0)
   coffee-rails (~> 4.1)
   csv_shaper
   dalli
@@ -467,6 +467,7 @@ DEPENDENCIES
   friendly_id (~> 5.0)
   geocoder
   haml-rails
+  i18n (= 1.8.5)
   image_processing (~> 1.10)
   jquery-rails (~> 4.0)
   kaminari (~> 1.1)
