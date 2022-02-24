@@ -487,3 +487,217 @@ en:
   links:
     register_a_new_application: 'Register a new application'
     view: 'view'
+  
+  #below keys pulled in from UI app  
+
+  _yes: 'Yes'
+  _no: 'No'
+  branding:
+    description: >
+      Retrieve detailed information about the services available
+      in %{location}.
+    header: 'Connect with resources in %{location}'
+    location: 'Baltimore City'
+
+  buttons:
+    clear_filters: 'Uncheck all filters'
+    collapse_filters: 'Collapse filters'
+    hide_filters: 'Hide filters'
+    show_filters: 'Show filters'
+    during_geolocation: 'Please wait...'
+    homepage_search: 'Search'
+    services_near_me: 'Sort by distance'
+    update_search_results: 'Search'
+
+  date:
+    day_names:
+      - Monday
+      - Tuesday
+      - Wednesday
+      - Thursday
+      - Friday
+      - Saturday
+      - Sunday
+    closed: 'CLOSED'
+
+  errors:
+    api_down: >
+      Sorry, we are experiencing issues with search. Please try again later.
+    bad_search: 'That search was improperly formatted. Please try a new search.'
+    not_found: 'Sorry, that page does not exist. Please try a new search.'
+
+  helpers:
+    page_entries_info:
+      one_page:
+        display_entries:
+          zero: 'No %{entry_name} found.'
+          one: 'Displaying <strong>1</strong> result'
+          other: 'Displaying <strong>all %{count}</strong> %{entry_name}'
+      more_pages:
+        display_entries: >
+          Displaying <strong>%{first} - %{last}</strong> of
+          <strong>%{total}</strong> %{entry_name}
+
+  labels:
+    category_search: 'Browse by Topic'
+    distance_filter: 'Within' 
+    agency_search: 'Organization Name'
+    homepage_prompt: 'What are you looking for today?'
+    filters:
+      category_filter_title: 'Services Provided'
+      filters_menu_title: 'Refine your search'
+    topic_prompt: 'Choose a topic below to begin a search'
+    vaccination-link-text: 'Register for a COVID-19 Vaccination'
+
+  location_fields:
+    accessibility: 'Accessibility'
+    description: 'Description'
+    file_uploads: 'Documents'
+    languages: 'Languages'
+
+  meta:
+    description: >
+      Find free food, housing, clothes, medical care, jobs, and other human
+      services in %{location}.
+
+  no_results:
+    main: 'Unfortunately, your search returned no results.'
+    secondary: "If you have trouble finding what you're looking for, try:"
+    options:
+      one: 'Searching with a single keyword.'
+      two: 'Reducing the amount of filters selected.'
+      browse_all: 'Browsing all locations.'
+
+  organization_fields:
+    accreditations: 'Accreditations:'
+    licenses: 'Licenses:'
+
+  placeholders:
+    agency_search: 'full or partial name'
+    keyword_search: 'Search within topics'
+    homepage_keyword_search: 'Search for food, health, care, and more'
+    results_page_keyword_search: 'search for...'
+
+  service_fields:
+    accepted_payments: 'Payment Methods Accepted:'
+    audience: 'Audience:'
+    description: 'About'
+    address_details: 'Address'
+    eligibility: 'Eligibility:'
+    fees: 'Fees:'
+    application_process: 'How to Apply:'
+    interpretation_services: 'Interpretation Services:'
+    keywords: 'Keyword Tags'
+    required_documents: 'Required Documents:'
+    service_areas: 'Service Areas:'
+    status_defunct: 'This service is no longer operating!'
+    status_inactive: 'This service is not currently operating!'
+    urls: 'Homepage:'
+    phone: 'Phone Numbers'
+    regular_schedule: 'Regular Schedule'
+    holiday_schedule: 'Holiday Schedule'
+    availability:
+      service_capacity: 'Service Capacity:'
+      service_wait_estimate: 'Service Wait Capacity:'
+      unknown: 'Call for availability'
+      call_for_availability: 'Call for availability'
+      available_today_short: 'Available Today'
+      available_today: 'Available Today (during posted hours)'
+      next_day_service: 'Next Day Service'
+      two_three_day_wait: '2-3 Day Wait'
+      one_week_wait: '1 Week Wait'
+      last_updated: 'Last updated: '
+    categories:
+      service: 'Service Categories'
+      languages: 'Languages'
+      ages_served: 'Ages Served'
+      gender_sexuality: 'Gender & Sexuality'
+      insurance_accepted: 'Insurance Accepted'
+      documents_needed: 'Documents Needed'
+      health_specialties: 'Health Specialties'
+      substance_use_treatment_preferences: 'Substance Use Treatment Preferences'
+
+  time:
+    formats:
+      schedules_hours: '%l:%M%P'
+      holiday_schedules_date: '%B %e'
+
+  users:
+    account_created_instructions: 'A CHARMcare account has been set up for you! To get started, please click the link below to set your password.'
+    account_created_instructions_alt: "If you didn't request this account, please email"
+    account_not_requested_subject: 'CHARMcare account not requested'
+    account_sign_up_subject: 'CHARMcare Account Registration'
+    add_user: 'Add User'
+    admin: 'Admin'
+    cancel: 'Cancel'
+    check_if_admin: 'Check if user should be granted admin status'
+    delete_user: 'Delete User'
+    didnt_receive_confirmation_instructions: "Didn't receive confirmation instructions?"
+    didnt_receive_unlock_instructions: "Didn't receive unlock instructions?"
+    edit: 'Edit'
+    edit_profile: 'Edit Profile'
+    edit_user: 'Edit'
+    edit_your_profile: 'Edit Your Profile'
+    email: 'Email'
+    first_name: 'First'
+    forgot_your_password: 'Forgot your password?'
+    last_name: 'Last'
+    lets_go: "Let's go!"
+    login: 'Login'
+    manage_users: 'Manage Users'
+    organization: 'Organization'
+    save: 'Save'
+    send_me_reset_password_instructions: 'Send me reset password instructions'
+    sign_in_with: 'Sign in with'
+    sign_out: 'Sign Out'
+    sign_up: 'Sign Up'
+    user_list: 'User List'
+
+  views:
+    pagination:
+      first: '&laquo; First'
+      last: 'Last &raquo;'
+      previous: "<i class='fa fa-chevron-left'></i>"
+      next: "<i class='fa fa-chevron-right'></i>"
+      truncate: '&hellip;'
+    share:
+      email:
+        subject: '%{location_name} found on %{site_title}'
+        # Note that the code %0D%0A designates url-encoded line breaks
+        # that will appear as carriage returns in the email's body.
+        body: |
+          Hi,
+          %0D%0A%0D%0A
+          I'd like to share information about %{location_name} with you.
+          %0D%0A%0D%0A
+          For details about this service provider, please visit:
+          %0D%0A%0D%0A
+          %{location_url}.
+    about:
+      charmcare_summary_html:
+        '<p>CHARMCare is a free online resource guide that you can use to search for free or reduced-cost programs and services in Baltimore City to help meet your needs. The directory has information for resources that can help with needs like food, housing, transportation, utilities, employment, education, mental healthcare, and substance use care.</p>
+        <p>On this directory, you can find resources closest to you and filter your search results by things like language needs, child-friendly facilities, and insurances accepted. Each resource will also list helpful information about their facility like what documents you’ll need to bring with you or what the walk-in hours are. If any information is missing or incorrect, please just flag it using the link on the page. We will do our best to keep all of the information accurate and updated.</p>
+        <p>This resource guide is a service of the Baltimore City Health Department (BCHD) and its partners. It was developed through BCHD’s Accountable Health Communities project, which is a city-wide program that aims to connect patients to resources for social needs.</p>'
+      learn_more: 'Learn More'
+      real_time_capacity_header: 'Real-time Capacity'
+      real_time_capacity_html: '<p> An important and exciting part of the CHARMCare platform is the Real-Time Capacity Tool (RTCT) tool. The Real-Time Capacity function is designed to help clinical providers, peer advocates, referral agencies, and hospitals find accessible and available treatment options for individuals with substance use needs. In the resource directory, substance use facilities will update their “capacity”, or available beds or slots, for different treatment services that they provide. That “capacity” will then show up on the entry for that facility when you search for it. The following are the levels of capacity you may see on facility’s entry.</p>'
+      real_time_capacity_cont_html:
+        '<p>RTCT also allows users to filter by different treatment preferences and eligibility criteria. These filters include things like type of insurance accepted, different levels of care offered, or specialty services available. If any information is missing or incorrect, please just flag it using the link on the page. We will do our best to keep all of the information accurate and updated.</p>
+        <p>RTCT is a treatment locator search tool, not a clinical assessment tool. Individuals should always seek professional support first to find the type of behavioral health treatment that is best for them. If you think you may be suffering from substance use disorder or are considering seeking treatment, you can call the HCAM Crisis Information and Referral line to get help. When you call, a professional counselor can talk to you more about your concerns and connect you to treatment.</p>
+        <p>The Real-Time Capacity Tool is a service of the Baltimore City Health Department (BCHD) and Behavioral Health Systems Baltimore (BHSB). It is made possible through funding from the Open Society Institute and BCHD’s Accountable Health Communities project.</p>'
+      project_link: 'Visit project on GitHub'
+      project_link_url: 'https://github.com/codeforamerica/Ohana-Web-Search'
+      contact:
+        connect_with_us: 'Connect with Us'
+        connect_html: '<p>If you are a community based organization who would like to be listed on the tool, change any information listed on your entry, or provide feedback, please complete the following contact form. </p>'
+        organization_name: 'Organization Name*'
+        your_name: 'Your Name*'
+        your_email: 'Your Email*'
+        message: 'Message*'
+    feedback:
+      issue_link: 'File an issue on GitHub'
+      issue_link_url: 'https://github.com/codeforamerica/Ohana-Web-Search/issues'
+      submit_comment_label: 'Submit comments to the development team:'
+      message_header_1: 'A message from '
+      message_header_2: ' regarding '
+
