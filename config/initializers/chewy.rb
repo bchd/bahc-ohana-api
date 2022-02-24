@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-local_ealasticsearch_url = 'localhost:9200'
+local_ealasticsearch_url = 'http://elastic:password@localhost:9200/'
 
 # Chewy.logger = Logger.new(STDOUT) # Enable this if we want to debug
 
