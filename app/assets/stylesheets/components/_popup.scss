@@ -65,7 +65,7 @@
       left: 4px;
       width: 18px;
       height: 18px;
-      @include rotate(-135deg);
+      transform: rotate(-135deg);
       border-bottom: 1px solid #CCCCCC;
       border-right: 1px solid #CCCCCC;
       background: none repeat scroll 0 0 #FFFFFF;

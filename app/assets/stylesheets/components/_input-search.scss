@@ -6,7 +6,7 @@
 @include reset-input-ie();
 
 .input-search-small {
-  @include input-placeholder(rgba($black, 0.6), regular);
+  @include input-placeholder(RGB($black, 0.6), regular);
   position:relative;
 
   input:focus {
@@ -28,7 +28,7 @@
     border: none;
     background: none;
     //border-bottom: 1px solid $primary-dark;
-    @include single-box-shadow(0, 1px, 6px, 1px, rgba($black, 0.1), inset);
+    box-shadow: 0, 1px, 6px, 1px, RGB($black, 0.1), inset;
     @include box-sizing(border-box);
     color: $white;
   }
@@ -94,7 +94,7 @@
     vertical-align:middle;
     background: $white;
     @include border-radius(4px);
-    border:1px solid rgba($input-border-color, 0.4);
+    border:1px solid RGB($input-border-color, 0.4);
     color: $greyscale_dark;
   }
 
@@ -154,7 +154,7 @@ div.input-search-big::after {
   @include rounded-except(right);
   height: 50px;
   background-color: $white;
-  border: 1px solid rgba($input-border-color, 0.4);
+  border: 1px solid RGB($input-border-color, 0.4);
   border-right: none;
   border-collapse: collapse;
   -webkit-appearance: none; // Remove rounding styling of input fields on iOS.
@@ -216,7 +216,7 @@ input.search-input:-webkit-autofill {
   font-family: $font_sans_serif;
   font-size: $font_size_110;
   border-collapse: collapse;
-  border: 1px solid rgba(0, 95, 128, 0.4);
+  border: 1px solid RGB(0, 95, 128, 0.4);
   padding-left: 1rem;
   @include box-sizing(border-box);
   @include rounded-except(none);
@@ -232,7 +232,7 @@ input.search-input:-webkit-autofill {
   font-family: $font_sans_serif;
   font-size: 15px;
   border-collapse: collapse;
-  border: 1px solid rgba(0, 95, 128, 0.4);
+  border: 1px solid RGB(0, 95, 128, 0.4);
   padding-left: 1rem;
   @include box-sizing(border-box);
   @include rounded-except(none);
@@ -250,7 +250,7 @@ input.search-input:-webkit-autofill {
 }
 
 .input-search-filter {
-  @include input-placeholder(rgba($grey, 0.6), regular);
+  @include input-placeholder(RGB($grey, 0.6), regular);
   position: relative;
 
   > label {
@@ -281,7 +281,7 @@ input.search-input:-webkit-autofill {
       padding-right: 25px;
       @include box-sizing(border-box);
       @include rounded-except(none);
-      border: 1px solid rgba($grey, .3);
+      border: 1px solid RGB($grey, .3);
       border-collapse: collapse;
       -webkit-appearance: none; // Remove rounding styling of input fields on iOS.
       font-size: $font_size_95;
@@ -301,8 +301,8 @@ input.search-input:-webkit-autofill {
     padding-top: 0;
     padding-bottom: 0;
     max-height: 23px;
-    background: rgba($white, 0.3);
-    border: 1px solid rgba($white, 0);
+    background: RGB($white, 0.3);
+    border: 1px solid RGB($white, 0);
     cursor: pointer;
     @include rounded-except(bottom);
 
@@ -317,8 +317,8 @@ input.search-input:-webkit-autofill {
 
     &:hover {
       background: $search-button-hover-background;
-      border: 1px solid rgba($input-border-color, 0.2);
-      border-bottom: 1px solid rgba($white, 0.3);
+      border: 1px solid RGB($input-border-color, 0.2);
+      border-bottom: 1px solid RGB($white, 0.3);
 
       .fa {
         color: $search-button-fa-hover-color;
@@ -327,8 +327,8 @@ input.search-input:-webkit-autofill {
 
     // Prevent hover state appearance when 'disabled' attribute is present.
     &[disabled] {
-      background: rgba($white, 0.3);
-      border: 1px solid rgba($white, 0);
+      background: RGB($white, 0.3);
+      border: 1px solid RGB($white, 0);
       cursor: auto;
 
       .fa {
@@ -345,7 +345,7 @@ input.search-input:-webkit-autofill {
 
   &:hover {
     .button-clear {
-      color: rgba($black, .4);
+      color: RGB($black, .4);
     }
   }
 
@@ -356,7 +356,7 @@ input.search-input:-webkit-autofill {
     margin-top: -15px;
 
     color: $greyscale_midtone; // IE Fallback
-    color: rgba($black, .1);
+    color: RGB($black, .1);
     font-size: $font_size_110;
 
     border-collapse: collapse;

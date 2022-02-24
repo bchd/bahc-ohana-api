@@ -1,6 +1,7 @@
-// Establish baseline for vertical rhythm
-@include establish-baseline();
-
+// // Establish baseline for vertical rhythm
+// @include establish-baseline();
+@import "variables";
+@import "mixins";
 
 /*
  * HTML5 Boilerplate
@@ -91,7 +92,7 @@ body {
 }
 
 body {
-  @include background-size(100% auto);
+  background-size: 100% auto;
   background-position: top;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -143,7 +144,7 @@ ul {
     z-index: 9999;
 
     width: 100%;
-    background: rgba($blue, .05);
+    background: RGB($blue, .05);
     @include box-sizing(border-box);
 
     font-size: $font_size_100;
@@ -312,7 +313,7 @@ body {
 // Area above the search box, which holds the language translation links box.
 .home .search-utilities {
   background: $search-bg; // IE fallback
-  background: rgba($search-bg, 0.8);
+  background: RGB($search-bg, 0.8);
   min-height: 44px;
   padding: 10px;
   padding-right: 25px;
@@ -384,7 +385,7 @@ body {
   > div {
     padding: 60px;
     text-align: center;
-    background-image: linear-gradient(100deg, rgba($blue, .8), rgba($purple, .8));
+    background-image: linear-gradient(100deg, RGB($blue, .8), RGB($purple, .8));
     vertical-align: bottom;
     height: 625px;
 
@@ -445,8 +446,8 @@ body {
 #geolocate-box {
   align-items: center;
   background-color: $white;
-  @include border-radius(4px);
-  border:1px solid rgba($input-border-color, 0.4);
+  border-radius: 4px;
+  border:1px solid RGB($input-border-color, 0.4);
   display: flex;
   height: 2.5rem;
   right: 0;
@@ -491,9 +492,9 @@ body {
   text-align: center;
 
   > section {
-    @include single-box-shadow(0, 0, 5px, 0, rgba($black, .1));
+    box-shadow: 0, 0, 5px, 0, RGB($black, .1);
     @include inline-block();
-    @include border-radius(4px);
+    border-radius: 4px;
     margin: 10px;
     vertical-align: top;
     border: 1px solid $list-search-border;
@@ -677,7 +678,7 @@ body {
 .results-header.floating {
   -webkit-backface-visibility: hidden;
   width: 100%;
-  @include single-box-shadow(0, 1px, 6px, 0, rgba($black, .4));
+  box-shadow: 0, 1px, 6px, 0, RGB($black, .4);
   top: 0;
 }
 
@@ -697,7 +698,7 @@ body {
   section.no-results {
     font-family: $font_sans_serif;
     border-bottom: 1px solid $greyscale_midtone; // IE fallback
-    border-bottom: 1px solid rgba($black,.1);
+    border-bottom: 1px solid RGB($black,.1);
 
     .message {
       margin: 80px auto;
@@ -736,7 +737,7 @@ body {
 #terminology-box-container,
 #organization-detail-container {
   border-bottom: 1px solid $greyscale_midtone; // IE fallback
-  border-bottom: 1px solid rgba($black, .1);
+  border-bottom: 1px solid RGB($black, .1);
 }
 
 //=================================================================================
@@ -771,7 +772,7 @@ body {
 
     > li:hover {
       background: $primary-lightest; // IE fallback
-      background: rgba($blue, .25);
+      background: RGB($blue, .25);
       h1 {
         padding-bottom: 5px;
         a {
@@ -787,7 +788,7 @@ body {
     > li:last-child {
       margin-bottom: 0;
       border-bottom: 1px solid $greyscale_light; // IE fallback
-      border-bottom: 1px solid rgba($black, .1);
+      border-bottom: 1px solid RGB($black, .1);
     }
   }
 
@@ -915,8 +916,8 @@ body {
 
   .infoBox {
     background-color: $white;
-    @include border-radius(0px 4px 4px 4px);
-    @include single-box-shadow(0, 0, 5px, 0, midtone($black, 0.4));
+    border-radius: 0px 4px 4px 4px;
+    box-shadow: 0, 0, 5px, 0, midtone($black, 0.4);
     border: 1px solid $primary-dark;
     padding: 3px 6px;
     opacity: 0.95;
@@ -938,7 +939,7 @@ body {
 
     a {
       color: $greyscale_midtone; // IE fallback
-      color: rgba($black, .6);
+      color: RGB($black, .6);
       cursor: pointer;
       border-bottom: 1px solid $white;
       @include inline-block();
@@ -947,7 +948,7 @@ body {
     a:hover {
       color: $primary-dark;
       border-bottom: 1px solid $greyscale_midtone;
-      border-bottom: 1px solid rgba($black, .4);
+      border-bottom: 1px solid RGB($black, .4);
       text-decoration: none;
     }
 
@@ -961,7 +962,7 @@ body {
 
     .button-close {
       color: $greyscale_midtone; // IE Fallback
-      color: rgba($black, .5);
+      color: RGB($black, .5);
       position: absolute;
       left: 0;
       top: -10px;
@@ -1055,21 +1056,21 @@ body {
   }
 
   h2 {
-    color: rgba(27, 27, 27, 0.75);
+    color: RGB(27, 27, 27, 0.75);
     font-size: 1.5em;
   }
 
   // Location header.
   > section > header {
    
-    @include border-radius(4px 4px 0 0);
+    border-radius: 4px 4px 0 0;
 
     .featured-location-badge {
       width: 160px;
       height: 74px;
       float:  right;
       margin-left: 24px;
-      background: rgba(255, 194, 71, 0.25);
+      background: RGB(255, 194, 71, 0.25);
       border: 1px solid #FFC247;
       box-sizing: border-box;
       border-radius: 8px;
@@ -1099,10 +1100,10 @@ body {
       // agency
       h2 {
         @include type-size(medium);
-        color: rgba(27, 27, 27, 0.75);
+        color: RGB(27, 27, 27, 0.75);
         font-size: 1.5em;
         a {
-          color: rgba(27, 27, 27, 0.75);
+          color: RGB(27, 27, 27, 0.75);
           text-decoration: none;
         }
       }
@@ -1184,7 +1185,7 @@ body {
     }
     > .location-sidebar {
       //margin-bottom: 20px;
-      background: rgba($purple, .1);
+      background: RGB($purple, .1);
       -ms-word-break: break-all;
       word-break: break-all;
       // Non-standard for webkit.
@@ -1194,7 +1195,7 @@ body {
 
       .tag {
         color: #007FAA;
-        background: rgba(0, 127, 170, 0.05);
+        background: RGB(0, 127, 170, 0.05);
         border: 1px solid #007FAA;
         border-radius: 100px;
         padding: 2px 8px;
@@ -1207,7 +1208,7 @@ body {
       .location-sidebar-footer {
         font-style: italic;
         margin-left: 20px;
-        color: rgba(27, 27, 27, 0.75);
+        color: RGB(27, 27, 27, 0.75);
         
         > * {
           margin-top: 10px;
@@ -1237,7 +1238,7 @@ body {
         }
 
         .location-sidebar-content {
-          color: rgba(27, 27, 27, 0.75);
+          color: RGB(27, 27, 27, 0.75);
           font-size: 16px;
           line-height: 19px;
           > section {
@@ -1258,7 +1259,7 @@ body {
         list-style-type: square;
         li {
           color: $main-list-mark-color; // IE fallback
-          color: rgba($main-list-mark-color, .4);
+          color: RGB($main-list-mark-color, .4);
           > span {
             color: $black;
           }
@@ -1333,7 +1334,7 @@ body {
   }
 
   .button-back > * {
-    color: rgba(27, 27, 27, 0.75);
+    color: RGB(27, 27, 27, 0.75);
   }
 
 
@@ -1414,7 +1415,7 @@ body {
       margin-top: 20px;
       font-size: $font_size_95;
       background: $alert-bg;
-      @include border-radius(5px);
+      border-radius: 5px;
       @include inline-block();
       color: $white;
       vertical-align: middle;
@@ -1440,13 +1441,13 @@ body {
 
 @include site-link('#general-services', $white);
 @include site-link('#emergency-services', $white);
-@include site-link('#detail-info header', rgba($white, 0));
+@include site-link('#detail-info header', RGB($white, 0));
 @include site-link('#detail-info .service', $white);
 @include site-link('#detail-info .metadata', $white);
 @include site-link('#detail-info .location-sidebar', $white);
 @include site-link('.no-results', $white);
 @include site-link('#app-footer', $white);
-@include site-link('#list-view li', rgba($white, 0));
+@include site-link('#list-view li', RGB($white, 0));
 
 /* ==========================================================================
    State classes
@@ -1477,7 +1478,7 @@ body {
 
     &:hover {
       border-bottom: 1px solid $greyscale_midtone; // IE fallback
-      border-bottom: 1px solid rgba($black,.4);
+      border-bottom: 1px solid RGB($black,.4);
       cursor: pointer;
     }
   }

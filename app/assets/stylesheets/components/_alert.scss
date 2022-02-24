@@ -14,7 +14,7 @@
     position: relative;
     text-align: center;
     @include inline-block();
-    @include border-radius($border_radius_base);
+    border-radius: $border_radius_base;
     // @include single-box-shadow(0, 0, $border_radius_base, 0, $black);
 
     p {

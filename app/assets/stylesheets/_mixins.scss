@@ -1,3 +1,4 @@
+@import "variables";
 // Mixins are custom functions that abbreviate generating CSS rules.
 
 // Type size mixin provides mapping from human-readable font sizing labeling
@@ -5,28 +6,28 @@
 // $size - The human readable font size value.
 @mixin type-size($size) {
   @if $size == "tiny" {
-    @include adjust-font-size-to($font_size_80);
+    font-size-adjust: $font_size_80;
   }
   @if $size == "small" {
-    @include adjust-font-size-to($font_size_90);
+    font-size-adjust: $font_size_90;
   }
   @if $size == "base-small" {
-    @include adjust-font-size-to($font_size_95);
+    font-size-adjust: $font_size_95;
   }
   @if $size == "baseline" {
-    @include adjust-font-size-to($font_size_100);
+    font-size-adjust: $font_size_100;
   }
   @if $size == "base-medium" {
-    @include adjust-font-size-to($font_size_105);
+    font-size-adjust: $font_size_105;
   }
   @if $size == "medium" {
-    @include adjust-font-size-to($font_size_110);
+    font-size-adjust: $font_size_110;
   }
   @if $size == "large" {
-    @include adjust-font-size-to($font_size_120);
+    font-size-adjust: $font_size_120;
   }
   @if $size == "xlarge" {
-    @include adjust-font-size-to($font_size_130);
+    font-size-adjust: $font_size_130;
   }
 }
 
@@ -95,33 +96,61 @@
 // $corner - The corner or side to ignore rounding on.
 @mixin rounded-except($corner) {
   @if $corner == "none" {
-    @include border-radius($border-radius-base);
+    border-radius: $border-radius-base;
   }
   @if $corner == "left" {
-    @include border-radius(0 $border-radius-base $border-radius-base 0);
+    border-radius: 0 $border-radius-base $border-radius-base 0;
   }
   @if $corner == "top" {
-    @include border-radius(0 0 $border-radius-base $border-radius-base);
+    border-radius: 0 0 $border-radius-base $border-radius-base;
   }
   @if $corner == "right" {
-    @include border-radius($border-radius-base 0 0 $border-radius-base);
+    border-radius: $border-radius-base 0 0 $border-radius-base;
   }
   @if $corner == "bottom" {
-    @include border-radius($border-radius-base $border-radius-base 0 0);
+    border-radius: $border-radius-base $border-radius-base 0 0;
   }
   @if $corner == "upper-left" {
-    @include border-radius(0 $border-radius-base $border-radius-base $border-radius-base);
+    border-radius: 0 $border-radius-base $border-radius-base $border-radius-base;
   }
   @if $corner == "upper-right" {
-    @include border-radius($border-radius-base 0 $border-radius-base $border-radius-base);
+    border-radius: $border-radius-base 0 $border-radius-base $border-radius-base;
   }
   @if $corner == "lower-right" {
-    @include border-radius($border-radius-base $border-radius-base 0 $border-radius-base);
+    border-radius: $border-radius-base $border-radius-base 0 $border-radius-base;
   }
   @if $corner == "lower-left" {
-    @include border-radius($border-radius-base $border-radius-base $border-radius-base 0);
+    border-radius: $border-radius-base $border-radius-base $border-radius-base 0;
   }
 }
+
+//custom mixins to replace compass
+
+@mixin box-sizing($sizing){
+  box-sizing: $sizing;
+}
+
+@mixin opacity($o){
+  opacity: $o;
+}
+
+@mixin inline-block(){
+  display: inline-block;
+}
+
+@mixin border-radius($o){
+  border-radius: $o;
+}
+
+@mixin single-box-shadow($shadows...){
+  box-shadow: $shadows;
+}
+
+@mixin ellipsis(){
+  text-overflow: ellipsis;
+}
+
+
 
 // Site-wide link behavior of highlighting link when hovering over parent
 // container element.

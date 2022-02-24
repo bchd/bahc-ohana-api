@@ -1,3 +1,5 @@
+@import "variables";
+@import "mixins";
 //=============================================================================
 // Visability effects.
 .hide {
@@ -18,7 +20,7 @@
   z-index:9999 !important;
   position:relative;
 
-  @include transition(opacity $animation-duration-base, z-index $animation-duration-base);
+  transition: opacity $animation-duration-base, z-index $animation-duration-base;
 }
 
 .fade-out {
@@ -27,7 +29,7 @@
   z-index:0 !important;
   position:relative;
 
-  @include transition(opacity $animation-duration-base, z-index $animation-duration-base);
+  transition: opacity $animation-duration-base, z-index $animation-duration-base;
 }
 
 // delayed fading styles that trigger at a delay equal to 1/2 the duration of the fading styles
@@ -37,8 +39,8 @@
   z-index:9998 !important;
   position:relative;
 
-  @include transition(opacity $animation-duration-base, z-index $animation-duration-base);
-  @include transition-delay($animation-duration-fast);
+  transition: opacity $animation-duration-base, z-index $animation-duration-base;
+  transition-delay: $animation-duration-fast;
 }
 
 .fade-out-delay {
@@ -47,30 +49,30 @@
   z-index:-9998 !important;
   position:relative;
 
-  @include transition(opacity $animation-duration-base, z-index $animation-duration-base);
-  @include transition-delay($animation-duration-fast);
+  transition: opacity $animation-duration-base, z-index $animation-duration-base;
+  transition-delay: $animation-duration-fast;
 }
 
 .flip {
-  @include rotateY(180deg);
-  @include transition(transform $animation-duration-base);
-  @include backface-visibility( hidden );
+  transform: rotateY(180deg);
+  transition: transform $animation-duration-base;
+  backface-visibility: hidden;
 }
 
 .unflip {
-  @include rotateY(0deg);
-  @include transition(transform $animation-duration-base);
-  @include backface-visibility( hidden );
+  transform: rotateY(0deg);
+  transition: transform $animation-duration-base;
+  backface-visibility: hidden;
 }
 
 .blur {
-  @include filter(blur(4px));
-  @include transition(filter $animation-duration-base);
+  filter: blur(4px);
+  transition: filter $animation-duration-base;
 }
 
 .unblur {
-  @include filter(blur(0));
-  @include transition(filter $animation-duration-base);
+  filter: blur(0);
+  transition: filter $animation-duration-base;
 }
 
 .slide-up {

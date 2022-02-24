@@ -205,7 +205,7 @@ $pagination-active-color:       $grey;
 $pagination-active-bg:          rgba($blue, .30);
 
 $pagination-disabled-color:     $greyscale_dark;
-$pagination-disabled-bg:        rgba($complementB, 0.1);
+$pagination-disabled-bg:        RGB($complementB, 0.1);
 
 $pagination-next-color:         $white;
 $pagination-next-hover-color:   $white;
@@ -218,7 +218,7 @@ $pagination-highlight:          $black;
 // Main
 //
 $main-highlight: $complementA;
-$main-header-bg: rgba($complementB, 0.2);
+$main-header-bg: RGB($complementB, 0.2);
 $main-header-color: $black;
 $main-list-mark-color: $complementB;
 $main-border-color: $primary-dark;
