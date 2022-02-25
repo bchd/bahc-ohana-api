@@ -4,6 +4,8 @@ require 'rspec/rails'
 require 'rspec/its'
 require 'shoulda/matchers'
 
+require 'chewy/rspec'
+
 require 'capybara/poltergeist'
 require 'selenium/webdriver'
 

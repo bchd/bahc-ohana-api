@@ -11,11 +11,15 @@ It is based off of [Ohana API](https://github.com/codeforamerica/ohana-api).
 * PostgreSQL
 * Elasticsearch version 5.6
 
-## Installation
-
 ## Setup
 
 Install PostgreSQL through [Postgres.app](https://postgresapp.com/). Make sure to have **PostgreSQL 12** or above.
+
+Start Elasticsearch via docker with the following command:
+
+```bash
+docker run --rm --name elasticsearch7 -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" -e "xpack.security.enabled=true" -e "ELASTIC_PASSWORD=password"  elasticsearch:7.17.0
+```
 
 Install [the nix package manager](https://nixos.org/download.html#nix-install-macos) by following their multi-user installer. Once nix is installed, setup [direnv](https://direnv.net/) by hooking into your shell.
 

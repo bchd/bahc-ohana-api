@@ -17,8 +17,8 @@ end
 class Service < ApplicationRecord
   include HandleTags
 
-  update_index('locations#location') { location }
-  update_index('services#service') { self }
+  update_index('locations') { location }
+  update_index('services') { self }
 
   belongs_to :location, touch: true, optional: false
   belongs_to :program, touch: true
@@ -158,7 +158,7 @@ class Service < ApplicationRecord
   end
 
   def touch_location(_category)
-    LocationsIndex::Location.import(location_id)
+    LocationsIndex.import(location_id)
     location.update_column(:updated_at, Time.zone.now) if persisted?
   end
 

@@ -120,9 +120,9 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (~> 1.5)
       xpath (~> 3.2)
-    chewy (5.1.0)
-      activesupport (>= 4.0)
-      elasticsearch (>= 2.0.0)
+    chewy (7.2.4)
+      activesupport (>= 5.2)
+      elasticsearch (>= 7.12.0, < 7.14.0)
       elasticsearch-dsl
     childprocess (3.0.0)
     cliver (0.3.2)
@@ -134,7 +134,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.12.2)
-    concurrent-ruby (1.1.6)
+    concurrent-ruby (1.1.9)
     content_disposition (1.0.0)
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
@@ -170,13 +170,13 @@ GEM
     docile (1.3.2)
     down (5.2.0)
       addressable (~> 2.5)
-    elasticsearch (7.8.0)
-      elasticsearch-api (= 7.8.0)
-      elasticsearch-transport (= 7.8.0)
-    elasticsearch-api (7.8.0)
+    elasticsearch (7.13.3)
+      elasticsearch-api (= 7.13.3)
+      elasticsearch-transport (= 7.13.3)
+    elasticsearch-api (7.13.3)
       multi_json
-    elasticsearch-dsl (0.1.9)
-    elasticsearch-transport (7.8.0)
+    elasticsearch-dsl (0.1.10)
+    elasticsearch-transport (7.13.3)
       faraday (~> 1)
       multi_json
     enumerable-statistics (2.0.1)
@@ -190,8 +190,29 @@ GEM
     factory_bot_rails (6.1.0)
       factory_bot (~> 6.1.0)
       railties (>= 5.0.0)
-    faraday (1.0.1)
+    faraday (1.10.0)
+      faraday-em_http (~> 1.0)
+      faraday-em_synchrony (~> 1.0)
+      faraday-excon (~> 1.1)
+      faraday-httpclient (~> 1.0)
+      faraday-multipart (~> 1.0)
+      faraday-net_http (~> 1.0)
+      faraday-net_http_persistent (~> 1.0)
+      faraday-patron (~> 1.0)
+      faraday-rack (~> 1.0)
+      faraday-retry (~> 1.0)
+      ruby2_keywords (>= 0.0.4)
+    faraday-em_http (1.0.0)
+    faraday-em_synchrony (1.0.0)
+    faraday-excon (1.1.0)
+    faraday-httpclient (1.0.1)
+    faraday-multipart (1.0.3)
       multipart-post (>= 1.2, < 3)
+    faraday-net_http (1.0.1)
+    faraday-net_http_persistent (1.2.0)
+    faraday-patron (1.0.0)
+    faraday-rack (1.0.0)
+    faraday-retry (1.0.3)
     fastimage (2.2.0)
     ffi (1.15.4)
     figaro (1.2.0)
@@ -248,7 +269,7 @@ GEM
       addressable (~> 2.7)
     letter_opener (1.7.0)
       launchy (~> 2.2)
-    listen (3.2.1)
+    listen (3.7.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
     loofah (2.6.0)
@@ -270,7 +291,7 @@ GEM
     mini_magick (4.10.1)
     mini_mime (1.0.2)
     mini_portile2 (2.5.3)
-    minitest (5.14.1)
+    minitest (5.15.0)
     multi_json (1.15.0)
     multipart-post (2.1.1)
     nio4r (2.5.8)
@@ -335,7 +356,7 @@ GEM
       thor (>= 0.19.0, < 2.0)
     rainbow (3.0.0)
     rake (13.0.1)
-    rb-fsevent (0.10.4)
+    rb-fsevent (0.11.1)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     regexp_parser (1.7.1)
@@ -367,6 +388,7 @@ GEM
     ruby-statistics (2.1.2)
     ruby-vips (2.0.17)
       ffi (~> 1.9)
+    ruby2_keywords (0.0.5)
     ruby_parser (3.14.2)
       sexp_processor (~> 4.9)
     rubyzip (2.3.0)
@@ -398,12 +420,6 @@ GEM
     simplecov-html (0.12.2)
     simplemde-rails (1.11.2)
     smarter_csv (1.2.6)
-    spring (2.1.0)
-    spring-commands-rspec (1.0.4)
-      spring (>= 0.9.1)
-    spring-watcher-listen (2.0.1)
-      listen (>= 2.7, < 4.0)
-      spring (>= 1.2, < 3.0)
     sprockets (4.0.2)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
@@ -416,7 +432,7 @@ GEM
     thor (1.0.1)
     thread_safe (0.3.6)
     tilt (2.0.10)
-    tzinfo (1.2.7)
+    tzinfo (1.2.9)
       thread_safe (~> 0.1)
     uglifier (4.2.0)
       execjs (>= 0.3.0, < 3)
@@ -460,7 +476,7 @@ DEPENDENCIES
   bummr!
   byebug
   capybara
-  chewy
+  chewy (~> 7.2.0)
   coffee-rails (~> 4.1)
   csv_shaper
   dalli
@@ -477,10 +493,12 @@ DEPENDENCIES
   friendly_id (~> 5.0)
   geocoder
   haml-rails
+  i18n (= 1.8.5)
   image_processing (~> 1.10)
   jquery-rails (~> 4.0)
   kaminari (~> 1.1)
   letter_opener
+  listen
   marcel
   memcachier
   meta_request
@@ -505,9 +523,6 @@ DEPENDENCIES
   simplecov
   simplemde-rails (~> 1.11, >= 1.11.2)
   smarter_csv
-  spring
-  spring-commands-rspec
-  spring-watcher-listen
   stackprof
   uglifier (>= 1.3.0)
   uppy-s3_multipart (>= 0.3.2)

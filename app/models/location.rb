@@ -38,7 +38,7 @@ class Location < ApplicationRecord
     date
   end
 
-  update_index('locations#location') { self }
+  update_index('locations') { self }
 
   attr_accessor :featured
 
