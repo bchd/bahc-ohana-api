@@ -1,5 +1,5 @@
 // Manages location detail view Google Map.
-import markers from 'app/util/map/markers.js.erb';
+import markers from 'app/util/map/markers.js';
 import googleMaps from 'app/util/map/google/map-loader';
 
 function init() {

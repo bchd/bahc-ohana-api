@@ -1,16 +1,14 @@
 // Used for managing which map marker should be shown.
-import BitMask from 'app/util/BitMask';
-
-<% helpers = ActionController::Base.helpers %>
+import BitMask from 'app/util/BitMask'; 
 
 // 'Constants' for the kind labels returned by the Ohana API.
 var GENERIC = 'Generic';
 
 // 'Constants' for different map kind markers.
-var GENERIC_LARGE_MARKER_URL = "<%= helpers.asset_path('markers/map_marker.png') %>"
-var GENERIC_SMALL_MARKER_URL = "<%= helpers.asset_path('markers/map_marker.png') %>"
-var GENERIC_LARGE_SPIDERFY_MARKER_URL = "<%= helpers.asset_path('markers/map_marker-grouping.png') %>"
-var GENERIC_SMALL_SPIDERFY_MARKER_URL = "<%= helpers.asset_path('markers/map_marker-grouping.png') %>"
+import GENERIC_LARGE_MARKER_URL from "../../../images/markers/map_marker.png"
+import GENERIC_SMALL_MARKER_URL from "../../../images/markers/map_marker.png"
+import GENERIC_LARGE_SPIDERFY_MARKER_URL from "../../../images/markers/map_marker-grouping.png"
+import GENERIC_SMALL_SPIDERFY_MARKER_URL from "../../..//images/markers/map_marker-grouping.png"
 
 function create(kind) {
   var marker = new Marker();

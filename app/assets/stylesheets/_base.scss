@@ -144,7 +144,7 @@ ul {
     z-index: 9999;
 
     width: 100%;
-    background: RGB($blue, .05);
+    background: rgba($blue, .05);
     @include box-sizing(border-box);
 
     font-size: $font_size_100;
@@ -313,7 +313,7 @@ body {
 // Area above the search box, which holds the language translation links box.
 .home .search-utilities {
   background: $search-bg; // IE fallback
-  background: RGB($search-bg, 0.8);
+  background: rgba($search-bg, 0.8);
   min-height: 44px;
   padding: 10px;
   padding-right: 25px;
@@ -492,7 +492,7 @@ body {
   text-align: center;
 
   > section {
-    box-shadow: 0, 0, 5px, 0, RGB($black, .1);
+    box-shadow: 0, 0, 5px, 0, rgba($black, .1);
     @include inline-block();
     border-radius: 4px;
     margin: 10px;
@@ -678,7 +678,7 @@ body {
 .results-header.floating {
   -webkit-backface-visibility: hidden;
   width: 100%;
-  box-shadow: 0, 1px, 6px, 0, RGB($black, .4);
+  box-shadow: 0, 1px, 6px, 0, rgba($black, .4);
   top: 0;
 }
 
@@ -698,7 +698,7 @@ body {
   section.no-results {
     font-family: $font_sans_serif;
     border-bottom: 1px solid $greyscale_midtone; // IE fallback
-    border-bottom: 1px solid RGB($black,.1);
+    border-bottom: 1px solid rgba($black,.1);
 
     .message {
       margin: 80px auto;
@@ -737,7 +737,7 @@ body {
 #terminology-box-container,
 #organization-detail-container {
   border-bottom: 1px solid $greyscale_midtone; // IE fallback
-  border-bottom: 1px solid RGB($black, .1);
+  border-bottom: 1px solid rgba($black, .1);
 }
 
 //=================================================================================
@@ -772,7 +772,7 @@ body {
 
     > li:hover {
       background: $primary-lightest; // IE fallback
-      background: RGB($blue, .25);
+      background: rgba($blue, .25);
       h1 {
         padding-bottom: 5px;
         a {
@@ -788,7 +788,7 @@ body {
     > li:last-child {
       margin-bottom: 0;
       border-bottom: 1px solid $greyscale_light; // IE fallback
-      border-bottom: 1px solid RGB($black, .1);
+      border-bottom: 1px solid rgba($black, .1);
     }
   }
 
@@ -797,7 +797,7 @@ body {
     border-bottom: 1px solid #e6f2f7;
   }
   .search-result-blue {
-    background: tint($blue, 90)
+    background: mix(white, $blue, 90)
   }
   .search-result-white {
     background: $white;
@@ -939,7 +939,7 @@ body {
 
     a {
       color: $greyscale_midtone; // IE fallback
-      color: RGB($black, .6);
+      color: rgba($black, .6);
       cursor: pointer;
       border-bottom: 1px solid $white;
       @include inline-block();
@@ -948,7 +948,7 @@ body {
     a:hover {
       color: $primary-dark;
       border-bottom: 1px solid $greyscale_midtone;
-      border-bottom: 1px solid RGB($black, .4);
+      border-bottom: 1px solid rgba($black, .4);
       text-decoration: none;
     }
 
@@ -962,7 +962,7 @@ body {
 
     .button-close {
       color: $greyscale_midtone; // IE Fallback
-      color: RGB($black, .5);
+      color: rgba($black, .5);
       position: absolute;
       left: 0;
       top: -10px;
@@ -1056,7 +1056,7 @@ body {
   }
 
   h2 {
-    color: RGB(27, 27, 27, 0.75);
+    color: rgba(27, 27, 27, 0.75);
     font-size: 1.5em;
   }
 
@@ -1070,7 +1070,7 @@ body {
       height: 74px;
       float:  right;
       margin-left: 24px;
-      background: RGB(255, 194, 71, 0.25);
+      background: rgba(255, 194, 71, 0.25);
       border: 1px solid #FFC247;
       box-sizing: border-box;
       border-radius: 8px;
@@ -1100,10 +1100,10 @@ body {
       // agency
       h2 {
         @include type-size(medium);
-        color: RGB(27, 27, 27, 0.75);
+        color: rgba(27, 27, 27, 0.75);
         font-size: 1.5em;
         a {
-          color: RGB(27, 27, 27, 0.75);
+          color: rgba(27, 27, 27, 0.75);
           text-decoration: none;
         }
       }
@@ -1185,7 +1185,7 @@ body {
     }
     > .location-sidebar {
       //margin-bottom: 20px;
-      background: RGB($purple, .1);
+      background: rgba($purple, .1);
       -ms-word-break: break-all;
       word-break: break-all;
       // Non-standard for webkit.
@@ -1195,7 +1195,7 @@ body {
 
       .tag {
         color: #007FAA;
-        background: RGB(0, 127, 170, 0.05);
+        background: rgba(0, 127, 170, 0.05);
         border: 1px solid #007FAA;
         border-radius: 100px;
         padding: 2px 8px;
@@ -1208,7 +1208,7 @@ body {
       .location-sidebar-footer {
         font-style: italic;
         margin-left: 20px;
-        color: RGB(27, 27, 27, 0.75);
+        color: rgba(27, 27, 27, 0.75);
         
         > * {
           margin-top: 10px;
@@ -1238,7 +1238,7 @@ body {
         }
 
         .location-sidebar-content {
-          color: RGB(27, 27, 27, 0.75);
+          color: rgba(27, 27, 27, 0.75);
           font-size: 16px;
           line-height: 19px;
           > section {
@@ -1334,7 +1334,7 @@ body {
   }
 
   .button-back > * {
-    color: RGB(27, 27, 27, 0.75);
+    color: rgba(27, 27, 27, 0.75);
   }
 
 
@@ -1441,13 +1441,13 @@ body {
 
 @include site-link('#general-services', $white);
 @include site-link('#emergency-services', $white);
-@include site-link('#detail-info header', RGB($white, 0));
+@include site-link('#detail-info header', rgba($white, 0));
 @include site-link('#detail-info .service', $white);
 @include site-link('#detail-info .metadata', $white);
 @include site-link('#detail-info .location-sidebar', $white);
 @include site-link('.no-results', $white);
 @include site-link('#app-footer', $white);
-@include site-link('#list-view li', RGB($white, 0));
+@include site-link('#list-view li', rgba($white, 0));
 
 /* ==========================================================================
    State classes
@@ -1478,7 +1478,7 @@ body {
 
     &:hover {
       border-bottom: 1px solid $greyscale_midtone; // IE fallback
-      border-bottom: 1px solid RGB($black,.4);
+      border-bottom: 1px solid rgba($black,.4);
       cursor: pointer;
     }
   }

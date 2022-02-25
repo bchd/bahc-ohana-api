@@ -1,5 +1,5 @@
 // Manages search results view Google Map.
-import markers from 'app/util/map/markers.js.erb';
+import markers from 'app/util/map/markers.js';
 import markerDataLoader from 'app/util/map/marker-data-loader';
 import MapDOM from 'app/util/map/google/MapDOM';
 import infoBoxManager from 'app/util/map/google/infobox-manager';
