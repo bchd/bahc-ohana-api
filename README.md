@@ -9,7 +9,7 @@ It is based off of [Ohana API](https://github.com/codeforamerica/ohana-api).
 * Ruby version 2.7.5
 * Rails version 5.1.6
 * PostgreSQL
-* Elasticsearch version 5.6
+* Elasticsearch version 7
 
 ## Setup
 
