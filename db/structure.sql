@@ -369,6 +369,39 @@ ALTER SEQUENCE public.contacts_id_seq OWNED BY public.contacts.id;
 
 
 --
+-- Name: favorites; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.favorites (
+    id bigint NOT NULL,
+    url character varying,
+    name character varying,
+    resource_type character varying,
+    resource_id integer,
+    user_id bigint
+);
+
+
+--
+-- Name: favorites_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE public.favorites_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: favorites_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE public.favorites_id_seq OWNED BY public.favorites.id;
+
+
+--
 -- Name: file_uploads; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -937,24 +970,18 @@ ALTER SEQUENCE public.tags_id_seq OWNED BY public.tags.id;
 --
 
 CREATE TABLE public.users (
-    id integer NOT NULL,
-    email character varying(255) DEFAULT ''::character varying NOT NULL,
-    encrypted_password character varying(255) DEFAULT ''::character varying NOT NULL,
-    name character varying(255) DEFAULT ''::character varying NOT NULL,
-    reset_password_token character varying(255),
+    id bigint NOT NULL,
+    email character varying DEFAULT ''::character varying NOT NULL,
+    encrypted_password character varying DEFAULT ''::character varying NOT NULL,
+    reset_password_token character varying,
     reset_password_sent_at timestamp without time zone,
     remember_created_at timestamp without time zone,
-    sign_in_count integer DEFAULT 0 NOT NULL,
-    current_sign_in_at timestamp without time zone,
-    last_sign_in_at timestamp without time zone,
-    current_sign_in_ip character varying(255),
-    last_sign_in_ip character varying(255),
-    confirmation_token character varying(255),
-    confirmed_at timestamp without time zone,
-    confirmation_sent_at timestamp without time zone,
-    unconfirmed_email character varying(255),
-    created_at timestamp without time zone,
-    updated_at timestamp without time zone
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL,
+    admin boolean DEFAULT false NOT NULL,
+    first_name character varying DEFAULT ''::character varying NOT NULL,
+    last_name character varying DEFAULT ''::character varying NOT NULL,
+    organization character varying
 );
 
 
@@ -1024,6 +1051,13 @@ ALTER TABLE ONLY public.categories ALTER COLUMN id SET DEFAULT nextval('public.c
 --
 
 ALTER TABLE ONLY public.contacts ALTER COLUMN id SET DEFAULT nextval('public.contacts_id_seq'::regclass);
+
+
+--
+-- Name: favorites id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.favorites ALTER COLUMN id SET DEFAULT nextval('public.favorites_id_seq'::regclass);
 
 
 --
@@ -1200,6 +1234,14 @@ ALTER TABLE ONLY public.categories
 
 ALTER TABLE ONLY public.contacts
     ADD CONSTRAINT contacts_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: favorites favorites_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.favorites
+    ADD CONSTRAINT favorites_pkey PRIMARY KEY (id);
 
 
 --
@@ -1471,6 +1513,13 @@ CREATE INDEX index_contacts_on_service_id ON public.contacts USING btree (servic
 
 
 --
+-- Name: index_favorites_on_user_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_favorites_on_user_id ON public.favorites USING btree (user_id);
+
+
+--
 -- Name: index_file_uploads_on_location_id; Type: INDEX; Schema: public; Owner: -
 --
 
@@ -1709,13 +1758,6 @@ CREATE INDEX index_tags_on_name ON public.tags USING btree (name);
 
 
 --
--- Name: index_users_on_confirmation_token; Type: INDEX; Schema: public; Owner: -
---
-
-CREATE UNIQUE INDEX index_users_on_confirmation_token ON public.users USING btree (confirmation_token);
-
-
---
 -- Name: index_users_on_email; Type: INDEX; Schema: public; Owner: -
 --
 
@@ -1857,12 +1899,17 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20150315202808'),
 ('20180212023953'),
 ('20190304172224'),
+('20190311152915'),
+('20190313134052'),
 ('20190315143955'),
 ('20190409213357'),
 ('20190411135354'),
+('20190411135355'),
 ('20190415152136'),
 ('20190429042119'),
+('20190509192830'),
 ('20200106144640'),
+('20200206203553'),
 ('20200410005234'),
 ('20200504145258'),
 ('20200504145923'),
