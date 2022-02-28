@@ -17,7 +17,7 @@
                   %span Recommended
                   %hr
                   - recommended_tags.each do |recommended_tag|
-                    = link_to recommended_tag.name, "#", class: "recommended-tag", data: { tags: recommended_tag.tags.join(", ") }
+                    = link_to recommended_tag.name, "#", class: "recommended-tag", data: { tags: recommended_tag.tags.map(&:name).join(", ") }
           %div  
             = button_tag(type: 'submit', name: nil, id: 'button-search', class: 'landing-button-icon', title: 'Search') do
               %span
