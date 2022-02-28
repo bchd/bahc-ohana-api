@@ -20,7 +20,7 @@ let
     pkgs.git
     pkgs.shared-mime-info
 
-    pkgs.postgresql
+    pkgs.postgresql_14
 
     pkgs.ruby_2_7
     pkgs.bundler

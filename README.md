@@ -8,12 +8,12 @@ It is based off of [Ohana API](https://github.com/codeforamerica/ohana-api).
 
 * Ruby version 2.7.5
 * Rails version 5.1.6
-* PostgreSQL
+* PostgreSQL 14
 * Elasticsearch version 7
 
 ## Setup
 
-Install PostgreSQL through [Postgres.app](https://postgresapp.com/). Make sure to have **PostgreSQL 12** or above.
+Install PostgreSQL through [Postgres.app](https://postgresapp.com/). Make sure to have **PostgreSQL 14**.
 
 Start Elasticsearch via docker with the following command:
 
@@ -34,6 +34,8 @@ Once direnv is installed and your shell is restarted, clone the project and `cd`
 direnv allow
 
 bundle
+cp config/application.example.yml config/application.yml
+cp config/settings.example.yml config/settings.yml
 rails db:create db:migrate db:test:prepare
 yarn install
 rails server
