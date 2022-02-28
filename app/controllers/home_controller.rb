@@ -3,6 +3,6 @@ class HomeController < ApplicationController
 
   def index
     @current_lang = current_language
-    @recommended_tags = Ohanakapa.recommended_tags
+    @recommended_tags = RecommendedTag.active
   end
 end
