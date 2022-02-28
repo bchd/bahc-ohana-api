@@ -1,17 +1,27 @@
 module FilterCategoriesHelper
 
   def fetch_categories
-    @categories ||= Ohanakapa.categories
+    @categories ||= Category.unarchived
   end
 
   def main_categories_array
     fetch_categories if @categories.nil?
-    @categories.select { |cat| cat[:depth] == 0 }.flatten.uniq.map{ |cat| [cat.name, cat.id]}
+
+    @categories.select { |category|
+      category.depth == 0
+    }.flatten.uniq.map { |category|
+      [category.name, category.id]
+    }
   end
 
   def categories_for_select
     fetch_categories if @categories.nil?
-    @categories.select { |cat| cat[:depth] == 0}.flatten.uniq.map{ |cat| [cat.name, cat.name]}
+
+    @categories.select { |category|
+      category.depth == 0
+    }.flatten.uniq.map { |category|
+      [category.name, category.name]
+    }
   end
 
   def category_name_by_id(category_id)
@@ -28,7 +38,12 @@ module FilterCategoriesHelper
 
   def subcategories_by_category(category_id)
     fetch_categories if @categories.nil?
-    @categories.select { |cat| cat[:depth] == 1 and cat[:parent_id] == category_id.to_i }.flatten.uniq.map{ |cat| cat.name }
+
+    @categories.select { |category|
+      category.depth == 1 and category.parent_id == category.to_i
+    }.flatten.uniq.map { |category|
+      category.name
+    }
   end 
 
   def subcategrory_id_by_name(subcategory_name, main_category_id)
