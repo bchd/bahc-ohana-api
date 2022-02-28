@@ -398,33 +398,17 @@ en:
         tty: 'TTY'
         voice: 'Voice'
 
-  errors:
-    messages:
-      blank_for_address: "can't be blank for Address"
-      blank_for_category: "can't be blank for Category"
-      blank_for_contact: "can't be blank for Contact"
-      blank_for_hs: "can't be blank for Holiday Schedule"
-      blank_for_hs_open: "can't be blank for Holiday Schedule when open on that day"
-      blank_for_location: "can't be blank for Location"
-      blank_for_org: "can't be blank for Organization"
-      blank_for_phone: "can't be blank for Phone"
-      blank_for_program: "can't be blank for Program"
-      blank_for_rs: "can't be blank for Regular Schedule"
-      blank_for_service: "can't be blank for Service"
-      duplicate_taxonomy_id: 'id has already been taken'
-      invalid_date: 'is not a valid date'
-      invalid_email: 'is not a valid email'
-      invalid_fax: 'is not a valid US fax number'
-      invalid_phone: 'is not a valid US phone or fax number'
-      invalid_service_area: 'is not a valid service area'
-      invalid_state_province: 'Please enter a valid 2-letter state or province abbreviation'
-      invalid_url: 'is not a valid URL'
-      invalid_weekday: 'is not a valid weekday'
-      invalid_zip: 'is not a valid ZIP code'
-      no_address: 'must be provided unless a Location is virtual'
-      not_an_array: 'is not an Array.'
-
   helpers:
+    page_entries_info:
+      one_page:
+        display_entries:
+          zero: 'No %{entry_name} found.'
+          one: 'Displaying <strong>1</strong> result'
+          other: 'Displaying <strong>all %{count}</strong> %{entry_name}'
+      more_pages:
+        display_entries: >
+          Displaying <strong>%{first} - %{last}</strong> of
+          <strong>%{total}</strong> %{entry_name}
     label:
       address: &address_helper_labels
         state_province: 'State (2-letter abbreviation)'
@@ -483,6 +467,14 @@ en:
     register_a_new_applicaiton: 'Register a new application'
     update_application: 'Update application'
     delete_application: 'Delete application'
+    clear_filters: 'Uncheck all filters'
+    collapse_filters: 'Collapse filters'
+    hide_filters: 'Hide filters'
+    show_filters: 'Show filters'
+    during_geolocation: 'Please wait...'
+    homepage_search: 'Search'
+    services_near_me: 'Sort by distance'
+    update_search_results: 'Search'
 
   links:
     register_a_new_application: 'Register a new application'
@@ -498,16 +490,6 @@ en:
       in %{location}.
     header: 'Connect with resources in %{location}'
     location: 'Baltimore City'
-
-  buttons:
-    clear_filters: 'Uncheck all filters'
-    collapse_filters: 'Collapse filters'
-    hide_filters: 'Hide filters'
-    show_filters: 'Show filters'
-    during_geolocation: 'Please wait...'
-    homepage_search: 'Search'
-    services_near_me: 'Sort by distance'
-    update_search_results: 'Search'
 
   date:
     day_names:
@@ -526,17 +508,30 @@ en:
     bad_search: 'That search was improperly formatted. Please try a new search.'
     not_found: 'Sorry, that page does not exist. Please try a new search.'
 
-  helpers:
-    page_entries_info:
-      one_page:
-        display_entries:
-          zero: 'No %{entry_name} found.'
-          one: 'Displaying <strong>1</strong> result'
-          other: 'Displaying <strong>all %{count}</strong> %{entry_name}'
-      more_pages:
-        display_entries: >
-          Displaying <strong>%{first} - %{last}</strong> of
-          <strong>%{total}</strong> %{entry_name}
+    messages:
+      blank_for_address: "can't be blank for Address"
+      blank_for_category: "can't be blank for Category"
+      blank_for_contact: "can't be blank for Contact"
+      blank_for_hs: "can't be blank for Holiday Schedule"
+      blank_for_hs_open: "can't be blank for Holiday Schedule when open on that day"
+      blank_for_location: "can't be blank for Location"
+      blank_for_org: "can't be blank for Organization"
+      blank_for_phone: "can't be blank for Phone"
+      blank_for_program: "can't be blank for Program"
+      blank_for_rs: "can't be blank for Regular Schedule"
+      blank_for_service: "can't be blank for Service"
+      duplicate_taxonomy_id: 'id has already been taken'
+      invalid_date: 'is not a valid date'
+      invalid_email: 'is not a valid email'
+      invalid_fax: 'is not a valid US fax number'
+      invalid_phone: 'is not a valid US phone or fax number'
+      invalid_service_area: 'is not a valid service area'
+      invalid_state_province: 'Please enter a valid 2-letter state or province abbreviation'
+      invalid_url: 'is not a valid URL'
+      invalid_weekday: 'is not a valid weekday'
+      invalid_zip: 'is not a valid ZIP code'
+      no_address: 'must be provided unless a Location is virtual'
+      not_an_array: 'is not an Array.'
 
   labels:
     category_search: 'Browse by Topic'
