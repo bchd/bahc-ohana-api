@@ -18,6 +18,7 @@ let
     pkgs.openssl
     pkgs.curl
     pkgs.git
+    pkgs.shared-mime-info
 
     pkgs.postgresql
 
@@ -37,4 +38,12 @@ let
 
 in pkgs.mkShell {
   buildInputs = inputs;
+
+  shellHook = ''
+export FREEDESKTOP_MIME_TYPES_PATH="${pkgs.shared_mime_info}/share/mime/packages/freedesktop.org.xml";
+
+# Disable this for sassc to compile properly
+# See https://github.com/sass/sassc-ruby/issues/148#issuecomment-644450274
+bundle config build.sassc --disable-lto
+  '';
 }
