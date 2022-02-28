@@ -25,7 +25,7 @@ Install [the nix package manager](https://nixos.org/download.html#nix-install-ma
 
 ```bash
 nix-env -f '<nixpkgs>' -iA direnv
-echo 'eval "$(direnv hook zsh)"' >> ~/.zshrc
+echo '\n\neval "$(direnv hook zsh)"' >> ~/.zshrc
 ```
 
 Once direnv is installed and your shell is restarted, clone the project and `cd` into it. You should see direnv warn about an untrusted `.envrc` file. Allow the file and finish installing dependencies and setting up the application.
