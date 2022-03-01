@@ -44,9 +44,6 @@ class Flag < ApplicationRecord
   include ActiveModel::AttributeMethods
   include ActiveModel::Model
 
-  attr_accessor :email
-  attr_accessor :description
-  attr_accessor :report_attributes
 
   def self.report_attributes_schema
     [
