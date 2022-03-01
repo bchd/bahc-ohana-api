@@ -986,7 +986,12 @@ CREATE TABLE public.users (
     confirmation_token character varying,
     confirmed_at timestamp without time zone,
     confirmation_sent_at timestamp without time zone,
-    unconfirmed_email character varying
+    unconfirmed_email character varying,
+    sign_in_count integer DEFAULT 0 NOT NULL,
+    current_sign_in_at timestamp without time zone,
+    last_sign_in_at timestamp without time zone,
+    current_sign_in_ip character varying,
+    last_sign_in_ip character varying
 );
 
 
@@ -1935,6 +1940,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20220111231732'),
 ('20220222011857'),
 ('20220301190818'),
-('20220301191701');
+('20220301191701'),
+('20220301224915');
 
 
