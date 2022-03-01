@@ -61,10 +61,6 @@ class ApplicationController < ActionController::Base
     redirect_back fallback_location: root_path, alert: t('errors.bad_search')
   end
 
-  def render_not_found
-    redirect_back fallback_location: root_path, alert: t('errors.not_found')
-  end
-
   protected
 
   def layout_by_resource
