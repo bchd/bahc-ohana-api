@@ -981,7 +981,12 @@ CREATE TABLE public.users (
     admin boolean DEFAULT false NOT NULL,
     first_name character varying DEFAULT ''::character varying NOT NULL,
     last_name character varying DEFAULT ''::character varying NOT NULL,
-    organization character varying
+    organization character varying,
+    name character varying,
+    confirmation_token character varying,
+    confirmed_at timestamp without time zone,
+    confirmation_sent_at timestamp without time zone,
+    unconfirmed_email character varying
 );
 
 
@@ -1928,6 +1933,8 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20211108235002'),
 ('20211222211416'),
 ('20220111231732'),
-('20220222011857');
+('20220222011857'),
+('20220301190818'),
+('20220301191701');
 
 
