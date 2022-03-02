@@ -16,6 +16,8 @@
           %a.popup-trigger.popup-account#user-btn{ href: edit_user_registration_path }
             %div.button-logged-in
               = current_user.first_name[0]&.upcase || current_user.email[0].upcase
+        %li
+          = link_to t('navigation.sign_out'), destroy_user_session_path, method: 'delete'
       - else
         %li
           %a.popup-trigger.popup-account.button-small#user-btn{ href: new_user_session_path }
