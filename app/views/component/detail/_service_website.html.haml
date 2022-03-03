@@ -1,0 +1,9 @@
+-# The website partial displays the website icon and address.
+  e.g. [icon] www.example.com
+
+- if service.website.present?
+  %section.website.icon-text-block
+    %i.fa.fa-external-link-square
+    %span.annotated-text-block
+      %a{ href: service.website, target: '_blank', itemprop: 'url' }
+        = format_url(service.website)

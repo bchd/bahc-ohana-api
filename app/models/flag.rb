@@ -37,4 +37,63 @@ class Flag < ApplicationRecord
       errors.add(:report_attributes, "can't be blank")
     end
   end
+
+
+  #pulling in the below from UI
+  extend ActiveModel::Naming
+  include ActiveModel::AttributeMethods
+  include ActiveModel::Model
+
+
+  def self.report_attributes_schema
+    [
+      {
+        name: :hours_location_contact_info_incorrect,
+        label: "The hours, location, or contact information is incorrect."
+      },
+      {
+        name: :the_service_listed_are_incorrect,
+        label: "Information listed on this resource page is incorrect."
+      },
+      {
+        name: :other,
+        label: "Other"
+      },
+      {
+        name: :employee_of_the_org,
+        label: "I am an employee of this organization.",
+        details_required: false
+      },
+      {
+        name: :contact_me,
+        label: "Yes, I agree to have a CHARMcare representative contact me regarding this resource.",
+        details_required: false
+      }
+    ]
+  end
+
+  def self.details_required?(attr_name)
+    puts attr_name
+    get_schema_attribute_by_name(attr_name)[:details_required] != false
+  end
+
+  def self.get_schema_attribute_by_name(name)
+    attribute = report_attributes_schema.find do |ar|
+      ar[:name] == name
+    end
+
+    attribute
+  end
+
+  def self.report_attributes_in_order
+    Flag.report_attributes_schema.collect(&:values).transpose[0]
+  end
+
+  def self.get_report_attribute_label_for(attr)
+    attribute = report_attributes_schema.find do |ar|
+      ar[:name].to_s.include?(attr)
+    end
+
+    attribute ? attribute[:label] : attr[0]
+  end
 end

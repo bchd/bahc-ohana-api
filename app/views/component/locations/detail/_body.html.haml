@@ -1,0 +1,269 @@
+%section#detail-info{ itemscope: '', itemtype: 'http://schema.org/Organization' }
+
+  / Main detail content.
+  %section.details-content
+
+    = render 'component/locations/detail/header_summary', location: location
+
+    %header
+      - if location.featured
+        = render 'component/detail/featured_location_badge'
+      %hgroup
+        %h1.name
+          = superscript_ordinals(full_name_content_for(location))
+        - if location.organization.name && location.organization.name != location.name
+          %h2.agency
+            = link_to(locations_path(org_name: location.organization.name)) do
+              %span
+                = superscript_ordinals(location.organization.name)
+    
+
+
+    %section.overview-box
+      = render 'component/detail/location_short_desc', location: location
+      %hr
+      .overview-flex-container
+        .flex-column
+          = render 'component/detail/audience', location: location
+          = render 'component/detail/phones', phones: location.phones
+          = render 'component/detail/address', location: location, lines: 2
+        .flex-column  
+          = render 'component/detail/website', website: location.website
+          = render 'component/detail/email', email: location.email
+          - if location.regular_schedules.present?
+            = render 'component/detail/location_regular_schedule', schedules: location.regular_schedules
+
+    %section.general-information
+      %h2 General Information
+      %hr    
+      = render 'component/detail/location_description', location: location    
+
+    - if location.services.present?
+      %section.services-box
+        %h2 Services
+        %hr    
+        - location.services.each do |service|
+
+          %section.service{ itemscope: '', itemtype: 'http://schema.org/Service' }
+            %section.title-box
+              = render 'component/detail/service_status', service: service
+              = render 'component/detail/service_name', service: service
+            = render 'component/detail/service_description', service: service
+            = render 'component/detail/service_wait', service: service
+            = render 'component/detail/phones', phones: service.phones
+            = render 'component/detail/service_hours', service: service
+            = render 'component/detail/service_address_details', service: service
+            = render 'component/detail/service_fees', service: service
+            = render 'component/detail/service_audience', service: service
+            = render 'component/detail/service_eligibility', service: service
+            = render 'component/detail/service_application_process', service: service
+            = render 'component/detail/languages', service: service
+            = render 'component/detail/service_interpretation_services', service: service
+            = render 'component/detail/service_required_documents', service: service
+            = render 'component/detail/service_accepted_payments', service: service
+            = render 'component/detail/service_service_areas', service: service
+            = render 'component/detail/service_situations', service: service
+            = render 'component/detail/service_categories', service: service
+            = render 'component/detail/service_website', service: service
+  //locations sidebar
+
+  .location-sidebar-box
+    %aside.location-sidebar
+
+      - if location.coordinates.present?
+        %section.map-box
+          %div
+            %section.map#detail-map-view
+              #detail-map-canvas
+                %span.hide#detail-map-canvas-title
+                  = full_address_for(location.address)
+                %span.hide#detail-map-canvas-lat
+                  = location.latitude
+                %span.hide#detail-map-canvas-lng
+                  = location.longitude
+              %noscript
+                -# Hides map when JavaScript is disabled.
+                :sass
+                  #detail-map-view
+                    display: none
+
+      - if location.coordinates.present?
+        %span.directions.icon-text-block><
+          %a{ href: "https://maps.google.com/maps?saddr=current+location&daddr=#{full_address_for(location.address)}", target: '_blank' }
+            %i.fa.fa-map-marker.fa-lg
+            %span.annotated-text-block Get Directions              
+
+      - if location.contacts.present?
+        .sidebar-header
+          %h1 Specific Contact
+          %hr
+        - location.contacts.each do |contact|
+          %section.contact-box-specific.location-sidebar-section
+            %section.icon-text-block
+              %i.fa.fa-id-card
+              %span.annotated-text-block
+                %h4 Name
+              %br  
+              %section.location-sidebar-content
+                %section.contact-name-box
+                  %section.contact-name
+                    = contact.name
+                  - if contact.title.present? || contact.department.present?
+                    %section.contact-details.annotation
+                      = contact_details_for(contact)
+
+                = render 'component/detail/email', email: contact.email
+
+                - if contact.phones.present?
+                  %section.phones.location-sidebar-content-group
+                    = render 'component/detail/phones', phones: contact.phones
+
+  
+
+      .sidebar-header
+        %h1 Other Information
+        %hr
+      - if location[:transportation].present?
+        %section.transportation-availability.location-sidebar-section
+          = render 'component/detail/location_transportation', location: location
+
+      - if location.holiday_schedules.present?
+        %section.schedules-box.location-sidebar-section
+          = render 'component/detail/location_holiday_schedule', schedules: location.holiday_schedules
+
+      - if location.accessibility.present?
+        %section.address-box.location-sidebar-section
+          = render 'component/detail/accessibility', location: location
+
+      - if location.file_uploads.present?
+        %section.address-box.location-sidebar-section
+          %h1= t('location_fields.file_uploads')
+          = render 'component/detail/file_uploads', location: location
+
+      - if location.tags.present?
+        %section.tag-box.location-sidebar-section
+          = render 'component/detail/tags', tags: location.tags
+
+      %section.location-sidebar-footer
+        %span.location-sidebar-content
+        Last Updated: #{@location.updated_at.strftime("%B %d, %Y at %I:%M %p") }      
+        %a{ href: new_flag_path(resource_type: 'Location', resource_id: location.id) }
+          Report an issue with this resource
+            
+:javascript
+  $(document).ready(function(){
+
+    // set favorite button to favorite or unfavorite
+    function favoriteButton () {
+      $('.favorite-toggle').removeClass("fa-heart").addClass("fa-heart-o").data('favorite', false);
+    };
+
+    function unfavoriteButton() {
+      $('.favorite-toggle').removeClass("fa-heart-o").addClass("fa-heart").data('favorite', true);
+    };
+
+    var favorite = #{@favorite};
+
+    if(favorite){
+      unfavoriteButton();
+    } else {
+      favoriteButton();
+    }
+
+    var userId = #{@current_user_id};
+    var locationId = #{@location.id};
+    var locationName = "#{@location.name}";
+    var locationUrl = "#{@location.url}";
+    var favoriteText = "favorite";
+    var unfavoriteText = "unfavorite";
+    var favoriteURL = '/api/favorite.json';
+    var favoriteToggle = $('.favorite-toggle');
+
+    $('.favorite-toggle').on('click', function(e){
+      e.preventDefault();
+
+      if(userId === 0){
+        alert("Please login or signup to favorite this location");
+        return;
+      }
+
+      if ($(e.target).data('favorite')) {
+        // Location already favorited
+        // Send ajax call
+        $.ajax({
+          type: "DELETE",
+          url: favoriteURL,
+          data: {
+            favorite: {
+              resource_id: locationId,
+              resource_type: "location",
+              user_id: userId,
+              name: locationName,
+              url: locationUrl
+            }
+          },
+          success: function(data){
+            console.log('data')
+            console.log(data)
+            // if success
+            // change button to "favorite"
+            favoriteButton();
+          }
+        });
+      } else {
+        $.ajax({
+          type: "POST",
+          url: favoriteURL,
+          data: {
+            favorite: {
+              resource_id: locationId,
+              resource_type: "location",
+              user_id: userId,
+              name: locationName,
+              url: locationUrl
+            }
+          },
+          success: function(data){
+            unfavoriteButton();
+          }
+        });
+      }
+    });
+
+  var _printButton;
+
+  function initPrintButton() {
+    _printButton = document.querySelector('.button-print');
+    // Set event on print button and show the button.
+    _printButton.addEventListener('click', _clickPrintButton, false);
+    _printButton.classList.remove('hide');
+  }
+
+  // Issue print command when print button is clicked.
+  // @param evt [Object] The click event object.
+  function _clickPrintButton(evt) {
+    evt.preventDefault();
+
+    const originalContents = document.body.innerHTML;
+    document.querySelector('.favorite-toggle').remove();
+    document.querySelector('.button-edit').remove();
+    document.querySelector('.map-box').remove();
+
+    [...document.querySelectorAll('.more')].map(e => e.click());
+    [...document.querySelectorAll('.less')].map(e => e.parentElement.remove());
+
+    if (document.querySelectorAll('.file_upload').length > 0 ) {
+      document.querySelector('.file_upload').parentElement.remove();
+    };
+
+    const printContents = document.querySelector('#detail-info').innerHTML;
+
+    document.body.innerHTML = printContents;
+
+    window.print();
+    window.location.reload()
+    initPrintButton();
+  }
+
+  initPrintButton();
+  });

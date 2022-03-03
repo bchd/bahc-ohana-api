@@ -1,0 +1,6 @@
+= field_set_tag nil, id: 'keyword-search-box', class: 'input-search-filter input-search-filter-option' do
+  = label_tag 'keyword', 'Search Keywords'
+  = content_tag :div, '', class: 'filter-input-group' do
+    = content_tag(:div, class: 'button-icon') do
+      = content_tag :i, '', class: 'fa fa-search'
+    = search_field_tag :keyword, params[:keyword], placeholder: t('placeholders.keyword_search'), class: "search-input"

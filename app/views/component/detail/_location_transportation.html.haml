@@ -1,0 +1,8 @@
+- if location.transportation.present?
+    %section.location-sidebar-content.transportation
+        %section.icon-text-block
+            %i.fa.fa-car.fa-lg
+            %span.annotated-text-block
+                %h1 Public Transit
+            %br
+            = location.transportation

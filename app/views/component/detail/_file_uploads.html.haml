@@ -1,0 +1,11 @@
+- if location.file_uploads.present?
+  %section.location-sidebar-content.file_upload
+    %ul
+      - location.file_uploads.each do |upload|
+        %li
+          %span
+            - if Rails.env.development?
+              - url = ENV['OHANA_API_ENDPOINT'].gsub('/api', '') + upload[:url]
+            - else
+              - url = upload[:url]
+            %a{:href => url, :target => "_blank"}= "#{upload.filename}"

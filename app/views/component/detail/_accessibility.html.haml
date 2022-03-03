@@ -1,0 +1,11 @@
+- if location.accessibility.present?
+  %section.location-sidebar-content.accessibility
+    %section.icon-text-block
+      %i.fa.fa-universal-access.fa-lg
+      %span.annotated-text-block
+        %h1 Accessibility
+      %ul
+        - location.accessibility.sort.each do |accessibility_option|
+          %li
+            %span
+              = accessibility_option

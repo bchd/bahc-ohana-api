@@ -209,6 +209,8 @@ development:
   DEFAULT_PER_PAGE: '30'
   DOMAIN_NAME: sldev.me
   MAX_PER_PAGE: '50'
+  OHANA_API_ENDPOINT: http://localhost:8080/api
+  OHANA_ADMIN_ENDPOINT: http://localhost:8080/admin
 
 ###############################################################################
 #
@@ -230,6 +232,8 @@ production:
   EXPIRES_IN: '1'
   TLD_LENGTH: '2'
   ENABLE_HTTPS: 'yes'
+  OHANA_API_ENDPOINT: http://localhost:8080/api
+  OHANA_ADMIN_ENDPOINT: http://localhost:8080/admin
 
 ###########################################
 #
@@ -247,3 +251,5 @@ test:
   DOMAIN_NAME: example.com
   MAX_PER_PAGE: '50'
   ADMIN_APP_TOKEN: testing123
+  OHANA_API_ENDPOINT: http://localhost:8080/api
+  OHANA_ADMIN_ENDPOINT: http://localhost:8080/admin

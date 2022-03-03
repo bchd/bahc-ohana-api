@@ -1,0 +1,28 @@
+= form_tag('/locations', method: :get, id: 'form-search') do
+  %section#search-box
+    %div
+      %div.search-form
+        = label_tag 'prompt', t('labels.homepage_prompt')
+        %section#keyword-search-box.search-box.home-page-search-container
+          %div
+            = label_tag 'main_category', t('labels.category_search') , class: "main_category"
+            = select_tag :main_category, options_for_select(categories_for_select), include_blank: 'All', class: "category_search_select"
+          %div
+            %span.home-page-or or
+          %div
+            .input-search-big.keyword
+              = search_field_tag :keyword, @keyword, placeholder: t('placeholders.homepage_keyword_search'), class: 'search-input', autocomplete: 'off'
+              - if recommended_tags.present?
+                %div#recommended-tags.hide
+                  %span Recommended
+                  %hr
+                  - recommended_tags.each do |recommended_tag|
+                    = link_to recommended_tag.name, "#", class: "recommended-tag", data: { tags: recommended_tag.tags.map(&:name).join(", ") }
+          %div  
+            = button_tag(type: 'submit', name: nil, id: 'button-search', class: 'landing-button-icon', title: 'Search') do
+              %span
+                = t('buttons.homepage_search')
+        %div.vaccination-link-container
+          %a.vaccination-link{ :href => "https://covax.baltimorecity.gov/", :title => t('labels.vaccination-link-text') }
+            %strong
+              = t('labels.vaccination-link-text')

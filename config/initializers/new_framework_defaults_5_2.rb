@@ -5,6 +5,8 @@
 # Once upgraded flip defaults one by one to migrate to the new default.
 #
 # Read the Guide for Upgrading Ruby on Rails for more info on each option.
+# Make `form_with` generate non-remote forms.
+Rails.application.config.action_view.form_with_generates_remote_forms = false
 
 # Make Active Record use stable #cache_key alongside new #cache_version method.
 # This is needed for recyclable cache keys.

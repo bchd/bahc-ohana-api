@@ -1,0 +1,6 @@
+= field_set_tag nil, id: 'org-name-options', class: 'input-search-filter' do
+  = label_tag 'org_name', t('labels.agency_search')
+  = content_tag :div, '', class: 'filter-input-group' do
+    = content_tag(:div, class: 'button-icon') do
+      = content_tag :i, '', class: 'fa fa-institution'
+    = search_field_tag :org_name, params[:org_name], placeholder: t('placeholders.agency_search'), tabindex: 3, class: "search-input"

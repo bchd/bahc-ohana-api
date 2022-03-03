@@ -1,0 +1,44 @@
+%section#list-view
+  %ul
+    - search.locations.each do |location|
+
+      %li{class: cycle('search-result-blue', 'search-result-white')}
+        %section.results-entry{ itemscope: '', itemtype: 'http://schema.org/Organization' }
+          %header
+            - if location.featured
+              = render 'component/locations/results/featured_location'
+            %hgroup
+              %h1.name
+                %a{ href: location_link_for(location), name: location.id }
+                  = superscript_ordinals(full_name_content_for(location))
+
+              - if location.organization.name && location.organization.name != location.name
+                %h2.agency
+                  = link_to(locations_path(org_name: location.organization.name)) do
+                    %span
+                      = superscript_ordinals(location.organization.name)
+          - if location.phones.present? || location.address.present? || location.short_desc.present?
+            %section.content
+              - if location.phones.present?
+                = render 'component/detail/phone', phone: first_voice_or_hotline_phone_for(location.phones), show_phone_type_and_department: false
+
+              - if location.address.present?
+                %p.address
+                  = render 'component/detail/address', location: location, lines: 1
+
+              - if location.short_desc.present?
+                .short-desc-list-view
+                  = render_markdown(location.short_desc)
+          - if user_signed_in?
+            - services = Location.get(location.id)[:services]
+            - if services.size > 0
+              %section.service-availability
+                - if services.any? { |service| service.wait_time.present? }
+                  %h2.service-capacity
+                    = t('service_fields.availability.service_capacity')
+                %table
+                  - services.each do |service|
+                    = render 'component/locations/results/service_wait_table_row', service: service
+
+  %footer
+    = paginate search.results

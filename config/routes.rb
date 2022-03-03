@@ -139,4 +139,18 @@ Rails.application.routes.draw do
   end
 
   root to: "home#index"
+
+  resources :locations, only: [:index]
+  get 'locations/*id/' => 'locations#show', as: 'location'
+  get '/about' => 'about#index'
+  post '/feedback' => 'feedback#create'
+  get '.well-known/status' => 'status#check_status'
+
+  get '/api/analytics' => 'analytics#all'
+  post '/api/favorite' => 'favorites#create'
+  delete '/api/favorite' => 'favorites#destroy'
+  get 'favorites' => 'favorites#index'
+
+  post 'locations/get_subcategories_by_category' => 'locations#get_subcategories_by_category'
+  resource :flag, only: [:new, :create]
 end

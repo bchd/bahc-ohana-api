@@ -1,0 +1,206 @@
+.devise {
+  padding: 40px;
+  font-family: $font_sans_serif;
+  background-color: white;
+  text-align: center;
+
+  .fa {
+    background-image: linear-gradient($light-orange, $orange);
+    color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  label {
+    font-size: 0.9em;
+  }
+  form {
+    text-align: left;
+    display: inline;
+  }
+  .form {
+    margin: 0 auto;
+    max-width: 350px;
+  }
+  .instructions {
+    font-size: 0.9em;
+    display: block;
+    margin: 20px auto;
+  }
+
+  h2 {
+    font-size: 1.5em;
+    color: $purple;
+    margin-bottom: 1.5em;
+  }
+
+  a {
+    color: $greyscale_dark;
+    text-decoration: none;
+    &:hover {
+      color: $purple;
+    }
+  }
+
+  i {
+    font-size: 0.8em;
+  }
+
+  em {
+    font-style: italic;
+    font-size: 0.8em;
+  }
+
+  .button {
+    background-color: $purple-t;
+    border: none;
+    border: 1px solid rgba(0, 0, 0, 0);
+    color: $blue;
+    display: inline-block;
+    padding: .5em;
+    margin: .2em;
+    height: 42px;
+    text-align: center;
+    text-decoration-line: none;
+    font-size: 16px;
+    font-family: $font_sans_serif;
+    cursor: pointer;
+    @include type-size(baseline);
+    @include rounded-except(none);
+    @include box-sizing(border-box);
+  }
+  .actions {
+    display: table;
+    margin: 0 auto;
+
+    .button {
+      min-width: 80px;
+      &.button-small {
+        color: white;
+      }
+    }
+  }
+
+  .field {
+    margin-bottom: 15px;
+
+    input[type='text'], input[type='email'], input[type='password'] {
+      font-size: 1.1em;
+      border-color: $greyscale_light;
+      border-radius: 4px;
+      border-style: solid;
+      border-width: 1px;
+      height: 2em;
+      padding-left: 10px;
+      padding-right: 10px;
+      width: 325px;
+      &:focus {
+        outline: $purple auto 4px;
+      }
+    }
+
+    .checkbox {
+      display: table;
+      margin: 0 auto;
+      label {
+        font-size: 1em;
+      }
+
+      input[type='checkbox'] {
+        width: 20px;
+        /* Double-sized Checkboxes */
+        -ms-transform: scale(1.5); /* IE */
+        -moz-transform: scale(1.5); /* FF */
+        -webkit-transform: scale(1.5); /* Safari and Chrome */
+        -o-transform: scale(1.5); /* Opera */
+        transform: scale(1.5);
+        padding: 10px;
+      }
+    }
+  }
+  table .actions .button {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  .nav-buttons {
+    width: 100%;
+    text-align: right;
+  }
+  &.edit-profile {
+    .nav-buttons {
+      a.edit-profile {
+        color: white;
+        background-color: $blue;
+      }
+    }
+  }
+  &.add-user {
+    .nav-buttons {
+      a.add-user {
+        color: white;
+        background-color: $blue;
+      }
+    }
+  }
+  &.user-list {
+    .nav-buttons {
+      a.user-list {
+        color: white;
+        background-color: $blue;
+      }
+    }
+  }
+  &.sign-out {
+    .nav-buttons {
+      a.sign-out {
+        color: white;
+        background-color: $blue;
+      }
+    }
+  }
+  table {
+    margin: 0 auto;
+
+    tr.headings {
+      border-bottom: 2px solid $greyscale_light;
+    }
+    tr.user-row {
+      border-bottom: 1px solid $greyscale_light;
+    }
+
+    th {
+      color: $grey;
+    }
+
+    .data {
+      padding-left: 10px;
+      padding-right: 30px;
+    }
+    td.table-button {
+      input[type=submit] {
+        margin-right: 10px;
+        width: unset;
+      }
+      a {
+        color: white;
+        background-color: blue;
+        line-height: 1.5em;
+      }
+    }
+    td.table-button.edit-user input {
+      border: none;
+      color: white;
+      background-color: $purple;
+      min-width: 80px;
+    }
+    td.table-button.delete-user input {
+      border: none;
+      color: $blue;
+      background-color: $purple-t;
+    }
+  }
+
+  .links {
+    margin-top: 20px;
+    line-height: 1.8em;
+  }
+}

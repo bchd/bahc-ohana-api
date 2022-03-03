@@ -1,0 +1,5 @@
+- if service.address_details.present?
+  %section.address_details
+    %h1= t('service_fields.address_details')
+    %span.character-limited
+      = service.address_details

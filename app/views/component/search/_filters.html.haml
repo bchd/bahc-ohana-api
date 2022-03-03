@@ -1,0 +1,32 @@
+
+
+%div#categoryFiltersContainerDiv.category-filters-container
+  = label_tag :category_filters, 'Topic Filters', id: 'category-filters-label'
+  %hr
+
+- if @main_category_selected_name == ""
+  %div#parent-category.parent-category-label-container{ tabindex: "0", role: "button", aria: { label: 'Select a Topic from above to display additional filters.', expanded: 'true'}}
+    %legend
+      %span#subcategoriesFilterTitle.filter-description-label
+        = "Select a Topic from above to display additional filters."
+    %div#filterDropdownContainer.filter-dropdown-closed
+      %i#iconContainer
+  %fieldset#subcategoriesList
+  
+- else
+  %div#parent-category.parent-category-label-container.hoverable{ tabindex: "0", role: "button", aria: { label: 'Click enter to expand and collapse filters', expanded: 'true'}}
+    %legend
+      %span#subcategoriesFilterTitle.parent-category-label
+        = "#{category_filters_title(@main_category_selected_name)}"
+    %div#filterDropdownContainer.filter-dropdown-closed
+      %i#iconContainer.fa.fa-chevron-down
+  %fieldset#subcategoriesList
+    - subcategories_by_category(@main_category_selected_id).each do |category|
+      - id_string = "category_#{category.delete('&').delete(' ')}"
+      %div.filter-category-item
+        - if params[:categories]
+          = check_box_tag( 'categories[]', category, params[:categories].include?(category) , id: id_string)
+          = label_tag id_string, category
+        - else
+          = check_box_tag( 'categories[]', category, false , id: id_string)
+          = label_tag id_string, category

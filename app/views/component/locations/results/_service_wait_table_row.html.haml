@@ -1,0 +1,9 @@
+- if service.wait_time.present?
+  %tr.wait-time
+    %td.name= service.name
+    %td.availability.inline-icon-text
+      %i{ class: wait_time_icon_classes(service) }
+      %span
+        = wait_time_text service.wait_time
+      %span.timestamp
+        = service.wait_time_updated_at&.strftime("#{t('service_fields.availability.last_updated')} %b %e, %Y at %l:%M%P ")

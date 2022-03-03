@@ -1,0 +1,5 @@
+- content_for(:meta_description, "CHARMcare details for #{@location.name} including contact information, location, and hours of operation.")
+- title @location.name
+- @location.name == @location.organization.name ? canonical("#{locations_url}/#{@location.slug}") : canonical("#{locations_url}/#{@location.organization.slug}/#{@location.slug}")
+%section
+  = render 'component/locations/detail/body', location: @location
