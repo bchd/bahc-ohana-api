@@ -40,7 +40,7 @@ module FilterCategoriesHelper
     fetch_categories if @categories.nil?
 
     @categories.select { |category|
-      category.depth == 1 and category.parent_id == category.id.to_i
+      category.depth == 1 and category.parent_id == category_id.to_i
     }.flatten.uniq.map { |category|
       category.name
     }
