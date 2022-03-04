@@ -1,5 +1,5 @@
 task remove_test_users_and_admins: :environment do
-  User.includes(:api_applications).
+  User.
     where(email: %w[user@example.com user2@example.com]).destroy_all
 
   Admin.

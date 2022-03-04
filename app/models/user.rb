@@ -1,7 +1,5 @@
 class User < ApplicationRecord
-  has_many :api_applications, dependent: :destroy
   has_many :favorites
-  accepts_nested_attributes_for :api_applications
 
   # Devise checks for presence of email and password by default
   validates :name, presence: true
