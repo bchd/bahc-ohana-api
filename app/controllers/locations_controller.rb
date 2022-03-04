@@ -1,6 +1,5 @@
 class LocationsController < ApplicationController
   include Cacheable
-  include PaginationHeaders
 
   def index
     # To enable Google Translation of keywords,
@@ -46,12 +45,6 @@ class LocationsController < ApplicationController
       per_page: search_params[:per_page],
       languages: search_params[:languages]
     ).search.load&.objects
-
-    generate_pagination_headers(locations)
-
-    locations = locations.compact
-
-
 
 
     @search = Search.new(locations, Ohanakapa.last_response, params)

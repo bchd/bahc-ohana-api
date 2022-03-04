@@ -263,12 +263,6 @@ class Location < ApplicationRecord
     generate_pagination_headers(locations)
   end
 
-  def coordinates
-    return [] unless self.longitude.present? && self.latitude.present?
-
-    [self.longitude, self.latitude]
-  end
-
   # Calls the locations/{id} endpoint of the Ohana API.
   # Fetches a single location by id.
   #
