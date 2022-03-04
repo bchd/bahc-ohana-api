@@ -1,4 +1,4 @@
-- service_categories = service[:categories].select { |c| c[:type] == 'service' }
+- service_categories = service.categories.select { |c| c[:type] == 'service' }
 - if service_categories.present?
   - sorted_categories = service_categories.sort { |a, b| a[:id].to_i - b[:id].to_i }
   %section.service-categories-box

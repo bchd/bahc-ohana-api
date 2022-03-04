@@ -70,6 +70,7 @@ class LocationsController < ApplicationController
 
     # @keywords = @location.services.map { |s| s[:keywords] }.flatten.compact.uniq
     @categories = @location.services.map { |s| s[:categories] }.flatten.compact.uniq
+    @url = request.url
   end
 
   # Ajax response to update the exanded div listing subcategories
