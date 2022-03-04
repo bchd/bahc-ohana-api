@@ -173,7 +173,7 @@
     var userId = #{@current_user_id};
     var locationId = #{@location.id};
     var locationName = "#{@location.name}";
-    var locationUrl = "#{@location.url}";
+    var locationUrl = "{@url}";
     var favoriteText = "favorite";
     var unfavoriteText = "unfavorite";
     var favoriteURL = '/api/favorite.json';

@@ -251,6 +251,15 @@ class Location < ApplicationRecord
   # @param id [String] Location id.
   # @return [Sawyer::Resource] Hash of location details.
   def self.get(id)
-    Ohanakapa.location(id)
+    location = Location.includes(
+      :file_uploads,
+      services: [:categories],
+      contacts: :phones
+    ).find(id)
+  end
+
+  def coordinates
+    return [] unless self.longitude.present? && self.latitude.present?
+    [self.longitude, self.latitude]
   end
 end
