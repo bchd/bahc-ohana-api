@@ -242,25 +242,7 @@ class Location < ApplicationRecord
     else
       search_params["categories"] = params["categories_ids"]
     end
-
-    set_coordinates
-
-    locations = LocationsSearch.new(
-      accessibility: search_params[:accessibility],
-      category_ids: search_params[:categories],
-      distance: search_params[:distance],
-      keywords: search_params[:keyword],
-      lat: @lat,
-      long: @lon,
-      org_name: search_params[:org_name],
-      tags: search_params[:tags],
-      zipcode: search_params[:location],
-      page: search_params[:page],
-      per_page: search_params[:per_page],
-      languages: search_params[:languages]
-    ).search.load&.objects
-    
-    generate_pagination_headers(locations)
+    Ohanakapa.search('search', search_params)
   end
 
   # Calls the locations/{id} endpoint of the Ohana API.
