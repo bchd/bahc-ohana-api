@@ -23,8 +23,8 @@ class LocationsController < ApplicationController
 
     search_params = params.dup
 
-    if !params["categories"]
-      search_params["categories"] = params["main_category_id"]
+    if !params["categories"] and !params[:main_category].empty?
+      search_params["categories"] = [params["main_category_id"]]
     else
       search_params["categories"] = params["categories_ids"]
     end
