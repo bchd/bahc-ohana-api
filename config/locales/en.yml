@@ -501,6 +501,8 @@ en:
       - Saturday
       - Sunday
     closed: 'CLOSED'
+    formats:
+      holiday_schedules_date: '%B %e'
 
   errors:
     api_down: >
