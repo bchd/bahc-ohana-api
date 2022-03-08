@@ -231,11 +231,6 @@ class Location < ApplicationRecord
   # See app/models/concerns/handle_search.rb
   include HandleSearch
 
-  # Calls the locations/{id} endpoint of the Ohana API.
-  # Fetches a single location by id.
-  #
-  # @param id [String] Location id.
-  # @return [Sawyer::Resource] Hash of location details.
   def self.get(id)
     location = Location.includes(
       :file_uploads,
