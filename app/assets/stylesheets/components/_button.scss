@@ -42,7 +42,7 @@ a.button-small:hover {
 }
 
 a.translate-active {
-  @extend .button-small:hover;
+  @extend .button-small, :hover;
   cursor:default;
 }
 
