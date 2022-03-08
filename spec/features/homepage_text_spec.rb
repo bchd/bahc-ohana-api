@@ -44,8 +44,4 @@ feature 'Visit home page after signing in' do
     end
   end
 
-  xscenario "click 'view' link" do
-    click_link I18n.t('links.view')
-    expect(page).to have_content 'Developer Applications'
-  end
 end
