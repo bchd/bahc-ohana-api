@@ -228,6 +228,14 @@ class Location < ApplicationRecord
     self.featured_at = Time.current if value == "1"
   end
 
+  # See app/models/concerns/handle_search.rb
+  include HandleSearch
+
+  # Calls the locations/{id} endpoint of the Ohana API.
+  # Fetches a single location by id.
+  #
+  # @param id [String] Location id.
+  # @return [Sawyer::Resource] Hash of location details.
   def self.get(id)
     location = Location.includes(
       :file_uploads,
