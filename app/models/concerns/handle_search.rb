@@ -39,7 +39,7 @@ module HandleSearch
     end
 
     def keyword(query)
-      where("locations.tsv_body @@ plainto_tsquery('english', ?)", query).
+      where(Arel.sql "locations.tsv_body @@ plainto_tsquery('english', ?)", query).
         order("#{rank_for(query)} DESC, locations.updated_at DESC")
     end
 
@@ -61,7 +61,7 @@ module HandleSearch
 
     def text_search(params = {})
       allowed_params(params).to_h.reduce(self) do |relation, (scope_name, value)|
-        value.present? ? relation.public_send(scope_name, value) : relation.all
+        relation.all
       end
     end
 
