@@ -84,9 +84,6 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :api_applications, except: :show
-  get "api_applications/:id" => "api_applications#edit"
-
   constraints(SubdomainConstraints.new(subdomain: ENV["API_SUBDOMAIN"])) do
     namespace :api, path: ENV["API_PATH"], defaults: { format: "json" } do
       scope module: :v1, constraints: ApiConstraints.new(version: 1) do

@@ -8,12 +8,6 @@ FactoryBot.define do
     password_confirmation { 'mong01dtest' }
     # required if the Devise Confirmable module is used
     confirmed_at { Time.zone.now }
-
-    factory :user_with_app do
-      after(:create) do |user|
-        create(:api_application, user: user)
-      end
-    end
   end
 
   factory :unconfirmed_user, class: :user do

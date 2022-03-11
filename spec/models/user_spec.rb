@@ -6,8 +6,6 @@ describe User do
 
   it { is_expected.to be_valid }
 
-  it { is_expected.to have_many :api_applications }
-
   it do
     is_expected.to have_db_column(:name).of_type(:string).with_options(default: '')
   end

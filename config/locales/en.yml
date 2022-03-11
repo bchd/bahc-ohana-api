@@ -49,11 +49,6 @@ en:
         postal_code: 'ZIP Code'
         state_province: 'State'
 
-      api_application:
-        name: 'Application Name'
-        main_url: 'Main URL'
-        callback_url: 'Callback URL'
-
       contact:
         email: 'Contact Email'
         department: 'Contact Department'
@@ -447,7 +442,6 @@ en:
 
   navigation:
     edit_account: 'Edit account'
-    your_apps: 'Your apps'
     sign_in: 'Sign in'
     sign_in_with: 'Sign in with'
     sign_up: 'Sign up'
@@ -462,11 +456,6 @@ en:
     resend_confirmation_instructions: 'Resend confirmation instructions'
     send_reset_password_instructions: 'Send me reset password instructions'
     change_my_password: 'Change my password'
-    register_application: 'Register application'
-    register_new_application: 'Register new application'
-    register_a_new_applicaiton: 'Register a new application'
-    update_application: 'Update application'
-    delete_application: 'Delete application'
     clear_filters: 'Uncheck all filters'
     collapse_filters: 'Collapse filters'
     hide_filters: 'Hide filters'
@@ -477,7 +466,6 @@ en:
     update_search_results: 'Search'
 
   links:
-    register_a_new_application: 'Register a new application'
     view: 'view'
   
   #below keys pulled in from UI app  

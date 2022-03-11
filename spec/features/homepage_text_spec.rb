@@ -44,13 +44,4 @@ feature 'Visit home page after signing in' do
     end
   end
 
-  xscenario "click 'Register a new application' link" do
-    click_link I18n.t('links.register_a_new_application')
-    expect(page).to have_content 'Register a new application'
-  end
-
-  xscenario "click 'view' link" do
-    click_link I18n.t('links.view')
-    expect(page).to have_content 'Developer Applications'
-  end
 end
