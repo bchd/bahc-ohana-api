@@ -17,7 +17,7 @@ class AssetHosts
   end
 
   def asset_host
-    @asset_host ||= Figaro.env.asset_host
+    @asset_host ||= ENV['asset_host']
   end
 
   def port

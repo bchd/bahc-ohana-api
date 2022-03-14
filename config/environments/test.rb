@@ -36,7 +36,7 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
 
-  config.action_mailer.default_url_options = { :host => (Figaro.env.domain_name ? "http://#{Figaro.env.domain_name}" : "http://localhost:8080") }
+  config.action_mailer.default_url_options = { :host => (ENV.domain_name ? "http://#{ENV.domain_name}" : "http://localhost:8080") }
 
   # Tell Action Mailer not to deliver emails to the real world.
   # The :test delivery method accumulates sent emails in the

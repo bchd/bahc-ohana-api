@@ -4,7 +4,7 @@ describe DefaultHost do
   describe '#call' do
     context 'heroku domain' do
       it 'only allows the configured domain name' do
-        allow(Figaro.env).to receive(:domain_name).and_return('app.herokuapp.com')
+        allow(ENV).to receive(:domain_name).and_return('app.herokuapp.com')
         request = double(host: 'foo.herokuapp.com')
 
         expect(DefaultHost.new.call(request)).to eq 'app.herokuapp.com'
@@ -21,7 +21,7 @@ describe DefaultHost do
 
     context 'custom domain but domain_name is not set to naked domain' do
       it 'will not redirect properly to subdomains' do
-        allow(Figaro.env).to receive(:domain_name).and_return('www.example.com')
+        allow(ENV).to receive(:domain_name).and_return('www.example.com')
         request = double(host: 'admin.example.com')
 
         expect(DefaultHost.new.call(request)).to eq 'www.example.com'

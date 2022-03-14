@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.7.5'
 
+gem 'dotenv-rails', groups: [:development, :test]
 gem 'active_data'
 gem 'active_model_serializers', '~> 0.8.0'
 gem 'ancestry'
@@ -14,7 +15,6 @@ gem 'csv_shaper'
 gem 'dalli'
 gem 'devise', '~> 4.7'
 gem 'enumerize'
-gem 'figaro', '~> 1.0'
 gem 'friendly_id', '~> 5.0'
 gem 'font-awesome-rails'
 gem 'geocoder'
