@@ -237,41 +237,6 @@ ALTER SEQUENCE public.ahoy_visits_id_seq OWNED BY public.ahoy_visits.id;
 
 
 --
--- Name: api_applications; Type: TABLE; Schema: public; Owner: -
---
-
-CREATE TABLE public.api_applications (
-    id integer NOT NULL,
-    user_id integer,
-    name text,
-    main_url text,
-    callback_url text,
-    api_token text,
-    created_at timestamp without time zone,
-    updated_at timestamp without time zone
-);
-
-
---
--- Name: api_applications_id_seq; Type: SEQUENCE; Schema: public; Owner: -
---
-
-CREATE SEQUENCE public.api_applications_id_seq
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
---
--- Name: api_applications_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
---
-
-ALTER SEQUENCE public.api_applications_id_seq OWNED BY public.api_applications.id;
-
-
---
 -- Name: ar_internal_metadata; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -1043,13 +1008,6 @@ ALTER TABLE ONLY public.ahoy_visits ALTER COLUMN id SET DEFAULT nextval('public.
 
 
 --
--- Name: api_applications id; Type: DEFAULT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.api_applications ALTER COLUMN id SET DEFAULT nextval('public.api_applications_id_seq'::regclass);
-
-
---
 -- Name: categories id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -1212,14 +1170,6 @@ ALTER TABLE ONLY public.ahoy_events
 
 ALTER TABLE ONLY public.ahoy_visits
     ADD CONSTRAINT ahoy_visits_pkey PRIMARY KEY (id);
-
-
---
--- Name: api_applications api_applications_pkey; Type: CONSTRAINT; Schema: public; Owner: -
---
-
-ALTER TABLE ONLY public.api_applications
-    ADD CONSTRAINT api_applications_pkey PRIMARY KEY (id);
 
 
 --
@@ -1457,20 +1407,6 @@ CREATE INDEX index_ahoy_visits_on_user_id ON public.ahoy_visits USING btree (use
 --
 
 CREATE UNIQUE INDEX index_ahoy_visits_on_visit_token ON public.ahoy_visits USING btree (visit_token);
-
-
---
--- Name: index_api_applications_on_api_token; Type: INDEX; Schema: public; Owner: -
---
-
-CREATE UNIQUE INDEX index_api_applications_on_api_token ON public.api_applications USING btree (api_token);
-
-
---
--- Name: index_api_applications_on_user_id; Type: INDEX; Schema: public; Owner: -
---
-
-CREATE INDEX index_api_applications_on_user_id ON public.api_applications USING btree (user_id);
 
 
 --
@@ -1941,6 +1877,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20220222011857'),
 ('20220301190818'),
 ('20220301191701'),
-('20220301224915');
+('20220301224915'),
+('20220308202853');
 
 
