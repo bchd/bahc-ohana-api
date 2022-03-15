@@ -20,7 +20,33 @@ class LocationsController < ApplicationController
     if params["categories"] and @main_category_selected_id != ""
       params["categories_ids"] = helpers.get_subcategories_ids(params["categories"], @main_category_selected_id)
     end
-    locations = Location.search(params).compact
+
+    search_params = params.dup
+
+    if !params["categories"] and !params[:main_category].empty?
+      search_params["categories"] = [params["main_category_id"]]
+    else
+      search_params["categories"] = params["categories_ids"]
+    end
+
+
+    set_coordinates
+    locations = LocationsSearch.new(
+      accessibility: search_params[:accessibility],
+      category_ids: search_params[:categories],
+      distance: search_params[:distance],
+      keywords: search_params[:keyword],
+      lat: @lat,
+      long: @lon,
+      org_name: search_params[:org_name],
+      tags: search_params[:tags],
+      zipcode: search_params[:location],
+      page: search_params[:page],
+      per_page: search_params[:per_page],
+      languages: search_params[:languages]
+    ).search.load&.objects
+
+
     @search = Search.new(locations, Ohanakapa.last_response, params)
     @keyword = params[:keyword]
     @lat = params[:lat]
@@ -89,6 +115,21 @@ class LocationsController < ApplicationController
 
   def validate_category
     return helpers.main_categories_array.map{|row| row[0] }.include?(params[:main_category])
+  end
+
+  def set_coordinates
+    address = params[:address]
+    if address.present? && address != "Current Location"
+      response = Geocoder.search(params[:address])
+      unless response.empty?
+        coordinates = response.first.data['geometry']['location']
+        @lat = coordinates['lat']
+        @lon = coordinates['lng']
+      end  
+    elsif params[:lat].present? && params[:long]
+      @lat = params[:lat]
+      @lon = params[:long]
+    end
   end
 
 end

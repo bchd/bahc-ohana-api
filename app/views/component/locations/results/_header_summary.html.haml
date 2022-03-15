@@ -6,13 +6,13 @@
           %i.fa.fa-chevron-up
           Top
 
-    = paginate search.results
+    = paginate search.locations
 
   .left-column
     %span.static-content><
     %p.search-summary
       %span
-        = page_entries_info search.results, entry_name: 'result'
+        = page_entries_info search.locations, entry_name: 'result'
 
       %span.map-summary.static-content
         = map_summary unless search.map_data.empty?
