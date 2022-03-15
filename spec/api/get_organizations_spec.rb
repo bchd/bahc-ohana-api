@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'GET /organizations' do
   it 'returns an empty array when no organizations exist' do
-    get api_organizations_url(subdomain: ENV['API_SUBDOMAIN'])
+    get api_organizations_url
     expect(response).to have_http_status(200)
     expect(response.content_type).to eq('application/json')
     expect(json).to eq([])
@@ -15,18 +15,18 @@ describe 'GET /organizations' do
     end
 
     it 'returns the correct number of existing organizations' do
-      get api_organizations_url(subdomain: ENV['API_SUBDOMAIN'])
+      get api_organizations_url
       expect(response).to have_http_status(200)
       expect(json.length).to eq(2)
     end
 
     it 'sorts results by id descending' do
-      get api_organizations_url(subdomain: ENV['API_SUBDOMAIN'])
+      get api_organizations_url
       expect(json.first['name']).to eq('Food Pantry')
     end
 
     it 'responds to pagination parameters' do
-      get api_organizations_url(page: 2, per_page: 1, subdomain: ENV['API_SUBDOMAIN'])
+      get api_organizations_url(page: 2, per_page: 1)
       expect(json.length).to eq(1)
     end
   end
@@ -36,7 +36,7 @@ describe 'GET /organizations' do
       location = create(:location)
       @org = location.organization
       @org.reload
-      get api_organizations_url(subdomain: ENV['API_SUBDOMAIN'])
+      get api_organizations_url
     end
 
     it 'returns the org id' do
@@ -73,7 +73,7 @@ describe 'GET /organizations' do
       end
 
       it 'returns nil fields within Organization' do
-        get api_organizations_url(subdomain: ENV['API_SUBDOMAIN'])
+        get api_organizations_url
         expect(json.first.keys).to include('website')
       end
     end

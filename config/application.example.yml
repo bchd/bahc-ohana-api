@@ -24,72 +24,6 @@
 #
 ####################################
 
-################
-#
-# API_SUBDOMAIN
-#
-################
-# If you'd like to run the API on its own subdomain, set API_SUBDOMAIN to your
-# desired subdomain name. We recommend "api". Then make sure to delete "api"
-# from "API_PATH". That way, you'll have a URL like http://api.yourdomain.org
-# instead of http://api.yourdomain.org/api.
-#
-# Note that an API subdomain won't work on Heroku unless you're using a custom
-# domain name. Heroku doesn't support sub-subdomains when using their default
-# setup, which gives you a URL such as http://ohana-api-demo.herokuapp.com.
-# In development, you can test it by adding the subdomain to 'sldev.me:8080'.
-# For example: http://api.sldev.me:8080.
-
-##################################################
-#
-# API_PATH - REQUIRED IF API_SUBDOMAIN IS NOT SET
-#
-##################################################
-# The API_PATH setting is related to the API_SUBDOMAIN setting. If you're not
-# using a separate subdomain for the API, then define the path for the API,
-# which is set to "api" by default. If you do decide to use an API_SUBDOMAIN,
-# make sure to set API_PATH to blank.
-
-##################
-#
-# ADMIN_SUBDOMAIN
-#
-##################
-# If you'd like to run the admin interface on its own subdomain, set
-# ADMIN_SUBDOMAIN to your desired subdomain name. We recommend "admin".
-# Then make sure to delete "admin" from "ADMIN_PATH". That way, you'll have a
-# URL like http://admin.example.org instead of http://admin.example.org/admin.
-#
-# Note that an ADMIN subdomain won't work on Heroku unless you're using a custom
-# domain name. Heroku doesn't support sub-subdomains when using their default
-# setup, which gives you a URL such as http://ohana-api-demo.herokuapp.com.
-# In development, you can test it by adding the subdomain to 'sldev.me:8080'.
-# For example: http://admin.sldev.me:8080.
-
-######################################################
-#
-# ADMIN_PATH - REQUIRED IF ADMIN_SUBDOMAIN IS NOT SET
-#
-######################################################
-# The ADMIN_PATH setting is related to the ADMIN_SUBDOMAIN setting. If you're
-# not using a separate subdomain for the admin interface, then define its path,
-# which is set to "admin" by default. If you do decide to use an ADMIN_SUBDOMAIN,
-# make sure to set ADMIN_PATH to blank.
-
-################
-#
-# DEV_SUBDOMAIN
-#
-################
-# If you'd like to run the developer portal on its own subdomain,
-# set DEV_SUBDOMAIN to your desired subdomain name, such as "developer".
-#
-# Note that the DEV_SUBDOMAIN won't work on Heroku unless you're using a custom
-# domain name. Heroku doesn't support sub-subdomains when using their default
-# setup, which gives you a URL such as http://ohana-api-demo.herokuapp.com.
-# In development, you can test it by adding the subdomain to 'sldev.me:8080'.
-# For example: http://developer.sldev.me:8080.
-
 ##############################
 #
 # DEFAULT_PER_PAGE - REQUIRED
@@ -200,12 +134,7 @@
 ###########################
 development:
   GOOGLE_MAPS_API_KEY:
-  API_SUBDOMAIN:
-  API_PATH: api
-  ADMIN_SUBDOMAIN:
-  ADMIN_PATH: admin
   ASSET_HOST: sldev.me
-  DEV_SUBDOMAIN:
   DEFAULT_PER_PAGE: '30'
   DOMAIN_NAME: sldev.me
   MAX_PER_PAGE: '50'
@@ -220,12 +149,7 @@ development:
 #
 ###############################################################################
 production:
-  API_SUBDOMAIN:
-  API_PATH: api
-  ADMIN_SUBDOMAIN:
-  ADMIN_PATH: admin
   ASSET_HOST: sldev.me
-  DEV_SUBDOMAIN: sldev.me
   DEFAULT_PER_PAGE: '30'
   DOMAIN_NAME: sldev.me
   MAX_PER_PAGE: '50'
@@ -241,12 +165,7 @@ production:
 #
 ###########################################
 test:
-  API_SUBDOMAIN:
-  API_PATH: api
-  ADMIN_SUBDOMAIN:
-  ADMIN_PATH: admin
   ASSET_HOST: example.com
-  DEV_SUBDOMAIN:
   DEFAULT_PER_PAGE: '30'
   DOMAIN_NAME: example.com
   MAX_PER_PAGE: '50'

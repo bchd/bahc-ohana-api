@@ -6,7 +6,7 @@ describe 'GET /categories/:category_id/children' do
       @food = Category.create!(name: 'Food', taxonomy_id: '101')
       @food_child = @food.children.
                     create!(name: 'Emergency Food', taxonomy_id: '101-01')
-      get api_category_children_url(@food.taxonomy_id, subdomain: ENV['API_SUBDOMAIN'])
+      get api_category_children_url(@food.taxonomy_id)
     end
 
     it 'returns a 200 status' do
@@ -37,7 +37,7 @@ describe 'GET /categories/:category_id/children' do
   context "when category doesn't have children" do
     before do
       @food = Category.create!(name: 'Food', taxonomy_id: '101')
-      get api_category_children_url(@food.taxonomy_id, subdomain: ENV['API_SUBDOMAIN'])
+      get api_category_children_url(@food.taxonomy_id)
     end
 
     it 'returns an empty array' do
