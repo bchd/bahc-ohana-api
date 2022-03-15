@@ -26,7 +26,7 @@ describe 'PATCH /organizations/:id' do
 
   it 'returns 200 when validations pass' do
     patch(
-      api_organization_url(@org, subdomain: ENV['API_SUBDOMAIN']),
+      api_organization_url(@org),
       valid_attributes
     )
     expect(response).to have_http_status(200)
@@ -34,7 +34,7 @@ describe 'PATCH /organizations/:id' do
 
   it 'returns the updated organization when validations pass' do
     patch(
-      api_organization_url(@org, subdomain: ENV['API_SUBDOMAIN']),
+      api_organization_url(@org),
       valid_attributes
     )
     expect(json['accreditations']).to eq(['BBB', 'State Board of Education'])
@@ -50,7 +50,7 @@ describe 'PATCH /organizations/:id' do
 
   it 'returns 422 when attribute is invalid' do
     patch(
-      api_organization_url(@org, subdomain: ENV['API_SUBDOMAIN']),
+      api_organization_url(@org),
       website: 'monfresh.com'
     )
     expect(response.status).to eq(422)
@@ -61,7 +61,7 @@ describe 'PATCH /organizations/:id' do
 
   it 'returns 422 when required attribute is missing' do
     patch(
-      api_organization_url(@org, subdomain: ENV['API_SUBDOMAIN']),
+      api_organization_url(@org),
       name: nil
     )
     expect(response.status).to eq(422)
@@ -71,18 +71,18 @@ describe 'PATCH /organizations/:id' do
 
   it 'updates the search index when organization name changes' do
     patch(
-      api_organization_url(@org, subdomain: ENV['API_SUBDOMAIN']),
+      api_organization_url(@org),
       name: 'Code for America'
     )
 
     LocationsIndex.reset!
-    get api_search_index_url(keyword: 'america', subdomain: ENV['API_SUBDOMAIN'])
+    get api_search_index_url(keyword: 'america')
     expect(json.first['organization']['name']).to eq('Code for America')
   end
 
   it "doesn't allow updating an organization without a valid token" do
     patch(
-      api_organization_url(@org, subdomain: ENV['API_SUBDOMAIN']),
+      api_organization_url(@org),
       { name: 'new name' },
       'HTTP_X_API_TOKEN' => 'invalid_token'
     )
@@ -94,10 +94,10 @@ describe 'PATCH /organizations/:id' do
   it 'is accessible by its old slug' do
     old_slug = @org.slug
     patch(
-      api_organization_url(@org, subdomain: ENV['API_SUBDOMAIN']),
+      api_organization_url(@org),
       name: 'new name'
     )
-    get api_organization_url(old_slug, subdomain: ENV['API_SUBDOMAIN'])
+    get api_organization_url(old_slug)
     json = JSON.parse(response.body)
     expect(json['name']).to eq('new name')
   end

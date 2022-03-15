@@ -5,7 +5,7 @@ describe 'GET /locations/:location_id/phones' do
     before do
       @loc = create(:location)
       @first_phone = @loc.phones.create!(attributes_for(:phone))
-      get api_location_phones_url(@loc, subdomain: ENV['API_SUBDOMAIN'])
+      get api_location_phones_url(@loc)
     end
 
     it 'returns a 200 status' do
@@ -40,7 +40,7 @@ describe 'GET /locations/:location_id/phones' do
   context "when location doesn't have phones" do
     before do
       @loc = create(:location)
-      get api_location_phones_url(@loc, subdomain: ENV['API_SUBDOMAIN'])
+      get api_location_phones_url(@loc)
     end
 
     it 'returns an empty array' do

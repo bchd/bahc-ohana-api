@@ -22,7 +22,7 @@ describe 'GET /organizations/:organization_id/locations' do
       @location.phones.create!(attributes_for(:phone))
       @location.services.create!(attributes_for(:service))
 
-      get api_org_locations_url(@org, subdomain: ENV['API_SUBDOMAIN'])
+      get api_org_locations_url(@org)
 
       @location.contacts.create!(attributes_for(:contact))
     end
@@ -73,7 +73,7 @@ describe 'GET /organizations/:organization_id/locations' do
 
     it 'includes the location url attribute in the serialization' do
       expect(json.first['url']).
-        to eq(api_location_url(@location, subdomain: ENV['API_SUBDOMAIN']))
+        to eq(api_location_url(@location))
     end
 
     it "doesn't include the location accessibility attribute" do
@@ -124,7 +124,7 @@ describe 'GET /organizations/:organization_id/locations' do
   context "when organization doesn't have locations" do
     before do
       org = create(:organization)
-      get api_org_locations_url(org, subdomain: ENV['API_SUBDOMAIN'])
+      get api_org_locations_url(org)
     end
 
     it 'returns an empty array' do

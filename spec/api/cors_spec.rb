@@ -5,7 +5,7 @@ describe 'CORS Preflight Request via OPTIONS HTTP method' do
     before do
       process(
         :options,
-        api_organizations_url(subdomain: ENV['API_SUBDOMAIN']),
+        api_organizations_url,
         params: {},
         headers: {
           'HTTP_ORIGIN' => 'http://cors.example.com',
@@ -50,7 +50,7 @@ describe 'CORS Preflight Request via OPTIONS HTTP method' do
     it 'allows access to the locations endpoint' do
       process(
         :options,
-        api_locations_url(subdomain: ENV['API_SUBDOMAIN']),
+        api_locations_url,
         params: {},
         headers: {
           'HTTP_ORIGIN' => 'http://cors.example.com',
@@ -64,7 +64,7 @@ describe 'CORS Preflight Request via OPTIONS HTTP method' do
     it 'allows access to a specific location' do
       process(
         :options,
-        api_location_url(1, subdomain: ENV['API_SUBDOMAIN']),
+        api_location_url(1),
         params: {},
         headers: {
           'HTTP_ORIGIN' => 'http://cors.example.com',
@@ -78,7 +78,7 @@ describe 'CORS Preflight Request via OPTIONS HTTP method' do
     it 'allows access to a specific organization' do
       process(
         :options,
-        api_organization_url(1, subdomain: ENV['API_SUBDOMAIN']),
+        api_organization_url(1),
         params: {},
         headers: {
           'HTTP_ORIGIN' => 'http://cors.example.com',
@@ -92,7 +92,7 @@ describe 'CORS Preflight Request via OPTIONS HTTP method' do
     it 'allows access to the search endpoint' do
       process(
         :options,
-        api_search_index_url(keyword: 'food', subdomain: ENV['API_SUBDOMAIN']),
+        api_search_index_url(keyword: 'food'),
         params: {},
         headers: {
           'HTTP_ORIGIN' => 'http://cors.example.com',
@@ -106,7 +106,7 @@ describe 'CORS Preflight Request via OPTIONS HTTP method' do
     it 'allows access to the lookahead endpoint' do
       process(
         :options,
-        api_lookahead_url(name: 'Hop', subdomain: ENV['API_SUBDOMAIN']),
+        api_lookahead_url(name: 'Hop'),
         params: {},
         headers: {
           'HTTP_ORIGIN' => 'http://cors.example.com',
@@ -120,7 +120,7 @@ describe 'CORS Preflight Request via OPTIONS HTTP method' do
     it 'allows access to the search_needs endpoint' do
       process(
         :options,
-        api_search_needs_url(name: 'Hop', subdomain: ENV['API_SUBDOMAIN']),
+        api_search_needs_url(name: 'Hop'),
         params: {},
         headers: {
           'HTTP_ORIGIN' => 'http://cors.example.com',
@@ -150,7 +150,7 @@ describe 'CORS Preflight Request via OPTIONS HTTP method' do
     before do
       process(
         :options,
-        api_organizations_url(subdomain: ENV['API_SUBDOMAIN']),
+        api_organizations_url,
         params: {},
         headers: {
           'HTTP_ORIGIN' => 'http://cors.example.com'
@@ -173,7 +173,7 @@ end
 describe 'CORS REQUESTS - POST and GET' do
   context 'when ORIGIN is specified' do
     before do
-      post api_organizations_url(subdomain: ENV['API_SUBDOMAIN']),
+      post api_organizations_url,
            { name: 'foo', description: 'test' },
            'HTTP_ACCEPT' => 'application/vnd.ohanapi+json; version=1',
            'HTTP_ORIGIN' => 'http://ohanapi.org', 'HTTP_USER_AGENT' => 'Rspec'
@@ -207,7 +207,7 @@ describe 'CORS REQUESTS - POST and GET' do
     end
 
     it "doesn't allow updating a location without a valid token" do
-      post api_organizations_url(subdomain: ENV['API_SUBDOMAIN']),
+      post api_organizations_url,
            { name: 'foo', description: 'test' },
            'HTTP_ACCEPT' => 'application/vnd.ohanapi+json; version=1',
            'HTTP_ORIGIN' => 'http://ohanapi.org', 'HTTP_USER_AGENT' => 'Rspec',
@@ -221,7 +221,7 @@ describe 'CORS REQUESTS - POST and GET' do
 
   context 'when ORIGIN is not specified' do
     it 'does not include CORS headers when ORIGIN is not specified' do
-      post api_organizations_url(subdomain: ENV['API_SUBDOMAIN']),
+      post api_organizations_url,
            { name: 'foo', description: 'test' },
            'HTTP_ACCEPT' => 'application/vnd.ohanapi+json; version=1',
            'HTTP_USER_AGENT' => 'Rspec'
@@ -232,7 +232,7 @@ describe 'CORS REQUESTS - POST and GET' do
 
   context 'when ORIGIN is specified and path is invalid' do
     before do
-      get api_location_url(123, subdomain: ENV['API_SUBDOMAIN']),
+      get api_location_url(123),
           {}, 'HTTP_ORIGIN' => 'http://ohanapi.org'
     end
 

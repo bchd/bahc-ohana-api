@@ -17,7 +17,6 @@ describe ConfigValidator do
         'DEFAULT_PER_PAGE' => '30',
         'DOMAIN_NAME' => 'sldev.me',
         'MAX_PER_PAGE' => '30',
-        'DEV_SUBDOMAIN' => ''
       }
     end
 

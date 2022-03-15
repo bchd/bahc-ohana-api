@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'GET /locations' do
   it 'returns an empty array when no locations exist' do
-    get api_locations_url(subdomain: ENV['API_SUBDOMAIN'])
+    get api_locations_url
     expect(response).to have_http_status(200)
     expect(response.content_type).to eq('application/json')
     expect(json).to eq([])
@@ -15,18 +15,18 @@ describe 'GET /locations' do
     end
 
     it 'returns the correct number of existing locations' do
-      get api_locations_url(subdomain: ENV['API_SUBDOMAIN'])
+      get api_locations_url
       expect(response).to have_http_status(200)
       expect(json.length).to eq(2)
     end
 
     it 'sorts results by creation date descending' do
-      get api_locations_url(subdomain: ENV['API_SUBDOMAIN'])
+      get api_locations_url
       expect(json.first['name']).to eq('Library')
     end
 
     it 'responds to pagination parameters' do
-      get api_locations_url(page: 2, per_page: 1, subdomain: ENV['API_SUBDOMAIN'])
+      get api_locations_url(page: 2, per_page: 1)
 
       expect(json.length).to eq(1)
     end
@@ -35,7 +35,7 @@ describe 'GET /locations' do
   describe 'serializations' do
     before do
       @location = create(:location)
-      get api_locations_url(subdomain: ENV['API_SUBDOMAIN'])
+      get api_locations_url
     end
 
     it 'includes the location id' do
@@ -133,7 +133,7 @@ describe 'GET /locations' do
 
     it 'includes the phones association' do
       @location.phones.create!(attributes_for(:phone))
-      get api_locations_url(subdomain: ENV['API_SUBDOMAIN'])
+      get api_locations_url
 
       serialized_phones =
         [{
@@ -156,7 +156,7 @@ describe 'GET /locations' do
     end
 
     it 'does not include contacts within Organization' do
-      get api_locations_url(subdomain: ENV['API_SUBDOMAIN'])
+      get api_locations_url
       org_keys = json.first['organization'].keys
       expect(org_keys).to_not include('contacts')
     end
@@ -176,7 +176,7 @@ describe 'GET /locations' do
     end
 
     it 'returns nil fields within Location' do
-      get api_locations_url(subdomain: ENV['API_SUBDOMAIN'])
+      get api_locations_url
       location_keys = json.first.keys
       nil_fields = %w[address coordinates phones]
       nil_fields.each do |key|
@@ -186,7 +186,7 @@ describe 'GET /locations' do
 
     it 'returns nil fields within Phones' do
       @loc.phones.create!(attributes_for(:phone))
-      get api_locations_url(subdomain: ENV['API_SUBDOMAIN'])
+      get api_locations_url
       phone_keys = json.first['phones'].first.keys
       %w[extension vanity_number].each do |key|
         expect(phone_keys).to include(key)
@@ -194,7 +194,7 @@ describe 'GET /locations' do
     end
 
     it 'returns nil fields within Organization' do
-      get api_locations_url(subdomain: ENV['API_SUBDOMAIN'])
+      get api_locations_url
       org_keys = json.first['organization'].keys
       expect(org_keys).to include('website')
     end
@@ -203,7 +203,7 @@ describe 'GET /locations' do
   context 'when location has no physical address' do
     it 'exposes the coordinates field' do
       create(:no_address)
-      get api_locations_url(subdomain: ENV['API_SUBDOMAIN'])
+      get api_locations_url
       location_keys = json.first.keys
       expect(location_keys).to include('coordinates')
     end
@@ -218,7 +218,7 @@ describe 'GET /locations' do
       location.services.create!(attrs.merge(status: 'inactive'))
       location.services.create!(attrs.merge(status: 'inactive'))
 
-      get api_locations_url(subdomain: ENV['API_SUBDOMAIN'])
+      get api_locations_url
 
       expect(json.first['active']).to eq false
     end
@@ -233,7 +233,7 @@ describe 'GET /locations' do
       location.services.create!(attrs)
       location.services.create!(attrs.merge(status: 'inactive'))
 
-      get api_locations_url(subdomain: ENV['API_SUBDOMAIN'])
+      get api_locations_url
 
       expect(json.first['active']).to eq true
     end

@@ -15,17 +15,17 @@ class AdminMailer < ActionMailer::Base
   end
 
   def sign_in_url_for(resource)
-    return new_admin_session_url(subdomain: ENV['ADMIN_SUBDOMAIN']) if resource.is_a?(Admin)
-    return new_user_session_url(subdomain: ENV['DEV_SUBDOMAIN']) if resource.is_a?(User)
+    return new_admin_session_url if resource.is_a?(Admin)
+    return new_user_session_url if resource.is_a?(User)
   end
 
   def sign_up_url_for(resource)
-    return new_admin_registration_url(subdomain: ENV['ADMIN_SUBDOMAIN']) if resource.is_a?(Admin)
-    return new_user_registration_url(subdomain: ENV['DEV_SUBDOMAIN']) if resource.is_a?(User)
+    return new_admin_registration_url if resource.is_a?(Admin)
+    return new_user_registration_url if resource.is_a?(User)
   end
 
   def password_url_for(resource)
-    return new_admin_password_url(subdomain: ENV['ADMIN_SUBDOMAIN']) if resource.is_a?(Admin)
-    return new_user_password_url(subdomain: ENV['DEV_SUBDOMAIN']) if resource.is_a?(User)
+    return new_admin_password_url if resource.is_a?(Admin)
+    return new_user_password_url if resource.is_a?(User)
   end
 end
