@@ -8,13 +8,15 @@ require 'action_mailer/railtie'
 require 'sprockets/railtie'
 require 'yaml'
 
-SETTINGS = YAML.safe_load(File.read(File.expand_path('settings.yml', __dir__)))
-SETTINGS.merge! SETTINGS.fetch(Rails.env, {})
-SETTINGS.symbolize_keys!
-
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
+
+Dotenv::Railtie.load
+
+SETTINGS = YAML.safe_load(File.read(File.expand_path('settings.yml', __dir__)))
+SETTINGS.merge! SETTINGS.fetch(Rails.env, {})
+SETTINGS.symbolize_keys!
 
 module OhanaApi
   class Application < Rails::Application
