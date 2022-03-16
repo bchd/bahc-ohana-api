@@ -19,12 +19,6 @@ feature 'Update languages' do
     expect(@service.reload.languages).to eq ['French']
   end
 
-  scenario 'with two languages', :js do
-    fill_in(placeholder: I18n.t('admin.services.forms.languages.placeholder'), with: "French\nSpanish\n")
-    click_button I18n.t('admin.buttons.save_changes')
-    expect(@service.reload.languages).to eq %w[French Spanish]
-  end
-
   scenario 'removing a language', :js do
     @service.update!(languages: %w[Arabic French])
     visit '/admin/locations/' + @loc.slug
