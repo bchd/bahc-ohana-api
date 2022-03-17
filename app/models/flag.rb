@@ -1,4 +1,7 @@
 class Flag < ApplicationRecord
+  extend ActiveModel::Naming
+  include ActiveModel::AttributeMethods
+
   store_accessor :report, :report_attributes
 
   belongs_to :resource, polymorphic: true
@@ -27,11 +30,6 @@ class Flag < ApplicationRecord
   end
 
   #pulling in the below from UI
-  # extend ActiveModel::Naming
-  # include ActiveModel::AttributeMethods
-  # include ActiveModel::Model
-
-
   def self.report_attributes_schema
     [
       {
@@ -81,6 +79,34 @@ class Flag < ApplicationRecord
     end
 
     attribute ? attribute[:label] : attr[0]
+  end
+
+  def self.serialize_report_attributes(report_attributes)
+    return {} if report_attributes.empty?
+    serialized_attributes = {}
+    Flag.report_attributes_schema.each_with_index do |attribute, index|
+      attr_name = attribute[:name]
+      attr_label = attribute[:label]
+      selection_input = report_attributes.find do |input_name, input_value|
+        input_name.include?(attr_name.to_s + '_selected')
+      end
+      selected = selection_input[1] == "1"
+      value_input = report_attributes.find do |input_name, input_value|
+        input_name == attr_name.to_s
+      end
+      if Flag.details_required?(attr_name)
+        value = value_input[1]
+      else
+        value = "No details required"
+      end
+
+      serialized_attributes[index] = {
+        prompt: attr_label,
+        selected: selected,
+        value: value
+      }
+    end
+    serialized_attributes
   end
 
   # from api again

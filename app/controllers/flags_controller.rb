@@ -4,12 +4,10 @@ class FlagsController < ApplicationController
   end
 
   def create
-    # returns a ruby hash
-    report_attributes = ReportSerializer.new(flag_params[:report_attributes].to_h).serialize
+    report_attributes = Flag.serialize_report_attributes(flag_params[:report_attributes].to_h)
     updated_flag_params = flag_params.merge(report_attributes: report_attributes)
 
     @flag = Flag.new(updated_flag_params)
-
     if @flag.save
       flash[:success] = 'Thank you for reporting this issue! We will reach out to you shortly.'
       redirect_to root_path
