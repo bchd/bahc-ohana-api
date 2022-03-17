@@ -17,7 +17,7 @@ class AssetHosts
   end
 
   def asset_host
-    @asset_host ||= ENV['asset_host']
+    @asset_host ||= ENV['ASSET_HOST']
   end
 
   def port

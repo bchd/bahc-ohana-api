@@ -60,6 +60,6 @@ RSpec.configure do |config|
   # require 'active_record_spec_helper'
 
   config.before(:each, type: :feature, js: true) do
-    allow(ENV).to receive(:domain_name).and_return('127.0.0.1')
+    stub_const 'ENV', ENV.to_h.merge('DOMAIN_NAME' => '127.0.0.1')
   end
 end
