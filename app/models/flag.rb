@@ -26,23 +26,10 @@ class Flag < ApplicationRecord
     end
   end
 
-  private
-
-  def set_default_report_attributes
-    self.report_attributes = {} if self.report_attributes.nil?
-  end
-
-  def check_report_attributes
-    if report_attributes.nil? || report_attributes.all? {|k, v| v["value"].blank? || v["value"] == "0" }
-      errors.add(:report_attributes, "can't be blank")
-    end
-  end
-
-
   #pulling in the below from UI
-  extend ActiveModel::Naming
-  include ActiveModel::AttributeMethods
-  include ActiveModel::Model
+  # extend ActiveModel::Naming
+  # include ActiveModel::AttributeMethods
+  # include ActiveModel::Model
 
 
   def self.report_attributes_schema
@@ -81,7 +68,6 @@ class Flag < ApplicationRecord
     attribute = report_attributes_schema.find do |ar|
       ar[:name] == name
     end
-
     attribute
   end
 
@@ -96,4 +82,18 @@ class Flag < ApplicationRecord
 
     attribute ? attribute[:label] : attr[0]
   end
+
+  # from api again
+  private
+
+  def set_default_report_attributes
+    self.report_attributes = {} if self.report_attributes.nil?
+  end
+
+  def check_report_attributes
+    if report_attributes.nil? || report_attributes.all? {|k, v| v["value"].blank? || v["value"] == "0" }
+      errors.add(:report_attributes, "can't be blank")
+    end
+  end
+
 end
