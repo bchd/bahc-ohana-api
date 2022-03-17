@@ -20,7 +20,6 @@ module SchedulesHelper
     schedules.map { |schedule| holiday_schedule_content_for(schedule) }.
       join(' ').html_safe
   end
-
   private
 
   def valid_weekday_range_schedule?(schedules)
@@ -71,7 +70,7 @@ module SchedulesHelper
   #   or range of weekdays.
   def holiday_schedule_content_for(schedule)
     content_tag :section do
-      holiday_label(schedule.label) +
+      holiday_label(schedule.label).html_safe +
       "#{date_range_for(schedule.start_date, schedule.end_date)}: "\
       "#{holiday_hours(
         schedule.closed, schedule.opens_at, schedule.closes_at
