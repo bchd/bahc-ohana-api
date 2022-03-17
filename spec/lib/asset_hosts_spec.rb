@@ -16,7 +16,7 @@ describe AssetHosts do
 
     context 'heroku domain' do
       it 'only allows the configured asset host' do
-        allow(Figaro.env).to receive(:asset_host).and_return('app.herokuapp.com')
+        stub_const 'ENV', ENV.to_h.merge('ASSET_HOST' => 'app.herokuapp.com')
         request = double(host: 'foo.herokuapp.com', port: nil)
 
         expect(AssetHosts.new.call('image.png', request)).to eq 'app.herokuapp.com'
@@ -57,7 +57,7 @@ describe AssetHosts do
 
     context 'custom domain but asset host is not set to naked domain' do
       it 'will use asset_host' do
-        allow(Figaro.env).to receive(:asset_host).and_return('www.example.com')
+        stub_const 'ENV', ENV.to_h.merge('ASSET_HOST' => 'www.example.com')
         request = double(host: 'example.com', port: nil)
 
         expect(AssetHosts.new.call('image.png', request)).to eq 'www.example.com'
@@ -66,7 +66,7 @@ describe AssetHosts do
 
     context 'request made from subdomain but asset host is not set to naked domain' do
       it 'will use asset_host' do
-        allow(Figaro.env).to receive(:asset_host).and_return('www.example.com')
+        stub_const 'ENV', ENV.to_h.merge('ASSET_HOST' => 'www.example.com')
         request = double(host: 'admin.example.com', port: nil)
 
         expect(AssetHosts.new.call('image.png', request)).to eq 'www.example.com'

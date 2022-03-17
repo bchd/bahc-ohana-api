@@ -22,8 +22,6 @@ services:
     environment:
       DATABASE_URL: "postgres://postgres@db"
       RAILS_ENV: "production"
-      API_PATH: ohana/api
-      ADMIN_PATH: "ohana/admin"
       DEFAULT_PER_PAGE: 30
       MAX_PER_PAGE: 50
       ASSET_HOST: localhost

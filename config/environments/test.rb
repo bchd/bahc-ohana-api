@@ -6,6 +6,7 @@ require "active_support/core_ext/integer/time"
 # and recreated between test runs. Don't rely on the data there!
 
 Rails.application.configure do
+  require 'dotenv/load'
   # Settings specified here will take precedence over those in config/application.rb.
 
   config.cache_classes = true
@@ -36,6 +37,8 @@ Rails.application.configure do
   config.active_storage.service = :test
 
   config.action_mailer.perform_caching = false
+
+  config.action_mailer.default_url_options = { :host => (ENV['DOMAIN_NAME'] ? "http://#{ENV['DOMAIN_NAME']}" : "http://localhost:8080") }
 
   # Tell Action Mailer not to deliver emails to the real world.
   # The :test delivery method accumulates sent emails in the

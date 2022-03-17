@@ -12,7 +12,7 @@ require 'selenium/webdriver'
 Capybara.register_driver :headless_chrome do |app|
   options = Selenium::WebDriver::Chrome::Options.new(args: %w[no-sandbox headless disable-gpu])
 
-  Capybara::Selenium::Driver.new(app, browser: :chrome, options: options)
+  Capybara::Selenium::Driver.new(app, browser: :chrome, capabilities: options)
 end
 
 Capybara.javascript_driver = :headless_chrome
@@ -60,6 +60,6 @@ RSpec.configure do |config|
   # require 'active_record_spec_helper'
 
   config.before(:each, type: :feature, js: true) do
-    allow(Figaro.env).to receive(:domain_name).and_return('127.0.0.1')
+    stub_const 'ENV', ENV.to_h.merge('DOMAIN_NAME' => '127.0.0.1')
   end
 end

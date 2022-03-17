@@ -9,6 +9,6 @@ class DefaultHost
   private
 
   def default_host
-    @default_host ||= Figaro.env.domain_name
+    @default_host ||= ENV['DOMAIN_NAME']
   end
 end

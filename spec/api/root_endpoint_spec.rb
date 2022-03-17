@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'API Root Endpoint' do
   it 'displays links to all top-level endpoints' do
-    get api_url(subdomain: ENV['API_SUBDOMAIN'])
+    get api_url
     hash = {
       'organizations_url' => "#{api_organizations_url}{?page,per_page}",
       'organization_url' => "#{api_organizations_url}/{organization}",

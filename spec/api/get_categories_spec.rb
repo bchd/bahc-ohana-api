@@ -8,7 +8,7 @@ describe 'GET /categories' do
     @location = create(:location)
     @food.services << create(:service, location: @location)
     @emergency.services << create(:service, location: @location)
-    get api_categories_url(subdomain: ENV['API_SUBDOMAIN'])
+    get api_categories_url
   end
 
   it 'displays both categories' do

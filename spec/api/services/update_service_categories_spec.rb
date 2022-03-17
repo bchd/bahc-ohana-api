@@ -9,7 +9,7 @@ describe 'PUT /services/:service_id/categories' do
     create(:category)
     create(:health)
     put(
-      api_service_categories_url(@service, subdomain: ENV['API_SUBDOMAIN']),
+      api_service_categories_url(@service),
       taxonomy_ids: %w[101 102]
     )
 

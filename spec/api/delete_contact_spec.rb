@@ -8,7 +8,7 @@ describe 'DELETE /locations/:location_id/contacts/:id' do
 
   it 'deletes the contact' do
     delete(
-      api_location_contact_url(@loc, @contact, subdomain: ENV['API_SUBDOMAIN']),
+      api_location_contact_url(@loc, @contact),
       {}
     )
     expect(@loc.reload.contacts.count).to eq(0)
@@ -17,7 +17,7 @@ describe 'DELETE /locations/:location_id/contacts/:id' do
 
   it 'returns a 204 status' do
     delete(
-      api_location_contact_url(@loc, @contact, subdomain: ENV['API_SUBDOMAIN']),
+      api_location_contact_url(@loc, @contact),
       {}
     )
     expect(response).to have_http_status(204)
@@ -25,7 +25,7 @@ describe 'DELETE /locations/:location_id/contacts/:id' do
 
   it "doesn't allow deleting a contact without a valid token" do
     delete(
-      api_location_contact_url(@loc, @contact, subdomain: ENV['API_SUBDOMAIN']),
+      api_location_contact_url(@loc, @contact),
       {},
       'HTTP_X_API_TOKEN' => 'invalid_token'
     )
