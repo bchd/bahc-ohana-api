@@ -12,7 +12,6 @@ require 'yaml'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-Dotenv::Railtie.load
 
 SETTINGS = YAML.safe_load(File.read(File.expand_path('settings.yml', __dir__)))
 SETTINGS.merge! SETTINGS.fetch(Rails.env, {})
