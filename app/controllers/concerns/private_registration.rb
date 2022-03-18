@@ -20,7 +20,7 @@ module PrivateRegistration
   end
 
   def only_email_error_is_duplicate?
-    resource.errors.keys == [:email] &&
+    resource.errors.attribute_names == [:email] &&
       resource.errors[:email].uniq == ['has already been taken']
   end
 
