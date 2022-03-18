@@ -4,7 +4,7 @@ describe 'GET /organizations' do
   it 'returns an empty array when no organizations exist' do
     get api_organizations_url
     expect(response).to have_http_status(200)
-    expect(response.content_type).to eq('application/json')
+    expect(response.content_type).to eq('application/json; charset=utf-8')
     expect(json).to eq([])
   end
 

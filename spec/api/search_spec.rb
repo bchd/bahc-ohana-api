@@ -17,7 +17,7 @@ describe "GET 'search'" do
     end
 
     it 'is json' do
-      expect(response.content_type).to eq('application/json')
+      expect(response.content_type).to eq('application/json; charset=utf-8')
     end
 
     it 'returns locations' do
@@ -108,7 +108,7 @@ describe "GET 'search'" do
       end
 
       it 'is json' do
-        expect(response.content_type).to eq('application/json')
+        expect(response.content_type).to eq('application/json; charset=utf-8')
       end
 
       it 'includes an error description' do
