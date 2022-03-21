@@ -4,14 +4,11 @@ class FlagsController < ApplicationController
   end
 
   def create
-    flag_post_url = ENV['OHANA_API_ENDPOINT'] + '/flag'
-
-    report_attributes = ReportSerializer.new(flag_params[:report_attributes].to_h).serialize
+    report_attributes = Flag.serialize_report_attributes(flag_params[:report_attributes].to_h)
     updated_flag_params = flag_params.merge(report_attributes: report_attributes)
 
-    response = Faraday.post(flag_post_url, {flag: updated_flag_params.to_json})
-
-    if response.status == 200
+    @flag = Flag.new(updated_flag_params)
+    if @flag.save
       flash[:success] = 'Thank you for reporting this issue! We will reach out to you shortly.'
       redirect_to root_path
     else
