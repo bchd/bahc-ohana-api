@@ -96,6 +96,7 @@ jobs:
       DOMAIN_NAME: example.com
       MAX_PER_PAGE: '50'
       RAILS_ENV: test
+      PSQL_PAGER: ''
       OHANA_API_ENDPOINT: http://ohana-api-test.herokuapp.com/api
       ELASTICSEARCH_URL: http://elastic:password@localhost:9200/ # This gets set in chewy.rb file.
       ADMIN_APP_TOKEN: testing123

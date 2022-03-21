@@ -7,7 +7,10 @@ module PrivateRegistration
     elsif resource_valid_except_for_duplicate_email?
       process_private_registration
     else
-      resource.errors[:email].delete_if { |e| e == 'has already been taken' }
+      # resource.errors[:email].delete_if { |e| e == 'has already been taken' }
+      if resource.errors[:email].uniq === ['has already been taken']
+        resource.errors.delete(:email)
+      end  
       process_unsuccessful_registration
     end
   end
@@ -20,7 +23,7 @@ module PrivateRegistration
   end
 
   def only_email_error_is_duplicate?
-    resource.errors.keys == [:email] &&
+    resource.errors.attribute_names == [:email] &&
       resource.errors[:email].uniq == ['has already been taken']
   end
 

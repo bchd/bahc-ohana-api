@@ -7,7 +7,7 @@ class PgArrayValidator < ActiveModel::EachValidator
 
     default_message = "#{attr} #{I18n.t('errors.messages.not_an_array')}"
     unless attr.is_a?(Array)
-      record.errors[attribute] << (options[:message] || default_message)
+      record.errors.add(attribute, message: default_message)
       return
     end
 

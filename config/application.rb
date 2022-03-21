@@ -1,5 +1,7 @@
-require File.expand_path('boot', __dir__)
+require_relative "boot"
 
+
+require "rails"
 # Pick the frameworks you want:
 require 'active_record/railtie'
 require 'active_storage/engine'
@@ -12,7 +14,6 @@ require 'yaml'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-
 SETTINGS = YAML.safe_load(File.read(File.expand_path('settings.yml', __dir__)))
 SETTINGS.merge! SETTINGS.fetch(Rails.env, {})
 SETTINGS.symbolize_keys!
@@ -20,9 +21,13 @@ SETTINGS.symbolize_keys!
 module OhanaApi
   class Application < Rails::Application
     config.autoload_paths << Rails.root.join('lib')
+    # Initialize configuration defaults for originally generated Rails version.
+    config.load_defaults 5.0
 
-    # don't generate RSpec tests for views and helpers
-    config.generators do |g|
+    config.active_record.belongs_to_required_by_default = false
+
+     # don't generate RSpec tests for views and helpers
+     config.generators do |g|
       g.test_framework :rspec, fixture: true
       g.fixture_replacement :factory_girl, dir: 'spec/factories'
 
@@ -65,6 +70,13 @@ module OhanaApi
 
     config.active_record.time_zone_aware_types = [:datetime]
 
+    # Configuration for the application, engines, and railties goes here.
+    #
+    # These settings can be overridden in specific environments using the files
+    # in config/environments, which are processed later.
+    #
+    # config.time_zone = "Central Time (US & Canada)"
+    # config.eager_load_paths << Rails.root.join("extras")
     config.upload_server = if ENV["UPLOAD_SERVER"].present?
       ENV["UPLOAD_SERVER"].to_sym
     elsif Rails.env.production?
@@ -73,4 +85,5 @@ module OhanaApi
       :app
     end
   end
+
 end

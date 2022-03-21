@@ -34,7 +34,7 @@ describe 'GET /organizations/:id' do
     end
 
     it 'is json' do
-      expect(response.content_type).to eq('application/json')
+      expect(response.content_type).to eq('application/json; charset=utf-8')
     end
 
     it 'returns a successful status code' do
@@ -68,7 +68,7 @@ describe 'GET /organizations/:id' do
     end
 
     it 'is json' do
-      expect(response.content_type).to eq('application/json')
+      expect(response.content_type).to eq('application/json; charset=utf-8')
     end
   end
 

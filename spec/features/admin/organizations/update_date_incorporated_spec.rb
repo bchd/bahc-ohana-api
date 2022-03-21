@@ -8,11 +8,8 @@ feature 'Update date incorporated' do
   end
 
   scenario 'date incorporated does not render' do
-    expect(page.should_not have_css('organization_date_incorporated_1i')).
-      to eq(true)
-    expect(page.should_not have_css('organization_date_incorporated_2i')).
-      to eq(true)
-    expect(page.should_not have_css('organization_date_incorporated_3i')).
-      to eq(true)
+    expect(page).not_to have_css 'organization_date_incorporated_1i'
+    expect(page).not_to have_css 'organization_date_incorporated_2i'
+    expect(page).not_to have_css 'organization_date_incorporated_3i'
   end
 end
