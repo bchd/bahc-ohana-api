@@ -1,4 +1,5 @@
-require 'ohanakapa-extensions'
+# require 'ohanakapa-extensions'
+require 'ohanakapa'
 
 stack = Faraday::RackBuilder.new do |builder|
   builder.use Ohanakapa::Response::RaiseError

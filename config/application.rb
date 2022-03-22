@@ -20,9 +20,20 @@ SETTINGS.symbolize_keys!
 
 module OhanaApi
   class Application < Rails::Application
-    config.autoload_paths << Rails.root.join('lib')
+    # config.autoload_paths << Rails.root.join('lib')
+    # config.autoload_paths << "#{root}/lib"
+    # config.eager_load_paths << "#{root}/lib"
+    # config.eager_load_paths << Rails.root.join("extras")
+    # config.eager_load_paths << "#{root}/extras"
+    config.autoload_paths << "#{Rails.root}/extras"
+    config.eager_load_paths << "#{Rails.root}/extras"
+    config.autoload_paths << "#{Rails.root}/lib"
+    config.eager_load_paths << "#{Rails.root}/lib"
+
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 5.0
+    # config.load_defaults 5.0
+
+    config.load_defaults 7.0
 
     config.active_record.belongs_to_required_by_default = false
 
@@ -76,7 +87,7 @@ module OhanaApi
     # in config/environments, which are processed later.
     #
     # config.time_zone = "Central Time (US & Canada)"
-    # config.eager_load_paths << Rails.root.join("extras")
+
     config.upload_server = if ENV["UPLOAD_SERVER"].present?
       ENV["UPLOAD_SERVER"].to_sym
     elsif Rails.env.production?
