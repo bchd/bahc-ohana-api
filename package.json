@@ -9,10 +9,6 @@
   },
   "dependencies": {
     "@rails/webpacker": "5.4.3",
-    "randomstring": "^1.1.5",
-    "select2": "^4.0.13",
-    "turbolinks": "^5.2.0",
-    "uppy": "^1.8.0",
     "ahoy.js": "^0.3.4",
     "fstream": "^1.0.12",
     "google-maps-infobox": "^2.0.0",
@@ -21,8 +17,12 @@
     "lint": "^0.7.0",
     "macaddress": "^0.2.9",
     "rails-erb-loader": "^5.2.1",
+    "randomstring": "^1.1.5",
+    "select2": "^4.0.13",
     "sshpk": "~> 1.13.2",
     "stringstream": "^0.0.6",
+    "turbolinks": "^5.2.0",
+    "uppy": "^1.8.0",
     "webpack-cli": "^3.3.10"
   },
   "version": "0.1.0",

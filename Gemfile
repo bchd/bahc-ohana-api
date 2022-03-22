@@ -39,6 +39,7 @@ gem 'select2-rails', '~> 4.0.3'
 gem 'simplemde-rails', '~> 1.11', '>= 1.11.2'
 gem 'smarter_csv'
 gem 'sentry-raven'
+gem "sprockets-rails"
 gem 'uglifier', '>= 1.3.0'
 gem 'shrine', '~> 3.0'
 gem 'aws-sdk-s3', '~> 1.14'
@@ -83,7 +84,6 @@ group :development do
   gem 'flamegraph'
   gem 'letter_opener'
   gem 'pry-rails'
-  gem 'meta_request'
   gem 'rack-mini-profiler'
   gem 'stackprof'
 end

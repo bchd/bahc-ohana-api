@@ -9,6 +9,8 @@ require 'action_controller/railtie'
 require 'action_mailer/railtie'
 require 'sprockets/railtie'
 require 'yaml'
+require 'active_support'
+require "active_support"; require "active_support/core_ext/object"
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -25,15 +27,13 @@ module OhanaApi
     # config.eager_load_paths << "#{root}/lib"
     # config.eager_load_paths << Rails.root.join("extras")
     # config.eager_load_paths << "#{root}/extras"
-    config.autoload_paths << "#{Rails.root}/extras"
-    config.eager_load_paths << "#{Rails.root}/extras"
-    config.autoload_paths << "#{Rails.root}/lib"
-    config.eager_load_paths << "#{Rails.root}/lib"
+  
+    # config.eager_load_paths << Rails.root.join("extras")
 
     # Initialize configuration defaults for originally generated Rails version.
-    # config.load_defaults 5.0
+    config.load_defaults 5.0
 
-    config.load_defaults 7.0
+    # config.load_defaults 6.1
 
     config.active_record.belongs_to_required_by_default = false
 
@@ -87,6 +87,14 @@ module OhanaApi
     # in config/environments, which are processed later.
     #
     # config.time_zone = "Central Time (US & Canada)"
+
+   
+    config.active_support.default_message_encryptor_serializer = :marshall
+
+
+
+    # config.eager_load_paths << "#{Rails.root}/extras"
+    # config.eager_load_paths << "#{Rails.root}/lib"
 
     config.upload_server = if ENV["UPLOAD_SERVER"].present?
       ENV["UPLOAD_SERVER"].to_sym
