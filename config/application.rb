@@ -22,15 +22,18 @@ SETTINGS.symbolize_keys!
 
 module OhanaApi
   class Application < Rails::Application
+    config.active_record.legacy_connection_handling = false
+
     config.autoload_paths << Rails.root.join('lib')
     config.eager_load_paths << Rails.root.join('lib')
     
     # config.eager_load_paths << Rails.root.join("extras")
 
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 5.0
+    # config.load_defaults 5.0
 
     # config.load_defaults 6.1
+    config.load_defaults 7.0
 
     config.active_record.belongs_to_required_by_default = false
 
