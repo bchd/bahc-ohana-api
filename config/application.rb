@@ -22,12 +22,9 @@ SETTINGS.symbolize_keys!
 
 module OhanaApi
   class Application < Rails::Application
-    # config.autoload_paths << Rails.root.join('lib')
-    # config.autoload_paths << "#{root}/lib"
-    # config.eager_load_paths << "#{root}/lib"
-    # config.eager_load_paths << Rails.root.join("extras")
-    # config.eager_load_paths << "#{root}/extras"
-  
+    config.autoload_paths << Rails.root.join('lib')
+    config.eager_load_paths << Rails.root.join('lib')
+    
     # config.eager_load_paths << Rails.root.join("extras")
 
     # Initialize configuration defaults for originally generated Rails version.
