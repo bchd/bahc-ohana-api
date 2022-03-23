@@ -24,7 +24,7 @@ class Admin
       if params[:archive].present?
         archive_selected_services
       else
-        redirect_to admin_services_url, alert: 'No services selected'
+        redirect_to admin_services_url, alert: 'No services selected', allow_other_host: true
       end
     end
 
@@ -41,6 +41,7 @@ class Admin
 
       if @service.update(service_params.except(:locations)) && @service.touch(:updated_at)
         redirect_to [:admin, @location, @service],
+                    allow_other_host: true,
                     notice: 'Service was successfully updated.'
       else
         render :edit
@@ -69,6 +70,7 @@ class Admin
 
       if @service.save
         redirect_to admin_location_url(@location),
+                    allow_other_host: true,
                     notice: "Service '#{@service.name}' was successfully created."
       else
         render :new
@@ -79,7 +81,7 @@ class Admin
       service = Service.find(params[:id])
       authorize service.location
       service.destroy
-      redirect_to admin_locations_url
+      redirect_to admin_locations_url, allow_other_host: true
     end
 
     private
@@ -91,9 +93,11 @@ class Admin
         end
       end
       redirect_to admin_services_url,
+                  allow_other_host: true,
                   notice: 'Archive successful.'
     rescue ActiveRecord::RecordInvalid => e
       redirect_to admin_services_url,
+                  allow_other_host: true,
                   error: "Could not archive #{e.record.full_name}. Please deselect and try again."
     end
 

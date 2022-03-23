@@ -21,7 +21,8 @@ class Admin
 
       if @program.update(program_params)
         redirect_to [:admin, @program],
-                    notice: 'Program was successfully updated.'
+                    notice: 'Program was successfully updated.',
+                    allow_other_host: true
       else
         render :edit
       end
@@ -40,6 +41,7 @@ class Admin
 
       if @program.save
         redirect_to admin_programs_url,
+                    allow_other_host: true,
                     notice: 'Program was successfully created.'
       else
         render :new
@@ -50,7 +52,7 @@ class Admin
       program = Program.find(params[:id])
       authorize program
       program.destroy
-      redirect_to admin_programs_url
+      redirect_to admin_programs_url, allow_other_host: true
     end
 
     private

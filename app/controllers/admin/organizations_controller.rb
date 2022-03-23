@@ -37,6 +37,7 @@ class Admin
 
       if @organization.update(org_params)
         redirect_to [:admin, @organization],
+                    allow_other_host: true,
                     notice: 'Organization was successfully updated.'
       else
         render :edit
@@ -54,7 +55,8 @@ class Admin
 
       if @organization.save
         redirect_to admin_organizations_url,
-                    notice: 'Organization was successfully created.'
+                    notice: 'Organization was successfully created.',
+                    allow_other_host: true
       else
         render :new
       end
@@ -64,7 +66,7 @@ class Admin
       organization = Organization.find(params[:id])
       authorize organization
       organization.destroy
-      redirect_to admin_organizations_url
+      redirect_to admin_organizations_url, allow_other_host: true
     end
 
     private
