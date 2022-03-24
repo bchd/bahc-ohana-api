@@ -19,7 +19,7 @@ class Admin
 
       if @contact.update(contact_params)
         flash[:notice] = 'Contact was successfully updated.'
-        redirect_to [:admin, location, @service, @contact], allow_other_host: true
+        redirect_to [:admin, location, @service, @contact]
       else
         render :edit
       end
@@ -43,7 +43,6 @@ class Admin
       if @contact.update(contact_params)
         @service.contacts << @contact
         redirect_to admin_location_service_url(location, @service),
-                    allow_other_host: true,
                     notice: "Contact '#{@contact.name}' was successfully created."
       else
         render :new
@@ -61,7 +60,6 @@ class Admin
 
       location = service.location
       redirect_to admin_location_service_url(location, service),
-                  allow_other_host: true,
                   notice: "Contact '#{contact.name}' was successfully deleted."
     end
 

@@ -32,7 +32,7 @@ class Admin
       if params[:archive].present?
         archive_selected_locations
       else
-        redirect_to admin_services_url, alert: 'No services selected', allow_other_host: true
+        redirect_to admin_services_url, alert: 'No services selected'
       end
     end
 
@@ -45,8 +45,7 @@ class Admin
 
       if @location.save
         redirect_to [:admin, @location],
-                    notice: 'Location was successfully updated.',
-                    allow_other_host: true
+                    notice: 'Location was successfully updated.'
       else
         render :edit
       end
@@ -64,7 +63,7 @@ class Admin
       authorize org if org.present?
 
       if @location.save
-        redirect_to [:admin, @location], allow_other_host: true, notice: 'Location was successfully created.'
+        redirect_to [:admin, @location], notice: 'Location was successfully created.'
       else
         render :new
       end
@@ -76,7 +75,7 @@ class Admin
       authorize location
 
       location.destroy
-      redirect_to admin_locations_url, allow_other_host: true
+      redirect_to admin_locations_url
     end
 
     def capacity
@@ -94,10 +93,9 @@ class Admin
         end
       end
       redirect_to admin_locations_url,
-                  notice: 'Archive successful.', allow_other_host: true
+                  notice: 'Archive successful.'
     rescue ActiveRecord::RecordInvalid => e
       redirect_to admin_locations_url,
-                  allow_other_host: true,
                   error: "Could not archive #{e.record.name}. Please deselect and try again."
     end
 

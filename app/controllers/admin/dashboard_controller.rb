@@ -3,7 +3,7 @@ class Admin
     layout 'admin'
 
     def index
-      redirect_to new_admin_session_url, allow_other_host: true unless admin_signed_in?
+      redirect_to new_admin_session_url unless admin_signed_in?
       @orgs = policy_scope(Organization) if current_admin
     end
 

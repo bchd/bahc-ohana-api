@@ -20,7 +20,7 @@ class Admin
     def authorize_admin
       unless admin_signed_in?
         flash[:error] = t('devise.failure.unauthenticated')
-        return redirect_to new_admin_session_url, allow_other_host: true
+        return redirect_to new_admin_session_url
       end
       user_not_authorized unless current_admin.super_admin?
     end
