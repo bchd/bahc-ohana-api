@@ -1,8 +1,7 @@
 class DefaultHost
   def call(request)
     host = request.host
-    return host if host.end_with?(default_host)
-
+    return host if host.end_with?(default_host) || host == 'test.host'
     default_host
   end
 
