@@ -1,5 +1,3 @@
-require Rails.root.join('lib', 'default_host.rb')
-
 class ApplicationController < ActionController::Base
   include Pundit::Authorization
   # Prevent CSRF attacks by raising an exception (with: :exception),
@@ -32,9 +30,6 @@ class ApplicationController < ActionController::Base
     current_admin
   end
 
-  def default_url_options
-    { host: DefaultHost.new.call(request) }
-  end
 
   private
 
