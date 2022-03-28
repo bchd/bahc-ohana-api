@@ -7,7 +7,7 @@ It is based off of [Ohana API](https://github.com/codeforamerica/ohana-api).
 ## Stack Overview
 
 * Ruby version 2.7.5
-* Rails version 5.1.6
+* Rails version 7
 * PostgreSQL 14
 * Elasticsearch version 7
 
@@ -34,8 +34,6 @@ Once direnv is installed and your shell is restarted, clone the project and `cd`
 direnv allow
 
 bundle
-cp config/application.example.yml config/application.yml
-cp config/settings.example.yml config/settings.yml
 rails db:create db:migrate db:test:prepare
 yarn install
 rails server

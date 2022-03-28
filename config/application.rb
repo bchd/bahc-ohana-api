@@ -20,11 +20,11 @@ SETTINGS.symbolize_keys!
 
 module OhanaApi
   class Application < Rails::Application
-    config.autoload_paths << Rails.root.join('lib')
-    # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 5.0
 
-    config.active_record.belongs_to_required_by_default = false
+    config.autoload_paths << Rails.root.join('lib')
+    config.eager_load_paths << Rails.root.join('lib')
+    
+    config.load_defaults 7.0
 
      # don't generate RSpec tests for views and helpers
      config.generators do |g|
@@ -48,6 +48,8 @@ module OhanaApi
     # config.i18n.default_locale = :de
 
     config.active_record.schema_format = :sql
+    config.active_record.legacy_connection_handling = false
+    config.active_record.belongs_to_required_by_default = false
 
     # CORS support
     config.middleware.use Rack::Cors do
@@ -69,14 +71,9 @@ module OhanaApi
     config.action_controller.per_form_csrf_tokens = true
 
     config.active_record.time_zone_aware_types = [:datetime]
+   
+    config.active_support.default_message_encryptor_serializer = :marshall
 
-    # Configuration for the application, engines, and railties goes here.
-    #
-    # These settings can be overridden in specific environments using the files
-    # in config/environments, which are processed later.
-    #
-    # config.time_zone = "Central Time (US & Canada)"
-    # config.eager_load_paths << Rails.root.join("extras")
     config.upload_server = if ENV["UPLOAD_SERVER"].present?
       ENV["UPLOAD_SERVER"].to_sym
     elsif Rails.env.production?
