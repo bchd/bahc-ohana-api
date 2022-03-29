@@ -51,7 +51,7 @@ class LocationsController < ApplicationController
     ).search.load&.objects
 
 
-    @search = Search.new(locations, Ohanakapa.last_response, params)
+    @search = Search.new(locations, params)
     @keyword = params[:keyword]
     @lat = params[:lat]
     @long = params[:long]

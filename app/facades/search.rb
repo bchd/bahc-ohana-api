@@ -2,9 +2,8 @@ class Search
   include AddressFormatHelper
   attr_reader :locations
 
-  def initialize(locations, response, params)
+  def initialize(locations, params)
     @locations = locations
-    @response = response
     @params = params
   end
 
@@ -25,9 +24,5 @@ class Search
       street_address: street_address_for(location.address),
       city: location.address.city
     }
-  end
-
-  def results
-    Paginator.new(@response, @params).results
   end
 end
