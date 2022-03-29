@@ -38,7 +38,7 @@ RSpec.configure do |config|
 
   # Due to new changes in search logic, some specs related to it are broken.
   # Currently we are ingoring it.
-  config.filter_run_excluding broken: true
+  config.filter_run_excluding broken: true, debt: true
 
   config.before(:suite) do
     Chewy.strategy(:bypass)
