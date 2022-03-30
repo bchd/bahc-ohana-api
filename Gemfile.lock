@@ -533,6 +533,10 @@ GEM
       sprockets (>= 3.0.0)
     stackprof (0.2.19)
     strscan (3.0.1)
+    tailwindcss-rails (2.0.8-arm64-darwin)
+      railties (>= 6.0.0)
+    tailwindcss-rails (2.0.8-x86_64-linux)
+      railties (>= 6.0.0)
     temple (0.8.2)
     thor (1.2.1)
     tilt (2.0.10)
@@ -638,6 +642,7 @@ DEPENDENCIES
   smarter_csv
   sprockets-rails
   stackprof
+  tailwindcss-rails (~> 2.0)
   uglifier (>= 1.3.0)
   uppy-s3_multipart (>= 0.3.2)
   webmock
