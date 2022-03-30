@@ -87,3 +87,5 @@ group :development do
   gem 'rack-mini-profiler'
   gem 'stackprof'
 end
+
+gem "tailwindcss-rails", "~> 2.0"
