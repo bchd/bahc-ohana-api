@@ -12,12 +12,10 @@
     = stylesheet_pack_tag 'application'
     = csrf_meta_tags
     = yield(:head)
-  %body{ class: "#{controller_name} #{action_name}" }
+  %body{ class: "#{controller_name} #{action_name} h-full" }
     = render 'admin/shared/navigation'
     #main{ role: 'main' }
       .content
-        .container
-          .row
-            = render 'shared/messages'
-            = yield
+        = render 'shared/messages'
+        = yield
     = render 'admin/shared/footer'
