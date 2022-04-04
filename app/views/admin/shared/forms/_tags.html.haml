@@ -10,7 +10,8 @@
 
 :javascript
   var tags = #{raw (Tag.pluck(:name)).to_json}
-  $(document).on('turbolinks:load', function() {
+
+  $(document).on('turbo:load', function() {
     $("#taggable").select2({
       tags: tags,
       multiple: 'multiple',

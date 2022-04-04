@@ -40,7 +40,6 @@ class Admin
       @location = Location.find(params[:id])
       @location.assign_attributes(location_params)
       @org = @location.organization
-
       authorize @location
 
       if @location.save
@@ -102,6 +101,7 @@ class Admin
     # rubocop:disable MethodLength
     def location_params
       update_archived_at_params
+      # do not need to permit file_uploads, because those are handled in the js. if you're getting an error that file_uploads is not a permitted param, that may be because the js is not working
       params.require(:location).permit(
         :organization_id, { accessibility: [] }, :active, { admin_emails: [] },
         :alternate_name, :archived_at, :description, :email, :featured, { languages: [] }, :latitude,
@@ -116,6 +116,7 @@ class Admin
         holiday_schedules_attributes: %i[label closed start_date end_date opens_at closes_at id _destroy],
         file_uploads_attributes: {}
       )
+
     end
 
     def update_archived_at_params

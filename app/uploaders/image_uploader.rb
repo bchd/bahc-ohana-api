@@ -1,4 +1,4 @@
-# This is a subclass of Shrine base that will be further configured for it's requirements.
+# This is a subclass of Shrine base that will be further configured for its requirements.
 # This will be included in the model to manage the file.
 
 class ImageUploader < Shrine

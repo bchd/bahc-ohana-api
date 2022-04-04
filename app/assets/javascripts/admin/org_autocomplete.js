@@ -1,4 +1,4 @@
-$(document).on('turbolinks:load', function() {
+$(document).on('turbo:load', function() {
   $('#org-name').select2({
     minimumInputLength: 3,
     placeholder: $(this).data('paceholder'),

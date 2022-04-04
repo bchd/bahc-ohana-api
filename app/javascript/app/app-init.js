@@ -15,7 +15,8 @@ import alerts from 'app/alerts';
 googleTranslate.init(googleTranslate.InlineLayout.VERTICAL);
 
 // If page is not translated, initialize the header popups.
-if (!googleTranslate.isTranslated())
+if (!googleTranslate.isTranslated()) {
   popups.init();
+}
 
 alerts.init();

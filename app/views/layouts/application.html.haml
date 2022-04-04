@@ -10,7 +10,8 @@
     = render 'shared/google_analytics/page_tracking'
     = render 'shared/hotjar'
     = render 'shared/head'
-    = javascript_include_tag 'application', 'jquery', 'data-turbolinks-track': true
+    = javascript_include_tag 'application', 'jquery', 'data-turbo-track': true
+
 
   %body{ class: "#{controller_name == 'home' ? '' : 'inside '}#{controller_name} #{action_name}" }
     = render 'shared/google_analytics/tag_manager_iframe'
