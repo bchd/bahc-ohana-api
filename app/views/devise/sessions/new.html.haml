@@ -6,8 +6,8 @@
     %h3.mt-6.text-center.text-3xl.text-gray-900
       Sign in to your account
 
-  .p-2.shadow-md
-    .mt-8.sm:mx-auto.sm:w-full.sm:max-w-md
+  .mt-8.sm:mx-auto.sm:w-full.sm:max-w-md
+    .py-8.px-4.shadow-md.sm:rounded-lg.sm:px-10
       = form_for(resource, as: resource_name, url: session_path(resource_name), html: { role: 'form', class: 'space-y-6' }) do |f|
         .mt-1
           = f.label :email, class: 'block text-sm font-medium text-gray-700'
@@ -25,15 +25,14 @@
               = link_to t('navigation.forgot_your_password'), new_password_path(resource_name), class: 'font-medium text-indigo-600 hover:text-indigo-500 underline'
 
         = f.submit t('navigation.sign_in'), class: 'w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'
-    .mt-6 
-      .relative 
-        .absolute.inset-0.flex.items-center 
-          .w-full.border-t.border-gray-300 
-        .relative.flex.justify-center.text-md 
-          -# note: below should be bg-{whatever the actual background color is} not white
-          %span.px-2.bg-white.text-gray-500
-            Need to create an account?
-    .mt-8.sm:mx-auto.sm:w-full.sm:max-w-md.text-center.mb-8           
-      - if devise_mapping.registerable? && controller_name != 'registrations'
-        = link_to t('navigation.sign_up'), new_registration_path(resource_name), class: 'text-md font-medium text-indigo-600 hover:text-indigo-500 p-4 underline'      
+      .mt-6 
+        .relative 
+          .absolute.inset-0.flex.items-center 
+            .w-full.border-t.border-gray-300 
+          .relative.flex.justify-center.text-md 
+            %span.px-2.bg-white.text-gray-500
+              Need to create an account?
+      .mt-4.sm:mx-auto.sm:w-full.sm:max-w-md.text-center          
+        - if devise_mapping.registerable? && controller_name != 'registrations'
+          = link_to t('navigation.sign_up'), new_registration_path(resource_name), class: 'text-md font-medium text-indigo-600 hover:text-indigo-500 underline'      
     -# = render 'devise/shared/links'
