@@ -1,5 +1,5 @@
 !!!
-%html
+%html.h-full.bg-gray-50
   %head
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'admin/application', 'data-turbolinks-track': 'reload'
@@ -10,12 +10,13 @@
     = stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Lato:400,700'
     = stylesheet_link_tag 'admin/application', media: 'all'
     = stylesheet_pack_tag 'application'
+    = stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload"
     = csrf_meta_tags
     = yield(:head)
-  %body{ class: "#{controller_name} #{action_name} h-full" }
+  %body{ class: "#{controller_name} #{action_name}" }
     = render 'admin/shared/navigation'
     #main{ role: 'main' }
-      .content
+      .h-full
         = render 'shared/messages'
         = yield
     = render 'admin/shared/footer'
