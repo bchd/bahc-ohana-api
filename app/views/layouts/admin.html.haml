@@ -1,5 +1,5 @@
 !!!
-%html.h-full
+%html
   %head
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'admin/application', 'data-turbolinks-track': 'reload'
@@ -16,7 +16,9 @@
   %body{ class: "#{controller_name} #{action_name}" }
     = render 'admin/shared/navigation'
     #main{ role: 'main' }
-      .h-full
-        = render 'shared/messages'
-        = yield
+      .content.h-full
+        .placeholder
+          .placeholder
+            = render 'shared/messages'
+            = yield
     = render 'admin/shared/footer'
