@@ -12,10 +12,11 @@ import alerts from 'app/alerts';
 // which correspond to the 'inline' display modes available through Google.
 // The 'tabbed' and 'auto' display modes are not supported.
 // The 'inline' InlineLayout.SIMPLE layout is also not supported.
-googleTranslate.init(googleTranslate.InlineLayout.VERTICAL);
-
-// If page is not translated, initialize the header popups.
-if (!googleTranslate.isTranslated())
-  popups.init();
-
-alerts.init();
+document.addEventListener('turbolinks:load', () => {
+  googleTranslate.init(googleTranslate.InlineLayout.VERTICAL)
+  // If page is not translated, initialize the header popups
+  if (!googleTranslate.isTranslated()) {
+    popups.init();
+  }
+  alerts.init();
+})
