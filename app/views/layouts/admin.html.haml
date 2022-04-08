@@ -14,6 +14,8 @@
     = yield(:head)
   %body{ class: "#{controller_name} #{action_name}" }
     = render 'admin/shared/navigation'
+    = render 'shared/alert'
+    = render 'shared/environment_variables'
     #main{ role: 'main' }
       .content
         .container
