@@ -27,7 +27,7 @@
   @include box-sizing(border-box);
   @include rounded-except(none);
   border: 1px;
-  background: $button-bg;
+  background-color: $button-bg !important;
   font-size: $font_size_110;
   font-weight: bold;
   vertical-align: middle;

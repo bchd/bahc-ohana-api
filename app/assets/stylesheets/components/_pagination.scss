@@ -2,7 +2,6 @@
 .pagination
 {
   text-align: left;
-  @include inline-block();
 
   > h1,ul,li
   {
