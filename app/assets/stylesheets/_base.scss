@@ -231,8 +231,8 @@ ul {
   }
 
   img {
-    max-width: 80px;
-    padding: .4em;
+    width: 80px;
+    margin: .2em;
   }
 }
 
@@ -361,10 +361,15 @@ body {
 .inside #search-container {
   float: left;
   vertical-align: top;
-  width: 250px;
+  width: 285px;
   min-height: 1000px;
   height: auto;
   padding: 1rem;
+
+  hr {
+    margin-top: .4em;
+    margin-bottom: .6em;
+  }
 }
 
 .home-page-or {
@@ -814,9 +819,9 @@ body {
         color: #222222;
         font-family: Lato;
         font-weight: 500;
-        font-size: 14px;
+        font-size: 16px;
         background-color: #FFC247;
-        width: 200px;
+        width: 240px;
         margin-top: -20px;
         margin-left: -10px;
         border-bottom-right-radius: 8px;
@@ -1009,7 +1014,7 @@ body {
 
 .tooltip .tooltiptext {
   visibility: hidden;
-  width: 250px;
+  width: 290px;
   background-color: #222222;
   color: #ffffff;
   text-align: center;
