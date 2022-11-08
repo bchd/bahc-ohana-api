@@ -142,12 +142,11 @@ ul {
   > header {
     position: relative;
     z-index: 9999;
-
+    vertical-align: middle;
     width: 100%;
     background: rgba($blue, .05);
     @include box-sizing(border-box);
 
-    font-size: $font_size_100;
     padding: .2em;
 
     h1 {
@@ -161,6 +160,8 @@ ul {
         font-size: $font_size_115;
         font-weight: 500;
         font-family: $font_sans_serif;
+        position: relative;
+        bottom: 20px;
         @include inline-block();
         margin-left: 14px;
         padding-right: 15px;
@@ -230,8 +231,8 @@ ul {
   }
 
   img {
-    max-width: 80px;
-    padding: .4em;
+    width: 80px;
+    margin: .2em;
   }
 }
 
@@ -360,10 +361,15 @@ body {
 .inside #search-container {
   float: left;
   vertical-align: top;
-  width: 250px;
+  width: 285px;
   min-height: 1000px;
   height: auto;
   padding: 1rem;
+
+  hr {
+    margin-top: .4em;
+    margin-bottom: .6em;
+  }
 }
 
 .home-page-or {
@@ -565,7 +571,7 @@ body {
   top: 400px;
   right: 0;
   z-index: 9999;
-  min-height: 45px;
+  max-height: 45px;
   font-family: $font_sans_serif;
   background: $greyscale_lightest;
   width: 100%;
@@ -813,9 +819,9 @@ body {
         color: #222222;
         font-family: Lato;
         font-weight: 500;
-        font-size: 1em;
+        font-size: 16px;
         background-color: #FFC247;
-        width: 190px;
+        width: 240px;
         margin-top: -20px;
         margin-left: -10px;
         border-bottom-right-radius: 8px;
@@ -1008,7 +1014,7 @@ body {
 
 .tooltip .tooltiptext {
   visibility: hidden;
-  width: 250px;
+  width: 290px;
   background-color: #222222;
   color: #ffffff;
   text-align: center;

@@ -168,7 +168,7 @@ function _getSearchResults(e){
         }
 
         //remove layout=false from pagination hrefs
-        $('a').each(function(){ 
+        $('nav a').each(function(){ 
             var oldUrl = $(this).attr("href");
             var newUrl = oldUrl.replace("&layout=false", ""); 
             $(this).attr("href", newUrl); 
