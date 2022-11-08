@@ -1,7 +1,6 @@
 // Manages the application initialization for all pages.
 
 import googleTranslate from 'app/util/translation/google-translate';
-import popups from 'app/popup/popups';
 import alerts from 'app/alerts';
 
 // The google-translate script handles loading of the
@@ -14,9 +13,5 @@ import alerts from 'app/alerts';
 // The 'inline' InlineLayout.SIMPLE layout is also not supported.
 document.addEventListener('turbolinks:load', () => {
   googleTranslate.init(googleTranslate.InlineLayout.VERTICAL)
-  // If page is not translated, initialize the header popups
-  if (!googleTranslate.isTranslated()) {
-    popups.init();
-  }
   alerts.init();
 })
