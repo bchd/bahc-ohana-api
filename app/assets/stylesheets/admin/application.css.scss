@@ -11,6 +11,8 @@
  * file per style scope.
  *
  *= require select2
+ *= require select2-bootstrap
+ *= require framework_and_overrides
  *= require simplemde.min
  *= require_self
  */
@@ -55,11 +57,8 @@
   }
 
   .navbar-nav {
-    padding-bottom: 15px;
-    
     li {
       display: inline;
-      margin: 10px;
     }
 
     li > a {
