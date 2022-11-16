@@ -16,6 +16,7 @@ module.exports = {
       },
       colors: {
         'bchd-teal': '#007FAA',
+        'bchd-dark-teal': '#005875'
       },
     },
   },

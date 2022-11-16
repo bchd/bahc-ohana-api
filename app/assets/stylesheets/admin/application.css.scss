@@ -458,3 +458,8 @@ a.boxed-action:active {
   display: none;
 }
 
+.required > label:after {
+  content: ' *';
+  display:inline;
+}
+

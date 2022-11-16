@@ -1,7 +1,5 @@
-.inst-box
-  %header
+.py-4.sm:grid.sm:grid-cols-3.sm:gap-4.sm:py-5.border-b.border-gray-300
+  %header.required
     = f.label :name
-  = field_set_tag do
-    .row
-      .col-sm-6
-        = f.text_field :name, required: false, maxlength: 255, class: 'form-control'
+  .sm:col-span-2.max-w-lg
+    = f.text_field :name, required: false, maxlength: 255, class: 'form-control rounded-md border-gray-400 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm h-9'

@@ -4,19 +4,20 @@
     %ul
       - organization.errors.full_messages.each do |msg|
         %li= msg
-
+%h2.text-xl.underline.decoration-bchd-teal.underline-offset-4 General Information
 = render 'admin/shared/forms/name', f: f
 = render 'admin/shared/forms/alternate_name', f: f
 = render 'admin/organizations/forms/accreditations', f: f, organization: organization
 -# = render 'admin/organizations/forms/date_incorporated', f: f
 = render 'admin/organizations/forms/description', f: f
-= render 'admin/shared/forms/email', f: f
+= render 'admin/organizations/forms/legal_status', f: f
+= render 'admin/organizations/forms/tax_status', f: f
 -# = render 'admin/shared/forms/funding_sources', f: f
 = render 'admin/shared/forms/tags', f: f
-= render 'admin/organizations/forms/legal_status', f: f
-= render 'admin/locations/index', organization: organization
+-# = render 'admin/locations/index', organization: organization
 -# = render 'admin/organizations/forms/licenses', f: f, organization: organization
 -# = render 'admin/organizations/forms/tax_id', f: f
-= render 'admin/organizations/forms/tax_status', f: f
+%h2.text-xl.underline.decoration-bchd-teal.underline-offset-4.mt-6 Contact Information
 = render 'admin/shared/forms/website', f: f
+= render 'admin/shared/forms/email', f: f
 = render 'admin/locations/forms/phones', f: f

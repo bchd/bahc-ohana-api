@@ -9,7 +9,7 @@ class Admin
       link_to(
         name,
         '#',
-        class: 'add-fields btn btn-primary', data: { id: id, fields: fields.gsub('\n', '') }
+        class: 'add-fields text-bchd-dark-teal underline decoration-bchd-teal underline-offset-4', data: { id: id, fields: fields.gsub('\n', '') }
       )
     end
 
