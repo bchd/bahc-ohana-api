@@ -29,8 +29,8 @@ Rails.application.routes.draw do
       resources :contacts, except: %i[show index]
     end
 
-    resources :organizations do
-      resources :contacts, except: %i[index], controller: "organization_contacts"
+    resources :organizations, except: :show do
+      resources :contacts, except: %i[show index], controller: "organization_contacts"
     end
     resources :programs, except: :show
     resources :services, only: :index
