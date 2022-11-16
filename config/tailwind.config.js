@@ -12,7 +12,10 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Inter var', ...defaultTheme.fontFamily.sans],
+        sans: ['Lato', ...defaultTheme.fontFamily.sans],
+      },
+      colors: {
+        'bchd-teal': '#007FAA',
       },
     },
   },
