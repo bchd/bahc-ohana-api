@@ -113,5 +113,9 @@ class Admin
     def weekday_select_field
       WEEKDAYS.each_with_index.map { |day, i| [day, i + 1] }
     end
+
+    def input_field_classes
+      "form-control rounded-md border-gray-400 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm h-9"
+    end  
   end
 end
