@@ -1,6 +1,7 @@
-.authform
-  = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { role: 'form' }) do |f|
-    %h3 Sign up
+.authform.devise
+  = content_tag(:span, nil, class: 'fa fa-users fa-3x', style: "display: block")  
+  = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { role: 'form', class: 'form' }) do |f|
+    %h2 Sign up
     = render 'devise/shared/error_messages', resource: resource
     .form-group
       = f.label :name
@@ -15,5 +16,5 @@
       = f.label :password_confirmation
       = f.password_field :password_confirmation, autocomplete: 'off', class: 'form-control'
     = f.submit t('navigation.sign_up'), class: 'button right'
-    %br
+  %br
   = render 'devise/shared/links'
