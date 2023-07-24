@@ -96,9 +96,9 @@ module Features
       end
     end
 
-    def have_editor_display(options)
+    def have_editor_display(**options)
       editor_display_locator = ".CodeMirror-code"
-      have_css(editor_display_locator, options)
+      have_css(editor_display_locator, **options)
     end
 
     def add_two_keywords

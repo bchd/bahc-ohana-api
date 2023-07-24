@@ -5,7 +5,7 @@
   "repository": "https://github.com/bchd/bahc-ohana-api.git",
   "engines": {
     "yarn": "1.x",
-    "node": "16.x"
+    "node": "18.x"
   },
   "dependencies": {
     "@rails/webpacker": "5.4.3",

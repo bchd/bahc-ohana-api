@@ -7,11 +7,11 @@ orbs:
 jobs:
   setup:
     docker:
-      - image: cimg/ruby:2.7.5
+      - image: cimg/ruby:3.0.6
     steps:
       - checkout
       - node/install:
-          node-version: 16.13.0
+          node-version: 18.16.0
           install-yarn: true
       - run: cp .circleci/database.yml config/database.yml
       - run: gem install bundler --conservative
@@ -36,7 +36,7 @@ jobs:
 
   webpack:
     docker:
-      - image: cimg/ruby:2.7.5
+      - image: cimg/ruby:3.0.6
     environment:
       ASSET_HOST: example.com
       DEFAULT_PER_PAGE: '30'
@@ -45,11 +45,12 @@ jobs:
       RAILS_ENV: test
       OHANA_API_ENDPOINT: http://ohana-api-test.herokuapp.com/api
       ELASTICSEARCH_URL: http://elastic:password@localhost:9200/ # This gets set in chewy.rb file.
+      NODE_OPTIONS: --openssl-legacy-provider
       ADMIN_APP_TOKEN: testing123
     steps:
       - checkout
       - node/install:
-          node-version: 16.13.0
+          node-version: 18.16.0
           install-yarn: true
       - run: cp .circleci/database.yml config/database.yml
       - run: gem install bundler --conservative
@@ -76,11 +77,11 @@ jobs:
   specs:
     resource_class: medium
     docker:
-      - image: cimg/ruby:2.7.5
+      - image: cimg/ruby:3.0.6
         environment:
           PGHOST: 127.0.0.1
           PGUSER: root
-      - image: circleci/postgres:12-postgis
+      - image: cimg/postgres:12.12-postgis
         environment:
           POSTGRES_DB: ohana_api_test
           POSTGRES_USER: root
@@ -99,11 +100,12 @@ jobs:
       PSQL_PAGER: ''
       OHANA_API_ENDPOINT: http://ohana-api-test.herokuapp.com/api
       ELASTICSEARCH_URL: http://elastic:password@localhost:9200/ # This gets set in chewy.rb file.
+      NODE_OPTIONS: --openssl-legacy-provider
       ADMIN_APP_TOKEN: testing123
     steps:
       - checkout
       - node/install:
-          node-version: 16.13.0
+          node-version: 18.16.0
           install-yarn: true
       - browser-tools/install-chrome
       - browser-tools/install-chromedriver

@@ -1,16 +1,18 @@
 class Admin
   class AnalyticsController < ApplicationController
-    include Analytics
-
     before_action :authenticate_admin!
     before_action :set_start_and_end_dates
 
     layout 'admin'
 
     def index
-      @ui_analytics = get_ui_analytics
-      @total_homepage_views = @ui_analytics['total_homepage_views']
-      @new_homepage_views = @ui_analytics['new_homepage_views']
+      @start_date = DateTime.parse(params[:start_date] || '') rescue DateTime.today - 1.month
+      @end_date = DateTime.parse(params[:end_date] || '') rescue DateTime.today
+
+      @total_homepage_views = Ahoy::Visit.where(landing_page: root_url).count
+      @new_homepage_views = Ahoy::Visit.
+        where(landing_page: root_url).
+        where(started_at: @start_date..@end_date).count
 
       @organizations_count = Organization.all.count
       @new_org_count = Organization.where(created_at: @start_date.beginning_of_day..@end_date.end_of_day).count
