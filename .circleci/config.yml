@@ -45,7 +45,6 @@ jobs:
       RAILS_ENV: test
       OHANA_API_ENDPOINT: http://ohana-api-test.herokuapp.com/api
       ELASTICSEARCH_URL: http://elastic:password@localhost:9200/ # This gets set in chewy.rb file.
-      NODE_OPTIONS: --openssl-legacy-provider
       ADMIN_APP_TOKEN: testing123
     steps:
       - checkout
@@ -100,7 +99,6 @@ jobs:
       PSQL_PAGER: ''
       OHANA_API_ENDPOINT: http://ohana-api-test.herokuapp.com/api
       ELASTICSEARCH_URL: http://elastic:password@localhost:9200/ # This gets set in chewy.rb file.
-      NODE_OPTIONS: --openssl-legacy-provider
       ADMIN_APP_TOKEN: testing123
     steps:
       - checkout
