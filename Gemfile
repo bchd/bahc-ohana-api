@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '3.0.6'
+ruby '3.2.2'
 
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'active_data'
@@ -26,7 +26,7 @@ gem 'kaminari', '~> 1.1'
 gem 'listen'
 gem 'kgio'
 gem 'memcachier'
-gem 'nokogiri', '~> 1.12.0'
+gem 'nokogiri', '~> 1.15.0'
 gem 'pg'
 gem 'puma'
 gem 'pundit'

@@ -20,7 +20,7 @@ let
 
     pkgs.postgresql_15
 
-    pkgs.ruby_3_0
+    pkgs.ruby_3_2
     pkgs.bundler
     pkgs.nodejs_18
     pkgs.yarn
