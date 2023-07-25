@@ -36,7 +36,7 @@ direnv allow
 bundle
 rails db:create db:migrate db:test:prepare
 yarn install
-rails server
+./bin/dev
 ```
 
 Now you can visit [`localhost:3000`](http://localhost:3000) from your browser.
