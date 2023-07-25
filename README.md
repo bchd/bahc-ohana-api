@@ -6,14 +6,14 @@ It is based off of [Ohana API](https://github.com/codeforamerica/ohana-api).
 
 ## Stack Overview
 
-* Ruby version 2.7.5
+* Ruby version 3.2.2
 * Rails version 7
 * PostgreSQL 14
 * Elasticsearch version 7
 
 ## Setup
 
-Install PostgreSQL through [Postgres.app](https://postgresapp.com/). Make sure to have **PostgreSQL 14**.
+Install PostgreSQL through [Postgres.app](https://postgresapp.com/). Make sure to have **PostgreSQL 14** or higher.
 
 Start Elasticsearch via docker with the following command:
 
