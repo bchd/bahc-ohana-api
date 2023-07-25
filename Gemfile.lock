@@ -257,6 +257,7 @@ GEM
     flamegraph (0.9.5)
     font-awesome-rails (4.7.0.8)
       railties (>= 3.2, < 8.0)
+    foreman (0.87.2)
     friendly_id (5.4.2)
       activerecord (>= 4.0.0)
     gems (1.2.0)
@@ -594,6 +595,7 @@ DEPENDENCIES
   fastimage
   flamegraph
   font-awesome-rails
+  foreman
   friendly_id (~> 5.0)
   geocoder
   google-api-client (~> 0.9)

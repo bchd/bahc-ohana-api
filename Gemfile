@@ -70,6 +70,7 @@ group :test do
 end
 
 group :development do
+  gem 'foreman'
   gem 'better_errors', '>= 0.7.2'
   gem 'binding_of_caller'
   gem 'bummr', git: 'https://github.com/lpender/bummr.git', ref: '8eb0e4e984eeb2971a97a7259c5ce7592c30ebab'
