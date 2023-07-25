@@ -372,9 +372,9 @@ GEM
     net-smtp (0.3.3)
       net-protocol
     nio4r (2.5.9)
-    nokogiri (1.12.5-arm64-darwin)
+    nokogiri (1.15.3-arm64-darwin)
       racc (~> 1.4)
-    nokogiri (1.12.5-x86_64-linux)
+    nokogiri (1.15.3-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
     os (1.1.4)
@@ -609,7 +609,7 @@ DEPENDENCIES
   listen
   marcel
   memcachier
-  nokogiri (~> 1.12.0)
+  nokogiri (~> 1.15.0)
   pg
   poltergeist
   pry-rails
@@ -641,7 +641,7 @@ DEPENDENCIES
   webpacker (~> 5.1, >= 5.1.1)
 
 RUBY VERSION
-   ruby 3.0.6p216
+   ruby 3.2.2p53
 
 BUNDLED WITH
-   2.3.6
+   2.4.17
