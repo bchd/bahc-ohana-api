@@ -6,9 +6,6 @@ class Admin
     layout 'admin'
 
     def index
-      @start_date = DateTime.parse(params[:start_date] || '') rescue DateTime.today - 1.month
-      @end_date = DateTime.parse(params[:end_date] || '') rescue DateTime.today
-
       @total_homepage_views = Ahoy::Visit.where(landing_page: root_url).count
       @new_homepage_views = Ahoy::Visit.
         where(landing_page: root_url).
