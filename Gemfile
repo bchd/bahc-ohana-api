@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.7.5'
+ruby '3.0.6'
 
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'active_data'
@@ -26,6 +26,7 @@ gem 'kaminari', '~> 1.1'
 gem 'listen'
 gem 'kgio'
 gem 'memcachier'
+gem 'nokogiri', '~> 1.12.0'
 gem 'pg'
 gem 'puma'
 gem 'pundit'
@@ -48,18 +49,11 @@ gem 'marcel'
 gem 'fastimage'
 gem 'webpacker', '~> 5.1', '>= 5.1.1'
 
-#
-# Very important!
-#
-# mimemagic is GPL now *except* for this version
-# Keep pinned here until https://github.com/rails/rails/issues/41750 is resolved
-gem 'mimemagic', '0.3.7'
-
 group :test, :development do
   gem 'bullet'
   gem 'byebug'
   gem 'factory_bot_rails'
-  gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
+  gem 'faker', git: 'https://github.com/faker-ruby/faker.git', ref: '91950218dd39119e420ca431fc9fae09b53986c7'
   gem 'rspec-its'
   gem 'rspec-rails', '~> 4.0'
 end
@@ -70,7 +64,7 @@ group :test do
   gem 'poltergeist'
   gem 'rails-controller-testing'
   gem 'selenium-webdriver'
-  gem 'shoulda-matchers', git: 'https://github.com/thoughtbot/shoulda-matchers.git'
+  gem 'shoulda-matchers', git: 'https://github.com/thoughtbot/shoulda-matchers.git', ref: '206d2dae4c3bad8b6450a1762d06d315c35801aa'
   gem 'simplecov', require: false
   gem 'webmock'
 end
@@ -78,7 +72,7 @@ end
 group :development do
   gem 'better_errors', '>= 0.7.2'
   gem 'binding_of_caller'
-  gem 'bummr', git: 'https://github.com/lpender/bummr.git'
+  gem 'bummr', git: 'https://github.com/lpender/bummr.git', ref: '8eb0e4e984eeb2971a97a7259c5ce7592c30ebab'
   gem 'derailed'
   gem 'flamegraph'
   gem 'letter_opener'

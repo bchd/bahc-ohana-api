@@ -1,17 +1,17 @@
 version: 2.1
 
 orbs:
-  browser-tools: circleci/browser-tools@1.1.3
-  node: circleci/node@4.7.0
+  browser-tools: circleci/browser-tools@1.4.3
+  node: circleci/node@5.1.0
 
 jobs:
   setup:
     docker:
-      - image: cimg/ruby:2.7.5
+      - image: cimg/ruby:3.0.6
     steps:
       - checkout
       - node/install:
-          node-version: 16.13.0
+          node-version: 18.16.0
           install-yarn: true
       - run: cp .circleci/database.yml config/database.yml
       - run: gem install bundler --conservative
@@ -36,7 +36,7 @@ jobs:
 
   webpack:
     docker:
-      - image: cimg/ruby:2.7.5
+      - image: cimg/ruby:3.0.6
     environment:
       ASSET_HOST: example.com
       DEFAULT_PER_PAGE: '30'
@@ -44,12 +44,13 @@ jobs:
       MAX_PER_PAGE: '50'
       RAILS_ENV: test
       OHANA_API_ENDPOINT: http://ohana-api-test.herokuapp.com/api
+      NODE_OPTIONS: --openssl-legacy-provider
       ELASTICSEARCH_URL: http://elastic:password@localhost:9200/ # This gets set in chewy.rb file.
       ADMIN_APP_TOKEN: testing123
     steps:
       - checkout
       - node/install:
-          node-version: 16.13.0
+          node-version: 18.16.0
           install-yarn: true
       - run: cp .circleci/database.yml config/database.yml
       - run: gem install bundler --conservative
@@ -76,11 +77,11 @@ jobs:
   specs:
     resource_class: medium
     docker:
-      - image: cimg/ruby:2.7.5
+      - image: cimg/ruby:3.0.6
         environment:
           PGHOST: 127.0.0.1
           PGUSER: root
-      - image: circleci/postgres:12-postgis
+      - image: cimg/postgres:12.12-postgis
         environment:
           POSTGRES_DB: ohana_api_test
           POSTGRES_USER: root
@@ -100,10 +101,11 @@ jobs:
       OHANA_API_ENDPOINT: http://ohana-api-test.herokuapp.com/api
       ELASTICSEARCH_URL: http://elastic:password@localhost:9200/ # This gets set in chewy.rb file.
       ADMIN_APP_TOKEN: testing123
+      NODE_OPTIONS: --openssl-legacy-provider
     steps:
       - checkout
       - node/install:
-          node-version: 16.13.0
+          node-version: 18.16.0
           install-yarn: true
       - browser-tools/install-chrome
       - browser-tools/install-chromedriver
@@ -131,6 +133,7 @@ jobs:
       - run: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run: dockerize -wait tcp://localhost:9200 -timeout 1m
       - run: ./bin/rails db:drop db:create db:migrate
+      - run: unset NODE_OPTIONS && ./bin/rails tailwindcss:build # build tailwind before tests run
       - run: bundle exec rspec --format documentation --color
 
 workflows:
