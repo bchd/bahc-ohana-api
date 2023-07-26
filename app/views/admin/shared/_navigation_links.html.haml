@@ -1,5 +1,7 @@
 - if admin_signed_in?
   %li
+    = link_to t('admin.buttons.dashboard'), admin_dashboard_path
+  %li
     = link_to t('admin.buttons.organizations'), admin_organizations_path
   %li
     = link_to t('admin.buttons.locations'), admin_locations_path
@@ -19,8 +21,3 @@
       = link_to "Analytics", admin_analytics_path
     %li
       = link_to "Tags", admin_tags_path
-
-  %li
-    = link_to t('navigation.sign_out'), destroy_admin_session_path, method: 'delete'
-  %li
-    = link_to tag.div("#{current_admin.name[0].upcase}", class: 'edit-account'), edit_admin_registration_path

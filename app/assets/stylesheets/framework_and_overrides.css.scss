@@ -6,7 +6,10 @@ $grid-float-breakpoint: 960px;
 @import 'bootstrap';
 @import 'variables';
 
-
+html {
+  font-size: 16px;
+  font-family: 'Lato', sans-serif !important;
+}
 .content {
   font-size: 16px;
   line-height: 1.428;

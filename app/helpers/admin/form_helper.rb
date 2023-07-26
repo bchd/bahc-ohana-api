@@ -9,7 +9,7 @@ class Admin
       link_to(
         name,
         '#',
-        class: 'add-fields btn btn-primary', data: { id: id, fields: fields.gsub('\n', '') }
+        class: 'add-fields text-bchd-dark-teal underline decoration-bchd-teal underline-offset-4', data: { id: id, fields: fields.gsub('\n', '') }
       )
     end
 
@@ -113,5 +113,9 @@ class Admin
     def weekday_select_field
       WEEKDAYS.each_with_index.map { |day, i| [day, i + 1] }
     end
+
+    def input_field_classes
+      "form-control rounded-md border-gray-400 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm h-9"
+    end  
   end
 end

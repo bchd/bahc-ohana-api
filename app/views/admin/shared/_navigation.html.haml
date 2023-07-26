@@ -1,8 +1,8 @@
-%header.navbar.navbar-default.navbar-fixed-top
-  .container
+%header
+  .navbar-default.navbar
     .navbar-header
       #logo
-        %a{ href: '/', target: '_self' }
+        %a{ href: '/admin', target: '_self' }
           %img{ src: asset_path(SETTINGS[:site_logo]), alt: "#{t('titles.brand')} Logo" }
       = button_tag type: 'button', class: 'navbar-toggle', data: { toggle: 'collapse', target: '.navbar-collapse' } do
         %span.sr-only
@@ -11,7 +11,13 @@
         %span.icon-bar
         %span.icon-bar
       = link_to t('titles.admin'),
-                admin_dashboard_url, class: 'navbar-brand'
+                admin_dashboard_url, class: 'navbar-brand hide'
     %nav.collapse.navbar-collapse
       %ul.nav.navbar-nav
         = render 'admin/shared/navigation_links'
+      %ul.nav.navbar-nav.navbar-right
+        - if admin_signed_in?
+          %li
+            = link_to t('navigation.sign_out'), destroy_admin_session_path, method: 'delete'
+          %li
+            = link_to tag.div("#{current_admin.name[0].upcase}", class: 'edit-account'), edit_admin_registration_path  

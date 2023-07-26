@@ -1,12 +1,12 @@
-.inst-box.phones
+.phones.py-4.sm:grid.sm:grid-cols-3.sm:gap-4.sm:py-5.border-b.border-gray-300
   %header
     %strong
       Phone Numbers
     - unless f.object.class == Contact
-      %p.desc
+      %p.desc.text-sm
         %em
           = t('.description')
-
-  = f.fields_for :phones do |builder|
-    = render 'admin/locations/forms/phone_fields', f: builder
-  = link_to_add_fields t('admin.buttons.add_phone'), f, :phones
+  .sm:col-span-2.max-w-lg
+    = f.fields_for :phones do |builder|
+      = render 'admin/locations/forms/phone_fields', f: builder
+    = link_to_add_fields t('admin.buttons.add_phone'), f, :phones

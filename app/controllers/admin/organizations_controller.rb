@@ -5,6 +5,10 @@ class Admin
 
     include Searchable
 
+    def show
+      @organization = Organization.find(params[:id])
+    end  
+
     def index
       @search_terms = search_params(params)
 

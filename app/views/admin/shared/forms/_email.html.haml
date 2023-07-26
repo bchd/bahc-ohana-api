@@ -1,10 +1,8 @@
-.inst-box
+.py-4.sm:grid.sm:grid-cols-3.sm:gap-4.sm:py-5.border-b.border-gray-300
   %header
-    = f.label :contact_info, 'Contact Info'
-    %p.desc
-      = t('.description', type: f.object.model_name.human.downcase)
+    = f.label :contact_info, 'Contact Email'
+    -#%p.desc
+    -#  = t('.description', type: f.object.model_name.human.downcase)
 
-  = field_set_tag do
-    .row
-      .col-sm-6
-        = f.email_field :email, required: false, maxlength: 255, class: 'form-control'
+  .sm:col-span-2.max-w-lg
+    = f.email_field :email, required: false, maxlength: 255, class: input_field_classes

@@ -1,12 +1,12 @@
-.inst-box.funding_sources
+.py-4.sm:grid.sm:grid-cols-3.sm:gap-4.sm:py-5.border-b.border-gray-300
   %header
     %strong
       = f.label :tags
 
-  = field_set_tag do
+  .sm:col-span-2.max-w-lg
     = select_tag "#{f.object.model_name.singular}[tag_list][]",
       options_for_select(Tag.pluck(:name), f.object.tags.pluck(:name)),
-      id: 'taggable', class: 'form-control', multiple: true
+      id: 'taggable', class: 'form-control rounded-md border-gray-300! focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm h-9', multiple: true
 
 :javascript
   var tags = #{raw (Tag.pluck(:name)).to_json}

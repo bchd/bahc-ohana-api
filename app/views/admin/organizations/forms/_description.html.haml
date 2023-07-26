@@ -1,8 +1,8 @@
-.inst-box
-  %header
+.py-4.sm:grid.sm:grid-cols-3.sm:gap-4.sm:py-5.border-b.border-gray-300
+  %header.required
     = f.label :description
-    %span.desc
+    .desc
       = t('.description')
 
-  = field_set_tag do
-    = f.text_area :description, required: false, class: 'form-control', rows: 10
+  .sm:col-span-2.max-w-lg
+    = f.text_area :description, required: false, class: 'form-control text-sm', rows: 6
