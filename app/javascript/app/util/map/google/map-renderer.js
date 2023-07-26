@@ -1,11 +1,11 @@
 // Manages search results view Google Map.
-import markers from 'app/util/map/markers.js';
-import markerDataLoader from 'app/util/map/marker-data-loader';
-import MapDOM from 'app/util/map/google/MapDOM';
-import infoBoxManager from 'app/util/map/google/infobox-manager';
+import markers from '../../map/markers.js';
+import markerDataLoader from '../../map/marker-data-loader';
+import MapDOM from '../../map/google/MapDOM';
+import infoBoxManager from '../../map/google/infobox-manager';
 
 const { InfoBox } = require("google-maps-infobox");
-const { OverlappingMarkerSpiderfier } = require('app/util/map/google/oms.min');
+const { OverlappingMarkerSpiderfier } = require('../../map/google/oms.min');
 
 // Module instance with map DOM and google.maps.Map instance references.
 var _mapDOM;

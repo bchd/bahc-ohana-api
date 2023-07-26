@@ -1,7 +1,7 @@
 // Manages behavior of the Google Website Translator Gadget.
-import util from 'app/util/util';
-import cookie from 'app/util/cookie';
-import DropDownLayout from 'app/util/translation/layout/DropDownLayout';
+import util from '../util';
+import cookie from '../cookie';
+import DropDownLayout from '../translation/layout/DropDownLayout';
 
 // The layout object in use.
 var _layout;

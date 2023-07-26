@@ -1,6 +1,6 @@
 // Handles search filter functionality.
-import TextInput from 'app/search/filter/TextInput';
-import map from 'app/result/result-map';
+import TextInput from './TextInput';
+import map from '../../result/result-map';
 
 // The search filters.
 var _keyword;

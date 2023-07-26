@@ -72,7 +72,7 @@ jobs:
       - save_cache:
           paths: node_modules
           key: v1-yarn-cache-{{ .Branch }}-{{ checksum "yarn.lock" }}
-      - run: RAILS_ENV=test bundle exec rails webpacker:compile
+      - run: RAILS_ENV=test yarn build --progress --color 
 
   specs:
     resource_class: medium

@@ -1,7 +1,7 @@
 // Manages the application initialization for all pages.
 
-import googleTranslate from 'app/util/translation/google-translate';
-import alerts from 'app/alerts';
+import googleTranslate from './util/translation/google-translate';
+import alerts from './alerts';
 
 // The google-translate script handles loading of the
 // Google Website Translator Gadget at the bottom of the page's body.

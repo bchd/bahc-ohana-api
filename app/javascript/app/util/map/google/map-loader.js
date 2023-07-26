@@ -1,5 +1,5 @@
 // Used for asynchronously loading Google Maps APIs.
-import envVars from 'app/util/environmentVariables';
+import envVars from '../../environmentVariables';
 
 // @param callback [Function]
 //   A function to call when the maps scripts have loaded.

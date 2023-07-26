@@ -47,7 +47,7 @@ gem 'image_processing', '~> 1.10'
 gem 'uppy-s3_multipart', '>= 0.3.2'
 gem 'marcel'
 gem 'fastimage'
-gem 'webpacker', '~> 5.1', '>= 5.1.1'
+gem 'jsbundling-rails'
 
 group :test, :development do
   gem 'bullet'
