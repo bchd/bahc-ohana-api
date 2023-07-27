@@ -134,6 +134,7 @@ jobs:
       - run: dockerize -wait tcp://localhost:9200 -timeout 1m
       - run: ./bin/rails db:drop db:create db:migrate
       - run: unset NODE_OPTIONS && ./bin/rails tailwindcss:build # build tailwind before tests run
+      - run: yarn build
       - run: bundle exec rspec --format documentation --color
 
 workflows:
