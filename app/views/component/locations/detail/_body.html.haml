@@ -234,9 +234,11 @@
 
   function initPrintButton() {
     _printButton = document.querySelector('.button-print');
-    // Set event on print button and show the button.
-    _printButton.addEventListener('click', _clickPrintButton, false);
-    _printButton.classList.remove('hide');
+    if(_printButton) {
+      // Set event on print button and show the button.
+      _printButton.addEventListener('click', _clickPrintButton, false);
+      _printButton.classList.remove('hide');
+    }
   }
 
   // Issue print command when print button is clicked.

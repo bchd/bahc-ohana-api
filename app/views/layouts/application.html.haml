@@ -10,7 +10,9 @@
     = render 'shared/google_analytics/page_tracking'
     = render 'shared/hotjar'
     = render 'shared/head'
+    = javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{ENV['GOOGLE_MAPS_API_KEY']}"
     = javascript_include_tag 'application', 'jquery', 'data-turbolinks-track': true
+    = javascript_include_tag 'application_pack', 'data-turbolinks-track': true
 
   %body{ class: "#{controller_name == 'home' ? '' : 'inside '}#{controller_name} #{action_name}" }
     = render 'shared/google_analytics/tag_manager_iframe'
@@ -26,6 +28,3 @@
       = render 'shared/google_analytics/event_tracking'
 
     = render 'shared/environment_variables'
-    = render 'shared/messages'
-    = javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{ENV['GOOGLE_MAPS_API_KEY']}"
-    = javascript_include_tag 'application_pack'
