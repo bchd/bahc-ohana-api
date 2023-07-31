@@ -19,14 +19,16 @@ feature 'Archive a service' do
     assert page.has_css?('.archive-btn')
   end
 
-  scenario 'by select all', js: true do
+  scenario 'by select all', js: true, debt: true do
     login_super_admin
     visit '/admin/services'
+
     check "Select all on page"
 
-    click_button I18n.t('admin.buttons.batch_archive_services')
-    page.accept_alert
+    accept_alert("Are you sure you want to archive the selected items?") do
+      click_button I18n.t('admin.buttons.batch_archive_services')
+    end
 
-    expect(page).to have_content 'Archive successful.'
+    assert page.has_content?('Archive successful.')
   end
 end
