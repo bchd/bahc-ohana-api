@@ -1,21 +1,17 @@
 .authform.devise
-  - if request.host == 'ohana-api-demo.herokuapp.com' && resource.is_a?(Admin)
-    To try out the admin interface, sign in with one of these
-    #{link_to 'three demo emails and passwords', 'https://github.com/codeforamerica/ohana-api/blob/master/db/seeds.rb#L24-43'}.
-
-  = content_tag(:span, nil, class: 'fa fa-key fa-3x', style: "display: block")  
+  - if resource.class.name == User.name
+    = content_tag(:span, nil, class: 'fa fa-key fa-3x', style: "display: block")
 
   = form_for(resource, as: resource_name, url: session_path(resource_name), html: { role: 'form', class: 'form' }) do |f|
-    %h2
-      Login
+    %h2 Login
     .form-group
       = f.label :email
       %br
-      = f.email_field :email, autofocus: true, class: ''
+      = f.email_field :email, autofocus: true, class: 'form-control'
     .form-group
       = f.label :password
       %br
-      = f.password_field :password, autocomplete: 'off', class: ''
+      = f.password_field :password, autocomplete: 'off', class: 'form-control'
 
     .form-group
       = f.check_box :remember_me
@@ -23,5 +19,5 @@
 
     = f.submit "Let's go!", class: 'button'
 
-  %br  
+  %br
   = render 'devise/shared/links'
