@@ -2,3 +2,17 @@
   %div#footer-container
     %img#app-footer{ src: asset_path(SETTINGS[:bchd_logo]) }
     #google-translate-container
+    // Add Google Translate script callback
+    :javascript
+      // Initialize the Google Website Translator Gadget.
+      function googleTranslateElementInit() {
+        if (document.getElementById('google-translate-container').innerHTML == '') {
+          var gadgetOptions = {
+            pageLanguage: 'en',
+            layout: google.translate.TranslateElement.InlineLayout.VERTICAL,
+            autoDisplay: false
+          };
+          new google.translate.TranslateElement(gadgetOptions, 'google-translate-container');
+        }
+      }
+    %script{type: "text/javascript", src: "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"}

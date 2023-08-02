@@ -24,6 +24,10 @@ function _renderMap() {
     var latElm = document.getElementById('detail-map-canvas-lat');
     var lngElm = document.getElementById('detail-map-canvas-lng');
 
+    if (titleElm === null || latElm == null || lngElm == null) {
+      return;
+    }
+
     // Retrieve marker data from embedded HTML values.
     var title = titleElm.innerHTML.trim();
     var lat = latElm.innerHTML.trim();

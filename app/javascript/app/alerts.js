@@ -20,13 +20,18 @@ var type = { VALID:1, ERROR:2, WARNING:4, INFO:8 };
 
 function init() {
   _alertContainer = document.querySelector('#alert-box');
-  _alert = _alertContainer.querySelector('.alert');
-  _content = _alertContainer.querySelector('.alert-message');
-  _closeBtn = _alertContainer.querySelector('.alert-close');
-  _closeBtn.addEventListener('click', _closeBtnClicked, false);
-
-  // Set default type to an error alert.
-  _alert.classList.add('alert-error');
+  if (_alertContainer) {
+    _alert = _alertContainer.querySelector('.alert');
+    _content = _alertContainer.querySelector('.alert-message');
+    _closeBtn = _alertContainer.querySelector('.alert-close');
+    if (_closeBtn) {
+      _closeBtn.addEventListener('click', _closeBtnClicked, false);
+    }
+    if (_alert) {
+      // Set default type to an error alert.
+      _alert.classList.add('alert-error');
+    }
+  }
 }
 
 // @param aType [Number] The type of alert.

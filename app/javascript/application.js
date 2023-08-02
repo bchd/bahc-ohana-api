@@ -1,19 +1,5 @@
 // Manages the application initialization for all pages.
-import googleTranslate from './app/util/translation/google-translate';
 import alerts from './app/alerts';
-
-// The google-translate script handles loading of the
-// Google Website Translator Gadget at the bottom of the page's body.
-// The layout settings passed in as an argument to the initialization
-// method can be set to:
-// InlineLayout.VERTICAL, InlineLayout.HORIZONTAL,
-// which correspond to the 'inline' display modes available through Google.
-// The 'tabbed' and 'auto' display modes are not supported.
-// The 'inline' InlineLayout.SIMPLE layout is also not supported.
-document.addEventListener('turbolinks:load', () => {
-  googleTranslate.init(googleTranslate.InlineLayout.VERTICAL)
-  alerts.init();
-})
 
 import 'core-js'
 import 'regenerator-runtime/runtime'
@@ -21,19 +7,6 @@ import 'regenerator-runtime/runtime'
 import 'uppy/dist/uppy.min.css'
 
 import { multipleFileUpload, singleFileUpload } from './fileUpload'
-
-// Use 'DOMContentLoaded' event if not using Turbolinks
-document.addEventListener('turbolinks:load', () => {
-  console.log("load");
-  document.querySelectorAll(`input[data-uppy="true"]`).forEach((fileInput) => {
-    console.log("init uppy");
-    if (fileInput.multiple) {
-      multipleFileUpload(fileInput)
-    } else {
-      singleFileUpload(fileInput)
-    }
-  })
-})
 
 import tags from './app/recommended_tags';
 import FeedbackForm from './app/FeedbackForm';
@@ -45,6 +18,20 @@ import cl from './app/detail/character-limited/character-limiter';
 import utilityLinks from './app/detail/utility-links';
 
 document.addEventListener('turbolinks:load', () => {
+  // clean up old translate entries
+  document.getElementById('google-translate-container').innerHTML = '';
+
+  // All pages alerts init
+  alerts.init();
+
+  // Admin File Upload
+  document.querySelectorAll(`input[data-uppy="true"]`).forEach((fileInput) => {
+    if (fileInput.multiple) {
+      multipleFileUpload(fileInput)
+    } else {
+      singleFileUpload(fileInput)
+    }
+  })
   // Home
   // Initialize the recommended tag searcher
   const keywordbox = document.getElementById("keyword");
