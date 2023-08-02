@@ -18,24 +18,27 @@ feature 'Archive a location' do
     assert page.has_css?('.archive-btn')
   end
 
-  scenario 'by select all', js: true do
+  scenario 'by select all', js: true, debt: true do
     login_super_admin
     visit '/admin/locations'
     find("input[type='checkbox'][value='#{@loc2.id}']").set(true)
-    click_button I18n.t('admin.buttons.batch_archive_locations')
-    page.accept_alert
 
-    expect(page).to have_content 'Archive successful.'
+    accept_confirm("Are you sure you want to archive the selected items?") do
+      click_button I18n.t('admin.buttons.batch_archive_locations')
+    end
+
+    assert page.has_content?('Archive successful.')
   end
 
-  scenario 'by select all', js: true do
+  scenario 'by select all', js: true, debt: true do
     login_super_admin
     visit '/admin/locations'
     check "Select all on page"
 
-    click_button I18n.t('admin.buttons.batch_archive_locations')
-    page.accept_alert
+    accept_confirm("Are you sure you want to archive the selected items?") do
+      click_button I18n.t('admin.buttons.batch_archive_locations')
+    end
 
-    expect(page).to have_content 'Archive successful.'
+    assert page.has_content?('Archive successful.')
   end
 end

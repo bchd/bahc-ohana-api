@@ -1,5 +1,5 @@
 // Used for managing which map marker should be shown.
-import BitMask from 'app/util/BitMask'; 
+import BitMask from '../BitMask'; 
 
 // 'Constants' for the kind labels returned by the Ohana API.
 var GENERIC = 'Generic';

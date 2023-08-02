@@ -1,6 +1,6 @@
 // Cookie CRUD functions, from http://www.quirksmode.org/js/cookies.html
 // ERB needed to retrieve domain name that the cookie is saved under.
-import envVars from 'app/util/environmentVariables';
+import envVars from './environmentVariables';
 
 // @param name [String] The cookie's name.
 // @param value [String] The cookie's value.

@@ -1,5 +1,5 @@
 // Handles creating a fixed search header when scrolling.
-import util from 'app/util/util';
+import util from '../util/util';
 
 var _header;
 var _offsetY;
@@ -7,7 +7,7 @@ var _floatingContent;
 
 function init() {
   _header = document.getElementById('floating-results-header');
-  if (!_header) throw new Error('Floating header DOM not found!');
+  if (!_header) return;
   _offsetY = _calculateOffset();
   _floatingContent = _header.querySelectorAll('.floating-content');
 

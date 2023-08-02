@@ -1,13 +1,11 @@
-import {
-  Core,
-  FileInput,
-  Informer,
-  ProgressBar,
-  ThumbnailGenerator,
-  Dashboard,
-  XHRUpload,
-  AwsS3Multipart
-} from 'uppy'
+import Uppy from '@uppy/core';
+import Dashboard from '@uppy/dashboard';
+import XHRUpload from '@uppy/xhr-upload';
+import AwsS3Multipart from '@uppy/aws-s3-multipart';
+import FileInput from '@uppy/file-input';
+import Informer from '@uppy/informer';
+import ProgressBar from '@uppy/progress-bar';
+import ThumbnailGenerator from '@uppy/thumbnail-generator';
 
 const randomstring = require('randomstring')
 
@@ -73,7 +71,7 @@ const multipleFileUpload = (fileInput) => {
 }
 
 const fileUpload = (fileInput) => {
-  const uppy = Core({
+  const uppy = new Uppy({
     id: fileInput.id,
     autoProceed: true,
     restrictions: {

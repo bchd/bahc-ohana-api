@@ -12,4 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require turbolinks
 //= require bootstrap-sprockets
+
+document.addEventListener("turbolinks:before-cache", function() {
+  const flash_message_element = document.querySelector(".alert")
+  if (flash_message_element) {
+    flash_message_element.remove()
+  }
+})

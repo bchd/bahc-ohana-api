@@ -1,6 +1,6 @@
 // Manages location detail view Google Map.
-import markers from 'app/util/map/markers.js';
-import googleMaps from 'app/util/map/google/map-loader';
+import markers from '../util/map/markers.js';
+import googleMaps from '../util/map/google/map-loader';
 
 function init() {
   googleMaps.load(_renderMap);
@@ -23,6 +23,10 @@ function _renderMap() {
     var titleElm = document.getElementById('detail-map-canvas-title');
     var latElm = document.getElementById('detail-map-canvas-lat');
     var lngElm = document.getElementById('detail-map-canvas-lng');
+
+    if (titleElm === null || latElm == null || lngElm == null) {
+      return;
+    }
 
     // Retrieve marker data from embedded HTML values.
     var title = titleElm.innerHTML.trim();

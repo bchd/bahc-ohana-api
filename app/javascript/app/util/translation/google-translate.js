@@ -1,7 +1,16 @@
 // Manages behavior of the Google Website Translator Gadget.
-import util from 'app/util/util';
-import cookie from 'app/util/cookie';
-import DropDownLayout from 'app/util/translation/layout/DropDownLayout';
+// The google-translate script handles loading of the
+// Google Website Translator Gadget at the bottom of the page's body.
+// The layout settings passed in as an argument to the initialization
+// method can be set to:
+// InlineLayout.VERTICAL, InlineLayout.HORIZONTAL,
+// which correspond to the 'inline' display modes available through Google.
+// The 'tabbed' and 'auto' display modes are not supported.
+// The 'inline' InlineLayout.SIMPLE layout is also not supported.
+
+import util from '../util';
+import cookie from '../cookie';
+import DropDownLayout from '../translation/layout/DropDownLayout';
 
 // The layout object in use.
 var _layout;
@@ -17,32 +26,6 @@ var VERTICAL = 0;
 var HORIZONTAL = 1;
 var InlineLayout = { VERTICAL:VERTICAL, HORIZONTAL:HORIZONTAL };
 
-// The id of the element on the page that will contain
-// the Google Website Translator Gadget.
-var GOOGLE_TRANSLATE_ELEMENT_ID = 'google-translate-container';
-
-function init(layoutType) {
-  _layoutType = layoutType;
-
-  _writeTranslateCookies();
-
-  _layout = DropDownLayout.create();
-  _layout.init(GOOGLE_TRANSLATE_ELEMENT_ID);
-
-  // Add Google Translate script call by appending script element.
-  var scriptElm = document.createElement('script');
-  var scriptUrl = '//translate.google.com/translate_a/element.js?cb=';
-  var scriptCallback = 'GoogleTranslate.googleTranslateElementInit';
-  scriptElm.setAttribute('src', scriptUrl+scriptCallback);
-  document.body.appendChild(scriptElm);
-
-  // Add the callback function for the Google Translate script.
-  var GoogleTranslate = {
-    googleTranslateElementInit:_googleTranslateElementInit
-  };
-  window.GoogleTranslate = GoogleTranslate;
-}
-
 // Checks if the 'googtrans' cookie is set to English or not,
 // indicating whether the page has been translated using the
 // Google Website Translator Gadget.
@@ -51,33 +34,6 @@ function init(layoutType) {
 function isTranslated() {
   var googtrans = cookie.read('googtrans');
   return (googtrans && decodeURIComponent(googtrans) !== '/en/en');
-}
-
-// Initialize the Google Website Translator Gadget.
-function _googleTranslateElementInit() {
-  var gadgetOptions = {
-    pageLanguage: 'en',
-    layout: _getGoogleLayout(),
-    autoDisplay: false
-  };
-  new google.translate.TranslateElement( gadgetOptions,
-                                         GOOGLE_TRANSLATE_ELEMENT_ID );
-
-  // Activate hooks to manipulate Google Website Translator Gadget through
-  // the URL 'translate' parameter.
-  _layout.activate();
-
-  // Show the language links used to set the 'translate' parameter.
-  _activateLanguageLinks();
-}
-
-// @return [Object] Return the inline Google Website Translator Gadget
-// layouts supplied by Google.
-function _getGoogleLayout() {
-  if (_layoutType === VERTICAL)
-    return google.translate.TranslateElement.InlineLayout.VERTICAL;
-  else if (_layoutType === HORIZONTAL)
-    return google.translate.TranslateElement.InlineLayout.HORIZONTAL;
 }
 
 // Overwrite/Create Google Website Translator Gadget cookies if the
@@ -104,7 +60,5 @@ function _activateLanguageLinks() {
 }
 
 export default {
-  init:init,
-  isTranslated:isTranslated,
-  InlineLayout:InlineLayout
+  isTranslated:isTranslated
 };

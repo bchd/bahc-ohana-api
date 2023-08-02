@@ -1,7 +1,7 @@
 // Manages behavior of posting changes to the URL for
 // inlinelayout.VERTICAL and inlinelayout.HORIZONTAL
 // Google Website Translator Gadget layouts.
-import util from 'app/util/util';
+import util from '../../util';
 
 function create() {
   return new DropDownLayout();

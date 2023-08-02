@@ -1,6 +1,6 @@
 // Handles search filter functionality.
-import TextInput from 'app/search/filter/TextInput';
-import map from 'app/result/result-map';
+import TextInput from './TextInput';
+import map from '../../result/result-map';
 
 // The search filters.
 var _keyword;
@@ -23,7 +23,9 @@ function init() {
 
   // Add on change function for category dropdown menu
   _categorySelect = document.getElementById('main_category');
-  _categorySelect.addEventListener('change', _updateSubCategories, false);
+  if (_categorySelect) {
+    _categorySelect.addEventListener('change', _updateSubCategories, false);
+  }
 
   var checkboxes = $('#categories input');
 
