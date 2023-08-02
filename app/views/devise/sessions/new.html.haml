@@ -17,7 +17,10 @@
       = f.check_box :remember_me
       = f.label :remember_me
 
-    = f.submit "Let's go!", class: 'button'
+    - if resource.class.name == User.name
+      = f.submit "Let's go!", class: 'button'
+    - else
+      = f.submit I18n.t('navigation.sign_in'), class: 'button'
 
   %br
   = render 'devise/shared/links'
