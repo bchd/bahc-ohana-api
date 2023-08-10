@@ -4,12 +4,6 @@ import BitMask from '../BitMask';
 // 'Constants' for the kind labels returned by the Ohana API.
 var GENERIC = 'Generic';
 
-// 'Constants' for different map kind markers.
-import GENERIC_LARGE_MARKER_URL from "../../../images/markers/map_marker.png"
-import GENERIC_SMALL_MARKER_URL from "../../../images/markers/map_marker.png"
-import GENERIC_LARGE_SPIDERFY_MARKER_URL from "../../../images/markers/map_marker-grouping.png"
-import GENERIC_SMALL_SPIDERFY_MARKER_URL from "../../..//images/markers/map_marker-grouping.png"
-
 function create(kind) {
   var marker = new Marker();
   if (kind) marker.setIcon(kind);
@@ -41,10 +35,10 @@ function Marker() {
 
     switch (kind) {
     case GENERIC :
-      LARGE_MARKER_URL          = GENERIC_LARGE_MARKER_URL;
-      SMALL_MARKER_URL          = GENERIC_SMALL_MARKER_URL;
-      LARGE_SPIDERFY_MARKER_URL = GENERIC_LARGE_SPIDERFY_MARKER_URL;
-      SMALL_SPIDERFY_MARKER_URL = GENERIC_SMALL_SPIDERFY_MARKER_URL;
+      LARGE_MARKER_URL          = document.getElementById('generic-marker').dataset.url;
+      SMALL_MARKER_URL          = document.getElementById('generic-marker').dataset.url;
+      LARGE_SPIDERFY_MARKER_URL = document.getElementById('spider-marker').dataset.url;
+      SMALL_SPIDERFY_MARKER_URL = document.getElementById('spider-marker').dataset.url;
       break;
     }
   }
