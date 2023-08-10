@@ -18,7 +18,9 @@
           <% @flags.to_a.select{ |f| f.completed_at.nil?}.each do |flag| %>
             <ul class="list-group">
               <li class="list-group-item">
+                <%- if flag.resource? %>
                 <%= link_to(flag.resource.name, flag.resource_path) %>
+                <% end %>
                 <h5>Reported By</h5>
                 <p><%= flag.email.blank? ? "N/A" : flag.email  %></p>
                 <%- if flag.description? %>
@@ -52,7 +54,9 @@
           <% @flags.to_a.select{|f| f.completed_at?}.each do |flag| %>
             <ul class="list-group">
               <li class="list-group-item">
+                <%- if flag.resource? %>
                 <%= link_to(flag.resource.name, flag.resource_path) %>
+                <% end %>
                 <h5>Reported By</h5>
                 <p><%= flag.email.blank? ? "N/A" : flag.email  %></p>
                 <%- if flag.description? %>
@@ -92,9 +96,6 @@
 
 <script>
   $(".flagged-checkbox").on("click", function() {
-    console.log('YAYA')
-    console.log($(this).data())
-
     $.ajax({
       url: $(this).data().url,
       type: 'PUT',
