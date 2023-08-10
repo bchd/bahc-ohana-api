@@ -32,7 +32,12 @@ module.exports = {
       },
       {
         test: /\.(png|jpe?g|gif|eot|woff2|woff|ttf|svg)$/i,
-        use: 'file-loader',
+        use: {
+          loader: 'file-loader',
+          options: {
+            name: '[name]-[contenthash].[ext]'
+          }
+        }
       },
     ],
   },
