@@ -18,7 +18,7 @@
           <% @flags.to_a.select{ |f| f.completed_at.nil?}.each do |flag| %>
             <ul class="list-group">
               <li class="list-group-item">
-                <%- if flag.resource? %>
+                <%- if flag.resource.present? %>
                 <%= link_to(flag.resource.name, flag.resource_path) %>
                 <% end %>
                 <h5>Reported By</h5>
@@ -54,7 +54,7 @@
           <% @flags.to_a.select{|f| f.completed_at?}.each do |flag| %>
             <ul class="list-group">
               <li class="list-group-item">
-                <%- if flag.resource? %>
+                <%- if flag.resource.present? %>
                 <%= link_to(flag.resource.name, flag.resource_path) %>
                 <% end %>
                 <h5>Reported By</h5>
