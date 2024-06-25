@@ -10,8 +10,8 @@
             ],
             "AllowedOrigins": [
                 "https://dev-charmcare.herokuapp.com",
-                "https://stge-ahc-ohana-api.herokuapp.com",
-                "https://data.charmcare.org"
+                "https://charmcare-beta.smartlogic.dev",
+                "https://www.charmcare.org"
             ]
         }
     ]
