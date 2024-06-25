@@ -6,7 +6,6 @@
 %html.no-js{ lang: 'en' }
   <!--<![endif]-->
   %head
-    = render 'shared/google_analytics/tag_manager'
     = render 'shared/google_analytics/page_tracking'
     = render 'shared/hotjar'
     = render 'shared/head'
@@ -15,7 +14,6 @@
     = javascript_include_tag 'application_pack', 'data-turbolinks-track': true
 
   %body{ class: "#{controller_name == 'home' ? '' : 'inside '}#{controller_name} #{action_name}" }
-    = render 'shared/google_analytics/tag_manager_iframe'
     %section#content
       = render 'shared/alert'
       = render 'shared/header', user_agent: @user_agent
