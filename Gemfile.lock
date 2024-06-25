@@ -448,7 +448,8 @@ GEM
       actionpack (>= 5.0)
       railties (>= 5.0)
     retriable (3.1.2)
-    rexml (3.2.6)
+    rexml (3.3.1)
+      strscan
     roda (3.54.0)
       rack
     rspec-core (3.11.0)
@@ -522,6 +523,7 @@ GEM
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
     stackprof (0.2.19)
+    strscan (3.1.0)
     tailwindcss-rails (2.0.8-arm64-darwin)
       railties (>= 6.0.0)
     tailwindcss-rails (2.0.8-x86_64-linux)
