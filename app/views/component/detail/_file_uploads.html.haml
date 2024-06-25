@@ -8,4 +8,4 @@
               - url = ENV['OHANA_API_ENDPOINT'].gsub('/api', '') + upload[:url]
             - else
               - url = upload[:url]
-            %a{:href => url, :target => "_blank"}= "#{upload.filename}"
+            %a{:href => url, :target => "_blank"}= "#{upload.file_name}"
