@@ -5,30 +5,6 @@
     = link_to SETTINGS[:baltimore_accountable_health_community] do
       %button.button-plain
         = t('views.about.learn_more')
-  %h1
-    = t('views.about.real_time_capacity_header')
-
-  .real-time-summary
-    = t('views.about.real_time_capacity_html')
-    %div.capacity-option
-      %span.fa.fa-check-circle-o.available
-      %p.capacity-label
-        =t('service_fields.availability.available_today_short')
-    %div
-      %span.fa.fa-chevron-circle-right.next-day
-      %p.capacity-label
-        =t('service_fields.availability.next_day_service')
-    %div
-      %span.fa.fa-clock-o.two-three-days
-      %p.capacity-label
-        =t('service_fields.availability.two_three_day_wait')
-    %div
-      %span.fa.fa-times-circle.one-week
-      %p.capacity-label
-        =t('service_fields.availability.one_week_wait')
-
-    = t('views.about.real_time_capacity_cont_html')
-
 
   %h1
     = t('views.about.contact.connect_with_us')
