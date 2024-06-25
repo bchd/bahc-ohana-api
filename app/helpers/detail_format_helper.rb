@@ -80,9 +80,13 @@ module DetailFormatHelper
     string.gsub(/(?<=[0-9])(?:st|nd|rd|th)/i) { content_tag(:sup, $&.downcase) }.html_safe
   end
 
-  # @param date [String] A date string, such as '1970-01-01'
+  # @param date [String|Date] A date string or date object, such as '1970-01-01'
   # @return [String] The year of incorporation.
   def incorporated_year_for(date)
-    Date.parse(date).strftime('%Y')
+    if date.class == String
+      Date.parse(date).strftime('%Y')
+    else
+      date.strftime('%Y')
+    end
   end
 end
