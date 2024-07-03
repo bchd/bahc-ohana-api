@@ -15,7 +15,7 @@ class LocationsController < ApplicationController
         @main_category_selected_name = params[:main_category]
         @main_category_selected_id = helpers.get_category_id_by_name(@main_category_selected_name)
         params[:main_category_id] = @main_category_selected_id
-      end  
+      end
     end
     if params["categories"] and @main_category_selected_id != ""
       params["categories_ids"] = helpers.get_subcategories_ids(params["categories"], @main_category_selected_id)
@@ -28,7 +28,9 @@ class LocationsController < ApplicationController
     end
 
     if !params["categories"] and !search_params["main_category"].empty?
-      search_params["categories"] = [params["main_category_id"]]
+      if params["main_category_id"].present?
+        search_params["categories"] = [params["main_category_id"]]
+      end
     else
       search_params["categories"] = params["categories_ids"]
     end
@@ -59,7 +61,7 @@ class LocationsController < ApplicationController
     @languages = Location.active_languages
     unless params[:languages].nil? || params[:languages].empty?
       @selected_language = params[:languages][0]
-    end  
+    end
 
     if @address.nil? && @lat.present? && @long.present?
       @address = 'Current Location'
@@ -76,9 +78,9 @@ class LocationsController < ApplicationController
       format.html {
         if params[:layout] == "false"
           render :template => 'component/locations/results/_body', :locals => { :search => @search }, :layout => false
-        else 
-          render 
-        end  
+        else
+          render
+        end
       }
     end
   end
@@ -129,7 +131,7 @@ class LocationsController < ApplicationController
         coordinates = response.first.data['geometry']['location']
         @lat = coordinates['lat']
         @lon = coordinates['lng']
-      end  
+      end
     elsif params[:lat].present? && params[:long]
       @lat = params[:lat]
       @lon = params[:long]
