@@ -31,7 +31,7 @@
                   = render_markdown(location.short_desc)
           - if user_signed_in?
             - services = Location.get(location.id)[:services]
-            - if services.size > 0
+            - if services.present? && services.size > 0
               %section.service-availability
                 - if services.any? { |service| service.wait_time.present? }
                   %h2.service-capacity
