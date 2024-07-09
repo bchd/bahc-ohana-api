@@ -3,6 +3,8 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception (with: :exception),
   protect_from_forgery with: :exception
 
+  before_action :redirect_if_old
+
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
   unless Rails.application.config.consider_all_requests_local
@@ -53,6 +55,13 @@ class ApplicationController < ActionController::Base
   end
 
   protected
+
+  def redirect_if_old
+    return true unless ENV['FORCED_DOMAIN_NAME'].present?
+    if request.host != ENV['FORCED_DOMAIN_NAME']
+      redirect_to "https://#{ENV['FORCED_DOMAIN_NAME']}#{request.fullpath}", :status => 302
+    end
+  end
 
   def layout_by_resource
     return 'application' unless devise_controller? && resource_name == :admin
