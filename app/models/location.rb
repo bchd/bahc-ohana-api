@@ -200,7 +200,8 @@ class Location < ApplicationRecord
   end
 
   def frontend_url
-    ENV['UI_HOMEPAGE_URL'] + 'locations/' + slug
+    host = ENV['DOMAIN_NAME']
+    host + 'locations/' + slug
   end
 
   def service_names
