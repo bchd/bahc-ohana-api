@@ -12,11 +12,11 @@ module LocationPdfHelper
   end
 
   def get_pdf_file_link(file_id)
-    host = ENV['OHANA_API_ENDPOINT']
-     if Rails.env.development?
+    host = ENV['DOMAIN_NAME']
+    if Rails.env.development?
       "#{host}/uploads/cache/#{file_id}"
     elsif Rails.env.production?
       "#{host}/s3/multipart/#{file_id}"
-     end
+    end
   end
 end
