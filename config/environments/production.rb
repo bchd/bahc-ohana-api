@@ -65,7 +65,7 @@ Rails.application.configure do
   }
 
   config.action_mailer.smtp_settings = {
-    :domain => ENV['MAILGUN_DOMAIN_NAME'],
+    :domain => ENV['MAILGUN_DOMAIN'],
     :port => ENV['MAILGUN_SMTP_PORT'],
     :address => ENV['MAILGUN_SMTP_SERVER'],
     :user_name => ENV['MAILGUN_SMTP_LOGIN'],
