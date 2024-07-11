@@ -59,7 +59,7 @@ class ApplicationController < ActionController::Base
   def redirect_if_old
     if ENV['FORCE_DOMAIN_NAME'].present?
       if request.host != ENV['DOMAIN_NAME']
-        redirect_to "https://#{ENV['DOMAIN_NAME']}#{request.fullpath}", :status => 302
+        redirect_to "https://#{ENV['DOMAIN_NAME']}#{request.fullpath}", status: 302, allow_other_host: true
       end
     end
   end
