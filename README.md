@@ -43,23 +43,13 @@ Now you can visit [`localhost:3000`](http://localhost:3000) from your browser.
 
 ## Deploying to Heroku
 
-Set your heroku remotes for each app appropriately, `dev` for the development app, `staging` for the staging app, and `prod` for the production app.
+Heroku will auto deploy the develop and staging branches. Production is updated via a Heroku pipeline promotion.
 
-NOTE: If you've modified the chewy indices you'll need to reset them in every heroku environment manually likeso:
+
+NOTE: If you've modified the chewy indices you'll need to reset them in every heroku environment
 
 ```
-heroku run rake chewy:reset -a prod-ahc-ohana-api
-```
-
-```bash
-# Deploy Development
-git push dev develop:main
-
-# Deploy Staging
-git push staging staging:main
-
-# Deploy Production
-git push prod main
+heroku run rake chewy:reset -a APP_NAME
 ```
 
 ### Bucketeer / S3
