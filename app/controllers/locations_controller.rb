@@ -101,7 +101,10 @@ class LocationsController < ApplicationController
     end
 
     # @keywords = @location.services.map { |s| s[:keywords] }.flatten.compact.uniq
-    @categories = @location.services.map { |s| s[:categories] }.flatten.compact.uniq
+    @categories = @location.services.map { |s| s[:categories] }.flatten.compact.uniq 
+
+    request.query_parameters["layout"] = true
+    @query_parameters = request.query_parameters
     @url = request.url
   end
 
