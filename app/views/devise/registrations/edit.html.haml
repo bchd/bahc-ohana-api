@@ -13,7 +13,7 @@
         = resource.email
     - if devise_mapping.confirmable? && resource.pending_reconfirmation?
       %span.help-block
-        You recently updated your email to '#{resource.unconfirmed_email}', but we're still waiting for you to confirm it. Please look for an email from us with the subject 'Confirmation instructions'.
+        You recently updated your email to '#{resource.unconfirmed_email}', but we're still waiting for you to confirm it. Please look for an email from us with the subject 'CHARMcare Confirmation instructions'.
   .form-group
     = f.label :name
     = f.text_field :name, autofocus: true, class: 'form-control'

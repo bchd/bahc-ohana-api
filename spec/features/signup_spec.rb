@@ -53,7 +53,7 @@ feature 'Signing up' do
     end
 
     def portal_name
-      I18n.t('titles.developer', brand: I18n.t('titles.brand'))
+      I18n.t('titles.brand', brand: I18n.t('titles.brand'))
     end
 
     it 'does not reveal that the email has already been taken' do
