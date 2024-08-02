@@ -26,7 +26,7 @@ feature 'Visit home page after signing in' do
 
   xit 'includes a link to the dev portal home page in the navigation' do
     within '.navbar' do
-      expect(page).to have_link 'CHARMcare Data Developers', href: root_path
+      expect(page).to have_link 'CHARMcare', href: root_path
     end
   end
 

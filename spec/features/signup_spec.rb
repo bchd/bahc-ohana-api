@@ -41,9 +41,8 @@ feature 'Signing up' do
   scenario 'with custom mailer' do
     reset_email
     sign_up('Moncef', 'moncef@foo.com', 'ohanatest', 'ohanatest')
-    expect(first_email.body).to include('developer')
-    expect(first_email.body).to include('documentation')
-    expect(first_email.body).to include('http://codeforamerica.github.io/ohana-api-docs/')
+    expect(first_email.body).to include('CHARMcare')
+    expect(first_email.body).to include('confirm your account email')
   end
 
   context 'when signing up with existing email', email: true do
