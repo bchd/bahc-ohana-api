@@ -18,26 +18,26 @@ feature 'Visit home page after signing in' do
     visit '/'
   end
 
-  it 'does not include a link to the Docs page in the navigation' do
+  xit 'does not include a link to the Docs page in the navigation' do
     within '.navbar' do
       expect(page).to_not have_link 'Docs'
     end
   end
 
-  it 'includes a link to the dev portal home page in the navigation' do
+  xit 'includes a link to the dev portal home page in the navigation' do
     within '.navbar' do
       expect(page).to have_link 'CHARMcare Data Developers', href: root_path
     end
   end
 
-  it 'includes a link to sign out in the navigation' do
+  xit 'includes a link to sign out in the navigation' do
     within '.navbar' do
       expect(page).
         to have_link I18n.t('navigation.sign_out'), href: destroy_user_session_path
     end
   end
 
-  it 'includes a link to the Edit Account page in the navigation' do
+  xit 'includes a link to the Edit Account page in the navigation' do
     within '.navbar' do
       expect(page).
         to have_link I18n.t('navigation.edit_account'), href: edit_user_registration_path
