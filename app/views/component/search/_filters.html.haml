@@ -1,7 +1,7 @@
 
 
 %div#categoryFiltersContainerDiv.category-filters-container
-  = label_tag :category_filters, 'Topic Filters', id: 'category-filters-label'
+  %div#category-filters-label Topic Filters
   %hr
 
 - if @main_category_selected_name == ""
@@ -12,6 +12,7 @@
     %div#filterDropdownContainer.filter-dropdown-closed
       %i#iconContainer
   %fieldset#subcategoriesList
+    %legend= "Subcategories"
   
 - else
   %div#parent-category.parent-category-label-container.hoverable{ tabindex: "0", role: "button", aria: { label: 'Click enter to expand and collapse filters', expanded: 'true'}}
@@ -21,6 +22,7 @@
     %div#filterDropdownContainer.filter-dropdown-closed
       %i#iconContainer.fa.fa-chevron-down
   %fieldset#subcategoriesList
+    %legend= "Subcategories"
     - subcategories_by_category(@main_category_selected_id).each do |category|
       - id_string = "category_#{category.delete('&').delete(' ')}"
       %div.filter-category-item

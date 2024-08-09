@@ -5,40 +5,40 @@
   .form-group
     - if current_admin&.super_admin?
       .form-group
-        = f.label :email
-        = f.email_field :email, class: 'form-control'
+        = f.label :email, for: 'admin_email'
+        = f.email_field :email, class: 'form-control', id: 'admin_email'
     - else
-      = f.label :email
+      = f.label :email, for: 'user_email'
       %p
         = resource.email
     - if devise_mapping.confirmable? && resource.pending_reconfirmation?
       %span.help-block
         You recently updated your email to '#{resource.unconfirmed_email}', but we're still waiting for you to confirm it. Please look for an email from us with the subject 'Confirmation instructions'.
   .form-group
-    = f.label :name
-    = f.text_field :name, autofocus: true, class: 'form-control'
+    = f.label :name, for: 'user_name'
+    = f.text_field :name, autofocus: true, class: 'form-control', id: 'user_name'
   %fieldset
+    %legend Change Password
     %p
       Leave these fields blank if you don't want to change your password.
     .form-group
-      = f.label :password
-      = f.password_field :password, autocomplete: 'off', class: 'form-control'
+      = f.label :password, for: 'user_password'
+      = f.password_field :password, autocomplete: 'off', class: 'form-control', id: 'user_password'
     .form-group
-      = f.label :password_confirmation
-      = f.password_field :password_confirmation, autocomplete: 'off', class: 'form-control'
+      = f.label :password_confirmation, for: 'user_password_confirmation'
+      = f.password_field :password_confirmation, autocomplete: 'off', class: 'form-control', id: 'user_password_confirmation'
   %fieldset
+    %legend Current Password
     %p
       You must enter your current password to make changes.
     .form-group
-      = f.label :current_password
-      = f.password_field :current_password, autocomplete: 'off', class: 'form-control'
+      = f.label :current_password, for: 'user_current_password'
+      = f.password_field :current_password, autocomplete: 'off', class: 'form-control', id: 'user_current_password'
   = f.submit t('buttons.update'), class: 'button button-small'
-
 %h3 Cancel Account
 %p
   Unhappy? We'll be sad to see you go.
 = button_to t('buttons.cancel_my_account'), registration_path(resource_name), data: { confirm: 'Are you sure?' }, method: :delete, class: 'button btn-danger'
-
 - if current_admin&.super_admin?
   %h3
     = t('admin.management.admin_management')

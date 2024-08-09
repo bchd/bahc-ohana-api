@@ -2,7 +2,11 @@
   #map-canvas
   = render 'component/search/map_data', search: search
   %noscript
-    -# Hide map when JavaScript is disabled.
+    %p.map-alternative
+      = "Map is not available because JavaScript is disabled. Please use the address below for directions."
+      %br
+      %span{ itemprop: 'streetAddress' }><
+        = superscript_ordinals(street_address_for(location.address))
     :sass
       #floating-results-header .static-content,
       #map-view
