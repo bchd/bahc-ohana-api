@@ -8,11 +8,11 @@
 
 .inst-box
   %header
-    = f.label :active, for: 'active'
+    = f.label :active
   = field_set_tag do
     .form-check
       %label.switch
-        = f.check_box :active, id: 'active'
+        = f.check_box :active
         %span.slider.round
 
 = render 'admin/shared/forms/tags', f: f

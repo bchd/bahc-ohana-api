@@ -5,10 +5,10 @@
   .form-group
     - if current_admin&.super_admin?
       .form-group
-        = f.label :email, for: 'admin_email'
-        = f.email_field :email, class: 'form-control', id: 'admin_email'
+        = f.label :email
+        = f.email_field :email, class: 'form-control'
     - else
-      = f.label :email, for: 'user_email'
+      = f.label :email
       %p
         = resource.email
     - if devise_mapping.confirmable? && resource.pending_reconfirmation?
