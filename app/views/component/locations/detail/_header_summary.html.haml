@@ -3,18 +3,15 @@
     %span
       %a.button-utility.button-back{ href: "#{locations_url(@query_parameters)}##{location.id}", target: '_self' }
         %i.fa.fa-arrow-left
-        Back
+        %span Back
     %span.header-right><
       %a.button-utility.button-share-email{ href: mailto_url }
         %i.fa.fa-share-square-o.fa-lg
-  
- 
-      %button.fa.fa-heart-o.favorite-toggle.fa-lg
-
+        %span{ "aria-label" => "Share resource via email" }
+      %button.fa.fa-heart-o.favorite-toggle.fa-lg{ "aria-label" => "Add to favorites" }
         
 
   .left-column
     .floating-content.hide
-      %h1
+      %h1{ tabindex: "0", aria: { label: full_name_content_for(location) } }
         = superscript_ordinals(full_name_content_for(location))
-

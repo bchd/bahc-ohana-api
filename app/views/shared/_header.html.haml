@@ -1,24 +1,24 @@
 %header#content-header
   %h1#logo
-    %a{ href: '/', target: '_self' }
+    %a{ href: '/', target: '_self', aria: { label: t('branding.logo') } }
       %img{ src: asset_path(SETTINGS[:site_logo]), alt: "#{SETTINGS[:site_title]} Logo" }
   %h2= t('branding.header', location: t('branding.location'))
   %nav
     %ul
       %li
-        %a.popup-trigger.popup-default#about-btn{ href: '/about#about-box' }
+        %a.popup-trigger.popup-default#about-btn{ href: '/about#about-box', aria: { label: t('navigation.about') } }
           About
       - if user_signed_in?
         %li
-          %a.popup-trigger.popup-default#about-btn{ href: '/favorites' }
+          %a.popup-trigger.popup-default#favorites-btn{ href: '/favorites', aria: { label: t('navigation.favorites') } }
             Favorites
         %li
-          %a.popup-trigger.popup-account#user-btn{ href: edit_user_registration_path }
+          %a.popup-trigger.popup-account#user-btn{ href: edit_user_registration_path, aria: { label: t('navigation.edit_profile') } }
             %div.button-logged-in
               = current_user.first_name[0]&.upcase || current_user.email[0].upcase
         %li
-          = link_to t('navigation.sign_out'), destroy_user_session_path, method: 'delete'
+          = link_to t('navigation.sign_out'), destroy_user_session_path, method: 'delete', aria: { label: t('navigation.sign_out') }
       - else
         %li
-          %a.popup-trigger.popup-account.button-small#user-btn{ href: new_user_session_path }
+          %a.popup-trigger.popup-account.button-small#user-btn{ href: new_user_session_path, aria: { label: t('users.login') } }
             = t('users.login')

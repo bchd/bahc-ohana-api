@@ -12,7 +12,7 @@ module NameFormatHelper
   # @param location [Sawyer::Resource] Location Hash returned by API wrapper.
   # @return [String] The location's name wrapped in a span element.
   def name_content_for(location)
-    content_tag 'span', itemprop: 'legalName' do
+    content_tag 'span', itemprop: 'legalName', aria: { label: location.name } do
       content_tag 'span', itemprop: 'name' do
         location.name
       end
@@ -22,7 +22,7 @@ module NameFormatHelper
   # @param location [Sawyer::Resource] Location Hash returned by API wrapper.
   # @return [String] The location's alternate name wrapped in a span element.
   def alternate_name_content_for(location)
-    content_tag 'span', itemprop: 'alternateName' do
+    content_tag 'span', itemprop: 'alternateName', aria: { label: location.alternate_name } do
       location.alternate_name
     end
   end

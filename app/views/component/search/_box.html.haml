@@ -6,7 +6,7 @@
         %section#keyword-search-box.search-box.home-page-search-container
           %div
             = label_tag 'main_category', t('labels.category_search') , class: "main_category"
-            = select_tag :main_category, options_for_select(categories_for_select), include_blank: 'All', class: "category_search_select"
+            = select_tag :main_category, options_for_select(categories_for_select), include_blank: 'All', class: "category_search_select", aria: { labelledby: 'main_category' }
           %div
             %span.home-page-or or
           %div

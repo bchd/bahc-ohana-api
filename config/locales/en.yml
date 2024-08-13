@@ -478,6 +478,8 @@ en:
       in %{location}.
     header: 'Connect with resources in %{location}'
     location: 'Baltimore City'
+    logo: 'Charm care'
+
 
   date:
     day_names:
@@ -679,6 +681,7 @@ en:
         your_name: 'Your Name*'
         your_email: 'Your Email*'
         message: 'Message*'
+        submit: 'Submit'
     feedback:
       issue_link: 'File an issue on GitHub'
       issue_link_url: 'https://github.com/codeforamerica/Ohana-Web-Search/issues'
