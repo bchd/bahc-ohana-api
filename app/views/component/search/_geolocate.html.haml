@@ -2,7 +2,7 @@
   %div.filter-header-label= t('labels.filters.filters_menu_title')
 
 = field_set_tag nil, id: 'distance-filter', class: 'input-search-filter input-search-filter-option' do
-  %legend= t('labels.distance_filter')
+  %legend.sr-only= t('labels.distance_filter')
   = label_tag :distance, 'By Distance', style: "font-size: 16px;", for: 'distance'
   %hr
   %div{ id: 'distance-label-container' }
@@ -12,7 +12,7 @@
   = "Of"
 
 = field_set_tag nil, id: 'geolocation-filter', class: 'input-search-filter input-search-filter-option' do
-  %legend= 'Geolocation Filter'
+  %legend.sr-only= 'Geolocation Filter'
   = label_tag 'address', 'Address or Zip Code', id: 'address-label'
   #geolocate-box
     = hidden_field_tag :lat, @lat

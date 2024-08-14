@@ -12,7 +12,7 @@
     %div#filterDropdownContainer.filter-dropdown-closed
       %i#iconContainer
   %fieldset#subcategoriesList
-    %legend= "Subcategories"
+    %legend.sr-only= "Subcategories"
   
 - else
   %div#parent-category.parent-category-label-container.hoverable{ tabindex: "0", role: "button", aria: { label: 'Click enter to expand and collapse filters', expanded: 'true'}}
@@ -22,7 +22,7 @@
     %div#filterDropdownContainer.filter-dropdown-closed
       %i#iconContainer.fa.fa-chevron-down
   %fieldset#subcategoriesList
-    %legend= "Subcategories"
+    %legend.sr-only= "Subcategories"
     - subcategories_by_category(@main_category_selected_id).each do |category|
       - id_string = "category_#{category.delete('&').delete(' ')}"
       %div.filter-category-item
