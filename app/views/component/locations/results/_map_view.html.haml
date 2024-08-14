@@ -5,8 +5,8 @@
     %p.map-alternative
       = "Map is not available because JavaScript is disabled. Please use the address below for directions."
       %br
-      %span{ itemprop: 'streetAddress' }><
-        = superscript_ordinals(street_address_for(location.address))
+      %span{ itemprop: 'streetAddress' }
+        = @address
     :sass
       #floating-results-header .static-content,
       #map-view
