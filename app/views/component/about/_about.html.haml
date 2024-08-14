@@ -1,6 +1,6 @@
 %div.about-container
   .about-summary
-    %img{ src: asset_path(SETTINGS[:site_logo_alt]), alt: "#{SETTINGS[:site_title]} large logo", class: "logo", aria: { label: t('branding.logo') } }
+    %img{ src: asset_path(SETTINGS[:site_logo_alt]), alt: "#{SETTINGS[:site_title]} #{SETTINGS[:site_subtitle]}", class: "logo", aria: { label: "#{t('branding.logo')} large logo" } }
     = t('views.about.charmcare_summary_html')
     %button.button-plain{ onclick: "window.location.href='#{SETTINGS[:baltimore_accountable_health_community]}'", aria: { label: t('views.about.learn_more', community: SETTINGS[:baltimore_accountable_health_community]) } }
       = t('views.about.learn_more')
