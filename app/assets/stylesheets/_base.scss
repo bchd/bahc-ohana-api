@@ -841,6 +841,11 @@ body {
           a {
             color: $purple;
           }
+
+          &:hover {
+            text-decoration: underline;
+            text-decoration-color: $purple;
+          }
         }
 
         h1.name > a:hover::after {
@@ -853,6 +858,11 @@ body {
           font-size: $font_size_105;
           color: $greyscale_dark;
           font-family: $font_sans_serif;
+
+          &:hover {
+            text-decoration: underline;
+            text-decoration-color: $blue;
+          }
 
           span {
             margin-top: 5px;
