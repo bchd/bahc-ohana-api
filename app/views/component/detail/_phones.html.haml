@@ -1,8 +1,9 @@
 - if phones.present?
     %section.phone.icon-text-block{ itemscope: '', itemtype: 'http://schema.org/ContactPoint' }
-        %i.fa.fa-phone
+        %span{ tabindex: "0", role: "img", aria: { label: "Phone" } }
+            %i.fa.fa-phone
         %span.annotated-text-block
-            %h4 Phone
+            %h4= t('labels.phone')
         %br  
         - phones.each do |phone|
             = render 'component/detail/phone', phone: phone, show_phone_type_and_department: true

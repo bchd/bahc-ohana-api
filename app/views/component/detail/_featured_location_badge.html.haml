@@ -1,13 +1,11 @@
-.featured-location-badge
-    .tooltip
-        %i.fa.fa-info-circle
-        %span.tooltiptext
-            %i.fa.fa-info-circle 
-            %h3
-                What is a CHARMcare Favorite?
-            %p 
-                CHARMcare users have found this resource to be particularly helpful.
-    %br                
-    CHARMcare
-    %br
-    Favorite            
+.featured-location-badge{ tabindex: "0", role: "group", aria: { label: t('labels.charmcare_favorite') } }
+  .tooltip
+    %i.fa.fa-info-circle{ tabindex: "0", role: "img", aria: { label: t('labels.information_on_charmcare_favorites') } }
+    %span.tooltiptext
+      %i.fa.fa-info-circle{ tabindex: "0", role: "img", aria: { label: t('labels.information_on_charmcare_favorites') } }
+      %h3= t('labels.what_is_charmcare_favorite')
+      %p= t('labels.charmcare_favorite_description')
+  %br
+  = SETTINGS[:site_title]
+  %br
+  = t('labels.favorite')
