@@ -16,7 +16,7 @@ module ResultSummaryHelper
     summary = if total_map_markers == total_results
                 ''
               else
-                " <i class='fa fa-map-marker'></i> <em>"\
+                " <i class='fa fa-map-marker' aria-label='location marker' role='img' tabindex='0'></i> <em>"\
                 "<strong>#{total_map_markers}</strong>/#{total_results} "\
                 "located on map</em>"
               end

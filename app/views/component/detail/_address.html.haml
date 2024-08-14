@@ -1,9 +1,9 @@
-- if location.address.present? 
+- if location.address.present?
   %span{ itemscope: '', itemtype: 'http://schema.org/PostalAddress', itemprop: 'address' }
     %section.icon-text-block
-      %i.fa.fa-map-marker
-      %h4.annotated-text-block Location
-      %span{ itemprop: 'streetAddress' }><
+      %i.fa.fa-map-marker{ tabindex: "0", role: "img", aria: { label: "Location marker" } }
+      %h4.annotated-text-block= t('labels.location')
+      %span{ itemprop: 'streetAddress' }
         = superscript_ordinals(street_address_for(location.address))
       - if lines == 2
         %br
