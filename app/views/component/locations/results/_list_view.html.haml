@@ -17,6 +17,9 @@
                   = link_to(locations_path(org_name: location.organization.name)) do
                     %span
                       = superscript_ordinals(location.organization.name)
+              - else
+                %h2.visuallyhidden= "Organization"
+
           - if location.phones.present? || location.address.present? || location.short_desc.present?
             %section.content
               - if location.phones.present?
@@ -39,6 +42,8 @@
                 %table
                   - services.each do |service|
                     = render 'component/locations/results/service_wait_table_row', service: service
-
+            - else
+              %h2.visuallyhidden= "Service Availability"
+              
   %footer
     = paginate search.locations

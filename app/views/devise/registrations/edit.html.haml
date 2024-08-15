@@ -19,6 +19,7 @@
     = f.label :name
     = f.text_field :name, autofocus: true, class: 'form-control'
   %fieldset
+    %legend Change Password
     %p
       Leave these fields blank if you don't want to change your password.
     .form-group
@@ -28,6 +29,7 @@
       = f.label :password_confirmation
       = f.password_field :password_confirmation, autocomplete: 'off', class: 'form-control'
   %fieldset
+    %legend Current Password
     %p
       You must enter your current password to make changes.
     .form-group
