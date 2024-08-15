@@ -11,7 +11,7 @@ class AdminMailer < ActionMailer::Base
 
   def portal_for(resource)
     return t('titles.admin', brand: t('titles.brand')) if resource.is_a?(Admin)
-    return t('titles.developer', brand: t('titles.brand')) if resource.is_a?(User)
+    return t('titles.brand', brand: t('titles.brand')) if resource.is_a?(User)
   end
 
   def sign_in_url_for(resource)

@@ -436,9 +436,8 @@ en:
         password_confirmation: 'Confirm password'
 
   titles:
-    brand: 'CHARMcare Data'
+    brand: 'CHARMcare'
     admin: 'Data Admin'
-    developer: 'Data Developers'
 
   navigation:
     edit_account: 'Edit account'
