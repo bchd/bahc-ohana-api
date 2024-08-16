@@ -12,7 +12,7 @@ module ApplicationHelper
     Rails.configuration.upload_server
   end
 
-    # Appends the site title to the end of the page title.
+  # Appends the site title to the end of the page title.
   # The site title is defined in config/settings.yml.
   # @param page_title [String] the page title from a particular view.
   def title(page_title)

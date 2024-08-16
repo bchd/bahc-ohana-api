@@ -81,11 +81,14 @@
                   = location.latitude
                 %span.hide#detail-map-canvas-lng
                   = location.longitude
-              %noscript
-                -# Hides map when JavaScript is disabled.
-                :sass
-                  #detail-map-view
-                    display: none
+            %noscript
+              %p.map-alternative
+                = "Map is not available because JavaScript is disabled. Please use the address below for directions."
+                %br
+                = full_address_for(location.address)
+              :sass
+                #detail-map-view
+                  display: none
 
       - if location.coordinates.present?
         %span.directions.icon-text-block><
@@ -176,7 +179,7 @@
     var locationUrl = "{@url}";
     var favoriteText = "favorite";
     var unfavoriteText = "unfavorite";
-    var favoriteURL = '/api/favorite.json';
+    var favoriteURL = '/favorite.json';
     var favoriteToggle = $('.favorite-toggle');
 
     $('.favorite-toggle').on('click', function(e){
@@ -203,10 +206,6 @@
             }
           },
           success: function(data){
-            console.log('data')
-            console.log(data)
-            // if success
-            // change button to "favorite"
             favoriteButton();
           }
         });
