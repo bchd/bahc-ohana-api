@@ -19,19 +19,19 @@
     = f.text_field :name, autofocus: true, class: 'form-control'
   %fieldset
     %p
+      You must enter your current password to make changes.
+    .form-group
+      = f.label :current_password
+      = f.password_field :current_password, autocomplete: 'off', class: 'form-control'    
+  %fieldset
+    %p
       Leave these fields blank if you don't want to change your password.
     .form-group
-      = f.label :password
+      = f.label :password, "New password"
       = f.password_field :password, autocomplete: 'off', class: 'form-control'
     .form-group
       = f.label :password_confirmation
       = f.password_field :password_confirmation, autocomplete: 'off', class: 'form-control'
-  %fieldset
-    %p
-      You must enter your current password to make changes.
-    .form-group
-      = f.label :current_password
-      = f.password_field :current_password, autocomplete: 'off', class: 'form-control'
   = f.submit t('buttons.update'), class: 'button button-small'
 
 %h3 Cancel Account
