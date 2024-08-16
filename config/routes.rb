@@ -138,8 +138,8 @@ Rails.application.routes.draw do
   post '/feedback' => 'feedback#create'
   get '.well-known/status' => 'status#check_status'
 
-  post '/api/favorite' => 'favorites#create'
-  delete '/api/favorite' => 'favorites#destroy'
+  post '/favorite.json' => 'favorites#create'
+  delete '/favorite.json' => 'favorites#destroy'
   get 'favorites' => 'favorites#index'
 
   post 'locations/get_subcategories_by_category' => 'locations#get_subcategories_by_category'

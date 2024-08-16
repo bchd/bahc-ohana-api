@@ -1,11 +1,23 @@
 module ResultSummaryHelper
   extend ActionView::Helpers::TextHelper
+  PARAMS_FRIENDLY_NAME = {
+    "main_category" => "Topic",
+    "keyword" => "Keyword"
+  }
 
   def search_results_page_title
-    search_terms = request.query_parameters.except(:utf8).
-                   map { |k, v| "#{k}: #{v}" if v.present? }.
-                   compact.join(', ')
-    "Search results for: #{search_terms}"
+    if search_params_present?
+      search_terms = request.query_parameters.except(:utf8).
+                     map { |k, v| "#{PARAMS_FRIENDLY_NAME[k]}: #{v}" if v.present? }.
+                     compact.join(', ')
+      "Search results for: #{search_terms}"
+    else
+      "All Results"
+    end
+  end
+
+  def search_params_present?
+    request.query_parameters.values.reject(&:blank?).present?
   end
 
   # Formats map result summary text
