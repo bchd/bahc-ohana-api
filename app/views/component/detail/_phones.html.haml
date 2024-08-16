@@ -1,7 +1,7 @@
 - if phones.present?
     %section.phone.icon-text-block{ itemscope: '', itemtype: 'http://schema.org/ContactPoint' }
         %span{ tabindex: "0", role: "img", aria: { label: "Phone" } }
-            %i.fa.fa-phone
+            %i.fa.fa-phone{'aria-label': 'Phone'}
         %span.annotated-text-block
             %h4= t('labels.phone')
         %br  
