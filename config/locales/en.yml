@@ -433,7 +433,7 @@ en:
         name: 'Service Name'
 
       user:
-        password_confirmation: 'Confirm password'
+        password_confirmation: 'Confirm new password'
 
   titles:
     brand: 'CHARMcare'
@@ -453,7 +453,7 @@ en:
     update: 'Update'
     cancel_my_account: 'Cancel my account'
     resend_confirmation_instructions: 'Resend confirmation instructions'
-    send_reset_password_instructions: 'Send me reset password instructions'
+    send_reset_password_instructions: 'Reset password'
     change_my_password: 'Change my password'
     clear_filters: 'Uncheck all filters'
     collapse_filters: 'Collapse filters'

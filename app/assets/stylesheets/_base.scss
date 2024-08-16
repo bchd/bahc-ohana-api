@@ -1047,6 +1047,49 @@ body {
 }
 
 //=================================================================================
+// Forgot your password
+
+.password-reset-form {
+  .forgot-password-title {
+    margin-bottom: 0.25rem;
+  }
+
+  .instructions {
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+
+  .form-group.centered {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .form-control-wrapper {
+      width: 100%;
+      max-width: 300px;
+
+      .form-label {
+        display: block;
+        text-align: left;
+        margin-bottom: 0.5rem;
+      }
+
+      .form-control {
+        width: 100%;
+      }
+    }
+  }
+
+  .form-group {
+    text-align: center;
+
+    .button.center {
+      margin-top: 0.25rem;
+    }
+  }
+}
+
+//=================================================================================
 // Location details view.
 #detail-info {
   width: 100%;
