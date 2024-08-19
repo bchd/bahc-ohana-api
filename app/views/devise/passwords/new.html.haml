@@ -10,6 +10,6 @@
         = f.label :email, 'Email', class: 'form-label'
         = f.email_field :email, autofocus: true, class: 'form-control', required: true
     .form-group
-      = f.submit t('buttons.send_reset_password_instructions'), class: 'button center'
+      = f.submit t('buttons.send_reset_password_instructions'), class: 'button center sign-up'
   %br
   = render 'devise/shared/links'
