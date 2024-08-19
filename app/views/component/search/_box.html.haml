@@ -11,6 +11,7 @@
             %span.home-page-or or
           %div
             .input-search-big.keyword
+              = label_tag 'keyword', t('labels.homepage_keyword_search'), class: 'keyword-label visuallyhidden'
               = search_field_tag :keyword, @keyword, placeholder: t('placeholders.homepage_keyword_search'), class: 'search-input', autocomplete: 'off'
               - if recommended_tags.present?
                 %div#recommended-tags.hide
