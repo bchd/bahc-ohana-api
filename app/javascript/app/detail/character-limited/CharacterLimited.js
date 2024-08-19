@@ -23,6 +23,7 @@ function CharacterLimited(elm, defaults) {
   function showMore() {
     _elm.innerHTML = _fulltext;
     _showHideElm.innerHTML = defaults.LESS_TEXT;
+    _showHideElm.setAttribute('aria-expanded', 'true');
 
     _elm.appendChild(_showHideElm);
   }
@@ -41,6 +42,7 @@ function CharacterLimited(elm, defaults) {
 
     if (h.length > 0) {
       _showHideElm.innerHTML = defaults.MORE_TEXT;
+      _showHideElm.setAttribute('aria-expanded', 'false');
 
       var html = c + '<span class="moreellipses">' +
                 defaults.ELLIPSES_TEXT +
@@ -52,7 +54,8 @@ function CharacterLimited(elm, defaults) {
     }
   }
 
-  function _linkClicked() {
+  function _linkClicked(event) {
+    event.preventDefault();
     _isShowingMore = !_isShowingMore;
     if (_isShowingMore)
       showMore();
@@ -62,6 +65,9 @@ function CharacterLimited(elm, defaults) {
 
   function _init() {
     _showHideElm = document.createElement('a');
+    _showHideElm.href = "#";
+    _showHideElm.setAttribute('aria-controls', _elm.id);
+    _showHideElm.setAttribute('aria-expanded', 'false');
     _showHideElm.addEventListener('click', _linkClicked, false);
     _fulltext = _elm.innerHTML;
     if(_fulltext.length > defaults.SHOW_CHAR)
@@ -71,11 +77,11 @@ function CharacterLimited(elm, defaults) {
   _init();
 
   return {
-    showMore:showMore,
-    showLess:showLess
+    showMore: showMore,
+    showLess: showLess
   };
 }
 
 export default {
-  create:create
+  create: create
 };

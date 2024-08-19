@@ -558,6 +558,7 @@ site_logo_prod_asset_url: http://www.charmcare.org/assets/CHARMcareLogo-01-87192
 # a location called "Health Insurance TeleCenter", the browser would display
 # "Health Insurance TeleCenter | Ohana Web Search" as the page title.
 site_title: CHARMcare
+site_subtitle: Community Health Access and Resource Module
 
 ###########################
 #

@@ -441,10 +441,13 @@ en:
 
   navigation:
     edit_account: 'Edit account'
+    edit_profile: 'Edit user profile'
     sign_in: 'Sign in'
     sign_in_with: 'Sign in with'
     sign_up: 'Sign up'
     sign_out: 'Sign out'
+    about: 'About'
+    favorites: 'Favorites'
     forgot_your_password: 'Forgot your password?'
     no_confirmation_instructions: "Didn't receive confirmation instructions?"
     no_unlock_instructions: "Didn't receive unlock instructions?"
@@ -477,6 +480,8 @@ en:
       in %{location}.
     header: 'Connect with resources in %{location}'
     location: 'Baltimore City'
+    logo: 'Charm care community health access and resource module'
+
 
   date:
     day_names:
@@ -532,6 +537,13 @@ en:
       filters_menu_title: 'Refine your search'
     topic_prompt: 'Choose a topic below to begin a search'
     vaccination-link-text: 'Register for a COVID-19 Vaccination'
+    phone: 'Phone'
+    location: 'Location'
+    favorite: 'Favorite'
+    charmcare_favorite: 'CHARMcare Favorite'
+    information_on_charmcare_favorites: 'Information on Charm care favorites'
+    what_is_charmcare_favorite: 'What is a CHARMcare Favorite?'
+    charmcare_favorite_description: 'CHARMcare users have found this resource to be particularly helpful.'
 
   location_fields:
     accessibility: 'Accessibility'
@@ -678,6 +690,7 @@ en:
         your_name: 'Your Name*'
         your_email: 'Your Email*'
         message: 'Message*'
+        submit: 'Submit'
     feedback:
       issue_link: 'File an issue on GitHub'
       issue_link_url: 'https://github.com/codeforamerica/Ohana-Web-Search/issues'

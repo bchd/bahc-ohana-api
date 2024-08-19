@@ -233,7 +233,7 @@ function _updateSubCategories(){
 
         parentCategoryDiv.classList.add("hoverable");
         parentCategoryDiv.setAttribute("aria-label", "Click enter to expand and collapse filters");
-        parentCategoryDiv.setAttribute("aria-expanded", "false");
+        parentCategoryDiv.setAttribute("aria-expanded", "true");
   
         filterDropdownContainer.classList.add("filter-dropdown-closed");
   
@@ -282,10 +282,6 @@ function _openSection(element) {
     $(item).toggleClass('hide');
   });
 
-  $(element).attr('aria-expanded', function (i, attr) {
-    return attr == 'true' ? 'false' : 'true'
-  });
-
   $(element).toggleClass('selected');
   $($(element).find('i')).toggleClass('fa fa-chevron-right fa fa-chevron-down');
 }
@@ -311,7 +307,10 @@ function _collapseSection(element) {
 
 function _handleHeaderClick(evt) {
   if (evt.key === "Enter" || evt.type === 'click') {
-    _openSection($(evt.currentTarget));
+    let parentCategoryDiv = evt.currentTarget;
+    let isExpanded = parentCategoryDiv.getAttribute('aria-expanded') === 'true';
+    parentCategoryDiv.setAttribute('aria-expanded', (!isExpanded).toString());
+    _openSection($(parentCategoryDiv));
   }
 }
 
