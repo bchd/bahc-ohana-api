@@ -5,8 +5,8 @@ import CharacterLimited from './CharacterLimited';
 // 'Constants'
 var SHOW_CHAR = 400;
 var SOFT_LIMIT = 100;
-var MORE_TEXT = 'Show more';
-var LESS_TEXT = 'Show less';
+var MORE_TEXT = '<span class=more>(</span>Show more<span>)</span>';
+var LESS_TEXT = '<span class=less>(</span>Show less<span>)</span>';
 var ELLIPSES_TEXT = '…';
 
 function init() {

@@ -7,11 +7,11 @@
     %ul
       %li
         %a.popup-trigger.popup-default#about-btn{ href: '/about#about-box', aria: { label: t('navigation.about') } }
-          About
+          = t('navigation.about')
       - if user_signed_in?
         %li
           %a.popup-trigger.popup-default#favorites-btn{ href: '/favorites', aria: { label: t('navigation.favorites') } }
-            Favorites
+            = t('navigation.favorites')
         %li
           %a.popup-trigger.popup-account#user-btn{ href: edit_user_registration_path, aria: { label: t('navigation.edit_profile') } }
             %div.button-logged-in
