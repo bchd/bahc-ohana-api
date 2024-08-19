@@ -70,6 +70,9 @@
     overflow-wrap: normal;
     text-overflow: ellipsis;
   }
+  input[type="checkbox"] {
+    margin-right: .3em;
+  }
 }
 
 .filter-description-label {

@@ -1,13 +1,15 @@
 - title "Forgot Your Password"
 .authform.devise
-  = content_tag(:span, nil, class: 'fa fa-key fa-3x', style: "display: block")  
-  = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, role: 'form' }) do |f|
-    %h2 Forgot your password?
+  = content_tag(:span, nil, class: 'fa fa-key fa-3x', style: "display: block; text-align: center;")  
+  = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, role: 'form', class: 'password-reset-form' }) do |f|
+    %h2.forgot-password-title Forgot your password?
+    %h3.instructions Enter your email and we will send you instructions to reset your password.
     = render 'devise/shared/error_messages', resource: resource
+    .form-group.centered
+      .form-control-wrapper
+        = f.label :email, 'Email', class: 'form-label'
+        = f.email_field :email, autofocus: true, class: 'form-control', required: true
     .form-group
-      = f.label :email
-      %br
-      = f.email_field :email, autofocus: true, class: 'form-control'
-    = f.submit t('buttons.send_reset_password_instructions'), class: 'button center sign-up'
+      = f.submit t('buttons.send_reset_password_instructions'), class: 'button center sign-up'
   %br
   = render 'devise/shared/links'

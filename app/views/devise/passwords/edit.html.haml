@@ -5,7 +5,7 @@
     = render 'devise/shared/error_messages', resource: resource
     = f.hidden_field :reset_password_token
     .form-group
-      = f.label :password
+      = f.label :password, "New password"
       = f.password_field :password, autofocus: true, autocomplete: 'off', class: 'form-control'
     .form-group
       = f.label :password_confirmation
