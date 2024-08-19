@@ -10,12 +10,12 @@
         = render 'component/detail/featured_location_badge'
       %hgroup
         %h1.name
-          = superscript_ordinals(full_name_content_for(location))
+          = link_to location_path(location), role: "link", aria: { label: "#{superscript_ordinals(full_name_content_for(location))} - View details" } do
+            = superscript_ordinals(full_name_content_for(location))
         - if location.organization.name && location.organization.name != location.name
           %h2.agency
-            = link_to(locations_path(org_name: location.organization.name)) do
-              %span
-                = superscript_ordinals(location.organization.name)
+            = link_to locations_path(org_name: location.organization.name), role: "link", aria: { label: "View all locations for #{superscript_ordinals(location.organization.name)}" } do
+              = superscript_ordinals(location.organization.name)
     
 
 
