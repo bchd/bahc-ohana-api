@@ -442,7 +442,7 @@ en:
 
   navigation:
     edit_account: 'Edit account'
-    have_an_account: 'Already have an account?'
+    have_an_account: 'Already have an account? '
     sign_in: 'Sign in'
     sign_in_with: 'Sign in with'
     sign_up: 'Sign up'
