@@ -1,19 +1,19 @@
-= form_tag('/locations', method: :get, id: 'form-search') do
+= form_tag('/locations', method: :get, id: 'form-search', role: 'search') do
   %section#search-box
     %div
       %div.search-form
-        = label_tag 'prompt', t('labels.homepage_prompt')
+        = label_tag 'prompt', t('labels.homepage_prompt'), for: 'keyword'
         %section#keyword-search-box.search-box.home-page-search-container
           %legend.sr-only= t('labels.category_search')
           %div
-            = label_tag 'main_category', t('labels.category_search') , class: "main_category"
-            = select_tag :main_category, options_for_select(categories_for_select), include_blank: 'All', class: "category_search_select", aria: { labelledby: 'Browse by Topic' }
+            = label_tag 'main_category', t('labels.category_search'), class: "main_category", id: "category-search-label"
+            = select_tag :main_category, options_for_select(categories_for_select), include_blank: 'All', class: "category_search_select", aria: { labelledby: 'category-search-label' }
           %div
             %span.home-page-or or
           %div
             .input-search-big.keyword
               = label_tag 'keyword', t('labels.homepage_keyword_search'), class: 'keyword-label visuallyhidden'
-              = search_field_tag :keyword, @keyword, placeholder: t('placeholders.homepage_keyword_search'), class: 'search-input', autocomplete: 'off'
+              = search_field_tag :keyword, @keyword, placeholder: t('placeholders.homepage_keyword_search'), class: 'search-input', autocomplete: 'off', id: 'keyword'
               - if recommended_tags.present?
                 %div#recommended-tags.hide
                   %span Recommended
@@ -21,7 +21,7 @@
                   - recommended_tags.each do |recommended_tag|
                     = link_to recommended_tag.name, "#", class: "recommended-tag", data: { tags: recommended_tag.tags.map(&:name).join(", ") }
           %div  
-            = button_tag(type: 'submit', name: nil, id: 'button-search', class: 'landing-button-icon', title: 'Search') do
+            = button_tag(type: 'submit', name: nil, id: 'button-search', class: 'landing-button-icon', aria: { label: t('buttons.search_resource') }) do
               %span
                 = t('buttons.homepage_search')
         %div.vaccination-link-container
