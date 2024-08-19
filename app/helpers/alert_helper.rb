@@ -7,10 +7,15 @@ module AlertHelper
   end
 
   def alert_content_for(type, message)
-    content_tag(:div, class: "alert alert-#{type}") do
+    content_tag(:div, class: "alert alert-#{type}", role: 'alert') do
       concat(content_tag(:p, message, id: "flash_#{type}", class: 'alert-message'))
-      concat(content_tag(:a, class: 'alert-close', data: { dismiss: 'alert' }) do
-        content_tag :i, nil, class: 'fa fa-times-circle fa-2x'
+      concat(content_tag(:button,
+        type: 'button',
+        class: 'alert-close',
+        data: { dismiss: 'alert' },
+        aria: { label: 'Close alert' }
+      ) do
+        content_tag(:i, nil, class: 'fa fa-times-circle fa-2x', 'aria-hidden': 'true')
       end)
     end
   end
