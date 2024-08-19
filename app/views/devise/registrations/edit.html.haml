@@ -17,14 +17,7 @@
         You recently updated your email to '#{resource.unconfirmed_email}', but we're still waiting for you to confirm it. Please look for an email from us with the subject 'CHARMcare Confirmation instructions'.
   .form-group
     = f.label :name
-    = f.text_field :name, autofocus: true, class: 'form-control'
-  %fieldset
-    %legend Change Password
-    %p
-      You must enter your current password to make changes.
-    .form-group
-      = f.label :current_password
-      = f.password_field :current_password, autocomplete: 'off', class: 'form-control'    
+    = f.text_field :name, autofocus: true, class: 'form-control' 
   %fieldset
     %p
       Leave these fields blank if you don't want to change your password.
