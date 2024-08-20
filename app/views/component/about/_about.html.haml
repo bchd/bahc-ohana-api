@@ -24,5 +24,7 @@
         %p
           = label_tag 'message', t('views.about.contact.message')
           = text_area_tag 'message', nil, rows: '4', required: 'true', class: 'comment', aria: { label: t('views.about.contact.message') }
+        %p.required-fields-note
+          = t('labels.required_field')        
         = hidden_field_tag 'agent', user_agent
         = button_tag t('views.about.contact.submit'), class: 'button-plain', aria: { label: t('views.about.contact.submit') }

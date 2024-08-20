@@ -5,17 +5,19 @@
     %h2 Sign up
     = render 'devise/shared/error_messages', resource: resource
     .form-group
-      = f.label :name
-      = f.text_field :name, autofocus: true, class: 'form-control'
+      = f.label :name, "Name*"
+      = f.text_field :name, autofocus: true, class: 'form-control', autocomplete: 'name', required: true, "aria-required": "true"
     .form-group
-      = f.label :email
-      = f.email_field :email, class: 'form-control'
+      = f.label :email, "Email*"
+      = f.email_field :email, class: 'form-control', autocomplete: 'email', required: true, "aria-required": "true"
     .form-group
-      = f.label :password
-      = f.password_field :password, autocomplete: 'off', class: 'form-control'
+      = f.label :password, "Password*"
+      = f.password_field :password, autocomplete: 'off', class: 'form-control', required: true, "aria-required": "true"
     .form-group
-      = f.label :password_confirmation
-      = f.password_field :password_confirmation, autocomplete: 'off', class: 'form-control'
+      = f.label :password_confirmation, "Confirm new password*"
+      = f.password_field :password_confirmation, autocomplete: 'off', class: 'form-control', required: true, "aria-required": "true"
+    %p.required-fields-note
+      = t('labels.required_field')
     = f.submit t('navigation.sign_up'), class: 'button right sign-up'
   %br
   = render 'devise/shared/links'
