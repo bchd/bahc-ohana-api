@@ -12,14 +12,14 @@
     .form-group
       = f.label :password
       %br
-      = f.password_field :password, autocomplete: 'off', class: 'form-control', autocomplete: 'current-password', required: true, "aria-required": "true"
+      = f.password_field :password, autocomplete: 'off', class: 'form-control', required: true, "aria-required": "true"
 
     .form-group
       = f.check_box :remember_me
       = f.label :remember_me, class: "checkbox-label"
 
     - if resource.class.name == User.name
-      = f.submit "Let's go!", class: 'button', "aria-label": "Log in to your account"
+      = f.submit "Sign in", class: 'button sign-up', "aria-label": "Log in to your account"
     - else
       = f.submit I18n.t('navigation.sign_in'), class: 'button', "aria-label": "Sign in to your account"
 
