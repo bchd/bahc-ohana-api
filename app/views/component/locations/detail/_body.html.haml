@@ -188,7 +188,22 @@
       e.preventDefault();
 
       if(userId === 0){
-        alert("Please login or signup to favorite this location");
+        var message = "Please login or sign up to favorite this location";
+
+        var alertDiv = $('<div>', {
+          'class': 'sr-only',
+          'role': 'alert',
+          'aria-live': 'assertive',
+          text: message
+        });
+
+        $('body').append(alertDiv);
+        setTimeout(function() {
+          alertDiv.remove();
+          
+          alert(message);
+        }, 100);
+
         return;
       }
 
