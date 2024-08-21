@@ -21,7 +21,7 @@
                   - recommended_tags.each do |recommended_tag|
                     = link_to recommended_tag.name, "#", class: "recommended-tag", data: { tags: recommended_tag.tags.map(&:name).join(", ") }
           %div  
-            = button_tag(type: 'submit', name: nil, id: 'button-search', class: 'landing-button-icon', aria: { label: t('buttons.search_resource') }) do
+            = button_tag(type: 'submit', name: nil, id: 'button-search', class: 'landing-button-icon', aria: { label: t('buttons.homepage_search') }) do
               %span
                 = t('buttons.homepage_search')
         %div.vaccination-link-container

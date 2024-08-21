@@ -94,9 +94,9 @@
         %br
         %span.directions.icon-text-block><
           %a{ href: "https://maps.google.com/maps?saddr=current+location&daddr=#{full_address_for(location.address)}", target: '_blank', aria: { label: "Get directions to #{location.name}" } }
-          %span{ tabindex: "0", role: "img", aria: { label: "Location", hidden: 'true' } }
-            %i.fa.fa-map-marker.fa-lg
-            %span.annotated-text-block Get Directions              
+            %span{ role: "img", "aria-hidden": "true" }
+              %i.fa.fa-map-marker.fa-lg
+            %span.annotated-text-block Get Directions
 
       - if location.contacts.present?
         .sidebar-header

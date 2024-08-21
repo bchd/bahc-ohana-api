@@ -19,7 +19,7 @@
       = f.label :remember_me, class: "checkbox-label"
 
     - if resource.class.name == User.name
-      = f.submit "Sign in", class: 'button sign-up', "aria-label": "Log in to your account"
+      = f.submit "Sign in", class: 'button sign-up', "aria-label": "Sign in"
     - else
       = f.submit I18n.t('navigation.sign_in'), class: 'button', "aria-label": "Sign in to your account"
 

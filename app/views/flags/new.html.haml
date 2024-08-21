@@ -26,7 +26,7 @@
               %p  
                 = f.label :email
                 = f.email_field :email, value: current_user&.email, class: "js-input-field", autocomplete: "email"
-              = f.button 'Send!', class: 'button-plain', type:"submit", data: { disable_with: "Sending..." }, aria: { label: "Submit feedback" }
+              = f.button 'Send!', class: 'button-plain', type:"submit", data: { disable_with: "Sending..." }, aria: { label: "Send" }
 
 :javascript
   $(function() {
