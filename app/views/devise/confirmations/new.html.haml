@@ -5,7 +5,7 @@
     = render 'devise/shared/error_messages', resource: resource
     .form-group
       = f.label :email
-      = f.email_field :email, autofocus: true, class: 'form-control'
+      = f.email_field :email, autofocus: true, class: 'form-control', autocomplete: 'email', required: true, "aria-required": "true"
     = f.submit t('buttons.resend_confirmation_instructions'), class: 'button center'
     %br
   = render 'devise/shared/links'

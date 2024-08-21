@@ -10,7 +10,7 @@
         = render 'component/detail/featured_location_badge'
       %hgroup
         %h1.name
-          = link_to location_path(location), role: "link", aria: { label: "#{superscript_ordinals(full_name_content_for(location))} - View details" } do
+          = link_to location_path(location), aria: { label: "#{superscript_ordinals(full_name_content_for(location))} - View details" } do
             = superscript_ordinals(full_name_content_for(location))
         - if location.organization.name && location.organization.name != location.name
           %h2.agency
@@ -91,11 +91,12 @@
                   display: none
 
       - if location.coordinates.present?
+        %br
         %span.directions.icon-text-block><
-          %a{ href: "https://maps.google.com/maps?saddr=current+location&daddr=#{full_address_for(location.address)}", target: '_blank' }
-          %span{ tabindex: "0", role: "img", aria: { label: "Location" } }
-            %i.fa.fa-map-marker.fa-lg
-            %span.annotated-text-block Get Directions              
+          %a{ href: "https://maps.google.com/maps?saddr=current+location&daddr=#{full_address_for(location.address)}", target: '_blank', aria: { label: "Get directions to #{location.name}" } }
+            %span{ role: "img", "aria-hidden": "true" }
+              %i.fa.fa-map-marker.fa-lg
+            %span.annotated-text-block Get Directions
 
       - if location.contacts.present?
         .sidebar-header
@@ -104,7 +105,7 @@
         - location.contacts.each do |contact|
           %section.contact-box-specific.location-sidebar-section
             %section.icon-text-block
-              %i.fa.fa-id-card
+              %i.fa.fa-id-card{ aria: { hidden: 'true' } }
               %span.annotated-text-block
                 %h4 Name
               %br  
@@ -187,7 +188,22 @@
       e.preventDefault();
 
       if(userId === 0){
-        alert("Please login or signup to favorite this location");
+        var message = "Please login or sign up to favorite this location";
+
+        var alertDiv = $('<div>', {
+          'class': 'sr-only',
+          'role': 'alert',
+          'aria-live': 'assertive',
+          text: message
+        });
+
+        $('body').append(alertDiv);
+        setTimeout(function() {
+          alertDiv.remove();
+          
+          alert(message);
+        }, 100);
+
         return;
       }
 

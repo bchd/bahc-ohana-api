@@ -12,21 +12,21 @@
             Thank you for sending us feedback about this resource.
             %br
             Please tell us more about the issue you identified.
-            = form_for :flag, url: flag_path, html: { id: 'flag-form' } do |f|
+            = form_for :flag, url: flag_path, html: { id: 'flag-form', role: 'form' } do |f|
               = hidden_field(:flag, :resource_type, value: @resource_type)
               = hidden_field(:flag, :resource_id, value: @resource_id)
               = f.fields_for :report_attributes do |rf|
                 %br
                 - Flag.report_attributes_schema.each do |attribute|
                   %p
-                    = rf.check_box checkbox_name(attribute[:name]), class: "report-input-checkbox", id: checkbox_name(attribute[:name]), data: { "target-id" => attribute[:name] }
+                    = rf.check_box checkbox_name(attribute[:name]), class: "report-input-checkbox", id: checkbox_name(attribute[:name]), data: { "target-id" => attribute[:name] }, aria: { describedby: "#{attribute[:name]}_description" }
                     = rf.label attribute[:name], attribute[:label], class: "report-label", for: checkbox_name(attribute[:name])
                     - if attribute[:details_required] != false
-                      = rf.text_area attribute[:name], placeholder: "Please describe.", class: "js-input-field hidden", id: attribute[:name]
+                      = rf.text_area attribute[:name], placeholder: "Please describe.", class: "js-input-field hidden", id: attribute[:name], aria: { label: "Description of the issue" }
               %p  
                 = f.label :email
-                = f.email_field :email, value: current_user&.email, class: "js-input-field"
-              = f.button 'Send!', class: 'button-plain', type:"submit", data: { disable_with: "Sending..." }
+                = f.email_field :email, value: current_user&.email, class: "js-input-field", autocomplete: "email"
+              = f.button 'Send!', class: 'button-plain', type:"submit", data: { disable_with: "Sending..." }, aria: { label: "Send" }
 
 :javascript
   $(function() {
@@ -37,7 +37,22 @@
       }).length > 0;
       
       if (!anyChecked && !anyFilled) {
-        alert('Please enter your email or check one of the feedback boxes before submitting.');
+        var message = 'Please enter your email or check one of the feedback boxes before submitting.';
+
+        var alertDiv = $('<div>', {
+          'class': 'sr-only',
+          'role': 'alert',
+          'aria-live': 'assertive',
+          text: message
+        });
+
+        $('body').append(alertDiv);
+        setTimeout(function() {
+          alertDiv.remove();
+          
+          alert(message);
+        }, 100);
+
         return false;
       }
     });

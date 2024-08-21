@@ -3,11 +3,14 @@
 
 = field_set_tag nil, id: 'distance-filter', class: 'input-search-filter input-search-filter-option' do
   %legend.sr-only= t('labels.distance_filter')
-  = label_tag :distance, 'By Distance', style: "font-size: 16px;", for: 'distance'
+  = label_tag 'distance', 'By Distance', style: "font-size: 16px;", for: 'distance'
   %hr
-  %div{ id: 'distance-label-container' }
-    = label_tag 'within', t('labels.distance_filter'), for: 'distance'
-  = select_tag :distance, options_for_select([["1 mile", 1], ["2 miles", 2], ["10 miles", 10], ["25 miles", 25]], @selected_distance_filter), include_blank: 'All', class: "category-search-select-left-menu"
+  = select_tag :distance, 
+               options_for_select([["1 mile", 1], ["2 miles", 2], ["10 miles", 10], ["25 miles", 25]], @selected_distance_filter), 
+               include_blank: 'All', 
+               class: "category-search-select-left-menu",
+               aria: { describedby: 'distance-description' }
+  %span#distance-description.sr-only= t('labels.distance_filter')
 %div.geolocate-of-word-container
   = "Of"
 

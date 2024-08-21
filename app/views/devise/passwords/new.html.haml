@@ -8,7 +8,7 @@
     .form-group.centered
       .form-control-wrapper
         = f.label :email, 'Email', class: 'form-label'
-        = f.email_field :email, autofocus: true, class: 'form-control', required: true
+        = f.email_field :email, autofocus: true, class: 'form-control', autocomplete: 'email', required: true, "aria-required": "true"       
     .form-group
       = f.submit t('buttons.send_reset_password_instructions'), class: 'button center sign-up'
   %br

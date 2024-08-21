@@ -1,27 +1,27 @@
 - title "Login"
 .authform.devise
   - if resource.class.name == User.name
-    = content_tag(:span, nil, class: 'fa fa-key fa-3x', style: "display: block")
+    = content_tag(:span, nil, class: 'fa fa-key fa-3x', style: "display: block", "aria-hidden": "true")
 
   = form_for(resource, as: resource_name, url: session_path(resource_name), html: { role: 'form', class: 'form' }) do |f|
     %h2 Login
     .form-group
       = f.label :email
       %br
-      = f.email_field :email, autofocus: true, class: 'form-control'
+      = f.email_field :email, autofocus: true, class: 'form-control', autocomplete: 'email', required: true, "aria-required": "true"
     .form-group
       = f.label :password
       %br
-      = f.password_field :password, autocomplete: 'off', class: 'form-control'
+      = f.password_field :password, autocomplete: 'off', class: 'form-control', required: true, "aria-required": "true"
 
     .form-group
       = f.check_box :remember_me
-      = f.label :remember_me
+      = f.label :remember_me, class: "checkbox-label"
 
     - if resource.class.name == User.name
-      = f.submit "Let's go!", class: 'button'
+      = f.submit "Sign in", class: 'button sign-up', "aria-label": "Sign in"
     - else
-      = f.submit I18n.t('navigation.sign_in'), class: 'button'
+      = f.submit I18n.t('navigation.sign_in'), class: 'button', "aria-label": "Sign in to your account"
 
   %br
   = render 'devise/shared/links'

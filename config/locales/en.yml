@@ -545,6 +545,7 @@ en:
     information_on_charmcare_favorites: 'Information on Charm care favorites'
     what_is_charmcare_favorite: 'What is a CHARMcare Favorite?'
     charmcare_favorite_description: 'CHARMcare users have found this resource to be particularly helpful.'
+    required_field: '*Required Field'
 
   location_fields:
     accessibility: 'Accessibility'
@@ -639,7 +640,7 @@ en:
     first_name: 'First'
     forgot_your_password: 'Forgot your password?'
     last_name: 'Last'
-    lets_go: "Let's go!"
+    lets_go: "Sign in"
     login: 'Login'
     manage_users: 'Manage Users'
     organization: 'Organization'
