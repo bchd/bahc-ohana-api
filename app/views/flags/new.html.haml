@@ -37,7 +37,22 @@
       }).length > 0;
       
       if (!anyChecked && !anyFilled) {
-        alert('Please enter your email or check one of the feedback boxes before submitting.');
+        var message = 'Please enter your email or check one of the feedback boxes before submitting.';
+
+        var alertDiv = $('<div>', {
+          'class': 'sr-only',
+          'role': 'alert',
+          'aria-live': 'assertive',
+          text: message
+        });
+
+        $('body').append(alertDiv);
+        setTimeout(function() {
+          alertDiv.remove();
+          
+          alert(message);
+        }, 100);
+
         return false;
       }
     });
