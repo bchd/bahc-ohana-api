@@ -145,7 +145,7 @@ ul {
 
   .header-title {
     display: none;
-    color: $purple;
+    color: $indigo;
     font-size: 18px;
     font-weight: 500;
     font-family: $font_sans_serif;
@@ -296,7 +296,7 @@ ul {
       }
 
       .button-small {
-        background-image: linear-gradient(to right, $blue, $dark-purple);
+        background-image: linear-gradient(to right, $blue, $indigo);
         color: $white;
         padding: .5em 1.5em;
         letter-spacing: 1px;
