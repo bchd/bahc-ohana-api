@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '3.2.2'
+ruby '3.3.4'
 
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'active_data'

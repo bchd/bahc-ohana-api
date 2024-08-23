@@ -1,6 +1,6 @@
 {
   lib ? import <lib> {},
-  pkgs ? import (fetchTarball https://github.com/NixOS/nixpkgs/archive/23.05.zip) {}
+  pkgs ? import (fetchTarball channel:nixos-24.05) {}
 }:
 
 let
@@ -18,11 +18,11 @@ let
     pkgs.git
     pkgs.shared-mime-info
 
-    pkgs.postgresql_15
+    pkgs.postgresql_16
 
-    pkgs.ruby_3_2
+    pkgs.ruby_3_3
     pkgs.bundler
-    pkgs.nodejs_18
+    pkgs.nodejs
     pkgs.yarn
   ];
 
