@@ -92,7 +92,7 @@
 
       - if location.coordinates.present?
         %br
-        %span.directions.icon-text-block><
+        %span.directions.icon-text-block
           %a{ href: "https://maps.google.com/maps?saddr=current+location&daddr=#{full_address_for(location.address)}", target: '_blank', aria: { label: "Get directions to #{location.name}" } }
             %span{ role: "img", "aria-hidden": "true" }
               %i.fa.fa-map-marker.fa-lg
