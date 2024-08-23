@@ -443,6 +443,7 @@ en:
     edit_account: 'Edit account'
     have_an_account: 'Already have an account? '
     edit_profile: 'Edit user profile'
+    account_details: 'Account Details'
     sign_in: 'Sign in'
     sign_in_with: 'Sign in with'
     sign_up: 'Sign up'
