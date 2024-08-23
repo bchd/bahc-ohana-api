@@ -448,6 +448,7 @@ en:
     sign_up: 'Sign up'
     sign_out: 'Sign out'
     about: 'About'
+    list_your_services: 'List Your Services'
     favorites: 'Favorites'
     forgot_your_password: 'Forgot your password?'
     no_confirmation_instructions: "Didn't receive confirmation instructions?"
