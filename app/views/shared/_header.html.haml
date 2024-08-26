@@ -19,11 +19,11 @@
             = current_user.first_name[0]&.upcase || current_user.email[0].upcase
           %ul.profile-dropdown.dropdown-menu#profile-dropdown
             %li
-              %a{ href: edit_user_registration_path, aria: { label: t('navigation.account_details') } }
-                = t('navigation.account_details')
-            %li
               %a{ href: '/favorites', aria: { label: t('navigation.favorites') } }
                 = t('navigation.favorites')
+            %li
+              %a{ href: edit_user_registration_path, aria: { label: t('navigation.account_details') } }
+                = t('navigation.account_details')
             %li
               = link_to t('navigation.sign_out'), destroy_user_session_path, method: 'delete', aria: { label: t('navigation.sign_out') }
       - else
@@ -40,7 +40,7 @@
             = t('navigation.favorites')
         %li
           %a{ href: edit_user_registration_path, aria: { label: t('navigation.edit_profile') } }
-            = t('navigation.edit_profile')
+            = t('navigation.account_details')
         %li
           = link_to t('navigation.sign_out'), destroy_user_session_path, method: 'delete', aria: { label: t('navigation.sign_out') }
       - else
