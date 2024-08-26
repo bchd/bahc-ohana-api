@@ -1,20 +1,114 @@
 .footer {
-  .bchd-logo {
-    float: left;
-    height: 45px;
+  position: relative;
+  padding: 20px;
 
-    img {
-      max-width: 100px;
-      margin-left: 10px;
-      margin-right: 50px;
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    margin-top: 30px;
+    left: 20px;
+    right: 20px;
+    height: 1px;
+    background-color: $blue;
+  }
+
+  .footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 60px 20px 40px;
+
+    @media (min-width: 768px) {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
     }
   }
 
-  .title {
-    float: right;
-    height: 45px;
-    line-height: 45px;
-    margin-left: 10px;
-    margin-right: 50px;
+  .logo-container,
+  .bchd-logo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+
+    @media (min-width: 768px) {
+      margin-bottom: 0;
+      flex-direction: row;
+      align-items: flex-start;
+      max-width: 325px;
+    }
+
+    img {
+      max-width: 100px;
+      margin-right: 10px;
+    }
+
+    .subtitle {
+      font-size: 18px;
+      text-align: left;
+      margin-left: 5px;
+      color: $purple;
+
+      @media (min-width: 768px) {
+        margin-top: 30px;
+        margin-left: 0;
+      }
+
+      @media screen and (max-width: 768px) and (min-width: 501px) {
+        margin-top: 30px;
+      }
+    }
+  }
+
+  .footer-links {
+    display: flex;
+    flex-direction: row;
+    text-align: left;
+    width: 100%;
+
+    @media (min-width: 785px) {
+      justify-content: flex-end;
+      width: auto;
+    }
+
+    @media screen and (max-width: 786px) and (min-width: 501px) {
+      justify-content: flex-end;
+      width: auto;
+      padding-top: 20px;
+    }
+
+    @media screen and (max-width: 500px) {
+      flex-wrap: wrap;
+      justify-content: flex-start;
+    }
+
+    .column {
+      display: flex;
+      flex-direction: column;
+      margin-right: 40px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      a {
+        margin-bottom: 10px;
+        color: $grey;
+        text-decoration: none;
+        font-size: 14px;
+
+        &:hover {
+          color: $blue;
+          text-decoration: underline;
+        }
+      }
+
+      @media screen and (max-width: 500px) {
+        flex-basis: 50%;
+        margin-right: 0;
+        padding-top: 20px;
+      }
+    }
   }
 }
