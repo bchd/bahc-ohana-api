@@ -470,6 +470,12 @@ en:
 
   links:
     view: 'view'
+    about_charmcare: 'About CHARMcare'
+    privacy_policy: 'Privacy Policy'
+    connect_with_us: 'Connect with Us'
+    terms_and_conditions: 'Terms & Conditions'
+    list_your_services: 'List Your Services'
+    accessibility: 'Accessibility'
   
   #below keys pulled in from UI app  
 
