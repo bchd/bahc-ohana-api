@@ -158,6 +158,10 @@
         color: $blue;
         text-decoration: underline;
       }
+      
+      .about-btn:hover {
+        color: $white;
+      }
 
       .button-small {
         background-image: linear-gradient(to right, $blue, $indigo);
