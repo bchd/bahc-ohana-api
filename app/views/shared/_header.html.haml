@@ -1,24 +1,49 @@
 %header#content-header
-  %h1#logo
-    %a{ href: '/', target: '_self', aria: { label: t('branding.logo') } }
-      %img{ src: asset_path(SETTINGS[:site_logo]), alt: "#{SETTINGS[:site_title]} Logo" }
-  %h2= t('branding.header', location: t('branding.location'))
-  %nav
-    %ul
+  %div.header-left
+    %h1#logo
+      %a{ href: '/', target: '_self', aria: { label: t('branding.logo') } }
+        %img{ src: asset_path(SETTINGS[:site_logo]), alt: "#{SETTINGS[:site_title]} Logo" }
+    %h2.header-title= t('branding.header', location: t('branding.location'))
+  %button#hamburger{ aria: { label: 'Toggle navigation' } }
+    %span
+    %span
+    %span
+  %nav#nav-menu
+    %ul.desktop-only
       %li
-        %a.popup-trigger.popup-default#about-btn{ href: '/about#about-box', aria: { label: t('navigation.about') } }
-          = t('navigation.about')
+        %a.popup-trigger.popup-default.button-small.about-btn#about-btn{ href: '/about#about-box', aria: { label: t('navigation.list_your_services') } }
+          = t('navigation.list_your_services')
       - if user_signed_in?
         %li
-          %a.popup-trigger.popup-default#favorites-btn{ href: '/favorites', aria: { label: t('navigation.favorites') } }
+          %button.button-logged-in#user-btn{ aria: { label: t('navigation.expand_menu') }, tabindex: 0 }
+            = current_user.first_name[0]&.upcase || current_user.email[0].upcase
+          %ul.profile-dropdown.dropdown-menu#profile-dropdown
+            %li
+              %a{ href: '/favorites', aria: { label: t('navigation.favorites') } }
+                = t('navigation.favorites')
+            %li
+              %a{ href: edit_user_registration_path, aria: { label: t('navigation.account_details') } }
+                = t('navigation.account_details')
+            %li
+              = link_to t('navigation.sign_out'), destroy_user_session_path, method: 'delete', aria: { label: t('navigation.sign_out') }
+      - else
+        %li
+          %a.popup-trigger.popup-account#user-btn{ href: new_user_session_path, aria: { label: t('users.login') } }
+            = t('navigation.sign_in')
+    %ul.mobile-only.dropdown-menu
+      %li
+        %a{ href: '/about#about-box', aria: { label: t('navigation.list_your_services ') } }
+          = t('navigation.list_your_services')
+      - if user_signed_in?
+        %li
+          %a{ href: '/favorites', aria: { label: t('navigation.favorites') } }
             = t('navigation.favorites')
         %li
-          %a.popup-trigger.popup-account#user-btn{ href: edit_user_registration_path, aria: { label: t('navigation.edit_profile') } }
-            %div.button-logged-in
-              = current_user.first_name[0]&.upcase || current_user.email[0].upcase
+          %a{ href: edit_user_registration_path, aria: { label: t('navigation.account_details') } }
+            = t('navigation.account_details')
         %li
           = link_to t('navigation.sign_out'), destroy_user_session_path, method: 'delete', aria: { label: t('navigation.sign_out') }
       - else
         %li
-          %a.popup-trigger.popup-account.button-small#user-btn{ href: new_user_session_path, aria: { label: t('users.login') } }
-            = t('users.login')
+          %a{ href: new_user_session_path, aria: { label: t('users.login') } }
+            = t('navigation.sign_in')

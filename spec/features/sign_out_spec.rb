@@ -8,8 +8,15 @@ feature 'Signing out' do
 
   # CHANGED: reflecting that in combined app, not all users are admins, so signout should redirect to root
   it 'redirects to the user home page' do
-    click_link I18n.t('navigation.sign_out')
-    # expect(current_path).to eq(new_admin_session_path)
+    if page.has_css?('.desktop-only')
+      within('.profile-dropdown') do
+        click_link I18n.t('navigation.sign_out')
+      end
+    else
+      within('.mobile-only.dropdown-menu') do
+        click_link I18n.t('navigation.sign_out')
+      end
+    end
     expect(current_path).to eq(root_path)
   end
 end

@@ -1,0 +1,323 @@
+#content {
+  background: $white;
+
+  .header-left {
+    display: flex;
+    align-items: center;
+  }
+
+  .header-title {
+    display: none;
+    color: $indigo;
+    font-size: 18px;
+    font-weight: 500;
+    font-family: $font_sans_serif;
+    margin-left: 10px;
+    padding-right: 15px;
+
+    @media screen and (min-width: 785px) {
+      display: inline-block;
+    }
+  }
+
+  // Main page header and logo area.
+  > header {
+    position: relative;
+    z-index: 9999;
+    vertical-align: middle;
+    width: 100%;
+    background: $light-blue;
+    @include box-sizing(border-box);
+
+    padding: .2em;
+    background-clip: content-box, padding-box;
+    background-image: linear-gradient($light-blue, $light-blue), linear-gradient($light-blue, $light-blue);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    h1 {
+      font-size: $font_size_110;
+      @include inline-block();
+    }
+
+    #hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: space-around;
+      width: 30px;
+      height: 30px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      z-index: 1001;
+
+      span {
+        width: 30px;
+        height: 3px;
+        background: $blue;
+        right: 5px;
+        border-radius: 2px;
+        transition: all 0.3s linear;
+        position: relative;
+        transform-origin: 1px;
+
+        &:nth-child(1) {
+          transform: rotate(0);
+        }
+
+        &:nth-child(2) {
+          opacity: 1;
+          transform: translateX(0);
+        }
+
+        &:nth-child(3) {
+          transform: rotate(0);
+        }
+      }
+
+      &.open span {
+        &:nth-child(1) {
+          transform: rotate(45deg);
+        }
+
+        &:nth-child(2) {
+          opacity: 0;
+          transform: translateX(20px);
+        }
+
+        &:nth-child(3) {
+          transform: rotate(-45deg);
+        }
+      }
+    }
+
+    nav {
+      @include inline-block();
+      display: flex;
+      align-items: center;
+      padding-right: 1em;
+      text-align: center;
+      line-height: 3em;
+
+      @media screen and (max-width: 785px) {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        text-align: left;
+        line-height: normal;
+        padding-right: 0;
+
+        &.open {
+          display: flex;
+        }
+      }
+
+      ul {
+        display: flex;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        @media screen and (max-width: 785px) {
+          flex-direction: column;
+          width: 100%;
+        }
+
+        li {
+          padding-left: 10px;
+          @include inline-block();
+
+          @media screen and (max-width: 785px) {
+            padding-right: 0;
+            padding: 10px 0;
+            width: 100%;
+          }
+        }
+      }
+
+      a {
+        font-family: $font_sans_serif;
+        font-weight: 500;
+        letter-spacing: 1px;
+        font-size: $font_size_100;
+        color: $grey;
+        padding: .5em;
+        text-decoration: none;
+
+        @media screen and (max-width: 785px) {
+          width: 100%;
+          padding: 1em;
+        }
+      }
+
+      a:hover {
+        color: $blue;
+        text-decoration: underline;
+      }
+      
+      .about-btn:hover {
+        color: $white;
+      }
+
+      .button-small {
+        background-image: linear-gradient(to right, $blue, $indigo);
+        color: $white;
+        padding: .5em 1.5em;
+        letter-spacing: 1px;
+        font-weight: normal;
+        border: none;
+
+        @media screen and (max-width: 785px) {
+          display: inline-block;
+          margin-top: 10px;
+        }
+      }
+
+      .button-small:hover {
+        background-image: linear-gradient(to right, tint($blue, 10), tint($indigo, 10));
+        box-shadow: 0 0 0 2px $blue;
+      }
+
+      button.button-logged-in {
+        font-size: $font_size_110;
+        color: $white;
+        background-image: linear-gradient(to right, $blue, $indigo);
+        border-radius: 50%;
+        height: 2em;
+        width: 2em;
+        text-align: center;
+        line-height: 2em;
+        margin: 0;
+        cursor: pointer;
+        border: none;
+        padding: 0;
+
+        @media screen and (max-width: 785px) {
+          display: inline-block;
+          margin-right: 10px;
+        }
+      }
+
+      button.button-logged-in:hover {
+        background-image: linear-gradient(to right, tint($blue, 10), tint($indigo, 10));
+      }
+    }
+
+    @media screen and (max-width: 785px) {
+      flex-direction: row;
+      justify-content: space-between;
+      text-align: center;
+
+      #hamburger {
+        display: flex;
+        position: absolute;
+        right: 10px;
+      }
+
+      .desktop-only {
+        display: none;
+      }
+
+      .mobile-only {
+        display: none;
+      }
+
+      nav.open .mobile-only {
+        display: block;
+      }
+    }
+
+    @media screen and (min-width: 785px) {
+      .mobile-only {
+        display: none;
+      }
+    }
+  }
+
+  .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 85%;
+    right: 0;
+    margin-right: 15px;
+    background: $white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    padding: 20px;
+    z-index: 1000;
+    width: 200px;
+    text-align: left;
+  
+    @media screen and (max-width: 786px) and (min-width: 501px) {
+      width: 50%;
+      top: 80%;
+      text-align: right;
+    }
+  
+    @media screen and (max-width: 500px) {
+      width: 100%;
+      border-radius: 0 0 4px 4px;
+      text-align: right;
+      margin-right: 0;
+      top: 100%;
+    }
+  
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      text-align: left;
+  
+      li {
+        padding: 5px 0;
+        display: block;
+  
+        a {
+          color: $grey;
+          text-decoration: none;
+          display: block;
+          text-align: left;
+  
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+
+  #user-btn.open + #profile-dropdown {
+    display: block;
+  }
+
+  #hamburger.open + #nav-menu {
+    display: block;
+  }
+}
+
+#logo {
+  span {
+    color: $black; // IE fallback
+    font-size: $font_size_90;
+    margin-left: 5px;
+    position: relative;
+    top: -10px;
+    font-family: $font_sans_serif;
+  }
+
+  a,
+  a:hover {
+    text-decoration: none;
+    border-bottom: 0;
+    padding: 0;
+  }
+
+  img {
+    width: 80px;
+    margin: .2em;
+  }
+}

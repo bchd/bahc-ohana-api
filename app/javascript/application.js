@@ -65,4 +65,28 @@ document.addEventListener('turbolinks:load', () => {
     utilityLinks.init();
     filters.init();
   }
+
+  // Hamburger menu toggle functionality
+  const hamburger = document.getElementById('hamburger');
+  const navMenu = document.getElementById('nav-menu');
+  const dropdownMenu = document.querySelector('.mobile-only.dropdown-menu');
+
+  if (hamburger && navMenu && dropdownMenu) {
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      navMenu.classList.toggle('open');
+      dropdownMenu.classList.toggle('open');
+    });
+  }
+
+  // Profile dropdown in signed-in header
+  const userBtn = document.getElementById('user-btn');
+  const profileDropdown = document.getElementById('profile-dropdown');
+
+  if (userBtn && profileDropdown) {
+    userBtn.addEventListener('click', function() {
+      userBtn.classList.toggle('open');
+      profileDropdown.classList.toggle('open');
+    });
+  }
 })
