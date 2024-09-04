@@ -15,7 +15,7 @@
           = t('navigation.list_your_services')
       - if user_signed_in?
         %li
-          %button.button-logged-in#user-btn{ aria: { label: t('navigation.edit_profile') }, tabindex: 0 }
+          %button.button-logged-in#user-btn{ aria: { label: t('navigation.expand_menu') }, tabindex: 0 }
             = current_user.first_name[0]&.upcase || current_user.email[0].upcase
           %ul.profile-dropdown.dropdown-menu#profile-dropdown
             %li
@@ -32,14 +32,14 @@
             = t('navigation.sign_in')
     %ul.mobile-only.dropdown-menu
       %li
-        %a{ href: '/about#about-box', aria: { label: t('navigation.about') } }
+        %a{ href: '/about#about-box', aria: { label: t('navigation.list_your_services ') } }
           = t('navigation.list_your_services')
       - if user_signed_in?
         %li
           %a{ href: '/favorites', aria: { label: t('navigation.favorites') } }
             = t('navigation.favorites')
         %li
-          %a{ href: edit_user_registration_path, aria: { label: t('navigation.edit_profile') } }
+          %a{ href: edit_user_registration_path, aria: { label: t('navigation.account_details') } }
             = t('navigation.account_details')
         %li
           = link_to t('navigation.sign_out'), destroy_user_session_path, method: 'delete', aria: { label: t('navigation.sign_out') }

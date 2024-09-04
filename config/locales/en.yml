@@ -450,6 +450,7 @@ en:
     sign_out: 'Sign out'
     about: 'About'
     list_your_services: 'List Your Services'
+    expand_menu: 'Expand Menu'
     favorites: 'Favorites'
     forgot_your_password: 'Forgot your password?'
     no_confirmation_instructions: "Didn't receive confirmation instructions?"
