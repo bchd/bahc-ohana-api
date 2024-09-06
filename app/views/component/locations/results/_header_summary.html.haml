@@ -3,5 +3,5 @@
     %span.static-content><
     %p.search-summary
       %span
-        - count = search.locations.count
+        - count = search.locations.total_count
         = "#{count} #{'Result'.pluralize(count)}"

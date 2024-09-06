@@ -18,6 +18,5 @@
         - elsif !page.was_truncated?
           %li.collapsed
             = gap_tag
-      - unless current_page.last?
-        %li.next
-          = next_page_tag
+      %li.next{ class: ("disabled" if current_page.last?) }
+        = next_page_tag

@@ -99,16 +99,15 @@
   .next {
     border-radius: 0 0.375rem 0.375rem 0;
   }
+}
+li.disabled {
+  color: #d1d5db !important;
+  background: #f9fafb !important;
+  cursor: not-allowed !important;
+  pointer-events: none !important;
 
-  .disabled {
-    color: #d1d5db;
-    background: #f9fafb;
-    cursor: not-allowed;
-    pointer-events: none;
-
-    a {
-      color: #d1d5db;
-    }
+  a {
+    color: #d1d5db !important;
   }
 }
 .columns-wrapper {
