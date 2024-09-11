@@ -46,4 +46,11 @@
               %h2.visuallyhidden= "Service Availability"
               
   %footer
-    = paginate search.locations
+    %div.columns-wrapper
+      %div.column-results
+        %span.static-content
+          %p.search-summary
+            %span
+              = page_entries_info search.locations, entry_name: 'result'
+      %div.column-pagination
+        = paginate search.locations

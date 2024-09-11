@@ -398,12 +398,12 @@ en:
       one_page:
         display_entries:
           zero: 'No %{entry_name} found.'
-          one: 'Displaying <strong>1</strong> result'
-          other: 'Displaying <strong>all %{count}</strong> %{entry_name}'
+          one: 'Showing 1 result'
+          other: 'Showing all %{count} %{entry_name}'
       more_pages:
         display_entries: >
-          Displaying <strong>%{first} - %{last}</strong> of
-          <strong>%{total}</strong> %{entry_name}
+          Showing %{first} to %{last} of
+          %{total} %{entry_name}
     label:
       address: &address_helper_labels
         state_province: 'State (2-letter abbreviation)'
