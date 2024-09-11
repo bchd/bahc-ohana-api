@@ -18,9 +18,6 @@ import cl from './app/detail/character-limited/character-limiter';
 import utilityLinks from './app/detail/utility-links';
 
 document.addEventListener('turbolinks:load', () => {
-  // clean up old translate entries
-  document.getElementById('google-translate-container').innerHTML = '';
-
   // All pages alerts init
   alerts.init();
 
