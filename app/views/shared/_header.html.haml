@@ -31,6 +31,22 @@
           %a.popup-trigger.popup-account#user-btn{ href: new_user_session_path, aria: { label: t('users.login') } }
             = t('navigation.sign_in')
     %ul.mobile-only.dropdown-menu
+      %li#translation-bar-mobile
+        %span= t('navigation.translate_to')
+        %a.translate-link{ href: '#', data: { lang: 'en' }, aria: { label: 'Translate to English' } }
+          %img{ src: asset_path('language_flags/english_language_flag.png'), alt: 'English' }
+        %a.translate-link{ href: '#', data: { lang: 'ar' }, aria: { label: 'Translate to Arabic' } }
+          %img{ src: asset_path('language_flags/arabic_language_flag.png'), alt: 'Arabic' }
+        %a.translate-link{ href: '#', data: { lang: 'zh-CN' }, aria: { label: 'Translate to Chinese (Simplified)' } }
+          %img{ src: asset_path('language_flags/chinese_simplified_language_flag.png'), alt: 'Chinese (Simplified)' }
+        %a.translate-link{ href: '#', data: { lang: 'zh-TW' }, aria: { label: 'Translate to Chinese (Traditional)' } }
+          %img{ src: asset_path('language_flags/chinese_traditional_language_flag.png'), alt: 'Chinese (Traditional)' }
+        %a.translate-link{ href: '#', data: { lang: 'fr' }, aria: { label: 'Translate to French' } }
+          %img{ src: asset_path('language_flags/french_language_flag.png'), alt: 'French' }
+        %a.translate-link{ href: '#', data: { lang: 'ko' }, aria: { label: 'Translate to Korean' } }
+          %img{ src: asset_path('language_flags/korean_language_flag.png'), alt: 'Korean' }
+        %a.translate-link{ href: '#', data: { lang: 'es' }, aria: { label: 'Translate to Spanish' } }
+          %img{ src: asset_path('language_flags/spanish_language_flag.png'), alt: 'Spanish' }
       %li
         %a{ href: '/about#about-box', aria: { label: t('navigation.list_your_services ') } }
           = t('navigation.list_your_services')
@@ -45,5 +61,81 @@
           = link_to t('navigation.sign_out'), destroy_user_session_path, method: 'delete', aria: { label: t('navigation.sign_out') }
       - else
         %li
-          %a{ href: new_user_session_path, aria: { label: t('users.login') } }
+          %a{ href: new_user_session_path, aria: { label: t('navigation.sign_in') } }
             = t('navigation.sign_in')
+%div#translation-bar-desktop
+  %span= t('navigation.translate_to')
+  %a.translate-link{ href: '#', data: { lang: 'en' }, aria: { label: 'Translate to English' } }
+    %img{ src: asset_path('language_flags/english_language_flag.png'), alt: 'English' }
+  %a.translate-link{ href: '#', data: { lang: 'ar' }, aria: { label: 'Translate to Arabic' } }
+    %img{ src: asset_path('language_flags/arabic_language_flag.png'), alt: 'Arabic' }
+  %a.translate-link{ href: '#', data: { lang: 'zh-CN' }, aria: { label: 'Translate to Chinese (Simplified)' } }
+    %img{ src: asset_path('language_flags/chinese_simplified_language_flag.png'), alt: 'Chinese (Simplified)' }
+  %a.translate-link{ href: '#', data: { lang: 'zh-TW' }, aria: { label: 'Translate to Chinese (Traditional)' } }
+    %img{ src: asset_path('language_flags/chinese_traditional_language_flag.png'), alt: 'Chinese (Traditional)' }
+  %a.translate-link{ href: '#', data: { lang: 'fr' }, aria: { label: 'Translate to French' } }
+    %img{ src: asset_path('language_flags/french_language_flag.png'), alt: 'French' }
+  %a.translate-link{ href: '#', data: { lang: 'ko' }, aria: { label: 'Translate to Korean' } }
+    %img{ src: asset_path('language_flags/korean_language_flag.png'), alt: 'Korean' }
+  %a.translate-link{ href: '#', data: { lang: 'es' }, aria: { label: 'Translate to Spanish' } }
+    %img{ src: asset_path('language_flags/spanish_language_flag.png'), alt: 'Spanish' }
+
+:javascript
+  (function() {
+    var currentLang = 'en';
+
+    function translatePage(lang) {
+      if (currentLang === lang) return;
+      
+      var elements = document.getElementsByTagName('*');
+      for (var i = 0; i < elements.length; i++) {
+        var element = elements[i];
+        if (element.id === 'map' || element.closest('#map') || element.classList.contains('map-related')) {
+          continue;
+        }
+        if (element.childNodes.length === 1 && element.childNodes[0].nodeType === Node.TEXT_NODE) {
+          translateElement(element, lang);
+        }
+      }
+      currentLang = lang;
+    }
+
+    function translateElement(element, lang) {
+      var text = element.textContent || element.innerText;
+      if (text.trim().length <= 1 || /^\d+([.,]\d+)?$/.test(text.trim())) {
+        return;
+      }
+      
+      var sourceLang = currentLang;
+      
+      var url = 'https://translate.googleapis.com/translate_a/single?client=gtx&sl=' 
+        + sourceLang + '&tl=' + lang + '&dt=t&q=' + encodeURIComponent(text);
+      
+      fetch(url)
+        .then(response => response.json())
+        .then(data => {
+          if (data[0] && data[0][0] && data[0][0][0]) {
+            element.textContent = data[0][0][0];
+          }
+        })
+        .catch(error => console.error('Error:', error));
+    }
+
+    function initializeTranslation() {
+      var languageLinks = document.querySelectorAll('.translate-link');
+      
+      languageLinks.forEach(function(link) {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          var lang = this.getAttribute('data-lang');
+          translatePage(lang);
+        });
+      });
+    }
+
+    // Use DOMContentLoaded for non-Turbolinks sites
+    document.addEventListener('DOMContentLoaded', initializeTranslation);
+
+    // Use turbolinks:load for Turbolinks-enabled sites
+    document.addEventListener('turbolinks:load', initializeTranslation);
+  })();
