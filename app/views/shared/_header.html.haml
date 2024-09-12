@@ -96,6 +96,9 @@
         if (element.childNodes.length === 1 && element.childNodes[0].nodeType === Node.TEXT_NODE) {
           translateElement(element, lang);
         }
+        if (element.hasAttribute('placeholder')) {
+            translatePlaceholder(element, lang);
+          }        
       }
       currentLang = lang;
     }
@@ -120,6 +123,27 @@
         })
         .catch(error => console.error('Error:', error));
     }
+
+    function translatePlaceholder(element, lang) {
+      var placeholderText = element.getAttribute('placeholder');
+      if (placeholderText.trim().length <= 1) {
+        return;
+      }
+      
+      var sourceLang = currentLang;
+      
+      var url = 'https://translate.googleapis.com/translate_a/single?client=gtx&sl=' 
+        + sourceLang + '&tl=' + lang + '&dt=t&q=' + encodeURIComponent(placeholderText);
+      
+      fetch(url)
+        .then(response => response.json())
+        .then(data => {
+          if (data[0] && data[0][0] && data[0][0][0]) {
+            element.setAttribute('placeholder', data[0][0][0]);
+          }
+        })
+        .catch(error => console.error('Error:', error));
+    }    
 
     function initializeTranslation() {
       var languageLinks = document.querySelectorAll('.translate-link');
