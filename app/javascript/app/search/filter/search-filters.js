@@ -11,6 +11,9 @@ var _searchForm;
 
 var _categorySelect;
 
+// The number of search options selected for filter count on smaller screens
+let appliedSearchOptionsCount = 0;
+
 // Main module initialization.
 function init() {
 
@@ -51,10 +54,25 @@ function init() {
   _openCheckedSections();
   
   $("#reset-button").click(e => _resetFilters(e));
-  $("#button-geolocate").click(e => _getCurrentLocation(e));
-  $("#form-search").change(e => _handleFormChange(e));
-  $("#keyword").on('input', debounce(() => {_getSearchResults()}, 500));
-  $("#address").on('input', debounce(() => {_getSearchResults()}, 500));
+  $("#button-geolocate").click(e => {
+    _getCurrentLocation(e);
+    updateAppliedSearchOptionsCount();
+  });
+  
+  $("#form-search").change(e => {
+    _handleFormChange(e);
+    updateAppliedSearchOptionsCount();
+  });
+  
+  $("#keyword").on('input', debounce(() => {
+    _getSearchResults();
+    updateAppliedSearchOptionsCount();
+  }, 500));
+  
+  $("#address").on('input', debounce(() => {
+    _getSearchResults();
+    updateAppliedSearchOptionsCount();
+  }, 500));
 
 }
 
@@ -354,9 +372,46 @@ document.addEventListener('DOMContentLoaded', function() {
     searchContainer.classList.toggle('collapsed');
     chevronIcon.classList.toggle('open');
   });
+
+  updateAppliedSearchOptionsCount();
 });
 
+document.querySelectorAll('input[type="checkbox"], input[type="text"], select').forEach(function(input) {
+  input.addEventListener('change', updateAppliedSearchOptionsCount);
+  input.addEventListener('input', updateAppliedSearchOptionsCount);
+});
 
+function updateAppliedSearchOptionsCount() {
+  const keywordInput = document.getElementById('keyword-search-box');
+  const addressInput = document.getElementById('address');
+
+  const keyword = keywordInput && keywordInput.value ? keywordInput.value.length > 0 : false;
+  const address = addressInput && addressInput.value ? addressInput.value.length > 0 : false;
+  const geolocated = $('#button-geolocate').hasClass('geolocated');
+  const selectedCategory = document.getElementById('main_category').value;
+  let selectedFilters = [];
+
+  if (selectedCategory) {
+    const categoryContainer = document.querySelector(`#subcategoriesList[data-category="${selectedCategory}"]`);
+    if (categoryContainer) {
+      selectedFilters = Array.from(categoryContainer.querySelectorAll('input[name="categories[]"]:checked')).map(checkbox => checkbox.value);
+    }
+  }
+
+  const newCount = (keyword ? 1 : 0) +
+                   (address ? 1 : 0) +
+                   (geolocated ? 1 : 0) +
+                   (selectedCategory ? 1 : 0) +
+                   selectedFilters.length;
+
+  appliedSearchOptionsCount = newCount;
+
+  const filterText = document.querySelector('.filter-text');
+  const filterCount = document.querySelector('.filter-count');
+
+  filterText.textContent = 'Filter';
+  filterCount.textContent = appliedSearchOptionsCount === 0 ? '0' : `${appliedSearchOptionsCount}`;
+}
 
 export default {
   init:init
