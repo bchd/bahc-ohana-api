@@ -197,7 +197,6 @@ function _updateSubCategories(){
 
     subCategoriesFilterTitleElement.textContent = "Select a Topic from above to display additional filters.";
     subcategoriesFilterTitle.classList.remove("parent-category-label");
-    subcategoriesFilterTitle.classList.add("filter-description-label");
     subcategoriesListContainerElement.innerHTML = "";
     iconContainer.classList.remove("fa");
     iconContainer.classList.remove("fa-chevron-down");
@@ -229,7 +228,6 @@ function _updateSubCategories(){
         iconContainer.classList.add("fa-chevron-down");
 
         subcategoriesFilterTitle.classList.add("parent-category-label");
-        subcategoriesFilterTitle.classList.remove("filter-description-label");
 
         parentCategoryDiv.classList.add("hoverable");
         parentCategoryDiv.setAttribute("aria-label", "Click enter to expand and collapse filters");
