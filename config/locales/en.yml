@@ -539,6 +539,10 @@ en:
 
   labels:
     category_search: 'Browse by Topic'
+    search_services: 'Search Services and Resources'
+    search_hint_location: 'Search by address, city, or ZIP code'
+    search_hint_distance: 'Distance from Location'
+    category: 'Category'
     distance_filter: 'Within' 
     agency_search: 'Organization Name'
     homepage_prompt: 'What are you looking for today?'
@@ -582,6 +586,7 @@ en:
   placeholders:
     agency_search: 'full or partial name'
     keyword_search: 'Search within topics'
+    search: 'Search'
     homepage_keyword_search: 'Search for food, health, care, and more'
     results_page_keyword_search: 'search for...'
 
