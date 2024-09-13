@@ -1,5 +1,4 @@
 = field_set_tag nil, id: 'language-filter', class: 'input-search-filter input-search-filter-option' do
   %legend.sr-only= 'Language Filter'
-  = label_tag :languages, 'By Language', style: "font-size: 16px;"
-  %hr
+  = label_tag :languages, 'Language', style: "font-size: 16px;"
   = select_tag :languages, options_for_select(@languages, @selected_language), include_blank: 'All', class: "category-search-select-left-menu"
