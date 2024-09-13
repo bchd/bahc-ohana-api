@@ -262,6 +262,7 @@ body {
   vertical-align: top;
   width: 285px;
   min-height: 1000px;
+  background-color: #F5F9FF;
   height: auto;
   padding: 1rem;
 
@@ -352,13 +353,10 @@ body {
   align-items: center;
   background-color: $white;
   border-radius: 4px;
-  border:1px solid RGB($input-border-color, 0.4);
+  border:1px solid #A1A1A1;
   display: flex;
   height: 2.5rem;
   right: 0;
-  .fa-crosshairs {
-    padding: .75rem; 
-  }
 }
 
 
@@ -378,7 +376,7 @@ body {
     margin-top: 0;
     margin-bottom: 0;
     padding-bottom: 0;
-    padding-top: 10px;
+    padding-top: 12px;
 
     legend {
       color: $search-accent-color;
