@@ -345,6 +345,19 @@ function _checkState(prefix,depth,checkbox) {
 
 }
 
+document.addEventListener('DOMContentLoaded', function() {
+  const searchContainer = document.getElementById('search-container');
+  const searchHeader = searchContainer.querySelector('.search-container-header');
+  const chevronIcon = searchHeader.querySelector('.chevron-icon');
+
+  searchHeader.addEventListener('click', function() {
+    searchContainer.classList.toggle('collapsed');
+    chevronIcon.classList.toggle('open');
+  });
+});
+
+
+
 export default {
   init:init
 };
