@@ -65,12 +65,10 @@ function init() {
   });
   
   $("#keyword").on('input', debounce(() => {
-    _getSearchResults();
     updateAppliedSearchOptionsCount();
   }, 500));
   
   $("#address").on('input', debounce(() => {
-    _getSearchResults();
     updateAppliedSearchOptionsCount();
   }, 500));
 
@@ -103,9 +101,6 @@ function _handleFormChange(e){
   if ($("#address").val() != "Current Location"){
     $('#button-geolocate').removeClass('geolocated');
   }
-
-  _getSearchResults(e);
-
 }
 
 function _getCurrentLocation(e){
@@ -121,7 +116,6 @@ function _getCurrentLocation(e){
     $('#lat').val(crd.latitude);
     $('#long').val(crd.longitude);
     $("#bar").hide();
-    _getSearchResults(e)
   };
 
   function error(err) {
@@ -165,6 +159,8 @@ function _resetFilters(e){
 
   const url = new URL(window.location.href);
   url.searchParams.delete('keyword');
+  url.searchParams.delete('main_category');
+  url.searchParams.delete('languages');
   window.history.replaceState({}, '', url.toString());
   
   _updateSubCategories();
@@ -426,7 +422,7 @@ function updateAppliedSearchOptionsCount() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-  const languageSelect = document.getElementById('languages');
+  const xSelect = document.getElementById('languages');
   const distanceSelect = document.getElementById('distance');
   const keywordSearchButton = document.getElementById('keyword-search-button');
 
