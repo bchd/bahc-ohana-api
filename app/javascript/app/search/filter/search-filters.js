@@ -422,7 +422,7 @@ function updateAppliedSearchOptionsCount() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-  const xSelect = document.getElementById('languages');
+  const languageSelect = document.getElementById('languages');
   const distanceSelect = document.getElementById('distance');
   const keywordSearchButton = document.getElementById('keyword-search-button');
 
