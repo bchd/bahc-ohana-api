@@ -162,7 +162,13 @@ function _resetFilters(e){
   $(':input').each(function() {
     $(this).val("");
   });
+
+  const url = new URL(window.location.href);
+  url.searchParams.delete('keyword');
+  window.history.replaceState({}, '', url.toString());
+  
   _updateSubCategories();
+  updateAppliedSearchOptionsCount();
   _getSearchResults(e);
 }
 
@@ -382,13 +388,17 @@ document.querySelectorAll('input[type="checkbox"], input[type="text"], select').
 });
 
 function updateAppliedSearchOptionsCount() {
-  const keywordInput = document.getElementById('keyword-search-box');
+  const keywordInput = document.querySelector('#keyword-search-box .search-input');
   const addressInput = document.getElementById('address');
+  const languageSelect = document.getElementById('languages');
+  const distanceSelect = document.getElementById('distance');
 
-  const keyword = keywordInput && keywordInput.value ? keywordInput.value.length > 0 : false;
-  const address = addressInput && addressInput.value ? addressInput.value.length > 0 : false;
+  const keyword = keywordInput ? keywordInput.value.trim().length > 0 : false;
+  const address = addressInput && addressInput.value ? addressInput.value.trim().length > 0 : false;
   const geolocated = $('#button-geolocate').hasClass('geolocated');
   const selectedCategory = document.getElementById('main_category').value;
+  const selectedLanguage = languageSelect ? languageSelect.value : null;
+  const selectedDistance = distanceSelect ? distanceSelect.value : null;
   let selectedFilters = [];
 
   if (selectedCategory) {
@@ -402,6 +412,8 @@ function updateAppliedSearchOptionsCount() {
                    (address ? 1 : 0) +
                    (geolocated ? 1 : 0) +
                    (selectedCategory ? 1 : 0) +
+                   (selectedLanguage ? 1 : 0) +
+                   (selectedDistance ? 1 : 0) +
                    selectedFilters.length;
 
   appliedSearchOptionsCount = newCount;
@@ -410,8 +422,18 @@ function updateAppliedSearchOptionsCount() {
   const filterCount = document.querySelector('.filter-count');
 
   filterText.textContent = 'Filter';
-  filterCount.textContent = appliedSearchOptionsCount === 0 ? '0' : `${appliedSearchOptionsCount}`;
+  filterCount.textContent = appliedSearchOptionsCount === 0 ? '0' : appliedSearchOptionsCount;
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+  const languageSelect = document.getElementById('languages');
+  const distanceSelect = document.getElementById('distance');
+  const keywordSearchButton = document.getElementById('keyword-search-button');
+
+  languageSelect.addEventListener('change', updateAppliedSearchOptionsCount);
+  distanceSelect.addEventListener('change', updateAppliedSearchOptionsCount);
+  keywordSearchButton.addEventListener('click', updateAppliedSearchOptionsCount);
+});
 
 export default {
   init:init

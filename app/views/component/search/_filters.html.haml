@@ -12,11 +12,11 @@
 - else
   %div#categoryFiltersContainerDiv.category-filters-container
     %div#parent-category.parent-category-label-container.hoverable{ tabindex: "0", role: "button", aria: { label: 'Click enter to expand and collapse filters', expanded: 'false'}}
-    %legend
-      %span#subcategoriesFilterTitle.parent-category-label
-        = "#{category_filters_title(@main_category_selected_name)}"
-    %div#filterDropdownContainer.filter-dropdown-closed
-      %i#iconContainer.fa.fa-chevron-down
+      %legend
+        %span#subcategoriesFilterTitle.parent-category-label
+          = "#{category_filters_title(@main_category_selected_name)}"
+      %div#filterDropdownContainer.filter-dropdown-closed
+        %i#iconContainer.fa.fa-chevron-down
   %fieldset#subcategoriesList
     %legend.sr-only= "Subcategories"
     - subcategories_by_category(@main_category_selected_id).each do |category|
