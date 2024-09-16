@@ -371,7 +371,7 @@ input.search-input:-webkit-autofill {
   }
 }
 
-#keyword-search-box::after,
+#keyword-search-box.input-search-filter-option::after,
 #subcategoriesList::after,
 #distance-filter::after {
   content: '';
@@ -382,7 +382,7 @@ input.search-input:-webkit-autofill {
   border-radius: 4px;
 }
 
-#keyword-search-box::after {
+#keyword-search-box.input-search-filter-option::after {
   margin-top: 32px;
   margin-bottom: 32px;
 }
