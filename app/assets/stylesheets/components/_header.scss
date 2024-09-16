@@ -108,7 +108,7 @@
         width: 100%;
         text-align: left;
         line-height: normal;
-        padding-right: 0;
+        padding-right: 0 !important;
 
         &.open {
           display: flex;
@@ -144,13 +144,13 @@
         font-weight: 500;
         letter-spacing: 1px;
         font-size: $font_size_100;
-        color: $grey;
+        color: #474747;
         padding: .5em;
         text-decoration: none;
 
         @media screen and (max-width: 785px) {
           width: 100%;
-          padding: 1em;
+          padding: 0;
         }
       }
 
@@ -297,6 +297,101 @@
   #hamburger.open + #nav-menu {
     display: block;
   }
+
+  #translation-bar {
+    &-desktop {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 10px;
+      background-color: #F5F9FF;
+      gap: 8px;
+      padding-right: 20px;
+
+      span {
+        font-family: $font_sans_serif;
+        font-size: 12px;
+        line-height: 16px;
+        color: $black;
+      }
+  
+      a {
+        margin-left: 5px;
+    
+        img {
+          width: 24px;
+          height: 16px;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+      }
+
+      @media (max-width: 785px) {
+        display: none;
+      }
+    }
+  
+    &-mobile {
+      display: none;
+  
+      @media (max-width: 785px) {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        background-color: #FFFFFF;
+        gap: 4px;
+        border-bottom: 1px solid #B3D4FC;
+  
+        span {
+          display: none;
+        }
+  
+        a {
+          margin-left: 5px;
+  
+          img {
+            width: 28px;
+            height: auto;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+          }
+        }
+      }
+
+      @media (max-width: 600px) {
+        a {
+          margin-left: 0px;
+  
+          img {
+            width: 24px;
+            height: auto;
+          }
+        }
+      }
+
+      @media (max-width: 500px) {
+        width: 100%;
+        float: right;
+
+        span {
+          display: block;
+          padding-right: 10px;
+          font-family: $font_sans_serif;
+          font-size: 16px;
+          line-height: 16px;
+          color: #222222;
+          white-space: nowrap;
+        }
+
+        a {
+          margin-left: 0;
+  
+          img {
+            width: 28px;
+            height: auto;
+          }
+        }
+      }
+    }
+  }  
 }
 
 #logo {
