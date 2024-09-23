@@ -80,6 +80,14 @@
   %a.translate-link{ href: '#', data: { lang: 'es' }, aria: { label: 'Translate to Spanish' } }
     %img{ src: asset_path('language_flags/spanish_language_flag.png'), alt: 'Spanish' }
 
+- unless current_page?(root_path) || current_page?(new_user_session_path) || current_page?(new_user_registration_path) || current_page?(new_admin_session_path) || current_page?(new_admin_registration_path) || current_page?(new_user_password_path)
+  %nav#breadcrumb
+    .breadcrumb-content
+      = link_to 'Home', root_path
+      - if content_for?(:breadcrumbs)
+        %span.breadcrumb-separator /
+        = yield :breadcrumbs
+
 :javascript
   (function() {
     var currentLang = 'en';
