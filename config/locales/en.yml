@@ -572,9 +572,9 @@ en:
     main: 'Unfortunately, your search returned no results.'
     secondary: "If you have trouble finding what you're looking for, try:"
     options:
-      one: 'Searching with a single keyword.'
-      two: 'Reducing the amount of filters selected.'
-      browse_all: 'Browsing all locations.'
+      one: 'Searching with a single keyword'
+      two: 'Reducing the amount of filters selected'
+      browse_all: 'Browsing all locations'
 
   organization_fields:
     accreditations: 'Accreditations:'
