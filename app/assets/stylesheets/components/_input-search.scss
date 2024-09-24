@@ -279,6 +279,9 @@ input.search-input:-webkit-autofill {
 
   > .filter-input-group {
     padding-top: 10px;
+    display: flex;
+    align-items: stretch;
+    width: 100%;
 
     > .button-icon {
       font-size: $font_size_105;
@@ -296,7 +299,8 @@ input.search-input:-webkit-autofill {
     }
 
     > input {
-      width: calc(100% - 70px);
+      width: calc(100% - var(--button-width, 70px));
+      min-width: 100px;
       height: 40px;
       padding-left: 35px;
       padding-right: 25px;
@@ -310,7 +314,7 @@ input.search-input:-webkit-autofill {
       color: $black;
     }
     > .search-button {
-      width: 58px;
+      flex: 0 0 auto;
       height: 40px;
       font-size: 14px;
       line-height: 16px;
@@ -321,6 +325,8 @@ input.search-input:-webkit-autofill {
       cursor: pointer;
       @include rounded-except(none);
       margin-left: 8px;
+      padding: 0 4px;
+      white-space: nowrap;
     }
   }
 }
