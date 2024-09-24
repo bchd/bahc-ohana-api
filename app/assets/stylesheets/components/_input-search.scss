@@ -249,16 +249,40 @@ input.search-input:-webkit-autofill {
   color: orange;
 }
 
+.filter-results-label {
+  font-size: 18px !important;
+  font-weight: 500 !important;
+  line-height: 20px !important;
+  letter-spacing: .025rem !important;
+  color: #474747 !important;
+}
+
 .input-search-filter {
   @include input-placeholder(RGB($grey, 0.6), regular);
   position: relative;
 
   > label {
-    font-size: $font_size_100;
-    color: $black;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
+    color: #333333;
+    margin-bottom: 10px;
+    letter-spacing: 0.05em;
+    display: block;
+  }
+
+  .search-hint {
+    font-size: 12px;
+    color: #474747;
+    margin-top: 8px;
   }
 
   > .filter-input-group {
+    padding-top: 10px;
+    display: flex;
+    align-items: stretch;
+    width: 100%;
+
     > .button-icon {
       font-size: $font_size_105;
       position: absolute;
@@ -275,20 +299,35 @@ input.search-input:-webkit-autofill {
     }
 
     > input {
-      width: 100%;
+      width: calc(100% - var(--button-width, 70px));
+      min-width: 100px;
       height: 40px;
       padding-left: 35px;
       padding-right: 25px;
       @include box-sizing(border-box);
       @include rounded-except(none);
-      border: 1px solid RGB($grey, .3);
+      border: 1px solid #A1A1A1;
       border-collapse: collapse;
       -webkit-appearance: none; // Remove rounding styling of input fields on iOS.
       font-size: $font_size_95;
       background: $white;
       color: $black;
     }
-
+    > .search-button {
+      flex: 0 0 auto;
+      height: 40px;
+      font-size: 14px;
+      line-height: 16px;
+      text-align: center;
+      color: #005875;
+      border: 1px solid #005875;
+      background: $white;
+      cursor: pointer;
+      @include rounded-except(none);
+      margin-left: 8px;
+      padding: 0 4px;
+      white-space: nowrap;
+    }
   }
 }
 
@@ -336,6 +375,44 @@ input.search-input:-webkit-autofill {
       }
     }
   }
+}
+
+#keyword-search-box.input-search-filter-option::after,
+#subcategoriesList::after,
+#distance-filter::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 1.5px;
+  background-color: #007FAA;
+  border-radius: 4px;
+}
+
+#keyword-search-box.input-search-filter-option::after {
+  margin-top: 32px;
+  margin-bottom: 32px;
+}
+
+#subcategoriesList::after {
+  margin-top: 18px;
+}
+
+#distance-filter::after {
+  margin-top: 32px;
+  margin-bottom: 12px;
+}
+
+.search-address-input {
+  width: 100%;
+  border-top: 1px solid #A1A1A1 !important;
+  border-bottom: 1px solid #A1A1A1 !important;
+  border-left: none !important;
+  border-right: none !important;
+  height: 2.5rem;
+  box-sizing: border-box !important;
+  margin-left: auto;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
 }
 
 // Clearable input fields have a (x) that can be clicked for clearing the

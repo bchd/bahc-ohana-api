@@ -1,7 +1,8 @@
 = field_set_tag nil, id: 'keyword-search-box', class: 'input-search-filter input-search-filter-option' do
-  %legend.sr-only= 'Search Keywords'
-  = label_tag 'keyword', 'Search Keywords'
+  %legend.sr-only= t('labels.search_services')
+  = label_tag 'keyword', t('labels.search_services'), class: 'filter-results-label'
   = content_tag :div, '', class: 'filter-input-group' do
     = content_tag(:div, class: 'button-icon') do
       = content_tag :i, '', class: 'fa fa-search'
-    = search_field_tag :keyword, params[:keyword], placeholder: t('placeholders.keyword_search'), class: "search-input"
+    = search_field_tag :keyword, params[:keyword], placeholder: t('placeholders.search'), class: "search-input"
+    = button_tag t('buttons.update_search_results'), type: 'submit', class: 'search-button', id: 'keyword-search-button'
