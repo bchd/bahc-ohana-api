@@ -11,6 +11,9 @@ var _searchForm;
 
 var _categorySelect;
 
+// The number of search options selected for filter count on smaller screens
+let appliedSearchOptionsCount = 0;
+
 // Main module initialization.
 function init() {
 
@@ -51,10 +54,23 @@ function init() {
   _openCheckedSections();
   
   $("#reset-button").click(e => _resetFilters(e));
-  $("#button-geolocate").click(e => _getCurrentLocation(e));
-  $("#form-search").change(e => _handleFormChange(e));
-  $("#keyword").on('input', debounce(() => {_getSearchResults()}, 500));
-  $("#address").on('input', debounce(() => {_getSearchResults()}, 500));
+  $("#button-geolocate").click(e => {
+    _getCurrentLocation(e);
+    updateAppliedSearchOptionsCount();
+  });
+  
+  $("#form-search").change(e => {
+    _handleFormChange(e);
+    updateAppliedSearchOptionsCount();
+  });
+  
+  $("#keyword").on('input', debounce(() => {
+    updateAppliedSearchOptionsCount();
+  }, 500));
+  
+  $("#address").on('input', debounce(() => {
+    updateAppliedSearchOptionsCount();
+  }, 500));
 
 }
 
@@ -85,9 +101,6 @@ function _handleFormChange(e){
   if ($("#address").val() != "Current Location"){
     $('#button-geolocate').removeClass('geolocated');
   }
-
-  _getSearchResults(e);
-
 }
 
 function _getCurrentLocation(e){
@@ -103,7 +116,6 @@ function _getCurrentLocation(e){
     $('#lat').val(crd.latitude);
     $('#long').val(crd.longitude);
     $("#bar").hide();
-    _getSearchResults(e)
   };
 
   function error(err) {
@@ -144,7 +156,15 @@ function _resetFilters(e){
   $(':input').each(function() {
     $(this).val("");
   });
+
+  const url = new URL(window.location.href);
+  url.searchParams.delete('keyword');
+  url.searchParams.delete('main_category');
+  url.searchParams.delete('languages');
+  window.history.replaceState({}, '', url.toString());
+  
   _updateSubCategories();
+  updateAppliedSearchOptionsCount();
   _getSearchResults(e);
 }
 
@@ -197,7 +217,6 @@ function _updateSubCategories(){
 
     subCategoriesFilterTitleElement.textContent = "Select a Topic from above to display additional filters.";
     subcategoriesFilterTitle.classList.remove("parent-category-label");
-    subcategoriesFilterTitle.classList.add("filter-description-label");
     subcategoriesListContainerElement.innerHTML = "";
     iconContainer.classList.remove("fa");
     iconContainer.classList.remove("fa-chevron-down");
@@ -229,7 +248,6 @@ function _updateSubCategories(){
         iconContainer.classList.add("fa-chevron-down");
 
         subcategoriesFilterTitle.classList.add("parent-category-label");
-        subcategoriesFilterTitle.classList.remove("filter-description-label");
 
         parentCategoryDiv.classList.add("hoverable");
         parentCategoryDiv.setAttribute("aria-label", "Click enter to expand and collapse filters");
@@ -346,6 +364,72 @@ function _checkState(prefix,depth,checkbox) {
   }
 
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+  const searchContainer = document.getElementById('search-container');
+  const searchHeader = searchContainer.querySelector('.search-container-header');
+  const chevronIcon = searchHeader.querySelector('.chevron-icon');
+
+  searchHeader.addEventListener('click', function() {
+    searchContainer.classList.toggle('collapsed');
+    chevronIcon.classList.toggle('open');
+  });
+
+  updateAppliedSearchOptionsCount();
+});
+
+document.querySelectorAll('input[type="checkbox"], input[type="text"], select').forEach(function(input) {
+  input.addEventListener('change', updateAppliedSearchOptionsCount);
+  input.addEventListener('input', updateAppliedSearchOptionsCount);
+});
+
+function updateAppliedSearchOptionsCount() {
+  const keywordInput = document.querySelector('#keyword-search-box .search-input');
+  const addressInput = document.getElementById('address');
+  const languageSelect = document.getElementById('languages');
+  const distanceSelect = document.getElementById('distance');
+
+  const keyword = keywordInput ? keywordInput.value.trim().length > 0 : false;
+  const address = addressInput && addressInput.value ? addressInput.value.trim().length > 0 : false;
+  const geolocated = $('#button-geolocate').hasClass('geolocated');
+  const selectedCategory = document.getElementById('main_category').value;
+  const selectedLanguage = languageSelect ? languageSelect.value : null;
+  const selectedDistance = distanceSelect ? distanceSelect.value : null;
+  let selectedFilters = [];
+
+  if (selectedCategory) {
+    const categoryContainer = document.querySelector(`#subcategoriesList[data-category="${selectedCategory}"]`);
+    if (categoryContainer) {
+      selectedFilters = Array.from(categoryContainer.querySelectorAll('input[name="categories[]"]:checked')).map(checkbox => checkbox.value);
+    }
+  }
+
+  const newCount = (keyword ? 1 : 0) +
+                   (address ? 1 : 0) +
+                   (geolocated ? 1 : 0) +
+                   (selectedCategory ? 1 : 0) +
+                   (selectedLanguage ? 1 : 0) +
+                   (selectedDistance ? 1 : 0) +
+                   selectedFilters.length;
+
+  appliedSearchOptionsCount = newCount;
+
+  const filterText = document.querySelector('.filter-text');
+  const filterCount = document.querySelector('.filter-count');
+
+  filterText.textContent = 'Filter';
+  filterCount.textContent = appliedSearchOptionsCount === 0 ? '0' : appliedSearchOptionsCount;
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  const languageSelect = document.getElementById('languages');
+  const distanceSelect = document.getElementById('distance');
+  const keywordSearchButton = document.getElementById('keyword-search-button');
+
+  languageSelect.addEventListener('change', updateAppliedSearchOptionsCount);
+  distanceSelect.addEventListener('change', updateAppliedSearchOptionsCount);
+  keywordSearchButton.addEventListener('click', updateAppliedSearchOptionsCount);
+});
 
 export default {
   init:init

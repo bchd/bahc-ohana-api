@@ -1,24 +1,22 @@
 %div#categoryFiltersContainerDiv.category-filters-container
-  %div#category-filters-label Topic Filters
-  %hr
 
 - if @main_category_selected_name == ""
   %div#parent-category.parent-category-label-container{ tabindex: "0", role: "button", aria: { label: 'Select a Topic from above to display additional filters.', expanded: 'false'}}
     %legend
-      %span#subcategoriesFilterTitle.filter-description-label
-        = "Select a Topic from above to display additional filters."
+      %span#subcategoriesFilterTitle
     %div#filterDropdownContainer.filter-dropdown-closed
       %i#iconContainer
   %fieldset#subcategoriesList
     %legend.sr-only= "Subcategories"
   
 - else
-  %div#parent-category.parent-category-label-container.hoverable{ tabindex: "0", role: "button", aria: { label: 'Click enter to expand and collapse filters', expanded: 'false'}}
-    %legend
-      %span#subcategoriesFilterTitle.parent-category-label
-        = "#{category_filters_title(@main_category_selected_name)}"
-    %div#filterDropdownContainer.filter-dropdown-closed
-      %i#iconContainer.fa.fa-chevron-down
+  %div#categoryFiltersContainerDiv.category-filters-container
+    %div#parent-category.parent-category-label-container.hoverable{ tabindex: "0", role: "button", aria: { label: 'Click enter to expand and collapse filters', expanded: 'false'}}
+      %legend
+        %span#subcategoriesFilterTitle.parent-category-label
+          = "#{category_filters_title(@main_category_selected_name)}"
+      %div#filterDropdownContainer.filter-dropdown-closed
+        %i#iconContainer.fa.fa-chevron-down
   %fieldset#subcategoriesList
     %legend.sr-only= "Subcategories"
     - subcategories_by_category(@main_category_selected_id).each do |category|
