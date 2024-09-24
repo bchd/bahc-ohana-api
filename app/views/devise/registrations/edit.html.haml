@@ -1,51 +1,58 @@
 - title "Edit #{resource_name.to_s.humanize}"
-%h3
-  Edit #{resource_name.to_s.humanize}
-= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, role: 'form' }) do |f|
-  = render 'devise/shared/error_messages', resource: resource
-  .form-group
-    - if current_admin&.super_admin?
-      .form-group
-        = f.label :email
-        = f.email_field :email, class: 'form-control'
-    - else
-      = f.label :email
-      %p
-        = resource.email
-    - if devise_mapping.confirmable? && resource.pending_reconfirmation?
-      %span.help-block
-        You recently updated your email to '#{resource.unconfirmed_email}', but we're still waiting for you to confirm it. Please look for an email from us with the subject 'CHARMcare Confirmation instructions'.
-  .form-group
-    = f.label :name
-    = f.text_field :name, autofocus: true, class: 'form-control' 
-  %fieldset
-    %p
-      Leave these fields blank if you don't want to change your password.
-    .form-group
-      = f.label :password, "New password"
-      = f.password_field :password, autocomplete: 'off', class: 'form-control'
-    .form-group
-      = f.label :password_confirmation
-      = f.password_field :password_confirmation, autocomplete: 'off', class: 'form-control'
-  %fieldset
-    %legend.sr-only Current Password
-    %p
-      You must enter your current password to make changes.
-    .form-group
-      = f.label :current_password
-      = f.password_field :current_password, autocomplete: 'off', class: 'form-control'
-  = f.submit t('buttons.update'), class: 'button button-small'
+- content_for :breadcrumbs do
+  %span Account Details
 
-%h3 Cancel Account
-%p
-  Unhappy? We'll be sad to see you go.
-= button_to t('buttons.cancel_my_account'), registration_path(resource_name), data: { confirm: 'Are you sure?' }, method: :delete, class: 'button btn-danger'
-
-- if current_admin&.super_admin?
+.edit-registration-container
   %h3
-    = t('admin.management.admin_management')
-  %p
-    = t('admin.management.introduction')
-  %div.btn-row
-    = button_to t('admin.management.manage_admins'), admin_management_admins_path, method: :get, class: 'button'
-    = button_to t('admin.management.manage_super_admins'), admin_management_super_admins_path, method: :get, class: 'button'
+    Edit #{resource_name.to_s.humanize}
+  = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, role: 'form' }) do |f|
+    = render 'devise/shared/error_messages', resource: resource
+    .form-group
+      - if current_admin&.super_admin?
+        .form-group
+          = f.label :email
+          = f.email_field :email, class: 'form-control'
+      - else
+        = f.label :email
+        %p
+          = resource.email
+      - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+        %span.help-block
+          You recently updated your email to '#{resource.unconfirmed_email}', but we're still waiting for you to confirm it. Please look for an email from us with the subject 'CHARMcare Confirmation instructions'.
+    .form-group
+      = f.label :name
+      = f.text_field :name, autofocus: true, class: 'form-control' 
+    %fieldset
+      %br
+      %p
+        Leave these fields blank if you don't want to change your password.
+      .form-group
+        = f.label :password, "New password"
+        = f.password_field :password, autocomplete: 'off', class: 'form-control'
+      .form-group
+        = f.label :password_confirmation
+        = f.password_field :password_confirmation, autocomplete: 'off', class: 'form-control'
+    %fieldset
+      %legend.sr-only Current Password
+      %p
+        You must enter your current password to make changes.
+      .form-group
+        = f.label :current_password
+        = f.password_field :current_password, autocomplete: 'off', class: 'form-control'
+    .button-container
+      = f.submit t('buttons.update'), class: 'button'
+
+  %h3 Cancel Account
+  %h4
+    Unhappy? We'll be sad to see you go.
+  .button-container
+    = button_to t('buttons.cancel_my_account'), registration_path(resource_name), data: { confirm: 'Are you sure?' }, method: :delete, class: 'button btn-danger'
+
+  - if current_admin&.super_admin?
+    %h3
+      = t('admin.management.admin_management')
+    %p
+      = t('admin.management.introduction')
+    .btn-row
+      = button_to t('admin.management.manage_admins'), admin_management_admins_path, method: :get, class: 'button'
+      = button_to t('admin.management.manage_super_admins'), admin_management_super_admins_path, method: :get, class: 'button'

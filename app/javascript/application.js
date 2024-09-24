@@ -69,11 +69,20 @@ document.addEventListener('turbolinks:load', () => {
   const dropdownMenu = document.querySelector('.mobile-only.dropdown-menu');
 
   if (hamburger && navMenu && dropdownMenu) {
-    hamburger.addEventListener('click', () => {
+    hamburger.addEventListener('click', (e) => {
+      e.stopPropagation();
       hamburger.classList.toggle('open');
       navMenu.classList.toggle('open');
       dropdownMenu.classList.toggle('open');
     });
+
+    document.addEventListener('click', (e) => {
+      if (!hamburger.contains(e.target) && !navMenu.contains(e.target) && !dropdownMenu.contains(e.target)) {
+        hamburger.classList.remove('open');
+        navMenu.classList.remove('open');
+        dropdownMenu.classList.remove('open');
+      }
+    });    
   }
 
   // Profile dropdown in signed-in header
@@ -81,9 +90,17 @@ document.addEventListener('turbolinks:load', () => {
   const profileDropdown = document.getElementById('profile-dropdown');
 
   if (userBtn && profileDropdown) {
-    userBtn.addEventListener('click', function() {
+    userBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
       userBtn.classList.toggle('open');
       profileDropdown.classList.toggle('open');
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!userBtn.contains(e.target) && !profileDropdown.contains(e.target)) {
+        userBtn.classList.remove('open');
+        profileDropdown.classList.remove('open');
+      }
     });
   }
 })

@@ -1,5 +1,11 @@
 - content_for(:meta_description, "CHARMcare details for #{@location.name} including contact information, location, and hours of operation.")
 - title @location.name
 - @location.name == @location.organization.name ? canonical("#{locations_url}/#{@location.slug}") : canonical("#{locations_url}/#{@location.organization.slug}/#{@location.slug}")
+
+- content_for :breadcrumbs do
+  = link_to 'Community Resources', locations_path
+  %span.breadcrumb-separator /
+  %span= @location.name
+
 %section
   = render 'component/locations/detail/body', location: @location
