@@ -16,16 +16,22 @@ class LocationsSearch
   attribute :long, type: Float
   attribute :distance, type: Integer
   attribute :languages, type: Array
-  
+
   attribute :page, type: String
   attribute :per_page, type: String
+
+  attribute :matched_category, type: Object
 
   def index
     LocationsIndex
   end
 
   def search
-    search_results.page(fetch_page).per(fetch_per_page)
+    query = LocationsIndex.query(build_query)
+    query = apply_filters(query)
+    query = apply_sorting(query)
+    search_results = query.page(fetch_page).per(fetch_per_page)
+    search_results
   end
 
   private
@@ -40,7 +46,7 @@ class LocationsSearch
       zipcode_filter,
       category_filter,
       language_filter,
-      accessibility_filter, 
+      accessibility_filter,
       distance_filter,
       distance_sort,
       order,
@@ -145,29 +151,29 @@ class LocationsSearch
     if keywords?
       index.query(bool: {
                     should: [
-                      { term: { "organization_name_exact": 
+                      { term: { "organization_name_exact":
                                         { value: keywords.downcase,
                                           boost: 160
                                         }
-                                      } 
+                                      }
                       },
-                      { term: { "name_exact": 
+                      { term: { "name_exact":
                                         { value: keywords.downcase,
                                           boost: 120
                                         }
-                                      } 
+                                      }
                       },
-                      { term: { "categories_exact": 
+                      { term: { "categories_exact":
                                   { value: keywords.downcase,
                                     boost: 80
                                   }
-                                } 
+                                }
                       },
-                      { term: { "sub_categories_exact": 
+                      { term: { "sub_categories_exact":
                                   { value: keywords.downcase,
                                     boost: 40
                                   }
-                                } 
+                                }
                       }
                     ],
                     must: [
@@ -179,7 +185,9 @@ class LocationsSearch
                         }
                       }
                     ]
-                  }) 
+                  })
+    else
+      index
     end
   end
 
@@ -197,5 +205,48 @@ class LocationsSearch
 
   def fetch_per_page
     per_page.presence || PER_PAGE
+  end
+
+  def build_query
+    if matched_category.is_a?(Category)
+      {
+        bool: {
+          should: [
+            { term: { category_ids: matched_category.id } },
+            { term: { "categories_exact": matched_category.name.downcase } }
+          ]
+        }
+      }
+    elsif keywords.present?
+      { multi_match: { query: keywords, fields: %w[organization_name^20 name^16 categories^14 organization_tags^12 tags^10 service_tags^8 description^6 service_names^4 service_descriptions^2 keywords], fuzziness: 'AUTO' } }
+    else
+      { match_all: {} }
+    end
+  end
+
+  def apply_filters(query)
+    query = query.filter(term: { archived: false })
+    query = apply_category_filter(query) if category_ids.present?
+    query
+  end
+
+  def apply_keyword_filter(query)
+    query.query(multi_match: {
+      query: keywords,
+      fields: %w[organization_name^20 name^16 categories^14 organization_tags^12 tags^10 service_tags^8 description^6 service_names^4 service_descriptions^2 keywords],
+      fuzziness: 'AUTO'
+    })
+  end
+
+  def apply_category_filter(query)
+    query.filter(terms: { category_ids: category_ids })
+  end
+
+  def apply_sorting(query)
+    query.order(
+      featured_at: { missing: "_last", order: "asc" },
+      "_score": { "order": "desc" },
+      updated_at: { order: "desc" }
+    )
   end
 end
