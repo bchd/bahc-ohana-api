@@ -27,14 +27,40 @@ class LocationsController < ApplicationController
       search_params["main_category"] = ""
     end
 
-    if !params["categories"] and !search_params["main_category"].empty?
-      if params["main_category_id"].present?
-        search_params["categories"] = [params["main_category_id"]]
-      end
-    else
-      search_params["categories"] = params["categories_ids"]
-    end
+    @matched_category = match_keyword_to_category(search_params[:keyword])
 
+    if @matched_category
+      search_params[:categories] = [@matched_category.id]
+      search_params[:main_category] = @matched_category.parent&.name || @matched_category.name
+      @main_category_selected_name = search_params[:main_category]
+      @main_category_selected_id = @matched_category.parent&.id || @matched_category.id
+      search_params[:keyword] = nil
+    else
+      @main_category_selected_name = ""
+      @main_category_selected_id = nil
+      search_params[:categories] = []
+
+      if search_params[:keyword].present?
+        search_params[:main_category] = ""
+        params[:categories] = []
+      else
+        @main_category_selected_name = search_params[:main_category]
+        @main_category_selected_id = helpers.get_category_id_by_name(@main_category_selected_name) if @main_category_selected_name.present?
+
+        if !params["categories"] && !search_params["main_category"].empty?
+          if params["main_category_id"].present?
+            search_params["categories"] = [params["main_category_id"]]
+          end
+        elsif params["categories"].present?
+          search_params["categories"] = params["categories"]
+        end
+
+        if search_params[:categories].present? && @main_category_selected_id
+          subcategory_ids = helpers.get_subcategories_ids(search_params[:categories], @main_category_selected_id)
+          search_params[:categories] = subcategory_ids.present? ? subcategory_ids : [search_params[:main_category]]
+        end
+      end
+    end
 
     set_coordinates
     locations = LocationsSearch.new(
@@ -49,7 +75,8 @@ class LocationsController < ApplicationController
       zipcode: search_params[:location],
       page: search_params[:page],
       per_page: search_params[:per_page],
-      languages: search_params[:languages]
+      languages: search_params[:languages],
+      matched_category: @matched_category
     ).search.load&.objects
 
 
@@ -62,6 +89,8 @@ class LocationsController < ApplicationController
     unless params[:languages].nil? || params[:languages].empty?
       @selected_language = params[:languages][0]
     end
+
+    @main_category_selected_name = search_params[:main_category] if @matched_category
 
     if @address.nil? && @lat.present? && @long.present?
       @address = 'Current Location'
@@ -101,7 +130,7 @@ class LocationsController < ApplicationController
     end
 
     # @keywords = @location.services.map { |s| s[:keywords] }.flatten.compact.uniq
-    @categories = @location.services.map { |s| s[:categories] }.flatten.compact.uniq 
+    @categories = @location.services.map { |s| s[:categories] }.flatten.compact.uniq
 
     request.query_parameters["layout"] = true
     @query_parameters = request.query_parameters
@@ -113,12 +142,12 @@ class LocationsController < ApplicationController
     permitted = params.permit(:category_name)
     category_name = permitted["category_name"]
 
-    sub_cat_array = []
     category_id = helpers.get_category_id_by_name(category_name)
     sub_cat_array = helpers.subcategories_by_category(category_id)
 
     respond_to do |format|
-      format.js { render :json => {sub_cat_array: sub_cat_array, category_title: helpers.category_filters_title(category_name)}.to_json }
+      format.json { render json: { sub_cat_array: sub_cat_array, category_title: helpers.category_filters_title(category_name) } }
+      format.js { render json: { sub_cat_array: sub_cat_array, category_title: helpers.category_filters_title(category_name) } }
     end
   end
 
@@ -139,6 +168,13 @@ class LocationsController < ApplicationController
       @lat = params[:lat]
       @lon = params[:long]
     end
+  end
+
+  def match_keyword_to_category(keyword)
+    return nil if keyword.blank?
+
+    Category.where("LOWER(name) = ?", keyword.downcase).first ||
+        Category.where("LOWER(name) LIKE ?", "%#{keyword.downcase}%").first
   end
 
 end
