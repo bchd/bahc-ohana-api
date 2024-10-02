@@ -44,20 +44,23 @@ module FilterCategoriesHelper
     }.flatten.uniq.map { |category|
       category.name
     }
-  end 
+  end
 
   def subcategrory_id_by_name(subcategory_name, main_category_id)
     fetch_categories if @categories.nil?
-    @categories.select { |sub_cat| sub_cat.name == subcategory_name and sub_cat.parent_id == main_category_id }.first.id
+    category = @categories.find { |sub_cat| sub_cat.name == subcategory_name && sub_cat.parent_id == main_category_id }
+    category&.id
   end
 
-  def get_subcategories_ids(sub_cat_array, main_category_id)
-    arr = []
-    sub_cat_array.each do |sub_cat|
-      arr << subcategrory_id_by_name(sub_cat, main_category_id)
-    end
-    arr
+  def get_subcategories_ids(subcategories, main_category_id)
+    return [] if subcategories.blank? || main_category_id.blank?
+
+    subcategories.map do |subcategory|
+      id = subcategrory_id_by_name(subcategory, main_category_id)
+      id.present? ? id : nil
+    end.compact
   end
+
 
   def accessibility_filters
     [
@@ -134,4 +137,3 @@ module FilterCategoriesHelper
       }]
   end
 end
-
