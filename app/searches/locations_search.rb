@@ -117,13 +117,16 @@ class LocationsSearch
     end
   end
 
-  def accessibility_filter
-    if accessibility?
-      index.filter(
+
+  def accessibility_filter(query = index)
+    if accessibility.present?
+      query.filter(
         terms: {
-          accessibility: accessibility
+          accessibility: accessibility.map(&:to_s)
         }
       )
+    else
+      query
     end
   end
 
@@ -191,11 +194,25 @@ class LocationsSearch
     end
   end
 
-  def organization_filter
+  def organization_filter(query = index)
     if org_name?
-      index.filter(match_phrase: {
-                     organization_name: org_name
-                   })
+      terms = org_name.downcase.split.map(&:strip)
+      query.query(
+        bool: {
+          must: terms.map { |term|
+            {
+              match_phrase: {
+                organization_name: {
+                  query: term,
+                  slop: 0
+                }
+              }
+            }
+          }
+        }
+      )
+    else
+      query
     end
   end
 
@@ -227,6 +244,7 @@ class LocationsSearch
   def apply_filters(query)
     query = query.filter(term: { archived: false })
     query = apply_category_filter(query) if category_ids.present?
+    query = accessibility_filter(query) if accessibility.present?
     query
   end
 

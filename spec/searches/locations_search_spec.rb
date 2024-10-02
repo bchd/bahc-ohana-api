@@ -408,16 +408,18 @@ RSpec.describe LocationsSearch, :elasticsearch do
       LocationsIndex.reset!
     end
 
-
     it 'should return only filtered by accessibility options' do
-      location_1 = create_location("covid location", @organization, accessibility: 'ramp')
-      location_2 = create_location("Not featured and not covid", @organization, accessibilty: 'ramp')
+      location_1 = create_location("covid location", @organization)
+      location_2 = create_location("Not featured and not covid", @organization)
       location_3 = create_location("featured location", @organization, "1")
+
       location_1.update_columns(accessibility: ['ramp'])
+      location_2.update_columns(accessibility: ['tape_braille', 'disabled_parking'])
+      location_3.update_columns(accessibility: ['tape_braille', 'disabled_parking'])
 
       import(location_1, location_2, location_3)
 
-      results = search({accessibility: 'ramp'}).objects
+      results = search({accessibility: ['ramp']}).objects
       expect(results).to include(location_1)
       expect(results.size).to eq(1)
       expect(results).not_to include(location_2, location_3)
@@ -428,7 +430,8 @@ RSpec.describe LocationsSearch, :elasticsearch do
 
       import(location_1, location_2, location_3)
 
-      results = search({accessibility: 'disabled_parking'}).objects
+      results = search({accessibility: ['disabled_parking']}).objects
+
       expect(results).to include(location_1)
       expect(results.size).to eq(1)
       expect(results).not_to include(location_2, location_3)
