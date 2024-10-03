@@ -10,9 +10,52 @@ class LocationsController < ApplicationController
 
     initialize_search_parameters
     search_params = process_search_params(params.dup)
-    perform_search(search_params)
-    set_additional_parameters(search_params)
-    cache_and_render_results
+
+    # Performs the actual search using the processed search parameters above
+    set_coordinates
+    locations = LocationsSearch.new(
+      accessibility: search_params[:accessibility],
+      category_ids: search_params[:categories],
+      distance: search_params[:distance],
+      keywords: search_params[:keyword],
+      lat: @lat,
+      long: @lon,
+      org_name: search_params[:org_name],
+      tags: search_params[:tags],
+      zipcode: search_params[:location],
+      page: search_params[:page],
+      per_page: search_params[:per_page],
+      languages: search_params[:languages],
+      matched_category: @matched_category
+    ).search.load&.objects
+    @search = Search.new(locations, params)
+
+
+    # additional params for the view based on the user inputs in the search menu
+    @keyword = params[:keyword]
+    @lat = params[:lat]
+    @long = params[:long]
+    @address = params[:address]
+    @languages = Location.active_languages
+    @selected_language = params[:languages]&.first
+    @main_category_selected_name = search_params[:main_category] if @matched_category
+    @address = 'Current Location' if @address.nil? && @lat.present? && @long.present?
+    @selected_distance_filter = params[:distance]
+
+
+    # caches the search results and renders the view
+    cache_page(@search.locations) if @search.locations.present?
+
+    respond_to do |format|
+      format.html do
+        if params[:layout] == "false"
+          render template: 'component/locations/results/_body', locals: { search: @search }, layout: false
+        else
+          render
+        end
+      end
+    end
+
   end
 
   def show
@@ -120,53 +163,6 @@ class LocationsController < ApplicationController
     if search_params[:categories].present? && @main_category_selected_id
       subcategory_ids = helpers.get_subcategories_ids(search_params[:categories], @main_category_selected_id)
       search_params[:categories] = subcategory_ids.present? ? subcategory_ids : [search_params[:main_category]]
-    end
-  end
-
-  def perform_search(search_params)
-    set_coordinates
-    locations = LocationsSearch.new(
-      accessibility: search_params[:accessibility],
-      category_ids: search_params[:categories],
-      distance: search_params[:distance],
-      keywords: search_params[:keyword],
-      lat: @lat,
-      long: @lon,
-      org_name: search_params[:org_name],
-      tags: search_params[:tags],
-      zipcode: search_params[:location],
-      page: search_params[:page],
-      per_page: search_params[:per_page],
-      languages: search_params[:languages],
-      matched_category: @matched_category
-    ).search.load&.objects
-    @search = Search.new(locations, params)
-  end
-
-  # additional params for the view based on the user search inputs
-  def set_additional_parameters(search_params)
-    @keyword = params[:keyword]
-    @lat = params[:lat]
-    @long = params[:long]
-    @address = params[:address]
-    @languages = Location.active_languages
-    @selected_language = params[:languages]&.first
-    @main_category_selected_name = search_params[:main_category] if @matched_category
-    @address = 'Current Location' if @address.nil? && @lat.present? && @long.present?
-    @selected_distance_filter = params[:distance]
-  end
-
-  def cache_and_render_results
-    cache_page(@search.locations) if @search.locations.present?
-
-    respond_to do |format|
-      format.html do
-        if params[:layout] == "false"
-          render template: 'component/locations/results/_body', locals: { search: @search }, layout: false
-        else
-          render
-        end
-      end
     end
   end
 
