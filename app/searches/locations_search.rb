@@ -53,29 +53,28 @@ class LocationsSearch
     ].compact.reduce(:merge)
   end
 
-  def distance_filter
-    if distance? && lat? && long?
-      d = distance.to_s + "mi"
+  def distance_filter(query = index)
+    return query unless distance? && lat? && long?
 
-      index.filter(geo_distance: {
-        distance: d,
-        coordinates: {
-          lat: lat,
-          lon: long
-        }
-      })
-    end
+    d = distance.to_s + "mi"
+    query.filter(geo_distance: {
+      distance: d,
+      coordinates: {
+        lat: lat,
+        lon: long
+      }
+    })
   end
 
   def distance_sort
-    if lat? && long?
-      index.order(_geo_distance: {
-        coordinates: {
-          lat: lat,
-          lon: long
-        }
-      })
-    end
+    return unless lat? && long?
+
+    index.order(_geo_distance: {
+      coordinates: {
+        lat: lat,
+        lon: long
+      }
+    })
   end
 
   def order
@@ -87,133 +86,102 @@ class LocationsSearch
   end
 
   def tags_query
-    if tags?
-      index.query(multi_match: {
-                    query: tags,
-                    fields: %w[tags],
-                    analyzer: 'standard',
-                    fuzziness: 'AUTO'
-                  })
-    end
+    return unless tags?
+
+    index.query(multi_match: {
+      query: tags,
+      fields: %w[tags],
+      analyzer: 'standard',
+      fuzziness: 'AUTO'
+    })
   end
 
-  def category_filter
-    if category_ids?
-      index.filter(
-        terms: {
-          category_ids: category_ids
-        }
-      )
-    end
+  def category_filter(query = index)
+    return query unless category_ids?
+
+    query.filter(
+      terms: {
+        category_ids: category_ids
+      }
+    )
   end
 
-  def language_filter
-    if languages?
-      index.filter(
-        terms: {
-          languages: languages
-        }
-      )
-    end
-  end
+  def language_filter(query = index)
+    return query unless languages?
 
+    query.filter(
+      terms: {
+        languages: languages
+      }
+    )
+  end
 
   def accessibility_filter(query = index)
-    if accessibility.present?
-      query.filter(
-        terms: {
-          accessibility: accessibility.map(&:to_s)
+    return query unless accessibility.present?
+
+    query.filter(
+      terms: {
+        accessibility: accessibility.map(&:to_s)
+      }
+    )
+  end
+
+  def archive_filter(query = index)
+    query.filter(
+      term: {
+        archived: {
+          value: false
         }
-      )
-    else
-      query
-    end
+      }
+    )
   end
 
-  def archive_filter
-      index.filter(
-        term: {
-          archived: {
-            value: false
-          }
+  def zipcode_filter(query = index)
+    return query unless zipcode?
+
+    query.filter(match: {
+      zipcode: zipcode
+    })
+  end
+
+  def keyword_filter(query = index)
+    return query unless keywords?
+
+    query.query(bool: {
+      should: [
+        { term: { "organization_name_exact": { value: keywords.downcase, boost: 160 } } },
+        { term: { "name_exact": { value: keywords.downcase, boost: 120 } } },
+        { term: { "categories_exact": { value: keywords.downcase, boost: 80 } } },
+        { term: { "sub_categories_exact": { value: keywords.downcase, boost: 40 } } }
+      ],
+      must: [{
+        multi_match: {
+          query: keywords,
+          fields: %w[organization_name^20 name^16 categories^14 organization_tags^12 tags^10 service_tags^8 description^6 service_names^4 service_descriptions^2 keywords],
+          fuzziness: 'AUTO'
         }
-      )
-  end
-
-  def zipcode_filter
-    if zipcode?
-      index.filter(match: {
-                     zipcode: zipcode
-                   })
-    end
-  end
-
-
-
-  def keyword_filter
-    if keywords?
-      index.query(bool: {
-                    should: [
-                      { term: { "organization_name_exact":
-                                        { value: keywords.downcase,
-                                          boost: 160
-                                        }
-                                      }
-                      },
-                      { term: { "name_exact":
-                                        { value: keywords.downcase,
-                                          boost: 120
-                                        }
-                                      }
-                      },
-                      { term: { "categories_exact":
-                                  { value: keywords.downcase,
-                                    boost: 80
-                                  }
-                                }
-                      },
-                      { term: { "sub_categories_exact":
-                                  { value: keywords.downcase,
-                                    boost: 40
-                                  }
-                                }
-                      }
-                    ],
-                    must: [
-                      {
-                        multi_match: {
-                          query: keywords,
-                          fields: %w[organization_name^20 name^16 categories^14 organization_tags^12 tags^10 service_tags^8 description^6 service_names^4 service_descriptions^2 keywords],
-                          fuzziness: 'AUTO'
-                        }
-                      }
-                    ]
-                  })
-    else
-      index
-    end
+      }]
+    })
   end
 
   def organization_filter(query = index)
-    if org_name?
-      terms = org_name.downcase.split.map(&:strip)
-      query.query(
-        bool: {
-          must: terms.map { |term|
-            {
-              match_phrase: {
-                organization_name: {
-                  query: term,
-                  slop: 0
-                }
+    return query unless org_name?
+
+    terms = org_name.downcase.split.map(&:strip)
+    query.query(
+      bool: {
+        must: terms.map { |term|
+          {
+            match_phrase: {
+              organization_name: {
+                query: term,
+                slop: 0
               }
             }
           }
         }
-      )
-    else
-      query
-    end
+      }
+    )
   end
 
   def fetch_page
@@ -242,9 +210,22 @@ class LocationsSearch
   end
 
   def apply_filters(query)
-    query = query.filter(term: { archived: false })
-    query = apply_category_filter(query) if category_ids.present?
-    query = accessibility_filter(query) if accessibility.present?
+    filters = [
+      [:archive_filter, true],
+      [:organization_filter, org_name?],
+      [:tags_query, tags?],
+      [:category_filter, category_ids?],
+      [:accessibility_filter, accessibility.present?],
+      [:zipcode_filter, zipcode?],
+      [:distance_filter, distance? && lat? && long?],
+      [:language_filter, languages?],
+      [:keyword_filter, keywords?]
+    ]
+
+    filters.each do |filter_method, condition|
+      query = send(filter_method, query) if condition
+    end
+
     query
   end
 

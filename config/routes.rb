@@ -134,7 +134,7 @@ Rails.application.routes.draw do
 
   resources :locations, only: [:index] do
     collection do
-      get 'get_subcategories_by_category'
+      post 'get_subcategories_by_category', to: 'locations#get_subcategories_by_category'
     end
   end
 

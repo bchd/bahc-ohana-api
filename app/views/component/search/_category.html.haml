@@ -9,12 +9,13 @@
     function loadSubcategories(categoryName) {
       if (categoryName) {
         $.ajax({
-          type: 'GET',
+          type: 'POST',
           url: '/locations/get_subcategories_by_category',
           data: { category_name: categoryName },
           dataType: 'json',
           success: function(data) {
             updateSubcategories(data.sub_cat_array);
+            checkMatchedCategory();
           },
           error: function(xhr, status, error) {
             console.error("Error fetching subcategories:", error);
@@ -36,7 +37,8 @@
             type: 'checkbox',
             name: 'categories[]',
             value: subcat,
-            id: 'category_' + subcat.replace(/\s+/g, '_')
+            id: 'category_' + subcat.replace(/\s+/g, '_'),
+            checked: #{@selected_categories}.includes(subcat)
           });
           var $label = $('<label>', {
             for: 'category_' + subcat.replace(/\s+/g, '_'),
@@ -49,25 +51,30 @@
       }
     }
 
+    function checkMatchedCategory() {
+      var matchedCategoryName = "#{@matched_category&.name}";
+      var matchedCategoryParentName = "#{@matched_category&.parent&.name || @matched_category&.name}";
+      var keywordMatchedCategory = #{@keyword_matched_category};
+      var clearCategories = #{@clear_categories};
+      
+      if (matchedCategoryName && keywordMatchedCategory) {
+        $('#main_category').val(matchedCategoryParentName);
+        
+        var checkbox = $('input[type="checkbox"][value="' + matchedCategoryName + '"]');
+        if (checkbox.length) {
+          checkbox.prop('checked', true);
+        }
+      } else if (clearCategories) {
+        clearSubcategories();
+      }
+    }
+
     $('#main_category').change(function() {
       loadSubcategories($(this).val());
     });
 
     loadSubcategories($('#main_category').val());
-
-    var matchedCategoryName = "#{@matched_category&.name}";
-    var matchedCategoryParentName = "#{@matched_category&.parent&.name || @matched_category&.name}";
-    
-    if (matchedCategoryName) {
-      $('#main_category').val(matchedCategoryParentName).trigger('change');
-
-      setTimeout(function() {
-        var checkbox = $('input[type="checkbox"][value="' + matchedCategoryName + '"]');
-        if (checkbox.length) {
-          checkbox.prop('checked', true);
-        }
-      }, 500);
-    }
+    checkMatchedCategory();
 
     function clearSubcategories() {
       $('#subcategoriesList').empty();
@@ -75,7 +82,8 @@
     }
 
     $('#form-search').on('submit', function() {
-      if ($('#keyword-search-box').val()) {
+      var keyword = $('#keyword-search-box').val();
+      if (keyword && !#{@matched_category.present?}) {
         clearSubcategories();
       }
     });
