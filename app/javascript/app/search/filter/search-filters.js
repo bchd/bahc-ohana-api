@@ -1,6 +1,7 @@
 // Handles search filter functionality.
 import TextInput from './TextInput';
 import map from '../../result/result-map';
+import { initializeMapToggle } from '../../util/map/map_toggle';
 
 // The search filters.
 var _keyword;
