@@ -282,13 +282,13 @@ describe "GET 'search'" do
 
     it 'returns results when org_name only contains one word that matches' do
       get api_search_index_url(org_name: 'stamps')
-      expect(headers['X-Total-Count']).to eq '3'
-      expect(json.first['name']).to eq('Soup Kitchen')
+      expect(headers['X-Total-Count']).to eq '1'
+      expect(json.first['name']).to eq('Library')
     end
 
     it 'only returns locations whose org name matches all terms' do
       get api_search_index_url(org_name: 'Food+Pantry')
-      expect(headers['X-Total-Count']).to eq '3'
+      expect(headers['X-Total-Count']).to eq '1'
       expect(json.first['name']).to eq('Soup Kitchen')
     end
 
