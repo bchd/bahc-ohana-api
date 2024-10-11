@@ -34,6 +34,53 @@ class LocationsSearch
     search_results
   end
 
+  def exact_match_found?
+    keyword_to_use = keywords || attributes[:keyword]
+
+    if keyword_to_use.blank? && matched_category.blank?
+      return false
+    end
+
+    if matched_category.present?
+      return true
+    end
+
+    return false if keyword_to_use.blank?
+
+    exact_match_query = index.query(bool: {
+      should: [
+        { term: { "organization_name_exact": { value: keyword_to_use.downcase } } },
+        { term: { "name_exact": { value: keyword_to_use.downcase } } },
+        { term: { "categories_exact": { value: keyword_to_use.downcase } } },
+        { term: { "sub_categories_exact": { value: keyword_to_use.downcase } } },
+        { match_phrase: { "organization_name": { query: keyword_to_use, slop: 0 } } },
+        { match_phrase: { "name": { query: keyword_to_use, slop: 0 } } },
+        { match_phrase: { "categories": { query: keyword_to_use, slop: 0 } } },
+        { match_phrase: { "sub_categories": { query: keyword_to_use, slop: 0 } } }
+      ]
+    })
+
+    results = exact_match_query.count
+    result = results > 0
+
+    # not an exact match, check for partial matches
+    if !result
+      partial_match_query = index.query(bool: {
+        should: [
+          { match: { "organization_name": { query: keyword_to_use, operator: "and" } } },
+          { match: { "name": { query: keyword_to_use, operator: "and" } } },
+          { match: { "categories": { query: keyword_to_use, operator: "and" } } },
+          { match: { "sub_categories": { query: keyword_to_use, operator: "and" } } }
+        ]
+      })
+
+      partial_results = partial_match_query.count
+      result = partial_results > 0
+    end
+
+    result
+  end
+
   private
 
   def search_results
