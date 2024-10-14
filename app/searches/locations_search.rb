@@ -50,10 +50,12 @@ class LocationsSearch
         { match_phrase: { "name": { query: keyword_to_use, slop: 0 } } },
         { match_phrase: { "categories": { query: keyword_to_use, slop: 0 } } },
         # Partial matches
-        { match: { "organization_name": { query: keyword_to_use, operator: "and" } } },
-        { match: { "name": { query: keyword_to_use, operator: "and" } } },
-        { match: { "categories": { query: keyword_to_use, operator: "and" } } },
-        { match: { "organization_tags": { query: keyword_to_use, operator: "and" } } }
+        { match_phrase: { "organization_name": { query: keyword_to_use } } },
+        { match_phrase: { "name": { query: keyword_to_use } } },
+        { match_phrase: { "categories": { query: keyword_to_use } } },
+        { match_phrase: { "organization_tags": { query: keyword_to_use } } },
+        { match_phrase: { "description": { query: keyword_to_use } } },
+        { match_phrase: { "service_descriptions": { query: keyword_to_use } } }
       ],
       minimum_should_match: 1
     })
@@ -234,26 +236,39 @@ class LocationsSearch
         bool: {
           should: [
             # Exact phrase matches
-            { match_phrase: { "name": { query: keywords, boost: 100 } } },
-            { match_phrase: { "organization_name": { query: keywords, boost: 100 } } },
+            { match_phrase: { "organization_name": { query: keywords, boost: 200 } } },
+            { match_phrase: { "name": { query: keywords, boost: 120 } } },
             { match_phrase: { "description": { query: keywords, boost: 50 } } },
             { match_phrase: { "service_descriptions": { query: keywords, boost: 50 } } },
 
             # All words must match
-            { match: { "name": { query: keywords, boost: 10, operator: "and" } } },
-            { match: { "organization_name": { query: keywords, boost: 10, operator: "and" } } },
+            { match: { "organization_name": { query: keywords, boost: 150, operator: "and" } } },
+            { match: { "name": { query: keywords, boost: 15, operator: "and" } } },
             { match: { "description": { query: keywords, boost: 5, operator: "and" } } },
             { match: { "service_descriptions": { query: keywords, boost: 5, operator: "and" } } },
 
-            # Partial matches
+            # Partial and fuzzy matches
             { multi_match: {
                 query: keywords,
-                fields: %w[categories^14 organization_tags^12 tags^10 service_tags^8 service_names^4 keywords],
+                fields: %w[
+                  organization_name^100
+                  name^16
+                  categories^12
+                  organization_tags^10
+                  tags^8
+                  service_tags^6
+                  description^4
+                  service_descriptions^4
+                  service_names^2
+                  keywords
+                ],
                 type: "best_fields",
-                fuzziness: 'AUTO'
+                fuzziness: 'AUTO',
+                prefix_length: 2
               }
             }
-          ]
+          ],
+          minimum_should_match: 1
         }
       }
     else
@@ -265,7 +280,7 @@ class LocationsSearch
         query: base_query,
         functions: [
           {
-            filter: { exists: { field: "featured_at" } },  # featured resources have slightly higher weight on searches
+            filter: { exists: { field: "featured_at" } },
             weight: 1.2
           }
         ],
