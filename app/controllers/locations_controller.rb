@@ -209,7 +209,6 @@ class LocationsController < ApplicationController
   def match_keyword_to_subcategory(keyword)
     return nil if keyword.blank?
 
-    Category.where("LOWER(name) = ?", keyword.downcase).first ||
-        Category.where("LOWER(name) LIKE ?", "%#{keyword.downcase}%").first
+    Category.where("LOWER(name) = ?", keyword.downcase).first
   end
 end
