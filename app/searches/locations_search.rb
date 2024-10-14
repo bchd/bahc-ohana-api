@@ -37,48 +37,29 @@ class LocationsSearch
   def exact_match_found?
     keyword_to_use = keywords || attributes[:keyword]
 
-    if keyword_to_use.blank? && matched_category.blank?
-      return false
-    end
-
-    if matched_category.present?
-      return true
-    end
-
+    return true if matched_category.present?
     return false if keyword_to_use.blank?
 
-    exact_match_query = index.query(bool: {
+    combined_query = index.query(bool: {
       should: [
+        # Exact matches
         { term: { "organization_name_exact": { value: keyword_to_use.downcase } } },
         { term: { "name_exact": { value: keyword_to_use.downcase } } },
         { term: { "categories_exact": { value: keyword_to_use.downcase } } },
-        { term: { "sub_categories_exact": { value: keyword_to_use.downcase } } },
         { match_phrase: { "organization_name": { query: keyword_to_use, slop: 0 } } },
         { match_phrase: { "name": { query: keyword_to_use, slop: 0 } } },
         { match_phrase: { "categories": { query: keyword_to_use, slop: 0 } } },
-        { match_phrase: { "sub_categories": { query: keyword_to_use, slop: 0 } } }
-      ]
+        # Partial matches
+        { match: { "organization_name": { query: keyword_to_use, operator: "and" } } },
+        { match: { "name": { query: keyword_to_use, operator: "and" } } },
+        { match: { "categories": { query: keyword_to_use, operator: "and" } } },
+        { match: { "organization_tags": { query: keyword_to_use, operator: "and" } } }
+      ],
+      minimum_should_match: 1
     })
 
-    results = exact_match_query.count
-    result = results > 0
-
-    # not an exact match, check for partial matches
-    if !result
-      partial_match_query = index.query(bool: {
-        should: [
-          { match: { "organization_name": { query: keyword_to_use, operator: "and" } } },
-          { match: { "name": { query: keyword_to_use, operator: "and" } } },
-          { match: { "categories": { query: keyword_to_use, operator: "and" } } },
-          { match: { "sub_categories": { query: keyword_to_use, operator: "and" } } }
-        ]
-      })
-
-      partial_results = partial_match_query.count
-      result = partial_results > 0
-    end
-
-    result
+    results = combined_query.count
+    results > 0
   end
 
   private
@@ -126,7 +107,6 @@ class LocationsSearch
 
   def order
     index.order(
-      featured_at: { missing: "_last", order: "asc" },
       "_score": { "order": "desc" },
       updated_at: { order: "desc" }
     )
@@ -240,7 +220,7 @@ class LocationsSearch
   end
 
   def build_query
-    if matched_category.is_a?(Category)
+    base_query = if matched_category.is_a?(Category)
       {
         bool: {
           should: [
@@ -250,10 +230,48 @@ class LocationsSearch
         }
       }
     elsif keywords.present?
-      { multi_match: { query: keywords, fields: %w[organization_name^20 name^16 categories^14 organization_tags^12 tags^10 service_tags^8 description^6 service_names^4 service_descriptions^2 keywords], fuzziness: 'AUTO' } }
+      {
+        bool: {
+          should: [
+            # Exact phrase matches
+            { match_phrase: { "name": { query: keywords, boost: 100 } } },
+            { match_phrase: { "organization_name": { query: keywords, boost: 100 } } },
+            { match_phrase: { "description": { query: keywords, boost: 50 } } },
+            { match_phrase: { "service_descriptions": { query: keywords, boost: 50 } } },
+
+            # All words must match
+            { match: { "name": { query: keywords, boost: 10, operator: "and" } } },
+            { match: { "organization_name": { query: keywords, boost: 10, operator: "and" } } },
+            { match: { "description": { query: keywords, boost: 5, operator: "and" } } },
+            { match: { "service_descriptions": { query: keywords, boost: 5, operator: "and" } } },
+
+            # Partial matches
+            { multi_match: {
+                query: keywords,
+                fields: %w[categories^14 organization_tags^12 tags^10 service_tags^8 service_names^4 keywords],
+                type: "best_fields",
+                fuzziness: 'AUTO'
+              }
+            }
+          ]
+        }
+      }
     else
       { match_all: {} }
     end
+
+    {
+      function_score: {
+        query: base_query,
+        functions: [
+          {
+            filter: { exists: { field: "featured_at" } },  # featured resources have slightly higher weight on searches
+            weight: 1.2
+          }
+        ],
+        boost_mode: "multiply"
+      }
+    }
   end
 
   def apply_filters(query)
@@ -276,21 +294,8 @@ class LocationsSearch
     query
   end
 
-  def apply_keyword_filter(query)
-    query.query(multi_match: {
-      query: keywords,
-      fields: %w[organization_name^20 name^16 categories^14 organization_tags^12 tags^10 service_tags^8 description^6 service_names^4 service_descriptions^2 keywords],
-      fuzziness: 'AUTO'
-    })
-  end
-
-  def apply_category_filter(query)
-    query.filter(terms: { category_ids: category_ids })
-  end
-
   def apply_sorting(query)
     query.order(
-      featured_at: { missing: "_last", order: "asc" },
       "_score": { "order": "desc" },
       updated_at: { order: "desc" }
     )
