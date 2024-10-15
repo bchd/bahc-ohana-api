@@ -132,7 +132,12 @@ Rails.application.routes.draw do
 
   root to: "home#index"
 
-  resources :locations, only: [:index]
+  resources :locations, only: [:index] do
+    collection do
+      post 'get_subcategories_by_category', to: 'locations#get_subcategories_by_category'
+    end
+  end
+
   get 'locations/*id/' => 'locations#show', as: 'location'
   get '/about' => 'about#index'
   post '/feedback' => 'feedback#create'
@@ -142,6 +147,5 @@ Rails.application.routes.draw do
   delete '/favorite.json' => 'favorites#destroy'
   get 'favorites' => 'favorites#index'
 
-  post 'locations/get_subcategories_by_category' => 'locations#get_subcategories_by_category'
   resource :flag, only: [:new, :create]
 end

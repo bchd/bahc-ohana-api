@@ -3,43 +3,19 @@ class LocationsController < ApplicationController
 
   def index
     # To enable Google Translation of keywords,
-    # uncomment lines 9-10 and 18, and see documentation for
+    # uncomment lines 8-9, and see documentation for
     # GOOGLE_TRANSLATE_API_KEY in config/application.example.yml.
     # translator = KeywordTranslator.new(params[:keyword], current_language, 'en')
     # params[:keyword] = translator.translated_keyword
-    @main_category_selected_name = ""
-    @main_category_selected_id = ""
 
-    unless params[:main_category].nil? || params[:main_category].empty?
-      if validate_category
-        @main_category_selected_name = params[:main_category]
-        @main_category_selected_id = helpers.get_category_id_by_name(@main_category_selected_name)
-        params[:main_category_id] = @main_category_selected_id
-      end
-    end
-    if params["categories"] and @main_category_selected_id != ""
-      params["categories_ids"] = helpers.get_subcategories_ids(params["categories"], @main_category_selected_id)
-    end
+    initialize_search_parameters
+    search_params = process_search_params(params.dup)
 
-    search_params = params.dup
-
-    if !params["main_category"]
-      search_params["main_category"] = ""
-    end
-
-    if !params["categories"] and !search_params["main_category"].empty?
-      if params["main_category_id"].present?
-        search_params["categories"] = [params["main_category_id"]]
-      end
-    else
-      search_params["categories"] = params["categories_ids"]
-    end
-
-
+    # Performs the actual search using the processed search parameters above
     set_coordinates
     locations = LocationsSearch.new(
       accessibility: search_params[:accessibility],
-      category_ids: search_params[:categories],
+      category_ids: search_params[:category_ids],
       distance: search_params[:distance],
       keywords: search_params[:keyword],
       lat: @lat,
@@ -49,40 +25,40 @@ class LocationsController < ApplicationController
       zipcode: search_params[:location],
       page: search_params[:page],
       per_page: search_params[:per_page],
-      languages: search_params[:languages]
+      languages: search_params[:languages],
+      matched_category: @matched_category
     ).search.load&.objects
-
-
     @search = Search.new(locations, params)
+
+
+    # additional params for the view based on the user inputs in the search menu
     @keyword = params[:keyword]
     @lat = params[:lat]
     @long = params[:long]
     @address = params[:address]
     @languages = Location.active_languages
-    unless params[:languages].nil? || params[:languages].empty?
-      @selected_language = params[:languages][0]
-    end
-
-    if @address.nil? && @lat.present? && @long.present?
-      @address = 'Current Location'
-    end
-
+    @selected_language = params[:languages]&.first
+    @address = 'Current Location' if @address.nil? && @lat.present? && @long.present?
     @selected_distance_filter = params[:distance]
 
-    # Populate the keyword search field with the original term
-    # as typed by the user, not the translated word.
-    # params[:keyword] = translator.original_keyword
-    cache_page(locations) if locations.present?
+    @main_category_selected_name = search_params[:main_category] if @matched_category
+    @selected_categories = params[:categories] || []
+    @keyword_matched_category = @matched_category.present? && params[:keyword].present?
+    @clear_categories = params[:keyword].present? && !@matched_category
+
+    # caches the search results and renders the view
+    cache_page(@search.locations) if @search.locations.present?
 
     respond_to do |format|
-      format.html {
+      format.html do
         if params[:layout] == "false"
-          render :template => 'component/locations/results/_body', :locals => { :search => @search }, :layout => false
+          render template: 'component/locations/results/_body', locals: { search: @search }, layout: false
         else
           render
         end
-      }
+      end
     end
+
   end
 
   def show
@@ -101,7 +77,7 @@ class LocationsController < ApplicationController
     end
 
     # @keywords = @location.services.map { |s| s[:keywords] }.flatten.compact.uniq
-    @categories = @location.services.map { |s| s[:categories] }.flatten.compact.uniq 
+    @categories = @location.services.map { |s| s[:categories] }.flatten.compact.uniq
 
     request.query_parameters["layout"] = true
     @query_parameters = request.query_parameters
@@ -113,12 +89,12 @@ class LocationsController < ApplicationController
     permitted = params.permit(:category_name)
     category_name = permitted["category_name"]
 
-    sub_cat_array = []
     category_id = helpers.get_category_id_by_name(category_name)
     sub_cat_array = helpers.subcategories_by_category(category_id)
 
     respond_to do |format|
-      format.js { render :json => {sub_cat_array: sub_cat_array, category_title: helpers.category_filters_title(category_name)}.to_json }
+      format.json { render json: { sub_cat_array: sub_cat_array, category_title: helpers.category_filters_title(category_name) } }
+      format.js { render json: { sub_cat_array: sub_cat_array, category_title: helpers.category_filters_title(category_name) } }
     end
   end
 
@@ -141,4 +117,96 @@ class LocationsController < ApplicationController
     end
   end
 
+  private
+
+  def initialize_search_parameters
+    @main_category_selected_name = ""
+    @main_category_selected_id = ""
+    process_main_category
+    process_subcategories
+  end
+
+  # processes the main category selection from the params
+  def process_main_category
+    return if params[:main_category].blank?
+    return unless validate_category
+
+    @main_category_selected_name = params[:main_category]
+    @main_category_selected_id = helpers.get_category_id_by_name(@main_category_selected_name)
+    params[:main_category_id] = @main_category_selected_id
+  end
+
+  def process_subcategories
+    return if params["categories"].blank? && @main_category_selected_id.blank?
+
+    if params["categories"].present?
+      subcategory_ids = helpers.get_subcategories_ids(params["categories"], @main_category_selected_id)
+      params["category_ids"] = subcategory_ids
+    elsif @main_category_selected_id.present?
+      params["category_ids"] = [@main_category_selected_id]
+    end
+  end
+
+  def process_search_params(search_params)
+    search_params["main_category"] ||= ""
+    @matched_category = match_keyword_to_subcategory(search_params[:keyword])
+
+    if @matched_category
+      handle_matched_category(search_params)
+    else
+      handle_unmatched_category(search_params)
+    end
+
+    search_params
+  end
+
+
+  def handle_matched_category(search_params)
+    search_params[:categories] = [@matched_category.id]
+    search_params[:main_category] = @matched_category.parent&.name || @matched_category.name
+    @main_category_selected_name = search_params[:main_category]
+    @main_category_selected_id = @matched_category.parent&.id || @matched_category.id
+    search_params[:keyword] = nil
+    search_params[:category_ids] = [@matched_category.id]
+  end
+
+  def handle_unmatched_category(search_params)
+    if search_params[:keyword].present?
+      search_params[:categories] = []
+      search_params[:main_category] = ""
+      @main_category_selected_name = ""
+      @main_category_selected_id = nil
+      search_params[:category_ids] = []
+    else
+      @main_category_selected_name = search_params[:main_category]
+      @main_category_selected_id = helpers.get_category_id_by_name(@main_category_selected_name) if @main_category_selected_name.present?
+      process_category_params(search_params)
+    end
+  end
+
+  def clear_category_params(search_params)
+    search_params[:main_category] = ""
+    params[:categories] = []
+  end
+
+  def set_main_category(search_params)
+    @main_category_selected_name = search_params[:main_category]
+    @main_category_selected_id = helpers.get_category_id_by_name(@main_category_selected_name) if @main_category_selected_name.present?
+    search_params["categories"] = [@main_category_selected_id] if @main_category_selected_id.present?
+  end
+
+  def process_category_params(search_params)
+    if search_params["categories"].present?
+      search_params["category_ids"] = helpers.get_subcategories_ids(search_params["categories"], @main_category_selected_id)
+    elsif @main_category_selected_id.present?
+      search_params["category_ids"] = [@main_category_selected_id]
+    end
+  end
+
+  # exact keyword search match with subcategory
+  def match_keyword_to_subcategory(keyword)
+    return nil if keyword.blank?
+
+    Category.where("LOWER(name) = ?", keyword.downcase).first
+  end
 end

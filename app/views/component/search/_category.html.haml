@@ -3,3 +3,88 @@
   %legend.sr-only= t('labels.category')
   = label_tag 'main_category', t('labels.category')
   = select_tag :main_category, options_for_select(categories_for_select, @main_category_selected_name), include_blank: 'All', class: "category-search-select-left-menu"
+
+:javascript
+  $(document).ready(function() {
+    function loadSubcategories(categoryName) {
+      if (categoryName) {
+        $.ajax({
+          type: 'POST',
+          url: '/locations/get_subcategories_by_category',
+          data: { category_name: categoryName },
+          dataType: 'json',
+          success: function(data) {
+            updateSubcategories(data.sub_cat_array);
+            checkMatchedCategory();
+          },
+          error: function(xhr, status, error) {
+            console.error("Error fetching subcategories:", error);
+          }
+        });
+      } else {
+        $('#subcategoriesList').empty();
+      }
+    }
+
+    function updateSubcategories(subcategories) {
+      var $subcategoriesContainer = $('#subcategoriesList');
+      $subcategoriesContainer.empty();
+      
+      if (subcategories && subcategories.length > 0) {
+        subcategories.forEach(function(subcat) {
+          var $div = $('<div>', { class: 'filter-category-item' });
+          var $checkbox = $('<input>', {
+            type: 'checkbox',
+            name: 'categories[]',
+            value: subcat,
+            id: 'category_' + subcat.replace(/\s+/g, '_'),
+            checked: #{@selected_categories}.includes(subcat)
+          });
+          var $label = $('<label>', {
+            for: 'category_' + subcat.replace(/\s+/g, '_'),
+            text: subcat
+          });
+          
+          $div.append($checkbox).append($label);
+          $subcategoriesContainer.append($div);
+        });
+      }
+    }
+
+    function checkMatchedCategory() {
+      var matchedCategoryName = "#{@matched_category&.name}";
+      var matchedCategoryParentName = "#{@matched_category&.parent&.name || @matched_category&.name}";
+      var keywordMatchedCategory = #{@keyword_matched_category};
+      var clearCategories = #{@clear_categories};
+      
+      if (matchedCategoryName && keywordMatchedCategory) {
+        $('#main_category').val(matchedCategoryParentName);
+        
+        var checkbox = $('input[type="checkbox"][value="' + matchedCategoryName + '"]');
+        if (checkbox.length) {
+          checkbox.prop('checked', true);
+        }
+      } else if (clearCategories) {
+        clearSubcategories();
+      }
+    }
+
+    $('#main_category').change(function() {
+      loadSubcategories($(this).val());
+    });
+
+    loadSubcategories($('#main_category').val());
+    checkMatchedCategory();
+
+    function clearSubcategories() {
+      $('#subcategoriesList').empty();
+      $('#main_category').val('');
+    }
+
+    $('#form-search').on('submit', function() {
+      var keyword = $('#keyword-search-box').val();
+      if (keyword && !#{@matched_category.present?}) {
+        clearSubcategories();
+      }
+    });
+  });

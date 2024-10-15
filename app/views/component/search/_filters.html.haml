@@ -23,7 +23,7 @@
       - id_string = "category_#{category.delete('&').delete(' ')}"
       %div.filter-category-item
         - if params[:categories]
-          = check_box_tag( 'categories[]', category, params[:categories].include?(category) , id: id_string)
+          = check_box_tag('categories[]', category, @selected_categories.include?(category), id: id_string)
           = label_tag id_string, category
         - else
           = check_box_tag( 'categories[]', category, false , id: id_string)
