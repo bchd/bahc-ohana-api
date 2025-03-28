@@ -78,7 +78,7 @@ feature 'Create a new organization' do
     fill_in 'organization_description', with: 'description for new org'
     fill_in(placeholder: I18n.t('admin.organizations.forms.accreditations.placeholder'), with: "first,second\n")
     click_button I18n.t('admin.buttons.create_organization')
-
+    expect(page).to have_content('Organization was successfully created.')
     organization = Organization.find_by(name: 'new org')
     expect(organization.accreditations).to eq %w[first second]
   end

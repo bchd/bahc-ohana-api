@@ -10,12 +10,14 @@ feature 'Update accreditations' do
   scenario 'with one accreditation', :js do
     fill_in(placeholder: I18n.t('admin.organizations.forms.accreditations.placeholder'), with: "Knight Foundation Grant\n")
     click_button I18n.t('admin.buttons.save_changes')
+    expect(page).to have_content('Organization was successfully updated.')
     expect(@organization.reload.accreditations).to eq ['Knight Foundation Grant']
   end
 
   scenario 'with two accreditations', :js do
     fill_in(placeholder: I18n.t('admin.organizations.forms.accreditations.placeholder'), with: "first,second\n")
     click_button I18n.t('admin.buttons.save_changes')
+    expect(page).to have_content('Organization was successfully updated.')
     expect(@organization.reload.accreditations).to eq %w[first second]
   end
 
@@ -27,6 +29,7 @@ feature 'Update accreditations' do
     county.find('span', text: "\u{00D7}").click
 
     click_button I18n.t('admin.buttons.save_changes')
+    expect(page).to have_content('Organization was successfully updated.')
     expect(@organization.reload.accreditations).to eq ['Donations']
   end
 end

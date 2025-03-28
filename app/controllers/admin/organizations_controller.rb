@@ -64,7 +64,8 @@ class Admin
       organization = Organization.find(params[:id])
       authorize organization
       organization.destroy
-      redirect_to admin_organizations_url
+      redirect_to admin_organizations_url,
+                    notice: 'Organization was successfully removed.'
     end
 
     private
