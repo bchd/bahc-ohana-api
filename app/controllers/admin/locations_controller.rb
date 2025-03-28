@@ -77,7 +77,7 @@ class Admin
       authorize location
 
       location.destroy
-      redirect_to admin_locations_url
+      redirect_to admin_locations_url, notice: 'Location was successfully removed.'
     end
 
     def capacity

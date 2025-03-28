@@ -10,12 +10,14 @@ feature 'Update languages' do
 
   scenario 'with no languages' do
     click_button I18n.t('admin.buttons.save_changes')
+    expect(page).to have_content('Service was successfully updated.')
     expect(@service.reload.languages).to eq []
   end
 
   skip 'with one language', :js do
     fill_in(placeholder: I18n.t('admin.services.forms.languages.placeholder'), with: "French\n")
     click_button I18n.t('admin.buttons.save_changes')
+    expect(page).to have_content('Service was successfully updated.')
     expect(@service.reload.languages).to eq ['French']
   end
 
@@ -28,6 +30,7 @@ feature 'Update languages' do
     arabic.find('span', text: "\u{00D7}").click
 
     click_button I18n.t('admin.buttons.save_changes')
+    expect(page).to have_content('Service was successfully updated.')
     expect(@service.reload.languages).to eq ['French']
   end
 end

@@ -15,12 +15,14 @@ feature 'Update languages' do
   scenario 'with one language', :js do
     fill_in(placeholder: I18n.t('admin.locations.forms.languages.placeholder'), with: "French\n")
     click_button I18n.t('admin.buttons.save_changes')
+    expect(page).to have_content('Location was successfully updated.')
     expect(@location.reload.languages).to eq ['French']
   end
 
   scenario 'with two languages', :js do
     fill_in(placeholder: I18n.t('admin.locations.forms.languages.placeholder'), with: "French\nSpanish\n")
     click_button I18n.t('admin.buttons.save_changes')
+    expect(page).to have_content('Location was successfully updated.')
     expect(@location.reload.languages).to eq %w[French Spanish]
   end
 
@@ -32,6 +34,7 @@ feature 'Update languages' do
     arabic.find('span', text: "\u{00D7}").click
 
     click_button I18n.t('admin.buttons.save_changes')
+    expect(page).to have_content('Location was successfully updated.')
     expect(@location.reload.languages).to eq ['French']
   end
 end

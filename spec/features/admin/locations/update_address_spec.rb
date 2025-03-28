@@ -105,6 +105,7 @@ feature 'Remove a street address' do
     login_super_admin
     visit '/admin/locations/' + @location.slug
     remove_street_address
+    expect(page).to have_content('Location was successfully updated.')
 
     expect(@location.reload.latitude).to be_nil
     expect(@location.reload.longitude).to be_nil

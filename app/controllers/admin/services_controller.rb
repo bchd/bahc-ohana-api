@@ -79,7 +79,7 @@ class Admin
       service = Service.find(params[:id])
       authorize service.location
       service.destroy
-      redirect_to admin_locations_url
+      redirect_to admin_locations_url, notice: 'Service was successfully removed.'
     end
 
     private
