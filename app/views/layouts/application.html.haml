@@ -7,7 +7,6 @@
   <!--<![endif]-->
   %head
     = render 'shared/google_analytics/page_tracking'
-    = render 'shared/hotjar'
     = render 'shared/head'
     = javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{ENV['GOOGLE_MAPS_UI_API_KEY']}"
     = javascript_include_tag 'application', 'jquery', 'data-turbolinks-track': true
