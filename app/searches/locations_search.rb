@@ -116,10 +116,10 @@ class LocationsSearch
     )
   end
 
-  def tags_query
-    return unless tags?
+  def tags_query(query = index)
+    return query unless tags?
 
-    index.query(multi_match: {
+    query.query(multi_match: {
       query: tags,
       fields: %w[tags],
       analyzer: 'standard',
@@ -223,11 +223,19 @@ class LocationsSearch
   end
 
   def fetch_page
-    page.presence || PAGE
+    return PAGE if page.nil?
+    int_page = page.to_i
+    return PAGE if int_page == 0
+    return 1 if int_page > 10_000
+    int_page
   end
 
   def fetch_per_page
-    per_page.presence || PER_PAGE
+    return PER_PAGE if per_page.nil?
+    int_per_page = per_page.to_i
+    return PER_PAGE if int_per_page == 0
+    return 100 if int_per_page > 100
+    int_per_page
   end
 
   def build_query

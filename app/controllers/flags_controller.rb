@@ -1,6 +1,10 @@
 class FlagsController < ApplicationController
   def new
     build_required_resources
+    if @resource.nil?
+      flash[:error] = 'A location is required to submit a flag.'
+      redirect_to root_path
+    end
   end
 
   def create
