@@ -47,7 +47,7 @@ describe AhoyQueries do
     it "returns the right amount of visits when date range is 'Last Quarter'" do
       date_range = AhoyQueries::LAST_QUARTER
       ahoy_entry = Ahoy::Event.last
-      ahoy_entry.update(time: Date.current.prev_quarter - 1.day)
+      ahoy_entry.update(time: Date.current.prev_quarter.end_of_quarter - 1.day)
       ahoy_entry.reload
 
       visits = AhoyQueries.get_total_visits_by_location_and_date_range(@location.id, date_range)
