@@ -225,7 +225,7 @@ class LocationsController < ApplicationController
     elsif params[:main_category].present?
       @main_category_selected_name = params[:main_category]
       @main_category_selected_id = helpers.get_category_id_by_name(@main_category_selected_name)
-      params[:category_ids] = [@main_category_selected_id]
+      params[:category_ids] = [@main_category_selected_id].compact # remove the nil if the id wasn't found
     end
 
     return unless validate_category
