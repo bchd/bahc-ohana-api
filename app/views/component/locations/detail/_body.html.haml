@@ -27,7 +27,7 @@
           = render 'component/detail/audience', location: location
           = render 'component/detail/phones', phones: location.phones
           = render 'component/detail/address', location: location, lines: 2
-          - if location.services.present?
+          - if location.services.unarchived.present?
             = render 'component/detail/service_list_items', location: location
         .flex-column
           = render 'component/detail/website', website: location.website
@@ -40,12 +40,12 @@
       %hr
       = render 'component/detail/location_description', location: location
 
-    - if location.services.present?
+    - if location.services.unarchived.present?
       %section.services-box
         %h2 Services
         %hr
         %section.service-list{ itemscope: '', itemtype: 'http://schema.org/Service', id: "service-list" }
-        - location.services.each_with_index do |service, i|
+        - location.services.unarchived.each_with_index do |service, i|
           - if (i%2).zero?
             %div.service-row.service-title-blue{ id: "service-row-#{i}", role: 'button', tabindex: '0', aria: {label: 'Expand/Collapse Section', expanded: 'false'} }
               = render 'component/detail/service_name', service: service, i: i
@@ -58,7 +58,7 @@
               = render 'component/detail/service_status', service: service
             %section.collapsed.service-details-card.service-title-grey{ id: "service-card-#{i}"}
               = render 'component/detail/service_details_card', service: service
-          - if i < location.services.length-1
+          - if i < location.services.unarchived.length-1
             %hr.hr-service-divider
 
   / locations sidebar

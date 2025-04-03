@@ -88,7 +88,8 @@ RSpec.describe 'component/locations/results/list_view' do
       address: test_address,
       organization: test_organization,
       phones: test_phones,
-      fields: []
+      fields: [],
+      services: OpenStruct.new(unarchived: [])
     )
   end
 

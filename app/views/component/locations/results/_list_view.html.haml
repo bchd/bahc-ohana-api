@@ -36,11 +36,11 @@
                 .short-desc-list-view
                   = render_markdown(location.short_desc)
 
-          - if location.services.present? && location.services.size > 0
+          - if location.services.unarchived.present? && location.services.unarchived.size > 0
             = render 'component/detail/service_list', location: location
 
           - if user_signed_in?
-            - services = Location.get(location.id)[:services]
+            - services = Location.get(location.id).services.unarchived
             - if services.present? && services.size > 0
               %section.service-availability
                 - if services.any? { |service| service.wait_time.present? }

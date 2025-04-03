@@ -11,9 +11,8 @@ feature 'Delete contact' do
 
   scenario 'when deleting contact' do
     find_link(I18n.t('admin.buttons.delete_contact')).click
-    using_wait_time 5 do
-      expect(current_path).to eq admin_organization_path(@org)
-      expect(page).not_to have_link 'Moncef Belyamani'
-    end
+    expect(page).to have_content "Contact 'Moncef Belyamani' was successfully deleted."
+    expect(current_path).to eq admin_organization_path(@org)
+    expect(page).not_to have_link 'Moncef Belyamani'
   end
 end

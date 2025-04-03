@@ -11,6 +11,7 @@ feature 'Create a new location' do
     fill_in_all_required_fields
     click_button I18n.t('admin.buttons.create_location')
 
+    expect(page).to have_content('Location was successfully created.')
     expect(current_path).to eq '/admin/locations/new-parent-agency-location'
     expect(find_field('location_name').value).to eq 'New Parent Agency location'
     fill_in_editor_field 'new description'
@@ -41,6 +42,7 @@ feature 'Create a new location' do
       vanity_number: '123-ABC-DEFG'
     )
     click_button I18n.t('admin.buttons.create_location')
+    expect(page).to have_content('Location was successfully created.')
 
     expect(find_field('location_phones_attributes_0_number').value).
       to eq '123-456-7890'
@@ -63,6 +65,7 @@ feature 'Create a new location' do
     fill_in 'location_email', with: 'moncefbelyamani@samaritanhousesanmateo.org'
 
     click_button I18n.t('admin.buttons.create_location')
+    expect(page).to have_content('Location was successfully created.')
 
     expect(find_field('location_email').value).
       to eq 'moncefbelyamani@samaritanhousesanmateo.org'
@@ -76,6 +79,7 @@ feature 'Create a new location' do
       closes_at_hour: '5 PM', closes_at_minute: '45'
     )
     click_button I18n.t('admin.buttons.create_location')
+    expect(page).to have_content('Location was successfully created.')
 
     prefix = 'location_regular_schedules_attributes_0'
 
@@ -99,6 +103,7 @@ feature 'Create a new location' do
       closed: 'Closed'
     )
     click_button I18n.t('admin.buttons.create_location')
+    expect(page).to have_content('Location was successfully created.')
 
     prefix = 'location_holiday_schedules_attributes_0'
 
@@ -121,6 +126,7 @@ feature 'Create a new location' do
     fill_in_all_required_fields
     check 'location_accessibility_ramp'
     click_button I18n.t('admin.buttons.create_location')
+    expect(page).to have_content('Location was successfully created.')
 
     expect(find('#location_accessibility_ramp')).to be_checked
   end
@@ -129,6 +135,7 @@ feature 'Create a new location' do
     fill_in_all_required_fields
     fill_in 'location_transportation', with: 'SAMTRANS stops within 1/2 mile.'
     click_button I18n.t('admin.buttons.create_location')
+    expect(page).to have_content('Location was successfully created.')
 
     expect(find_field('location_transportation').value).
       to eq 'SAMTRANS stops within 1/2 mile.'
@@ -138,6 +145,7 @@ feature 'Create a new location' do
     fill_in_all_required_fields
     fill_in 'location_website', with: 'http://ruby.com'
     click_button I18n.t('admin.buttons.create_location')
+    expect(page).to have_content('Location was successfully created.')
 
     expect(find_field('location_website').value).to eq 'http://ruby.com'
   end
@@ -146,6 +154,7 @@ feature 'Create a new location' do
     fill_in_all_required_fields
     fill_in 'location_alternate_name', with: 'HSA'
     click_button I18n.t('admin.buttons.create_location')
+    expect(page).to have_content('Location was successfully created.')
 
     expect(find_field('location_alternate_name').value).
       to eq 'HSA'
@@ -161,6 +170,7 @@ feature 'Create a new location' do
     expect(page).to have_editor_display text: 'new description'
     select('Does not have a physical address', from: 'location_virtual')
     click_button I18n.t('admin.buttons.create_location')
+    expect(page).to have_content('Location was successfully created.')
 
     expect(find_field('location_virtual').value).
       to eq 'true'
@@ -170,6 +180,7 @@ feature 'Create a new location' do
     fill_in_all_required_fields
     fill_in(placeholder: I18n.t('admin.locations.forms.languages.placeholder'), with: "French\nSpanish\n")
     click_button I18n.t('admin.buttons.create_location')
+    expect(page).to have_content('Location was successfully created.')
 
     expect(find_field('location-language-select', visible: false).value).
       to eq %w[French Spanish]
