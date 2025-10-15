@@ -1612,6 +1612,11 @@ body {
     }
   }
 
+  .map #detail-map-button {
+    display: inline-block;
+    margin-top: 20px;
+  }
+
   .metadata {
     // Clear any floats to prevent overlap into footer.
     clear: both;

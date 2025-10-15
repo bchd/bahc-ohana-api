@@ -3,7 +3,18 @@ import markers from '../util/map/markers.js';
 import googleMaps from '../util/map/google/map-loader';
 
 function init() {
-  googleMaps.load(_renderMap);
+  var showMapButton = document.getElementById('detail-map-button');
+  var mapCanvas = document.getElementById('detail-map-canvas');
+  if (showMapButton && mapCanvas && showMapButton.style.display != "none") {
+    mapCanvas.style.display = "none";
+    showMapButton.addEventListener('click', () => {
+      mapCanvas.style.display = "block";
+      showMapButton.style.display = "none";
+      googleMaps.load(_renderMap);
+    });
+  } else {
+    googleMaps.load(_renderMap);
+  }
 }
 
 // @param nodes [Array] List of DOM HTMLNodes.

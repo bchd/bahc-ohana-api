@@ -73,7 +73,7 @@
     %div#search-group.hidden
       = form_tag('/locations', method: :get, id: 'form-header', return: false) do
         = hidden_field_tag("source", "header")
-        = search_field_tag :keyword, params[:keyword], placeholder: t('placeholders.search'), class: "search-input"
+        = search_field_tag :keyword, '', placeholder: t('placeholders.search'), class: "search-input"
         = label_tag 'keyword', t('labels.search_services'), class: 'sr-only'
         = button_tag '', type: 'submit', class: 'search-button', id: 'keyword-search-button' do
           %i.button-icon.fa.fa-search

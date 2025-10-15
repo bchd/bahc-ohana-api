@@ -76,6 +76,11 @@
                   = location.latitude
                 %span.hide#detail-map-canvas-lng
                   = location.longitude
+              %span.directions.icon-text-block#detail-map-button
+                %a{ aria: { label: "Show map" } }
+                  %span{ role: "img", "aria-hidden": "true" }
+                    %i.fa.fa-map.fa-lg
+                  %span.annotated-text-block Show Map
             %noscript
               %p.map-alternative
                 = "Map is not available because JavaScript is disabled. Please use the address below for directions."
