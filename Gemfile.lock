@@ -396,6 +396,8 @@ GEM
       activesupport (>= 3.0.0)
     racc (1.8.1)
     rack (2.2.20)
+    rack-attack (6.8.0)
+      rack (>= 1.0, < 4)
     rack-cors (1.1.1)
       rack (>= 2.0.0)
     rack-mini-profiler (3.0.0)
@@ -616,6 +618,7 @@ DEPENDENCIES
   pry-rails
   puma
   pundit
+  rack-attack
   rack-cors
   rack-mini-profiler
   rack-rewrite (~> 1.5.0)
