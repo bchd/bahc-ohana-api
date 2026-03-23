@@ -134,6 +134,7 @@ en:
       organizations: 'Organizations'
       locations: 'Locations'
       services: 'Services'
+      categories: 'Categories'
       update_capacity: 'Update Capacity'
       csv_section: 'CSV'
       programs: 'Programs'
