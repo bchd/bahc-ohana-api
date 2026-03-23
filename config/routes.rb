@@ -34,7 +34,7 @@ Rails.application.routes.draw do
     end
     resources :programs, except: :show
     resources :services, only: :index
-    resources :categories, only: :index
+    resources :categories
 
     resources :flags
     resources :flag_categories

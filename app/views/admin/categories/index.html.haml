@@ -1,0 +1,17 @@
+%h1 Category Manager
+
+%div.tag_index_main_container
+  - if current_admin.super_admin?
+    %p
+      As a super admin, you have access to all categories in the database. Please make updates responsibly.
+
+  %div
+  - if @categories.empty?
+    %span
+      No results found
+
+  - if @categories.present?
+    %p
+      - @categories.each do |category|
+        %ul
+          = render "category_list_element", category: category
