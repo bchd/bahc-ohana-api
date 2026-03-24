@@ -466,6 +466,13 @@ a.boxed-action:active {
   cursor: pointer;
 }
 
+.category_list_element_name_container {
+  float:left; 
+  width: 85%; 
+  padding-left: 5px;
+  z-index: 10;
+}
+
 .subcategory_list_element_container {
   border-bottom: 2px solid #E0E0E0;
   width: 100%;

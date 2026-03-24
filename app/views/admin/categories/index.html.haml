@@ -11,7 +11,6 @@
       No results found
 
   - if @categories_with_subcategories.present?
-    %p
+    %ul#categories-list
       - @categories_with_subcategories.each do |category|
-        %ul
-          = render "category_list_element", category: category
+        = render "category_list_element", category: category
