@@ -1,0 +1,10 @@
+%div.subcategory_list_element_container
+  %div.tag_list_element_name_container
+    %span
+      = category.name
+  %div.tag_list_element_actions_container
+    %span
+      = link_to fa_icon("edit"), edit_admin_category_path(category.id), class: "tag_edit_icon"
+    %span
+      = link_to fa_icon("trash"), admin_category_path(category.id), method: :delete, data: { confirm: "Are you sure to delete #{category} category?" }, class: "tag_delete_icon"
+  %div{style: "clear: both;"} 

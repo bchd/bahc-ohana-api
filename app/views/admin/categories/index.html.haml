@@ -6,12 +6,12 @@
       As a super admin, you have access to all categories in the database. Please make updates responsibly.
 
   %div
-  - if @categories.empty?
+  - if @categories_with_subcategories.empty?
     %span
       No results found
 
-  - if @categories.present?
+  - if @categories_with_subcategories.present?
     %p
-      - @categories.each do |category|
+      - @categories_with_subcategories.each do |category|
         %ul
           = render "category_list_element", category: category

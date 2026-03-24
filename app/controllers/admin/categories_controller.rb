@@ -5,7 +5,18 @@ class Admin
     layout 'admin'
 
     def index
-      @categories = Category.all.select{ |c| c.depth == 0 }.sort_by(&:name)
+      all_categories = Category.all.sort_by(&:name)
+      @categories_with_subcategories = assign_children_to_parent_categories(all_categories)
+    end
+
+    private
+
+    def assign_children_to_parent_categories(categories)
+      parent_categories = categories.select{ |c| c.depth == 0 }
+      categories_with_subcategories = parent_categories.map{ |parent_category| 
+        subcategories = categories.select{ |c| c.parent_id == parent_category.id   }
+        { parent_category: parent_category, subcategories: subcategories }
+      }
     end
   end
 end
