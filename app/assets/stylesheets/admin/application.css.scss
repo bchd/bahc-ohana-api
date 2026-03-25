@@ -463,7 +463,6 @@ a.boxed-action:active {
   border-bottom: 3px solid #706f6f7b;
   width: 100%;
   margin-top: 10px;
-  cursor: pointer;
 }
 
 .category_list_element_name_container {
@@ -471,6 +470,7 @@ a.boxed-action:active {
   width: 85%; 
   padding-left: 5px;
   z-index: 10;
+  cursor: pointer;
 }
 
 .subcategory_list_element_container {
@@ -480,5 +480,12 @@ a.boxed-action:active {
 }
 
 .subcategories_container {
-  margin-bottom: 30px;
+  margin-bottom: 40px;
+}
+
+.expand_all_categories {
+  display: inline;
+  cursor: pointer;
+  text-decoration: underline;
+  color: #337ab7;
 }

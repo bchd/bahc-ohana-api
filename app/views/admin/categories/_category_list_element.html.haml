@@ -1,7 +1,7 @@
 - parent_category = category[:parent_category]
 - subcategories = category[:subcategories]
 %div.category_list_element_container 
-  %div.category_list_element_name_container[parent_category]{ tabIndex: 0, role: "button", aria: { label: 'Click enter to expand and collapse subcategories', expanded: 'false'}}
+  %div.category_list_element_name_container[parent_category]{ tabIndex: 0, role: "button", aria: { label: "Click enter to expand and collapse #{parent_category.name} subcategories", expanded: 'false'}}
     %i.fa.fa-chevron-right
     %span
       = parent_category.name
