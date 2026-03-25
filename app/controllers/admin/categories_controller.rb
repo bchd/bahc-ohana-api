@@ -9,6 +9,23 @@ class Admin
       @categories_with_subcategories = assign_children_to_parent_categories(all_categories)
     end
 
+    def edit
+      @category = Category.find(params[:id])
+      authorize @category
+    end
+
+    def update
+      @category = Category.find(params[:id])
+      authorize @category
+      permitted_params = params.require(:category).permit(:name)
+
+      if @category.update(name: permitted_params["name"])
+        redirect_to admin_categories_path, notice: 'Category was successfully updated.'
+      else
+        render :edit
+      end
+    end
+
     private
 
     def assign_children_to_parent_categories(categories)

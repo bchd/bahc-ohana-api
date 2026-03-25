@@ -1,0 +1,6 @@
+- if @category.errors.any?
+  .alert.alert-danger
+    %ul
+      - @category.errors.full_messages.each do |msg|
+        %li= "Error: #{msg}"
+
