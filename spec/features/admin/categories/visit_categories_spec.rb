@@ -39,6 +39,7 @@ feature 'Categories page' do
     before do
       @health_category = create(:health, ancestry: nil)
       @jobs_category = create(:jobs, ancestry: nil)
+      @jobs_subcategory = create(:category, ancestry: @jobs_category.id.to_s)
 
       login_super_admin
       visit '/admin/categories'
@@ -51,6 +52,10 @@ feature 'Categories page' do
     it 'shows all categories' do
       expect(page).to have_content @health_category.name
       expect(page).to have_content @jobs_category.name
+    end
+
+    it 'shows subcategories' do
+      expect(page).to have_content @jobs_subcategory.name
     end
   end
 end
