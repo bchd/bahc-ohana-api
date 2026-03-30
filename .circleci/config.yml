@@ -136,6 +136,7 @@ jobs:
       - run: unset NODE_OPTIONS && ./bin/rails tailwindcss:build # build tailwind before tests run
       - run: yarn build
       - run: bundle exec rspec --format documentation --color
+      - run: bundle exec rake chewy:reset
 
 workflows:
   setup-lint-test:
