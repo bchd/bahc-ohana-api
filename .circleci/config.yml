@@ -91,6 +91,7 @@ jobs:
           ELASTIC_PASSWORD: password
           discovery.type: single-node
           xpack.security.enabled: true
+          ES_JAVA_OPTS: "-Xms512m -Xmx512m"
     environment:
       ASSET_HOST: example.com
       DEFAULT_PER_PAGE: '30'
@@ -136,7 +137,6 @@ jobs:
       - run: unset NODE_OPTIONS && ./bin/rails tailwindcss:build # build tailwind before tests run
       - run: yarn build
       - run: bundle exec rspec --format documentation --color
-      - run: bundle exec rake chewy:reset
 
 workflows:
   setup-lint-test:
