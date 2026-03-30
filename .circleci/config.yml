@@ -86,7 +86,7 @@ jobs:
           POSTGRES_DB: ohana_api_test
           POSTGRES_USER: root
           POSTGRES_HOST_AUTH_METHOD: trust
-      - image: elasticsearch:7.17.0
+      - image: elasticsearch:7.17.26
         environment:
           ELASTIC_PASSWORD: password
           discovery.type: single-node
