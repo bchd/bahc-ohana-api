@@ -1,0 +1,5 @@
+<h1>New Category</h1>
+= render 'error_messages', category: @category
+
+= form_for [:admin, @category], url: admin_categories_path, html: { method: :post } do |f| 
+  = render 'form', f: f
