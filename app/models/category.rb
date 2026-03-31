@@ -6,6 +6,7 @@ class Category < ApplicationRecord
   scope :situations, -> { where(type: 'situation') }
 
   validates :name, presence: { message: I18n.t('errors.messages.blank_for_category') }
+  validates :name, uniqueness: true
 
   validates :taxonomy_id,
             uniqueness: {

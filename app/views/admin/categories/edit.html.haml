@@ -1,0 +1,8 @@
+- if @category.ancestry.present?
+  %h1 Edit Subcategory
+- else
+  %h1 Edit Category    
+= render 'error_messages', category: @category
+
+= form_for [:admin, @category], url: admin_category_path, html: { method: :put } do |f| 
+  = render 'form', f: f
