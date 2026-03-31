@@ -459,3 +459,33 @@ a.boxed-action:active {
   margin-top: 15px;
 }
 
+.category_list_element_container {
+  border-bottom: 3px solid #706f6f7b;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.category_list_element_name_container {
+  float:left; 
+  width: 85%; 
+  padding-left: 5px;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.subcategory_list_element_container {
+  border-bottom: 2px solid #E0E0E0;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.subcategories_container {
+  margin-bottom: 40px;
+}
+
+.expand_all_categories {
+  display: inline;
+  cursor: pointer;
+  text-decoration: underline;
+  color: #337ab7;
+}

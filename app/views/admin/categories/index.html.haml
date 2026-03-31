@@ -1,0 +1,17 @@
+%h1 Category Manager
+
+%div.tag_index_main_container
+  - if current_admin.super_admin?
+    %p
+      As a super admin, you have access to all categories in the database. Please make updates responsibly.
+  %div.expand_all_categories#expand_all{ tabIndex: 0, role: "button", aria: { label: "Click enter to expand and collapse all subcategories", expanded: 'false'}} 
+    Expand All
+  %div
+  - if @categories_with_subcategories.empty?
+    %span
+      No results found
+
+  - if @categories_with_subcategories.present?
+    %ul#categories-list
+      - @categories_with_subcategories.each do |category|
+        = render "category_list_element", category: category
