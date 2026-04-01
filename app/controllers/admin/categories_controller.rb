@@ -28,13 +28,16 @@ class Admin
 
     def new
       @category = Category.new
+      if params[:ancestry].present?
+        @parent_category = Category.find_by(id: params[:ancestry])
+      end
       authorize @category
     end
 
     def create
-      permitted_params = params.require(:category).permit(:name)
+      permitted_params = params.require(:category).permit(:name, :ancestry)
 
-      @category = Category.new(name: permitted_params["name"])
+      @category = Category.new(name: permitted_params["name"], ancestry: permitted_params["ancestry"])
       authorize @category
 
       if @category.save
