@@ -26,6 +26,25 @@ class Admin
       end
     end
 
+    def new
+      @category = Category.new
+      authorize @category
+    end
+
+    def create
+      permitted_params = params.require(:category).permit(:name)
+
+      @category = Category.new(name: permitted_params["name"])
+      authorize @category
+
+      if @category.save
+        redirect_to admin_categories_path,
+                    notice: "Category '#{@category.name}' was successfully created."
+      else
+        render :new
+      end
+    end
+
     private
 
     def assign_children_to_parent_categories(categories)
