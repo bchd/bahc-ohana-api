@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'Update name' do
+feature 'Create Category' do
   background do
     @category = create(:category)
     login_super_admin
