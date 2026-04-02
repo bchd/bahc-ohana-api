@@ -35,14 +35,28 @@ class Admin
 
     def create
       @category = Category.new(category_params)
+      @ancestry = category_params[:ancestry]
       authorize @category
 
       if @category.save
         redirect_to admin_categories_path,
                     notice: "Category '#{@category.name}' was successfully created."
       else
+        if @ancestry.present?
+          @parent_category = Category.find_by(id: @ancestry)
+        end
         render :new
       end
+    end
+
+    def destroy
+      @category = Category.find(params[:id])
+      authorize @category
+      name = @category.name
+      @category.destroy
+
+      redirect_to admin_categories_path,
+                    notice: "Category '#{name}' was successfully deleted."
     end
 
     private
