@@ -34,7 +34,7 @@ class Admin
     end
 
     def create
-      @category = Category.new(name: category_params["name"], ancestry: category_params["ancestry"])
+      @category = Category.new(category_params)
       authorize @category
 
       if @category.save
