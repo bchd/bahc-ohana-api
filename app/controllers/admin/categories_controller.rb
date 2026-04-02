@@ -17,9 +17,8 @@ class Admin
     def update
       @category = Category.find(params[:id])
       authorize @category
-      permitted_params = params.require(:category).permit(:name)
 
-      if @category.update(name: permitted_params["name"])
+      if @category.update(category_params)
         redirect_to admin_categories_path, notice: 'Category was successfully updated.'
       else
         render :edit
@@ -28,13 +27,14 @@ class Admin
 
     def new
       @category = Category.new
+      if params[:ancestry].present?
+        @parent_category = Category.find_by(id: params[:ancestry])
+      end
       authorize @category
     end
 
     def create
-      permitted_params = params.require(:category).permit(:name)
-
-      @category = Category.new(name: permitted_params["name"])
+      @category = Category.new(category_params)
       authorize @category
 
       if @category.save
@@ -53,6 +53,10 @@ class Admin
         subcategories = categories.select{ |c| c.parent_id == parent_category.id   }
         { parent_category: parent_category, subcategories: subcategories }
       }
+    end
+
+    def category_params
+      params.require(:category).permit(:name, :ancestry)
     end
   end
 end
