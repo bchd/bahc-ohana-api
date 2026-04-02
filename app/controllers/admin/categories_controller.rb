@@ -18,7 +18,7 @@ class Admin
       @category = Category.find(params[:id])
       authorize @category
 
-      if @category.update(name: category_params["name"])
+      if @category.update(category_params)
         redirect_to admin_categories_path, notice: 'Category was successfully updated.'
       else
         render :edit
