@@ -9,9 +9,7 @@ feature 'Delete Subcategory' do
   end
 
   scenario 'delete subcategory', js: true do
-    # click_on "Expand All"
     find_by_id("expand_all").click
-    # click(id: "category-#{@jobs_subcategory.id}-delete")
     accept_confirm do
       find_by_id("category-#{@jobs_subcategory.id}-delete").click
     end
