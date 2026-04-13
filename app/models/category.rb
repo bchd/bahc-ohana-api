@@ -7,6 +7,7 @@ class Category < ApplicationRecord
 
   validates :name, presence: { message: I18n.t('errors.messages.blank_for_category') }
   validates :name, uniqueness: true
+  before_validation :strip_whitespace
 
   validates :taxonomy_id,
             uniqueness: {
@@ -25,5 +26,11 @@ class Category < ApplicationRecord
 
   def resource_count
     services.count
+  end
+
+  private
+
+  def strip_whitespace
+    self.name = name.strip if name.present?
   end
 end
