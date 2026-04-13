@@ -6,5 +6,5 @@
     %span
       = link_to fa_icon("edit"), edit_admin_category_path(category.id), class: "tag_edit_icon"
     %span
-      = link_to fa_icon("trash"), admin_category_path(category.id), method: :delete, data: { confirm: "Are you sure to delete #{category} category?" }, class: "tag_delete_icon"
+      = link_to fa_icon("trash"), admin_category_path(category.id), method: :delete, id: "category-#{category.id}-delete", data: { turbolinks: false, confirm: "Are you sure you want to delete the #{category.name} subcategory? It is associated with #{category.resource_count} services. This action cannot be undone." }, class: "tag_delete_icon"
   %div{style: "clear: both;"} 

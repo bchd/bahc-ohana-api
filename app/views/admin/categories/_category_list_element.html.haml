@@ -5,11 +5,9 @@
     %i.fa.fa-chevron-right
     %span
       = parent_category.name
-  %div.tag_list_element_actions_container
+  %div
     %span
-      = link_to fa_icon("edit"), edit_admin_category_path(parent_category.id), class: "tag_edit_icon"
-    %span
-      = link_to fa_icon("trash"), admin_category_path(parent_category.id), method: :delete, data: { confirm: "Are you sure to delete #{parent_category.name} category?" }, class: "tag_delete_icon"
+      = link_to fa_icon("edit"), edit_admin_category_path(parent_category.id), class: "category_edit_icon"
   %div{style: "clear: both;"} 
 %div.subcategories_container.hide{ id: "category_#{parent_category.id}_subcategories"}  
   - subcategories.each do |subcategory| 
@@ -17,6 +15,4 @@
   %div.mt-15
     = link_to " + Add New #{parent_category.name} Subcategory".html_safe, new_admin_category_path(ancestry: parent_category.id), class: 'btn btn-primary'
   %div{style: "clear: both;"}        
-
-
 
