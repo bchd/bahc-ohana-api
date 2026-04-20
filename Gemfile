@@ -46,7 +46,7 @@ gem 'sentry-raven'
 gem "sprockets-rails"
 gem 'uglifier', '>= 1.3.0'
 gem 'shrine', '~> 3.0'
-gem 'aws-sdk-s3', '~> 1.14'
+gem 'aws-sdk-s3', '~> 1.208'
 gem 'image_processing', '~> 1.10'
 gem 'uppy-s3_multipart', '>= 0.3.2'
 gem 'marcel'
