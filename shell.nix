@@ -1,6 +1,6 @@
 {
   lib ? import <lib> {},
-  pkgs ? import (fetchTarball https://github.com/NixOS/nixpkgs/archive/23.05.zip) {}
+  pkgs ? import (fetchTarball https://github.com/NixOS/nixpkgs/archive/24.11.zip) {}
 }:
 
 let
