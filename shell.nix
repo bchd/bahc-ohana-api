@@ -1,6 +1,6 @@
 {
   lib ? import <lib> {},
-  pkgs ? import (fetchTarball https://github.com/NixOS/nixpkgs/archive/23.05.zip) {}
+  pkgs ? import (fetchTarball https://github.com/NixOS/nixpkgs/archive/7ad2e9c9fedb5c7f4e5edeb655b385228eba6193.zip) {}
 }:
 
 let
@@ -20,7 +20,7 @@ let
 
     pkgs.postgresql_15
 
-    pkgs.ruby_3_2
+    pkgs.ruby_3_3
     pkgs.bundler
     pkgs.nodejs_18
     pkgs.yarn
