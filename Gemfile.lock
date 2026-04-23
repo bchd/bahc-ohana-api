@@ -136,7 +136,7 @@ GEM
     bootstrap-sass (3.4.1)
       autoprefixer-rails (>= 5.2.1)
       sassc (>= 2.0.0)
-    builder (3.3.0)
+    builder (3.3.5)
     bullet (7.0.1)
       activesupport (>= 3.0.0)
       uniform_notifier (~> 1.11)
@@ -509,7 +509,7 @@ GEM
       tilt
     select2-rails (4.0.13)
     selenium-webdriver (4.10.0)
-      rexml (~> 3.2, >= 3.2.5)
+      rexml (~> 3.2, >= 3.3.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
     sentry-raven (3.1.2)
