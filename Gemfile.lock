@@ -166,9 +166,9 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (>= 1.5, < 3.0)
       xpath (~> 3.2)
-    chewy (7.2.2)
+    chewy (7.6.0)
       activesupport (>= 5.2)
-      elasticsearch (>= 7.12.0)
+      elasticsearch (>= 7.14.0, < 8)
       elasticsearch-dsl
     childprocess (5.1.0)
       logger (~> 1.5)
@@ -238,16 +238,16 @@ GEM
       addressable (~> 2.8)
       base64 (~> 0.3)
     drb (2.2.3)
-    elastic-transport (8.5.1)
-      faraday (< 3)
-      multi_json
-    elasticsearch (9.3.1)
-      elastic-transport (~> 8.3)
-      elasticsearch-api (= 9.3.1)
-    elasticsearch-api (9.3.1)
-      base64
+    elasticsearch (7.17.11)
+      elasticsearch-api (= 7.17.11)
+      elasticsearch-transport (= 7.17.11)
+    elasticsearch-api (7.17.11)
       multi_json
     elasticsearch-dsl (0.1.10)
+    elasticsearch-transport (7.17.11)
+      base64
+      faraday (>= 1, < 3)
+      multi_json
     enumerize (2.8.1)
       activesupport (>= 3.2)
     erubi (1.13.1)
@@ -669,7 +669,7 @@ DEPENDENCIES
   bummr!
   byebug
   capybara
-  chewy (~> 7.2.0)
+  chewy (~> 7.6.0)
   coffee-rails (~> 4.1)
   csv_shaper
   dalli
@@ -771,7 +771,7 @@ CHECKSUMS
   bummr (0.6.0)
   byebug (13.0.0) sha256=d2263efe751941ca520fa29744b71972d39cbc41839496706f5d9b22e92ae05d
   capybara (3.40.0) sha256=42dba720578ea1ca65fd7a41d163dd368502c191804558f6e0f71b391054aeef
-  chewy (7.2.2) sha256=6171218e7cff593b1f924b6aa9573fb9ece0faaeb25a9760ce50b2bc77d8c78d
+  chewy (7.6.0) sha256=4bd43de074e1516a7793fbfb2cc0943f23e05dec41b71ce2b13401cde091f84d
   childprocess (5.1.0) sha256=9a8d484be2fd4096a0e90a0cd3e449a05bc3aa33f8ac9e4d6dcef6ac1455b6ec
   cliver (0.3.2) sha256=8775445218c612bb57f50c392c4906a1ab5cca067eab093bde3cc77d6426ce24
   coderay (1.1.3) sha256=dc530018a4684512f8f38143cd2a096c9f02a1fc2459edcfe534787a7fc77d4b
@@ -801,10 +801,10 @@ CHECKSUMS
   dotenv-rails (3.2.0) sha256=657e25554ba622ffc95d8c4f1670286510f47f2edda9f68293c3f661b303beab
   down (5.5.0) sha256=787e14fcfe7824b8cac676c608359e4083b2e4d6e1d3b1745b79f27bcf931585
   drb (2.2.3) sha256=0b00d6fdb50995fe4a45dea13663493c841112e4068656854646f418fda13373
-  elastic-transport (8.5.1) sha256=5eeae78f791840f2d4f35d2f3826903098e360f20f838e20b304b73a302ac04d
-  elasticsearch (9.3.1) sha256=ca39fb73b0f5f5434d51e74be602c9153b46bbfe5168e09d383e88349c21ea24
-  elasticsearch-api (9.3.1) sha256=9c9a44ed55dcbf0c0fe0fb8ca770d0281301cedd41ef4ad1f1d9ebb3830da672
+  elasticsearch (7.17.11) sha256=ed080f085d939f21d07f424ebcea95326e4bdb5f770a8f33aac699374f2ffc86
+  elasticsearch-api (7.17.11) sha256=fed8f7b64493c97cf3984a33396a798204b54b8e1b01c5b6c099fa3fd4209107
   elasticsearch-dsl (0.1.10) sha256=d3756e40916e3338cbbb1bd59234515b1d2ce9c67575f1e45c5cd551b91b959c
+  elasticsearch-transport (7.17.11) sha256=d18057d5295e4c39fe80084ede9e00e9c0e0d74580348985f8677b2fb7f70f03
   enumerize (2.8.1) sha256=6f2fa9c7714d8f6c4f69503e41f3c060a3382cba1dcbbc69dab931bffd023d9a
   erubi (1.13.1) sha256=a082103b0885dbc5ecf1172fede897f9ebdb745a4b97a5e8dc63953db1ee4ad9
   execjs (2.10.1) sha256=abe0ae028467eb8e30c10814eb934d07876a691aae7e803d813b7ce5a75e73f1
