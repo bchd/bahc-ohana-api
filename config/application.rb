@@ -24,7 +24,7 @@ module OhanaApi
     config.autoload_paths << Rails.root.join('lib')
     config.eager_load_paths << Rails.root.join('lib')
     
-    config.load_defaults 7.0
+    config.load_defaults 7.1
 
      # don't generate RSpec tests for views and helpers
      config.generators do |g|
@@ -48,8 +48,9 @@ module OhanaApi
     # config.i18n.default_locale = :de
 
     config.active_record.schema_format = :sql
-    config.active_record.legacy_connection_handling = false
     config.active_record.belongs_to_required_by_default = false
+    config.active_record.default_column_serializer = JSON
+
 
     # CORS support
     config.middleware.use Rack::Cors do
