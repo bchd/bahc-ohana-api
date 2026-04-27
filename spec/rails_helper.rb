@@ -1,5 +1,6 @@
 require 'spec_helper'
-require File.expand_path('../config/environment', __dir__)
+# require File.expand_path('../config/environment', __dir__)
+require_relative "../config/environment"
 require 'rspec/rails'
 require 'rspec/its'
 require 'shoulda/matchers'

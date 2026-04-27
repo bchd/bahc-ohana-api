@@ -62,9 +62,9 @@ class Service < ApplicationRecord
   auto_strip_attributes :funding_sources, :keywords, :service_areas,
                         reject_blank: true, nullify: false
 
-  serialize :funding_sources, StripAndDedupArray
-  serialize :keywords, StripAndDedupArray
-  serialize :service_areas, StripAndDedupArray
+  serialize :funding_sources, coder: StripAndDedupArray
+  serialize :keywords, coder: StripAndDedupArray
+  serialize :service_areas, coder: StripAndDedupArray
 
   def self.updated_between(start_date, end_date)
     query = where({})

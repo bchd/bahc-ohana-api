@@ -49,7 +49,7 @@ module OhanaApi
 
     config.active_record.schema_format = :sql
     config.active_record.belongs_to_required_by_default = false
-    config.active_record.default_column_serializer = JSON
+    config.active_record.default_column_serializer = YAML
 
 
     # CORS support
