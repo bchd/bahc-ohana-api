@@ -24,7 +24,7 @@ module OhanaApi
     config.autoload_paths << Rails.root.join('lib')
     config.eager_load_paths << Rails.root.join('lib')
     
-    config.load_defaults 7.1
+    config.load_defaults 7.2
 
      # don't generate RSpec tests for views and helpers
      config.generators do |g|
