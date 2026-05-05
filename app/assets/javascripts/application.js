@@ -20,6 +20,3 @@ document.addEventListener("turbo:before-cache", function() {
   }
 })
 
-$(document).on("turbo:load", () => {
-  console.log("ON TURBOOOO!")
-})
