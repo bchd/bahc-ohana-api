@@ -25,7 +25,7 @@ Clone it on your computer and navigate to the project's directory:
 ## Local Setup
 
 Before you can run Ohana API, you'll need to have the following software
-packages installed on your computer: Git, PhantomJS, Postgres, Ruby 2.3+,
+packages installed on your computer: Git, Postgres, Ruby 2.3+,
 and RVM (or rbenv).
 If you're on a Linux machine, you'll also need Node.js and `libpq-dev`.
 
@@ -35,13 +35,12 @@ you can install them:
 - If you're on a Mac, the easiest way to install all the tools is to use
 @monfresh's [laptop] script.
 
-- Install everything manually: [Build tools], [Ruby with RVM], [PhantomJS],
+- Install everything manually: [Build tools], [Ruby with RVM],
 [Postgres], and [Node.js][node] (Linux only).
 
 [laptop]: https://github.com/monfresh/laptop
 [Build tools]: https://github.com/codeforamerica/howto/blob/master/Build-Tools.md
 [Ruby with RVM]: https://github.com/codeforamerica/howto/blob/master/Ruby.md
-[PhantomJS]: https://github.com/jonleighton/poltergeist#installing-phantomjs
 [Postgres]: https://github.com/codeforamerica/howto/blob/master/PostgreSQL.md
 [node]: https://github.com/codeforamerica/howto/blob/master/Node.js.md
 

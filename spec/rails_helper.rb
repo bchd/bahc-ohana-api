@@ -7,7 +7,6 @@ require 'shoulda/matchers'
 
 require 'chewy/rspec'
 
-require 'capybara/poltergeist'
 require 'selenium/webdriver'
 
 Capybara.register_driver :headless_chrome do |app|
