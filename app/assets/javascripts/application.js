@@ -11,12 +11,15 @@
 // about supported directives.
 //
 //= require jquery
-//= require turbolinks
 //= require bootstrap-sprockets
 
-document.addEventListener("turbolinks:before-cache", function() {
+document.addEventListener("turbo:before-cache", function() {
   const flash_message_element = document.querySelector(".alert")
   if (flash_message_element) {
     flash_message_element.remove()
   }
+})
+
+$(document).on("turbo:load", () => {
+  console.log("ON TURBOOOO!")
 })
