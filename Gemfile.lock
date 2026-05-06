@@ -743,7 +743,7 @@ DEPENDENCIES
   pg
   poltergeist
   pry-rails
-  psych (= 4.0.0)
+  psych (~> 4.0)
   puma
   pundit
   rack-attack

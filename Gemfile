@@ -53,7 +53,7 @@ gem 'marcel'
 gem 'fastimage'
 gem 'jsbundling-rails'
 gem 'turbolinks', '~> 5.2.0'
-gem 'psych', '4.0.0'
+gem 'psych', '~> 4.0'
 
 group :test, :development do
   gem 'bullet'
