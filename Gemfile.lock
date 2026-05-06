@@ -756,7 +756,7 @@ DEPENDENCIES
   redcarpet (~> 3.5)
   redis
   rspec-its
-  rspec-rails (>= 4.0)
+  rspec-rails (~> 7.1)
   sass-rails (~> 6.0.0)
   select2-rails (~> 4.0.3)
   selenium-webdriver
