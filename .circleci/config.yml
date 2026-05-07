@@ -20,7 +20,8 @@ jobs:
             - v1-gem-cache-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
             - v1-gem-cache-{{ arch }}-{{ .Branch }}-
             - v1-gem-cache-{{ arch }}-
-      - run: bundle install -j4 --path ~/bundle
+      - run: bundle config set path '~/bundle'      
+      - run: bundle install -j4
       - save_cache:
           paths: ~/bundle
           key: v1-gem-cache-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
@@ -59,7 +60,8 @@ jobs:
             - v1-gem-cache-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
             - v1-gem-cache-{{ arch }}-{{ .Branch }}-
             - v1-gem-cache-{{ arch }}-
-      - run: bundle install -j4 --path ~/bundle
+      - run: bundle config set path '~/bundle'      
+      - run: bundle install -j4
       - save_cache:
           paths: ~/bundle
           key: v1-gem-cache-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
@@ -118,7 +120,8 @@ jobs:
             - v1-gem-cache-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
             - v1-gem-cache-{{ arch }}-{{ .Branch }}-
             - v1-gem-cache-{{ arch }}-
-      - run: bundle install -j4 --path ~/bundle
+      - run: bundle config set path '~/bundle'      
+      - run: bundle install -j4
       - save_cache:
           paths: ~/bundle
           key: v1-gem-cache-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}

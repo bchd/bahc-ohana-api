@@ -109,7 +109,7 @@ class Location < ApplicationRecord
   geocoded_by :full_physical_address
 
   extend Enumerize
-  serialize :accessibility, Array
+  serialize :accessibility, type: Array
   # Don't change the terms here! You can change their display
   # name in config/locales/en.yml
   enumerize :accessibility,

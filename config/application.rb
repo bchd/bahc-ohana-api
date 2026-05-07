@@ -24,7 +24,7 @@ module OhanaApi
     config.autoload_paths << Rails.root.join('lib')
     config.eager_load_paths << Rails.root.join('lib')
     
-    config.load_defaults 7.0
+    config.load_defaults 7.2
 
      # don't generate RSpec tests for views and helpers
      config.generators do |g|
@@ -48,8 +48,9 @@ module OhanaApi
     # config.i18n.default_locale = :de
 
     config.active_record.schema_format = :sql
-    config.active_record.legacy_connection_handling = false
     config.active_record.belongs_to_required_by_default = false
+    config.active_record.default_column_serializer = YAML
+
 
     # CORS support
     config.middleware.use Rack::Cors do
@@ -72,8 +73,6 @@ module OhanaApi
 
     config.active_record.time_zone_aware_types = [:datetime]
    
-    config.active_support.default_message_encryptor_serializer = :marshall
-
     config.upload_server = if ENV["UPLOAD_SERVER"].present?
       ENV["UPLOAD_SERVER"].to_sym
     elsif Rails.env.production?

@@ -1,7 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe 'component/detail/website' do
-  let(:website_regex) { %r{<a href='#{test_website}'.*>\n#{test_website.split('/')[2]}\n</a>} }
+  let(:website_regex) { %r{<a\s+href=['"]#{Regexp.escape(test_website)}['"].*?>\s*#{Regexp.escape(test_website.split('/')[2])}\s*</a>}i
+}
 
   before do
     render 'component/detail/website', website: test_website, show_phone_type_and_department: true
@@ -25,7 +26,7 @@ RSpec.describe 'component/detail/website' do
 
   context 'when does not contain http:// or https://' do
     let(:test_website) { 'www.smctest.org' }
-    let(:website_regex) { %r{<a href='#{test_website}'.*>\n#{test_website}\n</a>} }
+    let(:website_regex) { %r{<a\s+href=['"]#{Regexp.escape(test_website)}['"].*?>\s*#{Regexp.escape(test_website)}\s*</a>}i }
 
     it 'will reformat the link correctly' do
       expect(response).to match(website_regex)
@@ -34,7 +35,7 @@ RSpec.describe 'component/detail/website' do
 
   context 'when malformed' do
     let(:test_website) { 'http:/www.smctest.org' }
-    let(:website_regex) { %r{<a href='#{test_website}'.*>\n#{test_website}\n</a>} }
+    let(:website_regex) { %r{<a\s+href=['"]#{Regexp.escape(test_website)}['"].*?>\s*#{Regexp.escape(test_website)}\s*</a>}i }
 
     it 'will reformat the link correctly' do
       expect(response).to match(website_regex)

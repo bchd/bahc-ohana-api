@@ -51,14 +51,14 @@ class FileChecker
     missing_headers.map { |header| "CSV header #{header} is required, but is missing." }
   end
 
+  def required_files
+    %w[organizations.csv locations.csv addresses.csv services.csv phones.csv]
+  end
+
   protected
 
   def required?
     required_files.include? filename
-  end
-
-  def required_files
-    %w[organizations.csv locations.csv addresses.csv services.csv phones.csv]
   end
 
   def csv_entries
