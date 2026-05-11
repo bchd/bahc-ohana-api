@@ -1,6 +1,6 @@
 {
   lib ? import <lib> {},
-  pkgs ? import (fetchTarball https://github.com/NixOS/nixpkgs/archive/7ad2e9c9fedb5c7f4e5edeb655b385228eba6193.zip) {}
+  pkgs ? import (fetchTarball https://github.com/NixOS/nixpkgs/archive/ed62dec024ef83ed2f37a73f2fab6c9760767383.zip) {}
 }:
 
 let
@@ -13,6 +13,7 @@ let
     pkgs.zlib
     pkgs.libxml2
     pkgs.libiconv
+    pkgs.libyaml
     pkgs.openssl
     pkgs.curl
     pkgs.git
@@ -20,10 +21,10 @@ let
 
     pkgs.postgresql_15
 
-    pkgs.ruby_3_3
+    pkgs.ruby_3_4
     pkgs.bundler
     pkgs.nodejs_18
-    pkgs.yarn
+    (pkgs.yarn.override { nodejs = pkgs.nodejs_18; })
   ];
 
   inputs = basePackages
