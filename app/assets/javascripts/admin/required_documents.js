@@ -1,3 +1,3 @@
-$(document).on('turbolinks:load', function() {
+$(document).ready(function() {
   $('#service_required_documents').select2();
 });

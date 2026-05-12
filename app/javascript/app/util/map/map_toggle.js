@@ -20,4 +20,4 @@ export function initializeMapToggle() {
   }
 }
 
-document.addEventListener('turbolinks:load', initializeMapToggle);
+document.addEventListener('turbo:load', initializeMapToggle);
