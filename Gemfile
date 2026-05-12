@@ -53,7 +53,7 @@ gem 'marcel'
 gem 'fastimage'
 gem 'jsbundling-rails'
 gem 'turbo-rails'
-gem 'psych', '4.0.0'
+gem 'psych', '~> 4.0'
 
 group :test, :development do
   gem 'bullet'
@@ -61,7 +61,7 @@ group :test, :development do
   gem 'factory_bot_rails'
   gem 'faker', git: 'https://github.com/faker-ruby/faker.git', ref: '91950218dd39119e420ca431fc9fae09b53986c7'
   gem 'rspec-its'
-  gem 'rspec-rails', '>= 4.0'
+  gem 'rspec-rails', '~> 7.1'
   gem 'pry-rails'
 end
 
