@@ -179,9 +179,6 @@
       });
     }
 
-    // Use DOMContentLoaded for non-Turbolinks sites
     document.addEventListener('DOMContentLoaded', initializeTranslation);
-
-    // Use turbolinks:load for Turbolinks-enabled sites
-    document.addEventListener('turbolinks:load', initializeTranslation);
+    document.addEventListener('turbo:load', initializeTranslation);
   })();

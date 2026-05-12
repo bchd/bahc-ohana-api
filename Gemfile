@@ -52,7 +52,7 @@ gem 'uppy-s3_multipart', '>= 0.3.2'
 gem 'marcel'
 gem 'fastimage'
 gem 'jsbundling-rails'
-gem 'turbolinks', '~> 5.2.0'
+gem 'turbo-rails'
 
 group :test, :development do
   gem 'bullet'

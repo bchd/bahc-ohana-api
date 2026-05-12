@@ -1,4 +1,4 @@
-$(document).on('turbolinks:load', function() {
+$(document).ready(function() {
   $('#categories-list').find('.category_list_element_name_container').click(function(e) {
       toggle_subcategory_visibility_by_category(e.currentTarget);
     });  
