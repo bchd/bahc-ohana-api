@@ -6,7 +6,7 @@ It is based off of [Ohana API](https://github.com/codeforamerica/ohana-api).
 
 ## Stack Overview
 
-* Ruby version 3.4.1
+* Ruby version 3.4.7
 * Rails version 7
 * PostgreSQL 14
 * Elasticsearch version 7
