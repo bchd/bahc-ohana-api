@@ -2,7 +2,7 @@
   %li
     = link_to t('navigation.edit_account'), edit_user_registration_path
   %li
-    = link_to t('navigation.sign_out'), destroy_user_session_path, method: 'delete'
+    = link_to t('navigation.sign_out'), destroy_user_session_path, data: { turbo_method: :delete }
   %ul.nav.navbar-nav.navbar-right
     %li
       = link_to "Hi, #{current_user.name}", '#', class: 'logged-in'
