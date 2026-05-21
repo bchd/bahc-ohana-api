@@ -24,6 +24,7 @@ let
     pkgs.ruby_3_4
     pkgs.bundler
     pkgs.nodejs_22
+    pkgs.yarn
   ];
 
   inputs = basePackages
