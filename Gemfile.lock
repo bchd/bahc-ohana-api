@@ -714,6 +714,7 @@ DEPENDENCIES
   capybara
   chewy (~> 7.2.3)
   coffee-rails (~> 4.1)
+  csv
   csv_shaper
   dalli
   database_cleaner-active_record
