@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '3.3.1'
+ruby '3.4.7'
 
 gem 'dotenv-rails', groups: [:development, :test]
 gem 'active_data'
@@ -11,6 +11,7 @@ gem 'auto_strip_attributes', '~> 2.0'
 gem 'bootstrap-sass', '~> 3.4.1'
 gem 'chewy', '~> 7.2.3'
 gem 'coffee-rails', '~> 4.1'
+gem 'csv'
 gem 'csv_shaper'
 gem 'dalli'
 gem 'devise', '~> 4.7'
@@ -54,7 +55,6 @@ gem 'marcel'
 gem 'fastimage'
 gem 'jsbundling-rails'
 gem 'turbo-rails'
-gem 'psych', '~> 4.0'
 
 group :test, :development do
   gem 'bullet'

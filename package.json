@@ -5,7 +5,7 @@
   "repository": "https://github.com/bchd/bahc-ohana-api.git",
   "engines": {
     "yarn": "1.x",
-    "node": "18.x"
+    "node": "22.x"
   },
   "dependencies": {
     "@hotwired/turbo-rails": "^8.0.0",
