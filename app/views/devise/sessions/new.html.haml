@@ -3,7 +3,7 @@
   - if resource.class.name == User.name
     = content_tag(:span, nil, class: 'fa fa-key fa-3x', style: "display: block", "aria-hidden": "true")
 
-  = form_for(resource, as: resource_name, url: session_path(resource_name), html: { role: 'form', class: 'form' }) do |f|
+  = form_for(resource, as: resource_name, url: session_path(resource_name), html: { data: { turbo: false }, role: 'form', class: 'form' }) do |f|
     %h2 Login
     .form-group
       = f.label :email
