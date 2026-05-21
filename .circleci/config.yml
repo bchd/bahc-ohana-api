@@ -45,7 +45,6 @@ jobs:
       MAX_PER_PAGE: '50'
       RAILS_ENV: test
       OHANA_API_ENDPOINT: http://ohana-api-test.herokuapp.com/api
-      NODE_OPTIONS: --openssl-legacy-provider
       ELASTICSEARCH_URL: http://elastic:password@localhost:9200/ # This gets set in chewy.rb file.
       ADMIN_APP_TOKEN: testing123
     steps:
@@ -104,7 +103,6 @@ jobs:
       OHANA_API_ENDPOINT: http://ohana-api-test.herokuapp.com/api
       ELASTICSEARCH_URL: http://elastic:password@localhost:9200/ # This gets set in chewy.rb file.
       ADMIN_APP_TOKEN: testing123
-      NODE_OPTIONS: --openssl-legacy-provider
     steps:
       - checkout
       - node/install:
@@ -137,7 +135,7 @@ jobs:
       - run: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run: dockerize -wait tcp://localhost:9200 -timeout 1m
       - run: ./bin/rails db:drop db:create db:migrate
-      - run: unset NODE_OPTIONS && ./bin/rails tailwindcss:build # build tailwind before tests run
+      - run: ./bin/rails tailwindcss:build # build tailwind before tests run
       - run: yarn build
       - run: bundle exec rspec --format documentation --color
 
