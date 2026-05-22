@@ -17,9 +17,10 @@ import detailmap from './app/detail/detail-map';
 import header from './app/search/header';
 import cl from './app/detail/character-limited/character-limiter';
 import utilityLinks from './app/detail/utility-links';
+import "@hotwired/turbo-rails"
 import './app/util/map/map_toggle';
 
-document.addEventListener('turbolinks:load', () => {
+document.addEventListener('turbo:load', () => {
   // All pages alerts init
   alerts.init();
 

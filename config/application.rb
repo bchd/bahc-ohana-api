@@ -73,8 +73,6 @@ module OhanaApi
 
     config.active_record.time_zone_aware_types = [:datetime]
    
-    config.active_support.default_message_encryptor_serializer = :marshall
-
     config.upload_server = if ENV["UPLOAD_SERVER"].present?
       ENV["UPLOAD_SERVER"].to_sym
     elsif Rails.env.production?

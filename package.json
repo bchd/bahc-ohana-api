@@ -5,9 +5,10 @@
   "repository": "https://github.com/bchd/bahc-ohana-api.git",
   "engines": {
     "yarn": "1.x",
-    "node": "18.x"
+    "node": "22.x"
   },
   "dependencies": {
+    "@hotwired/turbo-rails": "^8.0.0",
     "ahoy.js": "^0.4.4",
     "google-maps-infobox": "^2.0.0",
     "jquery": "^3.7.0",

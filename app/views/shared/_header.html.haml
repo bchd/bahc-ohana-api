@@ -28,7 +28,7 @@
               %a{ href: edit_user_registration_path, aria: { label: t('navigation.account_details') } }
                 = t('navigation.account_details')
             %li
-              = link_to t('navigation.sign_out'), destroy_user_session_path, method: 'delete', aria: { label: t('navigation.sign_out') }
+              = link_to t('navigation.sign_out'), destroy_user_session_path, data: { turbo_method: :delete }, aria: { label: t('navigation.sign_out') }
       - else
         %li
           %a.popup-trigger.popup-account#user-btn{ href: new_user_session_path, aria: { label: t('users.login') } }
@@ -63,7 +63,7 @@
           %a{ href: edit_user_registration_path, aria: { label: t('navigation.account_details') } }
             = t('navigation.account_details')
         %li
-          = link_to t('navigation.sign_out'), destroy_user_session_path, method: 'delete', aria: { label: t('navigation.sign_out') }
+          = link_to t('navigation.sign_out'), destroy_user_session_path, data: { turbo_method: :delete }, aria: { label: t('navigation.sign_out') }
       - else
         %li
           %a{ href: new_user_session_path, aria: { label: t('navigation.sign_in') } }
@@ -179,9 +179,6 @@
       });
     }
 
-    // Use DOMContentLoaded for non-Turbolinks sites
     document.addEventListener('DOMContentLoaded', initializeTranslation);
-
-    // Use turbolinks:load for Turbolinks-enabled sites
-    document.addEventListener('turbolinks:load', initializeTranslation);
+    document.addEventListener('turbo:load', initializeTranslation);
   })();

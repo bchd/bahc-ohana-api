@@ -125,6 +125,6 @@ var main = (function () {
 
 })();
 
-$(document).on('turbolinks:load', function(){
+$(document).ready(function(){
   main.init();
 });
