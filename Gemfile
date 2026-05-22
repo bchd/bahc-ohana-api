@@ -44,8 +44,8 @@ gem 'sass-rails', '~> 6.0.0'
 gem 'select2-rails', '~> 4.0.3'
 gem 'simplemde-rails', '~> 1.11', '>= 1.11.2'
 gem 'smarter_csv'
-gem "sentry-ruby"
-gem "sentry-rails"
+gem 'sentry-ruby', '~> 6.5'                                                                                                                                                            
+gem 'sentry-rails', '~> 6.5'
 gem "sprockets-rails"
 gem 'uglifier', '>= 1.3.0'
 gem 'shrine', '~> 3.0'

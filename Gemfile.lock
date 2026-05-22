@@ -719,8 +719,8 @@ DEPENDENCIES
   capybara
   chewy (~> 7.2.3)
   coffee-rails (~> 4.1)
-  csv
   connection_pool (~> 2.5)
+  csv
   csv_shaper
   dalli
   database_cleaner-active_record
@@ -769,8 +769,8 @@ DEPENDENCIES
   sass-rails (~> 6.0.0)
   select2-rails (~> 4.0.3)
   selenium-webdriver
-  sentry-rails
-  sentry-ruby
+  sentry-rails (~> 6.5)
+  sentry-ruby (~> 6.5)
   shoulda-matchers!
   shrine (~> 3.0)
   simplecov
