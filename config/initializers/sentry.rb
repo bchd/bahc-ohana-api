@@ -1,7 +1,7 @@
 if ENV['SENTRY_DSN'].present?
-  Raven.configure do |config|
+  Sentry.init do |config|
     config.dsn = ENV['SENTRY_DSN']
-    config.sanitize_fields = Rails.application.config.filter_parameters.map(&:to_s)
-    config.current_environment = ENV['SENTRY_ENV'] || Rails.env
+    config.environment = ENV['SENTRY_ENV'] || Rails.env
+    config.enabled_environments = %w[production staging dev]
   end
 end
