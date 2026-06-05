@@ -7,5 +7,7 @@
   %span.breadcrumb-separator /
   %span= @location.name
 
+= render 'component/locations/cart_banner'
+
 %section
   = render 'component/locations/detail/body', location: @location
