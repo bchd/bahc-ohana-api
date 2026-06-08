@@ -1,0 +1,88 @@
+// Toggle button for adding a location to the PDF "cart".
+// Used on the locations index results list (icon-only, top-right of each entry)
+// and on the show page (an "Add to PDF" label button beside the title).
+// The `.is-selected` state is toggled by app/javascript/app/cart/pdf-cart.js.
+.add-to-cart {
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-family: $font_sans_serif;
+  color: $greyscale_dark;
+
+  &__icon {
+    line-height: 1;
+  }
+
+  // The green check shown once a location has been added; hidden by default.
+  &__icon--added {
+    display: none;
+    color: $green;
+  }
+
+  // Selected state: hide the "add" affordance, reveal the green check.
+  &.is-selected {
+    .add-to-cart__icon--add,
+    .add-to-cart__label {
+      display: none;
+    }
+
+    .add-to-cart__icon--added {
+      display: inline-block;
+    }
+  }
+}
+
+// Establish a positioning context so the index button can pin to the top-right.
+.results-entry {
+  position: relative;
+}
+
+// Index results: an icon-only button in the top-right corner of each result entry.
+// Scoped under `.results-entry` to outrank the global `.main * { position: relative }`
+// reset (in _base.scss), which would otherwise keep this button in normal flow.
+.results-entry .add-to-cart--index {
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  z-index: 1;
+
+  .add-to-cart__icon {
+    font-size: 1.5rem;
+  }
+}
+
+// Show page: an inline "Add to PDF" button next to the location title.
+.add-to-cart--detail {
+  display: inline-flex;
+  align-items: center;
+  // Align only this button to the top of the header (without affecting the featured
+  // badge), then nudge it down to sit alongside the large 3em title text.
+  align-self: flex-start;
+  margin-top: .75rem;
+  gap: .4em;
+  color: $greyscale_dark;
+  font-size: .8rem;
+  font-weight: bold;
+  letter-spacing: .03em;
+  text-transform: uppercase;
+
+  .add-to-cart__icon--add {
+    border: 1px solid currentColor;
+    border-radius: $border-radius-base;
+    padding: .1em;
+    font-size: .9rem;
+  }
+
+  .add-to-cart__icon--added {
+    font-size: 1.6rem;
+  }
+}
+
+// Lay the show-page header out as a row so the button sits beside the title.
+#detail-info .details-content > header {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: .75em;
+}
