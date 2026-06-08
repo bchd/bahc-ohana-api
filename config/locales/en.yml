@@ -487,6 +487,12 @@ en:
 
   _yes: 'Yes'
   _no: 'No'
+  cart_banner:
+    title: 'Select Listings to generate a PDF'
+    listings_selected:
+      one: 'listing selected'
+      other: 'listings selected'
+    preview: 'Preview'
   branding:
     description: >
       Retrieve detailed information about the services available
