@@ -1,0 +1,25 @@
+- title t('cart_preview.title')
+
+- content_for :breadcrumbs do
+  = link_to t('cart_preview.breadcrumb'), locations_path
+
+%div.cart-preview
+  = link_to locations_path, class: 'cart-preview__back' do
+    %i.fa.fa-chevron-left{ aria: { hidden: 'true' } }
+    %span= t('cart_preview.go_back')
+
+  %h1.cart-preview__heading= t('cart_preview.heading')
+
+  %ul.cart-preview__list#cart-preview-list{ hidden: @locations.empty? }
+    - @locations.each_with_index do |location, i|
+      %li.cart-preview__item{ class: cycle('cart-preview__item--blue', 'cart-preview__item--white'), data: { location_id: location.id } }
+        = render 'component/cart/preview_card', location: location
+
+  %div.cart-preview__empty#cart-preview-empty{ hidden: @locations.present? }
+    %p= t('cart_preview.empty')
+
+  %div.cart-preview__footer#cart-preview-footer{ hidden: @locations.empty? }
+    %p.cart-preview__confirm= t('cart_preview.confirm')
+    %p.cart-preview__note= t('cart_preview.note')
+    %button.cart-preview__download#cart-preview-download{ type: 'button' }
+      = t('cart_preview.download')
