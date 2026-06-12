@@ -1,4 +1,10 @@
 // Preview page for the listings selected via the "Add to PDF" cart (/cart/preview).
+
+.inside .main:has(.cart-preview) {
+  background-image: none;
+  background-color: $white;
+}
+
 .cart-preview {
   max-width: 1100px;
   margin: 0 auto;
