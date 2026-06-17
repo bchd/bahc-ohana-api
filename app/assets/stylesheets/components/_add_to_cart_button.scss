@@ -60,6 +60,9 @@
   // badge), then nudge it down to sit alongside the large 3em title text.
   align-self: flex-start;
   margin-top: .75rem;
+  // Keep the button at its natural size so a long title shrinks the hgroup
+  // instead of bumping the button onto the next line.
+  flex-shrink: 0;
   gap: .4em;
   color: $greyscale_dark;
   font-size: .8rem;
@@ -80,9 +83,16 @@
 }
 
 // Lay the show-page header out as a row so the button sits beside the title.
+// `nowrap` keeps the button on the title's line even when the title is long;
+// the hgroup (below) is allowed to shrink and wrap its text instead.
 #detail-info .details-content > header {
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: .75em;
+
+  // Let the title block shrink so long names wrap rather than pushing the button down.
+  > hgroup {
+    min-width: 0;
+  }
 }
