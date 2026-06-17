@@ -8,7 +8,7 @@
       %p.cart-banner__title= t('cart_banner.title')
       %p.cart-banner__status{ aria: { live: 'polite' } }
         %span.cart-banner__count= count
-        = t('cart_banner.listings_selected', count: count)
+        %span.cart-banner__label{ data: { one: t('cart_banner.listings_selected', count: 1), other: t('cart_banner.listings_selected', count: 2) } }= t('cart_banner.listings_selected', count: count)
     %div.cart-banner__actions
       %button.cart-banner__preview#cart-banner-preview{ type: 'button', disabled: count.zero? }
         %span= t('cart_banner.preview')

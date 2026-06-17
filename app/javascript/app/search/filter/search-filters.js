@@ -1,6 +1,7 @@
 // Handles search filter functionality.
 import TextInput from './TextInput';
 import map from '../../result/result-map';
+import cart from '../../cart/pdf-cart';
 import { initializeMapToggle } from '../../util/map/map_toggle';
 
 // The search filters.
@@ -210,6 +211,9 @@ function _getSearchResults(e){
         if ( $("#map-view").length ){
           map.init();
         }
+
+        // Re-apply the cart selection state to the freshly rendered result buttons.
+        cart.sync();
 
         //remove layout=false from pagination hrefs
         $('nav a').each(function(){
