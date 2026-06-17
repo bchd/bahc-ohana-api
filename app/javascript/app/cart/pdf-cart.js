@@ -47,6 +47,11 @@ function sync() {
     const count = banner.querySelector('.cart-banner__count');
     if (count) { count.textContent = ids.length; }
 
+    const label = banner.querySelector('.cart-banner__label');
+    if (label) {
+      label.textContent = ids.length === 1 ? label.dataset.one : label.dataset.other;
+    }
+
     const preview = banner.querySelector('.cart-banner__preview');
     if (preview) { preview.disabled = ids.length === 0; }
   });
