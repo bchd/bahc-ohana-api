@@ -1,0 +1,26 @@
+-# A single selected listing on the cart preview page (/cart/preview).
+-# Mirrors the key summary fields shown in the search results: name (linked),
+-# primary phone, short description and the categories its services belong to.
+-# The remove button drops the listing from the cart client-side
+-# (see app/javascript/app/cart/cart-preview.js).
+- categories = location.services.flat_map { |service| service.categories }.compact.map(&:name).uniq
+- phone = first_voice_or_hotline_phone_for(location.phones)
+%div.preview-card{ itemscope: '', itemtype: 'http://schema.org/Organization' }
+  %div.preview-card__content
+    %h2.preview-card__name
+      %a{ href: location_link_for(location) }
+        = superscript_ordinals(full_name_content_for(location))
+
+    - if phone.present?
+      %p.preview-card__phone
+        = render 'component/detail/phone', phone: phone, show_phone_type_and_department: false
+
+    - if location.short_desc.present?
+      %div.preview-card__desc
+        = render_markdown(location.short_desc)
+
+    - if categories.present?
+      %p.preview-card__categories= categories.join(', ')
+
+  %button.preview-card__remove{ type: 'button', data: { location_id: location.id, location_name: location.name }, aria: { label: "Remove #{location.name} from PDF" } }
+    %i.fa.fa-trash-o{ aria: { hidden: 'true' } }

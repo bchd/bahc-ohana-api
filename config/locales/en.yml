@@ -494,6 +494,15 @@ en:
       other: 'listings selected'
     preview: 'Preview'
     add_to_pdf: 'Add to PDF'
+  cart_preview:
+    title: 'Preview your selected services'
+    heading: 'Preview your selected services'
+    breadcrumb: 'Community Resources'
+    go_back: 'Go back'
+    confirm: 'Does everything look good?'
+    note: 'Once downloaded, saved listings will be cleared'
+    download: 'Download PDF'
+    empty: "You haven't selected any listings yet."
   branding:
     description: >
       Retrieve detailed information about the services available

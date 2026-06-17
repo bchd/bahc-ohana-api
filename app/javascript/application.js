@@ -16,6 +16,7 @@ import map from './app/result/result-map';
 import detailmap from './app/detail/detail-map';
 import header from './app/search/header';
 import cart from './app/cart/pdf-cart';
+import cartPreview from './app/cart/cart-preview';
 import cl from './app/detail/character-limited/character-limiter';
 import utilityLinks from './app/detail/utility-links';
 import "@hotwired/turbo-rails"
@@ -67,6 +68,12 @@ document.addEventListener('turbo:load', () => {
     utilityLinks.init();
     filters.init();
     cart.init();
+  }
+
+  // Cart Preview
+  const cartPreviewPage = document.getElementsByClassName('cart preview');
+  if (cartPreviewPage.length > 0) {
+    cartPreview.init();
   }
 
   // Hamburger menu toggle functionality

@@ -61,6 +61,14 @@ function sync() {
   });
 }
 
+// Remove a single location from the cart and re-sync the UI.
+// @param id [String|Number] The location ID to remove.
+function remove(id) {
+  const target = String(id);
+  _write(_read().filter((existing) => existing !== target));
+  sync();
+}
+
 // Toggle a location in/out of the cart when its button is clicked.
 // Uses event delegation so buttons added later (e.g. after an AJAX filter) still work.
 function _onClick(e) {
@@ -86,6 +94,21 @@ function _onClick(e) {
 // Turbo navigations, so we only ever bind once.
 let _bound = false;
 
+// Send the user to the preview page when an enabled banner "Preview" button is
+// clicked. The banner is server-rendered and never swapped out, so a direct
+// listener fits (no delegation needed); the dataset guard keeps a repeat init()
+// on the same DOM from binding twice.
+function _bindPreview() {
+  document.querySelectorAll('.cart-banner__preview').forEach((button) => {
+    if (button.dataset.previewBound) { return; }
+    button.dataset.previewBound = 'true';
+
+    button.addEventListener('click', () => {
+      if (!button.disabled) { window.location.href = '/cart/preview'; }
+    });
+  });
+}
+
 // Wire up the cart: attach the (one-time) click listener and sync the current state.
 function init() {
   if (!_bound) {
@@ -93,10 +116,12 @@ function init() {
     _bound = true;
   }
 
+  _bindPreview();
   sync();
 }
 
 export default {
   init: init,
-  sync: sync
+  sync: sync,
+  remove: remove
 };
