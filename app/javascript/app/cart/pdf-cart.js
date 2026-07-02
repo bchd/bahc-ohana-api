@@ -71,7 +71,7 @@ function remove(id) {
 
 // Empty the cart and re-sync the UI (used after the selection is downloaded).
 function clear() {
-  _write([]);
+  cookie.erase(COOKIE_NAME, false);
   sync();
 }
 
