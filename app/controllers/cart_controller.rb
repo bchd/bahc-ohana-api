@@ -14,9 +14,10 @@ class CartController < ApplicationController
   # listing) and clears the cart cookie so the selection isn't downloaded twice.
   def download
     listings = cart_locations.map { |location| pdf_listing_for(location) }
+    pdf = CartPdf.new(listings).render
     cookies.delete(:pdf_cart)
 
-    send_data CartPdf.new(listings).render,
+    send_data pdf,
               filename: 'selected-services.pdf',
               type: 'application/pdf',
               disposition: 'attachment'
