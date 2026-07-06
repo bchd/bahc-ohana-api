@@ -9,6 +9,7 @@
       %p.cart-banner__status{ aria: { live: 'polite' } }
         %span.cart-banner__count= count
         %span.cart-banner__label{ data: { one: t('cart_banner.listings_selected', count: 1), other: t('cart_banner.listings_selected', count: 2) } }= t('cart_banner.listings_selected', count: count)
+      %p.cart-banner__limit{ role: 'alert', hidden: true }= t('cart_banner.limit_reached', count: 50)
     %div.cart-banner__actions
       %button.cart-banner__preview#cart-banner-preview{ type: 'button', disabled: count.zero? }
         %span= t('cart_banner.preview')

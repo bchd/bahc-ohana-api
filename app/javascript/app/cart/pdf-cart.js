@@ -6,6 +6,9 @@ import cookie from '../util/cookie';
 const COOKIE_NAME = 'pdf_cart';
 // Days until the cart cookie expires (keeps a selection across short browsing sessions).
 const COOKIE_DAYS = 1;
+// Maximum number of listings allowed in the cart / a single PDF. Adds past this
+// are blocked in _onClick and surfaced via the banner's limit message in sync().
+const MAX_ITEMS = 50;
 
 // Read the selected location IDs (as strings) from the cookie.
 // @return [Array<String>] The selected location IDs, or an empty array.
@@ -54,6 +57,9 @@ function sync() {
 
     const preview = banner.querySelector('.cart-banner__preview');
     if (preview) { preview.disabled = ids.length === 0; }
+
+    const limit = banner.querySelector('.cart-banner__limit');
+    if (limit) { limit.hidden = ids.length < MAX_ITEMS; }
   });
 
   document.querySelectorAll('.add-to-cart').forEach((button) => {
@@ -88,6 +94,10 @@ function _onClick(e) {
 
   if (ids.indexOf(id) !== -1) {
     ids = ids.filter((existing) => existing !== id);
+  } else if (ids.length >= MAX_ITEMS) {
+    // Cart is full: leave the selection untouched and just re-announce the limit.
+    sync();
+    return;
   } else {
     ids.push(id);
   }
