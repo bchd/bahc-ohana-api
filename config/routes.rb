@@ -141,6 +141,15 @@ Rails.application.routes.draw do
   end
 
   get 'locations/*id/' => 'locations#show', as: 'location'
+
+  # Preview page for the listings selected via the "Add to PDF" cart
+  # (selection is persisted client-side in the `pdf_cart` cookie).
+  get '/cart/preview' => 'cart#preview', as: 'cart_preview'
+
+  # Downloads the selected listings as a PDF. Reads the same `pdf_cart` cookie
+  # as the preview page and clears it once the PDF has been generated.
+  get '/cart/download' => 'cart#download', as: 'cart_download'
+
   get '/about' => 'about#index'
   post '/feedback' => 'feedback#create'
   get '/feedback' => 'feedback#new'

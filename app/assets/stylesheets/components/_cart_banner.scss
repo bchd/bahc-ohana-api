@@ -1,0 +1,116 @@
+// Banner for selecting listings to generate a PDF.
+// Appears below the header/breadcrumb on the locations index and show pages.
+.cart-banner {
+  width: 100%;
+  background-color: $white;
+  border-bottom: 1px solid rgba($black, .1);
+  font-family: $font_sans_serif;
+
+  &__content {
+    display: flex;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 1.25em 1.5em;
+  }
+
+  // Centered message ("Select Listings..." + selected count).
+  &__message {
+    flex: 1;
+    text-align: center;
+  }
+
+  &__title {
+    margin: 0;
+    color: $greyscale_dark;
+    font-weight: bold;
+    font-size: 1rem;
+  }
+
+  &__status {
+    margin: .25em 0 0;
+    color: $greyscale_dark;
+    font-size: 1rem;
+  }
+
+  // Shown only when the cart is full (toggled by pdf-cart.js).
+  &__limit {
+    margin: .5em 0 0;
+    color: $red;
+    font-size: .9rem;
+  }
+
+  // The selected count, emphasized with a gold underline.
+  &__count {
+    font-weight: bold;
+    border-bottom: 2px solid $yellow;
+    padding-bottom: 1px;
+    margin-right: .25em;
+  }
+
+  // Right-aligned actions, separated from the message by a divider.
+  &__actions {
+    flex-shrink: 0;
+    padding-left: 1.5em;
+    border-left: 1px solid rgba($black, .15);
+  }
+
+  // Outlined "Preview" button.
+  &__preview {
+    display: inline-flex;
+    align-items: center;
+    background: transparent;
+    color: $blue;
+    border: 1px solid $blue;
+    border-radius: $border-radius-base;
+    padding: .6em 1.25em;
+    font-family: $font_sans_serif;
+    font-size: 1rem;
+    cursor: pointer;
+    text-decoration: none;
+
+    .fa {
+      margin-left: .6em;
+      color: $blue;
+    }
+
+    &:hover,
+    &:focus {
+      background: $blue;
+      color: $white;
+
+      .fa {
+        color: $white;
+      }
+    }
+
+    &[disabled],
+    &[disabled]:hover,
+    &[disabled]:focus {
+      background: transparent;
+      color: $greyscale_light;
+      border-color: $greyscale_light;
+      cursor: default;
+
+      .fa {
+        color: $greyscale_light;
+      }
+    }
+  }
+}
+
+// Stack the layout on narrow viewports.
+@media (max-width: 767px) {
+  .cart-banner {
+    &__content {
+      flex-direction: column;
+      padding: 1em;
+    }
+
+    &__actions {
+      margin-top: 1em;
+      padding-left: 0;
+      border-left: none;
+    }
+  }
+}

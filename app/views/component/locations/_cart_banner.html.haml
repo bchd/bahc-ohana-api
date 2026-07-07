@@ -1,0 +1,16 @@
+-# Reusable banner for selecting listings to generate a PDF.
+-# Rendered on the locations index ("/locations") and show ("/locations/:id") pages.
+-# `count` is the number of currently selected listings (selection logic handled elsewhere).
+- count = local_assigns.fetch(:count, 0)
+%div.cart-banner{ role: 'region', aria: { label: t('cart_banner.title') } }
+  %div.cart-banner__content
+    %div.cart-banner__message
+      %p.cart-banner__title= t('cart_banner.title')
+      %p.cart-banner__status{ aria: { live: 'polite' } }
+        %span.cart-banner__count= count
+        %span.cart-banner__label{ data: { one: t('cart_banner.listings_selected', count: 1), other: t('cart_banner.listings_selected', count: 2) } }= t('cart_banner.listings_selected', count: count)
+      %p.cart-banner__limit{ role: 'alert', hidden: true }= t('cart_banner.limit_reached', count: 50)
+    %div.cart-banner__actions
+      %button.cart-banner__preview#cart-banner-preview{ type: 'button', disabled: count.zero? }
+        %span= t('cart_banner.preview')
+        %i.fa.fa-chevron-right{ aria: { hidden: 'true' } }
