@@ -492,6 +492,7 @@ en:
     listings_selected:
       one: 'listing selected'
       other: 'listings selected'
+    limit_reached: "You've reached the maximum of %{count} listings. Remove one to add another."
     preview: 'Preview'
     add_to_pdf: 'Add to PDF'
   cart_preview:

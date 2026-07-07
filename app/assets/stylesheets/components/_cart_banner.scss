@@ -33,6 +33,13 @@
     font-size: 1rem;
   }
 
+  // Shown only when the cart is full (toggled by pdf-cart.js).
+  &__limit {
+    margin: .5em 0 0;
+    color: $red;
+    font-size: .9rem;
+  }
+
   // The selected count, emphasized with a gold underline.
   &__count {
     font-weight: bold;
