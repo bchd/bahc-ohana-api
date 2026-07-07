@@ -748,6 +748,7 @@ DEPENDENCIES
   listen
   lograge
   marcel
+  matrix
   memcachier
   nokogiri (~> 1.18.9)
   pg
