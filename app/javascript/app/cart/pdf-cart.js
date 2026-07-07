@@ -69,6 +69,12 @@ function remove(id) {
   sync();
 }
 
+// Empty the cart and re-sync the UI (used after the selection is downloaded).
+function clear() {
+  cookie.erase(COOKIE_NAME, false);
+  sync();
+}
+
 // Toggle a location in/out of the cart when its button is clicked.
 // Uses event delegation so buttons added later (e.g. after an AJAX filter) still work.
 function _onClick(e) {
@@ -123,5 +129,6 @@ function init() {
 export default {
   init: init,
   sync: sync,
-  remove: remove
+  remove: remove,
+  clear: clear
 };
