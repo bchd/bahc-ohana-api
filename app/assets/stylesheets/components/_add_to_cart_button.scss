@@ -20,6 +20,36 @@
     color: $green;
   }
 
+  &__tooltip {
+    z-index: 10000;
+    pointer-events: none;
+    font-family: $font_sans_serif;
+    font-size: $font_size_95;
+    font-weight: normal;
+    letter-spacing: normal;
+    line-height: 1.4;
+    text-transform: none;
+  }
+
+  &__tooltip-title,
+  &__tooltip-body,
+  &__tooltip-added {
+    display: block;
+  }
+
+  &__tooltip-title {
+    font-size: $font_size_100;
+    font-weight: bold;
+  }
+
+  &__tooltip-added {
+    display: none;
+  }
+
+  &:focus-visible .add-to-cart__tooltip {
+    visibility: visible;
+  }
+
   // Selected state: hide the "add" affordance, reveal the green check.
   &.is-selected {
     .add-to-cart__icon--add,
@@ -30,6 +60,21 @@
     .add-to-cart__icon--added {
       display: inline-block;
     }
+
+    .add-to-cart__tooltip-title,
+    .add-to-cart__tooltip-body {
+      display: none;
+    }
+
+    .add-to-cart__tooltip-added {
+      display: block;
+    }
+  }
+}
+
+@media screen and (max-width: 784px) {
+  .add-to-cart__tooltip {
+    display: none;
   }
 }
 
@@ -52,8 +97,33 @@
   }
 }
 
+// Links inside a result entry carry `z-index: 9998` (_base.scss), so lift the button
+// above them while its tooltip is showing or the panel is painted underneath them.
+.results-entry .add-to-cart--index:hover,
+.results-entry .add-to-cart--index:focus-visible {
+  z-index: 10000;
+}
+
+// Anchor the tooltip to the button's right edge so it stays inside the results list.
+.add-to-cart.add-to-cart--index .add-to-cart__tooltip {
+  left: auto;
+  right: 0;
+  margin-left: 0;
+  margin-top: 18px;
+
+  // Inset by the same amount as the badge tooltip's arrow (mirrored) so the point
+  // sits on the flat edge rather than hanging off the rounded corner.
+  &::after {
+    left: auto;
+    right: 18px;
+    margin-left: 0;
+  }
+}
+
 // Show page: an inline "Add to PDF" button next to the location title.
-.add-to-cart--detail {
+// Doubled class so `display` outranks `.tooltip`'s `inline-block` (_base.scss is
+// imported after components/*).
+.add-to-cart.add-to-cart--detail {
   display: inline-flex;
   align-items: center;
   // Align only this button to the top of the header (without affecting the featured
@@ -79,6 +149,18 @@
 
   .add-to-cart__icon--added {
     font-size: 1.6rem;
+  }
+
+  // Left-align under the plus icon, which sits at this variant's left edge.
+  .add-to-cart__tooltip {
+    left: 0;
+    margin-left: 0;
+    margin-top: 18px;
+
+    &::after {
+      left: 18px;
+      margin-left: 0;
+    }
   }
 }
 
