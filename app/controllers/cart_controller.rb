@@ -8,6 +8,7 @@ class CartController < ApplicationController
   # and load the matching locations, preserving the order they were added.
   def preview
     @locations = cart_locations
+    @back_to_results_params = back_to_results_params
   end
 
   # Streams the selected listings as a PDF (name, phone, link and address per
@@ -24,6 +25,19 @@ class CartController < ApplicationController
   end
 
   private
+
+  # The params the "Go back" link needs to return the user to the search results
+  # they came from, with their search and filter selections intact. The locations
+  # page hands them to us on the preview URL (see
+  # app/javascript/app/cart/pdf-cart.js), the same way a location detail page
+  # carries them for its own back link.
+  #
+  # `layout` guards against going back to the layout-less partial the results
+  # page renders for AJAX filtering, and `back_navigation` keeps the return trip
+  # from being recorded as a brand new search.
+  def back_to_results_params
+    request.query_parameters.merge('layout' => true, 'back_navigation' => true)
+  end
 
   # The selected locations, ordered as they were added to the cart.
   def cart_locations

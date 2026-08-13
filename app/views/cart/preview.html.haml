@@ -1,10 +1,10 @@
 - title t('cart_preview.title')
 
 - content_for :breadcrumbs do
-  = link_to t('cart_preview.breadcrumb'), locations_path
+  = link_to t('cart_preview.breadcrumb'), locations_path(@back_to_results_params)
 
 %div.cart-preview
-  = link_to locations_path, class: 'cart-preview__back' do
+  = link_to locations_path(@back_to_results_params), class: 'cart-preview__back' do
     %i.fa.fa-chevron-left{ aria: { hidden: 'true' } }
     %span= t('cart_preview.go_back')
 
