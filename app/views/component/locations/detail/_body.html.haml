@@ -17,7 +17,7 @@
             = link_to locations_path(org_name: location.organization.name), role: "link", aria: { label: "View all locations for #{superscript_ordinals(location.organization.name)}" } do
               = superscript_ordinals(location.organization.name)
 
-      = render 'component/locations/add_to_cart_button', location: location, variant: :detail
+      = render 'component/locations/add_to_cart_button', location: location
 
     %section.overview-box
       = render 'component/detail/location_short_desc', location: location

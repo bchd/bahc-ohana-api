@@ -7,7 +7,7 @@
 
       %li{class: cycle('search-result-blue', 'search-result-white')}
         %section.results-entry{ itemscope: '', itemtype: 'http://schema.org/Organization' }
-          = render 'component/locations/add_to_cart_button', location: location, variant: :index
+          = render 'component/locations/add_to_cart_button', location: location
           %header
             - if location.featured
               = render 'component/locations/results/featured_location'
