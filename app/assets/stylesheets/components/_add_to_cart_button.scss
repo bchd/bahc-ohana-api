@@ -1,23 +1,74 @@
 // Toggle button for adding a location to the PDF "cart".
-// Used on the locations index results list (icon-only, top-right of each entry)
-// and on the show page (an "Add to PDF" label button beside the title).
+// Looks the same everywhere — a boxed "+" beside an "Add to PDF" label — on both
+// the locations index results list and the show page; only its placement and the
+// side its tooltip is anchored to differ.
 // The `.is-selected` state is toggled by app/javascript/app/cart/pdf-cart.js.
 .add-to-cart {
+  align-items: center;
+  gap: .4em;
   background: transparent;
   border: none;
   padding: 0;
   cursor: pointer;
   font-family: $font_sans_serif;
+  font-size: .8rem;
+  font-weight: bold;
+  letter-spacing: .03em;
+  text-transform: uppercase;
   color: $greyscale_dark;
+
+  // Doubled class so `display` outranks `.tooltip`'s `inline-block` (_base.scss is
+  // imported after components/*).
+  &.tooltip {
+    display: inline-flex;
+  }
 
   &__icon {
     line-height: 1;
+  }
+
+  &__icon--add {
+    border: 1px solid currentColor;
+    border-radius: $border-radius-base;
+    padding: .1em;
+    font-size: .9rem;
   }
 
   // The green check shown once a location has been added; hidden by default.
   &__icon--added {
     display: none;
     color: $green;
+    font-size: 1.6rem;
+  }
+
+  &__tooltip {
+    z-index: 10000;
+    pointer-events: none;
+    font-family: $font_sans_serif;
+    font-size: $font_size_95;
+    font-weight: normal;
+    letter-spacing: normal;
+    line-height: 1.4;
+    text-transform: none;
+  }
+
+  &__tooltip-title,
+  &__tooltip-body,
+  &__tooltip-added {
+    display: block;
+  }
+
+  &__tooltip-title {
+    font-size: $font_size_100;
+    font-weight: bold;
+  }
+
+  &__tooltip-added {
+    display: none;
+  }
+
+  &:focus-visible .add-to-cart__tooltip {
+    visibility: visible;
   }
 
   // Selected state: hide the "add" affordance, reveal the green check.
@@ -30,55 +81,65 @@
     .add-to-cart__icon--added {
       display: inline-block;
     }
+
+    .add-to-cart__tooltip-title,
+    .add-to-cart__tooltip-body {
+      display: none;
+    }
+
+    .add-to-cart__tooltip-added {
+      display: block;
+    }
   }
 }
 
-// Establish a positioning context so the index button can pin to the top-right.
+@media screen and (max-width: 784px) {
+  .add-to-cart__tooltip {
+    display: none;
+  }
+}
+
 .results-entry {
+  // Establish a positioning context so the button can pin to the top-right.
   position: relative;
-}
 
-// Index results: an icon-only button in the top-right corner of each result entry.
-// Scoped under `.results-entry` to outrank the global `.main * { position: relative }`
-// reset (in _base.scss), which would otherwise keep this button in normal flow.
-.results-entry .add-to-cart--index {
-  position: absolute;
-  top: 1em;
-  right: 1em;
-  z-index: 1;
-
-  .add-to-cart__icon {
-    font-size: 1.5rem;
-  }
-}
-
-// Show page: an inline "Add to PDF" button next to the location title.
-.add-to-cart--detail {
-  display: inline-flex;
-  align-items: center;
-  // Align only this button to the top of the header (without affecting the featured
-  // badge), then nudge it down to sit alongside the large 3em title text.
-  align-self: flex-start;
-  margin-top: .75rem;
-  // Keep the button at its natural size so a long title shrinks the hgroup
-  // instead of bumping the button onto the next line.
-  flex-shrink: 0;
-  gap: .4em;
-  color: $greyscale_dark;
-  font-size: .8rem;
-  font-weight: bold;
-  letter-spacing: .03em;
-  text-transform: uppercase;
-
-  .add-to-cart__icon--add {
-    border: 1px solid currentColor;
-    border-radius: $border-radius-base;
-    padding: .1em;
-    font-size: .9rem;
+  // Index results: the button sits in the top-right corner of each result entry.
+  // Scoped under `.results-entry` to outrank the global `.main * { position: relative }`
+  // reset (in _base.scss), which would otherwise keep this button in normal flow.
+  > .add-to-cart {
+    position: absolute;
+    top: 1em;
+    right: 1em;
+    z-index: 1;
   }
 
-  .add-to-cart__icon--added {
-    font-size: 1.6rem;
+  // Links inside a result entry carry `z-index: 9998` (_base.scss), so lift the button
+  // above them while its tooltip is showing or the panel is painted underneath them.
+  > .add-to-cart:hover,
+  > .add-to-cart:focus-visible {
+    z-index: 10000;
+  }
+
+  // Anchor the tooltip to the button's right edge so it stays inside the results list.
+  > .add-to-cart .add-to-cart__tooltip {
+    left: auto;
+    right: 0;
+    margin-left: 0;
+    margin-top: 18px;
+
+    // Inset by the same amount as the badge tooltip's arrow (mirrored) so the point
+    // sits on the flat edge rather than hanging off the rounded corner.
+    &::after {
+      left: auto;
+      right: 18px;
+      margin-left: 0;
+    }
+  }
+
+  // Reserve the corner the button occupies so a long title wraps beside it
+  // rather than running underneath it.
+  > header {
+    padding-right: 9em;
   }
 }
 
@@ -94,5 +155,27 @@
   // Let the title block shrink so long names wrap rather than pushing the button down.
   > hgroup {
     min-width: 0;
+  }
+
+  .add-to-cart {
+    // Align only this button to the top of the header (without affecting the featured
+    // badge), then nudge it down to sit alongside the large 3em title text.
+    align-self: flex-start;
+    margin-top: .75rem;
+    // Keep the button at its natural size so a long title shrinks the hgroup
+    // instead of bumping the button onto the next line.
+    flex-shrink: 0;
+  }
+
+  // Left-align the tooltip under the plus icon at the button's left edge.
+  .add-to-cart__tooltip {
+    left: 0;
+    margin-left: 0;
+    margin-top: 18px;
+
+    &::after {
+      left: 18px;
+      margin-left: 0;
+    }
   }
 }

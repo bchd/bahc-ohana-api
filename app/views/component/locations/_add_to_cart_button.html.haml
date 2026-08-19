@@ -1,10 +1,13 @@
 -# Toggle button to add/remove a location from the "PDF cart".
--# Shared by the locations index results list (icon-only) and the show page (with label).
+-# Rendered identically by the locations index results list and the show page.
 -# Selection state is driven client-side by app/javascript/app/cart/pdf-cart.js.
--# Locals: location (required); variant (:index or :detail, default :index).
-- variant = local_assigns.fetch(:variant, :index)
-%button.add-to-cart{ class: "add-to-cart--#{variant}", type: 'button', data: { location_id: location.id, location_name: location.name }, aria: { pressed: 'false', label: "Add #{location.name} to PDF" } }
+-# Locals: location (required).
+%button.add-to-cart.tooltip{ type: 'button', data: { location_id: location.id, location_name: location.name }, aria: { pressed: 'false', label: "Add #{location.name} to PDF" } }
   %i.add-to-cart__icon.add-to-cart__icon--add.fa.fa-plus{ aria: { hidden: 'true' } }
-  - if variant == :detail
-    %span.add-to-cart__label= t('cart_banner.add_to_pdf')
+  %span.add-to-cart__label= t('cart_banner.add_to_pdf')
   %i.add-to-cart__icon.add-to-cart__icon--added.fa.fa-check{ aria: { hidden: 'true' } }
+  %span.tooltiptext.add-to-cart__tooltip{ aria: { hidden: 'true' } }
+    %i.fa.fa-info-circle
+    %span.add-to-cart__tooltip-title= t('cart_banner.tooltip.title')
+    %span.add-to-cart__tooltip-body= t('cart_banner.tooltip.body')
+    %span.add-to-cart__tooltip-added= t('cart_banner.tooltip.added')

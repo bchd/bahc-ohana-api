@@ -495,6 +495,12 @@ en:
     limit_reached: "You've reached the maximum of %{count} listings. Remove one to add another."
     preview: 'Preview'
     add_to_pdf: 'Add to PDF'
+    tooltip:
+      title: 'What does this button do?'
+      body: >
+        Adds this listing to your print cart. Once you've added everything you
+        need, print them all together as one PDF.
+      added: 'This listing has been added to your cart.'
   cart_preview:
     title: 'Preview your selected services'
     heading: 'Preview your selected services'
