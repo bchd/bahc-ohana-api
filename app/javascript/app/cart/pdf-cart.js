@@ -4,6 +4,8 @@
 import cookie from '../util/cookie';
 
 const COOKIE_NAME = 'pdf_cart';
+// Where the banner's "Preview" button sends the user.
+const PREVIEW_URL = '/cart/preview';
 // Days until the cart cookie expires (keeps a selection across short browsing sessions).
 const COOKIE_DAYS = 1;
 // Maximum number of listings allowed in the cart / a single PDF. Adds past this
@@ -114,13 +116,18 @@ let _bound = false;
 // clicked. The banner is server-rendered and never swapped out, so a direct
 // listener fits (no delegation needed); the dataset guard keeps a repeat init()
 // on the same DOM from binding twice.
+//
+// The current query string rides along so the preview page can build its "Go
+// back" link out of it, returning the user to the search and filters they left
+// (see CartController#preview). This mirrors how a location detail page carries
+// the results-page params forward for its own back link.
 function _bindPreview() {
   document.querySelectorAll('.cart-banner__preview').forEach((button) => {
     if (button.dataset.previewBound) { return; }
     button.dataset.previewBound = 'true';
 
     button.addEventListener('click', () => {
-      if (!button.disabled) { window.location.href = '/cart/preview'; }
+      if (!button.disabled) { window.location.href = PREVIEW_URL + window.location.search; }
     });
   });
 }
