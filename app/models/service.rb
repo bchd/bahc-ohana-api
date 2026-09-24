@@ -49,9 +49,6 @@ class Service < ApplicationRecord
   validates :name, :description, :status,
             presence: { message: I18n.t('errors.messages.blank_for_service') }
 
-  # Commenting out to allow for very dirty data to be imported.
-  # validate :service_areas, :service_area_match # array: { service_area: true }
-
   validates :website, url: true, allow_blank: true
 
   auto_strip_attributes :alternate_name, :audience, :description, :address_details,
@@ -161,10 +158,4 @@ class Service < ApplicationRecord
     LocationsIndex.import(location_id)
     location.update_column(:updated_at, Time.zone.now) if persisted?
   end
-
-  # rubocop:disable Metrics/LineLength
-  def service_area_match
-    errors.add(:service_area, "[#{service_areas.join('|')}] aren't in B'more!") unless /Baltimore/.match?(service_areas.join(' '))
-  end
-  # rubocop:enable Metrics/LineLength
 end
