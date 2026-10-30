@@ -5,7 +5,7 @@ if ENV['ENABLE_RACK_ATTACK'] == 'true' && ENV['REDIS_URL'].present?
   limit = ENV.fetch('IP_LIMIT', 30).to_i
   period = ENV.fetch('IP_PERIOD', 120).to_i.seconds
   Rack::Attack.throttle('req/ip', limit: limit, period: period) do |request|
-    if /\/location|\/api\/search/ =~ request.path
+    if %r{/location|/api/search} =~ request.path
       request.ip
     end
   end
