@@ -1,5 +1,4 @@
 require "api_constraints"
-require "subdomain_constraints"
 
 Rails.application.routes.draw do
   # The priority is based upon order of creation:

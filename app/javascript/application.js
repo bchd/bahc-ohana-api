@@ -2,8 +2,6 @@
 import alerts from './app/alerts';
 import ahoy from "ahoy.js"
 
-import 'core-js'
-import 'regenerator-runtime/runtime'
 
 import 'uppy/dist/uppy.min.css'
 

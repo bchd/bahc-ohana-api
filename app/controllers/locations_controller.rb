@@ -2,12 +2,6 @@ class LocationsController < ApplicationController
   include Cacheable
 
   def index
-    # To enable Google Translation of keywords,
-    # uncomment lines 8-9, and see documentation for
-    # GOOGLE_TRANSLATE_API_KEY in config/application.example.yml.
-    # translator = KeywordTranslator.new(params[:keyword], current_language, 'en')
-    # params[:keyword] = translator.translated_keyword
-
     search_params = process_request
 
     # Performs the actual search using the processed search parameters above
