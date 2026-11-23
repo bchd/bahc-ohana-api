@@ -4,6 +4,8 @@
 module CapybaraChromeResetFix
   private
 
+  # This monkey patches a private method on Capybara's ChromeDriver.
+  # CDP =  Chrome DevTools Protocol
   def execute_cdp(cmd, params = {})
     return super unless cmd == 'Storage.clearDataForOrigin' && params[:origin] == '*'
 
