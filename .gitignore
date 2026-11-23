@@ -78,3 +78,6 @@ yarn-debug.log*
 !/app/assets/builds/.keep
 public/assets
 databases
+
+docker-compose-alt.yml
+
