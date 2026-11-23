@@ -140,7 +140,7 @@ namespace :import do
   desc 'Reset database id sequences after imports'
   task :reset_sequences, [:path] => :environment do
     puts '===> reset database id sequences'
-    models = [Address, Admin, Category, Contact, HolidaySchedule, Location, MailAddress, Organization, Phone, Program, RegularSchedule, Service, User]
+    models = [Address, Admin, Category, Contact, HolidaySchedule, Location, Organization, Phone, Program, RegularSchedule, Service, User]
     models.each do |klass|
       klass.connection.reset_pk_sequence! klass.table_name
     end
