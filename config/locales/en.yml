@@ -442,7 +442,6 @@ en:
     admin: 'Data Admin'
 
   navigation:
-    edit_account: 'Edit account'
     have_an_account: 'Already have an account? '
     edit_profile: 'Edit user profile'
     account_details: 'Account Details'
@@ -555,7 +554,6 @@ en:
       invalid_email: 'is not a valid email'
       invalid_fax: 'is not a valid US fax number'
       invalid_phone: 'is not a valid US phone or fax number'
-      invalid_service_area: 'is not a valid service area'
       invalid_state_province: 'Please enter a valid 2-letter state or province abbreviation'
       invalid_url: 'is not a valid URL'
       invalid_weekday: 'is not a valid weekday'
